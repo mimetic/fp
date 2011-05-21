@@ -1,0 +1,11 @@
+	<div class="footerbox" id="footer">
+	<!--	<a class="ondark" href="/Copyright_Notice.html">Copyright&nbsp;Notice</a>&nbsp;&nbsp;
+		<a class="ondark" href="/Service_Agreement.html">Service&nbsp;Agreement</a>&nbsp;&nbsp;
+		<a class="ondark" href="/Acceptable_Use.html">Acceptable&nbsp;Use</a>&nbsp;&nbsp;
+		<a class="ondark" href="/Privacy_Statement.html">Privacy&nbsp;Statement</a>&nbsp;&nbsp; 
+	-->
+		<a class="ondark" href="?tos=true" target="_blank">Terms&nbsp;of&nbsp;Service</a>&nbsp;&nbsp; 
+	</div>
+</div>
+</body>
+</html>

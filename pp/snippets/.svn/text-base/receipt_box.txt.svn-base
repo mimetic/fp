@@ -1,0 +1,5 @@
+<div class="upgradebox">
+	<div class="helptext">
+		Thank you {$address_name} for your payment. <br>Your transaction has been completed, and a receipt for your purchase has been emailed to <i>{$payer_email}</i>. You may log into your PayPal account at <a href="http://{$post_to_URL}" target="_blank">{$post_to_URL}</a> to view details of this transaction. <br><br>
+	</div>
+</div>

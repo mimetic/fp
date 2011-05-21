@@ -1,0 +1,128 @@
+<div class="listbox">
+	{$msg} 
+	<form name="inputs" method="post" action="{$phpself}" type="hidden">
+<!--
+	<input name="ID" value="{$ID}" type="hidden" >
+	<input name="packageID" value="{$packageID}" type="hidden" >
+	<input name="password" value="{$password}" type="hidden" >
+	<input name="secret" value="{$secret}" type="hidden" >
+	<input name="URL" value="{$URL}"  type="hidden" >
+	<input name="userID" value="{$userID}" type="hidden" >
+	<input name="username" value="{$username}" type="hidden" >
+-->
+		{$error}{$message} 
+		<h2>
+			Modify Subscription for {$first_name} {$last_name} 
+		</h2>
+		<br>
+		<div id="fullform" style="display:block;">
+			<table class="entryform">
+				<tr class="entryform">
+					<th valign="top" align="right" width="25%">
+						Service: 
+					</th>
+					<td class="entryform">
+						{$servicename} 
+						<span class="helptext">
+							{$servicedesc}
+						</span>
+					</td>
+				</tr>
+				<tr class="entryform">
+					<th valign="top" align="right" width="25%">
+						Your Name: 
+					</th>
+					<td class="entryform">
+						{$first_name} {$last_name} 
+					</td>
+				</tr>
+				<tr class="entryform">
+					<th valign="top" align="right" width="25%">
+						Username: 
+					</th>
+					<td class="entryform">
+						{$username} 
+					</td>
+				</tr>
+				<tr class="entryform">
+					<th valign="top" align="right">
+						Service Package: 
+					</th>
+					<td>
+						<div class="helptext">
+							<i>Change from "{oldPackageName}" to</i>
+						</div>
+						<select name="packageID" id="packageID" onchange="showPackageDescription ('packagedesc');">
+							{$package_dropdown} 
+						</select>
+						<div id="packagedesc" class="helptext">
+						</div>
+					</td>
+				</tr>
+				<tr class="entryform">
+					<th valign="top" align="right">
+						Coupon Code? 
+					</th>
+					<td align="left" valign="baseline">
+						<input type="text" name="coupon" maxlength="60" size="60" value="{$coupon}">
+						<br>
+						<span class="helptext">
+							If you have a coupon code, please enter it now for a discount.
+						</span>
+					</td>
+				</tr>
+				<tr class="entryform">
+					<th valign="top" align="right">
+						Comments: 
+					</th>
+					<td align="left" valign="baseline">
+<textarea name="comments" rows="4" cols="70">{$comments}</textarea> 
+						<br>
+						<span class="helptext">
+							Enter any comments you have.
+						</span>
+					</td>
+				</tr>
+				<tr class="entryform">
+					<th>
+					</th>
+					<td valign="top">
+						<br>
+						<input type="checkbox" name="Terms" value="on">
+						&nbsp;"By checking this box, I affirm that I have read and agree to the 
+						<a href="?tos=true" target="_blank">
+							Terms of Service</a>." 
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<br>
+						<button type="submit" name="action" value="cancel">
+							&larr; Cancel
+						</button>
+						<button type="submit" name="action" value="submit">
+							Confirm &rarr;
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+<!-- end entryform-->
+	</form>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+	// get initial setting of entry form and show form, if a choice has 
+	// been made.
+	{PACKAGE_KEY}
+	{PACKAGE_NAME}
+	{PACKAGE_DESC}
+
+	package_keys = pkey.split(',');
+	package_name = pname.split(',');
+	package_desc = pdesc.split(',');
+	showPackageDescription ('packagedesc');
+//-->
+</script> 

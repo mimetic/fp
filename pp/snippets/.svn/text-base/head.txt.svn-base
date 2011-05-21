@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<title>{PP_SYSTEM_DISPLAY_NAME}</title>
+	<meta name="description" content="Subscription Form">
+	<script type="text/javascript" src="snippets/pp_javascript.js" language="javascript"></script>
+	<link rel="Stylesheet" rev="Stylesheet" href="snippets/style.css">
+</head>
+
+<BODY>
+	<a id="top"> </a>
+	<div class="mainbox">
+		<div class="titlebox">
+			<h1 class="title">
+			<b><big>{SYSTEMNAME}</big></b>
+			</h1>
+		</div>
+		<br>
+		<br>

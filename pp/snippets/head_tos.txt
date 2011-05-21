@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<title>{$SYSTEMNAME}</title>
+	<meta name="description" content="Subscription Form">
+	<script type="text/javascript" language="javascript">
+		<!--
+		function obfuscate(name,domain) {
+			var scheme = new Array('m','a','i','l','t','o',':');
+			var directive = '<a href="' + scheme.join('') + name + '&#64;' + domain + '">' + name + '&#64' + domain + '<\/a>';
+			document.write(directive);
+		} 
+		
+		function closeme () {
+			window.close ();
+		}
+				
+		//-->
+	</script>
+	<link rel="Stylesheet" rev="Stylesheet" href="snippets/style.css">
+</head>
+
+<body >
+<div class="mainbox">
+	<div class="titlebox" id="header">
+		<h2 class="title">{$SYSTEMNAME}</h2>
+	</div>

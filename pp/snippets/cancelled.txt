@@ -1,0 +1,10 @@
+<div class="listbox">
+{$msg}{$error}
+<h2>Order Cancelled</h2>
+
+Your order was not completed. You will not be charged any money. Please let me know why you choose to cancel your order...it will really help me improve this service. Please send me an email at <a href="mailto:{$SystemEmail}" target="_self">{$SystemEmail}</a><BR>
+<BR>
+Or, you can go ahead and <a href="index.php">try again!</a><br>
+<br>
+Or, you can return the <a href="{$SERVICEURL}">{$SERVICENAME}</a> web site.<br>
+</div>

@@ -1,0 +1,227 @@
+<br>
+<br>
+<h2>Terms of Service: DRAFT</h2>
+<br>
+
+
+<h3 class="tos">USER AGREEMENT</h3>
+
+<P>This Web site is using technology services provided by <b>David Gross</b>. By using this Web site, you are demonstrating that agree to the terms of this User Agreement.</P>
+
+<P>This agreement pertains to all of David Gross' Web Sites, including not limited to the Sites named ProPhotoFiler (www.ProPhotoFiler.com), Mimetic Galleries (www.mimetic.com), Frontline-Photos (www.frontline-photos.com), and Frontline Galleries (www.frontline-photos.com). As well, it applies to any websites created by and controlled by David Gross, such as personal galleries.</td>
+
+
+<P>This <b>User</b> Agreement, and all of the applicable documents referred to in these terms and conditions (collectively, the Agreement), is a legal agreement between you (<b><b>User</b></b>) and <b>David Gross</b>, and individual. This agreement governs the use of this Web site, and any other Web site linked to by this Web site which was created or managed by <b>David Gross</b> (collectively, these sites are called the Site). The agreement applies whether you just browse the Site, subscribe to its services, purchase products, or make any other use of the Site.</P>
+
+<P>By selecting the "I Agree..." box, and/or accessing or using any part of this Site, <b>User</b> agrees that <b>User</b> has read, understands, and agrees to be bound by this Agreement and will comply with all of the terms and conditions of this Agreement. If <b>User</b> does not agree to be bound by this Agreement, <b>User</b> is not permitted to access or use any part of this Site or the services provided. Any implicit or suggested agreements, such as privacy, data security, or any other duty on the part of <b>David Gross</b> is nullified if the <b>User</b> does not agree to the terms of this agreement.</P>
+
+<P><b>David Gross</b> reserves the right to make changes to this Agreement at any time by posting an amended Agreement on the Site. Any subsequent use of any part of the Site will be considered <b>User</b>'s</b> acceptance of the amended Agreement. <b>Users</b> should review the Agreement on the Site from time to time to become familiar with any changes. <b>Users</b> can review the most current version of the Agreement at the same URL where <b>User</b> found this document.</P>
+
+
+<h3 class="tos">Definitions</h3>
+
+<p>Here you will find definitions to many of the terms used in this agreement.</p>
+
+<table class="tos">
+	<tr>
+		<th with="20%" valign="top">Term</th>
+		<th width="70%" valign="top">Definition</th>
+	</tr>
+
+	<tr>
+		<th class="tos">Content</th>
+		<td class="tos">Any image designed, created, marketed or licensed using the Site, included but 
+		not limited to, animation, audio, clip art, composites, fine art, fonts, graphics, illustrations, photographs, 
+		video, or any other visual representation, including all accompanying metadata and other material (such as 
+		captions, keywords, descriptions, and psuedonyms).</td>
+	</tr>
+
+
+	<tr>
+		<th class="tos">Show Room</th>
+		<td class="tos">The Show Room is a name for a part of the Site which shows pictures from recently created projects in the site. The goal of the page is to advertise these pictures.</td>
+	</tr>
+
+	<tr>
+		<th class="tos">Member</th>
+		<td class="tos">Any person or entity registered as a member with Digital Railroad.</td>
+	</tr>
+
+	<tr>
+		<th class="tos">Member Site</th>
+		<td class="tos">A Member site is created and maintained on the Service.<br /> 
+		See <a href="#archive">Archive</a>.</td>
+	</tr>
+	
+	<tr>
+		<th class="tos">{fp:artist}</th>
+		<td class="tos">A {fp:artist} whose Content is stored on the Site. </td>
+	</tr>
+
+	<tr>
+		<th class="tos">Service</th>
+		<td class="tos">The Web-based application(s) that <b>David Gross</b> offers.</td>
+	</tr>
+
+	<tr>
+		<th class="tos">Site</th>
+		<td class="tos">Any Web sites that <b>David Gross</b> creates or maintains. For the purposes of this agreement, these would be limited to web pages people other than <b>David Gross</b> can change or effect.<br>
+		Such Web Sites include, but are not limited to sites named ProPhotoFiler, Frontline-Photos, and Frontline Galleries.</td>
+	</tr>
+
+	<tr>
+		<th class="tos"><b>User</b></th>
+		<td class="tos">A person who uses the Site, subscribes to its Service, licenses Content, or 
+		any other purpose. </td>
+	</tr>
+</table>
+<br>
+
+<h3 class="tos">Privacy Policy</h3>
+
+<P>No data collected by the Site will be given or sold to anyone with written consent of the <b>User</b>. Specifically, this includes image files and email addresses. However, <b>David Gross</b> is not responsible for unauthorized third-parties taking the data without his consent. Safeguards are built into the Site to prevent this, but in the case someone does steal data, <b>User</b> agrees that <b>David Gross</b> is not responsible for any losses by the <b>User</b>, nor copyright infringement.</P>
+
+<P><b>User</b> also agrees not to hold <b>David Gross</b> liable in any way for unintentional releases of information, due to "bugs" in the Site or short-term testing of the Site. <b>David Gross</b> agrees to do his best to stop any such releases as fast as he can.</P>
+
+
+<h3 class="tos">Copyright</h3>
+
+<P>All content displayed on the Site is protected by United States copyright laws and any other international treaties.</P>
+
+<P><b>David Gross</b> claims only the following publication rights for <b>User</b>'s materials:</P>
+<ul>
+	<li>If <b>User</b> consents by selected a publication box, the Site will publish images on a page or pages of the Site to publicize the images.</li>
+	<li>Images will be appear on content management Site pages, used by the <b>User</b> or people he/she authorizes to use.</li>
+	<li>Any content submitted to a website by the <b>User</b> may be shown on the website.</li>
+</ul>
+
+<P>If, at any time, at his sole and absolute discretion, <b>David Gross</b> determines that any <b>User</b> has or will infringe upon the copyrights of anyone else through use of the Site or the Service, or posting or attempting to post any content that does not meet the requirements of this Agreement, <b>David Gross</b> may remove and delete such content without any liability to <b>User</b> or any third party.</P>
+
+<P>In accordance with The Digital Millennium Copyright Act (DMCA), <b>David Gross</b> will remove all potentially infringing content upon formal notice to <b>David Gross</b> as described below. <b>David Gross</b> reserves the right to remove any content and discontinue membership or use of the Service accordingly. <b>David Gross</b> may permanently discontinue Service to any and all repeat offenders of the DMCA.</P>
+
+
+<h3 class="tos">Reporting a Violation</h3>
+
+<P>If <b>User</b> wishes to inform <b>David Gross</b> that any particular piece of content on this site is in violation of the United States or any other applicable intellectual property laws, the <b>User</b> please provide written notice to <b>David Gross</b> via electronic submission only to <B>
+<script type="text/javascript" language="javascript">
+<!--
+obfuscate ('info', 'mimetic.com');
+//-->
+</script>
+</b>.</P>
+
+<P>The notice must include the following information:</P>
+
+<ul>
+	<li>Information reasonably sufficient for <b>David Gross</b> to contact you, including your name,  telephone number, and email address;</li>
+
+	<li>Identify the copyrighted content that you claim has been infringed upon;</li>
+
+	<li>A statement by you that you have a good faith belief that the use of the content in the manner complained of is not authorized by the copyright owner, its agent, or the law;</li>
+
+	<li>A statement by you, including a physical or electronic signature, made under penalty of perjury, that the information provided in the notice is accurate and that you are authorized to act on behalf of the copyright owner of the allegedly infringed content.</li>
+
+</ul>
+
+<P><b>David Gross</b> may disclose your information to a third party that alleges you have infringed upon their intellectual property rights.</P>
+
+
+<h3 class="tos">Ownership</h3>
+
+<P><b>David Gross</b> solely and exclusively owns all intellectual property and other rights, title and interest in and to the Service and the Site. <b>David Gross</b> has the sole and exclusive right to obtain trademark and copyright registrations, patents, and other protections in and to the Service and the Site, <i>excluding content provided by <b>Users</b> of the Site.</i> <b>User</b> does not acquire any right, title or interest in any part of the Site, under this Agreement or otherwise.</P>
+
+<P><b>User</b> has no right to modify, extend, or prepare derivative works of the Service. Any feedback and suggestions provided by <b>User</b> with respect to the Site and Service shall be owned by <b>David Gross</b>. <b>User</b> assigns all right, title, and interest it may have in such feedback and suggestions to <b>David Gross</b>. <b>User</b> has no right to sell, transfer, license, and sublicense or otherwise distribute the Service, any component of the Service, or any products or services derived or developed from or bases on the Service to any third party.</P>
+
+
+<h3 class="tos"><b>User</b> Conduct</h3>
+
+<P>Generally, <b>User</b> must use the Site in a manner that demonstrates good taste and respect for the rights of <b>David Gross</b>, other Members, and third parties. <b>User</b> must comply with all terms, conditions, laws and treaties applicable to <b>Users</b> use of the Site and Service. <b>User</b> may not use the Service or the Site to engage in, promote, facilitate, or encourage any illegal activities or any activities that may violate the rights of others, including without limitation the harassment of any third parties. <b>User</b> may not attempt to damage, disable, overburden, gain unauthorized access to, or otherwise interfere with the Service or the Site or any system, service, or network accessible through the Service or Site, including without limitation, deliberate attempts to overload a system. <b>User</b> may not gather or collect email addresses or other contact information of Members through the Site or Service for any purpose, especially for the purpose of sending unsolicited emails or other unsolicited communications or use automated scripts to collect information about the Site or Service or for any other purpose.</P>
+
+
+<h3 class="tos">Registering As a Member</h3>
+
+<P><b>David Gross</b> requires that you enter into additional agreement(s), beyond this <b>User</b> Agreement, if you wish to use the Site for more than just browsing (for example, to store or transmit content).</P>
+
+<P>To become a Member, <b>User</b> must register with this Site through its online registration process.</P>
+
+<P><b>User</b> must provide <b>David Gross</b> with accurate and complete contact information (as requested by the Site) if <b>User</b> registers as a Member. <b>User</b> must promptly update <b>User</b>'s information stored on the Site if any of this information changes.</P>
+
+<P><b>User</b> will need to select a password upon registration. <b>User</b> will be responsible for all use of this password, including without limitation, any use by any unauthorized third party. <b>User</b> must notify <b>David Gross</b> immediately if <b>User</b> believes this password has or may have been obtained or used by any unauthorized person or entity. In addition, <b>User</b> must notify <b>David Gross</b> immediately if <b>User</b> becomes aware of any other breach or attempted breach of the security of the Site.</P>
+
+<P><b>User</b> agrees to choose a password that is difficult to guess by third parties. Guidance toward this end can be found the Internet.</P>
+
+
+<h3 class="tos">Use of content</h3>
+
+<P>All images, names, and addresses contributed to the Site by <b>Users</b> may be used by <b>David Gross</b> if the <b>User</b> selects a check box granting such permission to <b>David Gross</b>.</P>
+
+<P>Any data marked as "Public" by the <b>User</b> may be distributed and published at will by any <b>User</b> of the site, or by <b>David Gross</b>.</P>
+
+<P>Any data marked as accessible by members of a group of <b>Users</b> my be distributed and used by all members of that group.</P>
+
+
+<h3 class="tos">Showroom (part of ProPhotoFiler.com)</h3>
+
+<P><b>Users</b> may agree to have their pictures show in the Show Room by selecting the "Show" box for a project.</P>
+
+<P><b>David Gross</b> will not publish in the Show Room any pictures that <b>User</b> has not agreed to show to the public by selecting the "Show" box.</P>
+
+
+<h3 class="tos">Representations and Warranties</h3>
+
+<P>Each party represents and warrants to the other party (i) that it is of legal age and capacity, and has the full power and authority to enter into and perform under this Agreement; (ii) the execution and performance of its obligations under this Agreement do not constitute a breach of or conflict with any other agreement or arrangement by which it is bound, or any applicable laws, regulations or rules; and (iii) that this Agreement is a legal, valid, and binding obligation of the party executing this Agreement, enforceable in accordance with its terms and conditions.</P>
+
+
+<h3 class="tos">Disclaimers, Exclusions, and Limitations</h3>
+
+<P><b>David Gross</b> provides the Site and the Service on an <i>as is</i> basis. <b>David Gross</b> does not represent or warrant that the Site, Service, or the use of either (i) will be uninterrupted; (ii) will be free of inaccuracies or errors; (iii) will meet <b>Users</b> requirements; or (iv) will operate in the configuration or with the hardware or software of <b>User</b>.</P>
+
+<P>Moreover, <b>David Gross</b> does not promise the Site will be free of programming errors which may destroy or release data. However, <b>David Gross</b> agrees to try to correct such errors in a timely fashion.</P>
+
+<P><b>David Gross</b> WILL NOT, IN ANY EVENT, BE LIABLE TO USERS OR ANY THIRD PARTY FOR ANY DAMAGES (INCLUDING DAMAGES RELATING TO LOST PROFITS, LOST DATA, OR LOSS OF GOODWILL) ARISING OUT OF, RELATING TO, OR CONNECTED WITH THE USE OF THE SITE OR SERVICE OR FOR DAMAGE TO, OR LOSS OR DETERIORATION OF, ANY CONTENT.</P>
+
+<P><b>David Gross</b> makes no warranty regarding the quality or non-infringement of any content. <b>David Gross</b> makes no warranties other than those made expressly in this agreement.</P>
+
+<P>Third-party links, services, resources, and information that <b>David Gross</b> provides or makes available through the Site are not controlled by <b>David Gross</b>. These services may have their own terms of use and other policies. <b>User</b> will be governed by such terms and policies as well as the terms of this Agreement. <b>David Gross</b> makes no warranties regarding such third-party services, resources, and information, including without limitation, warranties regarding the quality or non-infringement of such third party services, resources, and information. <b>David Gross</b> will not be liable in any way for <b>Users</b> use of or reliance on such third-party services, resources, or information.</P>
+
+<P><b>Users</b> are solely responsible for their interactions with other <b>Users</b> of the Site and Service. <b>David Gross</b> reserves the right, but has no obligation to monitor disputes between <b>Users</b>.</P>
+
+<P>In no event shall the total liability of <b>David Gross</b> or its providers from any cause whatsoever, arising from or related to the terms or use of the Site or Service or the express terms of this Agreement, exceed the amounts paid by <b>User</b> to <b>David Gross</b>, if any, for the use of the Site or Service and shall not be claimed more than 12 months after the date of cause. This limitation of damages is a fundamental element of the offering of the Service by <b>David Gross</b> to <b>User</b>. This Site and the Service would not be provided by <b>David Gross</b> without such limitations.</P>
+
+
+<h3 class="tos">Release</h3>
+
+<P><b>User</b> releases <b>David Gross</b> (and his affiliates, friends, lovers, advisers, agents and employees) from any and all claims, causes of action, suits, liabilities, demands, damages, losses, costs, or expenses of any nature whatsoever, known or unknown, whether direct, consequential or otherwise, known and unknown, arising out of or in any way connected with any dispute or claim <b>User</b> has with any other <b>User</b>. If <b>User</b> is a California resident, <b>User</b> waives California Civil Code 1542, which states: A general release does not extend to claims which the creditor does not know or suspect to exist in his favor at the time of executing the release, which if known by him must have materially affected his settlement with the debtor.</P>
+
+
+<h3 class="tos">Electronic Communications; Notices</h3>
+
+<P>The information communicated on this Site constitutes an electronic communication. <b>User</b> agrees that <b>David Gross</b> may communicate electronically and that such communications, as well as notices, disclosures, agreements, and other communications that <b>David Gross</b> provides to <b>User</b> electronically, including without limitation by posting on the Site or by email at the address designated by <b>User</b>, are equivalent to communications in writing and shall have the same force and effect as if they were in writing and signed by <b>David Gross</b>. Notices and communications to <b>David Gross</b> must be sent to the applicable address given in this Agreement.</P>
+
+
+<h3 class="tos">Jurisdiction</h3>
+
+<P>This Agreement will be governed by the laws of the State of California. Any action or proceeding to enforce this Agreement will be brought in the federal or state courts located in California.</P>
+
+
+<h3 class="tos">Termination</h3>
+
+<P>At his sole and absolute discretion, with or without notice to <b>User</b>, <b>David Gross</b> may suspend or terminate rights under this Agreement. The Site and the Service, and the benefits of each, are offered at the discretion of <b>David Gross</b>. <b>David Gross</b> has the right to modify or discontinue, temporarily or permanently, the Site or Service, in whole or in part for any reason, with or without notice to <b>User</b>. <b>User</b> agrees that <b>David Gross</b> will not be liable to <b>User</b> or any third party for any modifications or discontinuance of the Service.</P>
+
+<P>The following provisions of this Agreement will remain in effect regardless of any termination of <b>Users</b> use of the Site or Service, or termination of this Agreement: Ownership; Disclaimers, Exclusions, and Limitations; Indemnification; Electronic Communications; Notices, Jurisdiction; Termination; and Miscellaneous.</P>
+
+
+<h3 class="tos">Miscellaneous</h3>
+
+<P>Neither this Agreement, nor any rights or obligations of <b>User</b> pursuant to this Agreement or regarding use of the Site or Service, is assignable or transferable by <b>User</b> without the prior written consent of <b>David Gross</b>, and any attempted assignment without <b>David Gross</b>s consent is void and of no force or effect. This Agreement is binding upon each party of this Agreement and their successors and permitted assigns.</P>
+
+<P>No failure or delay by a party in exercising any right, power, or privilege under this Agreement will operate as a waiver of such, nor will any single or partial exercise of any right, power, or privilege preclude any other or further exercise of any other right, power, or privilege under this Agreement. This Agreement may not be modified except as expressly provided within the Agreement.</P>
+
+<P><b>User</b> and <b>David Gross</b> are independent contractors, and no agency, partnership, joint venture, employee-employer relationship is intended or created by this Agreement.</P>
+
+<P>If any provision of this Agreement is determined to be invalid or unenforceable, that determination will not affect the validity of enforceability of any other provision of this Agreement, all of which will remain in full force and effect.</P>
+
+<P>This Agreement, including all of the terms, conditions, rules, and policies referred to within, contains the understanding of the parties regarding its subject matter.</P>
+
+<P>Last updated July 31, 2007</P>
+

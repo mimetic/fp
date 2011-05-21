@@ -1,0 +1,88 @@
+<div class="listbox">
+	{$msg}{$error} 
+	<h2>
+		Is Everything Correct?
+	</h2>
+	<div class="helptext">
+		Check that your order is correct. If not, click "Go Back", below. 
+	</div>
+
+	<table class="entryform">
+		<tr class="entryform">
+				<th valign="top" align="right" width="25%">
+				Service Name: 
+			</th>
+			<td>
+				{$servicename} 
+			</td>
+		</tr>
+
+		<tr class="entryform">
+			<th>
+				Your Name: 
+			</th>
+			<td>
+				{$first_name} {$last_name} 
+			</td>
+		</tr>
+
+		<tr class="entryform">
+			<th>
+				Your username: 
+			</th>
+			<td>
+				{$username} 
+			</td>
+		</tr>
+
+		<tr class="entryform">
+			<th>
+				Service Package: 
+			</th>
+			<td>
+				{$packagename}
+				{$unsubnote}
+				<br>
+				<span class="helptext">
+					{$packagedesc}
+				</span>
+			</td>
+		</tr>
+
+		<tr class="entryform">
+			<th>
+				Coupon: 
+			</th>
+			<td>
+				{$coupondesc}
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+			</td>
+			<td>
+				<br>
+				<div>
+					<div style="float:left;margin-right:10px;">
+	<!-- go back -->
+						<form method="post" action="{$basename}">
+							<button type="submit" name="action" value="cancel">
+								&larr;&larr; Cancel
+							</button>
+
+							<input type="submit" name="Submit" value="&larr; Go Back">
+						</form>
+					</div>
+	<!-- continue -->
+						<form action="https://{$post_to_URL}/cgi-bin/webscr" method="POST" target="{$target}">
+							<input type="submit" name="submit" value="Continue &rarr;">
+							{$formvalues} 
+						</form>
+					</div>
+				</div>
+			</td>
+		</tr>
+
+	</table>
+</div>

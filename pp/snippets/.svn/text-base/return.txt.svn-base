@@ -1,0 +1,64 @@
+{$head}
+<div class="listbox">
+{$msg}
+{$receipt_box} 
+<table class="listing">
+	<tr class="listing">
+		<th colspan="2" id="t1">
+			<h2>Account Information</h2>
+		</th>
+	</tr>
+	<tr class="listing">
+		<th class="listing">
+			Service 
+		</td>
+		<td class="listing">
+			{$Servicename} 
+		</td>
+	</tr>
+	<tr class="listing">
+		<th class="listing">
+			URL
+		</td>
+		<td class="listing">
+			{$URL} 
+		</td>
+	</tr>
+	<tr class="listing">
+		<th class="listing">
+			Package 
+		</td>
+		<td class="listing">
+			{$Packagename} 
+		</td>
+	</tr>
+	<tr class="listing">
+		<th class="listing">
+			UserName
+		</td>
+		<td class="listing">
+			{$Username} 
+		</td>
+	</tr>
+	<tr class="listing">
+		<th class="listing">
+			Status
+		</td>
+		<td class="listing">
+			{$Status} 
+		</td>
+	</tr>
+</table>
+<br />
+
+<h4>Record</h4> 
+This page has important account information so we emailed a copy to <i>{$payer_email}</i>. You can re-display this page in your browser by typing <TT>{$SYSTEMURL}?id={$ID}</TT> into the address or location bar. <BR><BR>
+
+
+<h4>Support</h4> 
+If you have comments or questions contact us by email at 
+<script type="text/javascript" language="javascript">
+	obfuscate('info', 'prophotofiler.com');
+</script>
+</div>
+{$foot}
