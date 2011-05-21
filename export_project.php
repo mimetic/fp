@@ -9,9 +9,6 @@ Export a project so that it can be moved to another server.
 - Or, we could have a series of instructions for rebuilding, which would allow movement to a differently built system!
 e.g. commands: new project; add image (filename, {image info}); set theme, stuff like that.
 
-
-A NEW CHANGE
-
  */
 
 
