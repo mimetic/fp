@@ -1,0 +1,6 @@
+<form action="admin.php">
+<input name="action" type="hidden" value="display">
+<input name="nextaction" type="hidden" value="insert">
+<input name="table" type="hidden" value="{TABLE}">
+<button type="submit">New {TABLE_OBJECT}</button>
+</form>

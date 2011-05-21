@@ -1,0 +1,209 @@
+/* @override http://localhost/fp/_themes/010_big_strip/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+#mainlist {
+	margin: 0;
+	height: inherit;
+}
+
+.gallery #container
+{
+	margin: 0px;
+	padding: 5px 30px 0px 30px;
+}
+
+.gallery #main
+{
+	margin: 0;
+}
+
+#header
+{
+	height: 21px;
+	background-color: transparent;
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+#headerc
+{
+	height: 21px;
+	display: block;
+}
+
+.gallery #header-subtitle
+{
+	font-size: 12px;
+}
+
+/* Current Menu Item: The color of the menu item that matches the page you are looking at.  */
+#header .navbar a {
+	font-size: 8px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/* Current Menu Item: The color of the menu item that matches the page you are looking at.  */
+a.navbar.selected:link { color: #aaa; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:visited { color: #aaa; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:hover { color: #fff; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:active { color: #7d0a07; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:link { color: #aaa; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:visited { color: #aaa; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:hover { color: #fff; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:active { color: #7d0a07; }
+
+/* Menu bar divider : The color of the divider between each menu item. */
+.navbardivider { color : #999; }
+
+.gallery #header-title
+{
+	display: none;
+	font-size: 12px;
+}
+
+.gallery #topnav
+{
+	display: inline;
+	background-color: transparent;
+	height: 21px;
+	margin-left: 15px;
+	border-style: none;
+}
+
+.gallery .navbar-container
+{
+	background-color: transparent;
+	border-width: 0px;
+	border-style: none;
+}
+
+.gallery  #topnav .navbar-container
+{
+	height: 21px;
+	display: inline;
+	background-color: transparent;
+}
+
+.gallery-description
+{
+	text-align: left;
+	padding: 0px;
+	margin: 0px 20px 0px 0px;
+}
+
+.flexible {
+}
+
+.statement { text-align: left; }
+.description { text-align: left; }
+
+.gallery #footer-box
+{
+	border: 0px;
+	display: none;
+}
+
+div.gallery-description .projecttitle
+{
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: #000;
+	margin-bottom: 0px;
+	line-height: 1em;
+	font-style: normal;
+	font-weight: bold;
+}
+
+div.gallery-description .projectowner {
+	font-size: 11px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: #444;
+	padding: 0;
+	line-height: 1em;
+	margin-bottom: 10px;
+}
+
+div.gallery-description .location
+{
+	font-size: 9px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: #666;
+	margin-bottom: 50px;
+}
+
+/* The overflow:hidden in the parent styles allow us to use height: 1000px so that we fill the space */
+.galleryPictureColumn .description .captionblock {
+	background-color: white;
+	color: black;
+	z-index: 5;
+	padding: 0px;
+	border-collapse:collapse;
+	opacity: 0.85;
+	overflow: hidden;
+	border-style: none;
+}
+
+.captionblock .title {
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.captionblock .caption {
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
+div.printsalesinfo {
+	padding-top: 10px;
+	margin-top: 30px;
+	border-top: 1px solid #CCC;
+}
+
+.gallery-priceinfo.showme {
+}
+
+.gallery-info-link, .gallery-info-link button, a.gallery-info-link:link, a.gallery-info-link:visited {
+	color: #7d4100;
+	text-align: center;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	padding: 10px 4px 4px;
+	text-transform: uppercase;
+	font-size: 9px;
+}
+
+div.buttons {
+	text-align: left;
+}
+
+.picturematte { background-color: black; }
+
+#gallery_divider_line {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+}

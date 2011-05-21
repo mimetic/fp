@@ -1,0 +1,2 @@
+<!--go_top-->
+<a class="linktotop" href="#"  style="margin-right:10px;">&uarr; Top of Page</a>

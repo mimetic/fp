@@ -1,0 +1,6 @@
+Dear {Name},
+
+{SYSTEMNAME} has added a picture, {TITLE} ({FILENAME}) to one of your exhibitions.
+
+Best Regards,
+{SYSTEMNAME}

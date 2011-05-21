@@ -1,0 +1,1 @@
+ <span style="white-space: nowrap;">Fixed size: {WIDTH_FIXED} &times; {HEIGHT_FIXED} {UNITS}</span>

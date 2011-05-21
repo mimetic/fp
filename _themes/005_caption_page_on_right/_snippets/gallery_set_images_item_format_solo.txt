@@ -1,0 +1,19 @@
+<!--gallery_set_images_item_format-->
+<td class="galleryPictureColumn" valign="top" >
+	<div class="gallerypictureblock" id="gallery_picture{Images_ImageID}">
+		<snippet name="gallery_set_image_item_format_picture" />
+	</div>
+</td>
+<td class="galleryTextColumn" valign="top" >
+	<div class="gallerypicinfo" style="width:{FramedWidth}px; height:{FramedHeight}px;">
+		<div class="buttons">
+			{SHOW_CAPTION_BUTTON} {BuyPrint} {BuyPrintText} 
+		</div>
+		<div id="gallery_picture{Images_ImageID}_text" style="{FP_DISPLAY_CAPTION_SHOW_HIDE}">
+				<snippet name="gallery_picture_full_info_solo" />
+		</div>
+	</div>
+</td>
+<td style="{gallery_spacing}">
+	<div class="galleryColSpacer" style="{gallery_spacing}"></div>
+</td>

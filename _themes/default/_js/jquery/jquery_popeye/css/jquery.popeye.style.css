@@ -1,0 +1,168 @@
+/* @override http://localhost/fp/_themes/default/_js/jquery/jquery_popeye/css/jquery.popeye.style.css */
+
+/*
+ * jquery.popeye.style.css 1.0
+ *
+ * Example styles for jQuery.popeye
+ *
+ * Copyright (C) 2009 Christoph Schuessler (schreib@herr-schuessler.de)
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ */
+
+.ppy ul {
+	
+
+/* hide everything if js deactivated */
+	height: 0px;
+	width: 0px;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+#popeye1.ppy-js {
+	
+}
+
+#popeye1-no-js {
+	margin: 0px 30px 10px 0px;
+	height: 202px;
+	width: 262px;
+	float: left;
+	background: #eee;
+	text-align: center;
+	line-height: 202px;
+}
+
+#popeye2.ppy-js {
+	float: right;
+	margin: 20px 0 20px 30px;
+}
+
+.ppy {
+	font-size: 0.8em;
+}
+
+.ppy-stagewrap {
+	background-color: transparent;
+	position: relative;
+}
+
+/* Absolute positioning allows matting to work with top and left */
+
+.ppy-image {
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
+.ppy-stage {
+	background: transparent no-repeat center center;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.ppy-tools {
+	overflow: hidden;
+	zoom: 1;
+/* IE float container hasLayout fix */
+	z-index: 1;
+	position: relative;
+	display: inline-block;
+	opacity: 1;
+}
+
+.ppy-tools.ppy-left {
+	left: 0px;
+}
+
+.ppy-tools.ppy-right {
+	right: 0px;
+}
+
+.ppy-tools div {
+	width: 25px;
+	height: 35px;
+	text-align: center;
+	display: inline-block;
+	background: red no-repeat center top;
+	cursor: pointer;
+	float: left;
+}
+
+.ppy-tools div:hover {
+	background-position: center -35px;
+}
+
+div.ppy-prev {
+	background-image: url(../gfx/prev.png);
+}
+
+div.ppy-next {
+	background-image: url(../gfx/next.png);
+}
+
+div.ppy-enlarge {
+	width: 49px;
+	margin: 0 10px;
+}
+
+div.ppy-compact {
+	width: 49px;
+	margin: 0 10px;
+	background-image: url(../gfx/compact.png);
+}
+
+.ppy-cap {
+	background: #f6f9e0;
+	color: #666;
+	line-height: 1.2em;
+	border: 1px solid #ddd;
+	border-top: 0px;
+	font-size: 0.9em;
+	position: relative;
+	overflow: hidden;
+}
+
+.ppy-textwrap {
+	padding: 10px;
+}
+
+.ppy-count {
+	padding: 3px 7px 0 5px;
+	bottom: 0px;
+	right: 0px;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #f7f7f7;
+	opacity: 0.7;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	
+
+/* IE8 */
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	
+
+/* IE7 lte */
+	z-index: 100;
+	text-align: right;
+	display: inline;
+	-moz-border-radius: 6px 0 0 0;
+	-khtml-border-radius: 6px 0 0 0;
+	-webkit-border-radius: 6px 0 0 0;
+	border-radius: 6px 0 0 0;
+}
+
+.ppy-loading {
+	background: #333 url(../gfx/loading.gif) no-repeat center;
+}
+
+.popeye-link {
+	cursor: pointer;
+}

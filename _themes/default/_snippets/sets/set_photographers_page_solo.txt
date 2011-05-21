@@ -1,0 +1,6 @@
+Artists	block_format	<!--set_photographers_page_solo--><div class="list">{LIST}</div>
+Artists	item_format	<!--empty-->	
+Artists	separator_format	<!--empty-->
+Projects	block_format	{list}
+Projects	item_format	<div class="item"><a class="item title editable" href="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</a><span class="list caption editable">&nbsp;{Projects_Lead}</span></div>
+Projects	separator_format	<!--empty-->

@@ -1,0 +1,61 @@
+<div class="info-title" >Privacy Policy</div>
+
+<p>David Gross owns and operates the {FP_SYSTEM_DISPLAY_NAME} website, www.{FP_SYSTEM_DISPLAY_NAME} (hereafter, the "Site" or "{FP_SYSTEM_DISPLAY_NAME}.") </p>
+
+<p>{FP_SYSTEM_DISPLAY_NAME} promotes trust, privacy and security as core attributes of our service to our user. {FP_SYSTEM_DISPLAY_NAME} has adopted this Policy to communicate clearly our firm commitment to your privacy. It is this respect for user privacy that is a fundamental component to the {FP_SYSTEM_DISPLAY_NAME} mission. Using our website demonstrates your consent to {FP_SYSTEM_DISPLAY_NAME}'s collection and use of information pursuant to this Policy, and continued use of this site following the posting of changes to this Policy will signify your acceptance of such changes. This Policy governs the use of your name, email address, payment information, and similar personal information that you may provide {FP_SYSTEM_DISPLAY_NAME} in the course of using our website, products or services. </p>
+
+<h3>Information Collection and Use</h3>
+<p>{FP_SYSTEM_DISPLAY_NAME} collects personal information to provide certain products and services to our customers. For example, if you: </p>
+
+<ul>
+	<li>	Place a product order, {FP_SYSTEM_DISPLAY_NAME} will collect and use your name, address, phone number, email address, and credit card information;</li>
+	<li>	Request promotional items, {FP_SYSTEM_DISPLAY_NAME} will collect and use your name and address, or email address;</li>
+	<li>	Post information on any of our interactive areas, {FP_SYSTEM_DISPLAY_NAME} will collect information from you in order to email you major updates about {FP_SYSTEM_DISPLAY_NAME} products and services;</li>
+	<li>	Sign-up for the {FP_SYSTEM_DISPLAY_NAME} mailing lists, {FP_SYSTEM_DISPLAY_NAME} will collect information from you to facilitate the publishing of that mailing list; and</li>
+	<li>	Send our link to others through our website, {FP_SYSTEM_DISPLAY_NAME} will collect the information from you only for the purpose of facilitating the transmission of the email. We will send this email only and no following promotional emails unless the recipient specifically chooses to receive future promotional emails from us.</li>
+</ul>
+
+<p>Information that you submit about yourself may be used by {FP_SYSTEM_DISPLAY_NAME} to provide you requested services, communicate with you about {FP_SYSTEM_DISPLAY_NAME} products, improve your online experience, or support our continuing efforts to offer you the information and services you want most. We do not share personally identifiable information about you with non-affiliated companies or organizations outside of {FP_SYSTEM_DISPLAY_NAME} without your explicit permission. {FP_SYSTEM_DISPLAY_NAME} does, however, provide aggregate statistics and information about our sales, traffic patterns and related site information to third parties. </p>
+
+<p>{FP_SYSTEM_DISPLAY_NAME} reserves the right to disclose your personally identifiable information as required by law and when we believe that disclosure is necessary to protect our rights and/or comply with a judicial proceeding, court order, or legal process served on our Web site. </p>
+
+<h3>Confidentiality and Security</h3>
+<p> {FP_SYSTEM_DISPLAY_NAME} limits access to personal information about you to employees and contractors who we believe reasonably need to come into contact with that information to provide products or services to you or in order to do their jobs. </p>
+
+<h3>Email Announcements and Newsletters</h3>
+<p> {FP_SYSTEM_DISPLAY_NAME} occasionally uses email to send announcements regarding new products, services, and/or promotions, and informational newsletters that would be of interest to our customers. Announcements via email are on an opt-in basis only. By posting material on any of our interactive areas, you are opting in to receiving these email announcements. You can choose to unsubscribe to {FP_SYSTEM_DISPLAY_NAME} email at any time by emailing {FP_INFO_EMAIL}. {FP_SYSTEM_DISPLAY_NAME} will also send replies to customer email via email. Finally, if you have sent a request to {FP_SYSTEM_DISPLAY_NAME} about which we need to communicate with you, we may do so by email or telephone, if you provided your telephone number to us. </p>
+
+<p>Updating Your Information As a customer of {FP_SYSTEM_DISPLAY_NAME}, or as a subscriber to one of our opt-in email lists or newsletters, you may alter your information or opt-out of receiving communications from us at any time. {FP_SYSTEM_DISPLAY_NAME} offers the following options for changing and modifying your information. </p>
+
+<ul compact>
+	<li>You may send an email to {FP_INFO_EMAIL}.</li>
+	<li>You may send mail to {FP_SYSTEM_DISPLAY_NAME}, 15450 Palos Verdes Drive, Monte Sereno, CA 95030</li>
+</ul>
+
+<h3>Anti-Spam Policy</h3>
+<p> {FP_SYSTEM_DISPLAY_NAME} is 100% opposed to unsolicited commercial email ("spam"). {FP_SYSTEM_DISPLAY_NAME} does not send emails to anyone without permission and does not sell or provide email addresses to any unauthorized third party. If you receive any unsolicited emails from spammers, please be assured that {FP_SYSTEM_DISPLAY_NAME} did not provide your email address to such parties. </p>
+
+<h3>{FP_SYSTEM_DISPLAY_NAME} uses Cookies </h3>
+<p>{FP_SYSTEM_DISPLAY_NAME} collects certain information about how website visitors and users use the {FP_SYSTEM_DISPLAY_NAME} website by using technology called "cookies", which are bits of information that a website transfers to an individual's hard drive for record keeping purposes. Cookies can enhance your online experience by automatically saving your preferences and products selected for purchase. We use cookies because they help us to provide you a better online experience. The information we collect through the use of cookies does allow {FP_SYSTEM_DISPLAY_NAME} to know when and for how long you logged on to the {FP_SYSTEM_DISPLAY_NAME} website, so that we can try to understand how to better serve your needs. Nonetheless, as is the intention with all elements of this Policy, unless otherwise posted on {FP_SYSTEM_DISPLAY_NAME}, {FP_SYSTEM_DISPLAY_NAME} promises to use its best efforts to not share any personally identifiable information, such as your zip code or your usage patterns on the {FP_SYSTEM_DISPLAY_NAME} website, with any third party, unless required to do so by law. If you object to the use of cookies for any reason, you may set your Internet browser to notify you when you receive a cookie, giving you the opportunity to decide whether to accept it. If, however, you decline to receive cookies, you may have difficulty in using certain features of this site. </p>
+
+<h3>Advertisement Partnerships</h3>
+<p> {FP_SYSTEM_DISPLAY_NAME} may at times maintain relationships with external third-party advertisement and brokerage firms, for the purpose of displaying advertisements to visitors of {FP_SYSTEM_DISPLAY_NAME}. While we use cookies in other parts of {FP_SYSTEM_DISPLAY_NAME}, cookies received with banner advertisements displayed on {FP_SYSTEM_DISPLAY_NAME} may be collected by these third-parties, and we have no access to or control over these cookies. This Policy covers the use of cookies by {FP_SYSTEM_DISPLAY_NAME} only and does not cover the use of cookies by any advertisers. In the course of serving advertisements, Third parties may use information (not including your name, address, email address or telephone number) about your visits to this and other web sites to provide advertisements on {FP_SYSTEM_DISPLAY_NAME} and other sites about goods and services of interest to you. If you would like more information about this practice and to know your choices about not having this information used by these companies, visit the Network Advertising Initiative web site. In addition, you may wish to read Privacy Policies or the third-party providers and these will be listed here when appropriate. </p>
+
+<h3>Interactive Areas</h3>
+<p> {FP_SYSTEM_DISPLAY_NAME} is not liable for information posted in interactive areas. {FP_SYSTEM_DISPLAY_NAME} provides interactive areas such as polling forums to enhance the user experience and to build a healthy community around our website's products and services. You acknowledge that should you participate in such interactive areas, the information you voluntarily post about yourself and third parties in such areas might be accessed, collected and used by third parties outside of {FP_SYSTEM_DISPLAY_NAME}. In addition, you may not post any defamatory, obscene, slanderous, or otherwise illegal material, or any material which infringes any third-party copyrights or other intellectual property rights on any interactive areas. Violators will be subject to termination of accounts and possible legal action. Although {FP_SYSTEM_DISPLAY_NAME} employs advanced security technology, it cannot guarantee complete security in personal websites or password-protected areas, and {FP_SYSTEM_DISPLAY_NAME} will not be held liable for any user's or other visitor's disclosure of personal information on {FP_SYSTEM_DISPLAY_NAME} or any other website operated by {FP_SYSTEM_DISPLAY_NAME}. If you are under 18 years of age, you should ask your parents permission before posting any personally identifiable information on the Internet, such as your name, address, age, or email address. </p>
+
+<p>Service Provider {FP_SYSTEM_DISPLAY_NAME} uses a credit card processing company to bill users for goods and services. These companies do not retain, share, store or use personally identifiable information for any secondary purposes. </p>
+
+<h3>Interactive Areas</h3>
+<p>Links to External Sites {FP_SYSTEM_DISPLAY_NAME} contains links to websites not owned or controlled by {FP_SYSTEM_DISPLAY_NAME}. {FP_SYSTEM_DISPLAY_NAME} is not responsible for the privacy policies or practices of any such sites. {FP_SYSTEM_DISPLAY_NAME}'s Privacy Policy is a component of, and incorporated into, our Terms and Conditions of Use. This privacy statement applies solely to information collected by {FP_SYSTEM_DISPLAY_NAME}. </p>
+
+<h3>Interactive Areas</h3>
+<p>Surveys and Contests From time-to-time {FP_SYSTEM_DISPLAY_NAME} requests information from our visitors via surveys or contests. Participation in these surveys or contests is voluntary, and the visitor therefore has a choice whether to disclose this information. Information requested may include contact information (such as name and mailing address, as well as demographic information (such as zip code or age). Contact information is used to notify the winners and to award prizes. Survey information is used for purposes improving the use and satisfaction of this site, as well as the relevance of our product offerings and content. </p>
+
+<h3>Interactive Areas</h3>
+<p>Notification of Changes {FP_SYSTEM_DISPLAY_NAME} will occasionally update this privacy statement. When we do, we will also revise the "Last Updated" date at the top of the privacy statement. If we make any material changes in our privacy practices, we will post a prominent notice on our web site notifying users of the change. In some cases where we post the notice, we also email users, notifying them of the changes in our privacy practices. You are responsible for checking this policy periodically to monitor any changes to our privacy practices. {FP_SYSTEM_DISPLAY_NAME} reserves the right to change this privacy policy at any time. </p>
+
+<h3>Interactive Areas</h3>
+<p>A Special Note about Children Children are not eligible to use our services, and {FP_SYSTEM_DISPLAY_NAME} asks that minors (under the age of 18) do not submit any personal information to {FP_SYSTEM_DISPLAY_NAME}. If you are a minor, you can use this service only in conjunction with your parents or guardians. </p>
+
+<p>Contacting the Web Site If you have any questions about our privacy statement, the practices of this site, or your dealings with this Web site, please contact us at: {FP_SYSTEM_DISPLAY_NAME}, 15450 Palos Verdes Drive, Monte Sereno, CA 95030</p>

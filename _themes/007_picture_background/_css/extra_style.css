@@ -1,0 +1,215 @@
+/* @override http://localhost/fp/_themes/007_picture_background/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+body
+{
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+	left: 0;
+	top: 0;
+}
+
+#page {
+	position: relative;
+	width: 100%;
+}
+
+.listpage #container, .groups #container, .catalog #container
+{
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#foot {
+	padding: 0;	
+}
+
+.listpage #foot {
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+.gallery #foot {
+	width: 100%;
+}
+
+#footer-box {
+	border-style: none;
+}
+
+
+#pictureBehind { }
+#ontop { }
+
+.listpage #pictureBehind, .groups #pictureBehind, .catalog #pictureBehind
+{
+	opacity: .3;
+	/* for IE */
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: -1;
+	top: 0px;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-color: transparent;
+}
+
+.fullpage #pictureBehind { display: none; }
+
+.navbar-container
+{
+	/*
+	filter: alpha(opacity=50);
+	opacity: .50;
+*/
+	border-top: 0px none #ccc;
+	border-bottom: 0px none #ccc;
+}
+
+#topnav .navbar-container {
+	opacity: 1;
+}
+
+.navbar-container-off
+{
+	filter: alpha(opacity=20);
+	opacity: .20;
+	border-top: 0px #111 solid;
+	border-bottom: 0px #111 solid;
+}
+
+#bottomnav {
+	margin: 0;
+	padding: 0;
+}
+
+#bottomnav .navbar-container { 	
+	width: 940px;
+	min-width: 820px;
+	margin: 0 auto 0;
+	border-top: 0px transparent solid;
+	border-bottom: 0px transparent solid;
+}
+
+/* Default for links - click/hover */
+/*
+a:hover, a:active { color: #b70; }
+a:link, a:visited { color: #b70; }
+.caption { color: #333; }
+.footer { color: #333; }
+.footer-on-dark { color: #555; }
+.frameshop input { color: #fff; }
+.frameshop select { color: #333; }
+.frameshop_controlpanel { color: transparent; }
+.frameshop_controls { color: white; }
+.frameshop_link { color: transparent; }
+.gallery .helptext { color: #555; }
+.gallery-description { color: #333; }
+.gallery-info-link button { color: transparent; }
+.gallery-info-link button:active { color: transparent; }
+.gallery-info-link button:hover { color: transparent; }
+.group { color: #888; }
+.group-nav { color: #ccc; }
+.group-table-title a { color: #999999; }
+.groups #header-title { color: #222; }
+.helptext { color: #555; }
+.hoverpop:hover { color: transparent; }
+.important { color: red; }
+.info-title { color: #444; }
+.infobox { color: #333; }
+.location { color: #333; }
+.navbar .selected a:active { color: #F80; }
+.navbar .selected a:hover { color: #f80; }
+a.navbar.selected:link { color: #b70; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:visited { color: #b70; }
+a.navbar.unselected:link { color: #222; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:visited { color: #222; }
+.navbar .slideshow a:link, .navbar .slideshow a:visited { color: #666; }
+.navbar .slideshow a:hover { color: #b70; }
+.navbar .slideshow a:active { color: #FC0; }
+.navbar a:active { color: #F80; }
+.navbar a:hover { color: #f80; }
+.navbar a:link, .navbar a:visited { color: #222; }
+.navbardivider { color: #333; }
+.pagetext { color: #ccc; }
+.popup_bkgd_coverup { color: transparent; }
+.popup_story { color: #ccc; }
+.popup_window { color: #ccc; }
+.popup_window_caption { color: #999999; }
+.pricelist a:active { color: #b70; }
+.pricelist a:hover { color: #f80; }
+.pricelist a:link { color: #333; }
+.pricelist a:visited { color: #333; }
+.pricelist h1 { color: #333; }
+.pricelist span { color: #333; }
+.pricelistmenu h1 { color: white; }
+.projecttitle { color: #999999; }
+.settingsbox { color: #fff; }
+.story #title-box { color: #999999; }
+#container_story { color: #333; }
+#container_tearsheet { color: #333; }
+#error { color: red; }
+#foot { color: #888; }
+#fs_matte_bottom { color: #333; }
+#fs_matte_top { color: #333; }
+#fs_pic_matte { color: #333; }
+#header-subtitle { color: #444; }
+#header-title { color: #222; }
+#message { color: #036; }
+#ns_popup_story_text, #popup_story_text { color: #333; }
+#ns_popup_text, #popup_text { color: transparent; }
+#popup_img { color: white; }
+#popup_img_coverup { color: blue; }
+#popup_close { color: #222; }
+#popup_prev { color: #222; }
+#popup_next { color: #222; }
+#popup_story { color: #333; }
+blockquote { color: #333; }
+body { color: #222; }
+body.story { color: #222; }
+*/
+
+/* Website background color */
+/*
+body { background-color: #999; }
+#container { background-color: transparent; }
+.frameshop input { background-color: #333; }
+.frameshop select { background-color: #888; }
+.frameshop_controlpanel { background-color: transparent; }
+.frameshop_controls { background-color: transparent; }
+.frameshop_link { background-color: transparent; }
+.gallery-info-link button { background-color: transparent; }
+.gallery-info-link button:active { background-color: transparent; }
+.gallery-info-link button:hover { background-color: transparent; }
+.hoverpop:hover { background-color: transparent; }
+.infobox { background-color: #CCC; }
+.navbar-container { background-color: transparent; }
+.navbar-container-off { background-color: transparent; }
+.navbar-container-slideshow { background-color: transparent; }
+.popup_bkgd_coverup { background-color: transparent; }
+.pricelist span { background-color: #888; }
+.settingsbox { background-color: #333; }
+#container_story { background-color: white; }
+#container_tearsheet { background-color: white; }
+#fs_matte_bottom { background-color: #fc0; }
+#fs_matte_top { background-color: #0cf; }
+#fs_pic_matte { background-color: #060; }
+#ns_popup_text, #popup_text { background-color: transparent; }
+#popup_close { background-color: transparent; }
+#popup_img { background-color: white; }
+#popup_img_coverup { background-color: #666; }
+#popup_next { background-color: transparent; }
+#popup_prev { background-color: transparent; }
+.listpage .navbar-container { border-color: transparent; }
+.gallery .navbar-container { border-color: #929292; }
+*/

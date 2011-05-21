@@ -1,0 +1,17 @@
+<!-- thumbnail_nolink_hide -->
+<div class="thumbnailbox">
+	<a href="admin.php?action=display&amp;ID={picID}&amp;table={DB_IMAGES}&amp;PageID=tab5" ><IMG class="thumbnail" SRC="{src}" TITLE="{caption}" ALT="{caption}" ></a>
+	<div>
+	<div style="float:left;height:2em;width:1.5em;">
+		<span class="helptext" style="color:#404040;">{k})</span>
+	</div>
+	<div>
+		<span class="helptext" style="color:black;">
+			<!--<input type="checkbox" name="picturechecked[]" value="{picID}">-->
+			{picdisplayname}
+			<br>
+		</span>
+	</div>
+	<br clear="all">
+</div>
+</div>

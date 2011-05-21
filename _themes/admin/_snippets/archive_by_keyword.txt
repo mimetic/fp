@@ -1,0 +1,3 @@
+<dd><FONT FACE="Trebuchet MS" COLOR="#333366"><B>{ImageInfo_ImageTitle} ({ImageInfo_RollID}-{ImageInfo_FrameID})</B></FONT></dd>
+<dd><FONT FACE="Trebuchet MS" COLOR="#333366"><i>Artist</i>: <A HREF="artist.php?ArtistID={ImageInfo_ArtistID}">{ImageInfo_Firstname} {ImageInfo_Lastname}</A></FONT></dd>
+<dd><FONT FACE="Trebuchet MS" COLOR="#333366"><i>Project</i>: <A HREF="gallery.php?ProjectID={ImageInfo_ProjectID}">{ImageInfo_ProjectTitle}</A></FONT></dd>

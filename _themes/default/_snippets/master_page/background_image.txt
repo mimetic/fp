@@ -1,0 +1,2 @@
+<!--background_image -->
+<img id="pictureBehind" src="" {SIZE} alt="" style="display:none;">

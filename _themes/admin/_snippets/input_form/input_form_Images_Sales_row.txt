@@ -1,0 +1,8 @@
+<tr>
+	<td>
+	{size}
+	</td>
+	<td style="text-align:right;">
+	{amount}
+	</td>
+</tr>

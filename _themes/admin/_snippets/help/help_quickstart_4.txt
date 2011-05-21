@@ -1,0 +1,49 @@
+<!-- quickstart -->
+<div class="quickstart">
+	<table>
+		<tr>
+			<td>
+				<div class="biglink">
+					<a class="biglink" href="?action=display&amp;table={ARTISTS}&amp;ID={UserID}&amp;PageID=tab2">My Profile</a><br>
+				</div>
+				<p>Fill in your personal information, your biography, sales information, and preferences.</p>
+			</td>
+			<td>
+				<div class="biglink">
+					<a class="biglink" href="?action=display&amp;nextaction=insert&amp;PageID=tab3&amp;table={DB_PROJECTS}">Start a New {fp:project}</a>
+				</div>
+				<p>Start here to create a new web page to show {fp:pictures} inside a {fp:group}. Here, you can upload pictures, organize your {fp:project}.</p>
+
+			</td>
+			<td>
+				<div class="biglink">
+					<a class="biglink" href="?action=display&amp;nextaction=insert&amp;PageID=tab6&amp;table={DB_STORIES}">Add a New {fp:story}</a>
+				</div>
+				<p>You can add written stories to your {fp:projects}.</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="biglink">
+					<a class="biglink" href="?action=show_list&amp;table={SALES}&amp;PageID=tab7">My Sales</a>
+				</div>
+				If you have print sales set up, you can see here which {fp:pictures} you've sold and how much money you made.
+			</td>
+			<td>
+				<!--
+				<div class="biglink">
+					<a class="biglink" href="?action=show_list&amp;table={GROUPS}&amp;PageID=tab4">Change My Gallery</a>
+				</div>
+				You can change how your {fp:group} looks by applying different themes.
+				-->
+				&nbsp;
+			</td>
+			<td>
+				<div class="biglink">
+					<a class="biglink" href="?action=help&amp;subset={PAGEID}&amp;PageID=tab1">More Help</a>
+				</div>
+				Here are detailed instructions on how to use {FP_SYSTEM_DISPLAY_NAME}.
+			</td>
+		</tr>
+	</table>
+</div>

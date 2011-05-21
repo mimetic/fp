@@ -1,0 +1,16 @@
+<tr class="listing">
+	<td width="40%" title="{Title}">
+		<a href="http://{SYSTEMURL}projects.php?GroupID={ID}" target="_blank"><b>{Title}</b></a> 
+<!--<a class="buttonlink" href="http://{SYSTEMURL}projects.php?GroupID={ID}" target="_blank">&rarr;</a>-->
+		<br>
+		<span class="helptext">{Summary}</span> 
+	</td>
+	<td width="20%">
+		<form action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+			<input type="hidden" name="ID" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="update_close"> <input type="hidden" name="PageID" value="tab4"> {THEME_MENU} 
+		</form>
+	</td>
+	<td width="40%" style="text-align:right;whitespace:nowrap;">
+		{EDIT_COMMAND} | {DELETE_COMMAND} 
+	</td>
+</tr>

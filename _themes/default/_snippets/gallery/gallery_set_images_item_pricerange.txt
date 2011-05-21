@@ -1,0 +1,1 @@
+Priced from {LOWPRICE} to {HIGHPRICE}

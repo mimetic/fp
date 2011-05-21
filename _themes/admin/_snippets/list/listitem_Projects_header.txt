@@ -1,0 +1,23 @@
+<tr>
+	<td colspan="5" align="right">
+		Show rows containing: <input id="rowfilter" type="text">
+		<button type="button" class="my-shortbutton" id="clearrowfilter" >Clear</button>
+	</td>
+<tr>
+<tr class="listing-header">
+	<th valign="top" width="5%" style="text-align:left;">
+		<b>Hide?</b> 
+	</th>
+	<th valign="top" width="23%">
+		Title 
+	</th>
+	<th valign="top" width="13%">
+		{fp:Group} 
+	</th>
+	<th valign="top" width="30%">
+		{fp:Theme} 
+	</th>
+	<th valign="top" width="27%" class="{sorter: false}">
+		&nbsp; 
+	</th>
+</tr>

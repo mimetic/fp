@@ -1,0 +1,4 @@
+<div id="localdimensions" style="display:inline;">
+	Uploaded picture file is {width} x {height} pixels.
+</div>
+<br>

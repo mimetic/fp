@@ -1,0 +1,10 @@
+<!--gallery_slideshow_pc-->
+<!-- PostCardViewer Flash viewer -->
+	<div id="flashcontent">PostCardViewer requires JavaScript and the Flash Player. <a href="http://www.macromedia.com/go/getflashplayer/">Get Flash.</a></div>
+	<script type="text/javascript">
+		var fo = new SWFObject("{THEMESDIR}/{DEFAULT_THEME}/_swf/pc_viewer.swf", "viewer", "100%", "100%", "8", "#111111");
+		
+		fo.addVariable("xmlURL", "postcardviewerxml.php?params=action-project,id-{projectid},cellDimension-1400,columns-{FP_SLIDESHOW_PC_COLUMNS},frameWidth-20,frameColor-0xFAFAFA,showCaption-caption,showTitle-on,zoomInPerc-85,zoomOutPerc-{ZOOMOUTPERCENT},");
+		
+		fo.write("flashcontent");
+</script>	

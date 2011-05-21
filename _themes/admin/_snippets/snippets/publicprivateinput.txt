@@ -1,0 +1,6 @@
+	<div class="label">
+		Hidden : 
+	</div>
+	<div class="item">
+		{Public_CHECKBOX} <span class="helptext"> If checked, no one will see this page. This is useful when you are preparing a {fp:group} or {fp:project}, but you're not ready to show it to the public.</span> 
+	</div>

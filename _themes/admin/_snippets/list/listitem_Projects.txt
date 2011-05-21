@@ -1,0 +1,49 @@
+<!--listitem_Projects-->
+<tr class="listing">
+	<td title="{PublicPrivateCheckMarkSortField}">
+		{PublicPrivateCheckMark} 
+	</td>
+	<td title="{Title}">
+		<a href="http://{SYSTEMURL}gallery.php?ProjectID={ID}" target="_blank"><B>{Title}</B></a>
+		<br>
+		<span class="helptext">
+			{Summary}
+		</span>
+	</td>
+	<td title="{GROUP_MENU_SORTFIELD}">
+		<form action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+			<input type="hidden" name="ID" value="{ID}">
+			<input type="hidden" name="table" value="{table}">
+			<input type="hidden" name="action" id="action" value="update_close">
+			<input type="hidden" name="PageID" value="tab3">
+			{GROUP_MENU} 
+		</form>
+	</td>
+	<td title="{THEME_MENU_SORTFIELD}">
+		<form action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+			<input type="hidden" name="ID" value="{ID}">
+			<input type="hidden" name="table" value="{table}">
+			<input type="hidden" name="action" id="action" value="update_close">
+			<input type="hidden" name="PageID" value="tab3">
+			{THEME_MENU} 
+		</form>
+	</td>
+	<td style="text-align:right;" title="">
+		<a href='?action=display&amp;ID={ID}&amp;table={table}&amp;PageID={PAGEID}'>
+			{fp:projects_manage_project}
+		</a>
+		| 
+		<a href='?action=display&amp;subset=ImageSorter&amp;ID={ID}&amp;table={table}&amp;PageID={PAGEID}'>
+			{fp:projects_manage_pictures}
+		</a>
+		| 
+		<a href='?action=display&amp;subset=Pictures&amp;ID={ID}&amp;table={table}&amp;PageID={PAGEID}'>
+			{fp:projects_upload_pictures}
+		</a>
+		| 
+		<a href='?action=display&amp;subset=Stories&amp;ID={ID}&amp;table={table}&amp;PageID={PAGEID}'>
+			{fp:projects_manage_stories}
+		</a>
+		| {DELETE_COMMAND} 
+	</td>
+</tr>

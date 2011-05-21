@@ -1,0 +1,10 @@
+		<!--input_form_Images_dimensions-->
+		{LOCALDIMENSIONS}<br>				
+		{OFFSITE} Print file is stored by the printer.
+		<div id="offsitedimensions" style="	display:none;" >
+		Enter the file dimensions&nbsp;:&nbsp;
+			<input type="text" name="param_02" id="FP_PARAM_IMAGE_WIDTH" target="enter_width_in_units" value="{WIDTH_PRINT}" size="6"> wide &times; <input type="text" name="param_03" id="FP_PARAM_IMAGE_HEIGHT" target="enter_height_in_units" value="{HEIGHT_PRINT}" size="6"> high in <em>pixels</em>
+			<br>
+		<b>Or,</b> enter the maximum selling size&nbsp;:&nbsp;
+			<input type="text" id="enter_width_in_units" target="FP_PARAM_IMAGE_WIDTH" value="" size="6"> wide &times; <input type="text" id="enter_height_in_units" target="FP_PARAM_IMAGE_HEIGHT" value="" size="6"> high in <em>{UNITS}</em>
+		</div>

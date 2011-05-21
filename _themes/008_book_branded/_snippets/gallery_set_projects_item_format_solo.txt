@@ -1,0 +1,32 @@
+<!--gallery_set_projects_item_format-->
+	<div class="gallery-description" >
+		<div id="gallery-description-callout" class="editable">
+			<div class="projecttitle editable">
+				{Projects_Title}
+			</div>
+			<div class="projectowner editable">
+				{Artists_Fullname}
+			</div>
+			<div class="location editable">
+				{Projects_Place}
+			</div>
+			<span class="sspop" id="slideshowssp">{slideshowpopup}</span>
+			<span class="sspop" id="slideshowsv">{slideshowpopupsv}</span>
+			<span class="sspop" id="slideshowpc">{slideshowpopuppc}</span>
+			<span class="sspop" id="slideshowtv">{slideshowpopuptv}</span>
+			<br>
+		</div>
+		<div class="statement editable">
+			{Projects_Statement}
+		</div>
+		<div class="description editable">
+			{Projects_Description}
+		</div>
+		{storylist}
+		{gallery_help_text}
+	</div>
+<div class="galleryRowDivider">
+</div>
+<div class="row-container">
+	<table class="gallerytable">
+		<tr>

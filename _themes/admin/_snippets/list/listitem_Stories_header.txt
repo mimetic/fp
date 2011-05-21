@@ -1,0 +1,10 @@
+<tr class="listing">
+	<th width="50%">
+		Title
+	</th>
+	<th width="30%">
+		{fp:project} Title 
+	</th>
+	<th width="20%" style="text-align:right;" class="{sorter: false}">
+	</th>
+</tr>

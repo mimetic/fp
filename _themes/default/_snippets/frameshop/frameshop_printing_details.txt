@@ -1,0 +1,7 @@
+<!-- frameshop_printing_details -->
+<p>
+	<span class="faded">Image Size:</span> <span id="display_size"></span><br>
+	<span class="faded">Paper Size:</span> <span id="display_psize"></span><br>
+	<span class="faded">Paper:</span> {PaperName}<br>
+	<span class="faded">Inkset:</span> {InksetName}
+</p>

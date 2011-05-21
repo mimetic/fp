@@ -1,0 +1,10 @@
+	<FORM ACTION = "{ADMINFILENAME}" METHOD=POST>
+		<input type="hidden" name="action" id="action" value="login">
+		Sorry, I don't know either the username or the password. Try to login again. Perhaps you might check that the caps-lock key is not down...that's often a problem.
+		
+		<P>Username: <INPUT TYPE=text NAME=username VALUE="" SIZE=30>
+		
+		<P>Password: <INPUT TYPE=password NAME=password VALUE="" SIZE=30>
+		
+		<P><INPUT TYPE=submit NAME=Submit VALUE="Submit">
+	</FORM>

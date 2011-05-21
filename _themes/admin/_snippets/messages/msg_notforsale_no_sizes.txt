@@ -1,0 +1,1 @@
+No sizes are defined in the {fp:priceset}. <i>Solution: Add a printing size to the {fp:priceset} for this {fp:image}</i>

@@ -1,0 +1,10 @@
+<div id="coupon-validator" title="Enter {fp:coupon}">
+	<form name="shipping" id="couponform" action="javascript:false;">
+		<p>If you have been given a {fp:coupon}, please enter it below.
+		</p>
+		<label for="coupon-code">{fp:coupon}:</label>
+		<input name="couponcode" id="couponcode" type="text" value="" size="24" maxlength="24"><BR>
+		<br>
+		<span id="coupon_price_display_error" class="important"></span>
+	</form>
+</div>

@@ -1,0 +1,13 @@
+<h3>Sign Up for {FP_SYSTEM_DISPLAY_NAME}</h3> 
+<form method="post" action="{FORMACTION}" name="code">
+	<div class="formbox" style="text-align:center;">
+		Please enter the secret code to apply for an account in {FP_SYSTEM_DISPLAY_NAME}:<br>
+		<input type="text" name="code" value="{code}" size="30" style="font-size: 0.8em;"><br>
+		<span class="helptext">The code is case sensitive, so 'hello' is not the same as 'Hello'.</span>
+	</div>
+	<br>
+	<div align="center">
+		<input type="submit" value="enter" name="action"> 
+	</div>
+</form>
+<br>

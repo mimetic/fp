@@ -1,0 +1,10 @@
+<div align="center">
+	<h3>Activation Failed</h3>
+</div>
+<BR>
+<p style="width=auto;margin-left:8em;margin-right:8em;">
+	We're sorry, but we could not activate your account. Most likely, the system waited for {FP_SHOW_MAXCONFIRMTIME}, then decided too much time had passed since you signed up for the account, and it thought the account was a mistake.
+	</p>
+<p style="width=auto;margin-left:8em;margin-right:8em;">
+	<em>Solution: Sign up again. <a href="signup.php">Click here to go to the signup page.</a></em>
+</p>

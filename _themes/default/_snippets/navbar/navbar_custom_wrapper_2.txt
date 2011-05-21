@@ -1,0 +1,4 @@
+<!--custom navbar-->
+<div id="bottomnav" class="editable" style="clear:both"><div class="navbar-container">
+	{NAVBAR}
+</div></div>

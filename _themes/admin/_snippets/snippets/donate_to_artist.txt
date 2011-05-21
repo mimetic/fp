@@ -1,0 +1,1 @@
+<div> &nbsp;&nbsp;&nbsp;<a href="https://www.paypal.com/xclick/business={Artists_Email}&item_name={Artists_Firstname}+{Artists_Lastname}&cn=Special+requests&tax=0&currency_code=USD"><FONT FACE="Arial, Geneva" COLOR="#080808" SIZE=2><U><i>Make a donation to  {Artists_Firstname} {Artists_Lastname}</i></U></FONT></A> </div>

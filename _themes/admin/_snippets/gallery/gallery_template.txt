@@ -1,0 +1,73 @@
+<HTML>
+<!-- template is gallery_template.html -->
+<head>
+   <TITLE>{title}</TITLE>
+<meta todsort="alpha">
+<meta todsortb="alpha">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+
+		<link rel="stylesheet" rev="stylesheet" href="{THEMESDIR}/{THEME}/_css/style.css">
+
+<snippet name="javascript">
+
+</HEAD>
+<BODY BGCOLOR="#333333" LINK="#000066" ALINK="#CC9900" VLINK="#000066" onload="preloadImages();">
+<!--message-->
+{message}
+
+
+<CENTER>
+<TABLE BORDER=0 BGCOLOR="#666666" CELLSPACING=0 CELLPADDING=0>
+   <TR BGCOLOR="#7B7B7B"> 
+      <TD NOWRAP WIDTH=45 HEIGHT=45>
+         <P><BR>
+      </TD>
+      <TD HEIGHT=45>
+        <IMG SRC="images/logotype.gif" WIDTH=300 HEIGHT=45 border=0 alt="">
+      </TD>
+   </TR>
+   <TR BGCOLOR="#181F1F">
+      <TD NOWRAP WIDTH=45>
+         <P><IMG SRC="images/blank.gif" WIDTH=45 HEIGHT=19 ALIGN=middle>
+      </TD>
+      <TD>
+		<TABLE BORDER=0 HEIGHT=20 CELLSPACING=0 CELLPADDING=0>
+			<TR><snippet name="navbar"></TR>
+		</TABLE>
+		</TD>
+   </TR>
+   <TR>
+      <TD WIDTH=45 HEIGHT=40>
+         <P> 
+      </TD>
+      <TD HEIGHT=40>
+         <P><BR>
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH=45>
+         <P>
+      </TD>
+      <TD>
+      	<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+            <TR>
+<!-- BEGIN data base entry follows -->
+{list}					
+<!-- END data base entry follows -->
+
+            </TR>
+         </TABLE>
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH=45>
+         <BR>
+      </TD>
+      <TD valign=bottom HEIGHT=30>
+         <BR>
+      </TD>
+   </TR>
+</TABLE>
+<FONT SIZE="-1" FACE="Trebuchet MS" COLOR="#CCCC99">[<A HREF="copyrightinfo.html" target="_blank">&copy;information</A>]</FONT></CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,219 @@
+<!-- input_form_pricesets_row -->
+
+ <tr style="border:1px solid black;">
+	<table class="entryform grid">
+		<tr>
+			<td class="entryformgrid">
+				Size #{k} 
+			</td>
+			<td class="entryformgrid">
+				<i> (Italic fields are calculated) </i> 
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				SupplierID:
+			</td>
+			<td class="entryformgrid">
+				<b>{SupplierID}</b> 
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Edition Size:
+			</td>
+			<td class="entryformgrid">
+				<input type="text" name="editionsize[]" value="{editionsize}" size="5">
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Photo Ratio:image:frame 
+			</td>
+			<td class="entryformgrid">
+				<i> 1.5 </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> 464.64 in2 </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> 648.96 in2 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Image Larger Side 
+			</td>
+			<td class="entryformgrid">
+				<input type="text" name="size[]" value="{size}" size="3"> {UNITS} 
+			</td>
+			<td class="entryformgrid">
+				<i> 16 in </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> 24x16 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Paper Size 
+			</td>
+			<td class="entryformgrid">
+				<i> 26 in </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> 18 in </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> 26.4x17 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Frame/Matte Size 
+			</td>
+			<td class="entryformgrid">
+				<i> 31 in </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> 21 in </i> 
+			</td>
+			<td class="entryformgrid">
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Print Cost 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="cost[]" value="{cost}" size="5">
+			</td>
+			<td class="entryformgrid">
+				<i> $45.17 </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> $45.17 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				<b> Print Price | Rate</b> 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="price[]" value="{price}" size="5">
+			</td>
+			<td class="entryformgrid">
+				<input type="text" name="price_rate[]" value="{price_rate}" size="3">%
+			</td>
+			<td class="entryformgrid">
+				<i> $300.00 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Matte Cost 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="mattecost[]" value="{mattecost}" size="5">
+			</td>
+			<td class="entryformgrid">
+				<i> $58.59 </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> $58.59 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Matte Price
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="matteprice[]" value="{matteprice}" size="5">
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+				<i> $358.59 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Framed to Print Cost 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="frame_to_print_cost[]" value="{frame_to_print_cost}" size="5">
+			</td>
+			<td class="entryformgrid">
+				<i> $262.23 </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> $262.23 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				<b> Framed to Print Price </b> 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="frame_to_print_price[]" value="{frame_to_print_price}" size="5">
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+				<i> $562.23 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				Frame Cost 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="framecost[]" value="{framecost}" size="5">
+			</td>
+			<td class="entryformgrid">
+				<i> $366.26 </i> 
+			</td>
+			<td class="entryformgrid">
+				<i> $366.26 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				<b> Framed Price </b> 
+			</td>
+			<td class="entryformgrid">
+				{CURRENCY} <input type="text" name="frameprice[]" value="{frameprice}" size="5">
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+				<i> $666.26 </i> 
+			</td>
+		</tr>
+		<tr>
+			<td class="entryformgrid">
+				<b> Matted+Framed Price </b> 
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+			</td>
+			<td class="entryformgrid">
+				<i> $672.59 </i> 
+			</td>
+		</tr>
+	</table>
+	<br>
+</tr>

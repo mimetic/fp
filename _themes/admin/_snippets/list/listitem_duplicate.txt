@@ -1,0 +1,2 @@
+<!--listitem_Images_delete-->
+<a href='?action=duplicate&amp;ID={ID}&amp;table={table}&amp;PageID={PAGEID}' >Duplicate</a>

@@ -1,0 +1,4 @@
+<SELECT NAME=AccessLevel>
+	<OPTION VALUE=admin {level1}>admin
+	<OPTION VALUE=user {level2}>user
+ </SELECT>

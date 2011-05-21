@@ -1,0 +1,2 @@
+<!--Frameshop_EditionInfo-->
+{PRINTSIZE} : {EDITIONSIZE} prints for {CURRENCY}{PRICE} {CURRENCY_AFTER} each{AVAILABLE}<br>

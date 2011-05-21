@@ -1,0 +1,143 @@
+/* @override http://localhost/fp/_themes/009_zreportage/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+/* branding styles */
+#container
+{
+	padding-top: 15px;
+}
+
+#header
+{
+	height: 70px;
+	border: 0px #FFC solid;
+}
+
+#headerc .listpage
+{
+	background-image: none;
+}
+
+#headerc .groups
+{
+	background-image: none;
+}
+
+#banner
+{
+	background-repeat: no-repeat;
+	background-position: top left;
+	height: 70px;
+	width: 100%;
+}
+
+
+/* gallery page */
+.gallery #container
+{
+	width: auto;
+	/* enlarge to fit contained material */
+}
+
+.gallery-description .description {
+	color: #bbb;
+}
+
+
+.gallery #main 
+{
+}
+
+.gallery-description
+{
+	color: #333;
+	min-height: 30px;
+	margin-bottom: 40px;
+	width: 200px;
+}
+
+.gallery-description .location {
+	color: #bbb;
+}
+
+.gallery-description  .projecttitle {
+		color: #ccc;
+}
+
+a.navbar.unselected:link {
+	color: #888;
+}
+
+.navbar .unselected a:hover {
+	color: #F90;
+}
+
+.navbar .unselected a:active {
+	color: #F30;
+}
+
+.gallery-description-divider
+{
+	border-left: 1px #333 solid;
+	margin-left: 30px;
+	padding-left: 30px;
+}
+
+.navbar-container {
+	background-color: transparent;}
+
+.captionblock
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.galleryColSpacer
+{
+	width: 100px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	display: inline;
+}
+
+.galleryPictureColumn
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.gallerypictureblock
+{
+	vertical-align: bottom;
+	display: inline;
+}
+
+.galleryRowDivider
+{
+	height: 20px;
+	clear: both;
+}
+
+.gallerytable
+{
+	border-width: 0;
+	border-spacing: 0;
+	border-style: none;
+	border-collapse: collapse;
+}
+
+td.gallery
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+/* slide show */
+
+#slideshowmed
+{
+}
+

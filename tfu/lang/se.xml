@@ -1,0 +1,170 @@
+<!--
+TWG Flash Uploader 2.8 - swedish language file 
+ 
+Updated 2008-09-11
+-->
+<TFU>
+	<!-- Menu items -  - be carefull with the length - menu is not resized if the text is too long! -->
+	<LANG><KEY>menu_refresh</KEY><VALUE>Uppdatera</VALUE></LANG>
+	<LANG><KEY>menu_create_folder</KEY><VALUE>Skapa mapp</VALUE></LANG>
+	<LANG><KEY>menu_delete_folder</KEY><VALUE>Ta bort mapp</VALUE></LANG>
+	<LANG><KEY>menu_rename_folder</KEY><VALUE>Ändra mappnamn</VALUE></LANG>
+	<LANG><KEY>menu_download_file</KEY><VALUE>Ladda ner</VALUE></LANG>
+	<LANG><KEY>menu_rename_file</KEY><VALUE>Ändra filnamn</VALUE></LANG>
+	<!-- Buttons - be carefull with the lenght - buttons are not resized if the text is too long! -->
+	<LANG><KEY>bt_login</KEY><VALUE>Logga in</VALUE></LANG>
+	<LANG><KEY>bt_refresh</KEY><VALUE>Uppdatera</VALUE></LANG>
+	<LANG><KEY>bt_refresh_wait</KEY><VALUE>Vänta...</VALUE></LANG>
+	<LANG><KEY>bt_rename</KEY><VALUE>Ändra namn</VALUE></LANG>
+	<LANG><KEY>bt_delete</KEY><VALUE>Radera</VALUE></LANG>
+	<LANG><KEY>bt_Upload</KEY><VALUE>Överför</VALUE></LANG>
+	<LANG><KEY>bt_add</KEY><VALUE>Lägg till</VALUE></LANG>
+	<LANG><KEY>bt_remove</KEY><VALUE>Ta bort</VALUE></LANG>
+	<LANG><KEY>bt_create</KEY><VALUE>Skapa</VALUE></LANG>
+	<LANG><KEY>bt_cancel</KEY><VALUE>Avbryt</VALUE></LANG>
+	<LANG><KEY>bt_extras</KEY><VALUE>Alternativ</VALUE></LANG>
+	<LANG><KEY>bt_download</KEY><VALUE>Ladda ner</VALUE></LANG>
+	<!-- Text in the frontend -->
+	<LANG><KEY>status_txt</KEY><VALUE>Status:</VALUE></LANG>
+	<LANG><KEY>upload_folder</KEY><VALUE>Mapp</VALUE></LANG>
+	<LANG><KEY>txt_resize</KEY><VALUE>Storlek</VALUE></LANG>
+	<LANG><KEY>txt_progress</KEY><VALUE>Progress</VALUE></LANG>
+	<LANG><KEY>txt_queue</KEY><VALUE>Filer för överföring</VALUE></LANG>
+	<LANG><KEY>txt_create_folder</KEY><VALUE>Ange mappnamn</VALUE></LANG>
+	<LANG><KEY>txt_delete_folder</KEY><VALUE>Vill du ta bort mappen på servern?</VALUE></LANG>
+	<LANG><KEY>txt_new_foldername</KEY><VALUE>Nytt mappnamn: </VALUE></LANG>
+	<LANG><KEY>txt_new_filename</KEY><VALUE>Nytt filnamn: </VALUE></LANG>
+	<LANG><KEY>txt_preview</KEY><VALUE>Förhandsvisning</VALUE></LANG>
+	<LANG><KEY>txt_remote</KEY><VALUE>Server</VALUE></LANG>
+	<LANG><KEY>txt_remote_files</KEY><VALUE>filer</VALUE></LANG>
+	<LANG><KEY>grid_name</KEY><VALUE>Namn</VALUE></LANG>
+	<LANG><KEY>grid_size</KEY><VALUE>Storlek</VALUE></LANG>
+	<LANG><KEY>grid_date</KEY><VALUE>Datum</VALUE></LANG>
+	<LANG><KEY>upload_files</KEY><VALUE>(%s filer)</VALUE></LANG>
+	<LANG><KEY>upload_file</KEY><VALUE>(1 fil)</VALUE></LANG>
+	<LANG><KEY>upload_size</KEY><VALUE>Att överföras: %s</VALUE></LANG>
+	<!-- text of the login panel -->
+	<LANG><KEY>login_titel</KEY><VALUE>Login</VALUE></LANG>
+	<LANG><KEY>login_username</KEY><VALUE>Användarnamn</VALUE></LANG>
+	<LANG><KEY>login_password</KEY><VALUE>Lösenord</VALUE></LANG>
+	<LANG><KEY>login_message</KEY><VALUE>Du försöker använda TWG Flash Uploader utan autentisering, inloggning till servern misslyckades, har upphört att gälla eller inställningsdata saknas!</VALUE></LANG>
+	<LANG><KEY>login_message_server</KEY><VALUE>Licensen är inte giltig för denna domän (%s). Skaffa en korrekt licensfil för denna domän. TWG Flash Uploader körs nu i oregistrerad mod!</VALUE></LANG>
+	<LANG><KEY>login_message_lic</KEY><VALUE>Licensfilen är skadad eller ogiltig. Skaffa en korrekt licensfil för %s. TWG Flash Uploader körs nu i oregistrerad mod!</VALUE></LANG>
+	<!-- info dialog -->
+	<LANG><KEY>message</KEY><VALUE>Filer i listan för överföring finns redan på servern. Om du överför de nya filerna kommer de existerande filerna att skrivas över. De filer som redan existerar på servern har markerats. Om du väljer 'Ta bort' kommer dessa filer att tas bort från listan.</VALUE></LANG>
+	<LANG><KEY>please_login</KEY><VALUE>Logga in</VALUE></LANG>
+	<LANG><KEY>wrong_username</KEY><VALUE>Felaktigt användarnamn/lösenord.</VALUE></LANG>
+	<!-- dropdown of the file select dialog -->
+	<LANG><KEY>dropdown_all_supported</KEY><VALUE>Allowed file types</VALUE></LANG>
+	<LANG><KEY>dropdown_all</KEY><VALUE>All files</VALUE></LANG>
+	<!-- everything below here shows up in the status line!  -->
+	<!-- status messages - please keep all spaces because some text is merged sometimes  -->
+	<LANG><KEY>create_folder_savemode</KEY><VALUE>Mappen är skrivskyddad (+ safemode är aktiv). Alla funktioner är spärrade.</VALUE></LANG>
+	<LANG><KEY>create_folder_permissions</KEY><VALUE>Mappen är skrivskyddad. Alla funktioner är spärrade.</VALUE></LANG>		
+	<LANG><KEY>create_text_permissions</KEY><VALUE>Du har inte tillåtelse att skapa mappar. Denna funktion är spärrad.</VALUE></LANG>		
+	<LANG><KEY>max_file_size</KEY><VALUE> Max filstorlek för överföring (per fil) är: %s. </VALUE></LANG>
+	<LANG><KEY>select_files</KEY><VALUE>Välj vilka filer som skall överföras.</VALUE></LANG>
+	<LANG><KEY>upload_started</KEY><VALUE>Överföring startad. Vänta...</VALUE></LANG>
+	<LANG><KEY>upload_started_resize</KEY><VALUE>Överföring startad. Ändring av bildstorlek kan ta ytterligare tid efter att bilderna överförts. Vänta...</VALUE></LANG>
+	<LANG><KEY>download_completed</KEY><VALUE>Nerladdning avslutad.</VALUE></LANG>
+	<LANG><KEY>download_started</KEY><VALUE>Nerladdning startad. Vänta...</VALUE></LANG>
+	<LANG><KEY>upload_files_in_queue</KEY><VALUE>%s finns redan i listan på filer som skall överföras.</VALUE></LANG>
+	<LANG><KEY>upload_file_in_queue</KEY><VALUE>1 fil (%s) finns redan i listan på filer som skall överföras.</VALUE></LANG>
+	<LANG><KEY>delete_queue</KEY><VALUE>%s fil(er) har tagits bort från listan av filer som skall överföras.</VALUE></LANG>
+	<LANG><KEY>wrong_extension</KEY><VALUE>Ej tillåten filtyp: %s. </VALUE></LANG>
+	<LANG><KEY>smaller_size</KEY><VALUE>Använd mindre filer! Max filstorlek är %s KB. </VALUE></LANG>
+	<LANG><KEY>remote_updated</KEY><VALUE>Serverns fil-lista har uppdaterats.</VALUE></LANG>
+	<LANG><KEY>freeware</KEY><VALUE>Gratisversionen har en begränsning av storleken på filer som kan överföras på %s MB. Ta bort några filer ur listan.</VALUE></LANG>
+	<LANG><KEY>max_upload_size</KEY><VALUE>Maxgräns för överföring har satts till %s MB. Ta bort några filer ur listan.</VALUE></LANG>
+	<LANG><KEY>max_upload_files</KEY><VALUE>Max antal filer som kan överföras har satts till %s filer. Ta bort några filer ur listan.</VALUE></LANG>
+	<LANG><KEY>upload_error</KEY><VALUE>Överföringen misslyckades. %s fil(er) av %s kunde inte överföras.</VALUE></LANG>
+	<LANG><KEY>upload_error_mem</KEY><VALUE>%s file(er) av %s kunde inte överföras. För %s fil(er) fanns inte tillräckligt minnesutrymme på servern för att ändra bildstorlekar!</VALUE></LANG>
+	<LANG><KEY>upload_completed</KEY><VALUE>Överföring avslutad. </VALUE></LANG>
+	<LANG><KEY>upload_completed_note</KEY><VALUE>OBS: Det kan ta viss tid för stora filer att lagras på servern!</VALUE></LANG>
+	<LANG><KEY>loading</KEY><VALUE>Läser in </VALUE></LANG>
+	<LANG><KEY>file_selected</KEY><VALUE>Vald fil: '%s'.</VALUE></LANG>
+	<LANG><KEY>file_selected_error</KEY><VALUE>Vald fil: '%s'. Förhandsvisning ej tillgänglig.</VALUE></LANG>
+	<LANG><KEY>file_selected_url</KEY><VALUE>Direkt länk:  %s</VALUE></LANG>
+	<LANG><KEY>folder_deleted</KEY><VALUE>Mappen '%s' borttagen.</VALUE></LANG>
+	<LANG><KEY>folder_not_deleted</KEY><VALUE>Mappen '%s' kunde inte tas bort.</VALUE></LANG>
+	<LANG><KEY>file_deleted</KEY><VALUE>Filen '%s' borttagen.</VALUE></LANG>
+	<LANG><KEY>file_not_deleted</KEY><VALUE>Filen '%s' kunde inte tas bort.</VALUE></LANG>
+	<LANG><KEY>file_deleted_permissions</KEY><VALUE>Filen '%s' kunde inte tas bort. Kontrollera filrättigheterna.</VALUE></LANG>
+	<LANG><KEY>folder_created</KEY><VALUE>Mappen '%s' har skapats.</VALUE></LANG>
+	<LANG><KEY>folder_exists</KEY><VALUE>Mappen '%s' finns redan.</VALUE></LANG>
+	<LANG><KEY>folder_not_created</KEY><VALUE>Mappen '%s' kunde inte skapas.</VALUE></LANG>
+	<LANG><KEY>action_cancled</KEY><VALUE>Åtgärden avbröts.</VALUE></LANG>
+	<LANG><KEY>action_cancled_upload</KEY><VALUE>Åtgärden avbröts. Uppdatera fil-listan. Filer som inte överförts korrekt kan tas bort!</VALUE></LANG>
+	<LANG><KEY>files_added</KEY><VALUE>%s fil(er) har lagts till. </VALUE></LANG>
+	<LANG><KEY>folder_rename_to</KEY><VALUE>Namnet på mappen kunde inte ändras till '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_rename</KEY><VALUE>Namnet på aktuell mapp har ändrats till '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_rename_empty</KEY><VALUE>Ett mappnamn måste anges.</VALUE></LANG>
+	<LANG><KEY>folder_rename_root</KEY><VALUE>Namnet på mappen kan inte ändras eftersom den är huvudmapp.</VALUE></LANG>
+	<LANG><KEY>folder_rename_exists</KEY><VALUE>Mappen '%s' finns redan. Välj ett annat namn.</VALUE></LANG>
+	<LANG><KEY>file_rename_empty</KEY><VALUE>Ett filnamn måste anges.</VALUE></LANG>
+	<LANG><KEY>file_rename_exists</KEY><VALUE>Namnet på filen '%s' kan inte ändras. En fil med det nya namnet finns redan.</VALUE></LANG>
+	<LANG><KEY>file_rename_error</KEY><VALUE>Namnet på filen '%s' kan inte ändras.</VALUE></LANG>
+	<LANG><KEY>file_rename_permissions</KEY><VALUE>Namnet på filen '%s' kan inte ändras. Kontrollera fil-rättigheterna.</VALUE></LANG>
+	<LANG><KEY>file_extension_error_rename</KEY><VALUE>Namnet på filen kan inte ändras eftersom ändring av filtyp inte är tillåtet!</VALUE></LANG>
+	<LANG><KEY>file_rename_to</KEY><VALUE>Namnet på filen '%s' har ändrats till '%s'.</VALUE></LANG>
+	<LANG><KEY>dir_limit</KEY><VALUE>Max antal filer i en map är %s. Ta bort %s fil(er) från listan.</VALUE></LANG>
+	<LANG><KEY>dir_limit_2</KEY><VALUE>Max antal filer i en map är %s. Ta bort %s icke existerande fil(er).</VALUE></LANG>
+	<LANG><KEY>loading_preview</KEY><VALUE>Läser in förhandsvisning av '%s'.</VALUE></LANG>
+	<LANG><KEY>loading_big_preview</KEY><VALUE>Läser in stor förhandsvisning av '%s'.</VALUE></LANG>
+	<!-- error messages  -->
+	<LANG><KEY>error</KEY><VALUE>Fel</VALUE></LANG>
+	<LANG><KEY>error_:</KEY><VALUE>Fel : %s</VALUE></LANG>
+	<LANG><KEY>error_http</KEY><VALUE>Fel : %s - %s</VALUE></LANG>
+	<LANG><KEY>error_406</KEY><VALUE>Fel Http 403/406: Kopiera den medföljande .htaccess-filen till samma mapp som filen twg_flash_uploader.swf.</VALUE></LANG>
+	<LANG><KEY>download_progress</KEY><VALUE>Nerladdning %s KB / %s KB</VALUE></LANG>
+	<LANG><KEY>upload_progress</KEY><VALUE>%s KB / %s KB</VALUE></LANG>
+	<LANG><KEY>big_preview</KEY><VALUE> Klicka på en förhandsvisad bild för större bild.</VALUE></LANG>
+	<LANG><KEY>download_wait</KEY><VALUE>Vänta. Förbereder nerladdning.</VALUE></LANG>
+	<!-- new 2.6 -->
+	<LANG><KEY>files_deleted</KEY><VALUE>%s filer borttagna.</VALUE></LANG>
+	<LANG><KEY>files_not_deleted</KEY><VALUE>%s filer kunde inte tas bort.</VALUE></LANG>
+	<LANG><KEY>files_deleted_permissions</KEY><VALUE>%s filer kunde inte tas bort. Kontrollera filrättigheterna.</VALUE></LANG>	
+	<LANG><KEY>menu_copy_file</KEY><VALUE>Flytta/Kopiera fil(er)</VALUE></LANG>
+	<LANG><KEY>menu_copy_folder</KEY><VALUE>Flytta mapp</VALUE></LANG>
+	<LANG><KEY>select_copy_text</KEY><VALUE>Välj mål-mapp</VALUE></LANG>
+	<LANG><KEY>copymove_copy</KEY><VALUE>kopiera</VALUE></LANG>
+	<LANG><KEY>copymove_move</KEY><VALUE>flytta</VALUE></LANG>
+	<LANG><KEY>copymove_error</KEY><VALUE>%s fil(er) av %s kunde inte %ss. Kontrollera mapp-rättigheterna.</VALUE></LANG> 
+	<LANG><KEY>copymove_ok</KEY><VALUE>%s fil(er) %sd(e).</VALUE></LANG>
+	<LANG><KEY>copymove_some</KEY><VALUE>%s fil(er) av %s %sd(e).</VALUE></LANG>
+	<LANG><KEY>copymove_exists</KEY><VALUE>%s fil(er) av %s %sd(e). %s fil(er) finns redan.</VALUE></LANG>
+	<LANG><KEY>copymove_dest</KEY><VALUE>Vald mål-mapp: %s.</VALUE></LANG>
+	<LANG><KEY>bt_copy</KEY><VALUE>Kopiera</VALUE></LANG>
+	<LANG><KEY>bt_move</KEY><VALUE>Flytta</VALUE></LANG>
+	<LANG><KEY>ck_overwrite</KEY><VALUE>Skriv över</VALUE></LANG>
+	<LANG><KEY>move_folder_ok</KEY><VALUE>Mapp %sd.</VALUE></LANG>
+	<LANG><KEY>move_folder_error1</KEY><VALUE>Mappen %sdes inte. Käll-mappen är lika med mål-mappen.</VALUE></LANG>
+	<LANG><KEY>move_folder_error2</KEY><VALUE>Mappen %sdes inte. Mål-mappen är en undermapp till käll-mappen.</VALUE></LANG>
+	<LANG><KEY>move_folder_error3</KEY><VALUE>Mappen %sdes inte. Mappen finns redan.</VALUE></LANG>
+	<LANG><KEY>move_folder_error4</KEY><VALUE>Mappen %sdes inte. Kontrollera mapp-rättigheterna.</VALUE></LANG>
+	<LANG><KEY>progress_time</KEY><VALUE>Återstående tid: %s.</VALUE></LANG>
+	<LANG><KEY>progress_time_m</KEY><VALUE>min</VALUE></LANG>
+	<LANG><KEY>progress_time_s</KEY><VALUE>sek</VALUE></LANG>
+	<LANG><KEY>copymove_dest</KEY><VALUE>Vald mål-mapp: %s.</VALUE></LANG>
+	<LANG><KEY>menu_delete_file</KEY><VALUE>Ta bort fil(er)</VALUE></LANG>
+	<!-- new 2.7 -->
+	<LANG><KEY>bt_save</KEY><VALUE>Spara</VALUE></LANG>
+	<LANG><KEY>bt_view</KEY><VALUE>Visa</VALUE></LANG>
+	<LANG><KEY>bt_edit</KEY><VALUE>Ändra</VALUE></LANG>
+	<LANG><KEY>loading</KEY><VALUE>Laddar fil ...</VALUE></LANG>
+	<LANG><KEY>saved</KEY><VALUE>Filen '%s' sparad.</VALUE></LANG>
+	<LANG><KEY>not_writable</KEY><VALUE>Ej skrivbar</VALUE></LANG>
+	<LANG><KEY>loaded</KEY><VALUE>Filen '%s' laddad.</VALUE></LANG>
+	<LANG><KEY>txt_delete_file</KEY><VALUE>Vill du verkligen radera filen/filerna?</VALUE></LANG>
+    <!-- new 1.7.4 - automatic retry -->
+	<LANG><KEY>timeout</KEY><VALUE>Försöket misslyckades. Kolla dina timeout-tider.</VALUE></LANG>
+	<LANG><KEY>retry</KEY><VALUE>Försöker %s av </VALUE></LANG>
+	 <!-- new 1.7.4.5 - optional description -->
+	<LANG><KEY>grid_description</KEY><VALUE>Tilläggsbeskriving</VALUE></LANG>
+	<LANG><KEY>grid_description_default</KEY><VALUE>Skriv in beskrivning</VALUE></LANG>
+	<!-- new 1.7.5 -->
+	<LANG><KEY>error_color</KEY><VALUE>Du har bestämt färger för flash. Detta stöds bara av en professionell licens. Ta bort färginställningen c_*.</VALUE></LANG>
+    <!--  new 1.8.0.1 -->
+	<LANG><KEY>dir_not_exists</KEY><VALUE>Fjärrkatalogen finns inte. Kontrollera dina  inställningar.</VALUE></LANG>
+	<LANG><KEY>no_file_extensions</KEY><VALUE>Uppladdningen är inte aktiverad. Här visas fjärrkatalogen.</VALUE></LANG>
+</TFU>

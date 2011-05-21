@@ -1,0 +1,118 @@
+/* @override http://localhost/fp/_themes/003_book/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+
+/* move footer to bottom of page */
+#foot {
+	position: relative;
+}
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+/* gallery page */
+.gallery #container
+{
+	width: inherit;
+}
+
+#main.gallery { width: inherit;}
+
+/*
+#foot {
+	position: relative;
+}
+*/
+.gallery-description
+{
+	min-height: 30px;
+	margin-bottom: 20px;
+	width: 900px;
+}
+
+div.gallery-description div.description {
+	
+}
+
+.gallery-description-divider
+{
+	border-left: 1px #333 solid;
+	margin-left: 30px;
+	padding-left: 30px;
+}
+
+.navbar-container { width: default; }
+
+.galleryPictureColumn .description {
+	overflow: hidden;
+}
+
+/* The overflow:hidden in the parent styles allow us to use height: 1000px so that we fill the space */
+.galleryPictureColumn .description .captionblock {
+	background-color: white;
+	color: black;
+	z-index: 5;
+	padding: 0px;
+	border-collapse:collapse;
+	opacity: 0.85;
+	overflow: hidden;
+	border-style: none;
+}
+
+.captionblock .title {
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.captionblock .caption {
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
+#gallery_description_callout {
+	float: left;
+	width: 150px;
+	padding: 10px;
+	margin: 0 15px 10px 0;
+	background-color: transparent;
+	border: 1px solid #888;
+}
+
+div.gallerypicinfo {
+	background-color: transparent;
+	color: #111;
+	position: relative;
+	margin: 0;
+}
+
+div.gallerypicinfo div.buttons {
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+.galleryPictureColumn
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.gallerypictureblock
+{
+	vertical-align: bottom;
+}
+
+.galleryRowDivider
+{
+	height: 20px;
+	clear: both;
+}
+
+.gallerytable
+{
+	border-width: 0;
+	border-spacing: 0;
+	border-style: none;
+	border-collapse: collapse;
+}
+

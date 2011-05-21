@@ -1,0 +1,2 @@
+<!--msg_wrapper-->
+<div class="message">{msg}</div>

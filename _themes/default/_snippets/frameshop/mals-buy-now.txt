@@ -1,0 +1,5 @@
+	<input name="userid" type="hidden" value="61305138" />
+	<input name="product" type="hidden" value="Oceanmaster jacket">
+	<input name="price" type="hidden" value="159">
+	<input name="return" type="hidden" value="{RETURNURL}">
+	<input name="noqty" type="hidden" value="2">

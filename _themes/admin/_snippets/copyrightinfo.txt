@@ -1,0 +1,109 @@
+{DONOTHING}
+
+<FORM NAME="picmgmtform" ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+
+{Javascript}
+
+<INPUT type="hidden" NAME=action VALUE="update">
+<INPUT type="hidden" NAME=subset VALUE="Pictures">
+<INPUT type="hidden" NAME=ID VALUE="{ID}">
+<INPUT type="hidden" NAME=table VALUE="{table}">
+<INPUT type="hidden" NAME=artistID VALUE="{artistID}">
+<INPUT type="hidden" NAME=action VALUE="{action}">
+
+<h3 class="tabletitle">Manage Pictures in <font color="#990000">{Title}</font> owned by <font color="#990000">{ownername}</font></h3>
+<div align="right">
+	<div class="helptext">
+	Click here to <a href="?action=display&amp;ID={ID}&amp;table=Projects&amp;subset=Artists" target="_self">Manage your project</a>
+	</div>
+</div>
+{Managestories}
+<TABLE rules="rows" border="0" cellpadding="4px">
+		<TR class="entryform">
+			<TD>
+			<H4 class="sectiontitle">Pictures in this Project ({ProjectDiskUsage} MB):</H4>
+				<div class="helptext" style="display:inline;float:left;">
+					Point to a picture to see its caption.
+				</div>
+
+			<div align="right">
+				<div class="helptext">
+				<a href="?action=display&amp;subset=Pictures&amp;showthumbstatus={showthumbstatus}&amp;ID={ID}&amp;table={PROJECTS}&amp;PageID=tab3&amp;start={from}" target="_self">{showthumbstatus} thumbnails</a>
+				</div>
+			</div>
+			<BR>
+			<snippet name="prevnextbar">
+			{picturelist}
+
+
+			<H4 class="sectiontitle" style="margin-bottom:8px;">Permanently Delete Pictures from {FP_SYSTEM_DISPLAY_NAME} :</H4>			
+			<div class="helptext">
+				Checkmark the pictures in the list above that you want to delete, and click this button:
+				 <INPUT TYPE=submit NAME=Submit VALUE="Delete Picture(s)">
+			</div>
+			<BR>
+			<BR>
+			<div class="helptext">
+				IMPORTANT: Deleting pictures will remove them from the system, not just from this project. You can manage which 
+				pictures are in your project below, under <EM>Choose Pictures for this Project.</EM>
+				</div>
+
+			<BR>
+			<BR>
+
+			
+			<H4 class="sectiontitle" style="margin-bottom:8px;">Add a New Picture:</H4>
+			<div class="helptext">Click 'browse' to choose a picture from your computer.<BR>
+			Maximum size allowed is 2&nbsp;MB; however, your connection to the Internet might
+			 only allow smaller files. It's common that you can only upload 1 MB files.</div><BR>
+			<table border="0" cellspacing="0" cellpadding="20"><tr>
+				<td>
+				<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}">
+				<input name="userfile[]" type="file" size="50"><BR>
+				<input name="userfile[]" type="file" size="50"><BR>
+				</td><td align="center">
+					<INPUT TYPE=submit NAME=Submit VALUE="Add Picture(s)">
+				</td>
+			</tr></table>
+			{ftpinfo}
+			<BR>
+			<BR>
+
+
+			<H4 class="sectiontitle" style="margin-bottom:8px;">Choose Pictures for this Project:</H4>
+			<div class="helptext">
+				Choose which pictures are part of this project. Choose your pictures, then click the <em>Add Picture(s)</em> button. 
+				To choose more than one picture, hold the CTRL key (Windows) or the Command key (Apple) when you click on a name.
+			</div>
+			<BR>
+			<BR>
+
+			{allpicturelist}
+
+			<BR>
+			<div align="center">
+				<INPUT TYPE=submit NAME=Submit VALUE="Show/Hide Picture(s)">
+			</div>
+
+			<H4 class="sectiontitle" style="margin-bottom:8px;">See a Picture:</H4>
+			<div class="helptext">
+				Here, you can see any one of your pictures in this project. 
+				If a picture is not listed, then {FP_SYSTEM_DISPLAY_NAME} has not yet made a thumbnail picture of it.
+			</div>
+			<BR>
+			<BR>
+
+			<div align="center" class="helptext">
+				<table><tr><td align="center">
+					{ProjectPix}<BR><BR>
+					<IMG class="bigpicture" SRC="images/blank.gif" name="Picture">
+				</td></tr>
+				<tr><td>
+					<input style="border:none;" type="hidden" name="PictureName" value="" size=30>
+				</td></tr>
+				</table>
+			</div>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>

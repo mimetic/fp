@@ -1,0 +1,5 @@
+<!-- artist_page_info_block -->
+	<h2>{TITLE}</h2>
+	<p>
+		{TEXT}
+	</p>

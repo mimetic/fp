@@ -1,0 +1,34 @@
+<FORM ACTION="http://www.auctioninc.com/" ENCTYPE="application/x-www-form-urlencoded" METHOD="post" >
+<INPUT TYPE="hidden" NAME="cmd" VALUE="_calc">
+<INPUT TYPE="hidden" NAME="business" VALUE="6646">
+<!-- Item Information -->
+<INPUT TYPE="hidden" NAME="item_name" VALUE="Picture">
+<INPUT TYPE="hidden" NAME="item_number" VALUE="123">
+<INPUT TYPE="hidden" NAME="item_group" VALUE="99">
+<INPUT TYPE="hidden" NAME="amount" VALUE="100">
+<INPUT TYPE="hidden" NAME="quantity" VALUE="1">
+<INPUT TYPE="hidden" NAME="taxable" VALUE="0">
+<INPUT TYPE="hidden" NAME="undefined_quantity" VALUE="0">
+<!-- Shipping Information -->
+<INPUT TYPE="hidden" NAME="calc_method" VALUE="C">
+<INPUT TYPE="hidden" NAME="lot_size" VALUE="1">
+<INPUT TYPE="hidden" NAME="weight_lbs" VALUE="10">
+<INPUT TYPE="hidden" NAME="weight_oz" VALUE="0">
+<INPUT TYPE="hidden" NAME="length" VALUE="38">
+<INPUT TYPE="hidden" NAME="width" VALUE="32">
+<INPUT TYPE="hidden" NAME="height" VALUE="1.5">
+<INPUT TYPE="hidden" NAME="package" VALUE="S">
+<INPUT TYPE="hidden" NAME="insure" VALUE="1">
+<INPUT TYPE="hidden" NAME="supp_handling_fee" VALUE="15">
+<!-- Carrier Special Services -->
+<INPUT TYPE="hidden" NAME="pod_ups" VALUE="1">
+<INPUT TYPE="hidden" NAME="pod_usp" VALUE="1">
+<INPUT TYPE="hidden" NAME="pod_fdx" VALUE="1">
+<INPUT TYPE="hidden" NAME="pod_dhl" VALUE="1">
+<INPUT TYPE="hidden" NAME="sig_ups" VALUE="1">
+<INPUT TYPE="hidden" NAME="sig_usp" VALUE="1">
+<INPUT TYPE="hidden" NAME="sig_fdx" VALUE="1">
+<INPUT TYPE="hidden" NAME="sig_dhl" VALUE="1">
+<!-- Add To Calculator Button -->
+<INPUT TYPE="submit" NAME="calc_btn" VALUE="Add To Calculator">
+</FORM>

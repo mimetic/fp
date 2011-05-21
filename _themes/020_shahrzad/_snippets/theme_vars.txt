@@ -1,0 +1,27 @@
+<!-- theme_vars -->
+<script type="text/javascript" language="javascript">
+	FP_BKGD_RESIZE_NOCROP = false;
+	var IMAGES = new Array();
+
+	FP_EXHIBIT_RESIZING = 0;
+	
+	if (FP_EXHIBIT_RESIZING) {
+		FP_EXHIBIT_FIXEDWIDTH = 0;
+		FP_EXHIBIT_FIXEDHEIGHT = 0;
+	} else {
+		FP_EXHIBIT_FIXEDWIDTH = 550;
+		FP_EXHIBIT_FIXEDHEIGHT = 380;
+	}
+	// Border between image and matte
+	FP_EXHIBIT_IMAGEBORDER = 1;
+	FP_EXHIBIT_IMAGEBORDERCOLOR = 	'#888';
+	// Border outside image and matte
+	FP_EXHIBITBORDER = 1;
+	FP_EXHIBIT_BORDERCOLOR = 	'#888';
+	
+	// only set in exhibitions, not galleries
+	if (!showCaptions)
+		showCaptions = 2;
+
+	FP_SET_BKGD_PICTURE = false;
+</script>

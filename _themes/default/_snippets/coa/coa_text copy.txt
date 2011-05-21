@@ -1,0 +1,137 @@
+<!--coa_text-->
+<table>
+	<tr>
+		<td valign="top" width="{FP_COA_WIDTH}" height="{FP_COA_HEIGHT}">
+			{image} 
+		</td>
+		<td valign="top">
+			<table class="coa-info-block remove-if-empty">
+				<tr>
+					<th valign="top">
+						Title : 
+					</th>
+					<td valign="top">
+						<span class="coa-title">{Title}</span> 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Artist : 
+					</th>
+					<td valign="top">
+						{Artists_Fullname} 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Date : 
+					</th>
+					<td valign="top">
+						{Date} 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						EMPTY 
+					</th>
+					<td valign="top">
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Print # : 
+					</th>
+					<td valign="top">
+						{PRINTNUMBER} of {EDITIONSIZE} 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Catalog # : 
+					</th>
+					<td valign="top">
+						{CATALOGNUMBER} 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Place : 
+					</th>
+					<td valign="top">
+						{Place}
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Caption : 
+					</th>
+					<td valign="top">
+						<i>{Caption}</i> 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Gallery : 
+					</th>
+					<td valign="top">
+						{grouptitle} : {projecttitle} 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Image Size : 
+					</th>
+					<td valign="top">
+						{IMAGESIZE} 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Paper Size : 
+					</th>
+					<td valign="top">
+						{PAPERSIZE} 
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" class='coa' colspan="2">
+			<div class="coa-body">
+				<p>
+					This document certifies that the print, &ldquo;{TITLE},&rdquo; is an original print of a photograph taken by {Artists_Fullname}. 
+				</p>
+				<p>
+					This print is numbered {PRINTNUMBER} in a limited edition of {EDITIONSIZE} numbered prints. {ARTISTPROOF} 
+				</p>
+				<p>
+					This print was printed on {PRINTDATE} with {INKSET} inks on {PAPER} paper at {SUPPLIER_NAME}, {SUPPLIER_FULL_ADDRESS}. 
+				</p>
+				<p>
+					This {fp:image} is copyrighted by {Artists_Fullname}. 
+				</p>
+			</div>
+		</td>
+	</tr>
+</table>
+<table class="coa-signatures">
+	<tr>
+		<th valign="top">
+			Artist:
+		</th>
+		<td valign="top">
+			<div class="coa-line"></div>
+			{Artists_Fullname}
+		</td>
+	</tr>
+	<tr>
+		<th valign="top">
+			Master Printer:
+		</th>
+		<td valign="top">
+			<div class="coa-line"></div>
+			({SUPPLIER_NAME}, issuing authority
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,72 @@
+TWG Flash Upload Freeware License Agreement
+
+ACKNOWLEDGMENT
+  BY USING THIS FREEWARE VERSION OF 'TWG Flash Upload' YOU ACKNOWLEDGE THAT YOU
+  HAVE READ THIS LIMITED WARRANTY, UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS' 
+  TERMS AND CONDITIONS. YOU ALSO AGREE THAT THE LIMITED WARRANTY IS THE 
+  COMPLETE AND EXCLUSIVE STATEMENT OF AGREEMENT BETWEEN THE PARTIES AND 
+  SUPERSEDE ALL PROPOSALS OR PRIOR AGREEMENTS, ORAL OR WRITTEN, AND ANY OTHER 
+  COMMUNICATIONS BETWEEN THE PARTIES RELATING TO THE SUBJECT MATTER OF THE 
+  LIMITED WARRANTY.
+
+Copyright
+	Copyright for TWG Flash Upload by Michael Dempfle. Germany
+  All rights reserved. You must treat the Software like any other copyrighted 
+  material.
+  
+License
+	This TWG Flash Upload Freeware License Agreement (the "Agreement") is a legal 
+	agreement between you ("Licensee"), the end-user, and Michael Dempfle for the 
+	use of the TWG Flash Upload software product ("Software").
+	Carefully read the following terms and conditions before using this Software. 
+	Unless you have a different license agreement signed by Michael Dempfle your 
+	use of this Software indicates your acceptance of this license agreement and 
+	warranty.
+	For information on distributing the freeware version of this Software see the 
+	section titled Distribution.
+	By using this Software or storing this program or parts of it on a computer 
+	hard drive (or other media), you are agreeing to be bound by the terms of this 
+	Agreement. If you do not agree to the terms of this Agreement, delete the 
+	Software from all storage media.
+	
+	You may not alter this Software in any way. You may not decompile, reverse 
+	engineer, disassemble or otherwise reduce this Software to a human 
+	perceivable form besides the sample application which is stated as free to
+	use in the header of the source code files. You may not modify, rent or 
+	resell for profit this Software, or create derivative works based upon this 
+	Software.
+
+Governing Law
+	This agreement shall be governed by the laws of Germany.
+
+LIMITED WARRANTY AND DISCLAIMER OF WARRANTY
+	Michael Dempfle EXPRESSLY DISCLAIMS ANY WARRANTY FOR THE SOFTWARE. THIS 
+	SOFTWARE AND THE ACCOMPANYING FILES ARE SOLD "AS IS" AND WITHOUT WARRANTIES 
+	AS TO PERFORMANCE OF MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED 
+	OR IMPLIED, OR NONINFRINGEMENT.
+	THIS SOFTWARE IS NOT FAULT TOLERANT AND SHOULD NOT BE USED IN ANY ENVIRONMENT 
+	WHICH REQUIRES THIS. NO LIABILITY FOR DAMAGES. In no event shall Michael 
+	Dempfle be liable to you for any consequential, incidental or indirect 
+	damages whatsoever (including, without limitation, damages for loss of 
+	business profits, business interruption, loss of business information, or any 
+	other pecuniary loss) arising out of the use of or inability to use this 
+	SOFTWARE EVEN IF AceBIT HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+	The entire risk arising out of use or performance of the SOFTWARE remains with 
+	you.
+	Because of the various hardware and software environments into which TWG Flash 
+	Upload may be put, NO WARRANTY OF FITNESS FOR A PARTICULAR PURPOSE IS OFFERED.
+	The liability OF Michael Dempfle for actual damages from any cause whatsoever, 
+	and regardless of the form of action (whether in contract, tort (including 
+	negligence), product liability or otherwise) WILL BE LIMITED TO ZERO, NOTHING.
+	If any portion of this Agreement is deemed unenforceable by a Court of 
+	competent jurisdiction, it shall not affect the forcibility of the other 
+	portions of this Agreement.
+
+Distribution
+	Provided that you verify that you are handling the original freeware version 
+	you are hereby licensed to make as many copies of the Freeware version of 
+	this Software and documentation as you wish for your personal non profit use.
+	Distributing by any means, charging, or requesting donations for any such 
+	copies and distributing the Software and/or documentation with other products 
+	(commercial or otherwise) without prior written permission is prohibited, 
+	however made.

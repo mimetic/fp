@@ -1,0 +1,25 @@
+<tr class="listing-header">
+	<th valign="top" style="text-align:left;" width="70">
+		<b>Cat Nr.</b> 
+	</th>
+	<th valign="top" width="150">
+		Title 
+	</th>
+	<th valign="top" width="120">
+		{fp:Project} 
+	</th>
+	<th valign="top" width="100">
+		{fp:Artist} 
+	</th>
+	<th valign="top" class="{sorter: false}"  width="150">
+		File
+	</th>
+	<th valign="top" width="150">
+		Sales
+		<br>
+		<span class="helptext">({fp:priceset})</span> 
+	</th>
+	<th valign="top" style="text-align:right;" class="{sorter: false}" width="150">
+		<span class="helptext"><span class="important">*</span> {fp:image} has sales!</span> 
+	</th>
+</tr>

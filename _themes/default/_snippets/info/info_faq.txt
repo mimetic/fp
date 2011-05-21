@@ -1,0 +1,32 @@
+<div class="info-title">FAQ</div>
+<img src="{FP_SYSTEM_IMAGES}sample-coa-small.jpg" alt="Sample Certificate of Authenticity" width="300" height="300" hspace="20" vspace="20" border="1" align="right">
+<H3>Are the Prints "Museum Quality"?</H3>
+<p>Yes, they are. Only the highest quality printers are invited to work with our photographers. All prints are made either with archival pigment-based inks or the latest, light-fast Iris inks.</p>
+<p>Our printers only use museum quality archival papers and inks. The newest Iris inks have a <i>display life</i> between 75 and 125 years, while pigment-based inks from Epson and Canon are rate up to 200 years, on display. The old standard of photo printing, Cibachrome, is only rated about 25 years under prime conditions.
+
+<h3>What am I buying?</h3>
+<p>When you buy a print, you will receive a high-quality gicl&eacute;e print. Our printers are required to insure all shipments against damage and will replace any damaged pictures at no cost. Framed prints (when available) will be packed flat in sturdy containers, also insured for damage.</p>
+<p>All limited edition artwork is numbered, and a signed and numbered Certificate of Authenticity accompanies each limited edition print. {FP_SYSTEM_DISPLAY_NAME} and the printers maintain records of all limited edition prints.</p>
+
+<p>Each numbered print comes with a numbered certificate of authenticity, signed by the photographer, with complete edition and printer information, documenting the status of your print as an original part of a limited edition.
+</p>
+
+<h3>What is Gicl&eacute;e Printing?</h3>
+By the end of the 1980's, Iris printers had become popular amongst artists and fine art photographers for reproducing their work. The Iris is a large-format inkjet printer. In 1991 Jack Duganne of Nash Productions (the pioneers of fine art inkjet printing) came up with a word to identify and set the process apart from the rest. He wanted to stay away from words like "digital," and "computer," due to the negative view the world had about digital quality of the time. He focused on how the ink is laid down by the printer, and borrowed a french word, "gicl&eacute;e," which literally means "that which is sprayed."</p>
+
+Gicl&eacute;e printing has become synonymous with fine art inkjet printing and is accepted by most artists and photographers.</p>
+
+<H3>How to buy a picture</H3>
+<p>You can click on "buy a print" below any picture in a gallery. Each artist has chosen a top-quality, fine-art printer to handle printing and delivery. </p>
+
+<H3>I'm an editor, how do I get a picture?</H3>
+<p>Contact the photographer. The contact information is found on the photographer's profile page.</p>
+
+<H3>Who makes the money?</H3>
+<p>Unlike most galleries, most of the profits from the prints go mainly to the photographers. The gallery owner takes a small commission. </p>
+
+<H3>What is Special About this Website?</H3>
+<p>This website uses an gallery application that allows a photographer to submit pictures from the field &mdash; even from a war zone &mdash; while the system shows, edits, and sells without the need for editors, salesmen, or secretaries. {FP_SYSTEM_DISPLAY_NAME} is unique because it is self-editing &mdash; it organizes, presents, maintains galleries automatically.</p>
+
+<p>A photographer in Afghanistan could present and sell pictures that are only hours old. Because all payments are delivered immediately, your purchases will allow that photographer to stay in the field longer.</p>
+

@@ -1,0 +1,108 @@
+<script type="text/javascript" language="javascript">
+<!--
+
+{allpixurls}
+
+// Create a new OptionTransfer object. Pass it the field names of the left
+// select box and the right select box.
+var ot{x} = new OptionTransfer("allpix{x}[]","imagelist{x}[]");
+
+// Optionally tell the lists whether or not to auto-sort when options are 
+// moved. By default, the lists will be sorted.
+ot{x}.setAutoSort(true);
+
+// Optionally set the delimiter to be used to separate values that are
+// stored in hidden fields for the added and removed options, as well as
+// final state of the lists. Defaults to a comma.
+ot{x}.setDelimiter("|");
+
+// You can set a regular expression for option texts which are _not_ allowed to
+// be transferred in either direction
+ot{x}.setStaticOptionRegex("by John Doe|by David Gross");
+
+// These functions assign the form fields which will store the state of
+// the lists. Each one is optional, so you can pick to only store the
+// new options which were transferred to the right list, for example.
+// Each function takes the name of a HIDDEN or TEXT input field.
+
+// Store list of options removed from left list into an input field
+ot{x}.saveRemovedLeftOptions("removedLeft{x}");
+// Store list of options removed from right list into an input field
+ot{x}.saveRemovedRightOptions("removedRight{x}");
+// Store list of options added to left list into an input field
+ot{x}.saveAddedLeftOptions("addedLeft{x}");
+// Store list of options radded to right list into an input field
+ot{x}.saveAddedRightOptions("addedRight{x}");
+// Store all options existing in the left list into an input field
+ot{x}.saveNewLeftOptions("newLeft{x}");
+// Store all options existing in the right list into an input field
+ot{x}.saveNewRightOptions("newRight{x}");
+
+// IMPORTANT: This step is required for the OptionTransfer object to work
+// correctly.
+// Add a call to the BODY onLoad="" tag of the page, and pass a reference to
+// the form which contains the select boxes and input fields.
+//BODY onLoad="ot{x}.init(document.forms[0])"
+
+// ADDING ACTIONS INTO YOUR PAGE
+// Finally, add calls to the object to move options back and forth, either
+// from links in your page or from double-clicking the options themselves.
+// See example page, and use the following methods:
+// ot{x}.transferRight();
+// ot{x}.transferAllRight();
+// ot{x}.transferLeft();
+// ot{x}.transferAllLeft();
+
+
+//-->
+</script>
+<div style="margin-left:12px;border:1px solid #666;margin-top:8px;margin-bottom:8px;padding:4px;">
+	<table>
+		<tr>
+			<th>
+				<div class="optionblocktitle" style="text-align:left;">
+					By {title}
+				</div>
+			</th>
+			<th>
+			</th>
+			<th>
+				<div class="optionblocktitle" style="text-align:left;">
+					In project...
+				</div>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<div class="optionblock">
+					{list1}
+				</div>
+				<IMG class="thumbnail" SRC="{FP_SYSTEM_IMAGES}/blank.gif" id="previewa{x}" style="display:none;">
+
+			</td>
+			<td>
+			<div style="text-align:center;">
+				<INPUT TYPE="button" NAME="right" style="margin:8px;width:60px;" VALUE="&gt;&gt;" ONCLICK="ot{x}.transferRight()"><br>
+				<INPUT TYPE="button" NAME="right" style="margin:8px;width:60px;" VALUE="All &gt;&gt;" ONCLICK="ot{x}.transferAllRight()"><br>
+				<INPUT TYPE="button" NAME="left" style="margin:8px;width:60px;" VALUE="&lt;&lt;" ONCLICK="ot{x}.transferLeft()"><br>
+				<INPUT TYPE="button" NAME="left" style="margin:8px;width:60px;" VALUE="All &lt;&lt;" ONCLICK="ot{x}.transferAllLeft()">
+			</div>
+			</td>
+			<td>
+				<div class="optionblock">
+					{list2}
+				</div>
+				<IMG class="thumbnail" SRC="{FP_SYSTEM_IMAGES}/blank.gif" id="previewb{x}" style="display:none;">
+			</td>
+		</tr>
+	</table>
+	<div align="right"><INPUT TYPE=submit NAME=Submit VALUE="Save" ></div>
+</div>
+
+<INPUT TYPE="hidden" NAME="removedLeft{x}" VALUE="" SIZE=70>
+<INPUT TYPE="hidden" NAME="removedRight{x}" VALUE="" SIZE=70>
+<INPUT TYPE="hidden" NAME="addedLeft{x}" VALUE="" SIZE=70>
+<INPUT TYPE="hidden" NAME="addedRight{x}" VALUE="" SIZE=70>
+<INPUT TYPE="hidden" NAME="newLeft{x}" VALUE="" SIZE=70>
+<INPUT TYPE="hidden" NAME="newRight{x}" VALUE="" SIZE=70>
+

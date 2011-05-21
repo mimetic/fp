@@ -1,0 +1,65 @@
+// Vocabulary Replacement for the FP system
+// First word is the word to be replaced. It must be coded in your text like this:
+//   {fp:mykeyword}
+// Either "fp" or "FP" will work. 
+// If no replacement is found in the list, the original term is used with the {fp:} part removed.
+// Each theme can have its own list!
+// This list is comma separated (comma between terms, each set on a new line)
+
+// NOTE: For *English* vocabulary, words are replaced starting from the top of this list.
+// You can have terms that include other terms, if the order is correct!
+// See the "Basic" terms at the bottom of the page.
+
+FAQ,QFD
+Terms,Terms & Copyright
+Privacy,Privacy Policy
+Contact,Contact
+Administration,Administration
+Go Back,Go Back
+ReturnTo,Return to
+Blog,Blog
+PoweredBy,Powered by Mimetic Galleries
+Share,Partager
+
+// About, as in 'About John Doe'
+AboutArtist,About
+
+// "About", in general
+About,Au sujet dé
+
+// Shopping cart
+Shopping Cart,Shopping Cart
+
+// Newsletter
+newsletter_slogan,The Newsletter of {FP_SYSTEM_DISPLAY_NAME}
+newsletter_page_title,Updated Exhibitions
+newsletter_private_subtitle,A Newsletter for Collectors
+newsletter_public_subtitle,The Newsletter of {FP_SYSTEM_DISPLAY_NAME}
+somewhere, &nbsp;
+
+
+New Projects,New Projéts
+All Projects,All Projéts
+By Artist,par Photographs
+
+Agency,Agency
+
+// slideshow links in the gallery
+slideshow_sv,Go to Light Table
+slideshow_tv,Go to Tilt Viewer
+slideshow_pv,Go to Postcard Viewer
+
+// Title of the print/frame sales page
+The Print Shop, Magasin Encadrement
+
+// -----------
+// BASIC TERMS
+// Keep these last, so they can be replaced inside previous terms
+// Example: SeeProject,See My {fp:project}
+
+project,Exhibition
+projects,éxhibitions
+group,Gallery
+groups,Galleries
+artist,Photographer
+artists,Photographers

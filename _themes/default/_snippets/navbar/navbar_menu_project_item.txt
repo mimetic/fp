@@ -1,0 +1,1 @@
+<a href="gallery.php?ProjectID={ID}">{Title}</a>

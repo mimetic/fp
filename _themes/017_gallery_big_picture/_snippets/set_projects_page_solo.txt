@@ -1,0 +1,9 @@
+Projects	block_format	<!--set_projects_page_solo--><div class="list">{NAVBAR}{LIST}</div>
+Projects	item_format	<div class="item editable"><a class="item title editable" href="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</a><span class="list caption editable">&nbsp;{Projects_Lead}</span></div>
+Projects	separator_format	<!--empty-->
+ArtistPart	block_format	{list}
+ArtistPart	item_format	<!--empty-->
+ArtistPart	separator_format	<!--empty-->
+pix	block_format	{list}
+pix	item_format	<!--empty-->
+pix	separator_format	<!--empty-->

@@ -1,0 +1,7 @@
+<div align="center">
+	<h3>Signup Closed</h3>
+</div>
+<BR>
+<p style="width=auto;margin-left:8em;margin-right:8em;">
+	Sorry, we are not accepting applications for accounts on {FP_SYSTEM_DISPLAY_NAME} at this time.
+</p>

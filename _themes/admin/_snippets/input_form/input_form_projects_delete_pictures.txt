@@ -1,0 +1,15 @@
+<!-- input_form_projects_delete_pictures -->
+
+<H4 class="sectiontitle" style="margin-bottom:8px;">Permanently Delete Pictures from {FP_SYSTEM_DISPLAY_NAME} :</H4>			
+<div class="helptext">
+	Checkmark the pictures in the list above that you want to delete, and click this button:
+	<INPUT TYPE=submit NAME=Submit VALUE="Permanently Delete Picture(s)">
+</div>
+<BR>
+<BR>
+<div class="helptext">
+	IMPORTANT: Deleting pictures will remove them from the system, not just from this project. You can manage which 
+	pictures are in your project below, under <EM>Choose Pictures for this Project.</EM>
+</div>
+<BR>
+<BR>

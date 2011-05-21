@@ -1,0 +1,8 @@
+<!--master_page_header_groups-->
+		<snippet name="header_banner_style" />
+		<div id="header" ><div id="headerc" class="{sectionclass}">
+			<div class="icon" style="display:none;float:left;">{GROUPICON}</div>
+			<div id="banner">
+				<div id="header-title" style="display:none;">{title}</div>
+			</div>
+		</div></div>

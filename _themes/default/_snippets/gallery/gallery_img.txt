@@ -1,0 +1,1 @@
+<img alt="{fp:Click to Enlarge}" id="image_{Images_ImageID}" src="{PHOTOS}/{Images_URL}" style="width:{MattedWidth}px;height:{MattedHeight}px;padding:{MatteWidth}px {MatteWidth}px {MatteWidthBottom}px {MatteWidth}px;">

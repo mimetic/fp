@@ -1,0 +1,12 @@
+<!--gallery_picture_full_info-->
+<div class="captionblock">
+	{VIDEO_POPUP_LINK}
+	<div class="title editable">
+	<a href="projects.php?GroupID={Images_GroupID}" alt="More {fp:images} by this {fp:artist}">{Images_FullName}</a> 
+
+	<snippet name="LINK_TO_ARTIST_GALLERY" />
+	<br>
+	<span class="image_title editable">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}</div>
+	{Images_Caption}
+	{Credit}
+</div>

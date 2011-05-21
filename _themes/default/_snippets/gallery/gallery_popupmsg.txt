@@ -1,0 +1,8 @@
+<!--gallery_popupmsg-->
+<div class="popup_window_caption">
+	<div class="popup_window_name">
+		{Images_FullName}<br>
+		<span class="image_title">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}
+	</div>
+	{Images_Caption}
+</div>

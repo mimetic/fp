@@ -1,0 +1,2 @@
+<!--frameshop_edition_info_edition_list-->
+{PRINTSIZE}

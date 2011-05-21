@@ -1,0 +1,7 @@
+<!--gallery_picture_full_info_solo-->
+<div class="captionblock">
+	{VIDEO_POPUP_LINK}
+	<div class="title"><span class="image_title editable">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}</div>
+	{Images_Caption}
+	{Credit}
+</div>

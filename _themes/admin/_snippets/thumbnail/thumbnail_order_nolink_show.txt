@@ -1,0 +1,4 @@
+<!-- thumbnail_order_nolink_show -->
+	<span class="helptext" style="color:black;">
+		({k}) {picdisplayname}
+	</span>

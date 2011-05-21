@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EmbeddedEditorHidden:dgross</key>
+	<false/>
+	<key>ExpandedEditorWidth:dgross:displays([(0, 0), (1920, 1200)])</key>
+	<integer>806</integer>
+	<key>ExpandedItems:dgross</key>
+	<array>
+		<string>4F2E14FE-E477-47F7-974F-F6951D02FD86</string>
+		<string>9B389783-FC3F-4DBB-9099-76B40A9E54AC</string>
+	</array>
+	<key>FileFilterID:dgross</key>
+	<string>msng</string>
+	<key>OpenDocuments:dgross</key>
+	<array>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAGcAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
+			pq86SCsAAAAc0McSZXhwb3J0X3Byb2plY3QucGhwAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8o
+			qcn8SrEAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAAmZw
+			ABAACAAAyKcRqgAAABEACAAAyfytIQAAAAEAEAAc0McAHJLvABgP
+			nwAYD50AAgA1TWFjaW50b3NoIEhEOlVzZXJzOmRncm9zczpTaXRl
+			czpmcDpleHBvcnRfcHJvamVjdC5waHAAAA4AJgASAGUAeABwAG8A
+			cgB0AF8AcAByAG8AagBlAGMAdAAuAHAAaABwAA8AGgAMAE0AYQBj
+			AGkAbgB0AG8AcwBoACAASABEABIAKS9Vc2Vycy9kZ3Jvc3MvU2l0
+			ZXMvZnAvZXhwb3J0X3Byb2plY3QucGhwAAATABUvVm9sdW1lcy9N
+			YWNpbnRvc2ggSEQAABUAAgAi//8AAA==
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/export_project.php</string>
+			<key>RelativePath</key>
+			<string>./export_project.php</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAGWAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
+			pq86SCsAAAAc0McRZXh0cmFjdGltYWdlcy5waHAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0s
+			pshjdugAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAAmZw
+			ABAACAAAyKcRqgAAABEACAAAyGPZWAAAAAEAEAAc0McAHJLvABgP
+			nwAYD50AAgA0TWFjaW50b3NoIEhEOlVzZXJzOmRncm9zczpTaXRl
+			czpmcDpleHRyYWN0aW1hZ2VzLnBocAAOACQAEQBlAHgAdAByAGEA
+			YwB0AGkAbQBhAGcAZQBzAC4AcABoAHAADwAaAAwATQBhAGMAaQBu
+			AHQAbwBzAGgAIABIAEQAEgAoL1VzZXJzL2Rncm9zcy9TaXRlcy9m
+			cC9leHRyYWN0aW1hZ2VzLnBocAATABUvVm9sdW1lcy9NYWNpbnRv
+			c2ggSEQAABUAAgAi//8AAA==
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/extractimages.php</string>
+			<key>RelativePath</key>
+			<string>./extractimages.php</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>ShowInvisibles:dgross</key>
+	<false/>
+	<key>ShowSCMData:dgross</key>
+	<false/>
+	<key>TextFilesOnly:dgross</key>
+	<false/>
+	<key>ToolbarVisible:dgross</key>
+	<true/>
+	<key>ViewSplitterPosition:dgross</key>
+	<real>0.26660600304603577</real>
+	<key>WindowFrame:dgross:displays([(0, 0), (1920, 1200)])</key>
+	<string>rect(85,139,1035,1238)</string>
+</dict>
+</plist>

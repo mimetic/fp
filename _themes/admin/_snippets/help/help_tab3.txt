@@ -1,0 +1,36 @@
+<h3> {TABLE_ALIAS} </h3> 
+<p>
+	An exhibition is a page with pictures. Galleries contain exhibitions, and exhibitions contain pictures. 
+</p>
+<h3>New {fp:Project}: How do I make an exhibition?</h3>
+<ol>
+	<li>
+		Click the "{TABLE_ALIAS}" tab.
+	</li>
+	<li>
+		Click the button, "New {TABLE_OBJECT}".
+	<li>
+		Fill out the top of the form.
+	</li>
+
+</ol>
+
+<h3>Background Pictures: How do I Choose the Background Pictures behind my {fp:Group} Page?</h3>
+<p>
+You can choose the set of pictures that appear in the background of your {fp:gallery} pages (when you are using a theme that shows background pictures). You do not need to "hide" the {fp:project}...if it is a "Slide Carousel", it will not appear in the lists of {fp:projects}.
+</p>
+<ol>
+	<li>
+		Make a new {fp:project}. Click on the {fp:projects} tab, then the "New {fp:Projects}" button. Call it "slideshow" or something like that.
+	</li>
+	<li>
+		Click on , "Show/Hide Advanced Features". Look for the checkbox called, "Slide Carousel", about the seventh item on the page. Click on the box to turn it on.
+	<li>
+		Click "Save". 
+	</li>
+
+</ol>
+
+<div style="border-top:1px solid #888;padding-top:10px;margin-top:10px;">
+	<a href="?action=help&amp;subset={PAGEID}&amp;PageID=tab1">Main Help &rarr; </a>
+</div>

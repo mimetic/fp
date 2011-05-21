@@ -1,0 +1,4 @@
+<!--navbar solo-->
+<div id="topnav" class="editable" style="clear:both"><div class="navbar-wrapper editable"><div class="navbar-container">
+	<div class="navbar"><span id="gallery-group-title">{parent} :</span></div> {menuitems}
+</div></div></div>

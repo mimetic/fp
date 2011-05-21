@@ -1,0 +1,2 @@
+<!--gallery_set_images_separator_format.txt-->
+<td class="galleryColSpacer" style="{gallery_group_spacing};"><div class="galleryColSpacer" style="{gallery_group_spacing}"></div></td>

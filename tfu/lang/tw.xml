@@ -1,0 +1,171 @@
+<!--
+TWG Flash Uploader 2.8 - chinese language file,  by baijianpeng ( http://www.joomlagate.com )
+
+If you make any changes make sure to save the file as UTF-8! Otherwise special characters
+are not displayed properly!
+-->
+<TFU>
+	<!-- Menu items -  - be carefull with the length - menu is not resized if the text is too long! -->
+	<LANG><KEY>menu_refresh</KEY><VALUE>資料更新</VALUE></LANG>
+	<LANG><KEY>menu_create_folder</KEY><VALUE>創建目錄</VALUE></LANG>
+	<LANG><KEY>menu_delete_folder</KEY><VALUE>刪除目錄</VALUE></LANG>
+	<LANG><KEY>menu_rename_folder</KEY><VALUE>目錄改名</VALUE></LANG>
+	<LANG><KEY>menu_download_file</KEY><VALUE>下載文件</VALUE></LANG>
+	<LANG><KEY>menu_rename_file</KEY><VALUE>更改檔案名</VALUE></LANG>;
+	<!-- Buttons - be carefull with the lenght - buttons are not resized if the text is too long! -->
+	<LANG><KEY>bt_login</KEY><VALUE>用戶登錄</VALUE></LANG>
+	<LANG><KEY>bt_refresh</KEY><VALUE>資料更新</VALUE></LANG>
+	<LANG><KEY>bt_refresh_wait</KEY><VALUE>請等一會...</VALUE></LANG>
+	<LANG><KEY>bt_rename</KEY><VALUE>更改檔案名</VALUE></LANG>
+	<LANG><KEY>bt_delete</KEY><VALUE>刪除</VALUE></LANG>
+	<LANG><KEY>bt_Upload</KEY><VALUE>上載檔案</VALUE></LANG>
+	<LANG><KEY>bt_add</KEY><VALUE>增加檔案</VALUE></LANG>
+	<LANG><KEY>bt_remove</KEY><VALUE>刪除(s)</VALUE></LANG>
+	<LANG><KEY>bt_create</KEY><VALUE>創建</VALUE></LANG>
+	<LANG><KEY>bt_cancel</KEY><VALUE>取消</VALUE></LANG>
+	<LANG><KEY>bt_extras</KEY><VALUE>其他選項</VALUE></LANG>
+	<LANG><KEY>bt_download</KEY><VALUE>下載檔案</VALUE></LANG>
+	<!-- Text in the frontend -->
+	<LANG><KEY>status_txt</KEY><VALUE>狀態︰</VALUE></LANG>
+	<LANG><KEY>upload_folder</KEY><VALUE>上傳目錄</VALUE></LANG>
+	<LANG><KEY>txt_resize</KEY><VALUE>圖案大小</VALUE></LANG>
+	<LANG><KEY>txt_progress</KEY><VALUE>進行中</VALUE></LANG>
+	<LANG><KEY>txt_queue</KEY><VALUE>上傳排序</VALUE></LANG>
+	<LANG><KEY>txt_create_folder</KEY><VALUE>輸入新目錄名稱</VALUE></LANG>
+	<LANG><KEY>txt_delete_folder</KEY><VALUE>刪除遠端目錄嗎?</VALUE></LANG>
+	<LANG><KEY>txt_new_foldername</KEY><VALUE>新目錄名稱︰</VALUE></LANG>
+	<LANG><KEY>txt_new_filename</KEY><VALUE>新目錄名稱︰</VALUE></LANG>
+	<LANG><KEY>txt_preview</KEY><VALUE>預覽</VALUE></LANG>
+	<LANG><KEY>txt_remote</KEY><VALUE>遠端伺服器</VALUE></LANG>
+	<LANG><KEY>txt_remote_files</KEY><VALUE>遠端檔案</VALUE></LANG>
+	<LANG><KEY>grid_name</KEY><VALUE>檔名</VALUE></LANG>
+	<LANG><KEY>grid_size</KEY><VALUE>大小</VALUE></LANG>
+	<LANG><KEY>grid_date</KEY><VALUE>日期</VALUE></LANG>
+	<LANG><KEY>upload_files</KEY><VALUE>(%s 檔案)</VALUE></LANG>
+	<LANG><KEY>upload_file</KEY><VALUE>(1 檔案)</VALUE></LANG>
+	<LANG><KEY>upload_size</KEY><VALUE>上傳大小：%s</VALUE></LANG>
+	<!-- text of the login panel -->
+	<LANG><KEY>login_titel</KEY><VALUE>用戶登錄</VALUE></LANG>
+	<LANG><KEY>login_username</KEY><VALUE>用户帳號</VALUE></LANG>
+	<LANG><KEY>login_password</KEY><VALUE>用户密碼</VALUE></LANG>
+	<LANG><KEY>login_message</KEY><VALUE>您正在試圖使用未經授權的 TWG Upload Flash , 伺服器登錄失敗，設定文件過期或無法定位。</VALUE></LANG>
+	<LANG><KEY>login_message_server</KEY><VALUE>您正在使用的許可文件對當前域名 (%s)無效！請為本域名獲取一個註冊文件。TWG Flash Uploader 現在以免費版狀態運行。</VALUE></LANG>
+	<LANG><KEY>login_message_lic</KEY><VALUE>您正在使用的許可文件已經損壞或者不再有效。請為 %s 獲取一個有效的註冊文件。TWG Flash Uploader 現在以免費版狀態運行!</VALUE></LANG>
+	<!-- info dialog -->
+	<LANG><KEY>message</KEY><VALUE>上傳區的文件已經存在伺服器裡，如果確認上載，伺服器裡的檔案將會被覆蓋。這些文件已被標示出來，如果您按下 刪除檔案，這些文件將會被刪除.</VALUE></LANG>
+	<LANG><KEY>please_login</KEY><VALUE>請登入</VALUE></LANG>
+	<LANG><KEY>wrong_username</KEY><VALUE>錯誤的用戶帳號/密碼，請再試一次</VALUE></LANG>
+	<!-- dropdown of the file select dialog -->
+	<LANG><KEY>dropdown_all_supported</KEY><VALUE>被容許的檔案格式</VALUE></LANG>
+	<LANG><KEY>dropdown_all</KEY><VALUE>所有檔案</VALUE></LANG>
+	<!-- everything below here shows up in the status line! -->
+	<!-- status messages - please keep all spaces because some text is merged sometimes -->
+	<LANG><KEY>create_folder_savemode</KEY><VALUE>這個目錄沒有寫入權限(+只能讀取)，所有指令將被停止。</VALUE></LANG>
+	<LANG><KEY>create_folder_permissions</KEY><VALUE>這個目錄沒有寫入權限，所有指令將被停。</VALUE></LANG>
+	<LANG><KEY>create_text_permissions</KEY><VALUE>您沒有權限創立新的目錄，此功能是被關閉的。</VALUE></LANG>
+	<LANG><KEY>max_file_size</KEY><VALUE>上傳單一文件最大的大小限制是： %s. </VALUE></LANG>
+	<LANG><KEY>select_files</KEY><VALUE>請選擇您要上傳的文件</VALUE></LANG>
+	<LANG><KEY>upload_started</KEY><VALUE>開始上傳…請耐心等候……</VALUE></LANG>
+	<LANG><KEY>upload_started_resize</KEY><VALUE>開始上傳，完成後變更圖案大小可能需時，請耐心等候…</VALUE></LANG>
+	<LANG><KEY>download_completed</KEY><VALUE>下載檔案完成。</VALUE></LANG>
+	<LANG><KEY>download_started</KEY><VALUE>開始下載檔案，請耐心等候…</VALUE></LANG>
+	<LANG><KEY>upload_files_in_queue</KEY><VALUE>%s 這個文件已經在上傳區等候上傳。</VALUE></LANG>
+	<LANG><KEY>upload_file_in_queue</KEY><VALUE>1 檔案 (%s) 已經在上傳區。</VALUE></LANG>
+	<LANG><KEY>delete_queue</KEY><VALUE>%s 檔案再上傳區被移除。</VALUE></LANG>
+	<LANG><KEY>wrong_extension</KEY><VALUE>不被容許的文件格式： %s. </VALUE></LANG>
+	<LANG><KEY>smaller_size</KEY><VALUE>請使用較小的文件大小！限制是： %s. </VALUE></LANG>
+	<LANG><KEY>remote_updated</KEY><VALUE>伺服器遠端檔案已被更新。</VALUE></LANG>
+	<LANG><KEY>freeware</KEY><VALUE>免費軟體版本的上傳文件限制是 %s MB，請移除一些文件！</VALUE></LANG>
+	<LANG><KEY>max_upload_size</KEY><VALUE>系統管理員設定的上傳文件大小是 %s MB，請移除一些文件！</VALUE></LANG>
+	<LANG><KEY>max_upload_files</KEY><VALUE>系統管理員設定的上傳文件數量是 %s，請移除一些文件！</VALUE></LANG>
+	<LANG><KEY>upload_error</KEY><VALUE>上傳失敗！ %s 個檔案在總共 %s 個檔案裡無法被上載</VALUE></LANG>
+	<LANG><KEY>upload_error_mem</KEY><VALUE>%s 個檔案在總共 %s 個檔案無法被上載，因 %s 檔案在伺服器端没有足夠記憶體完成縮小圖檔！</VALUE></LANG>
+	<LANG><KEY>upload_completed</KEY><VALUE>上傳完成。</VALUE></LANG>
+	<LANG><KEY>upload_completed_note</KEY><VALUE>請注意：大的檔案需要一些存檔時間！</VALUE></LANG>
+	<LANG><KEY>loading</KEY><VALUE>毒區中</VALUE></LANG>
+	<LANG><KEY>file_selected</KEY><VALUE>被選取的檔案： '%s'.</VALUE></LANG>
+	<LANG><KEY>file_selected_url</KEY><VALUE>被選取的URL:  %s</VALUE></LANG>
+	<LANG><KEY>file_selected_error</KEY><VALUE>所選檔案： '%s'. 没有預覽小圖！</VALUE></LANG>
+	<LANG><KEY>folder_deleted</KEY><VALUE>目錄 '%s' 被刪除</VALUE></LANG>
+	<LANG><KEY>folder_not_deleted</KEY><VALUE>目錄 '%s' 無法被刪除！</VALUE></LANG>
+	<LANG><KEY>file_deleted</KEY><VALUE>檔案 '%s' 刪除</VALUE></LANG>
+	<LANG><KEY>file_not_deleted</KEY><VALUE>檔案 %s' 無法被刪除！</VALUE></LANG>
+	<LANG><KEY>file_deleted_permissions</KEY><VALUE>檔案 '%s' 無法被刪除，請檢查權限！</VALUE></LANG>
+	<LANG><KEY>folder_created</KEY><VALUE>目錄 '%s' 已產生.</VALUE></LANG>
+	<LANG><KEY>folder_exists</KEY><VALUE>目錄 '%s' 已經存在！</VALUE></LANG>
+	<LANG><KEY>folder_not_created</KEY><VALUE>目錄 '%s' 無法被建立！</VALUE></LANG>
+	<LANG><KEY>action_cancled</KEY><VALUE>指令取消。</VALUE></LANG>
+	<LANG><KEY>action_cancled_upload</KEY><VALUE>指令取消。請更新檔案區，請清除部分上傳文件！</VALUE></LANG>
+	<LANG><KEY>files_added</KEY><VALUE>%s 檔案被新增 </VALUE></LANG>
+	<LANG><KEY>folder_rename_to</KEY><VALUE>目錄不能被更名為 '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_rename</KEY><VALUE>原目錄名稱被名為 '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_rename_empty</KEY><VALUE>新目錄名稱不能是空白！</VALUE></LANG>
+	<LANG><KEY>folder_rename_root</KEY><VALUE>目錄不能被更名，因為是根目錄</VALUE></LANG>
+	<LANG><KEY>folder_rename_exists</KEY><VALUE>目錄 '%s' 已存在，請選擇其他名稱</VALUE></LANG>
+	<LANG><KEY>file_rename_empty</KEY><VALUE>新檔案名稱不能是空白！</VALUE></LANG>
+	<LANG><KEY>file_rename_exists</KEY><VALUE>檔案 '%s' 不能被更名，檔案已經存在</VALUE></LANG>
+	<LANG><KEY>file_rename_error</KEY><VALUE>檔案 '%s 不能被更名</VALUE></LANG>
+	<LANG><KEY>file_rename_permissions</KEY><VALUE>檔案 '%s' 不能被更名，請檢察權限！</VALUE></LANG>
+	<LANG><KEY>file_extension_error_rename</KEY><VALUE>檔案無法更名，因為不容許改變文件的副文件名！</VALUE></LANG>
+	<LANG><KEY>file_rename_to</KEY><VALUE>檔案 '%s' 被更名為 '%s'.</VALUE></LANG>
+	<LANG><KEY>dir_limit</KEY><VALUE>目錄區最多的檔案數是 %s. 請從上傳區移除 %s 檔案！</VALUE></LANG>
+	<LANG><KEY>dir_limit_2</KEY><VALUE>目錄區最多的檔案數是 %s. 請移除 %s 非存在的檔案.</VALUE></LANG>
+	<LANG><KEY>loading_preview</KEY><VALUE>讀取預覽圖'%s'.</VALUE></LANG>
+	<LANG><KEY>loading_big_preview</KEY><VALUE>讀取大的預覽圖 '%s'.</VALUE></LANG>
+	<!-- error messages -->
+	<LANG><KEY>error</KEY><VALUE>錯誤！</VALUE></LANG>
+	<LANG><KEY>error_:</KEY><VALUE>錯誤︰%s</VALUE></LANG>
+	<LANG><KEY>error_http</KEY><VALUE>錯誤︰%s - %s</VALUE></LANG>
+	<LANG><KEY>error_406</KEY><VALUE>錯誤︰ Http 403/406: 複製本系統提供的 .htaccess 到目錄區 twg_flash_uploader.swf.</VALUE></LANG>
+	<LANG><KEY>download_progress</KEY><VALUE>已下載 %s / %s</VALUE></LANG>
+	<LANG><KEY>upload_progress</KEY><VALUE>%s / %s</VALUE></LANG>
+	<LANG><KEY>big_preview</KEY><VALUE>要看放大圖案，請按下預覽小圖示</VALUE></LANG>
+	<LANG><KEY>download_wait</KEY><VALUE>請等候，正在準備下載。</VALUE></LANG>
+	<!-- new 2.6 -->
+	<LANG><KEY>files_deleted</KEY><VALUE>%s 個檔案已刪除。</VALUE></LANG>
+	<LANG><KEY>files_not_deleted</KEY><VALUE>%s 個檔案無法被刪除。</VALUE></LANG>
+	<LANG><KEY>files_deleted_permissions</KEY><VALUE>%s 個檔案無法被刪除。請檢查權限。</VALUE></LANG>
+	<LANG><KEY>menu_copy_file</KEY><VALUE>移動/複製 檔案</VALUE></LANG>
+	<LANG><KEY>menu_copy_folder</KEY><VALUE>移動文件夾</VALUE></LANG>
+	<LANG><KEY>select_copy_text</KEY><VALUE>選擇目標文件夾</VALUE></LANG>
+	<LANG><KEY>copymove_copy</KEY><VALUE>已複製</VALUE></LANG>
+	<LANG><KEY>copymove_move</KEY><VALUE>已移動</VALUE></LANG>
+	<LANG><KEY>copymove_error</KEY><VALUE>%s 檔案(總數 %s）無法被 %s. 請檢查文件夾權限。</VALUE></LANG>
+	<LANG><KEY>copymove_ok</KEY><VALUE>%s 檔案中有 %s 成功。</VALUE></LANG>
+	<LANG><KEY>copymove_some</KEY><VALUE>%s 檔案(總數 %s) %s 。</VALUE></LANG>
+	<LANG><KEY>copymove_exists</KEY><VALUE>%s 檔案(總數 %s) %s 。 %s 個檔案已經存在.</VALUE></LANG>
+	<LANG><KEY>copymove_dest</KEY><VALUE>選定的目標文件夾: %s.</VALUE></LANG>
+	<LANG><KEY>bt_copy</KEY><VALUE>複製</VALUE></LANG>
+	<LANG><KEY>bt_move</KEY><VALUE>移動</VALUE></LANG>
+	<LANG><KEY>ck_overwrite</KEY><VALUE>覆蓋l</VALUE></LANG>
+	<LANG><KEY>move_folder_ok</KEY><VALUE>文件夾 %s 成功.</VALUE></LANG>
+	<LANG><KEY>move_folder_error1</KEY><VALUE>資料夾未能 %s. 目標資料夾與源資料夾一樣。</VALUE></LANG>
+	<LANG><KEY>move_folder_error2</KEY><VALUE>資料夾未能 %s. 目標資料夾是源資料夾的子文件夾。</VALUE></LANG>
+	<LANG><KEY>move_folder_error3</KEY><VALUE>資料夾未能 %s. 資料夾已存在。</VALUE></LANG>
+	<LANG><KEY>move_folder_error4</KEY><VALUE>資料夾未能 %s. 請檢查資料夾權限。</VALUE></LANG>
+	<LANG><KEY>progress_time</KEY><VALUE>剩餘時間: %s.</VALUE></LANG>
+	<LANG><KEY>progress_time_m</KEY><VALUE>分鐘</VALUE></LANG>
+	<LANG><KEY>progress_time_s</KEY><VALUE>秒</VALUE></LANG>
+	<LANG><KEY>copymove_dest</KEY><VALUE>選定的目標資料夾: %s.</VALUE></LANG>
+	<LANG><KEY>menu_delete_file</KEY><VALUE>刪除檔案</VALUE></LANG>
+	<!-- new 2.7 -->
+	<LANG><KEY>bt_save</KEY><VALUE>儲存</VALUE></LANG>
+	<LANG><KEY>bt_view</KEY><VALUE>檢視</VALUE></LANG>
+	<LANG><KEY>bt_edit</KEY><VALUE>修改</VALUE></LANG>
+	<LANG><KEY>loading</KEY><VALUE>正在載入檔案 ...</VALUE></LANG>
+	<LANG><KEY>saved</KEY><VALUE>檔案 '%s' 已儲存.</VALUE></LANG>
+	<LANG><KEY>not_writable</KEY><VALUE>不可寫</VALUE></LANG>
+	<LANG><KEY>loaded</KEY><VALUE>檔案 '%s' 已載入.</VALUE></LANG>
+	<LANG><KEY>txt_delete_file</KEY><VALUE>確認刪除檔案?</VALUE></LANG>
+  <!-- new 1.7.4 - automatic retry -->
+	<LANG><KEY>timeout</KEY><VALUE>嘗試失敗. 請檢查TIMEOUT設定</VALUE></LANG>
+	<LANG><KEY>retry</KEY><VALUE>嘗試 %s / </VALUE></LANG>
+ <!-- new 1.7.4.5 - optional description -->
+	<LANG><KEY>grid_description</KEY><VALUE>額外描述</VALUE></LANG>
+	<LANG><KEY>grid_description_default</KEY><VALUE>輸入描述</VALUE></LANG>
+	<!-- new 1.7.5 -->
+	<LANG><KEY>error_color</KEY><VALUE>您在嘗試更改軟體介面顏色 - 此功能只供專業版或以上的持有網域使用。請移除介面顏色設定 c_*</VALUE></LANG>
+    <!--  new 1.8.0.1 -->
+	<LANG><KEY>dir_not_exists</KEY><VALUE>遠端資料夾不存在 - 請檢查設定</VALUE></LANG>
+	<LANG><KEY>no_file_extensions</KEY><VALUE>上傳不被容許, 只顯示遠端文件夾</VALUE></LANG>
+</TFU>

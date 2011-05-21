@@ -1,0 +1,90 @@
+<tr class="listing">
+	<td valign="top" title="{CATALOGNUMBER}">
+		<div style="text-align:right;margin-right:5px;color:#666666;">
+			<b>{CATALOGNUMBER}:</b> 
+		</div>
+		<br>
+		<div align="center">
+			<a style="margin-right:10px;" class="PreviewSwitch my-button my-button-toggleable ui-state-default my-button-icon-solo ui-corner-all" title="{ID}" href="#anchor{ID}"><span class="ui-icon ui-icon-image"></span> Open</a>
+
+		</div>
+	</td>
+	<td valign="top" title="{Title}">
+		<a id="anchor{ID}"></a>
+		
+		<div class="editable_text" fieldid="{ID}" table="Images" name="Title">{Title}</div>
+
+		<div class="advanced ui-widget-content ui-corner-all minieditor">
+			<br>
+			<i>Caption :</i>
+			<div class="editable_textarea" fieldid="{ID}" table="Images" name="Caption">{Caption}</div>
+			<br>
+
+			<i>Credit :</i>
+			<span class="editable_text" fieldid="{ID}" table="Images" name="Byline">{Byline}</span>
+			<br>
+			<br>
+
+			<i>Date :</i>
+			<span class="editable_text" fieldid="{ID}" table="Images" name="CreatedDate">{CreatedDate}</span>
+			<br>
+			<br>
+			<i>City :</i>
+			<span class="editable_text" fieldid="{ID}" table="Images" name="City">{City}</span>
+			<br>
+			<br>
+			<i>State :</i>
+			<span class="editable_text" fieldid="{ID}" table="Images" name="State">{State}</span>
+			<br>
+			<br>
+			<i>Country :</i>
+			<span class="editable_text" fieldid="{ID}" table="Images" name="Country">{Country}</span>
+			<br>
+			<br>
+		</div>
+		
+		<input type="hidden" id="info{ID}" value="{THUMBNAILS}/{URL},{ProjectID},{Title}"> 
+		<img id="preview{ID}" title="{ID}" src="" alt="{Title}" style="display:none;">
+
+		
+	</td>
+	<td valign="top" title="{ProjectTitle}">
+<!--<a class="GroupPreviewSwitch my-button ui-state-default my-button-toggleable my-button-icon-solo ui-corner-all" title="{PROJECTID}" href="#anchor{ID}"><span class="ui-icon ui-icon-image"></span> Open</a>-->
+		{ProjectTitle} 
+	</td>
+	<td valign="top" title="{Fullname}">
+		{Fullname} 
+	</td>
+	<td valign="top" title="" width="150">
+		<div class="isImage" {HIDE_IF_VIDEO}>
+			{ORIGINAL_ART} {ARTWORK_NAME}
+			<span class="list-light-text">
+			<i>{URL}</i>
+			<br>
+			<i>{Dimensions}</i>
+			<br>
+			<i>{Dimensions_print}</i> 
+			<br>
+			<i>{Dimensions_fixed}</i>
+			</span>
+			<div class="advanced">
+				(image settings to come)
+			</div>
+		</div>
+		<div class="isVideo" {SHOW_IF_VIDEO}>
+			{VIDEOFLAG}
+		</div>
+	</td>
+	<td valign="top" title="{PriceSetName}">
+		{ImageSaleStatus}<br>
+		<span class="list-light-text">{fp:priceset}: {PriceSetName}<br>
+		{fp:editionsize}: <span id="{ID}_editionsizeshow">{ShowEditionSize}</span>
+		</span>
+		<div class="advanced">
+			{SALESFORM} 
+		</div>
+	</td>
+	<td valign="top" style="text-align:right;whitespace:nowrap;">
+		<span class=""><input name="multiedit[]" id="multiedit_{ID}" value="{ID}" type="checkbox"></span> | {EDIT_COMMAND} | {DELETE_COMMAND} 
+	</td>
+</tr>

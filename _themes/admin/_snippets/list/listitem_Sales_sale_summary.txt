@@ -1,0 +1,45 @@
+<!-- listitem_Sales_sale_summary -->
+<div style="width:200px;">
+	[<a href="#" class="toggler" title="show:hide">show</a>]
+	<div style="float:right;">{CURRENCY} {total} {mc_currency}</div>
+</div>
+<table class="helptext" style="white-space: nowrap;display:none;width:200px;">
+	<tr>
+		<td>
+			{fp:artist} commission 
+		</td>
+		<td style="text-align:right;">
+			{CURRENCY} {artist} {mc_currency}</td 
+	</tr>
+	<tr>
+		<td>
+			{fp:gallery} commission 
+		</td>
+		<td style="text-align:right;">
+			{CURRENCY} {gallery} {mc_currency}</td 
+	</tr>
+	<tr>
+		<td>
+			Optional commission 
+		</td>
+		<td style="text-align:right;">
+			{CURRENCY} {optional} {mc_currency}</td 
+	</tr>
+	<tr>
+		<td>
+			Printing &amp; finishing 
+		</td>
+		<td style="text-align:right;">
+			{CURRENCY} {supplier} {mc_currency}</td 
+	</tr>
+<!--
+	<tr>
+		<td>
+			<b>Total Sale</b>
+		</td>
+		<td style="text-align:right;">
+			<b>{CURRENCY} {total} {mc_currency}</b>
+		</td>
+	</tr>
+-->
+</table>

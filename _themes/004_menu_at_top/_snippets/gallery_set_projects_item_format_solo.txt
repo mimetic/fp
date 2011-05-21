@@ -1,0 +1,28 @@
+<!--gallery_set_projects_item_format-->
+<td valign="top" class="gallery">
+	<div class="gallery-description" >
+		<span class="sspop" id="slideshowssp">{slideshowpopup}</span>
+		<span class="sspop" id="slideshowsv">{slideshowpopupsv}</span>
+		<span class="sspop" id="slideshowpc">{slideshowpopuppc}</span>
+		<span class="sspop" id="slideshowtv">{slideshowpopuptv}</span>
+		<br>
+		<div class="location">
+			{Projects_Place}
+		</div>
+		<div class="statement">
+			{Projects_Statement}
+		</div>
+		<div class="description">
+			{Projects_Description}
+		</div>
+		{storylist}
+		<div style="position:relative;bottom:0px;">
+			<img src="images/mim_nav_04.gif" alt="" width="150" height="19">
+			{gallery_help_text}
+		</div>
+	</div>
+</td>
+<td valign="top">
+	<div class="gallery-description-divider" style="height:{DefaultYSize}px;">
+	</div>
+</td>

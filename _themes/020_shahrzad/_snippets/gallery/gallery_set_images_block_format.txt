@@ -1,0 +1,23 @@
+<!-- gallery_set_images_block_format -->
+<td class="galleryColSpacer" style="{gallery_spacing}">
+	<div class="galleryColSpacer" style="{gallery_spacing}">
+	</div>
+</td>
+<td class="galleryPictureColumn" valign="top" id="gallery_picture">
+	<div id="exhibit" class="exh">
+		<!-- warning: this div will be removed & replaced! Don't store anything in here! -->
+		<div class="exh-no-js" id="exhibit-no-js">
+			Please stand by, images loading. 
+		</div>
+	</div>
+	<ul class="exhibit-set">
+		{LIST} 
+	</ul>
+</td>
+<td class="galleryColSpacer" style="{gallery_spacing}">
+	<div class="galleryColSpacer" style="{gallery_spacing}">
+	</div>
+</td>
+<td class="galleryInfoColumn">
+	<div id="captionstage" class="galleryInfoColumn"></div>	
+</td>

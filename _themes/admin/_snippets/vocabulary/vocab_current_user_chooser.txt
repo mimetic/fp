@@ -1,0 +1,2 @@
+<!--vocab_current_user_chooser-->
+<INPUT name="vocab_user" value="{ID}">User #{ID}

@@ -1,0 +1,18 @@
+<div align="center">
+<table border=1 cellpadding=15 width="90%">
+	<tr>
+		<td valign="top" bgcolor="#FFFF99">
+		<div align="center">
+			<B>ATTENTION:</B>
+		</div>
+		There are <B>{pixcount} picture(s)</B> to process for this project. The system will automatically process {PicCountToProcess}&nbsp;pictures by 
+		itself in <B>{refreshdelay} seconds.</B> The system can only process {PicCountToProcess} picture(s) at a time, or it will
+		overload the server computer.<BR>
+		<BR>
+		<div align="center">
+			You can also <B>{reload}click here to process {PicCountToProcess} picture(s).</a></B>
+		</div>
+		</td>
+	</tr>
+</table>
+</div>

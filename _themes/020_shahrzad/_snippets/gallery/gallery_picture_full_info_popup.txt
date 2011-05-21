@@ -1,0 +1,12 @@
+<!--gallery_picture_full_info_popup-->
+<div class="captionblock" style="margin:{PROJECTFRAMEWIDTH}px;padding:{MatteWidth}px {MatteWidth}px {MatteWidthBottom}px {MatteWidth}px;">
+	<div class="title">{Images_FullName}
+	<snippet name="LINK_TO_ARTIST_GALLERY" />
+	<br>
+	<span class="image_title">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}</div>
+	{Images_Caption}
+	{Credit}
+	<div class="buttons">
+		{SHOW_CAPTION_BUTTON} {BuyPrint} {BuyPrintText} 
+	</div>
+</div>

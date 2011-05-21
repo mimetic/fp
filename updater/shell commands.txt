@@ -1,0 +1,121 @@
+# RSYNC COMMAND TO INSTALL 
+
+======================================
+Getting into the server:
+	ssh myaccount@host.frontline-photos.com
+(assuming the encryption key is activated!)
+
+
+======================================
+
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/installer_include.txt --exclude-from=/Users/dgross/Sites/fp/updater/installer_exclude.txt /Users/dgross/Sites/fp/* USER@MYSITE.COM:public_html/
+
+============= WORKSPACE =============
+(use -navzp for test mode — no actual upload)
+
+
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/installer_include.txt --exclude-from=/Users/dgross/Sites/fp/updater/installer_exclude.txt /Users/dgross/Sites/fp/* massimos@massimoschiacca.mimetic.com:public_html/
+
+
+======================================
+
+**************************
+IN CASE RSYNC FAILS (Connection closed by remote host), 
+BE SURE YOU ARE AT AN IP ADDRESS THAT THE SERVER WILL ACCEPT: SEE 'HOST ACCESS CONTROL' ON THE SERVER.
+You might have to fix Host Access Control on the web server.
+**************************
+List of current accounts:
+
+girlswho
+mimetic
+fireseason
+davidgrossphoto
+frontline-photos
+atelius
+caroline
+alpsime
+milosbicanski
+shahrzadkamel
+justmiel
+karenrobinson
+georgegeorgeiou
+vanessawinship
+lisakessler
+massimosciacca
+danapopa
+seekthefoufou
+artpressgallery
+**************************
+
+
+UPDATE: RSYNC FROM FP WORKING COPY TO WORKING COPY FOR BEANSTALK
+rsync -avz --delete --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* /Users/dgross/Sites/fp_beanstalk
+
+
+#Use rsycn_all.sh in termanal to update all at once
+
+#Update the following sites:
+
+#Sandbox:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* girlswho@girlswholike.us:public_html/
+
+
+#FireSeason2009.com:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* fireseas@fireseason2009.com:public_html/
+
+
+#DavidGrossPhoto:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* dgphoto@davidgrossphoto.com:public_html/
+
+
+#Mimetic: 
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* mimetic@mimetic.com:public_html/
+
+#frontline-photos
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* frontlin@frontline-photos.com:public_html/
+
+#Atelius:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* atelius@atelius.com:public_html/
+
+#Caroline: 
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* caroline@carolineabitbol.com:public_html/
+
+#alpsime
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* alpsime@alpsime.com:public_html/
+
+#milosbicanski:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* milosbic@milosbicanski.com:public_html/
+
+#shahrzadkamel.com:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* shahrzad@shahrzadkamel.com:public_html/
+
+
+#justmiel.com:
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* justmiel@justmiel.com:public_html/
+
+#karenrobinson.co.uk (aliased to karenrobinson.mimetic.com)
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* karenrob@karenrobinson.mimetic.com:public_html/
+
+#georgegeorgeiou.net
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* georgege@georgegeorgiou.net:public_html/
+
+#vanessawinship.com
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* vanessaw@vanessawinship.com:public_html/
+
+#lisakessler.net
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* lisakess@lisakessler.net:public_html/
+
+#Massimo Schiacca
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* massimos@massimosciacca.mimetic.com:public_html/
+
+#Dana Popa
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* danapopa@mimetic.com:public_html/
+
+#Seek The FouFou
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* seekthef@seekthefoufou.com:public_html/
+
+#ArtPressGallery
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt /Users/dgross/Sites/fp/* artpress@artpressgallery.com:public_html/
+
+#DeanChapmanPhotos.com
+rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/installer_include.txt --exclude-from=/Users/dgross/Sites/fp/updater/installer_exclude.txt /Users/dgross/Sites/fp/* deanchap@72.233.89.16:/home/deanchap/public_html/

@@ -1,0 +1,5 @@
+<!-- projects_set_artists_block_format -->
+{LIST}
+<div class="list caption">
+	{Projects_Lead}
+</div>

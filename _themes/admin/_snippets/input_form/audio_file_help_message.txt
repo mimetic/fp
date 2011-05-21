@@ -1,0 +1,1 @@
+Enter '0' to set the length of the show to match the length of the chosen audio track ({AUDIO} is {AUDIOLENGTH} seconds long).

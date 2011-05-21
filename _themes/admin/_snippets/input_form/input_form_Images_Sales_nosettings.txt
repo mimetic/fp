@@ -1,0 +1,9 @@
+<!-- input_form_Images_Sales_nosettings -->
+<tr class="entryform">
+	<th valign="top" align="right">
+		Sales : 
+	</th>
+	<td>
+		<em>(The {fp:priceset} for this image or its parent project do not have pricing and edition settings, <BR>OR this picture is not for sale, <BR>OR this picture is too small to sell.)</em>
+	</td>
+</tr>

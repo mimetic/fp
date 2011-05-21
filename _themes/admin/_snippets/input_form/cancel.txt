@@ -1,0 +1,2 @@
+<!-- cancel -->
+<button name="action" type="submit" value="show_list" class="cancelbutton">Cancel</button>

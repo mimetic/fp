@@ -1,0 +1,23 @@
+<!-- gallery_project_item.html -->
+<TD valign="top" WIDTH=150>
+	<div class="projecttitle">
+		{Projects_Title}<BR>
+	</div>
+	<div class="location">
+		{Projects_Place}
+	</div>
+	<BR>
+	<span class="sspop" id="slideshowssp">{slideshowpopup}</span><br><br>
+	<div class="statement">
+		{Projects_Statement}
+	</div>
+	<div class="description">
+		{Projects_Description}
+	</div>
+	<BR>
+	<img src="images/mim_nav_04.gif" alt="" width="150" height="19">
+</TD>
+
+<TD WIDTH=80>
+	<BR><img src="images/mim_nav_04.gif" alt="" width="80" height="19">
+</TD>

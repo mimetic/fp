@@ -1,0 +1,6 @@
+<!--error_user_over_storage-->
+<div class="helptext">
+	<span class="important">
+		Warning: you have used all of your storage space for pictures. Please delete some pictures to make space for new ones.
+	</span>
+</div>

@@ -1,0 +1,31 @@
+<!--input_form_theme_editor_chooser-->
+
+<TABLE rules="rows" border="0" cellpadding="4">
+	<TR class="entryform" >
+		<td colspan=2>
+			{publicprivateinput}
+		</td>
+	</tr>
+	<TR class="entryform" >
+		<TH valign="top" align="right">
+			Theme to Edit :
+		</TH>
+		<TD>
+			{THEMELIST} <INPUT TYPE=submit NAME=subset VALUE="Edit">
+			<INPUT TYPE=submit NAME=subset VALUE="Delete" onClick="return confirm('Are you sure you want to delete this theme?');"><br>
+			<div class="helptext">
+				* user-created theme variation.<br>
+				<br>
+				<p>
+					Names with an asterisk (*) are user-created themes. Names without an asterisk are system themes and cannot be deleted.
+				</p>
+				<p>
+					When you edit and save a system theme, you are really creating a new "user-created" theme. The new theme takes the place of the system theme with the same name. You can edit a theme, then save with a new name which will not cover up a system theme.
+				</p>
+				<p>
+					When you delete a theme which has the same name as a system them, the system theme will reappear.
+				</p>
+			</div>
+		</TD>
+	</TR>
+</TABLE>

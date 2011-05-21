@@ -1,0 +1,7 @@
+<!--frameshop_link_popup-->
+<div class="printsalesinfo">
+	<snippet name="frameshop_buyaprint_popup">
+	<div id="priceinfo_{ID}_pop" class="gallery-priceinfo" style="display:none;">
+	{LIMITED_EDITION} {AVAILABLESIZES} {PRICERANGE}
+	</div>
+</div>

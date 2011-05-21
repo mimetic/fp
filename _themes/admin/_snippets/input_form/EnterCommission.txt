@@ -1,0 +1,12 @@
+<!-- EnterCommission -->
+	<TR class="entryform">
+		<TH valign="top" align="right">
+			Commission :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME=Commission VALUE="{Commission}" SIZE="2">%
+			<div class="helptext">
+				Enter a number between 0% and 100% for the percentage that {FP_SYSTEM_DISPLAY_NAME} keeps from a print sale
+			</div>
+		</TD>
+	</TR>

@@ -1,0 +1,112 @@
+**** PUT THIS IN YOUR PAGE HEADER (change paths if necessary):
+
+
+
+<script src="/js/jquery/jquery.js" type="text/javascript" language="javascript"></script>
+
+<script src="/js/jquery/ifx.js" type="text/javascript" language="javascript"></script>
+
+<script src="/js/jquery/idrop.js" type="text/javascript" language="javascript"></script>
+
+<script src="/js/jquery/idrag.js" type="text/javascript" language="javascript"></script>
+
+<script src="/js/jquery/iutil.js" type="text/javascript" language="javascript"></script>
+
+<script src="/js/jquery/islider.js" type="text/javascript" language="javascript"></script>
+
+
+
+<script src="/js/jquery/color_picker/color_picker.js" type="text/javascript" language="javascript"></script>
+
+
+
+
+
+<link href="/js/color_picker/color_picker.css" rel="stylesheet" type="text/css">
+
+<!-- compliance patch for microsoft browsers -->
+
+<!--[if lt IE 7]>
+
+	<link rel="stylesheet" href="/js/jquery/color_picker/color_picker-ie6.css" type="text/css">
+
+<![endif]-->
+
+<!--[if gte IE 7]>
+
+	<link rel="stylesheet" href="/js/jquery/color_picker/color_picker-ie7.css" type="text/css">
+
+<![endif]-->
+
+
+
+
+
+
+
+***** CHANGE PATHS IN CSS STYLSHEET IF NECESSARY :
+
+for example, change :
+
+	url(/js/color_picker/images/pickerbg.png);
+
+by:
+
+	url(/js/my_specific_path/color_picker/images/pickerbg.png);
+
+
+
+
+
+
+
+
+
+***** IN YOUR PAGE, PLACE SOME LINK LIKE THIS TO CHOOSE COLOR :
+
+***** change options in rel="" in the link
+
+
+
+
+
+<input type="text" id="myhexcode" value="" style="width:60px;">
+
+<a href="javascript:void(0);" rel="colorpicker&objcode=myhexcode&objshow=myshowcolor&showrgb=1&okfunc=myokfunc" style="text-decoration:none" ><div id="myshowcolor" style="width:15px;height:15px;border:1px solid black">&nbsp;</div></a>
+
+
+
+<script language="Javascript">
+
+
+
+	function myokfunc(){
+
+		alert("This is my custom function which is launched after setting the color");
+
+	}
+
+
+
+	//init colorpicker:
+
+	$(document).ready(
+
+		function()
+
+		{
+
+			$.ColorPicker.init();
+
+		}
+
+	);
+
+
+
+</script>
+
+
+
+
+

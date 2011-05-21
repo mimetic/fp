@@ -1,0 +1,1 @@
+If you have already sold copies of this {fp:image} before entering it into this website, you should lock the {fp:priceset}, so the prices do not change automatically. Doing so will create a new {fp:priceset} only for this {fp:image}. Next, you should enter the number of sold copies into the website, so the next sale will have the correct edition number.

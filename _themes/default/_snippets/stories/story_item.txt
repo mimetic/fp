@@ -1,0 +1,8 @@
+<!--gallery_single_story_item-->
+<div class="story">
+	<h1>{title}</h1>
+	<div class="story_byline">
+		<!--by {fullname}-->
+	</div>
+	{story}
+</div>

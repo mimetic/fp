@@ -1,0 +1,25 @@
+<!-- listitem_Artists_header -->
+<tr>
+	<td colspan="5" align="right">
+		Show rows containing: <input id="rowfilter" type="text">
+		<button type="button" class="my-shortbutton" id="clearrowfilter" >Clear</button>
+	</td>
+<tr>
+
+<tr class="listing-header">
+	<th>
+		Name 
+	</th>
+	<th>
+		Username 
+	</th>
+	<th>
+		Email 
+	</th>
+	<th style="text-align:right;" class="{sorter: false}">
+		&nbsp; 
+	</th>
+	<th class="{sorter: false}">
+		&nbsp; 
+	</th>
+</tr>

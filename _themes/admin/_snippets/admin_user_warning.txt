@@ -1,0 +1,4 @@
+<!--admin_user_warning-->
+<div class="ui-state-error padme">
+	Warning: You are editing your website as System Administrator. Please sign in with your normal user name if you wish to change {fp:projects} or {fp:images}.
+</div>

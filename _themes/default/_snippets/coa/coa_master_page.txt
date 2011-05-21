@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<!-- this template is coa_master_page -->
+<head>
+	<title>
+		{pagetitle}
+	</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="date" content="{DATETIME}">
+	{META_INDEX}
+	<!-- place before system style sheets, which may override these defaults -->
+	<link type="text/css" href="{JAVASCRIPT_PATH}/jquery/css/custom-theme/jquery-ui-custom.css" rel="stylesheet">	
+	<!-- system stylesheets -->
+	{STYLESHEETS}
+	{GALLERY_STYLESHEET}
+	
+	<!-- system vars for javascript here -->
+	<snippet name="system_vars">
+	<snippet name="system_vars_modifier">
+	<snippet name="theme_vars">
+	
+	<snippet name="jquery_libraries">
+	<snippet name="javascript_libraries">
+	
+	<script src="{JAVASCRIPT_FP_LIB}" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery.cssedit.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/theme_editor.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT}" type="text/javascript" language="javascript"></script>
+	<snippet name="google_analytics_js">
+
+</head>
+<body class="coa">
+	<div id="printme" class="ui-widget ui-widget-content ui-corner-all padme">
+		<button type="button" onclick="document.getElementById('printme').style.display = 'none';window.print();document.getElementById('printme').style.display = 'block';" class="ui-button">
+			Print This Page 
+		</button>
+		<button type="button" id="coa-show-complete" class="ui-button">
+			Complete 
+		</button>
+		<button type="button" id="coa-show-skeleton" class="ui-button">
+			Skeleton 
+		</button>
+		<button type="button" id="coa-show-filled" class="ui-button">
+			Filled Only 
+		</button>
+		<button type="button" id="coa-show-blank" class="ui-button">
+			Blank Form 
+		</button>
+		<button type="button" onclick="window.close()" class="ui-button">
+			Close 
+		</button>
+		
+		<script type="text/javascript" language="javascript">
+		<!--
+		var COA_SHOWBLANKFORMONLY = {SHOWBLANKFORMONLY};
+		//-->
+		</script>
+		
+		<br>
+		<div class="helptext">
+			* We suggest turning OFF "Print Headers and Footers" and turning ON "Print Backgrounds" in your printer options. 
+		</div>
+	</div>
+	<div id="coa-container">
+		<div class="coa-form-container" id="coa-filled-container">
+			{TEXT} 
+		</div>
+		<div class="coa-form-container" id="coa-blank-container">
+			{TEXT_BLANK} 
+		</div>
+	</div>
+</body>
+</html>

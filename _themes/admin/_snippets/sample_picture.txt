@@ -1,0 +1,10 @@
+{Images_IMG}<BR>
+<BR>
+<div style="width:{DefaultXSize}px;">
+	<div class="caption">
+		{Images_Caption}<BR>
+		<span class="signature">{Artists_Firstname} {Artists_Lastname}, from the project <A HREF="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</A></span>
+	</div>
+</div>
+<BR>
+<BR>

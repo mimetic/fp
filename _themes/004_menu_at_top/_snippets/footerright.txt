@@ -1,0 +1,2 @@
+<!--<a href="terms.html" target="_blank">Terms & Copyright</A> | <a HREF="admin.php" >Administration</a><BR>
+Site design by <a href="http://www.mimetic.com/" rel="ext">David Gross</a>-->

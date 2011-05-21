@@ -1,0 +1,4 @@
+<!-- frameshop_printing_details_original -->
+<p>
+	<span class="faded">Size:</span> <span id="display_size"></span><br>
+</p>

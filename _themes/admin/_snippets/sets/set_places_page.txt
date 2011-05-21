@@ -1,0 +1,10 @@
+Places	block_format	<BR><div class="title">Featured Places</div><BR>{list}
+Places	item_format	<span class="entry">{Places_Place}</span><BR>
+Projects	block_format	{list}
+Projects	item_format	<a class="list caption" href="gallery.php?ProjectID={Projects_ID}">&nbsp;&nbsp;{Projects_Title}</a><BR>
+Places	separator_format	<BR>
+Artists	block_format	<span class="list caption">&nbsp;&nbsp;&nbsp;&nbsp;by </span>{list}<BR>
+Artists	item_format	<A class="list caption" HREF="artist.php?ArtistID={Artists_ArtistID}">{Artists_Firstname} {Artists_Lastname}</A>
+Artists	separator_format	,&nbsp;
+pix	block_format	{list}
+pix	item_format	<!--empty-->

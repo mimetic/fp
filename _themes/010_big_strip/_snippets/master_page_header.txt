@@ -1,0 +1,7 @@
+<!--master_page_header-->
+<div id="header" ><div id="headerc" class="{sectionclass}">
+	<span id="header-subtitle" class="editable">{subtitle}</span>
+	<span id="topnav" class="navbar-container editable">
+		<div class="navbar"><a class="navbar selected" href="projects.php?GroupID={GroupID}">{fp:Go Back}</A></div>
+	</span>
+</div></div>

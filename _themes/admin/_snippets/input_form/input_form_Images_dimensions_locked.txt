@@ -1,0 +1,6 @@
+				<!--input_form_Images_dimensions-->
+				{LOCALDIMENSIONS}				
+				{OFFSITE}
+				<div id="offsitedimensions" style="	display: inline;visibility:{VISIBILITY}" > and is  
+					{WIDTH_PRINT} wide &times; {HEIGHT_PRINT} high in pixels
+				</div>

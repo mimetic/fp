@@ -1,0 +1,145 @@
+<!-- frameshop_controls_paypal -->
+	<h2>Your Order</h2>
+
+<!-- send vars to send_order, which saves values before forwarding to paypal -->
+<form id="order" name="order" class="orderform fpcart" action="send_order.php" method="post" onSubmit="return VerifyPurchase();">
+	
+		{SizesList}
+		{FrameStyleList} 
+		{MatteList} 
+		{GlazingList} 
+		{PaperList} 
+		<br>
+		<br>
+<!--
+We don't use this because I can't update the pop-up menu to reflect the number remaining to sell
+using javascript.
+
+{Quantity}
+		<br>
+-->
+		<div class="infobox" style="padding:0px;padding-top:0px;width:100%;margin:0px;border:0px;border-top:0px solid #111;">
+			<table width="100%">
+				<tr>
+					<th width="80">Price:</th>
+					<td width="70" align="right"><span id="unit_price" ></span></td>
+					<td colspan="2"  style="padding-left:10px;">
+						<button id="ui-edit-coupon" class="ui-button" type="button" style="padding-top,padding-bottom:2px;">Use {fp:coupon}</button>
+					</td>
+				</tr>
+				<tr id="discountdisplay" style="display:none;">
+					<th>Discount:</th>
+					<td align="right"><span id="coupon_price_display"></span></td>
+					<td colspan="2" align="left" style="padding-left:10px;"><span id="coupon_description_display"></span></td>
+				</tr>
+				<tr>
+					<th>Shipping:</th>
+					<td align="right"><span name="shipping_price_display" id="shipping_price_display">0.00</span></td>
+					<td colspan="2" style="padding-left:10px;">
+						<button id="ui-edit-shipping" class="ui-button" type="button" style="padding-top,padding-bottom:2px;">Set Shipping</button>
+					</td>
+				</tr>
+				<tr>
+					<th>Handling:</th>
+					<td align="right"><span id="handling_display">0</span></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="salestaxdisplay" style="display:none;">
+					<th>Tax:</th>
+					<td align="right"><span id="tax_display"></span></td>
+					<td colspan="2"></td>
+				</tr>
+				<tr >
+					<th >Total:</th>
+					<td align="right"><b><span id="total_price"></span></b></td>
+					<td>{FP_CURRENCY_NAME}
+						
+					</td>
+					<td style="text-align:right;">
+						<button type="submit" name="submit" id="BuyButton" class="ui-button">PayPal Checkout</button>
+
+						<button type="submit" name="add_to_cart" class="ui-button" value="add to cart" style="float:right;" >Add to Cart</button>
+
+					</td>
+				</tr>
+			</table>
+			{FP_FRAMESHOP_TESTING_MSG}
+		</div>
+
+		<div class="helptext">
+		<span id="TaxMethodMsg"></span> International buyers may be charged additional import duties by their home countries.
+		{DELAY_MESSAGE}
+		</div>
+
+		<input id="discount" type="hidden" value="0">
+		<input id="coupon_description" type="hidden" value="0">
+		<input id="shipping_price" type="hidden" value="0">
+		<input id="currentquantity" name="quantity" type="hidden" value="1">
+		<input id="extrashipping" type="hidden" value="{EXTRASHIPPING}">
+		
+<!-- FP ordering system vars -->
+		
+		<input id="supplierid" name="SupplierID" type="hidden" value="{SUPPLIERID}">
+		<input id="cost" name="cost" type="hidden" value="0">
+		<input name="ImageID" id="imageid" type="hidden" value="{ImageID}">
+		<input id="image_cat_num" type="hidden" value="{CATALOGNUMBER}">
+		<input id="MaxSide" name="Size" type="hidden" value="">
+
+<!-- Paypal and Sales Cart FIELDS -->
+<!-- CMD determines whether to use a cart or Buy Now -->		
+		<input name="cmd" type="hidden" value="_xclick">
+
+		<input name="add" type="hidden" value="1">
+		<input name="business" type="hidden" value="{PAYPAL_BUSINESS_EMAIL}">
+		<input name="item_name" type="hidden" value="{ITEM_NAME} by {Artists_Fullname}">
+		<input id="item_number" name="item_number" type="hidden" value="{ImageID}">
+		<input id="matchprint" name="MatchprintRequired" type="hidden" value="{MATCHPRINT}">
+		<input id="amount" name="amount" type="hidden" value="0">
+		<input id="total" name="mc_gross" type="hidden" value="0">
+		<input id="handling" name="handling" type="hidden" value="0">
+		<input id="shipping" name="shipping" type="hidden" value="0">
+		<input id="shipping_method" name="shipping_method" type="hidden" value="0">
+		<input id="tax" name="tax" type="hidden" value="0">
+		<input name="no_shipping" type="hidden" value="2">
+		<input name="return" type="hidden" value="{RETURNURL}">
+		<input name="shopping_url" type="hidden" value="{RETURNURL}">
+		<input name="rm" type="hidden" value="2">
+		<input name="page_style" type="hidden" value="frontline_photos">
+		
+		<input name="cancel_return" type="hidden" value="{RETURNURL}">
+		<input name="currency_code" type="hidden" value="{PAYPAL_CURRENCY_CODE}">
+		<input id="weight" name="weight" type="hidden" value="{WEIGHT}">
+		<input name="weight_unit" type="hidden" value="lbs">
+		<input name="lc" type="hidden" value="US">
+		<input name="bn" type="hidden" value="PP-ShopCartBF">
+		<input name="notify_url" type="hidden" id="notify_url" value="{PAYPAL_NOTIFY_URL}" >
+		<input name="invoice" type="hidden" value="{INVOICE}">
+		<input name="on0" type="hidden" value="Desc">
+		<input name="on1" type="hidden" value="">
+
+		<input type="hidden" size="135" id="custom"  name="custom" value="">
+
+<!-- this being empty means we just jump back to the gallery window -->
+<!--		<input name="shopping_url" type="hidden" value="">-->
+
+		<textarea style="display: none;" id="desc" name="os0" rows="8" cols="50"></textarea>
+		<input name="os1" type="hidden" value="">
+
+		<textarea style="display: none;" id="spec" name="spec" rows="8" cols="50"></textarea>
+		<!--<input type="hidden" size="135" id="spec64"  name="os1" value="{SPECS}">-->
+
+	</form>
+<!-- View Cart: can't use because can't turn off quantity in PayPal carts
+	<div style="margin-top:10px;float:right;">
+		<snippet name="showcart_paypal" />
+	</div>
+-->
+
+<div id="shipping_entry_form" style="display:none;">
+{SHIPPING_ENTRY_FORM}
+</div>
+<div id="coupon-entry-form" style="display:none;">
+{COUPON_ENTRY_FORM}
+</div>
+

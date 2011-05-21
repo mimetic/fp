@@ -1,0 +1,9 @@
+<!-- theme_vars -->
+<script type="text/javascript" language="javascript">
+
+var FP_SPACE_FOR_CAPTION = false;
+var FP_GALLERY_MAX_PIC_HEIGHT = FP_SLIDE_HEIGHT;
+var FP_GALLERY_MAX_PIC_WIDTH = FP_SLIDE_WIDTH;
+var FP_SET_BKGD_PICTURE = false;
+
+</script>

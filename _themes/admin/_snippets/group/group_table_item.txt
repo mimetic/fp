@@ -1,0 +1,21 @@
+
+			<div class="group_table_item">
+				<table class="group_table">
+					<tr>
+						<td valign="top">
+							<div class="group_icon"><a href="projects.php?GroupID={ID}">{icon}</a></div>
+						</td>
+						<td valign="top">
+							<div class="group_table_text">
+								<div class="group_table_title">
+									<a href="projects.php?GroupID={ID}" class="group_table_title">{title}</a>
+									<!-- ID = {ID} --><!--{k}. -->
+								</div>
+								<div class="group_table_desc">
+								{description}
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>

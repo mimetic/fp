@@ -1,0 +1,26 @@
+<!-- frameshop_paypal_receipt-->
+
+{params}
+<BR>
+<BR>
+
+<p>You must state clearly that the purchase made through PayPal was successful and that the 
+transaction has been completed.</p>
+
+<p>You must tell the buyer that the payment and transaction details will arrive in an email sent 
+to the buyer.</p>
+
+
+<p>Offer the buyer a few products that might be of interest based on what the buyer just 
+purchased.</p>
+
+
+<p>If you enabled Auto Return, let buyers view and print a receipt. The alternate payment 
+confirmation page on the PayPal website disappears quickly and the page does not offer a 
+View Printable Receipt link.</p>
+
+
+<p>Provide a link or button that lets the buyer return to your product catalog and continue 
+shopping.</p>
+
+<a href="gallery.php?ProjectID={projectID}">Return to {ProjectTitle}</a>

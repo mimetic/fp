@@ -1,0 +1,5 @@
+Projects	block_format	{gallery_set_projects_block_format}
+Projects	item_format	{gallery_set_projects_item_format}
+Images	block_format	{gallery_set_images_block_format}
+Images	item_format	{gallery_set_images_item_format}
+Images	row_format	<!-- -->

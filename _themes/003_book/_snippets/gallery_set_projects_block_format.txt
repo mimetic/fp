@@ -1,0 +1,7 @@
+<!--gallery_set_projects_block_format-->
+<!-- start list -->
+{list}
+							</tr>
+						</table>
+<!-- end row container -->
+					</div>

@@ -1,0 +1,72 @@
+<!-- File: master_page_popups -->
+
+	<!-- list of pix, for prev/next...probably not needed!-->
+	<input id="piclist" type="hidden" size="100" value="{PICLIST}">
+	<input id="SlideAdjustment" type="hidden" value="{FP_SLIDE_ADJUSTMENT}">
+	<input id="SlideMaxW" type="hidden" value="{SlideXSize}">
+	<input id="SlideMaxH" type="hidden" value="{SlideYSize}">
+
+	<!-- popup window for showing pictures -->	
+
+	<div id="popup" class="popup_window" style="position:fixed;" >
+		<div id="popup_pictureblock" class="gallerypictureblock"  >
+		<table class="pictureframe" >
+				<tr>
+					<td ><img alt="" id="pf1" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_tl.jpg" ></td>
+					<td ><img alt="" id="pf2" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_t.jpg" ></td>
+					<td ><img alt="" id="pf3" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_tr.jpg" ></td>
+				</tr>
+				<tr>
+					<td ><img alt="" id="pf4" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_l.jpg" ></td>
+					<td class="picturematte" style="background-color:{MATTECOLOR};"><img alt="" id="popup_img" src="images/blank.gif" ></td>
+					<td ><img alt="" id="pf6" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_r.jpg" ></td>
+				</tr>
+				<tr>
+					<td ><img alt="" id="pf7" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_bl.jpg" ></td>
+					<td ><img alt="" id="pf8" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_b.jpg" ></td>
+					<td ><img alt="" id="pf9" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/1_br.jpg" ></td>
+				</tr>
+			</table>
+			<div class="popup_window_nav" >
+				<table align="center">
+					<tr>
+						<td><a href="#" id="popup_prev" onClick="changePopupImage('prev');">&larr;</a></td>
+						<td><a href="#" id="popup_close" onClick="unPopUpImage('popup', {GALLERYFADEDARKNESS});">&times;</a></td>
+						<td><a href="#" id="popup_next" onClick="changePopupImage('next');" >&rarr;</a></td>
+					</tr>
+				</table>
+			</div>
+			<!-- gallery_popupmsg is built in FetchCascade, and the javascript gets it from fields to show here, inside the <div></div> -->
+			<div id="popup_text" style="{FP_DISPLAY_CAPTION_SHOW_HIDE}"></div>
+			<!-- this is retrieved from fields ID=buy_x and put here by javascript-->
+			<div id="popup_buy" style=""></div>
+		</div>
+	</div>
+	<!-- popup window for showing stories -->
+	<div id="popup_story" class="popup_window">
+		<div style="float:right;"><button type="button" onClick="$('#popup_story').hide();">Close</button></div>
+		<div class="story">
+			<h1 style="text-align:center;"><span id="popup_story_title"></span></h1>
+			<div class="story byline">
+				<div id="popup_story_byline"></div>
+			</div>
+			<div class="sampleimage">
+				<div id="popup_story_sampleimage"></div>
+			</div>			
+			<span id="popup_story_text"></span>
+			<div id="popup_story_prev"></div>
+			<div id="popup_story_next"></div>
+		</div>
+	</div>
+<!-- cover up the whole background. Careful about the enclosing container! -->
+<div id="popup_bkgd_coverup" class="popup_bkgd_coverup"></div>
+<div id="popup_story_bkgd_coverup" class="popup_bkgd_coverup"></div>
+<div id="popup_story_img_coverup" class="popup_bkgd_coverup"></div>
+<img id="popup_img_coverup" class="popup_img_coverup" src="images/blank.gif" alt="" onMouseOver="displayPopupInfo('popup', 'show');" onMouseDown="unPopUpImage('popup', {GALLERYFADEDARKNESS});"  onMouseOut="displayPopupInfo('popup', 'hide');">
+
+<!-- popup for video -->
+<div id="popup_video_player">
+	<div id="popup_video_bkgd"></div>
+	<div id="popup_video_content" class="centered-in-window"></div>
+	<a id="popup_video_close">{fp:Close}</a>
+</div>

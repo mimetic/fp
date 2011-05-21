@@ -1,0 +1,173 @@
+/* @override http://localhost/fp/_themes/004_menu_at_top/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+
+#fs_matte_bottom { color: #fc0; }
+
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+/* You can even redefine existing styles */
+#container
+{
+	padding-top: 0px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+#foot {
+}
+
+#topnav {
+	width: 100%;
+	color: #b3b2b3;
+}
+
+#headerc { margin-top: 25px; }
+#headcslideshow { padding: 0px 30px 0px 31px; }
+#header-subtitle { }
+#header-title {
+}
+
+.navbar-wrapper {
+}
+
+#bottomnav {
+	margin-left: 30px;
+	margin-right: 30px;
+	border-bottom-style: none;
+}
+
+div.fullpage div.info-title {
+	color: #111;
+}
+
+
+
+.navbar-container-off { background-color: #999; }
+
+.slideshow #topnav.navbar-container
+{
+	padding: 1px 5px 0px 25px;
+	border-top: 0px #E6E6E6 solid;
+	border-bottom: 0px #E6E6E6 solid;
+	margin-left: 0px;
+}
+
+#gallery-group-title
+{
+	font-size: 11px;
+	font-style: normal;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	white-space: nowrap;
+}
+
+#mainlist { margin-top: 5px; }
+
+.sspop
+{
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-top: 5px;
+}
+
+.location
+{
+	margin-top: 12px;
+	margin-bottom: 4px;
+}
+
+.item .title
+{
+	font-size: 90%;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* TEXT COLORS */
+/*
+.footer { color: #999; }
+.footer-on-dark { color: #555; }
+.frameshop input { color: #333; }
+.frameshop select { color: #333; }
+.frameshop_controlpanel { color: transparent; }
+.frameshop_controls { color: #333; }
+.frameshop_link { color: transparent; }
+.frameshop_link button, .frameshop_link a:link, .frameshop_link a:visited { color: #ccc; }
+.frameshop_link button:active, .frameshop_link a:active { color: #ccc; }
+.frameshop_link button:hover, .frameshop_link a:hover { color: #ccc; }
+.gallery .helptext { color: #999; }
+.gallery-description { color: #333; }
+.gallery-info-link button { color: transparent; }
+.gallery-info-link button:hover { color: transparent; }
+.gallery-info-link button:active { color: transparent; }
+.group { color: #111; }
+.group-nav { color: #ccc; }
+.group-table-title a { color: #ccc; }
+.groups #header-title { color: #333; }
+.helptext { color: #333; }
+.hoverpop:hover { color: transparent; }
+.important { color: red; }
+.info-title { color: #ccc; }
+.infobox { color: #333; }
+.location { color: #ccc; }
+a.navbar.selected:link { color: #eee; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:link { color: #eee; }
+a.navbar.selected:visited { color: #eee; }
+a.navbar.selected:hover { color: #F90; }
+a.navbar.selected:active { color: #F30; }
+
+a.navbar.unselected:link { color: #444; }
+a.navbar.unelected:visited { color: #444; }
+a.navbar.unselected:hover { color: #7f4800; }
+a.navbar.unselected:active { color: #fa8300; }
+
+
+.navbardivider { color: #b3b3b3; }
+.pagetext { color: #ccc; }
+.popup_bkgd_coverup { color: transparent; }
+.popup_story { color: #333; }
+.popup_window { color: #eee; }
+.popup_window button { color: #999; }
+.popup_window_caption { color: #fff; }
+.pricelist a:active { color: #fc0; }
+.pricelist a:hover { color: #fc0; }
+.pricelist a:link { color: #333; }
+.pricelist a:visited { color: #333; }
+.pricelist h1 { color: #333; }
+.pricelist span { color: #333; }
+.pricelistmenu h1 { color: #ccc; }
+.projecttitle { color: #333; }
+.settingsbox { color: #fff; }
+.story #title-box { color: #ccc; }
+#container_story { color: #333; }
+#container_tearsheet { color: #333; }
+#error { color: red; }
+#foot { color: #ccc; }
+#fs_matte_top { color: #0cf; }
+#fs_pic_matte { color: #060; }
+#header-subtitle { color: #666; }
+#header-title { color: #ccc; }
+#message { color: #036; }
+#ns_popup_story_text, #popup_story_text { color: #333; }
+#ns_popup_text, #popup_text { color: transparent; }
+#popup_img { color: #ccc; }
+#popup_img_coverup { color: blue; }
+#popup_story { color: #333; }
+#popup_close { color: #222; }
+#popup_prev { color: #222; }
+#popup_next { color: #222; }
+a:hover, a:active { color: #F90; }
+a:link, a:visited { color: #630; }
+blockquote { color: #333; }
+body { color: #ccc; }
+body.story { color: #333; }
+
+/* Menu bar background */
+
+.popup_window button { background-color: #999; }
+

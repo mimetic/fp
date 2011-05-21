@@ -1,0 +1,16 @@
+<!--ProjectMgmtFormStoryItem-->
+<TR class="listing">
+	<TD class="helptext">
+		<INPUT TYPE=checkbox NAME="story_{ID}" VALUE="yes">
+	</TD>
+	<TD width="300px">
+		<B>{Title}</B><BR>
+		<div class="helptext">
+		{Lead}
+		</div>
+	</TD>
+	<TD valign=top>
+	<a href='?action=display&amp;ID={ID}&amp;table={table}'>Edit</B></a> |
+	<a href='?action=confirm&amp;command=delete&amp;ID={ID}&amp;table={table}&amp;desc={Name}'>Delete</a>
+	</TD>
+</TR>

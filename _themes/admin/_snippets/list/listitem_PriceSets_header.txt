@@ -1,0 +1,13 @@
+<!--listitem_PriceSets_header-->
+<tr class="listing">
+	<th width="30%">
+		Name
+	</th>
+	<th width="20%">
+		{fp:image} Name 
+	</th>
+	<th width="20%" class="{sorter: false}">
+	</th>
+	<th width="30%" style="text-align:right;" class="{sorter: false}">
+	</th>
+</tr>

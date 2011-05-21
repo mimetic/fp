@@ -1,0 +1,53 @@
+<!-- input_form_ProjectStories-->
+<div class="entryform">
+	<h3 class="tabletitle">
+		Manage Stories in 
+		<font color="#990000">
+			{Title} 
+		</font>
+		owned by 
+		<font color="#990000">
+			{ownername}
+		</font>
+	</h3>
+	<div class="ui-widget ui-corner-all padme links">
+			{Manageproject}
+			<span class="helptext"> | </span>
+			{ManagepicturesJQ}
+			<span class="helptext"> | </span>
+			{Uploadpictures}
+			<span class="helptext"> | </span>
+			{Orderpictures}
+			<span class="helptext"> | </span>
+			{fp:projects_manage_stories}
+	</div>
+	<br>
+	
+	<table rules="rows" border="0" cellpadding="4" width="100%">
+		<tr class="entryform">
+			<td width="100%">
+				<h4 class="sectiontitle">
+					Stories in this Project : 
+				</h4>
+				<div class="helptext" style="display:inline;float:left;">
+				</div>
+				<div align="right">
+					<div class="helptext">
+					</div>
+				</div>
+				<br>
+				{storylist} 
+				<h4 class="sectiontitle" style="margin-bottom:8px;">
+					Choose Stories for this Project: 
+				</h4>
+				<div class="helptext">
+					Choose stories to be shown with your project.
+				</div>
+				<br>
+				<br>
+				{allstorylist} 
+			</td>
+		</tr>
+	</table>
+	{picturesOptionTransfer} 
+</div>

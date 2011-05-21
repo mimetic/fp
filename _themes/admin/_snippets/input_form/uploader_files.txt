@@ -1,0 +1,9 @@
+<!-- uploader -->
+<h3 class="sectiontitle" style="margin-bottom:8px;">[ <a href="#" class="toggler">+</a> ] Add New Files :</h3>
+<a href="admin.php?action=help&subset=tab1&PageID=tab1#help_files">How do I use these uploaded files?</a><br>
+
+<div>
+	<div class="uploaderbox" >
+		<SNIPPET name="tfu_uploader">
+	</div>
+</div>

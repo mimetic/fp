@@ -1,0 +1,1 @@
+{fp:prints} of this {fp:image} have been sold! Do you have a record of your sales?!?!? Are you sure you want to PERMANENTLY delete this {fp:image} and all sales information about it? 

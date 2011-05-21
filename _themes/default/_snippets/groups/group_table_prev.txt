@@ -1,0 +1,3 @@
+<span class="group_nav_button">
+<a href="?action=display&amp;start={start}&amp;table={GROUPS}" target="_self">&lt; Prev</a>&nbsp;&nbsp;&nbsp;
+</span>

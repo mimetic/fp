@@ -1,0 +1,3 @@
+<div class="caption editable">
+	{Images_Caption}
+</div>

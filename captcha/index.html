@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Ultra Light CAPTCHA</title>
+<script language="javascript">
+function fun()
+{
+vcod = document.f1.key.value;
+erlog="";
+
+if (vcod.length!=6)
+	erlog=erlog + "<tr><td><span class='style2'>&#8226; Security Text Length must be 4.</span></td></tr>";
+
+if (erlog == "")
+	{
+	 document.f1.action="http://localhost/captcha/check.php";
+	 document.f1.method="post";
+	 document.f1.submit();
+	}
+else
+	document.getElementById("error").innerHTML = '<p align="center"><table width="514" bordercolor="#FF00CC">' + erlog + "</p></table>";
+}
+</script>
+</head>
+
+<style type="text/css">
+<!--
+body {
+	background-color: #91D2FF;
+}
+.style1 {color: #333333}
+-->
+</style>
+
+<body>
+<h1 align="center">Anti-Spam Testing Form</h1>
+<form name="f1">
+  <div align="center">
+    <table width="514" border="1" align="center" bordercolor="#00CCFF">
+      <tr>
+        <th width="199" scope="row">Enter letters from image </th>
+        <td width="181"><label>          
+          <center>
+            <img src="captcha.php" alt="Security Image" width="200" height="70" border="1">
+            <input name="key" type="text" id="key" size="6" maxlength="6" title="Are you a HUMAN ?">
+          </center>
+        </label>        </td>
+        <td width="112" bordercolor="#91D2FF"><div align="center" class="style1">
+            <center>
+              Length 6 
+            </center>
+        </div></td>
+      </tr>
+      <tr>
+        <th colspan="3" scope="row">
+          <label>
+          
+          <input type="button" name="sub" value="Submit" onClick="fun()" title="Signup"/>
+          </label>          <label>
+          
+          <input type="reset" name="Submit2" value="Reset" title="Clear"/>
+          </label>        </th>
+      </tr>
+    </table> 
+  </div>  
+  <div align="center"></div>
+</form>
+<div id="error" align="justify"></div>
+<h5 align="right" class="style1">Powered By Sourav Ghosh </h5>
+</body>
+</html>

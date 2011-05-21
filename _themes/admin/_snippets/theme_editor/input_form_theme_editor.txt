@@ -1,0 +1,91 @@
+<!-- input_form_theme_editor -->
+
+
+<script type="text/javascript" language="javascript">
+<!--
+function changeStyle(theStyle, c) {
+	var theRules = new Array();
+	if (document.styleSheets[0].cssRules) {
+		theRules = document.styleSheets[0].cssRules;
+	} else if (document.styleSheets[0].rules) {
+		theRules = document.styleSheets[0].rules;
+	}
+	theRules[theStyle].style.backgroundColor = c;
+}
+
+function showColorC ( i ) {
+	c = "c_"+i;
+	c1 = "c1_"+i;
+	c2 = "c2_"+i;
+	v = document.getElementById(c).value.toLowerCase();
+	if (v[0] == "t") {
+		document.getElementById(c).value = "transparent";
+	} else if (v[0] == "n") {
+		document.getElementById(c).value = "none";
+	} else if (v[0] != "#" && v) {
+		document.getElementById(c).value = "#" + document.getElementById(c).value;
+	}
+	document.getElementById(c1).style.color = document.getElementById(c).value;
+	document.getElementById(c2).style.color = document.getElementById(c).value;
+}
+function showColorB ( i ) {
+	c = "c_"+i;
+	c1 = "c1_"+i;
+	v = document.getElementById(c).value.toLowerCase();
+	if (v[0] == "t") {
+		document.getElementById(c).value = "transparent";
+	} else if (v[0] == "n") {
+		document.getElementById(c).value = "none";
+	} else if (v[0] != "#" && v) {
+		document.getElementById(c).value = "#" + document.getElementById(c).value;
+	}
+	document.getElementById(c1).style.backgroundColor = document.getElementById(c).value;
+}
+
+function setEditorBackgroundColor (c) {
+	document.getElementById('theme-editor').style.backgroundColor = c;
+}
+
+function showBorderColor ( i ) {
+	c = "c_"+i;
+	c1 = "c1_"+i;
+	v = document.getElementById(c).value.toLowerCase();
+	if (v[0] == "t") {
+		document.getElementById(c).value = "transparent";
+	} else if (v[0] == "n") {
+		document.getElementById(c).value = "none";
+	} else if (v[0] != "#" && v) {
+		document.getElementById(c).value = "#" + document.getElementById(c).value;
+	}
+	document.getElementById(c1).style.borderColor = document.getElementById(c).value;
+}
+
+function ShowFont ( i ) {
+	c = "c_"+i;
+	c1 = "c1_"+i;
+	document.getElementById(c1).style.fontFamily = document.getElementById(c).value;
+}
+
+
+$(document).ready(function(){
+	$(iColorPicker());
+	
+}); //$(document).ready
+//-->
+</script>
+
+{DONOTHING}
+<p style="text-align:center;"><button type="button" id="cssEditActivate">Start Live Theme Editor</button></p>
+<span class="helptext">Note: The Live Theme Editor works with FireFox, Safari, and Chrome, but does not work with Internet Explorer 6 or 7.</span>
+
+<FORM ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+	<INPUT type="hidden" NAME="XThemeID" VALUE="{themeid}">
+	<INPUT type="hidden" NAME=pageid VALUE="tab11">
+	<INPUT type="hidden" NAME=action VALUE="{action}">
+	<INPUT type="hidden" NAME=subset VALUE="{subset}">
+	<h3 class="tabletitle">Edit <font color="#990000">{NAME}</font></h3>
+	<br>
+		{SAMPLE}
+		{LIST}
+	
+</FORM>

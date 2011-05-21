@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<!-- template is gallery_single_pic.html -->
+	<head>
+		<title>
+			{Title} 
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+			<link rel="stylesheet" rev="stylesheet" href="{THEMESDIR}/{THEME}/_css/style.css">
+	</head>
+	<body bgcolor="#000000" link="#000066" alink="#CC9900" vlink="#000066">
+<!-- was bgcolor="#7B7B7B"-->
+ 
+<div align="center">
+		<div align="center" style="width:{SlideXSize}px;">
+		<div align="left" style="width:{SlideXSize}px;height:45px; margin-left:45px;">
+			<img src="images/logotype_on_black_small.gif" align="top" width="160" height="24" border="0" alt="Frontline Photos">
+		</div>
+		<div style="width:{SlideXSize}px;margin-left:45px;">
+			{Picture} 
+		</div>
+		<div style="height:20px">
+			
+		</div>
+		<div style="text-align:left;width:{SlideXSize}px;margin-left:45px;">
+			<span class='entry'>
+				{Title} 
+			</span>
+			<br>
+			<span class='signature_on_dark'>
+				{Place}, {Date}, {Artist} : 
+			</span>
+			<span class='caption_on_dark'>
+				{Caption} 
+			</span>
+		</div>
+		<br>
+		<br>
+		<div style="margin-left:45px;width:{SlideXSize}px;">
+			<div align="center">
+				<span class="footer_on_dark">&#91;</span><a class="footer_on_dark" href="copyrightinfo.html">Copyright &copy; information</a><span class="footer_on_dark">&#93;</span>
+			</div>
+		</div>
+		</div>
+	</div>
+	</body>
+</html>

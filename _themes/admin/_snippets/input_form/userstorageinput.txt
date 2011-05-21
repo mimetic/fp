@@ -1,0 +1,8 @@
+	<TR class="entryform">
+		<TH align="right">
+			Storage Allocated&nbsp;:
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME=Storage VALUE="{Storage}" SIZE=6> MB &nbsp;&nbsp;&nbsp; <i>The system has  {storage_available} MB of space available. (Enter "0" for unlimited storage up {storage_available} MB.)</i>
+		</TD>
+	</TR>

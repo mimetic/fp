@@ -1,0 +1,9 @@
+<!-- choose_project_pix -->
+
+<H3 class="sectiontitle" >[ <a href="#" class="toggler">-</a> ] Choose Project Pictures</H3>
+<div class="">
+	<div class="helptext">
+	Choose which pictures are in the project. You can double-click a picture to move it, or use the buttons.
+	</div>
+	{picturesOptionTransfer}
+</div>

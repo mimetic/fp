@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar {navbar_selector_shows}" href="shows.php?GroupID={groupID}">{fp:Shows}</a></div>

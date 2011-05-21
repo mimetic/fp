@@ -1,0 +1,2 @@
+<!--listitem_Images_nodelete.txt-->
+<span class="unavailable">Delete</span>

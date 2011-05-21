@@ -1,0 +1,1 @@
+Payment Notice from {FP_SYSTEM_DISPLAY_NAME} on {DATETIME_COMPACT}

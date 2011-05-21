@@ -1,0 +1,9 @@
+<!--vocab_choose_user_form-->
+<FORM ACTION="{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+	 
+	<input type="hidden" name="action" id="action" value="show_vocab_list">
+	<input type="hidden" name="PageID" value="{PAGEID}">
+
+	Choose a user's vocabulary to edit: {CHOOSER} <button type="submit">Go</button>
+
+</FORM>

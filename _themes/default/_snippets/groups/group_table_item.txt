@@ -1,0 +1,14 @@
+<!--group_table_item-->
+<div class="group-list">
+	<div class="group-icon editable" style="float:left;{SHOWHIDEICON}">
+		<a href="projects.php?GroupID={ID}">{icon}</a>
+	</div>
+	<div>
+		<div class="group-table-title-block editable">
+			<a class="group-table-title editable" href="projects.php?GroupID={ID}">{title}</a>
+		</div>
+		<div class="group-table-desc editable">
+			{description} 
+		</div>
+	</div>
+</div>

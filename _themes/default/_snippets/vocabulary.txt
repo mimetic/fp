@@ -1,0 +1,100 @@
+// Vocabulary Replacement for the FP system
+// First word is the word to be replaced. It must be coded in your text like this:
+//   {fp:mykeyword}
+// Either "fp" or "FP" will work. 
+// If no replacement is found in the list, the original term is used with the {fp:} part removed.
+// Each theme can have its own list!
+// This list is comma separated (comma between terms, each set on a new line)
+
+// NOTE: words are replaced starting from the top of this list.
+// You can have terms that include other terms, if the order is correct!
+// See the "Basic" terms at the bottom of the page.
+
+FAQ,FAQ
+Terms,Terms &#x26; Copyright
+Privacy,Privacy Policy
+Contact,Contact
+Administration,Administration
+Go Back,Go Back
+ReturnTo,Return to
+Blog,Blog
+PoweredBy,Powered by Mimetic Galleries
+Catalog,Catalog
+Shows,All Shows
+Place,Place
+All Artists,All Photographers
+Share, Share
+Return to, Return to
+Information, Information
+Buy,Buy
+somewhere_places,Somewhere...
+
+// About, as in 'About John Doe'
+AboutArtist,About
+
+// "About", in general
+About,About
+
+// Shopping cart/Print Shop
+Shopping Cart,Shopping Cart
+Coupon,Buyer&rsquo;s Code
+
+// Newsletter
+newsletter_slogan,The Newsletter of {FP_SYSTEM_DISPLAY_NAME}
+newsletter_page_title,Updated Exhibitions
+newsletter_private_subtitle,A Newsletter for Collectors
+newsletter_public_subtitle,The Newsletter of {FP_SYSTEM_DISPLAY_NAME}
+somewhere, &nbsp;
+
+// Places page
+Elsewhere, Elsewhere...
+
+// Info Page
+InfoPageTitle,Information
+
+// Menus
+New Projects,New {fp:Projects}
+All Projects,All {fp:Projects}
+By Artist,By {fp:Artist}
+By Location,By Place
+by, by
+Agency,Agency
+
+// slideshow links in the gallery
+slideshow_ssp,Go to Slide Show
+slideshow_sv,Go to Light Table
+slideshow_tv,Go to Tilt Viewer
+slideshow_pv,Go to Postcard Viewer
+
+// Title of the print/frame sales page
+The Print Shop,The Print Shop
+frameshop_quantity, Quantity
+frameshop_paper, Paper
+frameshop_ink, Ink
+
+
+// Certificate of Authenticity
+Certificate of Authenticity,Certificate of Authenticity
+
+// -----------
+// BASIC TERMS
+// Keep these last, so they can be replaced inside previous terms
+// Example: SeeProject,See My {fp:project}
+
+project,Exhibition
+projects,Exhibitions
+group,Gallery
+groups,Galleries
+artist,Photographer
+artists,Photographers
+image,Picture
+images,Pictures
+supplier,Printer
+suppliers,Printers
+story,Story
+stories,Stories
+sale,Sale
+Sales,Sales
+theme,Theme
+themes,Themes
+notAvailable,NA

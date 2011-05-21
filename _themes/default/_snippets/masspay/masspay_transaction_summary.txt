@@ -1,0 +1,7 @@
+
+
+Total Sale Amount	: {TOTAL}
+Printing/Finishing	: {COSTS}
+Gallery Commission	: {COMMISSION}
+Optional Commission	: {COMMISSION2}
+Artist Commission	: {NET}

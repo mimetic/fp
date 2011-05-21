@@ -1,0 +1,2 @@
+<!--gallery_picture_credit-->
+<!--<div class="signature">{Credit}</div>-->

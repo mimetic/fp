@@ -1,0 +1,6 @@
+<!--newsletter_set_projects_item_format-->
+	<table class="picturerow">
+		<tr>
+			{list}
+		</tr>
+	</table>

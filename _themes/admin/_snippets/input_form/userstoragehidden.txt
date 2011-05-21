@@ -1,0 +1,8 @@
+	<TR class="entryform">
+		<TH align="right">
+			Storage :
+		</TH>
+		<TD>
+			<INPUT type="hidden" NAME=Storage VALUE="{Storage}">{Storage} MB
+		</TD>
+	</TR>

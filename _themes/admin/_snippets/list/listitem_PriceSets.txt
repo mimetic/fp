@@ -1,0 +1,14 @@
+<!--listitem_PriceSets-->
+<tr class="listing">
+	<td width="40%" {dim_me} title="{Title}">
+		<b>{Title}</b> 
+	</td>
+	<td title="{Image_Name}">
+		{Image_Name} 
+	</td>
+	<td width="20%" {dim_me}>
+	</td>
+	<td width="40%" style="text-align:right;whitespace:nowrap;">
+		{EDIT_COMMAND} | {DUPLICATE_COMMAND} | {DELETE_COMMAND} 
+	</td>
+</tr>

@@ -1,0 +1,2 @@
+<!--error_theme_editor_not_variation-->
+Sorry, the chosen theme cannot be edited because it is a system them, not a variation.

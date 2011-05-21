@@ -1,0 +1,2 @@
+	<span class="navbardivider">|</span>
+	<div class="navbar"><a class="navbar {navbar_selector_place}" href="places.php?GroupID={groupID}">{places_page_title}</a></div>

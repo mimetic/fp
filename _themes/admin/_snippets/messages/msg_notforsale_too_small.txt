@@ -1,0 +1,2 @@
+This size of the {fp:image} you uploaded is too small to print in good quality. <br>
+<i>Solutions: Upload a high-resolution image, or edit the picture and set the Print File dimensions, or use the {fp:image} Multi-Editor button to set the Print File picture dimensions.</i> 

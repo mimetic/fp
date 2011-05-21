@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<!-- master_page_slideshow -->
+<head>
+	<title>{pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="date" content="{DATETIME}">
+	{META_INDEX}
+	{STYLESHEETS}
+	{GALLERY_STYLESHEET}
+	{SLIDESHOW_HEAD}
+	<snippet name="google_analytics_js">
+</head>
+
+<body class="slideshow">
+	<div id="container" class="{sectionclass}">
+		<a name="top"></a>
+		{NAVBAR}
+		<div id="message">{message}</div>
+		<div id="error">{error}</div>
+		{SLIDESHOW}
+		</div>
+</body>
+</html>

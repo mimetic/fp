@@ -1,0 +1,58 @@
+<!-- frameshop_picture -->
+<!-- Note, IE can't handle spaces between the div's below -->
+<div id="fs_frameshop" >
+	<!-- position of human shape is here: -->
+	<!--<div style="height:935px;background-image: url({THEMESDIR}/{THEME}/_img/human_scale.png);background-repeat: no-repeat;	background-position: 90px 35px;">-->
+	<table class="frameshop">
+		<tr>
+			<td class="frameshop" id="fs_controls_container">
+				{frameshop_controls}
+			</td>
+			<td class="frameshop" id="fs_picture_container" >
+				<!--<img id="frameshop-scale-overlay" src="{THEMESDIR}/{THEME}/_img/human_scale_left.png" alt="">-->
+				<div id="fs_picture" >
+					<div class="shadow">
+						<table align="center" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td><img hspace="0" vspace="0" border="0" id="fs1" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs2" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs3" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+							</tr>
+							<tr>
+								<td><img hspace="0" vspace="0" border="0" id="fs4" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td align="center">
+								<table id="fs_pic_matte" align="center" cellpadding="0" cellspacing="0" border="0">
+										<tr>
+											<td align="center"><div><img hspace="0" vspace="0" border="0" id="fs_matte_top" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></div><div><img id="fs5" src="{WHICHPIX}/{URL}" style="width:{MattedWIDTH}px;height:{MattedHeight}px;" alt="" ></div><div><img hspace="0" vspace="0" border="0" id="fs_matte_bottom" src="{THEMESDIR}/{THEME}/_img/blank.png" alt=""></div></td>
+										</tr>
+									</table></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs6" src="{THEMESDIR}/{THEME}/_img/blank.png" height="218" width="21"  alt=""></td>
+							</tr>
+							<tr>
+								<td><img hspace="0" vspace="0" border="0" id="fs7" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs8" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs9" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+							</tr>
+						</table>
+					</div>
+					<div style="margin-top:40px;margin-bottom:40px;">
+						{WallColorList}
+					</div>
+					<div class="footnote">
+						<span class="helptext">The above display is an approximation only.</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- run after above DOM elements are created in the HTML page!!! -->
+<script type="text/javascript" language="javascript">
+<!--
+UpdateTotal('{CURRENCY}', '{CURRENCY_POSITION}');
+UpdateDesc ();
+UpdateSpec ();
+UpdatePicture('{WHICHPIX}/{URL}','{THEMESDIR}/{THEME}/_img/pictureframes/',{IMG_Width},{IMG_Height},{FRAMESHOP_REF_SIZE});
+//-->
+</script> 

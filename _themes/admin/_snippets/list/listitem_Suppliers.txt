@@ -1,0 +1,9 @@
+<!--listitem_Suppliers-->
+<tr class="listing">
+	<td width="60%" title="{Name}">
+		<b>{Name}</b> 
+	</td>
+	<td width="40%" style="text-align:right;whitespace:nowrap;">
+		{EDIT_COMMAND} | {DELETE_COMMAND} 
+	</td>
+</tr>

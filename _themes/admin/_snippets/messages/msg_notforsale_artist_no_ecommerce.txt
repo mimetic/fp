@@ -1,0 +1,5 @@
+<!--msg_notforsale_artist_no_ecommerce-->
+The {fp:artist} has not chosen an Ecommerce sales system. <i>Solution: Edit the {fp:artist}, go to "Print Sales", and choose an Ecommerce sales system.</i>
+<a href="admin.php?action=display&ID={ARTISTID}&table={ARTISTS}&PageID=tab2#printsales">
+<span class="ui-icon ui-icon-extlink" style="display:inline-block;height:13px;width:13px;margin-right:0px;margin-top:2px;"></span>
+Edit {fp:artist}</a>

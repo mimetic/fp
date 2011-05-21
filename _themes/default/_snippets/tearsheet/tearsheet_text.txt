@@ -1,0 +1,79 @@
+<!--tearsheet_text-->
+<table class="tearsheet remove-if-empty">
+	<tr>
+		<th class='tearsheet' style="text-align:right; width:1in;">
+			Title :
+		</th>
+		<td>
+			{Title} 
+		</td>
+</tr>
+<tr>
+		<th class='tearsheet' style="text-align:right;">
+			Cat. Num. :
+		</th>
+		<td>
+			{CATALOGNUMBER} 
+		</td>
+	</tr>
+	<tr>
+		<th class='tearsheet' style="text-align:right;">
+			Gallery :
+		</th>
+		<td>
+			{grouptitle} : {projecttitle}
+		</td>
+	</tr>
+	<tr>
+		<th class='tearsheet' style="text-align:right;">
+			Artist :
+		</th>
+		<td>
+			{Artists_Fullname} 
+		</td>
+	</tr>
+	<tr>
+		<th class='tearsheet' style="text-align:right;">
+			Date :
+		</th>
+		<td>
+			{Date} 
+		</td>
+	</tr>
+	<tr>
+		<th class='tearsheet' style="text-align:right;">
+			Place :
+		</th>
+		<td>
+			{Place} 
+		</td>
+	</tr>
+	<tr>
+		<th class='tearsheet' valign="top" style="text-align:right;">
+			Caption :
+		</th>
+		<td class='tearsheet' colspan="2">
+			<i>{Caption}</i>
+		</td>
+	</tr>
+<!--	<tr>
+		<td colspan="2">
+			<div style="margin:18px auto 18px auto; border-top:1px solid black;width:2in;">
+		</td>
+	</tr>
+-->
+	<tr>
+		<td class='tearsheet' colspan="2" style="text-align:left;">
+			<div style="margin:10px;padding:10px;border-top:1px solid #888;border-bottom:1px solid #888;">
+			{EDITIONINFO}
+			<br>
+			Printing: {InksetList} on {PaperList} by {PRINTERNAME}.
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class='tearsheet' colspan="2" style="text-align:center;padding-top:8px;font-size:7pt;">
+			Copyright &copy; by {Artists_Fullname} and {FP_SYSTEM_DISPLAY_NAME}. All rights reserved. This page may be copied only for the purpose of presenting the artwork and information to potential buyers.
+		</td>
+	</tr>
+</table>

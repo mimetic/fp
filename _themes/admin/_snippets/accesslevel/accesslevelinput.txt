@@ -1,0 +1,16 @@
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			Admin Access Level :
+		</TH>
+		<TD>
+			{AccessLevelMenu}<br>
+
+			<div class="helptext" >
+				AccessLevel determines how much of the system a user can control. <br>
+				<b><snippet name="accesslevel1"></b> with full access to everything allowed by the installation;<br>
+				<b><snippet name="accesslevel2"></b> can create/edit galleries in a multigallery system;<br>
+				<b><snippet name="accesslevel3"></b> cannot create/edit galleries.<br>
+				<b><snippet name="accesslevel4"></b> with access to pricing, sales, and vendor/supplier information.<br>
+			</div>
+		</TD>
+	</TR>

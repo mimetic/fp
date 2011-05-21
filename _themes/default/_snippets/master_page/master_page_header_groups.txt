@@ -1,0 +1,7 @@
+<!--master_page_header_groups-->
+<div id="header" class="editable"><div id="headerc" class="{sectionclass}">
+	<div class="icon editable" style="float:left;">{GROUPICON}</div>
+	<div>
+		<span id="header-title" class="{sectionclass} editable">{title}</span>
+	</div>
+</div></div>

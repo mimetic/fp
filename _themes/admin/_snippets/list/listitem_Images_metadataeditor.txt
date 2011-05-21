@@ -1,0 +1,4 @@
+<!-- metadataeditor -->
+	<button id="open-image-editor">{fp:image} Multi-Editor</button>
+		<snippet name="image_editor_dialog"/>
+		<input id="checkall" type="checkbox">&nbsp;All&nbsp;Items

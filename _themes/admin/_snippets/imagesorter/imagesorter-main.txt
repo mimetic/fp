@@ -1,0 +1,65 @@
+<!-- imagesorter -->
+<div class="entryform">
+	<h3 class="tabletitle">Manage {fp:images} for <font color="#990000">{Title}</font> owned by <font color="#990000">{ownername}</font></h3>
+	<div class="ui-widget ui-corner-all padme links">
+	<div style="float:left;">
+		<button type="button" class="ui-button ui-state-default" id="imagesorter-save">Save</button>
+		<button type="button" class="ui-button ui-state-default" id="imagesorter-revert">Revert</button>
+	</div>
+
+		{Manageproject}
+		<span class="helptext"> | </span>
+		{fp:projects_manage_pictures}
+		<span class="helptext"> | </span>
+		{Uploadpictures}
+		<span class="helptext"> | </span>
+		{Orderpictures}
+		<span class="helptext"> | </span>
+		{Managestories}
+	</div>
+</div>
+
+<link type="text/css" href="{JAVASCRIPT_PATH}/jquery/imagesorter/imagesorter.css" rel="stylesheet">	
+
+
+<input name="ProjectID" id="projectID" type="hidden" value="{PROJECTID}">
+<div id="imagesorter" class="imagesorter">
+<!--
+	<div class="ui-widget ui-corner-all padme links" align="right">
+		<button type="button" id="imagesorter-save">Save</button>
+		<button type="button" id="imagesorter-revert">Revert</button>
+	</div>
+-->	
+	<div class="imagesorter-slider-frame">
+		<div id="slider"></div>
+	</div>
+	
+	<div class="imagesorter-container ui-widget-content ui-helper-clearfix ui-corner-all">
+		<h3>{fp:images} in "{TITLE}"</h3>
+		<ul id="inlist" class="gallery connectedSortable ui-helper-reset ui-helper-clearfix ui-corner-all">
+			{INLIST}
+		</ul>
+	</div>
+	<br>
+	<div class="imagesorter-container ui-widget-content ui-helper-clearfix ui-corner-all">	
+		<div style="float:right;">
+			<h3>
+				Only show {fp:images} uploaded into {PROJECTSLIST} <div class="tip" title="If an {fp:artist} is not part of this {fp:project}, you cannot see or add pictures from that {fp:artist}. <b>Solution:</b> Add the {fp:artist} to this {fp:project}.">?</div>
+			</h3>
+		</div>
+
+		<h3>{fp:images} in Archive</h3>
+		<ul id="outlist" class="gallery connectedSortable ui-helper-reset ui-helper-clearfix ui-corner-all">
+			{OUTLIST}
+		</ul>
+		<ul style="display:none;" id="outlist-hidden" class="gallery ui-helper-reset ui-helper-clearfix ui-corner-all">
+		</ul>
+	</div>
+	
+
+
+	<div class="helptext" style="text-align:right;float:right;">
+		<span class="important">*</span> If an {fp:artist} is not part of this {fp:project}, you cannot see or add pictures from that {fp:artist}. <b>Solution:</b> Add the {fp:artist} to this {fp:project}.
+	</div>
+	<br clear="all">
+</div>

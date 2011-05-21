@@ -1,0 +1,2 @@
+<!--toggle_advanced-->
+<button type="button" onClick="ToggleAdvanced();false;">Show/Hide Advanced Features</button>

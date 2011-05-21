@@ -1,0 +1,1 @@
+<!--gallery_show_caption : this could be a show caption button or link -->

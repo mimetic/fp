@@ -1,0 +1,131 @@
+/* @override http://localhost/fp/_themes/020_shahrzad/_css/_alt/dark.css */
+
+/*
+FP Theme Variation CSS Page
+ID : dg00020:dark
+Modified : September 30, 2009, 10:55 am
+*/
+
+a.gallery-info-link:link{
+	color: #5fa7bf;
+}
+a.gallery-info-link:visited {
+	color: #5fa7bf;	
+}
+
+/* ADVANCED - : #container */
+
+body {
+		background-color: #6a6866;
+}
+
+#container {
+
+}
+
+#page {
+	background-color: #6a6866;
+}
+
+#header-title {
+
+}
+
+/* Sublinks in listing (e.g. artist names underneath project names) */
+
+a.subtitle:link {
+	color: #cccccc;
+}
+
+a.subtitle:visited {
+	color: #cccccc;
+}
+
+a.subtitle:hover {
+	color: #fff;
+}
+
+a.subtitle:active {
+	color: #888;
+}
+
+/* Links in the big text of info pages */
+
+.statement a:link {
+	color: #5fa7bf;
+}
+
+.statement a:visited {
+	color: #5fa7bf;
+}
+
+.statement a:hover {
+	color: #72c8e5;
+}
+
+.statement a:active {
+	color: #407080;
+}
+
+.info-title {
+	color: #e5e5e5;
+}
+
+div.statement {
+	color: #a8a7a7;
+}
+
+/* ADVANCED - : #header-title.listpage */
+
+#header-title.listpage {
+	color: #e1e1e1;
+}
+
+/* ADVANCED - : a.navbar.unselected */
+
+a.navbar.unselected:link {
+	color: #cccccc;
+}
+
+/* ADVANCED - : a.navbar.unselected */
+
+a.navbar.unselected:visited {
+	color: #cccccc;
+}
+
+/* ADVANCED - : a.navbar.unselected */
+
+a.navbar.unselected:hover {
+	color: #fff;
+}
+
+/* ADVANCED - : a.navbar.unselected */
+
+a.navbar.unselected:active {
+	color: #888;
+}
+
+.exh-count {
+	background-color: transparent;
+	color: #cccbcc;
+}
+
+.exh-tools div {
+	background-color: transparent;
+}
+
+.captionblock .caption {
+	color: #a5a5a5;
+}
+
+div.location {
+	color: #a5a5a5;
+}
+
+.captionblock .title {
+	color: #cccbcc;
+}
+
+/* ADVANCED -  : .listpage.gallery-title */
+.listpage.gallery-title { color : #ebebeb; }
+

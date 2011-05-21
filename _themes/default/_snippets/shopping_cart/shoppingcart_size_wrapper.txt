@@ -1,0 +1,25 @@
+<tr>
+	<td>
+		<a href="#">
+			{size} 
+	</td>
+	<td style="text-align:right;">
+		{CURRENCY}<b></b>{price}
+<!--{PrintSalesID} -->
+		</a>
+	</td>
+</tr>
+<tr>
+	<td>
+		<a href="#">
+			{size}, 
+			<em>
+				framed 
+			</em>
+	</td>
+	<td style="text-align:right;">
+		{CURRENCY}<b></b>{priceframed} 
+		</a>
+<!--{PrintSalesID} -->
+	</td>
+</tr>

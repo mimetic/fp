@@ -1,0 +1,1 @@
+Amount Sold from an Edition of {TotalEditionSize} prints

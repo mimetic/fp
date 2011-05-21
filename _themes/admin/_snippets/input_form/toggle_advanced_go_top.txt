@@ -1,0 +1,2 @@
+<!--toggle_advanced_go_top-->
+<a class="linktotop toggleadvanced" href="#"  style="margin-right:10px;">&uarr; Top of Page</a>

@@ -1,0 +1,15 @@
+<!-- OptionTransferBlock-->
+<FORM NAME="choosestories" ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+<INPUT type="hidden" NAME=action VALUE="update">
+<INPUT type="hidden" NAME=subset VALUE="{STORIES}">
+<INPUT type="hidden" NAME=ID VALUE="{ID}">
+<INPUT type="hidden" NAME=table VALUE="{table}">
+<INPUT type="hidden" NAME=artistID VALUE="{artistID}">
+<INPUT type="hidden" NAME=action VALUE="{action}">
+<!-- This variable lets the system know to change the list of stories for a project!
+	 Without it, no update is done. Why? So we can update with NO stories -->
+<INPUT type="hidden" NAME=updatestorylist VALUE="true">
+
+{list}
+
+</FORM>

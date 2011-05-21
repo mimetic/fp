@@ -1,0 +1,4 @@
+<div class="group-table-boundary">
+		{grouplist}
+		{groupnav}
+</div>

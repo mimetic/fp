@@ -1,0 +1,20 @@
+<!-- input_form_Images_editioning -->
+<tr>
+	<th valign="top" align="right" width="150" nowrap>
+		Edition Size : 
+	</th>
+	<td colspan="2">
+		<b><span id="editionsizeshow">{editionsizeshow}</span> {fp:prints}</b> <span class="helptext">(including {fp:prints} sold outside this website)</span>
+		{ENTER_CUSTOM_EDITION_SIZE}
+		</div>
+	</td>
+</tr>
+<tr>
+	<th valign="top" align="right" width="150" nowrap>
+		Next Print # : 
+	</th>
+	<td colspan="2">
+		The next {fp:print} will be numbered #{NEXTPRINTNUMBER}<br>
+		
+	</td>
+</tr>

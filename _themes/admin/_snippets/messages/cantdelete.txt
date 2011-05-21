@@ -1,0 +1,5 @@
+<div align="center">
+	I can't delete that page. It's necessary for the system to keep working.<BR>
+	<a href='?table={table}'>Go back.</a>
+</div>
+<BR>

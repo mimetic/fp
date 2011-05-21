@@ -1,0 +1,57 @@
+/* @override http://localhost/fp/_themes/admin/_js/jquery/tablesorter/themes/yellow/style.css */
+
+/* tables */
+table.tablesorter {
+	background-color: #ffffe5;
+	margin:10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+	font: 9pt "Trebuchet MS", Helvetica, "Lucida Sans Unicode", "Lucida Grande", Verdana, Geneva, Arial, sans-serif;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #f9f97c;
+	border: 1px solid #e5e572;
+	font-size: 9pt;
+	padding: 4px;
+	vertical-align: middle;
+}
+
+table.listing.tablesorter a, table.listing.tablesorter a:visited {
+	color: #333233;
+}
+
+table.listing.tablesorter a:hover {
+	color: #730a06;
+}
+
+table.listing.tablesorter a:active {
+	color: #e7140d;
+}
+
+
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #ffffe5;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color: #ffffbf;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #f7e031;
+}
+
+

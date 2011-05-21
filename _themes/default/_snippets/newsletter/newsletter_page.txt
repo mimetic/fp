@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<!-- this template is newsletter_page.txt -->
+	<head>
+		<title>
+			{pagetitle} 
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="MSSmartTagsPreventParsing" content="true">
+		<meta name="date" content="{DATETIME}">
+		<meta name="Author" content="{MAILER_AUTHOR}">
+		<meta name="Subject" content="{MAILER_SUBJECT}">
+		<meta name="Lists" content="{MAILER_LIST}">
+
+{CSSLINK}
+
+<style type="text/css" title="text/css">
+<!--
+{CSS}
+-->
+</style>
+
+			<snippet name="google_analytics_js">
+		</head>
+		<body class="newsletter">
+<!--HEADER-->
+			<div id="container_newsletter">
+				<a name="top">
+				</a>
+<!--master_page_header-->
+		<div id="header" ><div id="headerc" class="{sectionclass}">
+			<div class="icon" style="float:left;padding-right:10px;">{GROUPICON}</div>
+			<div>
+				<div id="header-subtitle">{subtitle}</div>
+				<div id="header-title"><a href="http://{SYSTEMURL}">{title} Newsletter</a></div>
+			</div>
+		</div></div>
+		{NAVBAR} 
+
+<!-- MAIN SECTION -->
+			<div id="main" >
+				<div id="mainc">
+					<div id="message">
+						{message} 
+					</div>
+					<div id="error">
+						{error} 
+					</div>
+					<div id="mainlist">
+						<snippet name="newsletter-intro">
+<!-- list -->
+						<div class="list">
+							{list} 
+						</div>
+<!-- end list -->
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+					{footer} 
+			</div>
+<!--end containor -->
+		</div>
+<!--end page-->
+		</body>
+	</html>

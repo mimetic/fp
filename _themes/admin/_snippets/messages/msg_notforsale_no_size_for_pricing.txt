@@ -1,0 +1,5 @@
+<!--msg_notforsale_no_size_for_pricing-->
+There is no size in the {fp:priceset} that fits this {fp:image}. IF this is a fixed size {fp:image}, then even if there is a size in the {fp:priceset} that is <em>smaller</em> than the {fp:image}, there must be a size that is <em>larger</em> than the {fp:image}. <br>
+	Why? The price of a fixed-size {fp:image} is determined by the next <em>larger</em> size in the {fp:priceset}.<br>
+	Example: A {fp:image} is available only at 10x10". The {fp:priceset} has a price for an 8" wide {fp:image}, but nothing else. The result is that there is no pricing for {fp:image} larger than 8", and our 10x10" {fp:image} is reported as "Not for sale."<br>
+	<i>Solution: Edit the {fp:priceset} and add a new size which is the same size, or larger, than your fixed-size {fp:image}.</i>

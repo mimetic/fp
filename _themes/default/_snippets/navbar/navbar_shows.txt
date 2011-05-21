@@ -1,0 +1,1 @@
+<div id="topnav" class="navbar-container"><div class="navbar"><a class="navbar slideshow" href="projects.php?GroupID={groupID}">{FP:Go back}</a></div></div>

@@ -1,0 +1,19 @@
+Dear {Firstname} {Lastname},
+
+Your {FP_SYSTEM_DISPLAY_NAME} application has been accepted. To finish signing up, you should visit the following link within  {FP_SHOW_MAXCONFIRMTIME} to activate your account, otherwise the account will be deleted from the system and you must apply again.
+
+Please confirm your application by opening this URL:
+	http://{LINK}
+
+After you have confirmed, you can sign in at
+	http://{SYSTEMURL}{FP_SYSTEM_ADMIN_SCRIPT}?login={Username}&action=login  
+with
+	Username: 	{Username}
+	Password: 	{Password}
+
+
+You can change your username or password after you log into {FP_SYSTEM_DISPLAY_NAME}. Click on the "My Profile" tab and fill out the form.
+
+
+Best Regards,
+the {SYSTEMNAME} team

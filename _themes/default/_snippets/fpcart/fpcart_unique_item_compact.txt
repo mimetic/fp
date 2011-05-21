@@ -1,0 +1,23 @@
+<!-- fpcart_unique_item -->
+<tr>
+	<td>
+		<a href="{itemFinishing}" name="fpcart-preview-{itemID}" class="fpcart-finishing-link fpcart-compact fpcart-preview-trigger"><span class="fpcart-item-name">{itemName} <span style="font-size: 90%;">{itemShortDesc}</span></span></a>
+		<div id="fpcart-preview-{itemID}" class="fpcart-item-preview" style="display:none;">
+			<img class="fpcart-item-preview" src="{itemPreviewURL}"><br>
+			
+		</div>
+		<input type='hidden' name='fpcart_item_name[ ]' value='{itemName}' >
+		<input type='hidden' name='fpcart_item_id[ ]' value='{itemID}' >
+
+	</td>
+	<td class='fpcart-item-price'>
+		<span>{CURRENCY}&nbsp;{subtotal}</span> <input type='hidden' name='fpcart_item_price[ ]' value='{itemPrice}' />
+		
+	</td>
+	<td class='fpcart-item-commands fpcart-compact'>
+
+		<a href="#" class="fpcart-remove fpcart-command" value="{itemID}">{remove_item_text}</a>
+		&nbsp;|&nbsp;
+		<a href="{itemFinishing}" class="fpcart-finishing-link fpcart-command" >{finishing_name}</a>
+	</td>
+</tr>

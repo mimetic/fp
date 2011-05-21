@@ -1,0 +1,22 @@
+# Exclude list for rsync for updating the fp gallery system
+
+fpconfig.inc
+autosender/
+updater
+queue/
+photos/
+newsletter_dropbox/
+log/
+*.log
+_user/
+tmp/
+mysql_archives/
+.*
+.svn
+pp/process*
+pp/config.inc
+
+__*
+
+# protect mysql updater entries from deletion on remote
+*.sql

@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+	<TITLE>Enter a Record in {table}</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFCC99">
+<H2><CENTER><TT>Edit
+</TT><FONT COLOR="#CC3300"><TT>Record</TT></FONT><TT> in
+</TT><FONT COLOR="#CC0000"><TT>{table}</TT></FONT><TT>
+</TT></CENTER></H2>
+
+<P><FORM ACTION="{formaction}" METHOD=GET>
+	Action: <INPUT TYPE=text NAME=action VALUE="{action}" SIZE=30><BR>
+	Table: <INPUT TYPE=text NAME=table VALUE="{table}" SIZE=30><BR>
+	ArtistID: <INPUT TYPE=text NAME=ArtistID VALUE="{ArtistID}" SIZE=30><BR>
+	FP User: <INPUT TYPE=text NAME=fp_user VALUE="{fp_user}" SIZE=30><BR>
+	ProjectID: <INPUT TYPE=text NAME=ProjectID VALUE="{ProjectID}" SIZE=30><BR>
+	ID: <INPUT TYPE=text NAME=ID VALUE="{ID}" SIZE=30><BR>
+	<TABLE BORDER=1 BGCOLOR="#FFFFFF" CELLPADDING=5>
+			{listing}
+	</TABLE>
+	
+	<CENTER><INPUT TYPE=submit NAME=Submit VALUE="Submit">
+	<INPUT TYPE=reset VALUE="Reset"></CENTER>
+</FORM>
+</BODY>
+</HTML>

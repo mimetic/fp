@@ -1,0 +1,2 @@
+<!--ftp_failure_suggestion-->
+If the FTP to your archive fails, verify the FTP information in your profile is correct.

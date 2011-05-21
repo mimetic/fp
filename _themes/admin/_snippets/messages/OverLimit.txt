@@ -1,0 +1,3 @@
+<B><font color="#CC3333">Warning! You have gone over your storage limit by {overstoragelimit} MB, so {FP_SYSTEM_DISPLAY_NAME}
+deleted any newly uploaded files to clear space. Before you try to upload again, please delete some 
+pictures or projects, to make space.</font></B><BR><BR>

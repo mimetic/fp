@@ -1,0 +1,6 @@
+<!--gallery_set_projects_block_format-->
+<table class="gallerytable">
+	<tr>
+		{list} 
+	</tr>
+</table>

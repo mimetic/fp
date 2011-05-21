@@ -1,0 +1,5 @@
+<!-- thumbnailSendShow -->
+<span class="helptext" style="color:black;">
+<font color="#404040">{k})</font> <input type="checkbox" name="pixtosend[]" value="{picfilename}">{picdisplayname}
+</span>
+<BR>

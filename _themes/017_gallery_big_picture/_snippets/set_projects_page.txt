@@ -1,0 +1,9 @@
+Projects	block_format	<!--set_projects_page--><div class="list">{NAVBAR}{LIST}</div>
+Projects	item_format	<span class="item"><a href="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</a></span>
+Projects	separator_format	<!--empty-->
+ArtistPart	block_format	&nbsp;&mdash;&nbsp;{list}<BR><div class="list caption">{Projects_Lead}</div>
+ArtistPart	item_format	<a class="item" HREF="artist.php?ArtistID={ArtistPart_ArtistID}">{ArtistPart_Fullname}</a>
+ArtistPart	separator_format	,&nbsp;
+pix	block_format	{list}
+pix	item_format	<!--empty-->
+pix	separator_format	<!--empty-->

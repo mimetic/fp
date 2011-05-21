@@ -1,0 +1,10 @@
+<form class="frameshop_button" action="https://{PAYPAL_POST_TO_URL}/cgi-bin/webscr" method="post">
+	<input type="hidden" name="cmd" value="_cart">
+	<input type="hidden" name="business" value="{PAYPAL_BUSINESS_EMAIL}">
+	<div class="frameshop_link">
+		<button type="submit" name="submit">
+			View Cart
+		</button>
+	</div>
+	<input type="hidden" name="display" value="1">
+</form>

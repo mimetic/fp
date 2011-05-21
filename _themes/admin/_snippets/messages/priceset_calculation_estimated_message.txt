@@ -1,0 +1,6 @@
+<!-- priceset_calculation_estimated_message -->
+<ul>
+<!--<li>Enter "0" to use automatic calculations from the {fp:supplier}'s settings. -->
+<li>The above calculations are an estimate, based on a print with <i>image</i> size {WIDTH} &times; {HEIGHT} {UNITS}. This is standard 35mm film format (3:2 ratio).
+<li>If a cost you enter is less than the {fp:supplier}'s minimum cost, then the {fp:supplier}'s minimum cost will be used.
+</ul>

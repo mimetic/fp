@@ -1,0 +1,58 @@
+{DONOTHING}
+
+<FORM ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+<input type="hidden" name="MAX_FILE_SIZE" value="275000">
+<INPUT type="hidden" NAME=action VALUE="{action}">
+<INPUT type="hidden" NAME=ID VALUE="{ID}">
+<INPUT type="hidden" NAME=table VALUE="{table}">
+</Users/dgross/Sites/fp/_themes/admin/_snippets/snippets/publicprivateinput.txt:2:  		Public : 
+/Users/dgross/Sites/fp/_themes/admin/_snippets/snippets/publicprivateinput.txt:5:  		{Public_CHECKBOX} <span class="helptext"> If checked, everyone can see this information. </span> 
+INPUT type="hidden" NAME=UserID VALUE="{UserID}">
+<INPUT type="hidden" NAME=OwnerID VALUE="{OwnerID}">
+
+<CENTER>
+<h2>Edit <font color="#990000">{Title}</font> in {TABLE_ALIAS}</h2>
+
+<TABLE BORDER=1>
+		<TR>
+			<TH>
+				<P ALIGN=left>Section:
+			</TH>
+			<TD>
+				<P>{Section}
+			</TD>
+		</TR>
+		<TR>
+			<TH>
+				<P ALIGN=left>Public:
+			</TH>
+			<TD>
+				<P>
+			<input type="checkbox" name="Public" value="checked" {Public}>
+			</TD>
+		</TR>
+		<TR>
+			<TH WIDTH=88>
+				<P ALIGN=left>Title:
+			</TH>
+			<TD>
+				<P><INPUT TYPE=text NAME=Title VALUE="{Title}" SIZE=30><BR>
+			</TD>
+		</TR>
+		<TR>
+			<TH WIDTH=88>
+				<P ALIGN=left>Addresses:
+			</TH>
+			<TD>
+				{ARRAY_List}<BR>
+				<span class="helptext">To select more than one address, 
+				hold the <I>command</i> key on a Macintosh,
+				or the <I>control</i> key on a Windows computer.</span>
+			</TD>
+		</TR>
+	</TABLE>
+<P>	
+	<INPUT TYPE=submit NAME=Submit VALUE="Submit">
+	<INPUT TYPE=reset VALUE="Reset"><BR>
+</CENTER>
+</FORM>

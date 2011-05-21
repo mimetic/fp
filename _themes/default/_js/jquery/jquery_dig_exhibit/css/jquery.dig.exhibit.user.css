@@ -1,0 +1,129 @@
+/* @override 
+	http://localhost/fp/_themes/default/_js/jquery/jquery_dig_exhibit/css/jquery.dig.exhibit.user.css
+*/
+
+/*
+ * jquery.exhibit.user.css
+ * Used for customization, OVERRIDES exhibit.style.css
+ *
+ * Example styles for jQuery.exhibit
+ *
+ * Copyright (C) 2009 Christoph Schuessler (schreib@herr-schuessler.de)
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ */
+
+.exh-stagewrap
+{
+	margin-bottom: 20px;
+}
+
+.exh-stage
+{
+}
+
+/* Width/Height is determined by icon graphics used.
+Set to 1/2 height of icon graphic. */
+
+.exh-tools
+{
+}
+
+.exh-tools div:hover
+{
+	background-position: center -13px;
+}
+
+/* need height/width because we use the bkgd
+   to show the icon */
+
+.exh-tools div
+{
+	width: 10px;
+	height: 13px;
+	display: inline-block;
+	background: white no-repeat center top;
+}
+
+div.exh-prev
+{
+	background-image: url(../gfx/prev-small.png) ;
+}
+
+div.exh-next
+{
+	background-image: url(../gfx/next-small.png) ;
+}
+
+div.exh-enlarge
+{
+	width: 18px ;
+	margin: 0 20px;
+	background-image: url(../gfx/enlarge-16h.png) ;
+}
+
+div.exh-compact
+{
+	width: 18px ;
+	margin: 0 10px;
+	background-image: url(../gfx/compact-16h.png) ;
+}
+
+/* set value to 1/2 height of graphic icon, 
+which has top half one, bottom another icon */
+
+.exh .captionblock {
+	margin-top: 30px;
+}
+
+.exh-cap
+{
+	background: transparent;
+	color: #666;
+	line-height: 1.2em;
+	border: 1px none #ddd;
+	border-top: 0px;
+	font-size: 0.9em;
+	position: relative;
+	overflow: visible;
+}
+
+.exh-textwrap
+{
+	padding: 0;
+}
+
+.exh-count
+{
+	padding: 0;
+	font-size: 11px;
+	color: #111;
+	opacity: 0.7;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	/* IE8 */
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+	/* IE7 lte */
+	z-index: 100;
+	text-align: right;
+	-moz-border-radius: 0px 0 0 0;
+	-khtml-border-radius: 0px 0 0 0;
+	-webkit-border-radius: 0px 0 0 0;
+	border-radius: 0px 0 0 0;
+	float: right;
+	font-weight: normal;
+	font-style: normal;
+}
+
+em.exh-cur {
+	font-weight: normal;
+	font-style: normal;
+}
+
+em.exh-total {
+	font-weight: normal;
+	font-style: normal;
+}

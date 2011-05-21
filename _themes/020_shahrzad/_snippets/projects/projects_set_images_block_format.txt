@@ -1,0 +1,4 @@
+<!-- projects_set_images_block_format -->
+<div class="exhibit-set project{Projects_ID}" >
+	{LIST} 
+</div>

@@ -1,0 +1,7 @@
+PAYMENT NOTICE
+{DATE}
+
+You have received a payment of {L_AMT} {CURRENCYCODE} from {FP_SYSTEM_DISPLAY_NAME} to the Paypal account, {L_EMAIL}. {PURPOSE}Check your account for more details.
+
+Best Regards,
+The {FP_SYSTEM_DISPLAY_NAME} Team

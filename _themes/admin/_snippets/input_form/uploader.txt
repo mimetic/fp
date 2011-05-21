@@ -1,0 +1,35 @@
+<!-- uploader -->
+<h3 class="sectiontitle" style="margin-bottom:8px;">[ <a href="#" class="toggler">+</a> ] Add New Pictures :</h3>
+<div>
+	<div class="helptext">
+	<!--
+	If your computer can handle it, you can use the handy uploader below to upload your pictures. If you don't see the tool, then you don't have Java installed, and you'll have to use the upload buttons above.<br><br>
+	You can resize your pictures when you upload, if you only want small pictures. These upload much faster than large pictures, but are not useful as high resolution files for clients.<br>
+	<br>
+	
+	NOTE: When you <B>Add files</b>, below, you can choose more than one file at a time! I strongly suggested you upload no more than 10 pictures at a time, since making thumbnails is slow and the Internet can get blocked at any time.
+	<br>
+	<br>
+	-->
+	</div>
+	<div class="uploaderbox" >
+		<SNIPPET name="tfu_uploader">
+		
+		<div style="margin-top:10px;padding:10px;background:#FFFFCC;border:1px solid #888;text-align:center;margin-left:auto;margin-right:auto;">
+			<span class="helptext">When you're finished uploading pictures, click here to start creating thumbnails.</span><br>
+			<span class="helptext">The system only processes {FP_PIXTOPROCESS} picture(s) each minute or so, but it will continue to process pictures automatically.<br>
+			<b>Don't worry if you still see your pictures listed above...they system will get to them shortly.</b></span>
+			<FORM NAME="refresh" ACTION="admin.php" enctype="multipart/form-data" METHOD=POST style="margin:0px;">
+				<INPUT type="hidden" NAME=subset VALUE="Pictures">
+				<INPUT type="hidden" NAME=ID VALUE="{ID}">
+				<INPUT type="hidden" NAME=table VALUE="{table}">
+				<INPUT type="hidden" NAME=artistID VALUE="{artistID}">
+				<INPUT type="hidden" NAME=action VALUE="{action}">
+				<INPUT type="hidden" NAME="processuploadedpix" VALUE="1">
+		
+				<INPUT TYPE=submit NAME=Submit VALUE="Process {FP_PIXTOPROCESS} Uploaded Picture(s)">
+			</FORM>
+		</div>
+	</div>
+	{UPLOADER_HTTP}
+</div>

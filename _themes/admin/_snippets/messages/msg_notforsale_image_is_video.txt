@@ -1,0 +1,5 @@
+<!--msg_notforsale_image_is_video-->
+This {fp:image} is actually a video! <i>Solution: Edit the {fp:image} and turn off "This is a video".</i>
+<a href="admin.php?action=display&ID={ID}&table={IMAGES}&PageID=tab5">
+<span class="ui-icon ui-icon-extlink" style="display:inline-block;height:13px;width:13px;margin-right:0px;margin-top:2px;"></span>
+Edit {fp:Image}</a>

@@ -1,0 +1,8 @@
+<div class="entry">
+	<div class="label" style="width:250px;">
+		<input name="list[value[]]" value="{KEY}" type="text" >
+	</div>
+	<div class="item">
+		&rarr; <input name="list[value[]]" value="{VALUE}" type="text" size="80">
+	</div>
+</div>

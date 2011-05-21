@@ -1,0 +1,2 @@
+<!--gallery_set_images_item_format_solo-->
+<snippet name="gallery_set_images_item_format_picture_solo" />

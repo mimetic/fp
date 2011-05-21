@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar {navbar_selector_about}" href="artist.php?ArtistID={ArtistID}&amp;GroupID={groupID}">{fp:AboutArtist} {ArtistFullName}</a></div>

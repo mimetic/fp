@@ -1,0 +1,11 @@
+<!--frameshop_buyaprint-->
+<snippet name="tearsheetlink">
+
+<span class="showtext" id="priceinfo_{ID}_{PROJECTID}_buyprint" >
+<a id="buynow_{ID}_{PROJECTID}" class="gallery-info-link editable" rel="{ID},{PROJECTID},{CURRENTFRAME},{CURRENTMATTE},{CURRENTSIZE}" href="#">{fp:Buy} {ARTWORK_NAME}</a>
+</span>
+
+<br>
+<div id="priceinfo_{ID}_{PROJECTID}_buyprint_text" class="gallery-priceinfo showme">
+	{LIMITED_EDITION} {AVAILABLESIZES} {PRICERANGE}
+</div>

@@ -1,0 +1,1 @@
+<li id="navbar-tab-subscribe" class="tab-subscribe  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=display&amp;table={ARTISTS}&amp;ID={fp_user}#subscribe">{FP:Upgrade}!</a></li>

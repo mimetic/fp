@@ -1,0 +1,33 @@
+﻿<!-- supplier_order_item_original_art -->
+<table style="width:600px;font-size: 12px;">
+	<tr>
+		<td valign="top"><b>Item&nbsp;:</b></td>
+		<td valign="top">{Title}</td>
+		<td valign="top"></td>
+	</tr>
+	<tr>
+		<td valign="top"><b>&nbsp;:</b></td>
+		<td valign="top">This is an unique {ARTWORK_NAME}, not a print.</td>
+		<td valign="top"></td>
+	</tr>
+	<tr>
+		<td valign="top"><b>Details&nbsp;:</b></td>
+		<td valign="top">{DESCRIPTION}<br>{print_file_message}</td>
+		<td valign="top"></td>
+	</tr>
+	<tr>
+		<td valign="top"><b>Print+Matte+Frame&nbsp;:</b></td>
+		<td valign="top">{MATTEFRAMESDESC}</td>
+		<td align="right">{ITEMCOST}</td>
+	</tr>
+	<tr>
+		<td valign="top"><i><b>Item Total&nbsp;:</b></i></td>
+		<td valign="top"></td>
+		<td align="right"><i>{ITEMTOTALCOST}</i></td>
+	</tr>
+</table>
+<br>
+<!--<i><b>Coded Order&nbsp;:</b> {item_spec}</i><br>
+<br>
+<br>
+-->

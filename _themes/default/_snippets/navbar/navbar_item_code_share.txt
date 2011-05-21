@@ -1,0 +1,6 @@
+		<div class="navbar"><span class="navbar {navbar_selector_terms}">
+			<!-- AddThis Button BEGIN -->
+		<script type="text/javascript">var addthis_pub="mimetic";var addthis_brand = "Mimetic Galleries";</script>
+			<a class="navbar unselected"  href="http://www.addthis.com/bookmark.php?v=20" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img alt="[+] " order=0 src="{THEMESDIR}/{DEFAULT_THEME}/_img/share.png"  style="border:none;margin:0;padding:0;">&nbsp;{fp:Share}</a><script src="http://s7.addthis.com/js/200/addthis_widget.js" type="text/javascript" language="javascript"></script>
+			<!-- AddThis Button END -->
+		</span></div>

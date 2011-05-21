@@ -1,0 +1,171 @@
+<div id="theme_finder_box">
+	<div class="gallery">
+		<div id="container" class="editable">
+<!--HEADER-->
+<!--master_page_header-->
+			<div id="header">
+				<div id="headerc" class="gallery">
+					<div class="icon" style="float:left;padding-right:10px;">
+<!-- no icon -->
+					</div>
+					<div>
+						<div id="te-head-subtitle">
+							The Main Gallery 
+						</div>
+						<div id="te-head-title">
+							Halloween 
+						</div>
+					</div>
+				</div>
+			</div>
+<!--navbar solo-->
+			<div id="te-topnav" style="clear:both">
+				<div class="navbar-container">
+					<span class="navbar"><span class="selected"><a>New Exhibitions</a></span></span> <span class="navbardivider">|</span> <span class="navbar"><span class="unselected"><a>By Location</a></span></span> <span class="navbardivider">|</span> <span class="navbar"><span class="unselected"><a>All Exhibitions</a></span></span> <span class="navbardivider">|</span> <span class="navbar"><span class="unselected"><a>About David Gross</a></span></span> <span class="navbardivider">|</span> <span class="navbar-return-link"><span class="navbar"><span class="unselected"><a>Return to Laptop Galleries</a></span></span></span> 
+				</div>
+			</div>
+<!-- MAIN SECTION -->
+			<div id="main">
+				<div id="mainc">
+					<div id="message">
+					</div>
+					<div id="error">
+					</div>
+					<div id="mainlist">
+						<div class="gallery">
+							<div class="list">
+<!-- start list -->
+<!--gallery_set_projects_block_format-->
+								<table class="gallerytable">
+									<tr>
+<!--gallery_set_projects_item_format-->
+										<td valign="top" class="gallery">
+											<div class="gallery-description">
+												<div class="projecttitle">
+													Halloween 
+												</div>
+												<div class="location">
+													San Jose, California, USA 
+												</div>
+												<span class="sspop"> Go to Slide Show </span> 
+												<br>
+												<span class="sspop"> Go to Light Table 
+													<br>
+												</span> <span class="sspop"> Go to Postcard Viewer 
+													<br>
+												</span> <span class="sspop"></span> 
+												<br>
+												<div class="statement">
+												</div>
+												<div class="description">
+													A night of weirdly dressed natives trudging through the chill with their children leading the way. 
+												</div>
+<!--no stories-->
+												<div style="position:relative;bottom:0px;">
+													<img src="images/mim_nav_04.gif" alt="" width="150" height="19"> 
+													<div class="description">
+														<b>How to use the Gallery:</b> 
+														<br>
+														Point at a picture for a description (if available), and click on a picture to enlarge it. 
+													</div>
+												</div>
+											</div>
+										</td>
+										<td valign="top">
+											<div class="gallery-description-divider" style="height:300px;">
+											</div>
+										</td>
+<!--gallery_set_images_item_format-->
+										<td class="galleryPictureColumn" valign="top">
+											<div style="width:436px;">
+												<div class="gallerypictureblock" style="height:300px;">
+<!--preload hidden large image-->
+													<img alt="" src="photos/slides/050808-dg-1377.jpg" style="display:none;"> 
+													<table class="pictureframe">
+														<tr>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_tl.jpg" width="0" height="0"> 
+															</td>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_t.jpg" width="436" height="0"> 
+															</td>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_tr.jpg" width="0" height="0"> 
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_l.jpg" width="0" height=286> 
+															</td>
+															<td class="picturematte" style="background-color:#FDFDFD;">
+																<img alt="" id="image_871" class="gallerypic" src="photos/gallery/050808-dg-1377.jpg" width="436" height="286" border="0"> 
+															</td>
+															<td style="width:0px;height:286px;">
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_r.jpg" width="0" height=286> 
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_bl.jpg" width="0" height="0"> 
+															</td>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_b.jpg" width="436" height="0"> 
+															</td>
+															<td>
+																<img alt="" class="pictureframe" style="display:none;" border="0" hspace="0" vspace="0" src="_themes/default/_img/pictureframes/0_br.jpg" width="0" height="0"> 
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div class="captionblock">
+												<div style="text-align:center;">
+												</div>
+												<div id="caption_871" style="">
+													<div class="caption">
+														This is a picture that is about something deep, or perhaps only a moment in time. 
+													</div>
+<!--gallery_picture_credit-->
+													<div class="signature">
+														by David Gross 
+													</div>
+												</div>
+											</div>
+										</td>
+										<td class="galleryColSpacer" style="width:80px;">
+											<div class="galleryColSpacer" style="width:80px;">
+											</div>
+										</td>
+									</tr>
+								</table>
+<!-- end list -->
+							</div>
+<!-- end mainlist-->
+						</div>
+					</div>
+<!-- end mainc -->
+				</div>
+<!-- end main -->
+			</div>
+			<div id="te-foot">
+				<div id="footc">
+					<div id="te-footer-box">
+<!-- navbar_solo_2 -->
+						<div id="te-bottomnav">
+							<div class="navbar-container">
+								<span class="navbar"><span class="unselected"><a>FAQ</a></span></span> <span class="navbardivider">|</span> <span class="navbar"><span class="unselected"><a> Terms &#x26; Copyright </a></span></span> <span class="navbardivider"> | </span> <span class="navbar"><span class="unselected"><a> Privacy Policy </a></span></span> <span class="navbardivider"> | </span> <span class="navbar"><span class="unselected"><a> Contact </a></span></span> <span class="navbardivider"> | </span> <span class="navbar"><span class="unselected"><a> Administration </a></span></span> <span class="navbardivider"> | </span> <span class="navbar"><span class="unselected"><a> Powered by Mimetic Galleries </a></span></span> 
+							</div>
+						</div>
+						<div id="footleft">
+<!-- footer_left -->
+						</div>
+						<div id="footright">
+<!--footerright-->
+						</div>
+					</div>
+				</div>
+			</div>
+<!--end container -->
+		</div>
+	</div>
+</div>

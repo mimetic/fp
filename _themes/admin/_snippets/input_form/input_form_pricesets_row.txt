@@ -1,0 +1,162 @@
+<!-- input_form_pricesets_row -->
+<h3><a href="#" class="dimmable-{k}"><span style="margin-right:30px;">{k}:</span> {size} {UNITS}</a></h3>
+<div>
+<table class="entryform grid dimmable-{k}">
+<thead>
+	<tr valign="TOP">
+		<td class="grid" style="text-align:left;" colspan="2">
+			<!--<span class="entryformtag" style="margin-right:20px;"> Size #{k} </span> -->
+			<input name="index{k}" id="index{k}" type="hidden" value="{index}" size="2" maxlength="2"> {InactivePopup} <span class="important">*</span> 
+			<div class="tip" title="Mark the row &quot;On Hold&quot; when you want to enter costs and prices for a picture size that you aren't ready to sell...but will later.">
+				? 
+			</div>
+		</td>
+		<th class="grid" width="100">
+			
+		</th>
+		<th class="grid" width="100">
+			<div align="center">
+			Print Only 
+			<br>
+			<div style="display:inline-block;padding:5px;height:12px;width:18px;border:1px solid transparent;margin-right:5px;">
+				<div style="height:10px;width:15px;background-color:#CCFFFF;border:1px solid #888;">
+				</div>
+			</div>
+			</div>
+		</th>
+		<th class="grid" width="100">
+			<div align="center">
+			Matte 
+			<br>
+			<div style="display:inline-block;padding:5px;height:12px;width:18px;background-color:#fefefe;border:1px solid #888;margin-right:5px;">
+				<div style="height:10px;width:15px;background-color:#CCFFFF;border:1px solid #888;">
+				</div>
+			</div>
+			</div>
+		</th>
+		<th class="grid" width="100">
+			<div align="center">
+			Frame (to fit print)
+			<br>
+			<div style="display:inline-block;padding:5px;height:12px;width:18px;border:1px solid transparent;margin-right:5px;">
+				<div style="height:10px;width:15px;background-color:#CCFFFF;border:3px solid #222;">
+				</div>
+			</div>
+			</div>
+		</th>
+		<th class="grid" width="100">
+			<div align="center">Frame (to fit Matte) 
+			<br>
+			<div style="display:inline-block;padding:5px;height:12px;width:18px;background-color:#fefefe;border:3px solid #222;margin-right:5px;">
+				<div style="height:10px;width:15px;background-color:#CCFFFF;border:1px solid #888;">
+				</div>
+			</div>
+			</div>
+		</th>
+	</tr>
+</thead>
+<tbody>
+	<tr valign="TOP">
+<!--
+	<td class="grid" width="100">
+		Number of Prints: 
+		<br>
+		<input type="text" name="EditionSize[]" value="{editionsize}" size="5"> 
+		<div class="tip" title="Number of prints in this size. For an open (unlimited) edition, enter 0.">
+			? 
+		</div>
+	</td>
+	-->
+		<td class="grid" colspan="2">
+			Image Size: <input title="{k}" class="twodecimals" type="text" id="size-{k}" name="Size[]" value="{size}" size="7" maxsize="7"> {UNITS} <span class="important">*</span> 
+			<div class="tip" title="Enter the &lt;B&gt;largest side&lt;/B&gt; of the picture size. For example, enter &quot;10&quot; for an 8x10 {UNITS} picture.">
+				? 
+			</div>
+		</td>
+		<th class="vertical">
+			Item Cost: 
+			<div class="tip" title="Enter 0 (zero) to calculate cost based on the {fp:supplier}'s pricing. Or, enter the cost you pay for a print, a matte, or a frame individually.">
+				? 
+			</div>
+		</th>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="PrintCost[]" value="{printcost}" size="6"> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="MatteCost[]" value="{MatteCost}" size="6"> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="FrameToPrintCost[]" value="{FrameToPrintCost}" size="6"> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="FrameMatteCost[]" value="{framemattecost}" size="6"> 
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td class="grid" colspan="2">
+			Markup: <input title="{index}" style="text-align:right;" type="text" name="Markup[]" value="{Markup}" size="4" maxsize="4">% 
+			<div class="tip" title="Your profit: the markup is the percentage to add to the cost, to get the selling price. If a print costs $100, and the markup is 10%, the print will sell for $110.&lt;br&gt;&lt;i&gt;&lt;b&gt;Suggestion&lt;/b&gt;: I don't recommend calculating your selling price from the cost. The value of a picture isn't about what it costs to print!&lt;/i&gt;">
+				? 
+			</div>
+		</td>
+		<th class="vertical">
+			Item Price: 
+			<div class="tip" title="Enter 0 (zero) to calculate prices based on the {fp:supplier}'s pricing &times; Markup. Or, enter the price you charge for a print, a matte, or a frame individually.">
+				? 
+			</div>
+		</th>
+		<td class="grid" style="whitespace:nowrap;text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="PrintPrice[]" value="{printprice}" size="6"> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="MattePrice[]" value="{matteprice}" size="6"> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="FrameToPrintPrice[]" value="{FrameToPrintPrice}" size="6"> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			{CURRENCY} <input title="{index}" class="twodecimals" type="text" name="FrameMattePrice[]" value="{FrameMattePrice}" size="6"> 
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td class="grid" colspan="2" rowspan="6">
+			<!-- not in use, stick with JS version for now -->
+			{X_SAMPLE_SIZES}
+			<div class="" id="FrameSizeText{k}">
+			</div>
+			<div class="" id="FrameSize{k}">
+			</div>
+		</td>
+		<th class="vertical">
+			Shipping Weight: 
+		</th>
+		<td class="grid" style="whitespace:nowrap;text-align:right;">
+			<input title="{index}" class="twodecimals" type="text" id="PrintShipWeight{k}" name="PrintShipWeight[]" value="{PrintShipWeight}" size="3"> {WEIGHT_UNIT} <span class="important">*</span> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			<input title="{index}" class="twodecimals" type="text" id="MatteShipWeight{k}" name="MatteShipWeight[]" value="{MatteShipWeight}" size="3"> {WEIGHT_UNIT} <span class="important">*</span> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			<input title="{index}" class="twodecimals" type="text" id="FrameToPrintShipWeight{k}" name="FrameToPrintShipWeight[]" value="{FrameToPrintShipWeight}" size="3"> {WEIGHT_UNIT} <span class="important">*</span> 
+		</td>
+		<td class="grid" style="text-align:right;">
+			<input title="{index}" class="twodecimals" type="text" id="FrameMatteShipWeight{k}" name="FrameMatteShipWeight[]" value="{FrameMatteShipWeight}" size="3"> {WEIGHT_UNIT} <span class="important">*</span> 
+		</td>
+	</tr>
+	{ESTIMATES}
+	<tr>
+		<td colspan="5">
+		{MatchPrintWarning}
+		<div style="text-align:right;">
+			<snippet name="save">
+			<button type="submit" name="action" id="DeletePriceSetRow-{k}" title="{k}" value="update" type="submit">Delete</button>
+			<button type="reset" id="Reset" name="Reset">Reset</button>
+			<snippet name="cancel">
+		</div>
+		<br>
+		{CALCMESSAGE}
+		</td>
+	</tr>
+</tbody>
+</table>
+</div>

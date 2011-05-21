@@ -1,0 +1,7 @@
+<!-- thumbnail_order_nolink_hide -->
+	<div class="thumbnailbox">
+			<IMG class="thumbnail" SRC="{src}" TITLE="{caption}" ALT="{caption}" >
+		<div class="thumbnailcaption">
+			({k}) {picdisplayname}
+		</div>
+	</div>

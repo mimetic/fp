@@ -1,0 +1,13 @@
+<tr class="listing">
+	<td>
+		<tt>{PublicCheckmark} {order}...</tt> <b>{Title}</b>
+	</td>
+	<td style="whitespace:nowrap;">
+		<a href="{ADMINFILENAME}?ID={ID}" target="_blank">Preview</a> | <a href='?action=display&amp;ID={ID}&amp;nextaction={nextaction}'>Edit</b></a> | <a href='?action=confirm&amp;command=delete&amp;ID={ID}&amp;desc={Title}'>Delete</a>
+	</td>
+	<td>
+		(ID = {ID})
+	</td>
+	<td>
+	</td>
+</tr>

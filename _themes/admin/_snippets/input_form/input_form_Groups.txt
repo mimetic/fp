@@ -1,0 +1,300 @@
+<!-- SNIPPET : INPUT_FORM_GROUPS -->
+{Javascript}
+<div class="entryform">
+	<form name="myform" action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+		<input type="hidden" name="ID" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="{action}"> <input type="hidden" name="subset" value="Artists"> <input type="hidden" name="PageID" value="{PAGEID}"> 
+		<div class="section">
+			<h3 class="entryform"> Edit {fp:group} : {Title} <font size="-2"><i>owned by</i> {ownername}</font></h3> 
+			<div class="ui-widget ui-corner-all padme links">
+				<div style="float:left;">
+					<snippet name="toggle_advanced" />
+				</div>
+				<span style="width:150px;"></span> &nbsp;
+			</div>
+			<div style="float:right;">
+				<snippet name="save" >
+					<snippet name="cancel" >
+					</div>
+					<br clear="all">
+					<!--
+					<div class="entry advanced">
+						{publicprivateinput} 
+					</div>
+					-->
+					<div class="entry">
+						<div class="label">
+							Title&nbsp;: 
+						</div>
+						<div class="item">
+							<input type="text" name="Title" value="{Title}" size="30"> 
+							<div class="helptext">
+								Title of this gallery
+							</div>
+							<div class="tip" title="The title of the {fp:project}, which will be shown in lists and above the {fp:project} in {fp:groups}.">?</div>
+						</div>
+					</div>
+					<div class="multiuser">
+						<div class="entry advanced">
+							<div class="label">
+								Owner : 
+							</div>
+							<div class="item">
+								{ArtistIDList} <span class="important">*</span> 
+								<div class="helptext">
+									Which artist owns this gallery? If you change this, you will not be able to see or change this gallery!
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="entry">
+						<div class="label">
+							Gallery Theme : 
+						</div>
+						<div class="item">
+							<div>
+								<div style="float:left;">
+									{THEMELIST}
+									<input id="themeid-for-preview" type="hidden" value="{THEME_ID}">
+								</div>
+								<div style="float:left;">
+									&nbsp;<a href="#" class="toggler" title="preview:hide">preview</a>&nbsp;
+								</div>
+								<div style="display:inline-block;display:none;">
+									{THEME_PREVIEW}
+								</div>
+								<br clear="both">
+							</div>
+							
+						</div>
+					</div>
+					<div class="entry advanced">
+						<div class="label">
+							Menu Bar (Top) : 
+						</div>
+						<div class="item">
+							{param_19_checkbox} Use custom menu bar? <span class="helptext">If checked, this gallery will use the menu bar you define, below.</span> 
+							<div style="padding:5px;border:1px solid #888;margin:10px;">
+								{NAVBARMENU_1_1} | {NAVBARMENU_1_2} | {NAVBARMENU_1_3} | {NAVBARMENU_1_4} | {NAVBARMENU_1_5} | {NAVBARMENU_1_6} | {NAVBARMENU_1_7} | {NAVBARMENU_1_8} 
+							</div>
+							<span class="helptext"> </span> 
+						</div>
+					</div>
+					<div class="entry advanced">
+						<div class="label">
+							Menu Bar (Bottom) : 
+						</div>
+						<div class="item">
+							<div style="padding:5px;border:1px solid #888;margin:10px;">
+								{NAVBARMENU_2_1} | {NAVBARMENU_2_2} | {NAVBARMENU_2_3} | {NAVBARMENU_2_4} | {NAVBARMENU_2_5} | {NAVBARMENU_2_6} | {NAVBARMENU_2_7} | {NAVBARMENU_2_8} 
+							</div>
+						</div>
+					</div>
+					<div class="entry advanced">
+						<div class="label">
+							Hide Listing : 
+						</div>
+						<div class="item">
+							{param_27_checkbox} <span class="helptext"> Hide the list of {fp:projects} on the page. This is useful when you use drop-down menus. </span> 
+						</div>
+					</div>
+
+					<div class="entry advanced">
+						<div class="label">
+							Menu Bar<br>Custom Items : 
+						</div>
+						<div class="item">
+							<div style="padding:5px;border:1px solid #888;margin:10px;">
+								Custom Item 1 : <input type="text" name="param_20" value="{param_20}" size="80">
+								<br>
+								Custom Item 2 : <input type="text" name="param_21" value="{param_21}" size="80">
+								<br>
+								Custom Item 3 : <input type="text" name="param_22" value="{param_22}" size="80">
+								<br>
+								Custom Item 4 : <input type="text" name="param_23" value="{param_23}" size="80">
+								<br>
+								Custom Item 5 : <input type="text" name="param_24" value="{param_24}" size="80"> 
+							</div>
+						</div>
+					</div>
+				<div class="label">
+				</div>
+		</div>
+		
+		
+		<div class="section">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+
+			<h3 class="entryform">{fp:Group} Content</h3> 
+
+			<div class="multiuser">
+				<div class="entry">
+					<div class="label">
+						Other Artists : 
+					</div>
+					<div class="item">
+						<div style="float:left;margin-right:12px;">
+							{artistlist} 
+						</div>
+						<div class="tip" title="You can allow other artists to join this {fp:group}. Command-click or Alt-click to select more than one name in the list.">?</div>
+						<br clear="all">
+					</div>
+				</div>
+			</div>
+			
+			<div class="entry">
+				<div class="label">
+					Description : 
+				</div>
+				<div class="item">
+					<textarea class="tipright" name="Description" rows="7" cols="89">{Description}</textarea>
+					<div class="tip" title="	This description of what is in this {fp:group} will appear in listing of your {fp:group}.">?</div>
+					<div style="clear:both;">
+						<span class="helptext">Add uploaded files to your text:</span> <div class="tip" title="{help_uploaded_files}">?</div>
+					</div>
+				</div>
+			</div>
+			<div class="entry">
+				<div class="label">
+					Statement : 
+				</div>
+				<div class="item">
+					<textarea class="tipright" name="Statement" rows="7" cols="89">{Statement}</textarea><br>
+					<div class="tip" title="	This artistic statement will appear in listing of your {fp:group}.">?</div>
+					<div style="clear:both;">
+						<span class="helptext">Add uploaded files to your text:</span> <div class="tip" title="{help_uploaded_files}">?</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</form>
+	
+	<div class="section advanced">
+		<div class="advanced" style="float:right;">
+			<snippet name="go_top" />
+		</div>
+		<h3 class="entryform">{fp:Group} Banner</h3> 
+
+		<form name="myformlogo" action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+			<input type="hidden" name="ID" value="{ID}">
+			<input type="hidden" name="table" value="{table}">
+			<input type="hidden" name="action" id="action" value="{action}">
+			<input type="hidden" name="subset" value="Logo"> 
+			<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}">
+			<!-- userfileTag tells us to treat this picture as an artist portrait -->
+			<input name="userfileTag" type="hidden" value="group_logo">
+			<input name="userfileName" type="hidden" value="group_logo_{ID}">
+
+			<div class="entry">
+				<div class="label">
+					Current Banner : 
+				</div>
+				<div class="item">
+					<div style="text-align:center;">
+						{GROUPLOGO}&nbsp;
+					</div>
+				</div>
+			</div>
+	
+			<div class="entry">
+				<div class="label">
+					Upload Banner :
+				</div>
+				<div class="item">
+					<div  style="margin:5px;">
+						<input name="userfile" type="file" size="40"> <button type="submit">	Upload Banner</button>
+						<div class="tip" title="Upload a picture to show as your {fp:group} banner.">?</div>
+					</div>
+				</div>
+			</div>
+	
+		<div class="entry">
+			<div class="label">
+				Choose Banner :
+			</div>
+			<div class="item">
+				<div  style="margin:5px;">
+					{ImageListLogo} <button type="submit">Set Banner</button>
+					<div class="tip" title="Choose a {fp:picture} in the system <i>or</i> an uploaded banner (above) to show as your {fp:group} banner.">?</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="entry">
+			<div class="label">
+				Clear Banner :
+			</div>
+			<div class="item">
+				<button type="submit" name="clear_uploaded_logo" value="1">Clear the Banner</button>
+			</div>
+		</div>
+
+		
+		</form>
+	</div>
+
+	<div class="section advanced">
+		<div class="advanced" style="float:right;">
+			<snippet name="go_top" />
+		</div>
+		<h3 class="entryform">{fp:Group} Icon</h3> 
+
+		<form name="myformicon" action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+			<input type="hidden" name="ID" value="{ID}">
+			<input type="hidden" name="table" value="{table}">
+			<input type="hidden" name="action" id="action" value="{action}">
+			<input type="hidden" name="subset" value="Icon"> 
+			<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}">
+			<input name="userfileName" type="hidden" value="group_icon_{ID}"> 
+			<!-- userfileTag tells us to treat this picture as an artist portrait -->
+			<input name="userfileTag" type="hidden" value="group_icon">
+	
+			<div class="entry">
+				<div class="label">
+					Current Icon : 
+				</div>
+				<div class="item">
+					<div style="text-align:center;">
+						{GROUPICON}&nbsp;
+					</div>
+				</div>
+			</div>
+
+			<div class="entry">
+				<div class="label">
+					Upload Icon :
+				</div>
+				<div class="item">
+					<div  style="margin:5px;">
+						<input name="userfile" type="file" size="40"> <button type="submit">	Upload Icon</button>
+						<div class="tip" title="Upload a picture to show as your {fp:group} icon.">?</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="entry">
+				<div class="label">
+					Choose Icon :
+				</div>
+				<div class="item">
+						{ImageListIcon} <button type="submit">Set Icon</button>
+						<div class="tip" title="Choose a {fp:picture} in the system <i>or</i> an uploaded icon picture (above) to show as your {fp:group} icon.">?</div>
+				</div>
+			</div>
+
+			<div class="entry">
+				<div class="label">
+					Clear Icon : 
+				</div>
+				<div class="item">
+					<button type="submit" name="clear_uploaded_icon" value="1">Clear the Icon</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+<!-- end input_forms_groups -->

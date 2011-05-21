@@ -1,0 +1,2 @@
+<!--newsletter_block_separator-->
+<div class="separator"></div>

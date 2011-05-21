@@ -1,0 +1,3 @@
+<!--input_form_images_pricesetlocker-->
+<input name="LockPriceSet" id="LockPriceSet" class="confirm" alt="Are you sure you want to lock the the pricing set for this {fp:image}?" type="checkbox" value="1"> Lock Pricing Set 
+<div class="tip" title="{help_lock_price_set}">?</div>

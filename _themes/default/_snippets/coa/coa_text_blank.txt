@@ -1,0 +1,202 @@
+<!--coa_text_blank-->
+<h1>{FP_COA_TITLE}</h1> 
+<table class="coa-info-block">
+	<tr>
+		<td valign="top" class="coa-image-area" width="{COA_IMAGE_W}">
+			<div class="coa-image-border" style="width:{COA_IMAGE_W}px;height:{COA_IMAGE_W}px;">
+				&nbsp; 
+			</div>
+		</td>
+		<td valign="top">
+			<table class="coa-info-block coa-blank-table">
+				<tr>
+					<th valign="top">
+						Title : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						</div>
+						<span class="coa-title"></span> 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Date : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Print # : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						&nbsp;<span style="margin-left:0.7in;color:#720000">of</span></div>
+						 
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Edition Size : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Catalog # : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Image Size : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th valign="top">
+						Paper Size : 
+					</th>
+					<td valign="top">
+						<div class="coa-line">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<div class="coa-bottom">
+	<div class="coa-body">
+		<p>
+			This document certifies that the associated picture is an original print of a photograph taken by the artist. 
+		</p>
+		<table class="coa-info-block coa-blank-table">
+			<tr>
+				<th valign="top">
+					Artist : 
+				</th>
+				<td valign="top">
+					<div class="coa-line">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th valign="top">
+					Medium : 
+				</th>
+				<td valign="top">
+					<div class="coa-line">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th valign="top">
+					Ink & Paper : 
+				</th>
+				<td valign="top">
+					<div class="coa-line">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th valign="top">
+					Printer : 
+				</th>
+				<td valign="top">
+					<div class="coa-line">
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<table class="coa-signatures">
+		<tr>
+			<th valign="top">
+				Artist: 
+			</th>
+			<td valign="top" colspan="2">
+				<div class="coa-line">
+				</div>
+				name
+			</td>
+		</tr>
+		<tr>
+			<th valign="top">
+				 
+			</th>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				signature
+			</td>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				Date 
+			</td>
+		</tr>
+		<tr>
+			<th valign="top">
+				Printer: 
+			</th>
+			<td valign="top" colspan="2">
+				<div class="coa-line">
+				</div>
+				name/company name
+			</td>
+		</tr>
+		<tr>
+			<th valign="top">
+				
+			</th>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				signature
+			</td>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				Date 
+			</td>
+		</tr>
+		<tr>
+			<th valign="top">
+				Issuing Authority: 
+			</th>
+			<td valign="top" colspan="2">
+				<div class="coa-line">
+				</div>
+				name
+			</td>
+		</tr>
+		<tr>
+			<th valign="top">
+				 
+			</th>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				signature
+			</td>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				Date 
+			</td>
+		</tr>
+	</table>
+</div>

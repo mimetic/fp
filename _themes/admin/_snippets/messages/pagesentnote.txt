@@ -1,0 +1,11 @@
+<div class="helptext">
+NOTE : this page is proof you have sent your pictures. I suggest you print this page and keep it
+until the client acknowledges receipt.
+</div>
+<div class="helptext">
+You might have to wait a minute or two. If you see nothing on your screen, just sip that coffee or
+take another drag on your cigarette, but don't try click on 'refresh' or 'reload'. Just chill. It'll 
+be over soon.
+</div>
+<BR>
+<BR>

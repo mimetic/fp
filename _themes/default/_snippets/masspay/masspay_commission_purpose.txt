@@ -1,0 +1,1 @@
+This payment is the website owner's commission ({COMMISSION_RATE}%) on a sale.

@@ -1,0 +1,4 @@
+<!--catalog_slideshow-->
+<div id="flashbox" >
+	<div id="flashcontent"></div>
+</div>

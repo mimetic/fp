@@ -1,0 +1,1 @@
+Sales tax is calculated only the entire sale.

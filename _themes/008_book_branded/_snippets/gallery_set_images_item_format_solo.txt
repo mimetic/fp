@@ -1,0 +1,18 @@
+<!--gallery_set_images_item_format-->
+<td class="galleryPictureColumn" valign="top" id="gallery_picture{Images_ImageID}">
+	<div class="galleryPictureColumn">
+		<div  rel="lightbox-mygroup">
+			<div class="source" style="display:none;">{SLIDES}/{Images_URL}</div>
+			<div class="description" style="display:none;"><snippet name="gallery_picture_full_info_popup_solo" /></div>
+			<div id="gallery_picture{Images_ImageID}_text" class="description" style="display:none;"> 
+				<div class="gallerypicinfo popupinfo"><snippet name="gallery_picture_full_info_solo" /></div> 
+			</div> 
+			<div class="gallerypictureblock" style="width:{FramedWidth}px;">
+				<snippet name="gallery_set_image_item_format_picture" />
+			</div>
+		</div>
+	</div>
+</td>
+<td style="{gallery_spacing}">
+	<div class="galleryColSpacer" style="{gallery_spacing}"></div>
+</td>

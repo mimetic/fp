@@ -1,0 +1,99 @@
+/* @override http://localhost/fp/_themes/014_popups_with_frames/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+.wrappeditem
+{
+	border: 1px #F30 solid;
+}
+
+.popup_thickbox
+{
+	display: none;
+}
+
+#container
+{
+	opacity: 1;
+}
+
+#popup
+{
+	position: fixed;
+	_position: absolute;
+	/* hack for internet explorer 6*/
+	top: 0px;
+	left: 0px;
+	display: none;
+	/*visibility: hidden;*/
+}
+
+br.both
+{
+	clear: both;
+}
+
+#popup_bkgd_coverup
+{
+	background-color: #eee;
+	display: none;
+}
+
+#backgroundPopup
+{
+	display: none;
+	position: fixed;
+	_position: absolute;
+	/* hack for internet explorer 6*/
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	border: 1px solid #cecece;
+	z-index: 1;
+}
+
+#popupContact
+{
+	display: none;
+	position: fixed;
+	_position: absolute;
+	/* hack for internet explorer 6*/
+	height: 384px;
+	width: 408px;
+	background: #FFFFFF;
+	border: 2px solid #cecece;
+	z-index: 2;
+	padding: 12px;
+	font-size: 13px;
+}
+
+#popupContact h1
+{
+	text-align: left;
+	color: #6FA5FD;
+	font-size: 22px;
+	font-weight: 700;
+	border-bottom: 1px dotted #D3D3D3;
+	padding-bottom: 2px;
+	margin-bottom: 20px;
+}
+
+#popupContactClose
+{
+	font-size: 14px;
+	line-height: 14px;
+	right: 6px;
+	top: 4px;
+	position: absolute;
+	color: #6fa5fd;
+	font-weight: 700;
+	display: block;
+}
+
+#button
+{
+	text-align: center;
+	margin: 100px;
+}

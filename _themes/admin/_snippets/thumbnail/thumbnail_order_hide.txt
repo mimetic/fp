@@ -1,0 +1,7 @@
+<!-- thumbnail_order_hide-->
+	<div class="thumbnailbox">
+			<a href="admin.php?action=display&amp;ID={picID}&amp;table={DB_IMAGES}&amp;PageID=tab5" ><IMG class="thumbnail" SRC="{src}" TITLE="{caption}" ALT="{caption}" ></a>
+		<div class="thumbnailcaption">
+			({k}) <a href="admin.php?action=display&amp;ID={picID}&amp;table={DB_IMAGES}&amp;PageID=tab5">{picdisplayname}</a>
+		</div>
+	</div>

@@ -1,0 +1,29 @@
+<!-- image_quick_editor_dialog -->
+<div style="display:none;">
+	<div id="imageQuickEditor{ID}" class="imageQuickEditor" title="{CATALOGNUMBER}: {Title}">
+		Title : <div class="editable_text" fieldid="{ID}" table="Images" name="Title">{Title}</div>
+		<br>
+		<br>
+		Caption : 
+		<div class="editable_textarea" fieldid="{ID}" table="Images" name="Caption" style="width:95%;">{Caption}</div>
+		<br>
+		Credit : <span class="editable_text" fieldid="{ID}" table="Images" name="Byline">{Byline}</span> 
+		<br>
+		<br>
+		Date : <span class="editable_text" fieldid="{ID}" table="Images" name="CreatedDate">{CreatedDate}</span>
+		<span class="helptext">Enter the date in YYYY-MM-DD format, e.g. August 17, 1966 would be 1966-08-17.</span>
+		<br>
+		<br>
+		City : <span class="editable_text" fieldid="{ID}" table="Images" name="City">{City}</span> 
+		<br>
+		<br>
+		State : <span class="editable_text" fieldid="{ID}" table="Images" name="State">{State}</span> 
+		<br>
+		<br>
+		Country : <span class="editable_text" fieldid="{ID}" table="Images" name="Country">{Country}</span> 
+		<br>
+		<br>
+		<hr>
+		{SALESFORM} 
+	</div>
+</div>

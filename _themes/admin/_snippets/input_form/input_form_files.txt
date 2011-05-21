@@ -1,0 +1,16 @@
+<!-- input_form_files -->
+
+<h3  class="tabletitle">Upload <font color="#990000">Files</font></H3>
+<div align="right">
+	<div class="helptext">
+	<span class="important">*</span> marked fields must be filled in
+	</div>
+</div>
+
+<TABLE rules="rows" border="0" cellpadding="4px" width="100%">
+	<TR class="entryform">
+		<TD>
+			{UPLOADER}
+		</TD>
+	</TR>
+</TABLE>

@@ -1,0 +1,2 @@
+Click here to <a href="{link}">delete the log</a>.<P>
+{log}

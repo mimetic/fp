@@ -1,0 +1,4 @@
+<!--frameshop_edition_original_wrapper-->
+<p>
+The offering is an original {ARTWORK_NAME}.
+</p>

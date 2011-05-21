@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar {navbar_selector_privacy}" href="info.php?subject=privacy">{fp:Privacy}</a></div>

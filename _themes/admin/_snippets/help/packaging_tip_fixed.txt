@@ -1,0 +1,1 @@
+How much larger is the packaging than the print? For example, if your print is 10 inches wide, and you enter 4 here, the packaging is 14 inches wide. We need this information to calculate shipping costs.

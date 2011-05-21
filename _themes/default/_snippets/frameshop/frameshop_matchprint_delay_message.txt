@@ -1,0 +1,3 @@
+<!-- frameshop_matchprint_delay_message -->
+<br>
+<span class="important">**</span> Your print may be delayed for {fp:artist} approval of the final proof print.

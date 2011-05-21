@@ -1,0 +1,1 @@
+<a href="{PATH}" class="user_file_link" target="_blank">{TEXT}</a>

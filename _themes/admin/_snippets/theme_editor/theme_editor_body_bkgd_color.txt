@@ -1,0 +1,35 @@
+<!--theme_editor_body_bkgd_color-->
+	<TABLE rules="rows" border="0" cellpadding="4" width="100%">
+	<tr class="entryform" style="white-space:normal;">
+			<td valign="top" align="left" style="white-space:normal;width:25%;">
+				<input name="name_23" type="hidden" value="body">
+				<div style="color: #099;">
+					<b>Background Color</b> (background-color)
+				</div>
+				<div class="helptext">
+				</div>
+			</td>
+			<td>
+				<table style="width:100%;padding:5px;">
+					<tr>
+						<td valign="top" width=150 style="white-space:nowrap;">
+							<div style="margin-right:20px;">
+								<a href="javascript:void(0);" rel="colorpicker&amp;objcode=bkgdcolor&amp;objshow=theme-editor&amp;showrgb=1&amp;okfunc=showColorB('23')" style="color:#e8e8e8;background-color:#AA3;font-size:10px;padding:2px;border:1px solid black;text-decoration:none;">Color Picker</a> &nbsp;&rarr;&nbsp; <input onchange="setEditorBackgroundColor(this.value)" id='bkgdcolor' name='bkgdcolor' type='text' value="#222" size=10> 
+							</div>
+							<input type="hidden" name="body" value="#222"> 
+						</td>
+						<td valign="top" width="20%">
+							<div id='c1_23' style='border:1px solid black;width:80px;padding:3px 30px 3px 30px;background-color:#222'>
+								&nbsp; 
+							</div>
+						</td>
+						<td valign="top">
+							<div style="font-size: 9pt;color:#666;margin-left:20px;">
+								<i>body</i> 
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+</table>

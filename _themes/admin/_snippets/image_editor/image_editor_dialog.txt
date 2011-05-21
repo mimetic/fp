@@ -1,0 +1,81 @@
+<div style="display:none;">
+	<div id="image-editor" title="{fp:image} Multi-Editor">
+		<form name="editor" id="image-editor" action="javascript:false;">
+			<p>
+				Choose one or more of the following actions to apply to the chosen {fp:images}.
+			</p>
+			<h4>For the selected {fp:image}s :</h4> 
+			<!-- set the id of the checkbox to the name of the corresponding input field -->
+			<ul style="list-style-type:none;">
+				<li>
+					<input class="me_command" type="checkbox" value="fit_image_to_size"> Make the {fp:image} available for sale at sizes up to <input id="fit_image_to_size" type="text" size="5" maxlength="5" style="text-align:right;"> {UNITS} (on the largest side). 
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" id="fit_image_to_priceset" type="checkbox" value=""> Set Print size to fit the largest size in its pricing set. 
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" value="PriceSetID" type="checkbox" > Change the {fp:priceset} to  
+						{PRICESET_LIST}
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" type="checkbox" value="set_fixed_size"> The {fp:images} are fixed size: 
+						<input id="set_fixed_size" type="text" size="5" maxlength="5" style="text-align:right;">
+						&times;
+						<input id="set_fixed_size_2" type="text" size="5" maxlength="5" style="text-align:right;">
+						{UNITS}. 
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" type="checkbox" value="clear_fixed_size" value="0"> The {fp:images} are not fixed size. 
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" type="checkbox" value="set_edition_size"> Enter a custom edition size for the {fp:images}: <input id="set_edition_size" type="text" size="5" maxlength="5" style="text-align:right;"> 
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" type="checkbox" value="clear_edition_size" value="0"> Clear custom edition sizes. 
+				<br>
+				<br>
+				</li>
+				<li>
+					<input class="me_command" type="checkbox" value="no_sell_matte"> This item 
+					<select id="no_sell_matte">
+						<option label="Can be sold with a matte" value="0" SELECTED></option>
+						<option label="Cannot be sold with a matte" value="1" SELECTED></option>
+					</select>
+				<br>
+				<br>
+				<li>
+					<input class="me_command" type="checkbox" value="no_sell_frame"> This item 
+					<select id="no_sell_frame">
+						<option label="Can be sold with a frame" value="0" SELECTED></option>
+						<option label="Cannot be sold with a frame" value="1" SELECTED></option>
+					</select>
+				<br>
+				<br>
+				<br>
+				<li>
+					<input class="me_command confirm me_clear" id="delete" type="checkbox" value="" alt="Delete these items?"> Delete these items from the system completely!
+				<!--
+				<br>
+				<br>
+				<li>
+					Change the Parent {fp:Project} to {projectlist}. 
+				<br>
+				<br>
+				</li>
+				-->
+			</ul>
+		</form>
+	</div>
+</div>

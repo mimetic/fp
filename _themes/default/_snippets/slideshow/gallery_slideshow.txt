@@ -1,0 +1,7 @@
+<!--gallery_slideshow-->
+<div id="flashbox" >
+	<div id="flashcontent">
+		This SlideShowPro photo gallery requires the Flash Player plugin and a web browser with JavaScript enabled.
+	</div>
+</div>
+

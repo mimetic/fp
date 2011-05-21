@@ -1,0 +1,50 @@
+			<form action="{PP_URL}" method="POST">
+				<input type="hidden" name="username" value="{Username}" >
+				<input type="hidden" name="password" value="{Password}" >
+				<input type="hidden" name="userID" value="{ID}" >
+				<input type="hidden" name="currentpackageID" value="{SubscriptionID}" >
+				<input type="hidden" name="secret" value="{PP_SECRET_CODE}" >
+
+				<input type="hidden" name="first_name" value="{Firstname}" >
+				<input type="hidden" name="last_name" value="{Lastname}" >
+				<input type="hidden" name="address1" value="{Address1}" >
+				<input type="hidden" name="address2" value="{Address2}" >
+				<input type="hidden" name="city" value="{City}" >
+				<input type="hidden" name="state" value="{State}" >
+				<input type="hidden" name="zip" value="{Zip}" >
+
+				<input type="hidden" name="day_phone_a" value="{tel1}" >
+				<input type="hidden" name="day_phone_b" value="{tel2}" >
+				<input type="hidden" name="day_phone_c" value="{tel3}" >
+
+				<!--
+				<input type="hidden" name="URL" value="http://{SYSTEMURL}{FP_SYSTEM_ADMIN_SCRIPT}?table={ARTISTS}&amp;action=display&amp;ID={ID}" >
+				-->
+				<input type="hidden" name="URL" value="http://{SYSTEMURL}{FP_SYSTEM_ADMIN_SCRIPT}?action=show_list&amp;table=Artists&amp;PageID=tab2" >
+				<input type="hidden" name="serviceID" value="{PP_SERVICE_ID}" >
+				<input type="hidden" name="packageID" value="{SubscriptionID}" >
+
+				<input type="submit" name="Submit" value="{fp:Upgrade}/Cancel My Subscription">
+			</form>
+			<div class="helptext">
+				<p>
+				You will be brought back to {FP_SYSTEM_DISPLAY_NAME} after signing up.
+				</p>
+				<p>
+				<em>If you pay for an upgrade to your account, but it appears that nothing has happened, please wait about 60 seconds for the payment system to confirm your payment. Then, reload this page and you should see the upgrade.</em>
+				</p>
+				<p>
+				If there is a problem, contact us immediately and we will resolve it as quickly as possible.
+				</p>
+				<h4>How do I unsubscribe?</h4>
+				We really hate those businesses that make it hard to cancel your service. So, in the spirit of fair play, here's how to cancel your subscription:
+				<ol>
+					<li>
+						Click on the "{fp:Upgrade}/Cancel My Subscription" button, above. Choose the "Trial Account" option. Click "Confirm" then "Continue". You'll be taken to your Paypal account, where you can cancel your subscription. 
+					</li>
+					<li>
+						Log into your PayPal account and find the subscription to {FP_SYSTEM_DISPLAY_NAME} (look in the <b>History</b> tab). Click on <B><b>details</b></b>. There will be an entry, "Subscription Creation" to "{FP_SYSTEM_DISPLAY_NAME}". Click <b>Details</b>, and <b>Unsubscribe</b> button near the bottom of the screen.
+					</li>
+				</ol>
+				<div class="important">(Warning: If you change your account, you may lose pictures you have uploaded if the new subscription allows for less space then the old.)</div>
+			</div>

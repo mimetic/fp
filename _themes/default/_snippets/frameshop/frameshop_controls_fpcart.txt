@@ -1,0 +1,118 @@
+<script type="text/javascript" language="javascript">
+<!--
+
+var FP_DONT_CALC_SHIPPING = true;
+
+//-->
+</script>
+
+<!-- frameshop_controls_fpcart -->
+	<h2>Add {ARTWORK_NAME} to {fp:Shopping Cart}</h2>
+
+<!-- send vars to send_order, which saves values before forwarding to paypal -->
+<form id="orderform" name="fpcart" class="orderform fpcart" action="" method="post" onSubmit="return false;">
+	
+		{SizesList}
+		{FrameStyleList} 
+		{MatteList} 
+		{GlazingList} 
+		{PaperList} 
+		{InksetList} 
+		<div>{Quantity}</div>
+
+		<div class="frameshop_pricebox">
+			<table width="100%">
+				<tr>
+					<th width="80">Price:</th>
+					<td width="70" align="right"><span id="unit_price" ></span></td>
+					<td style="text-align:right;">
+						<button type="submit" name="add_to_cart" id="add_to_cart_{ID}" class="ui-button" value="orderform" style="float:right;">Add to Cart</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<input id="coupon_description" type="hidden" value="0">
+		<input id="shipping_price" type="hidden" value="0">
+		<input id="extrashipping" type="hidden" value="{EXTRASHIPPING}">
+		
+<!-- FP ordering system vars, some are used for FPCart -->
+		
+		<input id="discount" type="hidden" value="0">
+		<input id="supplierid" name="SupplierID" type="hidden" value="{SUPPLIERID}">
+		<input id="supplierstate" name="SupplierState" type="hidden" value="{SUPPLIER_STATE}">
+		<input id="supplier_tax_rate" name="SupplierTaxRate" type="hidden" value="{SUPPLIER_TAX_RATE}">
+		<input id="cost" name="cost" type="hidden" value="0">
+		<input id="unitPrice" name="unitPrice" type="hidden" value="0">
+		<input name="ImageID" id="imageid" type="hidden" value="{ImageID}">
+		<input id="image_cat_num" type="hidden" value="{CATALOGNUMBER}">
+		<input id="MaxSide" name="Size" type="hidden" value="">
+
+		<input name="projectid" type="hidden" value="{ProjectID}">
+
+		<input id="handling" name="handling" type="hidden" value="0">
+		<input id="handling_intl" name="handling_intl" type="hidden" value="0">
+
+
+<!-- FPCart vars  for this item -->
+		<input name="edition_type" type="hidden" value="{EDITION_TYPE}">
+		<input name="prints_available" type="hidden" value="{AVAILABLE}">
+		<input name="cart_unique_id" id="cart_unique_id" type="hidden">
+		<input name="cart_finishing_url" id="cart_finishing_url" type="hidden">
+		<input name="cart_item_short_desc" id="cart_item_short_desc" type="hidden">
+		<input name="cart_item_preview" type="hidden" value="{THUMBNAILS}/{URL}">
+
+
+<!-- Paypal and Sales Cart FIELDS -->
+<!-- CMD determines whether to use a cart or Buy Now -->		
+		<input name="cmd" type="hidden" value="_xclick">
+
+		<input id="add" name="add" type="hidden" value="1">
+		<input id="business" name="business" type="hidden" value="{PAYPAL_BUSINESS_EMAIL}">
+		<input name="item_name" type="hidden" value="{ITEM_NAME}">
+		<input id="item_number" name="item_number" type="hidden" value="{ImageID}">
+		<input id="matchprint" name="MatchprintRequired" type="hidden" value="{MATCHPRINT}">
+		<input id="amount" name="amount" type="hidden" value="0">
+		<input id="total" name="mc_gross" type="hidden" value="0">
+		<input id="shipping" name="shipping" type="hidden" value="0">
+		<input id="shipping2" name="shipping2" type="hidden" value="0">
+		<input id="shipping_group" name="shipping_group" type="hidden" value="0">
+		<input id="shipping_method" name="shipping_method" type="hidden" value="0">
+		<input id="tax" name="tax" type="hidden" value="0">
+		<input id="no_shipping" name="no_shipping" type="hidden" value="2">
+		<input id="return" name="return" type="hidden" value="{RETURNURL}">
+		<input id="shopping_url" name="shopping_url" type="hidden" value="{RETURNURL}">
+		<input id="rm" name="rm" type="hidden" value="2">
+		<input id="page_style" name="page_style" type="hidden" value="frontline_photos">
+		
+		<input id="cancel_return" name="cancel_return" type="hidden" value="{RETURNURL}">
+		<input id="currency_code" name="currency_code" type="hidden" value="{PAYPAL_CURRENCY_CODE}">
+		<input id="weight" name="weight" type="hidden" value="{WEIGHT}">
+		<input id="weight_unit" name="weight_unit" type="hidden" value="lbs">
+		<input id="lc" name="lc" type="hidden" value="US">
+		<input id="bn" name="bn" type="hidden" value="FP-ShoppingCart-{IMAGEID}-US">
+		<input name="notify_url" type="hidden" id="notify_url" value="{PAYPAL_NOTIFY_URL}" >
+		<input id="invoice" name="invoice" type="hidden" value="{INVOICE}">
+		<input name="on0" type="hidden" value="Desc">
+		<input name="on1" type="hidden" value="">
+
+		<input type="hidden" size="135" id="custom"  name="custom" value="">
+
+<!-- this being empty means we just jump back to the gallery window -->
+<!--		<input name="shopping_url" type="hidden" value="">-->
+
+		<textarea style="display: none;" id="desc" name="os0" rows="8" cols="50"></textarea>
+		<input name="os1" type="hidden" value="">
+
+		<textarea style="display: none;" id="spec" name="spec" rows="8" cols="50"></textarea>
+		<!--<input type="hidden" size="135" id="spec64"  name="os1" value="{SPECS}">-->
+
+	</form>
+
+<!-- POPUP ENTRY FORMS -->
+<div id="shipping_entry_form" style="display:none;">
+{SHIPPING_ENTRY_FORM}
+</div>
+<div id="coupon-entry-form" style="display:none;">
+{COUPON_ENTRY_FORM}
+</div>

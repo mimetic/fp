@@ -1,0 +1,2 @@
+<!--artist_page_portrait-->
+<div class="sampleimage" style="float:right;">{picture}</div>

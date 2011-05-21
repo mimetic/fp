@@ -1,0 +1,12 @@
+<!-- ShowCommission -->
+	<TR class="entryform">
+		<TH valign="top" align="right">
+			Commission :
+		</TH>
+		<TD>
+			
+			<div class="helptext">
+				The gallery keeps <b>{Commission}%</b> from the profit (after printing/shipping costs) from each print sale to cover maintenance and setup costs.
+			</div>
+		</TD>
+	</TR>

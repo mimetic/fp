@@ -1,0 +1,1 @@
+<span class="ui-icon ui-icon-circle-check" style="width:15px;height:15px;display:inline-block;margin:2px;padding:0;"></span>

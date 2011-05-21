@@ -1,0 +1,4 @@
+<!--frameshop_edition_unlimited_wrapper-->
+<div style="margin-top:4px;">
+Unsigned, open edition prints are available.
+</div>

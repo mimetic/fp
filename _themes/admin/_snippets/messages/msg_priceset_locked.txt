@@ -1,0 +1,2 @@
+<!--msg_priceset_locked-->
+<span class="helptext">The {fp:priceset} for this {fp:image} is <b>locked</b>. To unlock it, click the "{fp:PricesMenu}" tab and delete the {fp:priceset} named "{pricesetname}".</span>

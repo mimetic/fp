@@ -1,0 +1,13 @@
+<!--listitem_Orders-->
+<TR class="listing" >
+	<TD valign="top">
+		<b>TOTAL INCOME :<b>
+	</TD>
+	<TD valign="top" style="text-align:right;padding-right:20px;">
+	<b>{CURRENCY} {Amount_currency} {CURRENCY_AFTER}</b>
+	</TD>
+	<TD  valign="top">
+	</TD>
+	<TD valign="top">
+	</TD>
+</TR>

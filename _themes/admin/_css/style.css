@@ -1,0 +1,1767 @@
+/* @override http://localhost/fp/_themes/admin/_css/style.css */
+
+html {
+	
+}
+
+body {
+	font-size: 10pt;
+	font-family: "Trebuchet MS", "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	/*
+	background-color: #FFE; */
+	margin: 0;
+	padding: 10px;
+	background-color: #cccbcc;
+}
+
+p, blockquote, ul, ol, dl, dd, li, dir, menu {
+	
+}
+
+/* fix for firefox handling of monospace font sizes */
+
+pre {
+	font-family: "Monospace Font Handling in Firefox is Braindead", monospace;
+	font-size: 12px;
+}
+
+H1, H2, H3, H4, H5 {
+	margin: 0px;
+}
+
+H1, H2, H3, H4, H5.listing {
+	margin-bottom: 4px;
+	margin-top: 4px;
+}
+
+h3 {
+	font-style: normal;
+	font-size: 14px;
+}
+
+.padme {
+	padding: 10px;
+}
+
+div.help {
+	width: 600px;
+}
+
+div.help h1,div.help h2,div.help h3,div.help h4,div.help h5 {
+	font-weight: bold;
+	border-bottom: 1px solid silver;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
+}
+
+div.help p {
+	margin-top: 0;
+}
+
+div.quickstart {
+	margin: 15px;
+	padding: 20px;
+;
+}
+
+a.biglink:link, a.biglink:visited {
+	border: 3px outset #fff;
+	background-color: #f2f2a9;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: none;
+	padding: 10px;
+	color: black;
+}
+
+a.biglink:hover {
+	background-color: #f7ff66;
+}
+
+a.biglink:active {
+	background-color: #f8e900;
+}
+
+div.biglink {
+	padding: 10px;
+	text-align: center;
+	width: 220px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px auto 10px 30px;
+	height: 150px;
+}
+
+a.buttonlink {
+	background-color: #e6e6e6;
+	color: black;
+	border: 1px solid #333;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-right: 2px;
+	padding-left: 2px;
+	vertical-align: baseline;
+	font: 12px/12px Arial;
+}
+
+a.buttonlink:link {
+	background-color: #e6e6e6;
+	color: black;
+}
+
+a.buttonlink:visited {
+	background-color: #e6e6e6;
+	color: black;
+}
+
+a.buttonlink:hover {
+	background-color: #fff;
+	color: black;
+}
+
+a.buttonlink:active {
+	background-color: #f8ff61;
+	color: black;
+}
+
+div.quickstart table {
+	margin-right: auto;
+	margin-left: auto;
+	border-collapse: collapse;
+}
+
+div.quickstart td {
+	padding: 10px 10px 20px;
+	width: 33%;
+	vertical-align: top;
+	text-align: center;
+	background-color: #fffff2;
+}
+
+div.quickstart p {
+	text-align: center;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+dfn {
+	font-variant: small-caps;
+	text-transform: uppercase;
+}
+
+cite {
+	
+}
+
+.helptext {
+	color: #666;
+	font-size: smaller;
+}
+
+div.helptext {
+	display: inline;
+}
+
+.infotext {
+	color: #666;
+	font-size: 0.85em;
+	font-style: italic;
+}
+
+.error {
+	color: #600;
+	font-size: 0.85em;
+	padding: 10px;
+	margin: 10px;
+	border: 1px #F00 solid;
+	display: block;
+	background-color: #FF6;
+}
+
+.message {
+	color: #33C;
+	font-size: 0.85em;
+	padding: 10px;
+	margin: 10px;
+	border: 1px #369 solid;
+	display: block;
+	background-color: #FFF;
+}
+
+.sectionbreak {
+	margin-top: 12px;
+	color: #611;
+}
+
+.sectiontitle {
+	margin-top: 12px;
+	color: #611;
+}
+
+.optionblock {
+	font-size: 10pt;
+	margin: 4px;
+}
+
+.optionblocktitle {
+	font-size: 10pt;
+	margin-left: 12px;
+	color: #611;
+}
+
+.optionblocklist {
+	width: 380px;
+	font-size: 8pt;
+	padding: 5px;
+	color: #000;
+	background-color: #EEE;
+}
+
+.tabletitle {
+	border-top: 5px solid #400;
+	border-bottom: 0px solid #400;
+	padding: 4px;
+	margin-top: 1.2em;
+	margin-bottom: 0.8em;
+	color: #400;
+	background-color: transparent;
+}
+
+.pagetitle {
+	color: #111;
+	font: 14pt "Trebuchet MS", "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+/*
+a {
+	text-decoration: none;
+	background: none;
+}
+
+a:link {
+	color: #984c00;
+}
+
+a:hover {
+	color: #e67300;
+}
+
+a:active {
+	color: #ff3232;
+}
+
+a:visited {
+	color: #b25900;
+}
+*/
+a.ondark {
+	color: #CCC;
+}
+
+a.ondark:hover {
+	color: #06F;
+}
+
+a.ondark:active {
+	color: #03C;
+}
+
+a.ondark:visited {
+	color: #AAA;
+}
+
+a.button {
+	padding: 4px 8px;
+	background: white;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	color: black;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+a.button:active {
+	background: yellow;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+}
+
+a.button:hover {
+	background-color: #f8ff4c;
+}
+
+a.button:visited {
+	color: black;
+}
+
+.important {
+	color: #C03;
+	font-style: italic;
+}
+
+.listing .important {
+	color: #bf002f;
+	font-weight: bold;
+	font-style: normal;
+}
+.ondark {
+	color: #AAA;
+}
+
+#mainbox {
+	display: block;
+	width: 90%;
+	min-width: 960px;
+	padding: 0 15px 15px;
+	margin: 0 auto;
+	border: 0px solid #333;
+}
+
+.listbox {
+	min-height: 360px;
+	margin-top: 0;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
+	height: 90%;
+	border: 0px gray solid;
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+	border-left: 1px solid #666;
+}
+
+.listbox.infopage {
+	border: 1px solid #666;
+}
+
+.infopage h2 {
+	padding-top: .5em;
+}
+
+.infopage h3 {
+	margin-top: 2em;
+	border-bottom: 1px solid #888;
+}
+
+form {
+	padding: 0;
+	margin: 0;
+}
+
+
+body#nomenu .listbox {
+	border: 1px solid #666;
+}
+
+/* a generic box we can use */
+
+.formbox {
+	margin: 4px;
+	border: thin gray solid;
+	padding: 1em;
+	background: #EEB;
+	height: 90%;
+}
+
+.titlebox {
+	padding: 8px;
+	margin-bottom: 10px;
+}
+
+.subtitlebox {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.footerbox {
+	padding: 8px;
+	margin-top: 10px;
+	font-size: small;
+}
+
+IMG.bigpicture {
+	border: 1px black solid;
+	padding: 3.0em;
+	background: white;
+}
+
+IMG.thumbnail {
+	display: block;
+	height: 100px;
+	border: 1px black solid;
+	background: white;
+	text-align: center;
+	/*
+
+padding: 20px;
+*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.thumbnailbox {
+	display: table-cell;
+	vertical-align: middle;
+	width: 200px;
+	font-size: 10pt;
+	text-align: center;
+	border: 1px none #fff;
+}
+
+.thumbnailcaption {
+	width: 200px;
+	font-size: 10pt;
+	text-align: center;
+}
+
+/*
+----------------------------------------
+ALTERNATIVE MENU...USE LATER?
+Adapted from CSS TABS by Joshua Kaufman, unraveled.com
+
+<ul id="tabnav">
+	<li class="tab1"><a href="#">Tab One</a></li>
+	<li class="tab2"><a href="#">Tab Two</a></li>
+	<li class="tab3"><a href="#">Tab Three</a></li>
+	...
+</ul>
+
+*/
+
+/* begin css tabs */
+
+ul#tabnav {
+	/*
+
+general settings */
+	text-align: left;
+	/* s
+
+et margins as desired */
+	
+
+/* s
+
+et font as desired */
+	border-bottom: 1px #666 solid;
+	/* set
+
+border COLOR as desired */
+	list-style-type: none;
+	font: bold 11px "Trebuchet MS", "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	display: block;
+	margin: 0;
+	padding: 3px 0px 3px 10px;
+}
+
+ul#tabnav li {
+	/*do not change */
+	display: inline;
+	margin: 0 2px 0 0;
+	padding: 0;
+}
+
+/* hot tabs */
+
+#tabnav li.hot a {
+	background-color: #f9ce00;
+}
+
+#tabnav li.hot a:hover {
+	background-color: #f9f900;
+}
+
+#tabnav li.hot a:active {
+	background-color: #F90;
+}
+
+/* subscribe tab */
+
+li#navbar-tab-subscribe a {
+	color: blue;
+}
+
+li#navbar-tab-subscribe a:hover {
+	color: #4092ff;
+}
+
+li#navbar-tab-subscribe a:active {
+	color: aqua;
+}
+
+	/*
+	settings for selected tab 
+	*/
+
+li.tab {
+	border-bottom: 1px solid #f2f2da;
+/*
+	 background-color: #fff;
+*/
+}
+
+body#tab1 li.tab1, body#tab2 li.tab2, body#tab3 li.tab3, body#tab4 li.tab4, body#tab5 li.tab5, body#tab6 li.tab6, body#tab7 li.tab7, body#tab8 li.tab8, body#tab9 li.tab9, body#tab10 li.tab10, body#tab11 li.tab11, body#tab12 li.tab12, body#tab13 li.tab13 {
+	/*
+
+settings for selected tab */
+	xborder-bottom: 1px solid #f2f2da;
+	/* s
+
+et border color to page background color */
+	xbackground-color: #f2f2da;
+/* set background color to match above border color */
+}
+
+body#tab1 li.tab1 a, body#tab2 li.tab2 a, body#tab3 li.tab3 a, body#tab4 li.tab4 a, body#tab5 li.tab5 a, body#tab6 li.tab6 a, body#tab7 li.tab7 a, body#tab8 li.tab8 a, body#tab9 li.tab9 a, body#tab10 li.tab10 a, body#tab11 li.tab11 a, body#tab12 li.tab12 a, body#tab13 li.tab13 a {
+	/* settings for selected tab link */
+	xbackground-color: #f2eac1;
+	/* set selected tab background color as desired */
+	xcolor: #000;
+	/* set
+
+selected tab link color as desired */
+	position: relative;
+	top: 1px;
+	padding-top: 4px;
+/* must change with respect to padding (X) above and below */
+}
+
+ul#tabnav li a {
+	/*
+
+set padding (tab size) as desired; FIRST number must change with respect to padding-top (X) above */
+	
+
+/*
+
+set border COLOR as desired; usually matches border color specified in #tabnav */
+	background-color: #DDD;
+	/* set unselected tab background color as desired */
+	color: #333;
+	/* set
+
+unselected tab link color as desired */
+	margin-right: 0px;
+	/* set a
+
+dditional spacing between tabs as desired */
+	text-decoration: none;
+	border-bottom: 1px #666 none;
+	border-top: 1px #666 solid;
+	border-right: 1px #666 solid;
+	border-left: 1px #666 solid;
+	margin-left: 0;
+	padding: 3px 4px;
+	opacity: 1;
+}
+
+ul#tabnav a:hover {
+	/*
+
+settings for hover effect */
+	
+
+/*
+
+set desired hover color */
+	background-color: #f8ff7f;
+}
+
+ul#tabnav a:active {
+	background-color: #FC0;
+}
+
+/*
+end css tabs
+----------------------------------------
+*/
+
+.unavailable {
+	color: #999;
+}
+
+.startofline {
+	float: left;
+	margin-left: 2.0em;
+}
+
+.endofline {
+	/*
+
+border-left		:	1px gray solid; */
+	
+
+/*
+
+border-bottom	:	1px gray solid; */
+	text-align: right;
+	width: auto;
+}
+
+.deletemsg {
+	color: #888;
+	text-align: right;
+	width: auto;
+}
+
+/* ========== entry forms ========== */
+
+/*.entryform button:hover, .entryform submit:hover, .entryformbutton:hover
+{
+	background-color: #f8ff7f;
+}
+
+.entryform button {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+
+}
+
+.entryform button:active, .entryform submit:active, .entryformbutton:active
+{
+	background-color: #FC0;
+}
+
+.entryform button, .entryform submit, .entryformbutton
+{
+	text-align: center;
+	background-color: #fcfccd;
+	margin: 1px;
+	padding: 2px 5px;
+	font-size: 11px;
+	border: 2px outset #99bfbf;
+	color: #264c4c;
+	font-weight: bold;
+
+}
+*/
+
+/* ========== input ========== */
+
+.displayonly {
+	background-color: transparent;
+	border: 1px #CCC solid;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* ========== Table styles ========== */
+
+TABLE.optionblock {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+}
+
+table.listing {
+	border-collapse: collapse;
+	border-bottom: 0px gray solid;
+	vertical-align: top;
+	width: 100%;
+}
+
+tr.listing {
+	border-top: 1px;
+	border-bottom: 1px;
+	border-color: #f9f9e0;
+	border-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+}
+
+tr.listing.highlight {
+	border: 1px solid #e7140d;
+}
+
+tr.listing.alt {
+	background-color: #f9f9e0;
+	border-color: #ffffd8;
+}
+
+tr.listing.over {
+	background-color: #ffff3c;
+}
+
+tr.listing-header {
+	border-bottom: 1px black solid;
+	text-align: left;
+	background: #FFCC33;
+	padding: 5px;
+}
+
+.listing th {
+	font-weight: bold;
+	text-align: left;
+}
+
+.listing td {
+	padding: 4px;
+}
+
+/* Entry Form using DIV not table */
+
+div.entryform h3 {
+	border-top: 0px none #400;
+	padding: 4px 4px 4px 0;
+	margin-top: 0;
+	color: #400;
+	background-color: transparent;
+	margin-bottom: 10px;
+}
+
+div.entryform div.links {
+	text-align: right;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	height: 34px;
+	background-color: #ffd27e;
+	border: 1px none #888;
+}
+
+div.entryform div.links a {
+	
+}
+
+div.entryform div.section {
+	margin-bottom: 20px;
+}
+
+div.entryform div.entry {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-top: 1px dotted #e5e5b7;
+	clear: both;
+}
+
+div.entryform div.label {
+	font-weight: bold;
+	text-align: right;
+	width: 125px;
+	display: block;
+	float: left;
+	clear: left;
+	white-space: nowrap;
+	margin-right: 10px;
+}
+
+div.entryform div.submit {
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+div.entryform div.item {
+	display: block;
+	padding-left: 140px;
+}
+
+div.entryform select {
+	
+}
+
+button.toggler {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+a.toggler, a.toggler:visited {
+	font: bold 14px "Courier New", Courier, mono;
+}
+
+div.formrows {
+	border: 2px solid #333233;
+}
+
+.DimRow {
+	color: #999;
+}
+
+a.DimRow:link, a.DimRow:visited {
+	color: #999;
+}
+
+/* Entry form using TABLE */
+
+table.entryform {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.entryform thead {
+	border-top: 2px solid black;
+	/*
+	background-color: #f9f9e0;
+	*/
+}
+
+.entryform tbody {
+	
+}
+
+.entryform tr {
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	vertical-align: top;
+	border-top: 1px solid #e5e5ce;
+}
+
+.entryform tr:first-child {
+	border-top: none;
+}
+
+/* This fixes corners on Choose File inputs */
+
+.entryformtag {
+	background-color: #f8f8be;
+	text-align: center;
+	float: none;
+	padding: 4px;
+	font-size: 16px;
+	line-height: 24px;
+	border-right-color: silver;
+	border-right-width: 1px;
+	border: 1px solid #ddd;
+}
+
+.entryform input {
+/*
+	border: 1px inset #fffeff;
+*/
+}
+
+input.twodecimals {
+	text-align: right;
+}
+
+input.numeric {
+	text-align: right;
+}
+
+.entryform .inputbox {
+	background-color: #fffff2;
+	border-width: 0px;
+	border-style: none;
+	margin: 15px;
+	padding: 15px;
+}
+
+div.listbox select option {
+	
+}
+
+button.inline_button {
+	text-transform: uppercase;
+	font-size: 8px;
+	margin-left: 4px;
+	margin-right: 4px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #f9f9d4;
+	border-width: 1px;
+}
+
+.entryform th {
+	text-align: left;
+	padding: 8px 4px 10px;
+	white-space: nowrap;
+	display: table-cell;
+}
+
+.entryform th.vertical {
+	text-align: right;
+}
+
+.entryform td {
+	padding: 4px 4px 10px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.entryform .grid td, .entryform td.grid {
+	padding: 6px;
+	border: 1px solid #cbc6ad;
+}
+
+.entryform th.grid {
+	vertical-align: middle;
+	background-color: #e5dfc3;
+	border: 1px solid #cbc6ad;
+}
+
+.entryform .number, tr.number td, tr.number th {
+	text-align: right;
+}
+
+table.withborders {
+	border-collapse: collapse;
+	padding: 0;
+	margin: 0;
+	font-size: 11px;
+}
+
+table.withborders th {
+	background-color: #fdfce5;
+	margin: 0;
+	padding: 4px 10px 4px 10px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+table.withborders td {
+	background-color: #fdfce5;
+	margin: 0;
+	padding: 4px 10px 4px 10px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+TR.newsection {
+	border-bottom: 1px #611 dashed;
+}
+
+.uploaderbox {
+	margin-left: auto;
+	margin-right: auto;
+	width: 650px;
+	padding: 10px;
+}
+
+.slogan {
+
+}
+
+/* =============================================================== */
+
+/* Hidden div for showing popups with CSS */
+
+/* Popup for hovering */
+
+/*Credits: Dynamic Drive CSS Library */
+
+/*URL: http://www.dynamicdrive.com/style/ */
+
+/* Example:
+<a class="hoverpop" href="#pop">link text<span>Text and stuff to popup</span></a>
+
+NOTE: you can't have an anchor inside the text which pops up!
+*/
+
+.hoverpop {
+	position: relative;
+	z-index: 0;
+	top: inherit;
+	left: inherit;
+}
+
+.hoverpop:hover {
+	background-color: transparent;
+	z-index: 50;
+}
+
+.hoverpop span {
+	/*
+
+CSS for enlarged image*/
+	position: absolute;
+	left: 0px;
+	visibility: hidden;
+}
+
+.hoverpop span img {
+	/*
+
+CSS for enlarged image*/
+	border-width: 0;
+	padding: 2px;
+}
+
+.hoverpop:hover span {
+	/*
+
+CSS for enlarged image on hover*/
+	visibility: visible;
+	top: 0px;
+	left: 0px;
+/*
+position where enlarged image should offset horizontally */
+}
+
+/* Popup that depends on Javascript to load stuff */
+
+.popup_window {
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+	z-index: 10;
+	background-color: transparent;
+	color: #CCC;
+	font-size: 10pt;
+	text-align: left;
+}
+
+.popup_window_caption {
+	color: #FFF;
+	font-size: 10pt;
+	text-align: left;
+}
+
+.popup_window button {
+	font-size: 8pt;
+	text-align: center;
+	text-transform: lowercase;
+	letter-spacing: 0em;
+	padding: 2px;
+	background-color: #C96;
+	border: 1px #666 solid;
+	color: white;
+	margin: 0px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.popup_window img {
+	position: absolute;
+	z-index: 10;
+	top: inherit;
+	left: inherit;
+	border: 1px #000 solid;
+	display: none;
+	height: 40px;
+}
+
+.reveal_window button {
+	font-size: 8pt;
+	background-color: #C96;
+	color: black;
+	margin: 0px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.reveal_window img {
+	display: none;
+	margin: 10px;
+	background-color: white;
+	border-width: 0;
+	border-style: solid;
+}
+
+/* Used in the Order your Pictures */
+
+ul#orderpictures {
+	
+}
+
+ul#orderpictures, li#orderpictures {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: inline;
+}
+
+li#orderpictures {
+	margin-right: 10px;
+	overflow: hidden;
+}
+
+.img, .postamble {
+	vertical-align: text-bottom;
+	/*
+
+the following yanked from Hedger Wang to give inline-block to natively block elements. */
+	
+
+/*
+
+Firefox need this to simulate display:inline-block*/
+	display: inline-block;
+	/*IE
+
+does not apply this to Block Element, and Firefox does not render this, too*/
+	zoom: 1;
+	/*trigger hasLayout*/
+	display: inline;
+	/*once hasLayout is true, set display:inline to block element will make display:inline behave like display:inline-block*/
+	background: #900;
+	width: 200px;
+}
+
+.img {
+	text-align: center;
+}
+
+.postamble {
+	background: #ddf;
+	vertical-align: text-top;
+	margin-top: 1em;
+	/*
+
+to account for the text-height overlap. */
+	margin-left: -200px;
+}
+
+.preamble, .caption {
+	position: relative;
+}
+
+/* -- my stuff, which doesn't work in FireFox -- */
+
+.picturelistShow {
+	border: 1px #FFF solid;
+	width: 200px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	padding: 5px;
+	margin: 4px;
+	background-color: #FFF;
+}
+
+.picturelistHide {
+	border: 1px #FFF solid;
+	width: 200px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	padding: 20px 5px 20px 5px;
+	margin: 4px;
+	background-color: #FFF;
+}
+
+.picturelist {
+	background-color: #EEE;
+	border: 1px #000 solid;
+	padding: 10px;
+	text-align: center;
+}
+
+/* padding allows a matte around the thumbnail itself */
+
+/* background-color is the matte color */
+
+.picturelist .thumbnail {
+	padding: 0px;
+	border: 0px;
+}
+
+.picturelist .thumbnailbox {
+	display: inline;
+	vertical-align: middle;
+	font-size: 9pt;
+	text-align: center;
+}
+
+.picturelist .thumbnailcaption {
+	font-size: 8pt;
+	text-align: center;
+}
+
+/* Images list page */
+
+.notVisible {
+	display: none;
+}
+
+.isVisible {
+	
+}
+
+/* Theme Editor */
+
+#theme-editor {
+	
+}
+
+#theme_finder_box {
+	border: 3px solid black;
+	margin: 20px;
+	padding: 20px;
+	background-color: #eee;
+	color: #222;
+}
+
+#theme-editor  .head-title {
+	color: #333;
+	font-size: 24px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	white-space: nowrap;
+	margin-top: -1px;
+}
+
+#theme-editor div.te-body {
+	
+}
+
+#theme-editor .head-subtitle {
+	color: #888;
+	font-size: 8pt;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	white-space: nowrap;
+	line-height: 8px;
+}
+
+#theme-editor .foot {
+	color: #888;
+	margin-bottom: 15px;
+}
+
+#theme-editor .location {
+	font-size: 90%;
+	font-weight: normal;
+	color: #666;
+	margin-bottom: 1.0em;
+}
+
+#theme-editor .projecttitle {
+	font-size: 100%;
+	font-weight: bold;
+	color: #333;
+}
+
+#theme-editor .navbar {
+	text-align: center;
+	margin-left: 3px;
+	margin-right: 3px;
+	line-height: 1.8em;
+	font-size: 9pt;
+	font-weight: normal;
+}
+
+#theme-editor .navbar .selected a, #theme-editor .navbar .selected a:visited {
+	color: #800;
+}
+
+#theme-editor .sspop {
+	font-size: 11px;
+	margin-bottom: 2px;
+}
+
+.gallerypic {
+	
+}
+
+#theme-editor .caption {
+	color: #333;
+	text-align: left;
+	margin-bottom: 4px;
+	margin-top: 4px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#theme-editor .navbar .unselected a, #theme-editor .navbar .unselected a:visited {
+	color: #333;
+}
+
+#theme-editor .navbardivider {
+	margin-left: 2px;
+	margin-right: 2px;
+	color: #888;
+}
+
+#theme-editor .signature {
+	font-size: 9px;
+	font-style: italic;
+	font-weight: normal;
+	text-align: right;
+	margin-bottom: 4px;
+}
+
+#theme-editor .description {
+	margin-top: 1.0em;
+	font-style: italic;
+	font-size: 0.8em;
+}
+
+div.tip {
+	font: bold 14px/14px monospaced, Courier, Monaco;
+	color: #197f7f;
+	width: 14px;
+	height: 14px;
+	display: inline;
+	padding: 1px 4px 1px 4px;
+	text-align: center;
+	background-color: #f9f7ed;
+	border: 1px solid #888;
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px; 
+	border-radius: 6px;
+}
+
+.tipright {
+	float: left;
+}
+
+/* Hide advanced items on a page. They are revealed through javascript */
+
+.advanced {
+	display: none;
+}
+
+.multiuser {
+	display: none;
+}
+
+/* TESTING */
+
+.wrapped {
+	border: 1px solid red;
+}
+
+/* a marker for objects which can show and hide */
+
+.dropdown {
+	
+}
+
+#inlist, #outlist {
+	min-width: 50px;
+	min-height: 50px;
+	background-color: #282828;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+}
+
+/* Certificate of Authority (COA) */
+
+.coa-invisible {
+	visibility: hidden;
+}
+
+body.coa {
+	background-color: white;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#coa-container {
+	position: relative;
+	margin: 0 auto;
+	width: 5.5in;
+	height: 8.5in;
+}
+
+.coa-form-container {
+	width: 5.0in;
+	height: 8.5in;
+	padding: .25in;
+	margin-top: .25in;
+	margin-right: auto;
+	margin-left: auto;
+	position: absolute;
+	border: 1pt solid #000;
+}
+
+.coa-no-border {
+	border: 1px solid white;
+}
+
+.coa H1, .coa H2, .coa H3, .coa H4, .coa H5 {
+	
+}
+
+.coa H1 {
+	margin-top: 0;
+	margin-bottom: .25in;
+	font-size: 14pt;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 1px;
+	color: #720000;
+}
+
+table.coa-info-block {
+	margin-bottom: 6pt;
+	max-height: 2in;
+	overflow: hidden;
+	font-size: 11pt;
+	width: 100%;
+}
+
+#coa-filled-container .coa-info-block td {
+	text-align: right;
+	font-size: 10pt;
+}
+
+div.coa-body {
+	font-size: 11pt;
+	text-align: left;
+	margin-bottom: 36pt;
+}
+
+div.coa-caption {
+	font-size: 10pt;
+	padding: 0;
+	margin-right: 12pt;
+	margin-bottom: 12px;
+	font-style: italic;
+	color: #333233;
+}
+
+.coa-line {
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 1.2em;
+	min-width: 1in;
+}
+
+.coa-bottom {
+	width: 5.0in;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: .25in;
+}
+
+table.coa-signatures {
+	font-size: 11pt;
+	margin-bottom: 24pt;
+	width: 5in
+}
+
+.coa-signatures td, coa-signatures th {
+	padding-bottom: 12pt;
+}
+
+.coa-signatures td {
+	font-style: italic;
+	font-size: 9pt;
+	color: #720000;
+	padding-left: 4pt;
+}
+
+.coa-signatures th {
+	text-align: left;
+	font-style: italic;
+	font-weight: normal;
+	color: #720000;
+	margin: 0;
+	width: 130px;
+}
+
+.coa-info-block th {
+	text-align: right;
+	white-space: nowrap;
+	color: #720000;
+	font-weight: normal;
+	font-style: normal;
+	padding-bottom: 4pt;
+	width: 1in;
+}
+
+.coa-image-area {
+	width: 200px;
+	height: 200px;
+	padding-right: 20px;
+}
+
+.coa-info-block.coa-blank-table {
+	line-height: 1.5em;
+}
+
+img.coa {
+	border: 1pt solid black;
+}
+
+.coa-image-border {
+	border: 1px dotted #eee;
+}
+
+.coa_picture {
+	min-width: 200px;
+	margin-bottom: 12pt;
+	padding: 0;
+}
+
+#coa-filled-container {
+	opacity: 1;
+}
+
+#coa-blank-container {
+	opacity: 0;
+	display: none;
+}
+
+#coa-blank-container div.coa-body {
+	line-height: 1.3em;
+}
+
+#coa-blank-container .coa-info-block {
+	
+}
+
+.coa-inline-line {
+	display: inline-block;
+	border: 1px dotted #ccc;
+}
+
+.coa-title {
+	font-style: italic;
+}
+
+/* My Widgets */
+
+.my-widget {
+	
+}
+
+/* jQuery UI */
+
+#switcher {
+	float: right;
+}
+
+.ui-tabs .ui-tabs-nav .my-tabs {
+	font-size: 11px;
+	padding: .4em .7em;
+}
+
+.my-button {
+	outline: 0;
+	margin: 0 4px 0 0;
+	padding: .3em .6em;
+	text-decoration: none !important;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	zoom: 1;
+}
+
+.my-shortbutton {
+	height: 1.2em;
+}
+
+.my-shortbutton.ui-button .ui-button-text { display: block; line-height: 1.2em;
+	font-size: .8em;
+}
+
+.my-shortbutton.ui-button-text-only .ui-button-text {
+	padding: .1em 1em;
+}
+
+.my-button .ui-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+	left: 50%;
+	margin-left: -8px;
+}
+
+a.my-button {
+/*	float: left; */
+}
+
+/* remove extra button width in IE */
+
+button.my-button {
+	width: auto;
+	overflow: visible;
+}
+
+.my-button-icon-left {
+	padding-left: 2.1em;
+}
+
+.my-button span.ui-button-text {
+	padding: 2px;
+}
+
+.my-button-icon-right {
+	padding-right: 2.1em;
+}
+
+.my-button-icon-left .ui-icon {
+	right: auto;
+	left: .2em;
+	margin-left: 0;
+}
+
+.my-button-icon-right .ui-icon {
+	left: auto;
+	right: .2em;
+	margin-left: 0;
+}
+
+.my-button-icon-solo {
+	display: block;
+	width: 8px;
+	text-indent: -9999px;
+}
+
+/* solo icon buttons must have block properties for the text-indent to work */
+
+.my-buttonset {
+	float: left;
+}
+
+.my-buttonset .my-button {
+	float: left;
+}
+
+.my-buttonset-single .my-button, 
+	.my-buttonset-multi .my-button {
+	margin-right: -1px;
+}
+
+.my-toolbar {
+	padding: .5em;
+	margin: 0;
+}
+
+.my-toolbar .my-buttonset {
+	margin-right: 1.5em;
+	padding-left: 1px;
+}
+
+.my-toolbar .my-button {
+	font-size: 1em;
+}
+
+
+/* Beauty Tips (BT) popup info balloon */
+
+div.bt-content ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+div.bt-content li {
+	list-style-position: outside;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/*demo page css*/
+
+h2 {
+	clear: both;
+	padding-top: 1.5em;
+	margin-top: 0;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+/* Fvalidate Styles */
+.inp-focus {
+        border: 1px solid #73AAD2;
+}
+.inp-error {
+        border: solid 1px #CC6666;
+        background-color: #FFF2F2;
+}
+.err-msg {
+        display: none;
+        font-size: 0.85em;
+        margin:4px;
+		color:#C66;
+		font-weight:bold;
+}
+
+/* table sorter */
+.sortfield {
+	display:none;
+}
+
+.minieditor {
+	margin: 5px;
+	border: 1px solid #ccc;
+	padding: 5px;
+	font-size: 11px;
+}
+
+.minieditor button{
+	padding: 0;
+	margin: 2px;
+}
+
+.minieditor 
+.ui-button .ui-button-text {
+	 display: block; line-height: 1;
+	font-size: 9px;
+}
+
+.minieditor p {
+	margin-bottom: 4px;
+	margin-top: 4px;
+}
+
+.editable_text {
+	border: 1px none #ccc;
+	font-size: 1em;
+	height: 1.4em;
+	padding: 2px 10px;
+	line-height: 1.4em;
+	font-family: "Courier New", Courier, mono;
+	min-width: 140px;
+	display: inline-block;
+	background-color: white;
+}
+
+.editable_text input {
+	font-size: 1em;
+	border-style: none;
+	border-width: 0;
+	font-family: "Courier New", Courier, mono;
+	min-width: 140px;
+}
+.editable_textarea {
+	font-size: 1em;
+	font-family: "Courier New", Courier, mono;
+	background-color: white;
+	padding: 1em 2em 2em 1em;
+}
+
+.editable_textarea textarea {
+	font-family: "Courier New", Courier, mono;
+}
+
+.editable_text button, .editable_textarea button {
+	height: 1.4em;
+	display: block; 
+	line-height: 1em;
+	font-size: 1em;
+	padding: .1em 1em;
+	float: right;
+font-family: Segoe UI, Arial, sans-serif; font-size: .8em;
+	border: 1px solid gray;
+	-moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px;
+	background-color: #fefefe;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.list-light-text {
+	color: #999899;
+	font-size: 10px;
+	line-height: 1.2em;
+}
+
+/* SIGN UP */
+
+#signup .listbox {
+	border-top: 1px solid #666;
+}
+
+/* CAPTCHA */
+input.captcha {
+	font-size: 1.76em;
+	text-align: center;
+}

@@ -1,0 +1,2 @@
+<!--gallery_set_images_item_sizes_original-->
+{SIZELIST}<br>

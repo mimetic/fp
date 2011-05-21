@@ -1,0 +1,8 @@
+<div class="navbar">
+	<span class="navbar_text off">Photographers</span>
+	<span class="navbar_text off">Projects</span>
+	<span class="navbar_text off">Places</span>
+	<span class="navbar_text off">Galleries</span>
+	<A class="navbar_text" HREF="faq.html">FAQ</A>
+	<A class="navbar_text" HREF="about.html">About</A>
+</div>

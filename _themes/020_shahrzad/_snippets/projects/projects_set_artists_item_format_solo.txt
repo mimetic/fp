@@ -1,0 +1,5 @@
+<!--projects_set_artists_item_format_solo-->
+<div class="item editable">
+	<a class="item subtitle editable" href="artist.php?ArtistID={ArtistPart_ArtistID}">{ArtistPart_Fullname}</a>
+</div>
+

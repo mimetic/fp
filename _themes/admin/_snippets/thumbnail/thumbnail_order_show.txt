@@ -1,0 +1,4 @@
+<!-- thumbnail_order_show -->
+	<span class="helptext" style="color:black;">
+		({k}) <a href="admin.php?action=display&amp;ID={picID}&amp;table={DB_IMAGES}&amp;PageID=tab5">{picdisplayname}</a>
+	</span>

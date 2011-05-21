@@ -1,0 +1,22 @@
+<!--ssp_head_small-->
+<!-- required for SlideShowPro to show slideshows -->
+<script src="{THEMESDIR}/{DEFAULT_THEME}/_js/swfobject.js" type="text/javascript" language="javascript"></script>
+
+<script type="text/javascript">
+// Permalinks option
+function flashPutHref(href) { location.href = href; }
+
+// SWFObject embed
+var flashvars = {
+	paramXMLPath: "_ssp/param_small.xml",
+	initialURL: escape(document.location),
+	xmlFilePath: "http://{SYSTEMURL}slideshowxml.php?{SSP_PARAMS}"
+}
+var params = { 
+	base: ".",
+	quality: "best",
+	wmode: "transparent"
+}                
+var attributes = {}
+swfobject.embedSWF("{THEMESDIR}/{DEFAULT_THEME}/_swf/slideshowpro.swf", "flashcontent", "{SMALL_SLIDESHOW_WIDTH}", "{SMALL_SLIDESHOW_HEIGHT}", "9.0.0", false, flashvars, params, attributes);
+</script>

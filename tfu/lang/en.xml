@@ -1,0 +1,15 @@
+<!--
+TWG Flash Uploader 2.11 - english language file 
+
+Please note - This file is only a delta file!
+English, German and Spanisch are build into the flash already!
+
+Go to the default.xml and copy the text you want to change into this 
+file. The example below is only a dummy!
+
+If you make any changes make sure to save the file as UTF-8! Otherwise special characters
+are not displayed properly!
+-->
+<TFU>
+  <LANG><KEY>key</KEY><VALUE>New value</VALUE></LANG>
+</TFU>

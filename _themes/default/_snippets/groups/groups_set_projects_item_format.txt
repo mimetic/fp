@@ -1,0 +1,2 @@
+<!--groups_set_projects_item_format-->
+<span class="list caption">&nbsp;&nbsp;&nbsp;</span><a class="list caption" href="gallery.php?ProjectID={Projects_ProjectID}">{Projects_ProjectTitle}</a>

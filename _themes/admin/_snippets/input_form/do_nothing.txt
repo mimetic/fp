@@ -1,0 +1,2 @@
+<!--do_nothing-->
+<a href="?action=show_list&amp;table={table}&amp;PageID={PAGEID}">Click here to do nothing and return to the list.</a><br>

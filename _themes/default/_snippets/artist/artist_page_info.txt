@@ -1,0 +1,37 @@
+<!-- snippet: artist_page_info -->
+
+
+
+<div class="statement">
+
+		{Blog}
+
+		{Awards}
+
+		{ArtistStatement}
+
+		{Biography}
+
+		{Exhibitions}
+
+		{Publications}
+
+		{FullBiography}
+
+		<h2>Contact</h2>
+		<p>
+		Email: <script type="text/javascript" language="javascript">
+		<!--
+		document.write (decode64 ("{email}"));
+		//-->
+		</script>
+		<br>
+		{Tel1}
+		{Tel2}
+		{Tel3}
+		{agency}
+
+		{website}
+		{lightstalkers}
+		</p>
+</div>

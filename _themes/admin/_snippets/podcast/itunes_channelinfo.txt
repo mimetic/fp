@@ -1,0 +1,30 @@
+	<ttl>60</ttl>
+	<copyright>
+		Copyright &#xA9 David I. Gross. All Rights Reserved
+	</copyright>
+	<itunes:author>Frontline Photos</itunes:author>
+	<itunes:block></itunes:block>
+	
+	<itunes:category text="News" />
+	<itunes:category text="Arts &amp; Entertainment" />
+	<itunes:category text="Photography" />
+	</itunes:category>
+	<itunes:category text="Travel" />
+	
+	<itunes:image href="http://www.frontline-photos.com/images/itunes_image.png" />
+	<itunes:explicit> no </itunes:explicit>
+	<itunes:keywords>
+			 news, reportage, photography, reporting, travel, international, world
+	</itunes:keywords>
+	<itunes:owner>
+			 <itunes:name>David I. Gross</itunes:name>
+			 <itunes:email>info@frontline-photos.com</itunes:email>
+	</itunes:owner>
+	<itunes:subtitle>
+			 News and Views from Around the World
+	</itunes:subtitle>
+	<itunes:summary>
+	Conflict heated up on multiple fronts Thursday. In the Gaza Strip, masked Palestinian gunmen fired weapons into the air as they surrounded an office of the European Union and a French cultural center. Two Palestinian militant groups threatened to retaliate against the offending publications by kidnapping European citizens and targeting churches and European offices. 
+	
+	Palestinian gunmen briefly kidnapped a German citizen and protesters in Pakistan chanted "death to France" and "death to Denmark." ... Gunmen burst into several hotels and apartments in the West Bank in search of foreigners to take hostage. ... Protests spread to Indonesia today, with Islamic hard-liners hurling eggs at a Jakarta building housing the Danish Embassy, barging in past security and burning the country's flag ...
+	</itunes:summary>

@@ -1,0 +1,1 @@
+<a href="javascript:popUpCSS('popup','{Images_ImageID}','{SLIDES}/{Images_URL}',{IMG_Slide_Width},{IMG_Slide_Height},{SlideWidth},{SlideHeight},{PROJECTFRAMEWIDTH},{GALLERYFADEDARKNESS},'{Images_Title}','{prevID}','{nextID}');">Prev</a>

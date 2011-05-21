@@ -1,0 +1,1 @@
+<span class="item editable"><a class="item subtitle editable" href="artist.php?ArtistID={ArtistPart_ArtistID}">{ArtistPart_Fullname}</a></span>

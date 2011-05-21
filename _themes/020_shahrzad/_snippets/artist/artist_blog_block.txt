@@ -1,0 +1,5 @@
+<!--artist_blog_block-->
+<h2>Blog and News</h2>
+<p>
+<a href="http://{Blog}" target="_blank">http://{BLOG}</a>
+</p>

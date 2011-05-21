@@ -1,0 +1,2 @@
+<!--toggle_more_info-->
+<button type="button" onClick="ToggleAdvanced();false;">Show/Hide Extra Info</button>

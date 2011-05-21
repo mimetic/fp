@@ -1,0 +1,2 @@
+<!--error_wrapper-->
+<div class="error">{ERROR}</div>

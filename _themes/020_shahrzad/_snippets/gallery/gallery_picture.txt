@@ -1,0 +1,9 @@
+<!--gallery_picture-->
+
+<div rel="xlightbox-mygroup" class="flexible">
+	<img alt="{Images_Title}" id="gallery_single_image" class="gallerypic" src="{SLIDES}/{Images_URL}" style="width:{MattedWidth}px;height:{MattedHeight}px; padding:{MatteWidth}px {MatteWidth}px {MatteWidthBottom}px {MatteWidth}px;">
+	<br>
+	<div style="text-align:center;">
+		PREV | NEXT
+	</div>
+</div>

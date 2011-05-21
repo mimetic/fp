@@ -1,0 +1,5 @@
+		<li id="{KEY}" class="ui-widget-content ui-corner-all imagesorter-item pid-{PID} {ITEM_CLASS}" title="{TITLE} ({URL})" pid="{PID}">
+			<h5 class="imagesorter-item-header">{TITLE}</h5>
+			{IMG}
+			<a href="#" title="Delete this image" class="imagesorter-icon imagesorter-delete ui-icon ui-icon-trash">Delete image</a>
+		</li>

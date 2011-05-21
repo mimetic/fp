@@ -1,0 +1,8 @@
+<!--listitem_delete_artist-->
+<form action="" style="display:inline;" onSubmit="javascript:return confirm('Are you sure you want to delete {Title} ?');">
+	<input name="command" type="hidden" value="delete" size="50">
+	<input name="ID" type="hidden" value="{ID}" size="50">
+	<input name="PageID" type="hidden" value="{PAGEID}" >
+	<input name="table" type="hidden" value="{table}" size="50">
+	<button type="submit" name="action" value="delete">Delete</button>
+</form>

@@ -1,0 +1,4 @@
+<!-- coalink -->
+<div class="gallery-info-link editable">
+	<a href="coa.php?ProjectID={projectID}&amp;ImageID={ID}" target="_blank">Certificate of Authenticity</a>
+</div>

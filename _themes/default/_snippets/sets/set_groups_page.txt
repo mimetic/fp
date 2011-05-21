@@ -1,0 +1,9 @@
+Groups	block_format	<!--set_groups_page--><div class="list">{LIST}</div>
+Groups	item_format	{groups_set_item_format}
+Groups	separator_format	<br clear=all>
+Artists	block_format	{list}
+Artists	item_format	<a class="list caption" HREF="artist.php?ArtistID={Artists_ArtistID}">{Artists_Firstname} {Artists_Lastname}</A><BR>
+Artists	separator_format	<!-->
+Projects	block_format	{list}
+Projects	item_format	{groups_set_projects_item_format}
+Projects	separator_format	<BR>

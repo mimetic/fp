@@ -1,0 +1,9 @@
+<!-- thumbnailSendHide -->
+<div class="thumbnailbox">
+	<IMG class="thumbnail" SRC="{src}" TITLE="{caption}" ALT="{caption}">
+	<div class="thumbnailcaption">
+		<input type="checkbox" name="pixtosend[]" value="{picfilename}">{picdisplayname}
+		<BR>
+		<BR>
+	</div>
+</div>

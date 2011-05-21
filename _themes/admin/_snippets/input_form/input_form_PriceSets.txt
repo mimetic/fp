@@ -1,0 +1,181 @@
+<!-- SNIPPET : INPUT_FORM_PRICESETS -->
+{DONOTHING} 
+<div id="msg"></div>
+<form id="pricesetform" action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+	<input type="hidden" name="ID" id="pricesetid" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="{action}"> <input type="hidden" name="subset" value="Artists">
+	<input type="hidden" name="PageID" value="tab7"> 
+	<input id="MatchPrintPrice" type="hidden" value="{MatchPrintPrice}">
+	<h3 class="tabletitle">Edit <font color="#990000">{Title}</font> in {TABLE_ALIAS}</h3> {Managepictures} {Managestories} 
+	<div align="right">
+		<div class="helptext">
+			<span class="important">*</span> marked fields must be filled in 
+		</div>
+	</div>
+	<br>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform grid">
+			<tr class="entryform">
+				<th class="entryform" width="120">
+					Title : 
+				</th>
+				<td class="entryform">
+					<input class="" type="text" name="Title" value="{Title}" size="30"> <span class="important">*</span> 
+					<div class="helptext">
+						Title of this {fp:priceset} 
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					{fp:Supplier}: 
+				</th>
+				<td>
+					<b>{SupplierPopup}</b> 
+					<div class="tip" title="Do not change the {fp:supplier} after the first print is sold! A limited edition must be printed by a single printer.">
+						?
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Edition Size: 
+				</th>
+				<td>
+					<input type="text" name="TotalEditionSize" value="{TotalEditionSize}" style="text-align:right;" size="5">
+	
+					<div class="tip" title="The number of prints in this edition. Enter zero (0) to offer an open edition (unlimited prints).">
+						?
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Price Inflation: 
+				</th>
+				<td>
+					Increase the price by <input type="text" name="Inflation" value="{Inflation}" style="text-align:right;width:2em;" maxsize="2">&nbsp;%
+					
+					for each 
+
+					<input type="text" name="param_01" value="{param_01}" style="text-align:right;width:3.0em;" maxsize="5">
+					
+					{fp:images} sold.
+
+	
+					<div class="tip" title="The increase in the print price as the edition is sold, based on the original price and a tier. The formula is <small>CURRENT_PRICE = ORIGINAL_PRICE + (INFLATION * ORIGINAL_PRICE * (AMOUNT_SOLD / TIER)</small><br> Example:<br> If you increase the price by 5% for each 1 print sold :<br>1st print : &#36;100<br>2nd print: &#36;105<br>3rd print: &#36;110<br>etc.">
+						?
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div align="right">
+			<snippet name="save">
+			<snippet name="cancel">
+		</div>
+	</div>
+	
+	<h3 class="tabletitle">Paper, Ink, Finishing</h3>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform grid"">
+			<tr>
+				<th>
+					Paper: 
+				</th>
+				<td>
+					{PaperList}
+	
+					<div class="tip" title="Choose the paper for this {fp:priceset}.">
+						?
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Ink: 
+				</th>
+				<td>
+					{InksetList}
+	
+					<div class="tip" title="Choose the ink set for this {fp:priceset}.">
+						?
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Maximum Framed Size: 
+				</th>
+				<td>
+					<input type="text" name="MaxFramedSize" value="{MaxFramedSize}" style="text-align:right;width:3.0em;" maxsize="5">&nbsp;{UNITS}
+	
+					<div class="tip" title="Enter the largest side of the maximum {fp:image} size that can be framed. For example, if you allow frames up to 16x20 pictures, then enter '20'.<br>Note, this is NOT the size of the frame, which is larger than the image.">
+						?
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div align="right">
+			<snippet name="save">
+			<snippet name="cancel">
+		</div>
+	</div>
+
+	<h3 class="tabletitle">Print Pricing</h3>
+	<table class="entryform grid" style="font-size:85%;display:none;">
+		<tr style="border-right:1px solid gray;">
+			<th width="3%">
+			</th>
+			<th style="white-space: normal;" class="grid" width="11%" colspan="1">
+				Edition Size 
+				<br>
+				<span class="helptext">Number of prints per size, if this is a limited edition. <span class="important">The total of this column is the edition size</span> 
+					<br>
+					For an unlimited (open) edition, enter 0.</span> 
+			</th>
+			<th style="white-space: normal;" class="grid" width="11%" colspan="1">
+				Print Cost 
+				<br>
+				<span class="helptext">Enter the cost of the print (the supplier's price).</span> 
+			</th>
+			<th style="white-space: normal;" class="grid" width="11%">
+				Retail Print Price 
+				<br>
+				<span class="helptext">Enter the <b>retail price</b> for an unframed picture.</span> 
+			</th>
+			<th style="white-space: normal;" class="grid" width="11%" colspan="1">
+				Frame Cost 
+				<br>
+				<span class="helptext">Enter the cost of framing (the supplier's price).</span> 
+			</th>
+			<th style="white-space: normal;" class="grid" width="11%">
+				Retail Framed Print Price 
+				<br>
+				<span class="helptext">Enter the <b>retail price</b> for a framed picture.</span> 
+			</th>
+			<th style="white-space: normal;" class="grid" width="11%">
+				Extra Shipping 
+				<br>
+				<span class="helptext">Extra shipping cost for unusual or international shipping. 
+					<br>
+					<i>May be overridden in Paypal.</i></span> 
+			</th>
+			<th style="white-space: normal;" class="grid" width="20%" colspan="2">
+				Weight (in {WEIGHT_UNIT}) 
+				<br>
+				<span class="helptext">Enter the <b>weight</b> for a framed picture. Shippers require this amount to calculate the shipping cost.</span> 
+			</th>
+		</tr>
+	</table>
+
+	<div id="accordion">
+	{ROWS}
+	</div>
+	<br>
+	{SALESFIGURES} 
+	<br>
+	<br>
+		<div align="right">
+			<snippet name="save">
+			<snippet name="cancel">
+		</div>
+</form>

@@ -1,0 +1,4 @@
+<!-- gallery_stories_list -->
+<div class="sspop">
+	<a href="javascript:pop_me_up('gallery_single_story.php?storyID={id}&amp;ProjectID={ProjectID}','toolbars=no,resizable=yes',{gallery_popup_story_dimensions});"><i>{Title}</i></a>
+</div>

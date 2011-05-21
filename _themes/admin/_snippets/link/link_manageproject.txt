@@ -1,0 +1,3 @@
+<span class="tip" title="Change the settings for this {fp:project}, including the name, framing and matting, caption display, sales settings, and more.">
+<a href="?action=display&amp;PageID=tab3&amp;ID={ID}&amp;table=Projects&amp;UserID={UserID}" target="_self">{fp:projects_manage_project}</a>
+</span>

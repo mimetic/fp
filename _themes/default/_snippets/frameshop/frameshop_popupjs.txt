@@ -1,0 +1,1 @@
+onChange="UpdateTotal();UpdatePicture('{WHICHPIX}/{URL}','{THEMESDIR}/{THEME}/_img/pictureframes/',{IMG_Width},{IMG_Height},{FRAMESHOP_REF_SIZE});UpdateDesc();UpdateSpec();"

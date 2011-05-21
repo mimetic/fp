@@ -1,0 +1,25 @@
+
+<tr class="entryform" style="white-space:normal;">
+	<td valign="top" align="left" style="white-space:normal;width:25%;">
+		{VALUES}
+		<div style="color: #098;"> <b>{TITLE}</b> ({PARAM})</div>
+		<div class="helptext">{DESCRIPTION}</div>
+	</td>
+	<td style="">
+		<table style="width:100%;padding:5px;">
+			<tr>
+				<td valign="top">
+					<input id='c_{X}' name='c_{X}' type='text' value="{VALUE}" size=40>
+				</td>
+				<td valign="top">
+					
+				</td>
+				<td valign="top" >
+					<div style="font-size: 9pt;color:#666;margin-left:20px;">
+						<i>{NAME}</i>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>

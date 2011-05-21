@@ -1,0 +1,7 @@
+<!-- header_banner_style: Branded -->
+<style type="text/css" title="text/css">
+#banner
+{
+	background-image: url({GROUPBANNERURL});
+}
+</style>

@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar {navbar_selector_FAQ}" href="info.php?subject=faq">{fp:FAQ}</a></div>

@@ -1,0 +1,6 @@
+<FORM ACTION="http://www.auctioninc.com/" ENCTYPE="application/x-www-form-urlencoded" METHOD="post" >
+<INPUT TYPE="hidden" NAME="cmd" VALUE="_calc">
+<INPUT TYPE="hidden" NAME="business" VALUE="6646">
+<!-- View Calculator Button -->
+<INPUT TYPE="submit" NAME="viewcalc_btn" VALUE="View Calculator">
+</FORM>

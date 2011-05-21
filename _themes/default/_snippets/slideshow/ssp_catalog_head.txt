@@ -1,0 +1,94 @@
+<!--ssp_head-->
+<script src="{THEMESDIR}/{DEFAULT_THEME}/_js/swfobject.js" type="text/javascript" language="javascript"></script>
+
+<script type="text/javascript">
+
+	function WindowSize () {
+		var myWidth = 0, myHeight = 0;
+		if( typeof( window.innerWidth ) == 'number' ) {
+		//Non-IE
+		myWidth = window.innerWidth;
+		myHeight = window.innerHeight;
+		} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+		//IE 6+ in 'standards compliant mode'
+		myWidth = document.documentElement.clientWidth;
+		myHeight = document.documentElement.clientHeight;
+		} else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+		//IE 4 compatible
+		myWidth = document.body.clientWidth;
+		myHeight = document.body.clientHeight;
+		}
+		mySize = new Array ();
+		mySize.myWidth = myWidth;
+		mySize.myHeight = myHeight;
+		return mySize;
+	}
+	
+	function ResizeShowForWindow (h) {
+	 	id = 'flashcontent';
+		s = WindowSize ();
+		if (s.myHeight > 768)
+			h = h + (s.myHeight - 768);
+		return h;
+	}
+	
+	function SetRows (h) {
+		r = 2;
+		if (h > 500)
+			r = 3;
+		return r;
+	}
+	
+	// Permalinks option
+	function flashPutHref(href) { location.href = href; }
+	
+	// slideshowpro methods
+	function toggleDisplayMode() { thisMovie("ssp").toggleDisplayMode(null); }
+	function loadAlbum(albumID,num) { thisMovie("ssp").loadAlbum(albumID,num); }  
+	function loadImageNumber(num) { thisMovie("ssp").loadImageNumber(num); }
+	function nextGalleryScreen() { thisMovie("ssp").nextGalleryScreen(); }
+	function nextImage() { thisMovie("ssp").nextImage(); }
+	function nextImageGroup() { thisMovie("ssp").nextImageGroup(); }
+	function previousGalleryScreen() { thisMovie("ssp").previousGalleryScreen(); } 
+	function previousImage() { thisMovie("ssp").previousImage(); }  
+	function previousImageGroup() { thisMovie("ssp").previousImageGroup(); }
+	function setSize(w,h) { thisMovie("ssp").setSize(w,h); }  
+	function toggleGallery() { thisMovie("ssp").toggleGallery(); }
+	function toggleNav() { thisMovie("ssp").toggleNav(); }
+	
+	// swf finder
+	function thisMovie(movieName) {
+		if (navigator.appName.indexOf("Microsoft") != -1) {
+			return window[movieName]
+		} else {
+			return document[movieName]
+		}
+	}
+	
+	// Default height for a 768 pixel high screen is 415 px
+	h=415;
+	h = ResizeShowForWindow (415);
+	r = SetRows (h);
+	
+	// SWFObject embed
+	var flashvars = {
+		paramXMLPath: "_ssp/param_catalog.xml",
+		initialURL: escape(document.location),
+		galleryRows: r,
+		transitionLength: "{FP_SSP_TRANSITION_LENGTH}",
+		xmlFilePath: "http://{SYSTEMURL}slideshowxml.php?{SSP_PARAMS}"
+	}
+
+	var params = { 
+		base: ".",
+		quality: "best",
+		wmode: "transparent",
+		bgcolor: "#111111",
+		allowfullscreen: "true"
+	}                
+	var attributes = {
+	}
+	
+	swfobject.embedSWF("{THEMESDIR}/{DEFAULT_THEME}/_swf/slideshowpro.swf", "flashcontent", '720', h, "9.0.0", false, flashvars, params, attributes);
+	
+</script>

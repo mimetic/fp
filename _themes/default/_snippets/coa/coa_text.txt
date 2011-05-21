@@ -1,0 +1,110 @@
+<!--coa_text-->
+<h1 class="coa-skeleton">{FP_COA_TITLE}</h1>
+<table class="coa-filled-form">
+	<tr>
+		<td valign="top" class="coa-image-area" width="{COA_IMAGE_W}">
+			{image} 
+			<div class="coa-caption">
+				{Caption}
+			</div>
+		</td>
+		<td valign="top">
+			<table class="coa-info-block remove-if-empty">
+				<tr>
+					<td valign="top">
+						<span class="coa-title">{Title}</span> 
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						by {Artists_Fullname} 
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						{Date}
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						{Place} 
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						{INKSET} on {PAPER}
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						Print #{PRINTNUMBER} of {EDITIONSIZE} 
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						Catalog #{CATALOGNUMBER} 
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						Image: {IMAGESIZE} 
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						Paper: 
+						{PAPERSIZE} 
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<div class="coa-bottom">
+	<div class="coa-body coa-filled-form">
+		<p>
+			This document certifies that the print, &ldquo;{TITLE},&rdquo; is an original print of a photograph taken by {Artists_Fullname}. 
+		</p>
+		<p>
+			The print is numbered {PRINTNUMBER} in a limited edition of {EDITIONSIZE} numbered prints. {ARTISTPROOF} 
+		</p>
+		<p>
+			The print was printed on {PRINTDATE} with {INKSET} inks on {PAPER} paper at {SUPPLIER_NAME}, located at {SUPPLIER_FULL_ADDRESS}, Telephone:&nbsp;{SUPPLIER_TEL}, Email:&nbsp;{SUPPLIER_EMAIL}.
+		</p>
+		<p>
+			The print is copyrighted by {Artists_Fullname} with all rights of duplication reserved. 
+		</p>
+	</div>
+	<table class="coa-signatures coa-filled-form coa-skeleton" id="coa-filled-signature">
+		<tr>
+			<th valign="top">
+				Artist: 
+			</th>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				{Artists_Fullname} 
+			</td>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				Date 
+			</td>
+		</tr>
+		<tr>
+			<th valign="top">
+				Printer: 
+			</th>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				{ISSUING_AUTHORITY} 
+			</td>
+			<td valign="top">
+				<div class="coa-line">
+				</div>
+				Date 
+			</td>
+		</tr>
+	</table>
+</div>

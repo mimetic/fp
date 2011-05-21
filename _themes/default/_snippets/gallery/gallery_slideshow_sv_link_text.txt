@@ -1,0 +1,1 @@
+<a class="sspop editable" href="gallery_slideshow_sv.php?ProjectID={PROJECT_ID}" > {fp:slideshow_sv} </a><br>

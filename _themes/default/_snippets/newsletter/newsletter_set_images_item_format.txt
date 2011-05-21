@@ -1,0 +1,20 @@
+<!--newsletter_set_images_item_format-->
+<td class="picturerow">
+	<table class="picture">
+		<tr >
+			<td class="whitespace"></td>
+			<td></td>
+			<td class="whitespace"></td>
+		</tr>
+		<tr>
+			<td class="whitespace"></td>
+			<td><a href="http://{SYSTEMURL}gallery.php?ProjectID={Projects_ID}&amp;GroupID={groupID}"><img alt="" src="http://{SYSTEMURL}{THUMBNAILS}/{Images_URL}" width="{ThumbnailWidth}" height="{ThumbnailHeight}" border="0"></a></td>
+			<td class="whitespace"></td>
+		</tr>
+		<tr >
+			<td class="whitespace"></td>
+			<td><div class="credits">by {Images_Fullname}</div></td>
+			<td class="whitespace"></td>
+		</tr>
+	</table>
+</td>

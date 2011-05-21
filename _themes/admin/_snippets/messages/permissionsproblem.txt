@@ -1,0 +1,22 @@
+<table border="1" cellpadding="10" align="center">
+	<tr>
+		<td>
+			<small>I can't process {filename}. The <i>permissions</i> settings on this file don't allow me to work with
+			it, even though I can see it!<BR>
+			
+			Here's what you need to do if you're using Fetch on a Macintosh computer :
+			<ul>
+			<li>Select the file in Fetch (click one time only on the file name !)</li>
+			<li>in the Remote menu, choose Set Permissions</li>
+			<li>Check ALL the boxes and click 'OK'</li>
+			<li>Reload this page, and I'll try to get it again.</li>
+			</ul>
+			When you upload a file with FTP, your software sets the <i>permissions</i> of the file.
+			If the settings don't allow "anyone" to read and write the file, then the system
+			can't work with it.
+			</small>
+		</td>
+	</tr>
+</table>
+
+<BR>

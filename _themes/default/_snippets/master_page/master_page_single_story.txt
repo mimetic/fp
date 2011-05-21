@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<!-- this template is master_page.txt -->
+	<head>
+		<title>{pagetitle}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="MSSmartTagsPreventParsing" content="true">
+		<meta name="date" content="{DATETIME}">
+{META_INDEX}
+{STYLESHEETS}
+{GALLERY_STYLESHEET}
+
+<script src="{JAVASCRIPT_PATH}/jquery/jquery-1.4.2.min.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery.rightClick.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery.defuscate.js" type="text/javascript" language="javascript"></script>
+<script src="{JAVASCRIPT}" type="text/javascript" language="javascript"></script>
+
+		<snippet name="google_analytics_js">
+		</head>
+
+<!--	<body onload="init(271);">-->
+	<body class="story">
+		<a name="top"></a>
+		<div class="{sectionclass}">
+			<div id="container" class="editable">
+				<div style="text-align:right;float:right;">
+					<button type="button" onClick="window.close()" style="background:#CCC;">Close Window</button>
+				</div>
+				<div id="title-box">
+					<div id="header-title">
+						{grouptitle} : {projecttitle}
+					</div>
+				</div>
+	
+	<!-- MAIN SECTION -->
+				<div id="main" class="story">
+						<div id="message">
+							{message} 
+						</div>
+						<div id="error">
+							{error} 
+						</div>
+						{text} 
+				</div>
+			</div>
+		</div>
+<!--end container -->
+</body>
+</html>

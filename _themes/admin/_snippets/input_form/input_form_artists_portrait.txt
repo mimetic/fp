@@ -1,0 +1,40 @@
+<!-- input_form_artists_portrait -->
+<TR class="entryform">
+		<TH class="entryform" align="right">
+			Picture of You :
+		</TH>
+		<TD>
+			<span class="helptext">
+				Choose a picture from your computer and upload it. The picture will appear on the page about you.<br>
+				<b>We've noticed that browsers will cache this picture, so you may have to refresh your page to see your upload.</b>
+			</span>
+			<table class="inputbox">
+				<tr>
+					<td valign="top" align="center" colspan="2">
+						<div class="inputbox" style="text-align:center;">
+							{PortraitIMG}
+						</div>
+					</td>
+					<td valign="top" class="inputbox">
+						<div class="inputbox">
+							Upload a picture: <BR>
+							<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}" >
+							<input name="userfile" type="file" size="40">
+							<!-- userfileTag tells us to treat this picture as an artist portrait -->
+							<input name="userfileTag" type="hidden" value="artist_portrait"> 
+							<div style="float:right;"><button type="submit">Upload Picture</button></div>
+						</div>
+						<div class="inputbox">
+								OR, you can choose a picture to represent you.<br>
+							{ImageList} 
+							<div style="float:right;"><button type="submit">Show Picture</button></div>
+						</div>
+						<div class="inputbox">
+							OR, do not show a picture (and delete the uploaded picture).
+							<div style="float:right;"><button type="submit" name="PortraitImageID" value="none">No Picture</button></div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</TD>
+	</TR>

@@ -1,0 +1,350 @@
+<!-- input_form_Images -->
+{DONOTHING} 
+<form action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+	<input type="hidden" name="MAX_FILE_SIZE" value="275000"> <input type="hidden" name="ID" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="update"> <input type="hidden" name="ProjectID" value="{ProjectID}"> <input type="hidden" name="PageID" value="tab5"> <h3 class="tabletitle"> Edit <font color="#990000"> {Title} </font> in {TABLE_ALIAS} </h3> 
+	<div align="right">
+		<div class="helptext">
+<!--<span class="important">*</span> marked fields must be filled in-->
+		</div>
+	</div>
+	<table class="entryform">
+		<tr class="entryform">
+			<th valign="top" align="right">
+			</th>
+			<td>
+<!-- we start with the blank entry so we don't download the picture! -->
+				<div id="previewbutton">
+					<button type="button" onclick="showPreview('./{THUMBNAILS}/{URL}')">
+						Show "{Title}" ({URL}) 
+					</button>
+				</div>
+				<img class="thumbnail" style="margin-left:10px;display:none;" id="previewimage" src="{THEMESDIR}/{THEME}/_img/blank.jpg" alt="{Title}"> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right" width="150">
+				Catalog ID : 
+			</th>
+			<td>
+				<b> {ID} </b> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				Title : 
+			</th>
+			<td>
+				<input type="text" name="Title" value="{Title}" size="50"> <span class="helptext"> The title of the image (shorter is better). </span> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right" width="150">
+				Video : 
+			</th>
+			<td>
+				{param_10_CHECKBOX} This is a video, not a picture. The upload picture image will be used as the preview.
+				<div class="show-for-video">
+				<br>
+				<input type="text" name="param_12" value="{param_12}" size="6"> wide &times; <input type="text" name="param_13" value="{param_13}" size="6"> high<br><br>
+				Enter the "Embed This Video" code here:
+				<br>
+				<textarea name="param_11" rows="5" cols="120">{param_11}</textarea> 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform hide-for-video">
+			<th valign="top" align="right" width="150">
+				Original Art : 
+			</th>
+			<td>
+				{param_06_CHECKBOX} This {fp:image} is a unique piece of original artwork (such as a painting), not a print.<br>
+				If this artwork is not a {fp:image}, what is it? <input type="text" name="param_14" value="{param_14}"> <span class="helptext">Examples: Painting, Drawing, Etching, Sculpture, Weaving...</span>
+			</td>
+		</tr>
+		<tr class="entryform hide-for-video">
+			<th valign="top" align="right" width="150">
+				Fixed Size : 
+			</th>
+			<td>
+				{param_07_CHECKBOX} This {fp:image} can be sold at only a single fixed size, not at various sizes.
+				<div id="fixed_size_dims" style="display:none;">
+					...and is <input type="text" name="param_08" value="{param_08}" size="6"> wide &times; <input type="text" name="param_09" value="{param_09}" size="6"> high in <em>{UNITS}</em> 
+					<div class="tip" title='The price of this item will be calculate using the <em>next largest size</em> in the current {fp:priceset}. For example, if the {fp:priceset} has 18" and 24" sizes, then if this is a 20" picture the price will be taken from the 24" setting.<br>If the "Fixed Size" box is checked, then the Print File size will be <em>automatically</em> calculated!'>
+						? 
+					</div>
+				</div>
+
+
+			</td>
+		</tr>
+		<tr class="entryform hide-for-video">
+			<th valign="top" align="right" width="150">
+				Fixed Price : 
+			</th>
+			<td>
+				{CURRENCY}&nbsp;<input type="text" name="param_17" value="{param_17}" class="twodecimals" size="8" maxsize="8">&nbsp;{CURRENCY_AFTER} <span class="helptext">You can enter a fixed price for the artwork. Framing and other finishing will still be set by the {fp:priceset}.</span>
+			</td>
+		</tr>
+		<tr class="entryform hide-for-video">
+			<th valign="top" align="right" width="150">
+				Finishing : 
+			</th>
+			<td>
+				{param_15_CHECKBOX} Do not sell matted<span style="margin-left:30px;"> </span>{param_16_CHECKBOX} Do not sell framed
+			</td>
+		</tr>
+		<tr class="entryform hide-for-video">
+			<th valign="top" align="right">
+				File Size : 
+			</th>
+			<td>
+				{DIMENSIONS}
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				Caption : 
+			</th>
+			<td>
+				<textarea name="Caption" rows="4" cols="80">{Caption}</textarea> 
+				<br>
+				<div class="helptext">
+					Add uploaded files to your text: 
+					<div class="tip" title="{help_uploaded_files}">
+						? 
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform multiuser">
+			<th valign="top" align="right">
+				Gallerist: 
+			</th>
+			<td>
+				{ArtistIDList} <span class="helptext">Who owns and controls this picture?</span> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				Parent {fp:project} : 
+			</th>
+			<td>
+				{ProjectIDList}
+				<br>
+				<div class="helptext">
+					<span class="important">When the parent {fp:project} is deleted, the image will be deleted (unless it is currently being displayed in another {fp:project})!</span> 
+				</div>
+				<span class="helptext"> 
+					<br>
+					<span class="important"> </span> </span> 
+				
+			</td>
+		</tr>
+		<tr>
+			<th class="entryform" align="right">
+			</th>
+			<td style="text-align:right;">
+				<div align="right">
+					<snippet name="save" />
+					<snippet name="cancel" />
+					<input type="reset" value="Reset"> 
+				</div>
+			</td>
+		</tr>
+<!--
+	<tr class="entryform">
+			<th valign="top" align="right">
+				Headline : 
+			</th>
+			<td>
+				<input type="text" name="Headline" value="{Headline}" size="30">
+			</td>
+		</tr>
+-->
+<!--
+		<tr class="entryform">
+			<th valign="top" align="right">
+				Roll/Frame : 
+			</th>
+			<td>
+				<input type="text" name="RollID" value="{RollID}" size="20">
+				/ 
+				<input type="text" name="FrameID" value="{FrameID}" size="3">
+			</td>
+		</tr>
+-->
+	</table>
+	<h3 class="tabletitle"> Picture Information </h3> 
+	<div align="right">
+		<div class="helptext">
+<!--<span class="important">*</span> marked fields must be filled in-->
+		</div>
+	</div>
+	<table class="entryform">
+		<tr class="entryform">
+			<th valign="top" align="right" width="250">
+				{fp:artist}&nbsp;: 
+			</th>
+			<td>
+				<input type="text" name="Byline" value="{Byline}" size="30"> 
+			</td>
+		</tr>
+<!--
+	<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC Byline/Author Title : 
+			</th>
+			<td>
+				<input type="text" name="BylineTitle" value="{BylineTitle}" size="30">
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC Credit : 
+			</th>
+			<td>
+				<input type="text" name="Credit" value="{Credit}" size="30">
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC Source : 
+			</th>
+			<td>
+				<input type="text" name="Source" value="{Source}" size="30">
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC ObjectName : 
+			</th>
+			<td>
+				<input type="text" name="ObjectName" value="{ObjectName}" size="30">
+			</td>
+		</tr>
+-->
+		<tr class="entryform">
+			<th valign="top" align="right">
+				Date : 
+			</th>
+			<td>
+				<input type="text" name="CreatedDate" value="{CreatedDate}" size="30"> <span class="helptext"> Enter the date using this format: YYYY-MM-DD. For example Feb. 6, 2008 is written 2008-02-06. </span> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				City : 
+			</th>
+			<td>
+				<input type="text" name="City" value="{City}" size="30"> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				State : 
+			</th>
+			<td>
+				<input type="text" name="State" value="{State}" size="30"> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				Country : 
+			</th>
+			<td>
+				<input type="text" name="Country" value="{Country}" size="30"> 
+			</td>
+		</tr>
+<!--
+		<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC Copyrighted : 
+			</th>
+			<td>
+				<input type="text" name="Copyrighted" value="{Copyrighted}" size="30">
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC CopyrightNotice : 
+			</th>
+			<td>
+				<input type="text" name="CopyrightNotice" value="{CopyrightNotice}" size="30">
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="top" align="right">
+				IPTC Special Instructions : 
+			</th>
+			<td>
+				<input type="text" name="SpecialInstructions" value="{SpecialInstructions}" size="30">
+			</td>
+		</tr>
+ -->
+		<tr>
+			<th class="entryform" align="right">
+			</th>
+			<td style="text-align:right;">
+				<div align="right">
+					<snippet name="save" />
+					<snippet name="cancel" />
+					<input type="reset" value="Reset"> 
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="hide-for-video">
+		<h3 class="tabletitle"> Pricing and Limited Edition Settings </h3> 
+		<ul compact class="important">
+			<li>
+				The price of an image can be set below. 
+			</li>
+			<li>
+				If you've sold a picture, the {fp:priceset} is locked. Only the system administrator can make changes. 
+			</li>
+			<li>
+				You can also mark an image "Not For Sale." 
+			</li>
+			<li>
+				If the price is set below to "Use {fp:project} Pricing" then the price of the image is set by the Parent {fp:project} (you can set the parent {fp:project} above). 
+			</li>
+			<li>
+				Even if the image is shown in a {fp:project} that is different from the Parent {fp:project}, the price is still set by the Parent {fp:project}. 
+			</li>
+			<li>
+				If both the image and the Parent {fp:project} do not have pricing, then the price is set by whichever {fp:project} the image is shown in. 
+			</li>
+		</ul>
+		<table class="entryform">
+			<tr>
+				<th valign="top" align="right" width="150" nowrap>
+					For Sale : 
+				</th>
+				<td colspan="2">
+					{ImageSaleStatus} 
+				</td>
+			</tr>
+			<tr>
+				<th valign="top" align="right" width="150" nowrap>
+					Pricing Set : 
+				</th>
+				<td colspan="2">
+					<span style="margin-right:20px;">{PriceSetList}</span> {pricesetlocker} 
+				</td>
+			</tr>
+			<tr>
+				<th valign="top" align="right" width="150" nowrap>
+					Outside Sales : 
+				</th>
+				<td colspan="2">
+					<input name="param_18" id="param_18" type="text" value="{param_18}" size="5" maxlength="5"> items were sold or put aside, outside this website. <em>Do not enter number higher than the total edition size!</em>
+					<div class="tip" title='If you have sold (or have allocated prints to be sold) items outside this website, enter the number of outside sales here'>
+						? 
+					</div>
+ 
+				</td>
+			</tr>
+			{EditionsForm} {SalesForm} 
+		</table>
+	</div>
+</form>

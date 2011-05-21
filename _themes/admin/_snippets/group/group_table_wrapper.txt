@@ -1,0 +1,17 @@
+<div class="group_table_boundary">
+	<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="675">
+	<TR>
+		<TD VALIGN="top" width="300">
+			{grouplist}					
+		</TD>
+		<TD width=25> </TD>
+		<TD VALIGN=top NOWRAP WIDTH=350>
+			<!--<div class="sample_image">{sampleimage}<BR></div>-->
+		</TD>
+	</TR>
+	</TABLE>
+
+</div>
+<div class="group_nav">
+	<span style="margin-right: 30px;">Other Galleries: </span>{prev} {current} {next} <span style="margin-left: 30px;">{GroupPopup}</span>
+</div>

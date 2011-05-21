@@ -1,0 +1,4 @@
+<!--newsletter-intro-->
+<p class="intro">
+The following exhibitions are new, or have new pictures added, since our last newsletter. In addition to our selection of portfolio prints, we are proud to offer a new works from the field, some only hours old, created by the world's best photojournalists.
+</p>

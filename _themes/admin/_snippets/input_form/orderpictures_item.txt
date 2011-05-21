@@ -1,0 +1,17 @@
+<li>
+	<div class="img">
+		<div class="preamble">
+			{IMG}
+		</div>
+
+	</div>
+	<div class="postamble">
+		<div class="caption">
+			<h3>More Info</h3>
+			<p>
+				{caption}
+			</p>
+		</div>
+	</div>
+</li>
+

@@ -1,0 +1,71 @@
+// Vocabulary Replacement for the FP system
+// First word is the word to be replaced. It must be coded in your text like this:
+//   {fp:mykeyword}
+// Either "fp" or "FP" will work. 
+// If no replacement is found in the list, the original term is used with the {fp:} part removed.
+// Each theme can have its own list!
+// This list is comma separated (comma between the term and the replacment. The replacement can have commas)
+// e.g. myword,Here's what My Word should say, on a good day.
+
+
+// NOTE: words are replaced starting from the top of this list.
+// You can have terms that include other terms, if the order is correct!
+// See the "Basic" terms at the bottom of the page.
+
+accesslevel1,System Administrator
+accesslevel2,Gallery Administrator
+accesslevel3,Personal Gallery Owner
+accesslevel4,Vendor/Supplier
+
+userlevel1,Single Gallery, Single User
+userlevel2,Single Gallery, Multi-user
+userlevel3,Multi-gallery, Single User
+userlevel4,Multi-gallery, Multi-user
+
+install1,Public gallery with user subscriptions
+install2,Private installation with single subscription
+
+// Admin Menubar items
+PricesMenu,Prices
+Stories,Stories
+Upgrade,Subscribe
+Suppliers,Printers
+SalesMenu,Sales&nbsp;&amp;&nbsp;COA
+trial_account, Trial Account
+
+// Admin Links
+projects_manage_pictures,Organize
+projects_upload_pictures,Upload
+projects_manage_project,Settings
+projects_choose_pictures,Choose
+projects_arrange_pictures,Arrange
+projects_manage_stories,Stories
+Return_To_List,Return to List
+
+// -----------
+// BASIC TERMS
+// Keep these last, so they can be replaced inside previous terms
+// Example: SeeProject,See My {fp:project}
+
+project,Exhibition
+projects,Exhibitions
+group,Gallery
+groups,Galleries
+artist,Photographer
+artists,Photographers
+unlimited,unlimited
+picture,Picture
+pictures,Pictures
+image,Picture
+images,Pictures
+file,File
+files,Files
+priceset,Price Set
+pricesets,Price Sets
+
+featured,New
+active,Archive
+Hidden,&#10003;
+editionclosed,Sold Out
+somewhere_places,Somewhere...
+editionsize, Edition Size

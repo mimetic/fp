@@ -1,0 +1,2401 @@
+/* @override http://localhost/fp/_themes/default/_css/style.css */
+
+/* ----- STANDARD HTML ENTRIES ------------------------- */
+
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	font-family: "Trebuchet MS", "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+body {
+	height: 99.7%;
+	background-color: #eee;
+	color: #222;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	background-image: none;
+	min-height: 500px;
+}
+
+body, p, ol, ul, dl, li, td, th, div {
+	font-size: 12px;
+}
+
+p {
+	margin: 0px 0px 1.3em;
+	padding: 0px;
+}
+
+blockquote {
+	border-left: 4px solid #666;
+	padding: 0 15px 0 15px;
+	margin: 25px 100px 25px 50px;
+	color: #333;
+	background: none;
+	text-align: left;
+	font-size: 1.2em;
+	line-height: 1.3em;
+	font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, Verdana, sans-serif;
+}
+
+pre {
+	font-family: "Monospace Font Handling in Firefox is Braindead", monospace;
+	background: none;
+	padding: 0.75em 1.5em;
+	font-size: 1.2em;
+	border: 1px solid #ddd;
+}
+
+h1, h2, h3, h4, h5 {
+	background: none;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	border-bottom: 1px dotted #333;
+	margin-bottom: 2px;
+	padding-bottom: 2px;
+}
+
+h1 {
+	font-size: 14px;
+	padding: 20px 0px 4px 0px;
+	border-bottom: 1px solid #888;
+	margin-bottom: 4px;
+}
+
+h2 {
+	font-size: 12px;
+	margin-bottom: 0.5em;
+}
+
+h3, b.heading {
+	font-size: 10px;
+	letter-spacing: 0.25em;
+}
+
+h4 {
+	font-size: 10px;
+	letter-spacing: 0px;
+	text-transform: capitalize;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+.list h1 {
+	
+}
+
+a:hover {
+	text-decoration: none;
+	color: #7f4800;
+}
+
+a:active {
+	text-decoration: none;
+	color: #fa8300;
+}
+
+form {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* ----- MASTER PAGE ELEMENTS ------------------------- */
+
+#container {
+	text-align: left;
+	position: relative;
+
+
+/*	margin: 45px 50px 20px 50px; */
+	padding: 45px 30px 30px 50px;
+	height: auto;
+}
+
+#page.fullpage #container {
+	
+}
+
+* html #container {
+	height: 100%;
+}
+
+/* listing page, e.g. new exhibitions */
+
+/* padding makes it so page doesn't always show scroll bars.  */
+
+#page {
+	position: absolute;
+	min-height: 500px;
+	width: 100%;
+}
+
+#page.fullpage div.list img {
+	margin: 20px;
+}
+
+#page.listpage {
+	
+}
+
+#page.listpage #container {
+	
+}
+
+/* galleries list */
+
+.groups #container {
+	
+}
+
+/* gallery page */
+
+.gallery #container {
+	width: 100%;
+	display: table;
+}
+
+.slideshow {
+	width: 100%;
+}
+
+/* slideshow page */
+
+.slideshow #container {
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+	text-align: center;
+}
+
+.slideshow #flashbox {
+	margin: 10px auto;
+	width: 100%;
+	height: 100%;
+}
+
+.slideshow #flashcontent {
+	text-align: center;
+	width: 95%;
+	height: 90%;
+}
+
+.catalog #flashbox {
+	text-align: left;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.catalog #flashcontent {
+	width: 100%;
+/
+
+*
+
+height: 415px; */
+}
+
+/* These are slideshows that also show with the SlideShowPro gallery */
+
+.shows #flashcontent {
+	width: 95%;
+	height: 90%;
+}
+
+.story #container {
+	width: 7in;
+	height: 9.75in;
+	background-color: white;
+	color: #333;
+	padding: 0px;
+	margin-top: 12px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 0px #96C solid;
+	min-width: 300px;
+}
+
+/* Can't name it 'top' because we use 'top' for the anchor */
+
+#topper {
+	
+}
+
+#header {
+	text-align: left;
+	font-family: "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin-bottom: 15px;
+}
+
+#headerc {
+	position: relative;
+/
+
+*
+
+height: 35px; */
+}
+
+/* this modified dynamically in the 'branded' theme */
+
+#banner {
+	
+}
+
+/* encloses the title area; used for background images behind the title */
+
+.listpage #headerc {
+	
+}
+
+.groups #headerc {
+	
+}
+
+#header-subtitle {
+	color: #333;
+	font-size: 8pt;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	white-space: nowrap;
+	line-height: 8px;
+}
+
+#header-title {
+	color: #333;
+	font-size: 24px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	white-space: nowrap;
+}
+
+.groups #header-title {
+	color: #333;
+	font-size: 36px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	white-space: nowrap;
+	margin-top: -1px;
+}
+
+.info-title {
+	color: #ccc;
+	font-size: 24px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.5em;
+	white-space: nowrap;
+	vertical-align: middle;
+	margin-bottom: 20px;
+}
+
+#message {
+	color: #036;
+}
+
+#error {
+	color: red;
+	position: fixed;
+	top: 5px;
+	background-color: transparent;
+	right: 5px;
+	padding: 2px;
+	z-index: 100;
+}
+
+/* Picture behind the text on a page, usually a group/gallery page */
+
+img#pictureBehind {
+	display: none;
+}
+
+/* ----- MASTER PAGE: MAIN CONTENT AREA ------------------------- */
+
+#main {
+	min-height: 100%;
+	margin-bottom: 40px;
+	position: relative;
+}
+
+/* ------------------------------ */
+
+.slideshow #main {
+	height: 100%;
+	width: 100%;
+}
+
+/*
+	border: 1px #FC0 dotted;
+*/
+
+.listpage #main {
+	
+}
+
+.gallery #main {
+	width: auto;
+}
+
+/* Footer - text */
+
+#foot {
+	position: fixed;
+	height: 24px;
+	padding: 0px 50px 0px 0;
+	color: #888;
+	margin: -24px 0 0px;
+	bottom: 0;
+	width: 100%;
+}
+
+/* A CSS hack that only applies to IE -- specifies a different height for the footer */
+
+* html #foot {
+	margin-top: -24px;
+}
+
+#footc {
+	
+}
+
+#footer-box {
+	border-style: none;
+}
+
+#footleft {
+	text-align: left;
+	float: left;
+}
+
+#footright {
+	text-align: right;
+	margin-left: auto;
+}
+
+.footer-on-dark {
+	color: #555;
+	font-size: 0.8em;
+	display: inline;
+}
+
+/* ----- MASTER PAGE ITEMS: LISTINGS, e.g. New Exhibitions, All Exhibitions, etc. ------------------------- */
+
+.list {
+	
+}
+
+.list .title {
+	font-family: "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	white-space: nowrap;
+	line-height: 8px;
+	font-style: normal;
+	font-weight: normal;
+	margin-bottom: 4px;
+}
+
+.list .subtitle {
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none;
+	font-size: 10px;
+	letter-spacing: 0px;
+}
+
+.list .spacer {
+	height: 25px;
+}
+
+.list .caption {
+	font-style: normal;
+}
+
+.list .place {
+	font-weight: bold;
+}
+
+.list .item {
+	margin-left: 0px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+a.item.title:link {
+	text-decoration: none;
+	color: #000;
+}
+
+a.item.title:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+a.item.title:hover {
+	text-decoration: none;
+	color: #7f4800;
+}
+
+a.item.title:active {
+	text-decoration: none;
+	color: #fa8300;
+}
+
+.list h2 {
+	
+}
+
+.list h3 {
+	
+}
+
+.list h4 {
+	
+}
+
+#mainlist {
+	margin-top: 35px;
+}
+
+#mainlist .listpage {
+	width: 425px;
+}
+
+#mainlist .groups {
+	width: 425px;
+}
+
+/* info pages style */
+
+#mainlist .fullpage {
+	width: 7in;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#mainlist .gallery {
+	
+}
+
+/* ----- MENU BAR (g) ------------------------- */
+
+#topnav {
+	font-family: "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	border-top: 1px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 1px #E6E6E6 solid;
+	border-left: 0px;
+}
+
+#page.groups #topnav {
+	border-style: none;
+}
+
+#bottomnav {
+	margin-left: 50px;
+	margin-right: 30px;
+	font-family: "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	opacity: 0.9;
+	border-top: 1px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 1px #E6E6E6 solid;
+	border-left: 0px;
+	border-collapse: collapse;
+}
+
+div.navbar-container {
+	text-align: left;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+}
+
+div.navbar {
+	margin-left: 4px;
+	margin-right: 4px;
+	font-size: 9pt;
+	font-weight: normal;
+	line-height: 24px;
+	display: inline;
+	vertical-align: middle;
+}
+
+.listpage .navbar-container {
+	width: 100%;
+}
+
+.gallery .navbar-container {
+	
+}
+
+.groups .navbar-container {
+	background-color: transparent;
+	border-style: none;
+}
+
+.slideshow .navbar-container {
+	background-color: transparent;
+	width: 100%;
+	border-color: #1d1d1d;
+	margin-left: 10px;
+}
+
+.topnavlogo {
+	margin-left: 15px;
+	margin-right: 75px;
+	white-space: nowrap;
+	right: 0px;
+	float: right;
+}
+
+span.navbar img {
+	vertical-align: -1px;
+	margin-right: 3px;
+}
+
+.navbar .return-link {
+	display: inline;
+}
+
+.navbardivider {
+	margin-left: 2px;
+	margin-right: 2px;
+	color: #888;
+}
+
+/* default menu link */
+
+a.navbar:link,
+a.navbar:visited {
+	color: #F00;
+}
+
+/*
+.navbar a:hover {
+color: #7f4800;
+text-decoration: none;
+}
+
+.navbar a:active {
+color: #fa8300;
+text-decoration: none;
+}
+*/
+
+/* current-page (selected) menu items */
+
+a.navbar.selected:link {
+	color: #000;
+}
+
+/* current-page (selected) menu items */
+
+a.navbar.selected:visited {
+	color: #000;
+}
+
+/* current-page (selected) menu items */
+
+a.navbar.selected:hover {
+	color: #7f4800;
+}
+
+/* current-page (selected) menu items */
+
+a.navbar.selected:active {
+	color: #fa8300;
+}
+
+/* not-current-page (unselected) menu items */
+
+/*
+a.navbar.unselected, .navbar a.unselected, .navbar .unselected a, .navbar .unselected a:visited {
+color: #444;
+}
+*/
+
+a.navbar.unselected:link {
+	color: #444;
+}
+
+a.navbar.unselected:visited {
+	color: #444;
+}
+
+a.navbar.unselected:hover {
+	color: #7f4800;
+}
+
+a.navbar.unselected:active {
+	color: #fa8300;
+}
+
+a.navbar.slideshow:link {
+	color: #888;
+}
+
+a.navbar.slideshow:visited {
+	color: #888;
+}
+
+a.navbar.slideshow:hover {
+	color: #F90;
+}
+
+a.navbar.slideshow:active {
+	color: #F90;
+}
+
+/* ----- TEXT STYLES ------------------------- */
+
+.faded {
+	opacity: 0.5;
+}
+
+#content {
+	padding: 10px 20px 0px 0px;
+}
+
+.pagetext {
+	color: #ccc;
+}
+
+.helptext {
+	color: #333;
+	font-size: 0.85em;
+	display: inline;
+}
+
+.helptext select {
+	font-size: 0.85em;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.buyprint {
+	font-size: 0.8em;
+}
+
+.label {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.data {
+	font-weight: normal;
+	font-size: 1em;
+}
+
+.title {
+	font-size: 100%;
+	font-weight: normal;
+	letter-spacing: 0px;
+}
+
+.entry {
+	font-size: 100%;
+	font-weight: normal;
+	margin-top: 0.5em;
+}
+
+.printavailable {
+	display: block;
+	vertical-align: bottom;
+	font-size: 90%;
+	font-weight: normal;
+}
+
+.signature {
+	font-size: 9px;
+	font-style: italic;
+	font-weight: normal;
+	text-align: right;
+	margin-bottom: 4px;
+}
+
+.projecttitle {
+	font-size: 12px;
+	color: #222;
+	font-weight: bold;
+}
+
+.gallery-description div.projectowner {
+	margin-bottom: 10px;
+}
+
+.location {
+	font-weight: normal;
+	color: #333;
+	margin-bottom: 1.0em;
+	font-size: 12px;
+}
+
+.gallery-description .description {
+	margin-top: 1.0em;
+	font-style: italic;
+	font-size: 11px;
+	margin-bottom: 1.25em;
+}
+
+body.story {
+	background: white;
+	color: #333;
+}
+
+.story #title-box {
+	padding-bottom: 5px;
+	height: 30px;
+	color: #222;
+	border-bottom: 1px solid #999;
+}
+
+.story #header-title {
+	color: #333;
+	font-size: 10px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	white-space: nowrap;
+	margin-top: -1px;
+}
+
+#main.story {
+	width: 100%;
+}
+
+div.story {
+	font-style: normal;
+	font-size: 1em;
+	margin-top: 24pt;
+	border: 0px #F90 solid;
+}
+
+p.story {
+	text-indent: 0em;
+	line-height: 1.25em;
+	font-family: Georgia, "MS Serif", "New York", "Palatino Linotype", Palatino, Times, serif;
+	font-size: 10pt;
+}
+
+.story_byline {
+	border: none;
+	text-indent: 0px;
+	text-align: left;
+	margin-bottom: 1.5em;
+	margin-top: 0px;
+	padding: 0px;
+	font-style: italic;
+}
+
+.story h1, .story h2, .story h3 {
+	margin-top: 0px;
+	margin-bottom: 4px;
+	text-align: left;
+	padding: 0px;
+	border: none;
+	text-indent: 0px;
+}
+
+.storylist {
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
+	padding-top: 0.5em;
+	line-height: 1.2em;
+}
+
+/* 	Caption for picture in a gallery (not the popup caption)
+bottom margin must include an extra 30 to overcome the -30 in the floating footer, in case the gallerypicinfo touches the footer */
+
+div.gallerypicinfo {
+	float: none;
+	padding: 0;
+	margin: 0;
+	z-index: 150;
+}
+
+div.printsalesinfo {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-bottom: 0;
+}
+
+.galleryPictureColumn .description {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	z-index: 5;
+}
+
+div.captionblock {
+	vertical-align: top;
+	text-align: justify;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	color: black;
+	border-style: none;
+	line-height: 1.2em;
+}
+
+.galleryPictureColumn .description .captionblock {
+	background-color: white;
+	color: black;
+	z-index: 5;
+	opacity: 0.85;
+	height: 1000px;
+}
+
+.galleryPictureColumn .description .captionblock {
+	height: 1000px;
+}
+
+.galleryPictureColumn .flexible .description .captionblock {
+	background-color: white;
+	color: black;
+	z-index: 5;
+	padding: 0px;
+}
+
+.gallerypicinfo .captionblock {
+	margin-top: 10px;
+}
+
+.captionblock .title {
+	color: #444;
+	text-align: left;
+	line-height: 1.25em;
+	white-space: normal;
+	margin-bottom: 5px;
+}
+
+.captionblock .picturetitle {
+	color: #111;
+	text-align: left;
+	margin-bottom: 8px;
+	line-height: 1.25em;
+}
+
+.captionblock .caption {
+	color: #111;
+	text-align: left;
+	font-size: 12px;
+}
+
+.important {
+	color: red;
+}
+
+/* links to slide show, stories, in a gallery */
+
+.sspop {
+	font-size: 11px;
+	margin-bottom: 2px;
+}
+
+a.sspop:link {
+	
+}
+
+a.sspop:visited {
+	
+}
+
+a.sspop:hover {
+	
+}
+
+a.sspop:active {
+	
+}
+
+.listing {
+	border-collapse: collapse;
+	border-bottom: 1px dashed gray;
+	vertical-align: top;
+}
+
+.listing:first-child {
+	border-top: none;
+}
+
+.entryform {
+	border-collapse: collapse;
+	border-bottom: 1px dashed red;
+	border-top: 1px dashed gray;
+	vertical-align: top;
+}
+
+.entryform:first-child {
+	border-top: thin solid gray;
+}
+
+.newsection {
+	border-bottom: 1px dashed #611;
+}
+
+.icon {
+	padding: 0px;
+	float: left;
+}
+
+/* don't use a border...the small slide show uses this style */
+
+.sampleimage {
+	float: right;
+	margin: 10px;
+	padding: 0px;
+	border: 1px #333 solid;
+}
+
+.group {
+	background: #222;
+	color: #111;
+	margin: 0px;
+	padding: 0px;
+}
+
+.group-list {
+	margin-bottom: 20px;
+}
+
+.group-table-boundary {
+	margin-top: 0px;
+	width: 100%;
+}
+
+.group-table-item {
+	font-family: "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin-bottom: 15px;
+	overflow: hidden;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+
+.group-table-title-block {
+	
+}
+
+a.group-table-title {
+	padding-bottom: 2px;
+	font-size: 10pt;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+a.group-table-title:link {
+	color: #444;
+}
+
+a.group-table-title:visited {
+	color: #444;
+}
+
+a.group-table-title:hover {
+	color: #7f4800;
+}
+
+a.group-table-title:active {
+	color: #fa8300;
+}
+
+.group-table-desc {
+	font-size: 8pt;
+}
+
+.group-icon {
+	border: 0 solid #333;
+	margin-right: 15px;
+	margin-bottom: 25px;
+/
+
+*
+
+height: 50px;
+	width: 75px;
+*/
+}
+
+.group-list table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+}
+
+.group-list td {
+	padding-bottom: 15px;
+}
+
+.group-nav {
+	text-align: center;
+	margin: 15px;
+	border: none;
+	font-size: 9pt;
+	font-weight: normal;
+	word-spacing: normal;
+	font-family: "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #ccc;
+}
+
+.group-nav-button {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+#page.gallery {
+	
+}
+
+td.gallery {
+	vertical-align: top;
+	width: 150px;
+	padding: 0;
+	margin: 0;
+}
+
+.gallery .helptext {
+	color: #999;
+}
+
+.gallerytable {
+	border-width: 0px;
+	border-spacing: 0px;
+	border-style: none;
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+}
+
+.gallerypictureblock {
+	vertical-align: bottom;
+}
+
+/* Matte color around a picture */
+
+.gallerypic {
+	background-color: #FEFEFE;
+}
+
+.donation {
+	font-style: italic;
+	font-weight: normal;
+	font-size: 0.9em;
+	margin-top: 2em;
+}
+
+table.pictureframe {
+	border-width: 0px;
+	border-spacing: 0px;
+	border-style: none;
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+}
+
+table.pictureframe td {
+	border: 0px;
+	padding: 0px;
+}
+
+.gallery-priceinfo {
+	margin: 8px auto;
+	max-width: 250px;
+	font-style: italic;
+	font-size: 11px;
+	border: 1px solid #bfbfbf;
+	background-color: #fcfcfc;
+	padding: 10px;
+	position: relative;
+	color: #111;
+}
+
+.pictureframe {
+	border: none;
+	vertical-align: middle;
+	line-height: normal;
+	display: block;
+}
+
+.galleryColSpacer {
+	width: 100px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+}
+
+td.galleryPictureColumn {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	position: relative;
+/*	overflow: hidden; */
+}
+
+div.galleryPictureColumn {
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	display: inline-block;
+}
+
+div.galleryPictureContainer {
+}
+
+div.galleryPictureContainer .description .captionblock {
+	height: auto;
+}
+
+
+.galleryTextColumn {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	position: relative;
+}
+
+.picturematte {
+	vertical-align: middle;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	width: inherit;
+	height: inherit;
+	position: relative;
+	border-collapse: collapse;
+}
+
+.gallery-description {
+	color: #333;
+	position: relative;
+	width: 150px;
+}
+
+.gallery-description-divider {
+	border-left: 1px #333 solid;
+	margin-left: 30px;
+	padding-left: 30px;
+}
+
+/* gallery info links, e.g. buy a print, tearsheet */
+
+.gallery-info-link {
+	text-align: center;
+	white-space: nowrap;
+	display: inline-block;
+	padding: 4px;
+	margin: 2px;
+	text-transform: uppercase;
+	font-size: 9px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+a.gallery-info-link:link {
+	color: #111;
+}
+
+a.gallery-info-link:visited {
+	color: #111;
+}
+
+a.gallery-info-link:hover {
+	color: #f9a400;
+}
+
+a.gallery-info-link:active {
+	color: #fa6a08;
+}
+
+/* gallery link button */
+
+.gallery-info-link button {
+	text-align: center;
+	white-space: nowrap;
+	display: inline-block;
+	padding: 4px;
+	margin: 2px;
+	text-transform: uppercase;
+	font-size: 9px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.gallery-info-link button {
+	color: #111;
+}
+
+.gallery-info-link button:active {
+	color: #fa6a08;
+}
+
+div.gallerypicinfo div.buttons {
+	
+}
+
+.gallery-info-link button:hover {
+	color: #f9a400;
+}
+
+/* ----- SLIDESHOW ------------------------- */
+
+body.slideshow {
+	background: #111111;
+	margin: 0px;
+	padding: 0px;
+}
+
+#outer {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+#outer[id] {
+	display: table;
+	position: static;
+}
+
+#middle {
+	position: absolute;
+	top: 50%;
+}
+
+/* for explorer only*/
+
+#middle[id] {
+	display: table-cell;
+	vertical-align: middle;
+	position: static;
+}
+
+#inner {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	
+
+/*
+
+THIS FAILS IN IE */
+	top: -50%;
+	width: 940px;
+}
+
+/* for explorer only */
+
+/* optional: #inner[id] {position: static;} */
+
+#headslideshow {
+	height: 50px;
+}
+
+#headcslideshow {
+	padding: 10px 30px 0 31px;
+}
+
+#galleryslideshow {
+	background: #111111;
+}
+
+#galleryslideshowc {
+	padding: 0px;
+}
+
+#galleryslideshowlarge {
+	background: transparent;
+	width: 100%;
+	height: 660px;
+	text-align: center;
+}
+
+#galleryslideshowlargec {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 72px;
+	padding-right: 72px;
+}
+
+#slideshowsmall {
+	margin-top: 0px;
+	float: right;
+}
+
+#slideshowmed {
+	float: right;
+	margin: 0px;
+}
+
+#popup {
+	position: fixed;
+	_position: absolute;
+	
+
+/*
+hack for internet explorer 6
+*/
+	top: 0px;
+	left: 0px;
+}
+
+#popup_story {
+	display: none;
+	position: fixed;
+	_position: absolute;
+	
+
+/*
+hack for internet explorer 6
+*/
+	top: 0px;
+	left: 0px;
+	background-color: white;
+	color: #333;
+	font-size: 10pt;
+	border: 1px solid #333;
+	padding: 20px;
+}
+
+#ns_popup_story_text, #popup_story_text {
+	font-size: 0.8em;
+	color: #333;
+	text-indent: 0px;
+	text-align: left;
+}
+
+.popup_story {
+	color: #333;
+}
+
+.image_title {
+	font-style: italic;
+}
+
+.popup_window {
+	display: none;
+	padding: 0px;
+	border: 0 dotted #fc0;
+	margin: 0px;
+	z-index: 10;
+	background-color: transparent;
+	color: #333;
+	font-size: 10pt;
+	text-align: left;
+}
+
+div.popup_window_caption {
+	font-size: 10pt;
+	text-align: left;
+	margin: 4px 0 0 0;
+}
+
+.popup_window_name {
+	color: #888;
+}
+
+.popup_window_nav {
+	text-align: center;
+	margin-top: 8px;
+}
+
+.popup_window_nav table {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.popup_window_nav a {
+	font: 16px Arial, "Lucida Grande", Tahoma, sans-serif;
+}
+
+#popup_close {
+	
+}
+
+#popup_prev {
+	
+}
+
+#popup_next {
+	
+}
+
+.popup_bkgd_coverup {
+	position: fixed;
+	_position: absolute;
+	
+
+/*
+
+hack for internet explorer 6*/
+	top: 0px;
+	left: 0px;
+	z-index: 5;
+	background-color: transparent;
+}
+
+#popup_img {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	padding: 0px;
+	margin: 0px;
+	
+
+/*
+
+vertical-align: top;
+	*/
+	z-index: 10;
+}
+
+#popup_img_coverup {
+	position: fixed;
+	z-index: 20;
+	display: none;
+	background-color: transparent;
+	opacity: 0;
+}
+
+#ns_popup_text, #popup_text {
+	background-color: transparent;
+	margin: 0px;
+	text-align: right;
+	vertical-align: top;
+	color: #999;
+	font-size: 0.8em;
+}
+
+.pricelistmenu {
+	padding: 5px;
+	font-size: 9px;
+	text-align: center;
+	vertical-align: top;
+	white-space: nowrap;
+	position: relative;
+	margin: auto;
+	width: 100%;
+}
+
+.pricelistmenu h1 {
+	color: white;
+	font-size: 8pt;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	white-space: nowrap;
+	line-height: 1em;
+}
+
+.pricelist span {
+	padding: 5px;
+	border: 1px solid #ccc;
+	width: 100%;
+	background-color: #888;
+	color: #333;
+	font-size: 10px;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.pricelist h1 {
+	color: #333;
+	font-size: 8pt;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	white-space: nowrap;
+}
+
+.pricelist table {
+	border: 1pt solid #ccc;
+	border-collapse: collapse;
+	border-spacing: 4px;
+	vertical-align: top;
+	width: 100%;
+}
+
+.pricelist td {
+	border: 1pt solid #ccc;
+}
+
+.pricelist a:link {
+	color: #333;
+}
+
+.pricelist a:hover {
+	color: #fc0;
+	text-decoration: none;
+}
+
+.pricelist a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+.pricelist a:active {
+	color: #fc0;
+	text-decoration: none;
+}
+
+/* old style numbering, for use with picture dimensions */
+
+.oldstylenums {
+	font-size: 90%;
+	font-weight: bold;
+}
+
+/* ----- FRAMESHOP ------------------------- */
+
+/*
+	for Frameshop
+	jQuery UI settings
+*/
+
+#shippingform label, #shippingform input ,#shippingform select {
+	margin-bottom: 15px;
+}
+
+#shippingform input.text {
+	margin-bottom: 12px;
+	padding: .4em;
+}
+
+#shippingform fieldset {
+	padding: 0;
+	border: 0;
+	margin-top: 25px;
+}
+
+#shippingform .ui-button {
+	outline: 0;
+	margin: 0;
+	padding: .4em 1em .5em;
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+}
+
+#shippingform .ui-dialog .ui-state-highlight, .ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+#BuyButton {
+	
+}
+
+/* Thickbox */
+
+.frameshop .thickbox {
+	color: #444;
+	background-color: #f8f8f8;
+	border: none;
+	padding: 2px 5px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 4px;
+}
+
+.frameshop .thickbox:hover {
+	background-color: #fcfebf;
+}
+
+.frameshop .thickbox:active {
+	background-color: #f9fd7e;
+}
+
+.frameshop select {
+	border: 1px solid #000;
+	color: #000;
+	background-color: silver;
+}
+
+.frameshop input.coupon-entry {
+	background-color: #d8d8d8;
+	border: 1px none #d8d8d8;
+	text-align: right;
+	width: 100px;
+	color: #989898;
+}
+
+.frameshop_link {
+	text-align: center;
+	font-size: 9px;
+	vertical-align: top;
+	background-color: transparent;
+	white-space: nowrap;
+}
+
+.frameshop_link p {
+	font-size: 10px;
+	margin: 10px;
+}
+
+.frameshop_link button, .frameshop_link a:link, .frameshop_link a:visited {
+	background-color: #fff;
+	color: black;
+	font-size: 8pt;
+	text-align: center;
+	text-transform: capitalize;
+	padding: 4px;
+	white-space: nowrap;
+	line-height: normal;
+	margin: 0px;
+	border: 1px solid #666;
+}
+
+.frameshop_link button:hover, .frameshop_link a:hover {
+	color: white;
+	background-color: #c90;
+}
+
+.frameshop_link button:active, .frameshop_link a:active {
+	color: white;
+	background-color: #c90;
+}
+
+div.frameshop_controlpanel button {
+	font-size: 11px;
+	color: #333233;
+}
+
+div.frameshop_pricebox {
+	margin-top: 10px;
+	border: 1px solid #ccc;
+}
+
+.hoverpop {
+	position: relative;
+	z-index: 0;
+	top: inherit;
+	left: inherit;
+}
+
+.hoverpop:hover {
+	background-color: transparent;
+	z-index: 50;
+}
+
+.hoverpop span {
+	position: absolute;
+	left: 0px;
+	visibility: hidden;
+}
+
+.hoverpop span img {
+	border-width: 0px;
+	padding: 2px;
+}
+
+.hoverpop:hover span {
+	visibility: visible;
+	top: 0px;
+	left: 0px;
+}
+
+.pricelist hoverpop:hover span {
+	visibility: visible;
+	top: 0px;
+	left: -100px;
+}
+
+table.frameshop {
+	width: 1000px;
+	display: table;
+	padding: 0px;
+	margin: 0px;
+	margin-left: 0px;
+	border-collapse: collapse;
+	vertical-align: top;
+}
+
+td.frameshop {
+	padding: 0px;
+	vertical-align: top;
+	margin: 0px;
+}
+
+.frameshop_controlpanel {
+	background-color: transparent;
+	margin: 0 0 0 0;
+	padding: 0px;
+}
+
+.frameshop_controls {
+	vertical-align: top;
+	background-color: transparent;
+	color: white;
+	font-size: 11pt;
+	margin: 0 0 0 0;
+}
+
+.fpcart {
+	line-height: 1.8em;
+}
+
+.fpcart div {
+	margin-bottom: 4px;
+}
+
+.infobox {
+	width: 400px;
+	vertical-align: top;
+	background-color: #e6e6e6;
+	color: #333;
+	font-size: 10pt;
+	margin: 0 20px 10px 0px;
+	border: 1px solid #777;
+	padding: 10px;
+	-webkit-box-shadow: 3px 3px 7px #888;
+}
+
+.infobox h1, .infobox h2, .infobox h3 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 4px;
+	margin: 0 0 4px 0px;
+}
+
+.infobox p {
+	margin-bottom: 4px;
+}
+
+.footnote {
+	bottom: 10px;
+	position: absolute;
+	text-align: center;
+	font-size: x-small;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.footnotec {
+	
+}
+
+/* --------- FRAME SHOP / PRINT SHOP ------------ */
+
+#fs_picture_container {
+	text-align: center;
+	border: 0px solid #777;
+	-webkit-box-shadow: 3px 3px 7px #888;
+	padding: 30px 20px 20px;
+	overflow: hidden;
+	width: 580px;
+	min-height: 700px;
+}
+
+#frameshop-scale-overlay {
+	position: absolute;
+	z-index: 10;
+	opacity: 1.0;
+	top: 10px;
+	left: 370px;
+	display: none;
+}
+
+#fs_controls_container {
+	width: 420px;
+}
+
+#fs_picture {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#fs_pic_matte {
+	background-color: #fff;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	border-collapse: collapse;
+	border-style: hidden;
+	empty-cells: hide;
+	font-size: 0px;
+}
+
+#fs_matte_top {
+	background-color: #fff;
+}
+
+#fs_matte_bottom {
+	background-color: #fff;
+}
+
+#fs_pic {
+	padding: 0px;
+	margin: auto;
+	border-collapse: collapse;
+}
+
+#fs_picture_table {
+	padding: 0px;
+	margin: auto;
+	border-collapse: collapse;
+	empty-cells: hide;
+}
+
+.l {
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	font-size: 1px;
+}
+
+.m {
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	font-size: 1px;
+}
+
+.r {
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	font-size: 1px;
+}
+
+div#slideshow {
+	height: 90%;
+	width: 100%;
+	margin: 24px auto;
+}
+
+body.tearsheet {
+	background: white;
+	color: #333;
+	width: 100%;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Helvetica, Verdana, Geneva, Arial, sans-serif;
+}
+
+.tearsheet #header {
+	width: 7in;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.tearsheet h1, .tearsheet h2, .tearsheet h3 {
+	margin-top: 12px;
+	background: none;
+	text-align: center;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	border: 0px;
+}
+
+#container_tearsheet {
+	width: 7in;
+	height: 9.75in;
+	background-color: white;
+	color: #000;
+	padding: 0px;
+	margin-top: 0in;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.tearsheet infobox {
+	background-color: white;
+	color: #333;
+	font-size: 11pt;
+	padding: 10px;
+	border: 1px solid #0c0;
+}
+
+table.tearsheet {
+	border: 1px solid #333;
+	background-color: white;
+	width: 6in;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 24pt;
+	padding: 0.2in;
+}
+
+td.tearsheet {
+	padding: 0px;
+	vertical-align: top;
+	font-size: 10pt;
+}
+
+img.tearsheet {
+	max-width: 6in;
+	max-height: 4in;
+	border: 1px solid #333;
+}
+
+.tearsheet_picture {
+	text-align: center;
+	padding: 20px;
+}
+
+.settingsbox {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 1px solid #333;
+	background-color: #333;
+	color: #fff;
+}
+
+.statement {
+	text-align: left;
+	font-size: 11px;
+}
+
+.statement p {
+	font-size: 9pt;
+	line-height: 1.5em;
+	margin-left: 12px;
+}
+
+.statement h1, .statement h2, .statement h3 {
+	text-align: left;
+	font-weight: bold;
+	text-transform: none;
+	letter-spacing: 0px;
+	border-bottom: 1px dotted #333;
+}
+
+/*
+Groups pages, such as groups/galleries
+*/
+
+#page div.groups div.description {
+	font-style: italic;
+	margin-top: 20px;
+}
+
+#page div.groups div.statement {
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+/* 
+List pages, such as projects/exhibitions
+*/
+#page div.listpage div.description {
+	font-style: italic;
+	margin-top: 20px;
+}
+
+#page div.listpage div.statement {
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+
+/*  the hidden part of a popup/slidedown set of code. the 'showme' is wrapped inside a 'showchild' div, which
+is used by a jQuery function.
+*/
+
+.showme {
+	display: none;
+}
+
+/* ---- LightBox CSS ---- */
+
+#lightbox-imageBox {
+	background-color: white;
+/
+
+* border: 1px solid black; */
+}
+
+#lightbox-close-button:hover {
+	color: red;
+}
+
+#lightbox-overlay {
+	background-color: #eee;
+}
+
+#lightbox-overlay-text {
+	color: #333;
+}
+
+#lightbox-infoFooter {
+	color: #ccc;
+	height: 15px;
+	margin: 15px 10px 10px;
+	padding-top: 4px;
+}
+
+#lightbox-infoContainer-overlay {
+	position: relative;
+	height: 100%;
+}
+
+#lightbox-infoFooter-overlay {
+	color: #333;
+	position: relative;
+	bottom: 0;
+	text-align: center;
+	margin: 20px auto 15px;
+	width: 250px;
+}
+
+#lightbox-currentNumber {
+	color: #888;
+	font-size: 10px;
+	font-style: italic;
+	text-align: right;
+	float: left;
+	display: inline;
+}
+
+#lightbox-currentNumber-overlay {
+	display: block;
+	width: 100%;
+	float: none;
+	text-align: center;
+	color: #555;
+	font-style: italic;
+}
+
+#lightbox-close-overlay {
+	display: none;
+	width: 45%;
+	float: right;
+	text-align: right;
+	bottom: 10px;
+	position: absolute;
+}
+
+/* ---- testing ----- */
+
+.wrapped {
+	border: 1px dotted red;
+}
+
+.wrapped2 {
+	border: 1px dotted blue;
+}
+
+/* ---- new theme editor ----- */
+
+body.cssEdit {
+	margin-top: 75px;
+}
+
+#foot.cssEdit {
+	margin-top: -99px;
+}
+
+.cssEditHighlight {
+	background-color: rgba(248,255,197,90);
+	color: black;
+	border-width: 1px;
+}
+
+div.cssEditFlag {
+	background-color: #c6ff60;
+	color: black;
+	display: none;
+	z-index: 200;
+	top: 0;
+	left: 0;
+	position: absolute;
+	border: 1px solid black;
+	padding: 5px;
+	text-indent: 0;
+	letter-spacing: 0;
+	word-spacing: 0;
+	white-space: normal;
+	unicode-bidi: normal;
+	vertical-align: middle;
+	text-align: left;
+	text-decoration: none;
+	font: normal normal normal 12px/1 Times;
+	text-transform: none;
+	opacity: 0.85;
+}
+
+#cssEditFlag {
+	display: none;
+	position: absolute;
+	z-index: 300;
+	background-color: #f9fe00;
+	border: 1px solid #7f7e7f;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	padding: 2px;
+	opacity: 0.88;
+}
+
+#cssEditTopBar {
+	border: 2px solid #191919;
+	height: 72px;
+	background-color: #191919;
+	top: 0;
+	right: 0;
+	position: fixed;
+	z-index: 80;
+	opacity: 1.00;
+	color: #e6e6e6;
+	width: 100%;
+	font-size: 9px;
+	overflow: hidden;
+}
+
+#error.cssEdit, #message.cssEdit {
+	height: 2em;
+	z-index: 292;
+	text-align: left;
+	position: fixed;
+	line-height: 1.0em;
+	font-size: 11px;
+}
+
+#message.cssEdit {
+	top: 35px;
+	color: #f8ff61;
+	text-align: left;
+	left: 20px;
+}
+
+#error.cssEdit {
+	top: 50px;
+	color: #f98400;
+}
+
+.cssEditButtonText {
+	padding: 8px;
+	color: maroon;
+	text-indent: 0;
+	letter-spacing: 0;
+	word-spacing: 0;
+	white-space: normal;
+	unicode-bidi: normal;
+	vertical-align: middle;
+	text-align: left;
+	text-decoration: none;
+	text-transform: none;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#cssEdit-results {
+	display: none;
+}
+
+#cssEditConsole {
+	z-index: 500;
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	background-color: orange;
+	border: 1px solid black;
+	color: black;
+	padding: 10px;
+	max-height: 100px;
+	overflow: auto;
+	font-size: 10px;
+	width: 650px;
+}
+
+#cssEditControls {
+	z-index: 290;
+	top: 5px;
+	right: 10px;
+	position: fixed;
+	color: #e6e6e6;
+	white-space: nowrap;
+	font-size: 11px;
+}
+
+#cssEditControls input, #cssEditControls button {
+	background-color: #333;
+	padding: 2px 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	color: #b3b2b3;
+	display: inline-block;
+	position: relative;
+	margin-right: 5px;
+	text-decoration: none !important;
+	cursor: pointer;
+	text-align: center;
+	zoom: 1;
+	overflow: visible;
+	border-width: 1px;
+	margin-left: 5px;
+}
+
+#cssEditControls button:hover {
+	background-color: #444;
+}
+
+#cssEditControls button:active {
+	background-color: #888;
+}
+
+#cssEditControls select {
+	color: #fff;
+	background-color: #333;
+	border-color: #000;
+}
+
+#cssEditHighlightFlag {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+#cssEdit-dialog-header {
+	font-size: 16px;
+	text-align: center;
+	background-color: transparent;
+	padding: 4px;
+	text-transform: capitalize;
+	margin: 0;
+	color: #191919;
+}
+
+#cssEdit-dialog-subheader {
+	font-size: 10px;
+	text-align: center;
+	background-color: transparent;
+	padding: 4px;
+	text-transform: capitalize;
+	margin: 0;
+	font-style: italic;
+}
+
+#cssEdit-css-name {
+	font-style: italic;
+	background-color: transparent;
+	border-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#cssEdit-form p {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+div.cssEdit-dialog-section {
+	padding: 5px 10px;
+	border: 1px solid #ddd;
+	background-color: #fdfdfd;
+}
+
+#cssEdit-form h4 {
+	margin-bottom: 3px;
+	background-color: transparent;
+	border-style: none;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 10px;
+	color: #333;
+	font-weight: bold;
+}
+
+#cssEditEditorTitle {
+	position: absolute;
+	white-space: nowrap;
+	text-transform: uppercase;
+	color: #1e1e1e;
+	letter-spacing: 25px;
+	top: 0px;
+	left: 0px;
+	font: 100px/100px "Arial Black", "Trebuchet MS", Helvetica, "Lucida Sans Unicode", "Lucida Grande", Verdana, Geneva, Arial, sans-serif;
+	z-index: 10;
+	text-align: left;
+	width: 100%;
+	margin-top: -15px;
+	text-shadow: #0c0c0c 0 0 10px;
+}
+
+button#cssEditSwitch.cssEditSwitchLight {
+	background-color: #3f8080;
+}
+
+input.twodecimals {
+	text-align: right;
+}
+
+/* VIDEO POPUP */
+
+#popup_video_player {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 80;
+	display: none;
+}
+
+#popup_video_content {
+	display: block;
+	position: fixed;
+	z-index: 100;
+	margin-top: 50px;
+}
+
+#popup_video_close {
+	z-index: 95;
+	display: block;
+	width: 150px;
+	margin: 5px auto;
+	position: absolute;
+	text-align: right;
+	right: 30px;
+	top: 20px;
+	color: gray;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+#popup_video_bkgd {
+	position: fixed;
+	z-index: 90;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.95;
+}
+
+/*
+Dim and not dimmed items
+*/
+
+.fp_dim {
+	display: none;
+}

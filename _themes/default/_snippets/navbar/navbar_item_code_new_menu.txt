@@ -1,0 +1,6 @@
+<div class="navbar" menu="menu_1">
+	<a class="navbar {navbar_selector_new}" href="projects.php?GroupID={groupID}">{fp:New Projects}</a>
+</div>
+<div class="menu" id="menu_1" style="display:none;">
+	{MENU}
+</div>

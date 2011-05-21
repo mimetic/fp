@@ -1,0 +1,57 @@
+<!-- quickstart_1 -->
+<div class="ui-widget ui-corner-all quickstart">
+	<div class="" style="text-align:center;">
+		<div class="ui-widget-content ui-corner-all biglink">
+			<button type="button" class="buttonlink" href="?action=display&amp;table={ARTISTS}&amp;ID={UserID}&amp;PageID=tab2#subscribe">
+				Subscription 
+			</button>
+			<p>
+				Change your Subscription. 
+			</p>
+		</div>
+		<div class="ui-widget-content ui-corner-all biglink">
+			<button type="button" id="cssEditActivate">
+				Start Live Theme Editor 
+			</button>
+			<p>
+				Change colors, background colors, and more, by editing and creating themes. 
+				<br>
+				<span class="helptext">Note: The Live Theme Editor works with FireFox, Safari, and Chrome, but does not work with Internet Explorer 6 or 7.</span> 
+			</p>
+		</div>
+		<div class="ui-widget-content ui-corner-all biglink">
+			<button type="button" class="buttonlink" href="?action=show_list&amp;table={SUPPLIERS}&amp;PageID=tab8">
+				{fp:Suppliers} 
+			</button>
+			<p>
+				Add or edit the fine-art printers you use to printer and deliver {fp:pictures} from your gallery. 
+			</p>
+		</div>
+		<br clear="all">
+		<div class="ui-widget-content ui-corner-all biglink">
+			<button type="button" class="buttonlink" href="?action=show_list&amp;table={SALES}&amp;PageID=tab7">
+				My Sales 
+			</button>
+			<p>
+				If you have print sales set up, you can see here which {fp:pictures} you've sold and how much money you made. 
+			</p>
+		</div>
+		<div class="ui-widget-content ui-corner-all biglink">
+			<button type="button" class="buttonlink" href="?action=show_list&amp;table={PRICESETS}&amp;PageID=tab7">
+				{fp:PricesMenu} 
+			</button>
+			<p>
+				Add or edit the pricing of your {fp:pictures}. 
+			</p>
+		</div>
+		<div class="ui-widget-content ui-corner-all biglink">
+			<button type="button" class="buttonlink" href="?action=help&amp;subset={PAGEID}&amp;PageID=tab1">
+				More Help 
+			</button>
+			<p>
+				Here are detailed instructions on how to use {FP_SYSTEM_DISPLAY_NAME}. 
+			</p>
+		</div>
+		<br clear="all">
+	</div>
+</div>

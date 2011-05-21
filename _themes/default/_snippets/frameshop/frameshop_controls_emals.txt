@@ -1,0 +1,70 @@
+	<h2>Your Order EMALS</h2>
+
+
+<snippet name="auctioninc_add_to_calc_button">
+
+<form name="order" class="frameshop_button" action="http://ww4.aitsafe.com/cf/add.cfm" method="post">
+
+		Image size: {SizesList}
+		{FrameStyleList} 
+		{MatteList} 
+		{GlazingList} 
+		<br>
+		<br>
+<!--
+We don't use this if we'd rather have Paypal handle shipping. OR, we have Paypal override (set in the Paypal site).
+-->
+Destination: {ShippingList} 
+		<span style="display:none;"><span id="extra_shipping" style="font-size:small;font-style:italic;"> </span></span>
+		<br>
+
+		<input id="handling" type="hidden" value="0">
+		<input id="currentquantity" type="hidden" name="quantity" value="1">
+		<input id="extrashipping" type="hidden" value="{EXTRASHIPPING}">
+	<br>
+<!--
+We don't use this because I can't update the pop-up menu to reflect the number remaining to sell
+using javascript.
+
+{Quantity}
+		<br>
+-->
+		<div style="display:none">
+			Price Each: 
+			<span id="unit_price" >
+			</span>
+			<br>
+			<br>
+		</div>
+		<div class="infobox" style="padding:0px;padding-top:0px;width:100%;margin:0px;border:0px;border-top:0px solid #111;">
+				<button type="submit" name="submit" style="float:right;" >
+					Buy This Picture
+				</button>
+			
+			Total price: 
+			<span id="total_price" ></span><br>
+			<span class="helptext">(not including shipping/handling and applicable taxes)</span>
+			{FP_FRAMESHOP_TESTING_MSG}
+		</div>
+		
+		<!-- Mals shopping cart values -->
+		<input name="userid" type="hidden" value="{MALS_USER_ID}" />
+		<input name="product" id="desc" type="hidden" value="({ImageID}) {ITEM_NAME} by {Artists_Fullname}">
+		<input id="price" name="price" type="hidden" value="">
+		<input name="units" type="hidden" value="{WEIGHT}">
+
+		<input name="return" type="hidden" value="{RETURNURL}">
+		<input name="noqty" type="hidden" value="2">
+		<input name="qty" type="hidden" value="1">
+		<input type="hidden" name="scode" value="{ImageID}">
+
+		<!-- REQUIRED: used by javascript for page calcs -->
+		<input type="hidden" id="amount"  name="amount" value="{AMOUNT}">
+		<input type="hidden" id="weight"  name="weight" value="{WEIGHT}">
+		<input type="hidden" id="image_cat_num" value="{CATALOGNUMBER}">
+
+
+		<textarea style="display: none;" id="spec" name="spec" rows="8" cols="50"></textarea>
+		<!--<input type="hidden" size="135" id="spec64"  name="os1" value="{SPECS}">-->
+
+	</form>

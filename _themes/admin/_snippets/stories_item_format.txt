@@ -1,0 +1,3 @@
+<FONT FACE="Trebuchet MS,arial,helvetica,geneva" COLOR="#333366">{Parts_Firstname} {Parts_Lastname} : <i>{Parts_Title}</i></FONT><BR>
+{Parts_Snippet}<BR><BR>
+<BR>

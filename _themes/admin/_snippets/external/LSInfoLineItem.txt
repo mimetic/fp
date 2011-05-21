@@ -1,0 +1,8 @@
+<TR>
+<TD class="listing" valign="top">
+<span class="label">{key}&nbsp;:</span>
+</TD>
+<TD class="listing" valign="top">
+<span class="data">{value}</span><BR>
+</TD>
+</TR>

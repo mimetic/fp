@@ -1,0 +1,39 @@
+/* @override http://localhost/fp/_themes/015_flexible/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+/* The overflow:hidden in the parent styles allow us to use height: 1000px so that we fill the space */
+.galleryPictureColumn .description .captionblock {
+	height:inherit;
+	overflow: hidden;
+}
+
+div.flexible {
+	overflow: hidden;
+}
+
+/* The overflow:hidden in the parent styles allow us to use height: 1000px so that we fill the space */
+.galleryPictureColumn .description .captionblock {
+	background-color: white;
+	color: black;
+	z-index: 5;
+	padding: 0px;
+	border-collapse:collapse;
+	opacity: 0.85;
+	overflow: hidden;
+	border-style: none;
+}
+
+.captionblock .title {
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.captionblock .caption {
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+

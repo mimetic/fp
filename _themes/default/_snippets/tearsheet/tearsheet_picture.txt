@@ -1,0 +1,4 @@
+<!--<h2 style="text-align:center;margin-top:18px;">{ImageTitle}</h2>-->
+<div class="tearsheet_picture">
+	<img class="tearsheet" src="{WHICHPIX}/{URL}" alt="{Title}">
+</div>

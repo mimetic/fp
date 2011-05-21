@@ -1,0 +1,8 @@
+<table border="1" cellpadding="5" align="center" bgcolor="#FFFF99">
+	<tr align="center">
+		<td><CENTER><H3>READ THIS:</H3></CENTER>
+		The nickname for {fp:project} <B>{Title}</B> ("{oldnickname}') is already in use by another {fp:project}. We have chosen <B>{nickname}</B> instead. You might wish to change the nickname by editing the {fp:project} (click on "Show Advanced Features" to show the nickname).<BR><BR>
+		<i>Remember, you need to write <TT>project={nickname}</tt> in the Instructions field of the picture, so I know the {fp:project} for the {fp:image}.</i>
+		</td>
+	</tr>
+</table>

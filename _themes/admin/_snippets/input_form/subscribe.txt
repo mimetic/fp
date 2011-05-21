@@ -1,0 +1,17 @@
+<!-- subscribe.txt -->
+<h3 class="tabletitle"><a id="subscribe"></a>Subscription</h3>
+<div align="right">
+	<div class="helptext">
+		Upgrade your account to get more services and storage space.
+	</div>
+</div>
+<table class="entryform">
+<TR class="entryform">
+		<TD>
+			Current Subscription: <b>{SubscriptionDesc}</b>
+			<BR>
+			<BR>
+			<snippet name="pplink">
+		</TD>
+	</TR>
+</table>

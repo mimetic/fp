@@ -1,0 +1,7 @@
+<!--master_page_header-->
+<div id="header" class="editable"><div id="headerc" class="{sectionclass}">
+	<div class="icon editable" style="float:left;padding-right:10px;">{GROUPICON}</div>
+	<div>
+		<span id="header-title" class="{sectionclass} editable">{subtitle}</span>
+	</div>
+</div></div>

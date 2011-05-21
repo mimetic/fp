@@ -1,0 +1,1489 @@
+FP GALLERY TO DO:
+
+
+
+
+*** IT SEEMS YOU CAN BUY ANYTHING BY USING THE ID CODE IN THE URL OF THE PRINT SHOP. DOESN'T IT CHECK WHETHER THE ITEM IS REALLY FOR SALE? ***
+
+
+
+Notes:
+
+_ Deleted story, but the story remained in the exhibition !?!??
+
+Uploader: 
+_ TFU NOT uploading into the right folders, but into the UPLOAD inside TFU!
+_ install latest flash uploader
+_ For uploading sizes, include 1500!!!
+
+Pictures:
+
+_ need a link to the picture from the organize area
+_ I hate updating a pic — I have to upload, then wonder where the original is, delete it, add the new one where the old one was. 
+_ need a "find identical pictures" tool, which allows "Replace X with Y, delete X" tool.
+
+_ Captcha for signup
+	_ Be sure there are no security holes with it!
+	_ I'm getting a lot of junk attacks.
+
+*** WHERE'S MY FEEDBACK THINGIE!?? ***
+
+================================================================
+RANDOM SHIT:
+
+- Clear exhibition caches when changing captions, etc. of pictures, of exhibitions containing those pictures.
+
+_ Pictures in Organizer: "Only show pictures uploaded to..." shows exhibitions of people NOT in the exhibition at all! And, those exhibitions listed are empty.
+
+
+
+[16-May-2011 18:37:14] PHP Warning:  Variable passed to each() is not an array or object in /home/artpress/public_html/tearsheet.php on line 62
+
+
+
+
+HEY! HEy!
+URGENT: LIVE THEME EDITOR
+- When saving a variation, it ends up with default:default:myvariation instead of default:myvariation. Sometimes...
+
+
+
+
+
+JUST FOR FUN....
+- positionable pix in project
+	- each move must write it's position, relative the "wall", via JSON to the project
+	
+
+
+
+
+
+
+================================================================
+
+MYNAME.WEBSITE.COM
+
+We need an .htaccess that won't be overwritten upon updates, too!
+
+The following works inside of .htaccess, in conjunction with a subdomain
+(e.g. david.girlswholike.us => public_html 
+(not "public_html/", and with NO redirection. FYI, the redirection is written into .htaccess! )
+
+It takes time for the subdomain to propagate, I think....
+
+	RewriteEngine on
+
+	RewriteCond %{HTTP_HOST} ^david\.girlswholike\.us [NC]
+	RewriteRule ^index\.php$ projects.php?GroupID=20 [NC,QSA,L]
+	
+	# deanchapman.mimetic.com
+	RewriteCond %{HTTP_HOST} ^deanchapman\.mimetic\.com$ [NC]
+	RewriteRule ^index\.php$ projects.php?GroupID=20 [NC,QSA,L]
+	
+	# grzegorzkomar.mimetic.com
+	RewriteCond %{HTTP_HOST} ^grzegorzkomar\.mimetic\.com$ [NC]
+	RewriteRule ^index\.php$ projects.php?GroupID=58 [NC,QSA,L]
+	
+
+
+================================================================
+
+_ Tearsheets: they allow right-click download of the image.
+
+
+
+OUTSIDE IMAGE SALES:
+
+_ I know your planning on changing the pixel sizes for width and length over to inches, I was thinking if that feature also appeared in the multi editor you would be able to change a bunch at one time, would be very handy since if one does come out the right size usually there are others.
+
+_ Updating image rows when Quick Editor is used: Oh fuck...if the outside image sale count is changed, the print may no longer be for sale (all allocated), but how to calc that and update the row on screen? What a bitch. AJAX pain in the ass.
+	
+_ Image: Form entry: Don't allow user to enter more outside sales than the Edition Size - Prints Sold by the system!
+	- Perhaps an internal check before updating Image records? What a bitch, and slow ... we have to do a lot of weird checking against the price set, etc.
+
+
+_ Max framed size: MaxFrameSize added to PriceSets. This should be the size of the largest image for which a frame is offered. That's not the measurement of the frame itself — the frame is larger than the print, of course. Should they enter the frame size, and extrapolate from there? NO, that's too much work right now.
+	_ OH SHIT: OK, here's what has to happen in the Frameshop:
+		_ If frame/matte chosen, turn off for sizes great than maximum size: 
+			- Clear the Frame/Matte settings go, then hide them
+		_ If size chosen is <= max size, show frame/matte settings.
+		_ Harder, the system could set price to zero for framed prices over the maximum? That could be a problem, too. Woof.
+
+
+_ Front page slideshow is looking the wrong places for pictures:
+[Wed Nov 24 07:11:14 2010] [error] [client 99.196.0.57] File does not exist: /home/mimetic/public_html/030515-DG-061.jpg, referer: http://www.mimetic.com/slideshowxml.php?params=action-featured,duration-auto,audio-off,size-gallery,GroupID-1
+
+
+_ Show 'buy picture' links even if "no captions" is set? Shouldn't those be separate switches?
+
+
+================================================================
+Google Adwords
+- Conversion Tracking:
+	- Add conversion tracking code to other pages, maybe checkout?
+
+================================================================
+Theme Editor: 
+
+- in Mimetic.com, it's not load/saving the right theme, I think. OR! The menu in the editor window isn't checked on the current theme, it's just a list.
+- I go to my gallery, and the theme listed is not the theme used. The theme saves is wrong: I try to save My Variation of theme X, and it always says I saved Default:My Variation
+- Choosing a theme from the menu doesn't set the theme of the page, which it should.
+- Saving the theme always gives us a default theme!
+
+================================================================
+CART
+
+
+_ (low) Check that pix are available before proceeding to payment. The cart full, and pix were sold even though it was really sold out. So, a reload might end up sending a sales request? Not sure. Anyway, check the pix exist before selling?
+_ (low priority) Unclear on payment distribute, which payment is for which line in the order. Only order# and imageID are given. OK for now...
+
+
+- In print shop, use "-webkit-box-shadow: 3px 3px 7px #777;" for the shadowing behind the picture.
+
+
+*** DON'T TRY TO GET SHIPPING WHEN USING THE CART UNTIL CHECKOUT ***
+
+
+***	IPN_RES:
+	_ OrderIsAuthentic: confirm the total for the order matches the total for the items? Or, compare the items one by one?
+
+		
+	CART:
+		_ Do a Javascript "try" when converting JSON values from UPS, etc., so we see errors instead of everything just stopping.
+		****_ FUCK: my fix for remaining calc is wrong. I'm tired. Go to bed. Fix it tomorrow.
+		_ Show frame/matte in the cart. It's too confusing as it is. Damn it. Best to have a generic javascript "show framed pic" or something?
+		_ sort cart entries by title?
+		_ click link in cart to go to frameshop, should set/hide frame, matte, etc., appropriately.
+		
+	FRAMING:
+		- "load" item into frameshop
+		- "save" with new framing options
+		- "save new item" with new framing options?
+
+	ORDERING TO PRINTER:
+		_ Address of recipient missing?
+		X Shipping for pickup should be "pickup",not UPS
+		_ Edition print number is missing in message
+		_ Tax should say "CA sales tax", using the vendor's state info
+
+** NO, it seems OK to use a weird item number. The sales reporting doesn't seem to care.
+** PAYPAL_ORDER, LINE 1042, was rewriting the item_number in the Sales DB. Probably used by commerce to figure out sales of items...before we had an item_id field. BUT, WE'LL HAVE IDENTICAL SALES ITEMS (?) IN THE SALES DB
+
+
+
+	CHECKOUT:
+		_ recheck avail item count in the items object each time cart is called. It's used in update_item, in particular.
+		_ when we warn that some/all items are sold out, we have to mark them, show them, so the user can delete them! For quantities too large, we change quantity to a lower number, then warn user.
+		_ Not setting weights in SALES db.
+		
+		- Popup, "anywhere" checkout?
+			- AJAX returns an HTML object which is popped up
+				- that popup has shipping, cart manipulations (remove, quantity, etc.)
+				- And a "Buy" or "Close" button
+				
+				
+	TAX: sales tax can be calculated in Paypal, by state! Tax is charged for the entire sale, none of my partial tax stuff.
+		
+AGH! How should checkout work????
+- It has to do final checks, e.g. is the print available. Therefore, it cannot be completely Javascript.
+- If it is part of the cart, then we have to provide links to external functionality, e.g. check for availability in the cart object. Something like, run these final check functions. Tricky?
+- If totally separate from the cart, then how to get data from cart to checkout? Cart->JS->Checkout means weird triggers and objects. Also, that's a weird concept, to move that data through the client unnecessarily.
+
+		
+		
+		
+				
+		
+	SHIPPING/HANDLING:
+		_ Add shipping, handling, etc. footer fields to the cart object, so they move from page to page, not lost!
+		_ cart items need size/weight settings to calc shipping.
+		
+		- One shipping cost for all prints
+			- Paypal carts allow first shipping rate, then rate for additional items
+		- Use separate item shipping rates for each framed/matted item. Multiple matted items are quite thick, so we can't bundle them.
+			
+		_ We're currently using CalcTotal for the cart, but it doesn't work (it's designed only for the page item). Adapt and copy cart calculations from fp_javascript_lib.js to jquery.dig.fpcart.js. These should be integrated into the cart. However, we leave a page version of update total, because it calcs the total for the item on the page!
+		_ We call Updatetotal from updateCartOnPage in the fpcart JS.
+		
+	SHIPPING:
+		
+		New variables for FPCart:
+			- item['shippingGroup'] : if set with a number, then all items in group can be shipped together
+
+		Can't know the shipping/handling costs until we know the destination. And, the dest. might change, so we can't put into the items in the cart. Instead, we must calc it from the PHP, when we know the destination.
+	
+		// data needed to query UPS for shipping
+		$url = " + rateCode 
+		ResidentialInd = resComCode 
+		PackagingType = containerCode 
+		ServiceLevelCode = upsProductCode 
+		ShipperPostalCode = originPostalCode 
+		ConsigneePostalCode = destPostalCode 
+		ConsigneeCountry = destCountryCode 
+		PackageActualWeight = packageWeight 
+		DeclaredValueInsurance
+	
+
+		
+	ISSUES:
+		- Shipping: if buying multiple prints, why not ship together? Can't do with frames, but can with prints.
+		- Shipping? Oh shit. How to handle frames with this?
+		- Shipping? Add at checkout or when buying?
+		
+		- paypal verification — how do we do this?
+		- Multiple items in Paypal
+
+
+_ Mass Pay: should be done with IPN. That way, we can really track what happens. Dammit. See: 
+	https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/howto_api_masspay
+
+_ Commerce: Order form is wrong for original art (it shows editioning)
+_ Commerce: Can we change the "ship to" when it's a pickup?; Ship To in Paypal: can we change it w/o losing client address with "pickup" orders?
+
+_ Sales: How did a sale go through the system, complete with payment, then fail on my side? It should have been rejected by my side.
+
+_ no tax for some coupons
+
+
+_ SALES
+
+A sale should not be confirmed in this case, right?
+Why MassPay entries when the sale failed? (OrderExists error)? Why are we not checking OrderIsAuthentic? No secret passwords?
+
+See ipn_res.php, line 122.
+$secret created by send_order.php. Is it not getting through or something?
+
+
+In the sales.log:
+	
+	2010-07-11 00:43:25: -----
+	/home/artpress/public_html/ipn_res.php: line 88: Received an order: 356.97, 20100709-17:42:16, Ineligible, confirmed, UAVMY6926BYTS, 13.47, 581 University Avenue, 14:44:11 Jul 09, 2010 PDT, Completed, windows-1252, 94022, Nicholas, Cat#DC-001451, image 12x18 inches, paper 16x22 inches, black wood frame, Ivory matte, 10.65, US, Nicholas Fortis, 3.0, , unverified, dc@artistnet.com, United States, Los Altos, 1, AKCi21V37kQMHgWkyzd7DEPmjCHVAI2A1dQCtC6pJChxxevp4ie7mpPe, nickfortis@sbcglobal.net, Desc, 57G378262U104230J, instant, Fortis, CA, info@artpressgallery.com, 10.65, TE6MS5VQ7G5XN, web_accept, North Shore Cypress by David Chmielewski, USD, 135, US, 0.00, North Shore Cypress by David Chmielewski, 356.97, 0.00
+	2010-07-11 00:43:25: ERROR (OrderExists) : could not confirm order supposedly made on 135. There is no matching order in Sales.
+	2010-07-11 00:43:25: ERROR (OrderIsAuthentic) : could not confirm order with secret = . There is no matching order in Sales.
+	2010-07-11 00:43:26: SUCCESSFUL SALE: time: 14:44:11 Jul 09, 2010 PDT; invoice: 20100709-17:42:16; amount: 356.97; transaction fee: 10.65
+
+
+Then, in the payments.log:
+	2010-07-11 00:43:26: MassPay2345: Payment response Array
+	(
+	    [TIMESTAMP] => 2010-07-11T04:43:26Z
+	    [CORRELATIONID] => b50b3ae850c50
+	    [ACK] => Failure
+
+_ Add paypal fee to the calculation of cost?
+
+
+================================================================
+Admin:
+
+_ Allowing ordering of the exhibitions, galleries?
+_ Do show total usage by a user, but run calc only if requested. I want to know how much Lindsay is using. Can I still limit her gallery?
+_ Don't show multipage listing nav tool on lists, if there aren't enough items on the page. E.g. galleries listing
+
+================================================================
+URGENT:
+
+
+
+- Add "	-webkit-box-shadow: 3px 3px 7px #777;" to the gallery ... shadows for pix! Finally!
+
+_ Found another bug in the theme editor, when you go to save a variation it changes the background to white, another weird one. dC
+
+_ Sorting by sales in Sales/COA — sorts by cell content, needs to sort by a sortable time-date value.
+
+_ Inkset/Paper are set in an exhibition. 
+	- add "use defaults from price set" to paper/ink choices in exhibition
+	- Now, we need to get these when getting values for printsets & projects, right? Woof.
+	- When locking a price set, get correct paper/ink settings!
+
+_ Print Shop: No BACK button/link in some themes, e.g. 018_gallery_big_picture_across
+
+_  Print Shop: JS paper sizing doesn't match PHP paper sizing when it shows the estimated sizes
+
+X Sales: we do generate a secret, but it isn't passing through paypal. FIX.
+
+X tax total in state, not just printing (Now a setting)
+
+X How about, always have link to main galleries? For a gallery system, this might be important to enforce. Have I done it?!?!?
+
+SECURITY:
+
+_ OH SHIT...you can edit ANY id record simply by requesting it in the URL, including other artists! Everything is wide open. There is no control over what a user can edit.
+	X Edit any artist! No, only the fp_user's record.
+	_ there should be a check: you can only edit things you own. What about things you are part of?
+	_ The check should be done BEFORE loading the page to edit, AND when updating the data to prevent hacking.
+
+X OH SHIT...you can change fp_user value with the Url! We need to rely on sessions or cookies or something for security. 
+	
+_ ORIGINAL ARTWORK: 
+	_ Lock down Title/Original Art/Fixed Sizing, etc. in Image when it has been sold, so only Admin can change it.
+	- "Lock price set" change to "Lock Price"
+	- Allow user to enter a price right there.
+		- If price entered, then 
+			NO
+			- Price is a parameter
+			- When we access the price for an image, check to see if it has a custom price set.
+			YES
+			- create a custom price set, if one doesn't exist ("lock it")
+				- delete all but the "size for pricing", i.e. the next largest size
+				- set price of print to entered price (above)
+				- don't change other entries (frame, etc.)
+			- We need a price set, or all kinds of calculations won't really work.
+			
+			
+	- if type is changed from original to print, automatically unlock the price set (delete the custom set)
+	X Original art is only available in a fixed size!!! Enforce this! (How to do this...hmmm)
+
+
+X Increase security of passwords!
+
+
+_ Big pic theme is flawed: see inset captions: http://www.justmiel.com/gallery.php?ProjectID=1&clearcache=1
+
+
+
+
+ 
+-------
+
+_ Add event date range (from-to) to an exhibition as an option?
+
+_ *** PICTURES DISAPPEAR FROM THE SYSTEM. I uploaded a pic, added another, now the original is lost. No image record at all.
+
+_ *** A LOCKED PRICE SET ISN'T WORKING FOR A FIXED-SIZE IMAGE!
+	- Goddamn. A fixed-size picture doesn't calc right with a locked price set. WTF?
+
+_ Files tab gets confused, gets a warning when logged in as System Admin
+
+_ If you're admin, you should be able to edit users' themes, right? Right now, it is as though they don't exist when you're admin, trying to edit a theme.
+
+
+_ Live Editor: if highlighting on, then background is thought to be highlight color! Must turn off highlight BEFORE actually editing checking for properties!
+	_ Save As when you've made no changes reverts current theme to default for that theme! It should do nothing.
+
+_ Hmm. Portfolio of Dianne Hiller project, using "Gallery", got confused & didn't know its theme. How? Now that I resaved the project settings, it knows. 
+
+_ COA: not showing image/paper sizing on the COA!
+
+_ Check: if we host on the mimetic website, how close is that to having one's own private gallery?
+
+** FUNCTIONAL PROBLEMS! ***
+_ 	// THIS DOESN'T WORK WITH CSSEDIT...HOW TO FIX? 
+	// Problem is, CssEdit doesn't disable a javascript method attached to the objects, e.g. click
+	// It could, but how to reattach? 
+	// We don't want to check for CSSEdit in any function we build!
+
+
+_ How do we get pictures with no DB records, i.e. not in use???!?!?!?! This is worrisome.
+
+_ Organize pix: as admin, you can see all exhibitions, but it will only show pix in those which are owned by the artist who owns the exhibition you're messing with. Which makes sense...but better not to show all exhibitions in the popup list, then, eh?
+
+_ caption "title" class isn't working in variations. The alt version uses div.captionblock div.title — that works. But the theme editor edits "title" and that doesn't work. Is .title used for anything else?
+
+_ System Default theme on Groups(galleries) page. Must calc. what it is in project-management, as I've done for a project, so we can show preview properly.
+
+
+_ Time to fix the FAQ!
+
+_ Random pic should come from the exhibition, then gallery, the website you're in, in that order, if no Carousel is set.
+
+_ You should be able to have a Carousel in each gallery.
+
+_ Weird behavior from the "All Exhibitions" drop-down menu in Americana.
+
+_ Check screen resizing (girlswholike.us) in Explorer & FireFox on PC
+
+_ add google "no-cache" code, if possible. IF the URL requests a non-existant project, or it is HIDDEN, then add code so Google doesn't cache it.
+
+_ "Add Video" : new button in Pictures listing, AND/OR on the upload page, automatically checks off video button. Maybe fills in other stuff, or allows fields to enter codes from Vimeo? What to do for the image???? There should be a system "Video" image, or something. Black screen, maybe?
+
+Shahrzad theme:
+
+	_ Exhibition is slightly different than Projects. Not sure why — fit it. 
+
+
+	_ don't show 'all exhibitions' or 'new exhibitions' if not needed. For example, on a projects.php page, it's already showing exhibitions...don't need these links. Confusing. But, if showing "new" probabaly need "all", and vice-versa. ALSO, need a way to get back from a FAQ or About the Artist page.
+	
+	_ Video doesn't work. The Exhibit.js doesn't do it.
+
+	_ The Exhibit js sucks. The method of copying from a list is not reliable, obviously. I think duplicating elements means ID duplication. I think we need the data list to NOT contain formatting, or at least, no IDs!
+
+	_ Exhibit: creates duplicate ID's because it shows a pic and data by copying it from a list to the main page. That means, a new copy means duplicate ID's, since the new copy is created on-the-fly. How to avoid this? 
+		- If target location of the 'buy info' wasn't part of what was copied, it would work.
+
+
+	The system is doubling up the "priceinfo_" items, probably one for the enlarged pix, one for gallery. But this means doubled ID's, and I have a JS to fix it, but I think it's the cause of the fuckup. ALthough the fuckup only shows in the Shahrzad theme, dammit.
+
+	X Shahrzad theme: rt/left buttons appear & fuck up when there's only one pic. Need two or more...fix!
+	_ Shahrzad theme: 
+		X Her name appears in a funny place. 
+		- No way to get back if we see "about artist"
+	
+	_ Changed Shahrad's "About..." to "Biography". But, I had to modify a navbar entry. Must be changable as a vocab item.
+	_ Shahrzad applied to the default gallery gives a list only, nothing else. Not good, I think.
+
+		X after "buy print", if you return, you come to start. With 50 pix, what a bitch. Must be able to return to pic you were looking at.
+	
+		X share is weird in place, faq...sometimes plus box moves
+	
+		X in Shahrzad theme: set a maximum resize of pic to the pic's actual max size (optional)
+	
+	_ ??? in Shahrzad theme, auto add an "all" link, called "Photographs" or something, ABOVE the listing of project: can do by inserting "All Projects" code.
+
+	_ show caption from a group? Issue with Shahrzad theme. Better would be to access caption setting from projects. Need FetchCascade to expose the params for insertion, I guess.
+
+
+_ Shahrzad theme: Need artist name to appear in a multiuser/multigallery system.
+_ .htaccess is buggy. The .svn rewrite is wrong, and WHM/CPanel can't handle it.
+_ Use .htaccess to limit viewing pic directories, NOT an index.html!!!
+_ If a picture has a PriceSetID, but the PID doesn't exist, fix picture. ????
+_ About the artist slideshow takes pix from other artists!
+
+_ Theme editor needs all rules for a's to be in separate entries, i.e cannot have
+	a.cows:link, a.cows:visited {color:red}
+
+_ GOOGLE ANALYTICS : 
+	- http://code.google.com/intl/en-US/apis/analytics/docs/gdata/gdataDeveloperGuide.html
+	- Show analytics results show up on admin pages? This will draw people into this service.
+
+_ FACEBOOK INTEGRATION : http://developers.facebook.com/docs/
+	- Publish updates? Galleries? What?
+
+X getID3 shows deprecated errors!!! *** FIXED. Probably have to replace getID3 with something more up to date?
+
+X Artist' statement appears twice because there's a "Statement" field built into the main page, and it generates one in the artist info section.
+X Remove white border on original artwork in Frameshop; don't show or calc paper size. 
+X Show videos in Arrange page as VIDEO or something, not as the picture!
+X Mass Pay and payments: If error, send warning email to admin
+
+*** Features ***
+
+FOR GALLERY OWNERS, E.G. ARTPRESS:
+
+_ Copy gallery settings, e.g. menus, across multiple galleries?
+
+
+OTHER:
+
+_ Make artist passwords visible to admin user
+
+_ Total space usage is not working (what admin should be seeing, I think). How much space is the entire system using? Can't calc on the fly each time — too slow — but perhaps ten min. or something?
+
+_ MetaData Editor: Set image type (print, painting, etc.)
+
+_ photo by in RSS feed should be {fp:image}
+
+_ Non-admin must get be able to see a summary of a print set; how else to choose just by name? Where to see summary? Maybe a popup info box?
+
+_ Consultant/Dealer:
+	- fp_collect would be better name
+	- menu item which is popup login for dealer/consultants
+	- login sets cookie
+	- js check, if cookie is active, then add class to to body?
+	- Only then, apply fpLightbox (hate the name, too many "lightbox" names) to anything marked with that class
+	- Below a picture, allow a dealer checkbox, or buttons/links to add to dealer lightbox.
+	- We build an array of ID's, store in the cookie.
+	- Then, we have a dealer command: send list to me, to gallery? Too bad we can't send it to PhotoShelter (?).
+	- davidC wanted to gather 'tear sheets' from the list. Create a PDF/HTML page of sheets?
+		http://www.google.com/search?client=safari&rls=en&q=php+html+to+pdf&ie=UTF-8&oe=UTF-8
+		http://www.rustyparts.com/pdf.php
+		
+
+_ Code/DB Roll-back on update?
+	- when doing an update, backup all code & system config, and mysql db
+_ Put star next to title of main gallery (main exhibitions for artists when they're logged in?)
+_ * When leaving editing of image, return to sorting you had chosen.
+_ Owner of a multi-artist exhibition is only one who can edit it (config option)
+X ORIGINALS
+_ Show contact other info on front page of gallery, if wanted, e.g. telephone. 
+_ Don't use "0" for no frame. Instead always have a value of 1 or greater in the field. Use "No Frame" for no frame.
+
+_ Don't let artists who are members of a gallery modify the gallery in APG system, even though they are members. Only allow OWNER to modify a gallery if the "Only Owner Can Modify" checkbox is on. Oh yeah, create that checkbox.
+_ When in list of exhibitions, allow sort by owning artists.
+_ Instead of changing picture show in gallery, how about show a pic from an exhibiton when the mouse passes over the name, in the listing on the left.
+_ We need an easier way to make dark/medium/light modifications. What I mean is, to tweak a dark theme (say, to make the ui-icon a lighter color), I have to tweak each dark theme. AND, the user's modifications I can't touch, so their version will have problems if I need to make a major fix. BUT, if I could have some values set not in the CSS, but in a settings file, then changing the settings file would modify anything I needed in the CSS. So, we could have a generic 'text-on-dark' that would apply to all "dark" themes.
+
+_ *list of price sets: need name of original price set, image title, artist to display in the list
+_ Gallery sorter/exhibition sorter.
+_ I still think a person for scale in the Print Shop would be a good idea.
+
+
+ART GALLERY NEEDS: (how much can be done with a WP site?)
+_ "Inventory" of artists — the second tier artists, not shown by the gallery but represented.
+_ "Bookshop" : lists of books (http://www.alain-noirhomme.com/bookshop.php)
+_ Current exhibitions, upcoming.
+_ http://www.lehmannmaupin.com/#/contact/
+
+Then:
+_ A popup AJAX editor would be very good for images (the multieditor might be good enough for now)
+_ Need "Next" / "Prev" for picture editing on the image page, so you don't have to go back to the list each time.
+
+_ Gallery listing: it shows "Use Gallery Theme" which is silly, of course. System Default makes sense, however.
+_ Don't use index.html in photo folders, etc. to prevent access: use htaccess : IndexIgnore *
+
+
+
+
+_ function ReplaceVocabulary : it should recursively replace, not once only. See how Substitutions works. 
+_ Framing: limit max size of frames, so no frame offered for a print over the max size, e.g no frame for prints over 24 in wide
+_ Originals: allow sale of original items. This is like a limited edition of 1 print, but must show different text.
+_ Subscriptions: Allow a 1yr plan using PP.
+
+
+_ Resize window to fit background picture when using the fixed-size background theme (like George's)
+
+
+X If no frames are offered by the printer, don't show framing choice in Print Shop (just like matte)
+X "% Packing" is a confusing title. BUT, change this method to add a fixed amount to the size, e.g. +4 inches
+X Metadata editor,pricing set
+	X fixed size w/size in inches
+	X add "edition size", 
+X Need info text explaining why something is, or is not, for sale. Too hard to find out why a pic is NOT for sale!
+X Captions styles don't edit correctly with Live Theme Editor. See "default:dark"... I can't fix the caption in ArtPress!
+X A way to indicate print size for each pic, e.g. 'up to 40"', or resize to 40 in, or no limit, to do a bunch of them at once.
+	- * Maybe a popup to change them after selecting. 
+X LOST PASSWORD EMAIL!
+X NO: Buyer's code — if no codes, don't show button on sales page: NO, EVERYONE HAS ONE BECAUSE EVERYONE CAN BUY AT COST!
+X Below the discount in the print shop,show desc. of buyer's code!
+X BUY! It figures no shipping, so gives an error, with pickup rate.
+X Delete Artist: the desc is wrong when trying to delete an artist
+X Discount coupon field on sales page - enter the code(s) on the Artist page (auto-generated numbers?). Discount is of the total price, but if it drops below actual cost (print+shipping+handling+paypal fee) then use the higher value.
+X Discount codes: always add a "buy at cost" code
+X Vendor country code must be uppercase, two chars, for shipping to work. Auto correct this if user enters lowercase.
+X Int'l buyers message in print shop is hidden in "dark" themes - fix style sheet
+X For Artpress, remove "cm" measurements: is there a user-level snippets that will override system snippets?
+X Print Shop: Need a "pick-up" shipping rate, i.e. No shipping/handling cost.
+X Admin: Need a "Add Existing Limited Edition" button, which freezes the priceset for a picture so we can add in pictures which already have sales.
+X Multiple sizes in drop down "buy" link in an exhibition: put in rows; there's too much.
+X Vertical images in Exhibition: the buy link drop down is cut off.
+
+
+=======
+
+
+_ ****** IS USERLEVEL BEING SET EVEN WHEN HIDDEN? CHECK THAT IT IS NOT CONSIDERED UNLESS THE USER REALLY CAN CHANGE IT *****
+
+
+_ New installations of FP: seems missing.jpg isn't cleared from processing, and that fucks up everything?
+	- /usr/local/bin/convert may not work! Might have to use /usr/bin/convert! How can I know? What to do?
+	- We should modify the PATH, so we don't care where ImageMagick stuff is.
+
+_ Hidden exhibitions should ONLY show if you use the "force" code. This prevents Google showing them.
+
+_ Put a blank DIV over the Big Picture theme, to prevent trivially easy theft.
+
+_ Prevent Image Hot Linking (Have I done this?)
+		
+		Hot linking or bandwidth stealing is a common problem. It happens when people link to files and images on a different server, display them on their website and the bandwidth is at the other person's expense. By entering the lines below, you can prevent hot linking to your website:
+		
+		RewriteEngine On
+		RewriteCond %{HTTP_REFERER} !^$
+		RewriteCond %{HTTP_REFERER} !^http://(www\.)?yourdomain.com/.*$ [NC]
+		RewriteRule \.(gif|jpg)$ http://www.yourdomain.com/hotlink.gif [R,L]
+		Change yourdomain.com to your domain name. On the last line of code, change hotlink.gif to the path to an image file that explains that hot linking is disabled on your server or display a spacer image.
+
+
+_ SIGNUP: SIGNUP seems to calc free space wrong, so a new user gets unlimited space. check this!!!!
+
+_ Triple-check new background pic loader before updating all accounts. CHECK ON WINDOWS!
+
+_ Have a way to turn off list of exhibitions, so when drop-down menu used, screen is clear.
+
+_ "Enlarge Me" for pictures??? 
+
+_ Rename "all shows" -> all slide shows, "catalog" to ??? 
+	- catalog shows slides show inside the frame of the page
+		-> "slide shows"
+		-> "slide shows fullscreen"
+	- slide shows are full screen
+
+_ ??? Why Bother? Have image on front pages ("behind" image) change, even if page is cached. Find a superfast way to change it...perhaps get a list of images and have JS choose randomly?
+
+_ ImageSorter: Using JS to hide, with a big archive it's slow to move stuff around. Weird, huh?
+
+
+
+_ Using the "solidify" trick, when building a nav menu, makes the menu uneditable. That is, once the "solid" class is added, the theme editor doesn't fix it. So, I've removed the solidfy thingie.
+
+_ (cool idea: make actual gallery sortable, with a switch like the theme editor).
+
+_ Agency on photog profile not working:
+	- Need name + url, so you can link to your agency
+
+_ use Obfuscate javascript, e.g. info page shows info@mimetic.com. Must get rid of the spam opportunities! NOTE, this seems to be working on the photog profile page
+
+_ *** LIVE THEME EDITOR: if you don't have access, you can't use it...but you can't turn it off, either! ***
+	fixed...but the banner blocks back links. Could be "safer"
+	
+_ Theme editor: a floating jquery dialog would be better than the top of the screen, no?
+
+
+X Calc mattes using UI.
+
+X clicking too fast on a 'buy' can result in TWO pricesets made for the pic! Check that no price set already exists for a pic before making one.
+
+X JS warning when deleting pic with sales as admin user??? Flakey??
+
+X *** Send_order must check there are prints available. 'Back' from Paypal allows extra sales, goddamn it.
+
+X *** Exhibition not remembering ink/paper settings ***
+
+X ***** if a print sells out, must clear cache or the gallery shows its for sale! ***
+
+X Framing cost : use "Unifed Inch" style
+
+_ Reinstall ImageMagick locally? See errors with "convert"
+convert: delegate library support not built-in `/Users/dgross/Sites/fp/photos/processed/originals/030330-dg-0989-3.jpg' (LCMS) @ profile.c/ProfileImage/897.
+
+X *** New photo editor: Can't add to empty set! ***
+
+X When creating a new priceset, if there's no record, all row entry data lost. Works second time around. See paypal_order, CreateImagePriceSets...
+
+X *** when we 'freeze' a price set, copy prices to the fixed price places! Don't continue to use printer calcs! ***
+
+ 
+========================================================
+
+X COA: 
+	X Link to a sale; use the 'sales' list. Allow printer access to 'sales' list, right, or through a hyperlink on the order form!
+	X We get imageID from the sale; what about paper/ink? Right now, it comes from the project. must come from something that is locked down, i.e. specs of sale.
+	X What's the order ID? Allow popup menu of sales at top, to allow printing and reprinting of COAs.
+
+_ Artists profile: Move "optional" paypal stuff to end of its section.
+
+_ JS: show Final price on a priceset at end of edition, if Inflation is used!
+
+X Use currency sign, if possible, in the order to supplier.
+
+_ New exhibition, write name, choose gallery, click save...it loses the gallery setting and that must be redone. FIX
+
+_ Paypal: "Cancel and return to Frontline Photos"...try to find a way to get the right return to name.
+
+_ Buy a print slide down box is missing right border, esp. on narrow images. Yeah, on a narrow image, it crops the message.
+
+_ 	Pictures List: the Delete and Edit should carry over the selected set
+
+_	Flash Uploader: giving funny message about file size?
+
+_ Somehow, Dana has been creating exhibitions, then probably using the "back" button, and they have no gallery. Then, they open up as group=23, totally wrong.
+
+================================================================
+
+_ Javascript: verify price > cost + matchprint in PriceSets. Even if no matchprint ordered, dammit. Flag if not high enough.
+
+_ Auto-check that a print price will cover cost before allowing it (including matchprint)? DO THIS in the "Send_Order", so it happens before PayPal. Apologize profusely to the patron.
+
+
+
+SHIPPING
+
+
+FRAMESHOP
+
+
+_ Possibly a "cancel" next to Buy This Picture (in addition to "go back" at top)
+
+	_ In Frameshop, show approx. frame width? How does this work out?
+	_ * width of frame shown in simulation? Where set?
+	
+	_ if no matte values, it show 'no matte' plus a blank name which mattes the pic
+	_ how to handle "always matte with a frame" and don't offer matte choices?
+	_ what about frame w/o matte...shouldn't there be an art border, not fit it to frame? I think "it's not done like that," or something...but it can be cool to fit to frame, sometimes.
+	_ Add an "art margin" field for the printer? Fixed, or percentage of image size?
+	
+_ ipn_res.php handles purchases of prints for FP. However, the 'secret' code stuff ain't working...but the purchases are going through. WTF?
+
+
+
+_ I start a new exhibition, choose a gallery for it, but the gallery doesn't stick. 
+_ Allow "use max width" setting for an exhibition — all pix are displayed at the max pic width, so all fit in a nice grid, even if mishapen. 
+_ Add 'see exhibition' link on the 'manage exhibition' page. It's nice to see it after making a change.
+_ Add "delete picture" to a picture's edit page? An easier way to find & delete pix is needed, if I'm starting at Picture Management
+
+
+_ In Exhibitions and Pictures, use a hide/show per gallery (or exhibition in pictures), to avoid filling up the screen. Have the listed items slide down/up.
+
+
+
+_ after "buy print", if you return, you come to start. With 50 pix, what a bitch. Must be able to return to pic you were looking at. Hard to do with horizontal scrolling...can't do it with anchors.
+
+_ Theme vars editor? Now as issue with Shahrzad theme. Put into Theme Editor page!
+
+_ Show theme info when you choose it. Popup? Info box. Whatever...people don't know what they are. Preview if possible.
+	
+
+_ Vocab editor? Turns out, there's only the user vocab at the top of _user, not a vocab for each user. Not good.
+
+_ Use Gallery Theme uses default, not gallery theme. 
+
+_ NEED a multi-delete for pix. Pix mgmt is driving me nuts.
+
+_ Updating Admin user changes the disk space available to unlimited. Oops.
+
+_ Site info sheet, with all passwords, logins, etc. would be nice to generate
+
+_ Info pages need their own theme, separate from gallery. This should be an entry on the "gallery" page, e.g. "Info Page Theme: ..." When I use "picture right" theme (#19), I get fucked up info/artist pages. (I found a fix for this, but it's still a good idea.)
+
+_ Long gallery descriptions (like George's or Milos') could be trimmed, with a "more..." link, to open up like a story?
+
+_ Setup is not adding .htaccess to _user areas, and it's looking for _audio when that's inside the _user dir at _user/_audio.
+
+_ jQuery theme has errors...seems to try to write un-encoded HTML into fields of hidden HTML fields on the page, esp. the popup_xxx field. See desktop sample file.
+
+_ Fix SETUP so it adds Domain and Account name to fpconfig.inc
+
+_ Make an admin switch for the security for emailing. Do for admin only, not for each user, I think.
+
+_ Shouldn't new pix arriving by email show up at end of exhibition?
+
+_ .htaccess is badly written...fix it. I get a syntax error trying to modify it from cpanel
+
+_ iPhone doesn't handle Flash...test for browser, and remove flash in gallery if on iPhone?
+
+_ Nicknaming fails. The "fixed" nickname is wrong, or not even applied?
+
+_ Does timing on a slide show reconfigure if you add pictures to it?
+
+_ Remove video uploading...we don't have bandwidth to handle it. Instead, we must link to a player,e.g. Vimeo or Youtube.
+
+_ Movies: Have a "Play Movie" link with an exhibition? Or, make it easier to popup (not embed) movies. Then we can have an exhibition with movies to go with it. Use the slideshow page to show the movie. Perhaps SSP can do it for us? Have movies associated with an exhibition, then SSP handles catalog & show?
+
+_ TWITTER
+$FP_
+_ FIX THEMES SO THEY WORK in editor
+
+_ Uploaded pic, but it was assigned to artist in IPTC, not the uploading artist. Then, it appeared in the exhibition, but couldn't be removed cuz owner wasn't a member (I guess). WEIRD. I can even edit the pic by clicking on it in the exhibition listing! Oops!
+	_ So, if artist not member of an exhibition, then picture will be owned by the owner of the exhibition.
+
+_ If "Not for sale" missing from price sets, restore it!
+
+_ NEED a way to build the mailing list, ASAP!
+
+	X Add Sales Tax for California buyers!!!! — DO IN PAYPAL.
+
+	X Artist page has margin/padding problems! See desktop sample file.
+	
+	X RSS ... not updating!?!?!?
+	
+	X Import pix: if photographer name for an image is set by email extractor, set it in the photo!
+	
+	X Emailed pix: Fields from the body text aren't being added, I think. Also, what about adding name, date, etc., to fields? e.g. artist name is credit, date is date, etc. What can we get from the photo file, also?
+	
+	X allow email of a pic with username/pass, or just a code, in the email. Need ease + security.... Then, we can email from iPhone!
+
+	X New code to capture emails, etc., and dump in input folder
+	X Modify process picture code to read the filename.txt file for additional info (userID, in particular).
+
+	X By Place, etc., the "random" pic on the front page really should come from the gallery you're looking at!!!
+
+	X Quote marks in titles, etc., cause problems when they appear in ALT and TITLE in HTML pages. in FetchCascade, they need to be converted to &quote; and such..
+
+	X Add note to projects input page, to upload audio in the Files uploader
+	
+	X info.mimetic : do people know about RSS?
+	
+	X Book layout: bottom nav floats over pix.
+
+	X GO BACK FAILS!!! See Massimo in Mimetic Galleries!!! SHIT
+	
+	X Add "Shadow" to CSSEditor so that it works for FireFox (yes, in new FF 3.5, not current.)
+	_X Add note in editor that shadow doesn't work in IE, older Firefox, etc.
+	
+	X reorganize popup theme box: border down, font up, etc.
+	
+	X Add text to show how to insert files!!!! [[myfile:title]]
+	
+	USER DIRS:
+	X FIX IT SO USER DATA ALWAYS IN A SUB-USER DIR:
+		X AUDIO : for slide show, should pick from popup list, save filename as a new param
+		X-VIDEO
+		X-FILES
+		X-THEMES
+	
+	X Add a file uploader
+		- use Java uploader (TWG)
+		- tab in admin
+		- allow list, delete files (TWG does all of this if it has directory access!)
+		- use [[file:code]] or [[video:code]] to access? 
+	
+	X Nickname for a project — if it exists, e.g. look3 already, it should renumber properly. If you start from a scratch, and it should rename, it doesn't, only after updating.
+	
+	X 'missing_image.jpg' not loading into a new system properly!?
+	
+	X DO NOT!!! DELETE MISSING IMAGE...IT APPEARS AS THE URL WHEN A PICTURE IS MISSING. OOPS.
+	
+	X Add _video and _pdf user directories
+	
+	X Printer: If frame line is blank, it means printer doesn't offer that one. Right now, it shows a blank but offers the frame
+
+-----------------------------------------------------------------
+NOT URGENT
+-----------------------------------------------------------------
+
+_ Theme editor: seems to write some styles twice, e.g. #header
+
+_ Resize window automatically: full screen or to fit bkgd image, depending on theme.
+
+_ script to clean up mysql_archives.. delete all but most recent
+
+_ Link to LightStalkers. They have a new "my location" code snippet, probably other data.
+
+_ Allow admin to override $FP_COMMENTS_URL, the url to the comments website
+
+_ User file insert: make a flag for show movie inline vs. new page (full screen?)
+
+_ Picture background theme should resize automatically to picture size OR screen size, whichever is smaller.
+
+_ PublicPrivate insert text works with DIVS not in tables. Input forms are still tables, some of them.
+
+_ Auto-created exhibition, e.g. Portfolio of X, doesn't seem to use default project settings.
+
+_ I found some typos on the Terms and conditions section (don't you want to hire me?) I find it confusing to include here the terms between you and me - isn't that irrelevant to the average user? 
+- I wish there was a version that lets people know immediately that the work is copyrighted and they can't download or use any of it. OK, I just made my first custom menu item to solve my own problem!
+FYI, here are some typos:
+we cannot be help responsible for any consequences of your trickery,
+By contributing to this web site, Contributers are not assignment copyright to David Gross, nor anyone else, 
+It's not David Gross' fault is someone steals pictures from it.
+
+
+_ Move email address settings out of fp_config for sales, and info. Use user-modifiable in the Profile page. Any reason not to?
+
+_ Don't count "Slide Carousel" as a member of any group, when it comes to showing that group as having members! Slides should always belong to the default group (if any!)
+
+__ Add my_config to override confic.inc. Or, have 'default_config.inc'.
+	- Move constant declarations after.
+
+__ Are we getting alerts when pix are uploaded by email?
+
+_ Admin: Better solution to clearing caches? Right now, clears ALL cache when a change is made. If we have 100 users in a multi-user system, this is a bad solution. Better to know what changed, and clear that. But how?
+
+_ ** Add ability to Twitter when new picture(s) uploaded ** 
+	- OR, check each hour, and notify that new pictures are available (better) because we don't want 100 twitters while someone is messing around. Just let folks know, there were changes.
+	
+_ Add some indicator that prints are for sale in a gallery. Perhaps, an initial popup? Who knows...
+
+_ using htaccess and cleverness to convert atelius.com/myusername to the persons gallery, in a group website. Should be possible, no?
+
+
+(_ in FPGroups::IsSolo and MemberCount, need to handle multiple user systems.) ???
+
+_ "All Exhibitions" should be just that, a list of all exhibitions
+	- in a solo gallery, all will show all
+	- in a joint gallery, all will show all
+
+
+__ Resources page. Links to Cert of Auth dummy, don't know what else?
+
+_ Where do we write site storage? In Admin user? (I think so). Must check! Huh?
+
+
+Caroline:
+- Certificate!!!!
+- "Contact me for sales" - page? (make a menu item at bottom)
+
+*** SHIPPING RATES, ESP. FOR CAROLINE! *** In Paypal or in FP?
+	- For Caroline, set the weight in FP. Use the weight to determine the shipping? Shit...she's IN europe. I need a separate paypal account or something!
+	- Create a _user snippet to override the shipping snippet, to give EU and non-EU for shipping.
+	
+_ Cancel and return to X...check in real paypal what it says.
+
+**** stories and sales flip tabs ON in admin menu ***
+
+_ stories refer to a project in the list, but I don't think we're linking them to a project anymore?
+
+_ list pictures: add note explaining why you can't delete a pic that's been sold, and for admin, what the red asterisk means (meaning it's been sold, don't delete). 
+
+_ user vocab editor, saves file in _user as "vocabulary" which overrides other vocabs.
+
+_ Snippet editor should save changes to _user (combine with vocab, above).
+
+_ default setting on pictures, "Printer has print"? So far, many people are working that way!
+
+_ In my popup-picture enlargements, I check to be sure the pic fits vertically. It should ALSO fit horizontally. I see Milos' wide pix screw up that way.
+
+=== THEMES ===
+
+_ Themes should show their description (from the .ini file) when choosing them.
+
+_ Redo Theme Editor again...George wants, e.g all attributes of a line around that line
+	It's time for a customized one, I think...
+	
+_ The blank picture frames (0_x.jpg) is takin' a lot of bandwidth! Let's dump the frame if it's not in use.
+
+_ MUST have big pictures in "Slide" exhibition. Have "copy from" button? How to have a 1500px picture?
+
+===
+
+_ Projects Form: Checkboxes for each kind of slide show, to show/hide (ssp, slideviewer, etc.). Make it easy to add more.
+
+_ Drop-down menus from tabs?
+
+_ Help files!
+
+_ Add 'Toggle Advanced Features' buttons for:
+	_ My Profile
+	_ Gallery
+	
+_ Need a 'show all' pix in the pix listing (jQuery)
+
+_ Need multiple deletes (check boxes)
+
+_ Add drop-shadows to Picture Behind themes
+
+_ Make all sessions expire! Otherwise we might get the weird problem with Justyna's site, again!
+
+_ Newsletter: need a proper text version to avoid spam filters
+	- embedd all CSS in the html
+	- use full paths for all images
+	- bad link? in top-left, above title?
+
+
+_ Create artist, he becomes member of Public. Fine, but there's a Part that says so, which I think isn't necessary???
+
+_ Remember me is fucked...I hid it.
+
+_	Too easy to delete a picture that has sales. Even with the asterisk. (I think only Admin can do this, so maybe OK, but warning good)
+
+_	Watermarking doesn't happen all the time. Why not? Probably depends on which function grabs the pic? "This text will be written on all pictures in any gallery you own (even if the picture belongs to someone else!). This might be a copyright notice. Do not use special symbols: use (c) instead of ©."
+
+_	menus: tabx is wrong for many pages
+_	Get all styles looking good
+
+_	Allow off-site storage of pictures!!! (i.e. at printer)
+	X This means flagging the picture as 'offsite' and storing the real dimensions in the database
+	X Change some 'GetImageSize' calls to my own GetImageSize call
+		- Problem is, sometimes we ask the size of the filename, not by ID. 
+		- IF 'offsite' is true, then get image size from DB record
+		- It's only a problem for commerce; no other function cares about the print size
+	X Image input form must allow for 
+		- offsite flag, height, width
+	X Update available size calc to use new size calculation function
+	_ Default setting for uploading: offsite or local
+	_ Print Ordering:
+		X Add message to printer that he has the file
+		X Don't try to send the file
+		_ TEST THIS!
+	
+	- Offsite storage also means, store at another location like Amazon S3.
+
+
+_ Downgrading: 
+	- Change PictureFrameColor to MainUserID
+	- When creating new system, main user besides Admin must have "MainUserID" set to self ID, AND
+	  Admin user must have MainUserID set to this user's ID. (CHANGE IN SETUP.PHP)
+	- So, when downgrading, we can delete all but Admin and main user
+
+
+_ USER LEVELS: Need an encoded key that allows for multi user, single user, etc., instead of setting it in the admin of the system, which a user can change himself. Like HotFresh, the key can be the domain + userlevel + magic sauce, encoded. That should work. Hmm. What's the sauce? Oh..my private key. Right.
+
+
+
+-----------------------------------
+X Add AddThis link. Probably easy to do with custom menu item!
+X *** Hide artist's name in caption single-artist exhibition, in a multi-person gallery???
+	X Hide artist's name in the info part of the gallery, when single user system.
+X Hide project name in info part of gallery...it's at the top. Sometimes...not in branded, I think... So only in most cases!
+
+X Hide gallery help text... it's not necessary.
+
+X Sign up for single user account - the main user still shows Trial Account. In a single-user systems — well, "private" systems — get account info from admin user only.
+X 	Sizes should look like this: 24.5 x 30.5cm / 10.0 x 15.0 inches	
+X In picture page, indicate date format, i.e. YYYY-MM-DD, e.g. 2008-06-01
+	X Hide fields we don't use: Author Title, Source, ObjectName, Copyrighted, special instructions
+	  (These were for FTP sending, which we don't do anymore)
+
+X In a single-user system, anything created by admin, esp. pictures uploaded, belong to the main artist, the only other artist in the system.
+X In a multi-user system, anything created by admin, esp. pictures uploaded, belong to project owner, or oldest member if no other info available
+X	Delete Project in list -> Delete Exhibition (using sys vars for name?)
+X	CANNOT DELETE PUBLIC GALLERY!!!!
+X	*** REMOVE SIGN-UP FROM PRIVATE GALLERIES ****
+X	*** FIX ROBOTS AND META...GOOGLE IS SHOWING STUFF IT SHOULD NOT! ***
+X	Calc of how much space an artist can have is wrong, when Admin has 0 = unlimited. Oops.
+
+X	Setup: now, update admin user as well as writing fpconfig
+
+X	Default on new user in a public site is to link back to galleries!
+
+X	*** Create new Personal Account ($35/month) should also create a personal gallery. This should depend on a setting in the FP_config or sysconfig. (User is created in signup.php, which calls "createUserWithActivationEmail" in FPUser.inc)
+	X OK, it makes a gallery, but the user's portfolio is created under 'main gallery'. Somehow, the user can't see his gallery, either.
+
+
+------------------------------------------------------------------------
+
+_	Frameshop: size of picture is too small.
+	Here's what's up: *vertical* pictures look small because the frameshop tries to keep the image small for a small laptop screen. That's why verticals are small. Think about it.
+
+
+SIMPLESCRIPTS
+
+_	Add a "META" keywords to improve Google searching, do other things to get better rank. Here's Alex's META stuff:
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="content-language" content="en-us" />
+	<meta http-equiv="imagetoolbar" content="no" />
+
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="date" content="{DATETIME}">
+	<meta name="copyright" content="2002-2008 All Rights Reserved" />
+
+	<meta name="revisit-after" content="7 Days" />
+	<meta name="robots" content="index, follow" />
+	
+	<meta name="keywords" content="email marketing, email providers, email marketing solution, email marketing solutions, email marketing company, emarketing, opt-in email marketing, email provider, email marketing consulting, top email providers, email marketing and design, email service providers, email marketing agency, opt in email marketing services, email campaign software, direct email marketing solution, email marketing companies, email marketing service, email marketing services, business to business email marketing, permission based email marketing, email marketing consultant, broadcast email marketing, best email providers, email service provider, names of email service provider, selecting an email service provider, hosted email providers, list of email providers, best email provider, ESP, ExactTarget, EmailLabs, Silverpop, Pivotal Veracity, Blue Hornet, email marketing vendors, email best practices vendors, email marketing best practices, email marketing provider, top email marketing vendors, email marketing vendor comparison, marketing email vendors" />
+	
+	<meta name="description" content="Email marketing experts at ClickMail will help you manage your online reputation and accurately measure your delivery rates, so your email marketing messages not only are being executed, but also delivered." />
+
+_	Integrate SimpleScripts into system, allowing "extra features" for admin users to install and maintain
+
+X Check that project nicknames are corrected to have no spaces
+_ Add javascript that creates project nicknames
+
+_ Update PARTS. If a photo or group or project has changed, update all of its parts. The owner might change, for example.
+
+SETUP:
+	_ Need a config: Under Construction, and a page for that while site is being set up.
+	X FIX: DOESN'T SET UP admin user properly...accesslevel should be 1, userlevel should be 1
+	X Install index.html into the photos directories to protect them
+	X Fix setup to copy .htaccess files into right places
+	X Admin user must always be confirmed
+	_ set up phpemaillist config file, too
+	
+_ Add CAPTCHA (http://recaptcha.net/plugins/php/) TO THE SITE. Add an fpconfig.inc entry for the key
+
+_ Add secret word to email filing, to be put somewhere in the body of the message, to prevent some weird machine from sending pictures to the site!
+
+X signup-->need a flag in the config to disable! Not everyone should be able to sign up, and not all sites should support signup. Perhaps a code to get into the sign up?
+
+SUBSCRIPTIONS!!!
+
+GALLERY
+	X *** "Buy a print" is showing in the popup of pictures when it's not showing in the gallery!!! ****
+
+USER LEVELS:
+	- Need an encoded key that allows for multi user, single user, etc., instead of setting it in the admin of the system, which a user can change himself. Like HotFresh, the key can be the domain + userlevel + magic sauce, encoded. That should work. Hmm. What's the sauce? Oh..my private key. Right.
+
+UPDATER:
+	X SEPARATE PROGRAM & DATA: 	Themes must be in the a "user" folder. That way, we can update all software & base skins w/o destroying user modifications.
+	X switch to rsync?
+	
+MARKETING & SALES
+	Sub site to 
+		- explain & pitch
+		- sell subscriptions
+		- FAQ
+		- Tech support
+	
+STORAGE LIMITS
+	***** make these work! *****
+	_ mysql field is text? What?
+
+BACKUPS?
+	- Check if mysql backup is running
+	- How to protect themes?
+	* rsync backups of user files and mysql?
+
+FRAMESHOP
+	_ The shape of a picture is WRONG when there is a frame but no matte!!!!
+	_ CurrentFrame is the exhibition frame number, which is any one of all possible frames the system knows, e.g. #5. However, the supplier might not offer that frame. In that case, if the currentframe is a higher number than the highest offered by the supplier, i.e. currentframe = 5 but supplier doesn't offer 5 frames, we get garbage in the frame shop. FIX THIS.
+
+POWERED BY
+	_ force this to appear somewhere?
+
+NEWSLETTER
+	WHAT THE FUCK? The link goes to newsletter admin.
+	- Link should be, send? update? preview? info? newsletter?
+	- Send test to self - function?
+
+CSS
+	_ Check that default front page works in IE...problem with slideshow rising up?
+
+ADMIN:
+	
+	_ If you change the owner of a picture, you should update parts which use that picture, or the exhibition still shows a different owner! Sales, too?
+	
+	_ Nice if: Exhibitions, Galleries, etc., were drop-down menus to jump directly to that item...
+	
+	_ Gallery links jump to...Well, if we don't have "new" in our menu, shouldn't they go elsewhere? Perhaps to the first menu item in the exhibition page? Dunno. Figure it out.
+		*** Yes, offer the choice of menu items: gallery items link to : (new, all, etc.)
+	
+	_ Public/Private...
+		- Public should mean: 
+			- Gallery: everyone can add/remove their own exhibitions
+			- Exhibition: everyone can add/remove their own pictures
+		- But, it currently means
+			- Everyone can edit the whole gallery/exhibition. Ooops.
+		- Same issue with people you allow into a project...they shouldn't be able to change everything!
+		
+
+	_ NEED AN INSTALLER...a version of updater that moves everything. Do this by having a second "updater list".
+		- Copy all files to new location
+		- Install mysql DB
+			- install necessary first records (e.g. sys admin)
+		- Setup basics of config files
+		- Setup CRON?
+		- Install /bin files
+	
+		
+------------------------ VERSION 2 CHANGES ------------------------
+	(v2) _ Add mp3 player to so user can play his sound!
+	
+	(v2) _ Slideshow: if audio, then end with black slide (or some kind of ending slide), and don't loop?
+
+
+------------------------------------------------------------------------
+
+_ infofaq.txt is about FP and prints...make a Print FAQ and an About FP FAQ. I don't think we need a FAQ about the artists or galleries!
+
+X IE 7 doesn't position small slide show properly
+_ Install a jQuery picture selector for adding/removing from project
+_ For Elipsis: a separate list for artists they sell but don't exhibit
+
+
+? Matchprint:
+- extra fee shows up on order
+- record matchprint fee in the Sales record
+
+
+Testing:
+https://24.6.117.227/fp/ipn_res.php
+
+? if project has no chosen supplier, it doesn't default to artist's default when you go to edit it.
+? If an artist doesn't have a supplier, there's no default.
+
+
+
+
+------------------------------------------------------------------------
+FIXED
+------------------------------------------------------------------------
+
+X	In project mgmt, cannot remove last artist from other artists list!
+X	on Caroline's site, Place shows her portfolio twice!!!!
+
+X 	Use artist's default lifespan as the default
+
+X Delete a project, pictures NOT reassigned or deleted properly. I think if it doesn't find a project it can put them, it just ignores them and doesn't delete.
+
+
+X FAILS TO CANCEL SUBSCRIPTION
+	130 :: POST received at Fri Oct 10 21:26:58 PDT 2008
+	Sending transaction acceptance to Paypal
+	ERROR: Failed to process response: Payment amounts or currency from Paypal do not match internal records (0 != 35
+
+X Editing something owned by someone else switches the user!!!!!
+	- exhibition is owned by DG
+	- I'm logged in as Caroline
+	- I edit & save the exhibition from the Manage Project page...
+		- owner switches
+		- dgross is lost as participant
+	- I think the 'add' participant routine is being called when it shouldn't be, and it switches & screws up.
+	
+	- If an account does NOT link to the main gallery...they main gallery should not see it!
+
+X Emailed images not working. Note, on laptop, it does them and leaves them in the processed...doesn't move 'em. Try maintenance.php?debug=1
+
+X Update fp_config with PP_ stuff at bottom, remove PP_ stuff from sysconfig
+
+
+
+SALES
+	X why do I not see sales as a tab in Atelius for David Gross?
+	X Can't add a price set!!!
+	X Don't have a "not for sale" set!!!
+
+FRAMESHOP
+	X *** The shape of a picture is WRONG when there is a frame but no matte!!!! ***
+	X CurrentFrame is the exhibition frame number, which is any one of all possible frames the system knows, e.g. #5. However, the supplier might not offer that frame. In that case, if the currentframe is a higher number than the highest offered by the supplier, i.e. currentframe = 5 but supplier doesn't offer 5 frames, we get garbage in the frame shop. FIX THIS.
+
+
+ADMIN:
+	
+	X Logo exists for a gallery...how having about both a logo & banner?
+		X Uploaded logo doesn't appear as Current Icon
+		X Yes, need Icon AND Banner/Logotype
+	
+	X Slideshow duration: fix help text: Duration is set automatically if it can read it. Or, you can set it.
+		- *** If we upload new pix, the slide duration needs to auto-adjust!
+		
+	X Slideshow Duration: doesn't work!!!!
+	
+	X *** in Pictures, when admin, can only see admin gallery! ***
+	X AND, cannot see who owns the picture. I need to change from admin to user!
+	
+	X Custom menus...allow a custom entry
+	
+	MANAGE PICTURES
+		X Change functionality: See a picture should allow you to see a picture a box, e.g. the library or In Project.., to know what it looks like.
+		X Remove "permently delete". Instead, they can remove from project, and delete over in the pictures section. Too dangerous.
+		X [LATER] Need to use a jQuery slide sorter for add/remove
+
+	X Lifespan:
+	X	Featured Lifespan => New Exhibition lifespan, fix text
+			An exhibition will be featured X days then moved to "All Exhibitions." Enter "0" to permentently feature an exhibition .
+	X	Active Lifespan => All Exhibitions lifespan, fix text
+			An exhibition will be kept X days, then DELETED! Enter "0" to keep an exhibition permentently.
+		
+	Content
+	X	Move Owner, gallery, other artists to top area.
+	X	No, maybe later...Add field: See Also for http links????
+	
+	X Remove Public...no one will use it! (on/off is a setting in the config, for GROUPS and PROJECTS)
+	X Nickname - remove spaces? (removed)
+	X Remove snippet editor??? (No, leave it in - it only shows as sys admin) 
+
+
+X Remove green background to small slide show...shows in various odd browsers
+
+X FIX: if NO captions, then also no caption in popup picture!
+
+X Navbar editor?
+	
+	George wants:
+		Navbar:
+		- New Exhibitions
+		- All Exhibitions
+		- Blog
+		- About George Georgiou
+		
+		Lower navbar
+		- remove contact
+		- Powered by FP (link to a sales page about the whole system, like powered by WordPress)
+		e.g.
+			Powered by FP | Terms & Copyright | Admin
+
+X Remove menubar bars on gallery listing page (STYLE CHANGE)
+
+X	SCALING
+	George wants a "scale" feature in the exhibition, to scale down the pix in the theme. This is useful for a grid of pictures, e.g. book at 3 across.
+	
+X	Switch frame style and width
+X	Captions becomes 3 choices:
+		Captions always on
+		Captions always off
+		Captions popup
+
+
+X	Fixed audio timing of slideshow (I hope!)
+
+X	Picture Behind theme
+		Force container to no wider then a Slide picture (when you have a wide screen, text slides off the picture, to the left)
+
+X "Add new variation" doesn't add one!
+
+X	 See slideshow in 007_picture_background...it's shifted! I think that's the #container padding...
+
+------------------------
+X COLOR EDITOR:
+
+	Colour
+	x		#subtitle                                                            YOUR NAME (top of page)
+	x		#head-title                                                         PROJECT TITLE 
+	x		gallery helptext                                                  GALLERY HELPTEXT (how to use the gallery....)                     
+	x		footer                                                                FOOTER TEXT COLOUR (bottom of page)
+	x		navbar text                                            MENU ITEM TEXT                                   
+	x		navbar horizontal and vertical bars/dividers        	HORIZONTAL / VERTICAL MENU LINES
+	x		navbar colors/background                                 		MENU BOX COLOUR
+			frameshop?                            not needed
+	x		project title                                                        PROJECT TEXT (on the left side)
+	x		location                                                             LOCATION TEXT (on the left side)
+			popup_window_caption                                      		 CAPTION COLOUR   I think for all captions on 1 theme the colours should be the same
+	x		caption
+			pricelist ?                               					 not needed for now
+	?		body a link, visited                                             GO TO LINKS (go to slide show, go to light table)
+	?		body
+	?		body links
+	          	 vertical line                                                        VERTICAL LINE COLOUR
+	                                                                                            
+	
+	 WHEN YOU HIT ANY LINK IT STAYS THE SAME COLOUR, SO NO EXTRA OPTIONS NEEDED,
+	                                                     
+	                                       
+		 Background
+			body                                                                  BACKGROUND COLOUR
+			navbar                                                               MENU BOX COLOUR
+			
+			
+		Lines
+			navbar lines!                                                       HORIZONTAL LINE COLOUR, top and bottom(footer)
+			vertical line in gallery                                           OFF
+	
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Design Notes II
+
+
+We like default A 2 best.
+X black text should be a dark grey.
+- the top line could be photographers name then the Title underneath.
+- on the menu bar, for our sites can you remove "location" and FAQ and change the name of "all exhibitions" to "archive"
+- Can you create a news and links page and link.	
+
+We also like Default B 1 gallery
+
+X  just add vertical line between text and images
+
+- default A2 list with logo 1
+- good front page just keep the text in regular type.
+
+Also we like A1 no gallery.
+
+Is it possible to make these themes work in the exhibition defaults.
+
+
+
+I think people will want a simple set of options at the top.
+exhibitions/projects/works,  archive/all exhibitions/all projects, about photographer,  links.
+at the bottom you have admin and a link to your website builder 
+
+
+
+=======
+
+Problems first
+The white theme has a big gap between the titles and images for some reason.
+The update order box in manage pictures is showing up as a single line box now instead of a box with a few rows, both on mine and Vanessa's sites, frontline shows as normal.
+Uploader has a few problems on my site, doesn't want to process uploaded pictures, working ok on Vanessa's site.
+
+---- Some changes ----
+
+
+The newsletter is not working.
+
+For me the menu bar should be obvious to use. I feel that you have created an extra layer thats not necessary. The front page, home page, design in the simon roberts way with 2 or 3 galleries that take you somewhere else is a better way to employ the gallery concept. So for me, one gallery would take you to the edit for my Fault lines book as it will appear as a book. the 2nd gallery is the one I'm working on now, which is my main website with all my projects, if I was going to take off in a third direction it would be a work in progress gallery with maybe a comments option built in.
+
+
+Themes:
+Backgrounds:
+- off-white (almost white, as in white theme)
+- #999 is good, menubar #888
+- #666
+- #222
+- Each as either big theme (like default) or tight (like menu-at-top)
+- Menubars a shade lighter/or darker not black
+
+Arrow for prev/next: improve...need classier!
+
+
+Gallery: Restore vertical line to left of pictures (as in "white" theme)
+
+Site option:
+- upload/install logo
+
+X  Allow without the front Galleries page...limited edition
+
+   Top-level GALLERIES must allow return to home, in George's 3-link home
+
+
+OPTIONS TO SELL:
+- a gallery in an existing gallery site
+- multiple gallery version (turn on gallery.php)
+- single gallery version (turn off access to gallery.php)
+
+- setup fee
+	- your logo
+	- install system
+	- (request personal printer setup)
+	
+- install slide sorter!!!
+
+- yearly fee (for lowest level)
+- monthly or yearly (for higher levels)
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Problems first
+The white theme has a big gap between the titles and images for some reason.
+The update order box in manage pictures is showing up as a single line box now instead of a box with a few rows, both on mine and Vanessa's sites, frontline shows as normal.
+Uploader has a few problems on my site, doesn't want to process uploaded pictures, working ok on Vanessa's site.
+
+---- Some changes ----
+
+WHITE GALLERY:
+	- make it just like (big size) default, but white
+	- Big title text to medium size and gallery name to photographers name.
+		24 PT AND NO LARGER FOR ANYTHING
+	- The gap between images to be the same as the other themes and no caption info showing.
+	- Also when you enlarge the image on the white, there are no forward/back arrows. 
+	- Is it possible to change the arrows icons to something a little more classic/discreet?
+
+Some suggestions
+
+	I think the Menu bar should not be black in any of the themes, we both think invisible is best, like the white theme.
+	Also the vertical line separating the text from the images in the white theme should be repeated for all the themes, we like.
+
+	Vanessa also needs as a one off theme, the same settings as the default theme on her site with changes suggested earlier, plus visible captions , she wants to use text on some of her black sea pictures. So something like a default plus captions option.
+
+The newsletter is not working.
+
+	I like the fact that you can change themes from gallery to gallery, this makes it tempting to use a gallery for each project as oppose to exhibitions.
+
+My main problem is one of navigation, when you are in a gallery and you hit new exhibitions you only see whats in that gallery, so you loose sight of the other galleries.
+
+For me the menu bar should be obvious to use. I feel that you have created an extra layer thats not necessary. The front page, home page, design in the simon roberts way with 2 or 3 galleries that take you somewhere else is a better way to employ the gallery concept. So for me, one gallery would take you to the edit for my Fault lines book as it will appear as a book. the 2nd gallery is the one I'm working on now, which is my main website with all my projects, if I was going to take off in a third direction it would be a work in progress gallery with maybe a comments option built in.
+
+Hope that all makes sense. I am on the computer and in this evening if you are free to talk.
+ 
+----
+GEORGIOU THEME
+- "Return to sitename" on left (call it home)
+- dividers visible
+- remove big logotype, restore title of exhibitions
+- Give each exhibition its own theme
+- don't like black menu bar--- gray, at least
+- flexible matting? Allow Vanessa's borders to happen
+
+Themes:
+Backgrounds:
+- off-white (almost white, as in white theme)
+- #999 is good, menubar #888
+- #666
+- #222
+- Each as either big theme (like default) or tight (like menu-at-top)
+- Menubars a shade lighter/or darker not black
+
+Arrow for prev/next: improve...need classier!
+
+OPTION: (VANESSA NEEDS) to have captions always visible
+
+
+Gallery: Restore vertical line to left of pictures (as in "white" theme)
+
+Options in Exhibitions
+- spacing in images
+- grouping, e.g. to do the book format won't need book theme
+	- background
+	- menubar color
+	- text color
+
+Site option:
+- upload/install logo
+
+Allow without the front Galleries page...limited edition
+
+NAVBAR:
+	- Move Back to... to top left. 
+	- reorder stuff! FIx it! Eek!
+	
+Top-level GALLERIES must allow return to home, in George's 3-link home
+
+
+OPTIONS TO SELL:
+- a gallery in an existing gallery site
+- multiple gallery version (turn on gallery.php)
+- single gallery version (turn off access to gallery.php)
+
+- setup fee
+	- your logo
+	- install system
+	- (request personal printer setup)
+	
+- install slide sorter!!!
+
+- yearly fee (for lowest level)
+- monthly or yearly (for higher levels)

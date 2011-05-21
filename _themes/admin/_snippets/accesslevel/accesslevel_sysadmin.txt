@@ -1,0 +1,8 @@
+﻿	<TR class="entryform">
+		<TH class="entryform" align="right">
+			Admin Access Level :
+		</TH>
+		<TD>
+			{fp:accesslevel1}
+		</TD>
+	</TR>

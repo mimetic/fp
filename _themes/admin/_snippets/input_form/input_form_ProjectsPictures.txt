@@ -1,0 +1,57 @@
+<!-- SNIPPET : input_form_ProjectsPictures -->
+<div class="entryform">
+	<h3 class="tabletitle">Manage Pictures in <font color="#990000">{Title}</font> owned by <font color="#990000">{ownername}</font></h3> 
+	<div class="ui-widget ui-corner-all padme links">
+		<div style="float:left;">
+			<snippet name="toggle_advanced">
+			</div>
+			<div align="right">
+				{Manageproject}
+				<span class="helptext"> | </span>
+				{ManagepicturesJQ}
+				<span class="helptext"> | </span>
+				{fp:projects_upload_pictures}
+				<span class="helptext"> | </span>
+				{Orderpictures}
+				<span class="helptext"> | </span>
+				{Managestories}
+			</div>
+		</div>
+		<br>
+		<table class="entryform">
+			<tr class="entryform">
+				<td>
+					<div class="helptext important">
+						You can upload only pictures in JPG format. The name of the picture file must end with ".jpg" &mdash; all other files must be uploaded using the {fp:Files} tab.
+					</div>
+					{UPLOADER} 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<td>
+					<form name="form1" action="{ADMINFILENAME}" enctype="multipart/form-data" method="post">
+						<input type="hidden" name="subset" value="Pictures"> <input type="hidden" name="ID" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="artistID" value="{artistID}"> <input type="hidden" name="action" id="action" value="{action}"> <input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}"> <input type="hidden" name="PageID" value="tab3"> <h3 class="sectiontitle">[ <a href="#" class="toggler">+</a> ] Pictures in this Project </h3> 
+						<div class="">
+							<div class="helptext" style="display:inline;float:left;">
+								Click on a picture to edit it (you cannot edit other artists' pictures). 
+							</div>
+							<div align="right">
+								<div class="helptext">
+									<a href="?action=display&amp;subset=Pictures&amp;showthumbstatus={showthumbstatus}&amp;ID={ID}&amp;table={PROJECTS}&amp;start={from}&amp;PageID=tab3" target="_self">{showthumbstatus} thumbnails</a> 
+								</div>
+							</div>
+							<br>
+							<snippet name="prevnextbar">
+								{picturelist} 
+<!-- snippet name="input_form_projects_delete_pictures">-->
+							</div>
+						</form>
+					</td>
+				</tr>
+				<tr class="entryform">
+					<td>
+						<snippet name="choose_project_pix">
+						</td>
+					</tr>
+				</table>
+			</div>

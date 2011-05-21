@@ -1,0 +1,1 @@
+<img src="{PATH}" class="user_image" alt="{TEXT}" title="{TEXT}">

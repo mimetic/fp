@@ -1,0 +1,1 @@
+This payment is a commission ({COMMISSION_RATE}%) on a sale.

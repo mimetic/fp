@@ -1,0 +1,2 @@
+<!--TearsheetLink-->
+	<a class="gallery-info-link editable" href="tearsheet.php?ProjectID={projectID}&amp;ImageID={ID}" target="_blank">Tear Sheet</a>

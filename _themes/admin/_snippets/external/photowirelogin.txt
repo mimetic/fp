@@ -1,0 +1,39 @@
+<div style="font:11px/20px verdana, arial, helvetica, sans-serif;">
+Archives of these images are availabe for media clients <BR>
+on the PhotoWire Lightboard:
+</div>
+<table border="1" cellspacing="0" cellpadding="10" bordercolor="#d0d0d0" width=380 style="font:11px verdana, arial, helvetica, sans-serif;">
+	<TR>
+	<TD valign=top>
+	<br>
+	<FORM action="http://lightboard.wirephoto.com/login.php?persLightboardOwner=davidgross" method="post" name="login">
+	<INPUT type="hidden" value="davidgross" name="persLightboardOwner">
+	<INPUT type="hidden" value="authorizationCheck" name="formSubmitHandler">
+	Username:
+	<INPUT name="authFormUsername">
+	<BR>Password:
+	<BR>
+	<INPUT type="password" name="authFormPassword">
+	<P>
+	<INPUT type="submit" value="Login" style="WIDTH: 153px; HEIGHT: 24px" size="19">
+	<BR>
+	</FORM>
+	<BR>
+	</TD>
+	<TD valign=top>
+	<FORM action="http://lightboard.wirephoto.com/login.php?persLightboardOwner=davidgross" method= "post">
+	<input type="hidden" name="formSubmitHandler" value="forgottenPassword">
+	<br>
+	If you have an account on this system, but do not remember your password, type your e-mail address in the field below to have your login information sent to you.
+	<br>
+	<INPUT type="hidden" value="davidgross" name="persLightboardOwner">
+	<br>
+	E-mail:
+	<br>
+	<input name="authFormUserEmail">
+	<P>
+	<INPUT type="submit" value="Send Password" style="WIDTH: 153px; HEIGHT: 24px" size="19">
+	</FORM>
+	</TD>
+	</TR>
+</TABLE>

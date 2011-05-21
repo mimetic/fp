@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<!-- this template is master_page.txt -->
+<head>
+	<title>{pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="date" content="{DATETIME}">
+	{META_INDEX}
+	
+	<!-- place before system style sheets, which may override these defaults -->
+	<!--<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/thickbox/thickbox.css"  type="text/css">-->
+	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/jquery.lightbox.css"  type="text/css">
+	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/menu.css"  type="text/css">
+	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/iColorPicker.css"  type="text/css">
+	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/custom-theme/jquery-ui-custom.css"  type="text/css">
+	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/jquery_dig_exhibit/css/jquery.dig.exhibit.style.css" media="screen"  type="text/css">
+	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/jquery_dig_exhibit/css/jquery.dig.exhibit.user.css" media="screen"  type="text/css">
+	<!-- system stylesheets -->
+	{STYLESHEETS}
+	{GALLERY_STYLESHEET}
+	
+	<!-- system vars for javascript here -->
+	<snippet name="system_vars">
+<snippet name="system_vars_modifier">
+	<snippet name="theme_vars">
+	
+	<script src="{JAVASCRIPT_PATH}/json2.js" type="text/javascript" language="javascript"></script>
+	<snippet name="jquery_libraries">
+	<snippet name="javascript_libraries">
+	
+	<script src="{JAVASCRIPT_FP_LIB}" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery.cssedit.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery.dig.exhibit.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/theme_editor.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT}" type="text/javascript" language="javascript"></script>
+
+	{SLIDESHOW_HEAD}
+	{BACKGROUND_IMG_STYLE}
+	<snippet name="header_banner_style" >
+	<!-- cooliris_head_link -->
+</head>
+<body OnLoad="center(0);">
+	<div id="page" class="{sectionclass} editable">
+	<div id="containertopspacing"></div>
+		<div id="container" class="editable"><a name="top"></a>
+	<!--HEADER-->
+			<div id="topper">
+				{header}
+				{GOBACKNAV}
+			</div>
+	<!-- MAIN SECTION -->
+			<div id="main"><div id="mainc">
+				<div id="message">{message}</div>
+				<div id="error">{error}</div>
+				<div id="mainlist"><div class="{sectionclass}">
+					<div class="list">
+					<!-- start list -->
+					{list}
+	<!-- end list -->
+					</div>
+	<!-- end mainlist-->
+				</div></div>
+	<!-- end main -->
+			</div></div>
+	<!--end container -->
+			<div id="foot" class="{sectionclass}"><div id="footc">
+				<div id="footer-box">
+					<div id="footleft">
+						{footer_left}
+					</div>
+					<div id="footright">
+						{footer_right}
+					</div>
+				</div>
+			</div></div>
+		</div>
+	<!-- end section class -->
+	</div>
+	{google_analytics_js}
+</body>
+</html>

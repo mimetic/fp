@@ -1,0 +1,5 @@
+<!--projects_set_projects_item_format_solo-->
+<div class="item ">
+	<span class="exhibit-link" rel="{Projects_ID}"><span class="projecttitle editable">{Projects_Title}</span><a href="gallery.php?ProjectID={Projects_ID}"><span class="arrowbutton">&nbsp;</span></a></span>
+	<!--<span class="list caption editable">&nbsp;{Projects_Lead}</span>-->
+</div>

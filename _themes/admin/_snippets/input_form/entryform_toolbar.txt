@@ -1,0 +1,8 @@
+<!-- entryform_toolbar -->
+<div class="entry">
+	<snippet name="toggle_advanced" />
+	<div style="float:right;">
+		<snippet name="save" />
+		<snippet name="cancel" />
+	</div>
+</div>

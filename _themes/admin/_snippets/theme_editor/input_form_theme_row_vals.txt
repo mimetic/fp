@@ -1,0 +1,4 @@
+<input name="name_{X}" type="hidden" value="{NAME}">
+<input name="title_{X}" type="hidden" value="{TITLECODE}">
+<input name="param_{X}" type="hidden" value="{PARAM}">
+<input name="desc_{X}" type="hidden" value="{DESCRIPTION}">

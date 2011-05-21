@@ -1,0 +1,525 @@
+﻿<!-- input_form_Artists -->
+{DONOTHING} 
+<form id="myform" name="myform" action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+	<input type="hidden" name="MAX_FILE_SIZE" value="275000"> <input type="hidden" name="ID" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="{action}"> <input type="hidden" name="PageID" value="{PAGEID}"> <h3 class="tabletitle"> Edit <font color="#990000"> {Firstname} {Lastname}</font> </h3> 
+	<div align="right">
+		<div class="helptext">
+			<span class="important">*</span> marked fields must be filled in 
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform">
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Username<span class="important">*</span> :
+				</th>
+				<td>
+					<input type="text" name="Username" value="{Username}" size="30"><span class="important"> {Confirmed}</span> <span class="helptext">User name for using {FP_SYSTEM_DISPLAY_NAME}.</span> 
+				</td>
+			</tr>
+			<tr class="entryform" style="display:{ShowConfirmedEntry};">
+				<th class="entryform" align="right">
+					Confirmed : 
+				</th>
+				<td>
+					{Confirmed_CHECKBOX} Confirm this user? <span class="helptext">Unconfirmed users will be deleted after {FP_SHOW_MAXCONFIRMTIME}.</span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Default {fp:group}<span class="important">*</span> : 
+				</th>
+				<td>
+					{DefaultGroupID} <span class="helptext">The {fp:group} you usually show in, i.e. your default {fp:group}. New {fp:projects} will automatically appear here.</span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Default {fp:project}<span class="important">*</span> : 
+				</th>
+				<td>
+					{DefaultProjectID} <span class="helptext">The {fp:project} you usually show in, i.e. your default {fp:project}. {fp:Images} appear here if the system doesn't know where else to put them.</span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					LightStalkers Short Name : 
+				</th>
+				<td>
+					<input type="text" name="ShortName" value="{ShortName}" size="30"> <span class="helptext">Your "shortname" from LightStalkers.org</span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Email<span class="important">*</span> : 
+				</th>
+				<td>
+					<input type="text" name="Email" value="{Email}" size="50"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Password<span class="important">*</span> : 
+					<br>
+				</th>
+				<td>
+					<div style="float:right;" id="passpgen">
+					</div>
+					<div style="float:left;margin-right:20px;">
+					<label>Password:</label> <input type="{PASSWORD_INPUT_TYPE}" name="Password" id="Password" value="{Password}" minlength="{FP_PASSWORD_MIN_LENGTH}" maxlength="{FP_PASSWORD_MAX_LENGTH}" required="yes"> 
+					</div>
+					<label>Confirm Password:</label> <input type="{PASSWORD_INPUT_TYPE}" id="ConfirmPassword" value="{Password}" name="ConfirmPassword" value="" required="yes">
+					<div class="err-msg">The passwords do not match.</div> 
+					<br clear="all">
+					<div class="helptext">Passwords must be between 2 and 20 characters in length.</div> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Password Reminder 
+				</th>
+				<td>
+					<input type="text" name="Password_Reminder" value="{Password_Reminder}" size="30" maxlength="64"> <span class="helptext"> Hint to the user to remember his password. </span> 
+				</td>
+			</tr>
+			{accesslevelinput} {userlevelinput} {userstorageinput} 
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					<i>Storage Info&nbsp;</i>: 
+				</th>
+				<td>
+					<i>{storage_used} MB used and {storage_remaining} MB free</i> 
+				</td>
+			</tr>
+			<tr>
+				<th class="entryform" align="right">
+				</th>
+				<td style="text-align:right;">
+					<div align="right">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<h3 class="tabletitle">Personal Information</h3> 
+	<div align="right">
+		<div class="helptext">
+			<span class="important">*</span> marked fields must be filled in 
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform">
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Firstname 
+				</th>
+				<td>
+					<input type="text" name="Firstname" value="{Firstname}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Middlename 
+				</th>
+				<td>
+					<input type="text" name="Middlename" value="{Middlename}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Lastname 
+				</th>
+				<td>
+					<input type="text" name="Lastname" value="{Lastname}" size="30"> 
+				</td>
+			</tr>
+			{ENTER_PORTRAIT} 
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Agency 
+				</th>
+				<td>
+					<input type="text" name="Agency" value="{Agency}" size="30"> <span class="helptext"> If you don't have an agency, just enter "Freelance" </span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Telephone (work) : 
+				</th>
+				<td>
+					<input type="text" name="Tel1" value="{Tel1}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Telephone (home) : 
+				</th>
+				<td>
+					<input type="text" name="Tel2" value="{Tel2}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Telephone (mobile/GSM/satellite) : 
+				</th>
+				<td>
+					<input type="text" name="Tel3" value="{Tel3}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Fax : 
+				</th>
+				<td>
+					<input type="text" name="Tel4" value="{Tel4}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Email (work) : 
+				</th>
+				<td>
+					<input type="text" name="Email2" value="{Email2}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Web Site : 
+				</th>
+				<td>
+					<input type="text" name="Website" value="{Website}" size="50"> 
+					<br>
+					<div class="helptext">
+						E.g. www.mywebsite.com. Do <i>not</i> include the "http://" 
+					</div>
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Blog Website : 
+				</th>
+				<td>
+					<input type="text" name="param_01" value="{param_01}" size="50"> 
+					<br>
+					<div class="helptext">
+						Something like <tt>myblog.blogspot.com</tt> (Do <i>not</i> include the "http://"). 
+						<br>
+						If you are hosting your own blog on your server, this will be <tt>{SYSTEMURL}wordpress/</tt>. 
+					</div>
+				</td>
+			</tr>
+<!-- DON'T USE, MOVE TO BLOG
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			Links :
+		</TH>
+		<TD>
+			<table style="border:1px solid #888; width:500px;">
+				<tr>
+					<td valign="top">
+						Links:<br>
+						<textarea name="param_02" rows="5" cols="30">{param_02}</textarea><br>
+						<div class="helptext">
+							E.g. www.newsweek.com/123.htm (Do <i>not</i> include the "http://")
+						</div>
+					</td>
+					<td valign="top">
+					<br> <br>
+					 <br>
+					 <br>
+					 <br>
+					</td>
+					<td valign="top">
+								Description:<br>
+								<textarea name="param_03" rows="5" cols="30">{param_03}</textarea><br>
+								<div class="helptext">
+									E.g. Newsweek article.
+								</div>
+					</td>
+				</tr>
+				</table>
+	</div>
+		</TD>
+	</TR>
+-->
+			<tr>
+				<th class="entryform" align="right">
+				</th>
+				<td style="text-align:right;">
+					<div align="right">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<h3 class="tabletitle">Mailing Address</h3> 
+	<div align="right">
+		<div class="helptext">
+			The address where you wish to receive correspondance, including checks 
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform">
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Address line 1 : 
+				</th>
+				<td>
+					<input type="text" name="Address1" value="{Address1}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Address line 2 : 
+				</th>
+				<td>
+					<input type="text" name="Address2" value="{Address2}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					City : 
+				</th>
+				<td>
+					<input type="text" name="City" value="{City}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					State (if applicable) : 
+				</th>
+				<td>
+					<input type="text" name="State" value="{State}" size="2" maxlength="2"> <span class="helptext">Use a two letter code, e.g. "NY"</span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					ZIP Code/Postal Code : 
+				</th>
+				<td>
+					<input type="text" name="Zip" value="{Zip}" size="30"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Country : 
+				</th>
+				<td>
+					<input type="text" name="Country" value="{Country}" size="30"> 
+				</td>
+			</tr>
+			<tr>
+				<th class="entryform" align="right">
+				</th>
+				<td style="text-align:right;">
+					<div align="right">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<h3 class="tabletitle">Biography and Personal Statement</h3> 
+	<div align="right">
+		<div class="helptext">
+			<span class="important">*</span> marked fields must be filled in 
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform">
+			<tr class="entryform">
+				<th class="entryform" align="right">
+				</th>
+				<td>
+					<div class="helptext">
+						Add uploaded files to your text: 
+						<div class="tip" title="{help_uploaded_files}">
+							? 
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Short Biography : 
+				</th>
+				<td valign="top">
+<textarea name="Biography" rows="4" cols="80">{Biography}</textarea> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Statement : 
+				</th>
+				<td valign="top">
+<textarea name="Statement" rows="4" cols="80">{Statement}</textarea> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Awards : 
+				</th>
+				<td valign="top">
+<textarea name="Awards" rows="4" cols="80">{Awards}</textarea> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Full Biography : 
+				</th>
+				<td valign="top">
+<textarea name="FullBiography" rows="4" cols="80">{FullBiography}</textarea> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Exhibitions, 
+					<br>
+					Artist-in-Residence, 
+					<br>
+					Lectures : 
+				</th>
+				<td valign="top">
+<textarea name="Exhibitions" rows="4" cols="80">{Exhibitions}</textarea> 
+					<br>
+					<div class="helptext">
+						example: 'My Big Exhibition', Gallery 55, Athens, Greece, 2006 
+					</div>
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Publications : 
+				</th>
+				<td valign="top">
+<textarea name="Publications" rows="4" cols="80">{Publications}</textarea> 
+				</td>
+			</tr>
+			<tr>
+				<th class="entryform" align="right">
+				</th>
+				<td style="text-align:right;">
+					<div align="right">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<h3 class="tabletitle">Presentation</h3> 
+	<div align="right">
+		<div class="helptext">
+			<span class="important">*</span> marked fields must be filled in 
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform">
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Watermark text : 
+				</th>
+				<td>
+					<input type="text" name="DefaultCopyrightNotice" value="{DefaultCopyrightNotice}" size="30"> 
+					<br>
+					<div class="helptext">
+						This text will be written on all pictures in any gallery you own (even if the picture belongs to someone else!). Example: Copyright &copy; David Gross 
+					</div>
+				</td>
+			</tr>
+<!--
+<TR class="entryform">
+		<TH class="entryform" align="right">
+			Default Credit :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="DefaultCredit" VALUE="{DefaultCredit}" SIZE=30>
+		</TD>
+	</TR>
+-->
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Default Lifespan : 
+				</th>
+				<td>
+					<input type="text" name="DefaultLifespan" value="{DefaultLifespan}" size="3"> {fp:days} 
+					<div class="helptext">
+						The default number of days a new exhibition remains listed as "new", before being moved to "all" exhibitions. If you make a change to the exhibition, the countdown is reset. 
+					</div>
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Link to Galleries List? 
+				</th>
+				<td>
+					{param_04_CHECKBOX} 
+					<div class="helptext">
+						Show a link in the menu to the main galleries list. This can be overridden by creating a custom menu for a gallery. 
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	{ArtistSalesForm}
+	
+	<h3 class="tabletitle">FTP to Archive/Distribution Site</h3> 
+	<div align="right">
+		<div class="helptext">
+			Images will <em>automatically</em> be forwarded to this FTP site when they are sent to {FP_SYSTEM_DISPLAY_NAME} 
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+		<table class="entryform">
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					FTP Address : 
+				</th>
+				<td>
+					<input type="text" name="ftp_server" value="{ftp_server}" size="50"> <span class="helptext"> example : <tt>ftp.myagency.com</tt> </span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					Directory on FTP site : 
+				</th>
+				<td>
+					<input type="text" name="ftp_directory" value="{ftp_directory}" size="64"> <span class="helptext"> example : <tt>myname/dropbox</tt> </span> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					FTP User Name : 
+				</th>
+				<td>
+					<input type="text" name="ftp_user_name" value="{ftp_user_name}" size="50"> 
+				</td>
+			</tr>
+			<tr class="entryform">
+				<th class="entryform" align="right">
+					FTP Password : 
+				</th>
+				<td>
+					<input type="text" name="ftp_user_pass" value="{ftp_user_pass}" size="50"> 
+				</td>
+			</tr>
+			<tr>
+				<th class="entryform" align="right">
+				</th>
+				<td style="text-align:right;">
+					<div align="right">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+{SUBSCRIBE} 

@@ -1,0 +1,11 @@
+Places	block_format	<!--set_places_page--><div class="list">{LIST}</div>
+Places	item_format	<div class="title">{Places_Place}</div>
+Places	separator_format	<br>
+Projects	block_format	{list}
+Projects	item_format	<span class="item"><a href="gallery.php?ProjectID={Projects_ID}&amp;GroupID={groupID}">{Projects_Title}</a></span>
+Projects	separator_format	<BR>
+Artists	block_format	<span>&nbsp;&mdash;&nbsp;</span>{list}<BR>
+Artists	item_format	<a HREF="artist.php?ArtistID={Artists_ArtistID}">{Artists_Firstname} {Artists_Lastname}</a>
+Artists	separator_format	,&nbsp;
+pix	block_format	{list}
+pix	item_format	<!--empty-->

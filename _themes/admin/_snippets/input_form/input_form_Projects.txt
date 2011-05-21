@@ -1,0 +1,516 @@
+<!-- INPUT_FORM_PROJECTS -->
+<div class="entryform">
+	<form action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+		<input type="hidden" name="ID" value="{ID}"> <input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="{action}"> <input type="hidden" name="subset" value="Artists"> <input type="hidden" name="PageID" value="tab3"> 
+		<div class="section">
+			<h3 class="entryform"> Edit {fp:project} <font color="#990000"> {Title} </font> <i> owned by </i> <font color="#990000"> {ownername}</font> </h3> 
+			<div class="ui-widget ui-widget-content ui-corner-all padme links">
+				<div style="float:left;">
+					<snippet name="toggle_advanced" />
+				</div>
+				<div align="right">{ReturnToList} | {fp:projects_manage_project} <span class="helptext"> | </span> {ManagepicturesJQ} <span class="helptext"> | </span> {Uploadpictures} <span class="helptext"> | </span> {Orderpictures} <span class="helptext"> | </span> {Managestories} 
+				</div>
+			</div>
+			<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+				<div class="entry">
+					{publicprivateinput} 
+				</div>
+				<div class="entry">
+					<div class="label">
+						Title&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="Title" value="{Title}" size="30"> 
+						<div class="tip" title="The title of the {fp:project}, which will be shown in lists and above the {fp:project} in {fp:groups}.">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Nickname&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="Nickname" value="{Nickname}" size="30"> 
+						<div class="tip" title="Used to identify this project when sending pictures to {SYSTEMNAME} ">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Owner&nbsp;: 
+					</div>
+					<div class="item">
+						{ArtistIDList} 
+						<div class="tip" title="Which artist owns this project? If you change this, you will not be able to edit this project! ">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Owner Access Only&nbsp;: 
+					</div>
+					<div class="item">
+						{OwnerAccessOnly_CHECKBOX} 
+						<div class="tip" title="Limit access to this project to the owner, even if other artists are contributers? ">?</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="label">
+						Gallery&nbsp;: 
+					</div>
+					<div class="item">
+						{GroupIDList} 
+						<div class="tip" title="Choose the {fp:group} in which this {fp:project} will show.">?</div>
+					</div>
+				</div>
+				<div class="multiuser">
+					<div class="entry advanced">
+						<div class="label">
+							Other Artists&nbsp;: 
+						</div>
+						<div class="item">
+							{OTHER_ARTISTS_LIST} 
+						</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Slide Carousel&nbsp;: 
+					</div>
+					<div class="item">
+						{Slides_CHECKBOX} <span class="helptext"> If set, then this exhibition will be a source for backgrounds pictures and special slide shows. Themes make use of this feature. For example, when using a theme that shows background pictures, it will look in this kind of exhibition for them. <span class="important"> Note: This exhibition will not be displayed for viewers if the above checkbox is ticked! </span> </span> 
+					</div>
+				</div>
+				<div class="entry">
+					<div style="text-align:right;">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+			<h3 class="entryform advanced"> Presentation </h3> 
+			<div align="right">
+				<div class="helptext">
+				</div>
+			</div>
+			<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+				<div class="entry">
+					<div class="label">
+						Exhibition Theme&nbsp;: 
+					</div>
+					<div class="item">
+						<div style="float:left;">
+							{THEMELIST}
+							<input id="themeid-for-preview" type="hidden" value="{THEME_ID}">
+						</div>
+						
+						<div style="float:left;margin-left:20px;">
+							&nbsp;<a href="#" class="toggler" title="preview:hide">preview</a>&nbsp;
+						</div>
+						<div style="display:inline-block;display:none;">
+							{THEME_PREVIEW}
+						</div>
+						<br clear="both">
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Matte&nbsp;: 
+					</div>
+					<div class="item">
+						{Matted_CHECKBOX} 
+						<div class="tip" title="Display pictures in this {fp:project} with a matte around the picture.">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Frame Style&nbsp;: 
+					</div>
+					<div class="item">
+						{FramestyleList} 
+						<div class="tip" title="Choose the style of the frame you want.">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Frame Width&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="Framewidth" value="{Framewidth}" size="2"> 
+						<div class="tip" title="Width of picture frame (0 = no frame) ">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Maximum Number 
+						<br>
+						of Pictures&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="MaxPix" value="{MaxPix}" size="4" maxlength="3"> 
+						<div class="tip" title="Maximum number of pictures in this project. Enter &quot;0&quot; for no limit. Pictures added beyond a limit will will replace the oldest picture first. ">?</div>
+					</div>
+				</div>
+<!-- params -->
+				<div class="entry">
+					<div class="label">
+						Picture Grouping&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="param_01" value="{param_01}" size="2" maxlength="2"> 
+						<div class="tip" title="You can group pictures in the gallery. For example, you can have a book effect by grouping in twos, if the theme supports it. Enter zero (0) for no grouping. ">?</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="label">
+						Picture Spacing&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="param_02" value="{param_02}" size="4" maxlength="4"> 
+						<div class="tip" title="Space between pictures (in pixels). ">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Grouping Spacing&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="param_05" value="{param_05}" size="4" maxlength="4"> 
+						<div class="tip" title="Space between groups of pictures (in pixels). ">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Picture Scaling&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="param_07" value="{param_07}" size="4" maxlength="4"> 
+						<div class="tip" title="Size reduction or enlargement for gallery pictures. Use a decimal, e.g. .75 for 75% reduction. &quot;1&quot; or empty means no scaling. ">?</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="label">
+						Captions&nbsp;: 
+					</div>
+					<div class="item">
+						{param_03} 
+						<div class="tip" title="&lt;i&gt;No Captions&lt;/i&gt;  hides all captions in the gallery. &lt;br&gt;&lt;i&gt;Popup Captions&lt;/i&gt; shows the caption in the gallery when the viewer points the mouse at the {fp:picture}.
+						&lt;br&gt;&lt;i&gt;Show Captions&lt;/i&gt; shows the {fp:picture} caption in the gallery.">?</div>
+					</div>
+				</div>
+<!--
+				<div class="entry">
+					<div class="label">
+						Comments&nbsp;: 
+					</div>
+					<div class="item">
+						{param_08_CHECKBOX} 
+						<div class="tip" title="Turn on to show a link so your viewers can leave comments.">?</div>
+					</div>
+				</div>
+-->
+<!-- end params -->
+				<div class="entry xadvanced">
+					<div class="label">
+						Slideshow Audio&nbsp;: 
+					</div>
+					<div class="item">
+						{AUDIOLIST} 
+						<div class="tip" title="To add sound to a slideshow, first you must upload an MP3 audio file using the {fp:Files} tab. Be sure your sound file ends with '.mp3'">?</div>
+						<snippet name="save" />
+					</div>
+				</div>
+				<div class="entry xadvanced">
+					<div class="label">
+						Slideshow Timing&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="hidden" id="picturecount" value="{PictureCount}"> <input type="hidden" id="FP_DEFAULT_SLIDESHOW_PAUSE" value="{FP_DEFAULT_SLIDESHOW_PAUSE}"> <input type="hidden" id="FP_SSP_TRANSITION_LENGTH" value="{FP_SSP_TRANSITION_LENGTH}"> Enter time for one slide: <input type="text" name="SlideShowSlideDuration" id="SlideShowSlideDuration" value="???" size="3"> seconds, <i>or</i> the time for the whole show: <input type="text" name="SlideShowDuration" id="SlideShowDuration" value="{SlideShowDuration}" size="6"> seconds. 
+						<br>
+						<div class="tip" title="This is the duration of the whole slide show in seconds. Enter '0' to get the default of {FP_DEFAULT_SLIDESHOW_PAUSE} seconds per slide. &lt;br&gt;&lt;i&gt;If you add a soundtrack, the system will try to figure this out for you by figuring out the length of the MP3 audio, then dividing by the number of slides to find the seconds per slide.&lt;/i&gt;">?</div>
+						<div class="helptext">
+							{AUDIO_HELP_MESSAGE} 
+						</div>
+						<br>
+						<div class="helptext">
+							<ul>
+								<li>
+									Slide Show Time : {PictureCount} {fp:pictures} &times; ( <span class="slide_duration_output">???</span> seconds per {fp:picture} + {FP_SSP_TRANSITION_LENGTH} seconds transition ) = <span id="slideshow_show_time">???</span> seconds 
+								</li>
+								<li>
+									Each {fp:picture} shows : <span class="slide_duration_output">???</span> seconds 
+								</li>
+								<li>
+									Transition time : {FP_SSP_TRANSITION_LENGTH} seconds 
+								</li>
+								<li>
+									Minimum show time : {FP_SSP_TRANSITION_LENGTH} seconds transition &times; {PictureCount} {fp:pictures} = <span id="slide_min_duration"></span> seconds 
+								</li>
+								<li>
+									There are {PictureCount} {fp:pictures} in the show. 
+								</li>
+								<li>
+									<i>Be sure to leave enough time for your {fp:pictures} to download ... not everyone has a fast connection.</i> 
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+<!-- save button here ? -->
+			</div>
+		</div>
+		<a name="lifespan"></a> 
+		<div class="section">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+			<h3 class="entryform advanced">Lifespan</h3> 
+			<div class="entry advanced" align="left">
+				<div class="helptext">
+					Exhibitions (projects) automatically move through your galleries. An exhibition is featured as a "new exhibition", and after a fixed number of days, the system moves it to the archives (usually called "all exhibitions"). Then, after more time, the exhibition is deleted from the system. 
+					<br>
+					However, you can also mark exhibitions as permenent, by setting the time to "0", if your system allows it. This is useful when you wish to show portfolio work. 
+					<br>
+					When an exhibition is deleted, all the uploaded pictures are also deleted, unless the picture is used in another exhibition, or a print of the picture has been sold. 
+				</div>
+			</div>
+			<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+				<div class="entry">
+					<div class="label">
+						Schedule&nbsp;: 
+						<br>
+						<button type="button" class="unadvanced" onclick="ShowAdvanced();location.href='#lifespan';false;">
+							Change 
+						</button>
+					</div>
+					<div class="item">
+						<table class="withborders">
+							<tr>
+								<th>
+									{fp:project} is {fp:featured}... 
+								</th>
+<!--<th>Last Changed</th>-->
+<!--<th>{fp:featured} Until...</th>-->
+								<th>
+									Keep in {fp:active} Until... 
+								</th>
+							</tr>
+							<tr>
+								<td>
+									{ProjectDateShow} to {FeaturedDeadlineShow} 
+								</td>
+<!--<td>{LastUpdateShow}</td>-->
+<!--<td>{FeaturedDeadlineShow}</td>-->
+								<td>
+									{ActiveDeadlineShow} 
+								</td>
+							</tr>
+						</table>
+						<div class="helptext">
+							{DaysToLive} 
+						</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						{fp:project} Opened&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="ProjectDate" value="{ProjectDate}" size="10"> 
+						<div class="tip" title="When did this {fp:project} open? Write the date as YYYY-MM-DD, e.g. 2006-22-02.">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						New {fp:project}&nbsp;: 
+					</div>
+					<div class="item">
+						Feature this exhibition as "New" for <input type="text" name="Lifespan" value="{Lifespan}" size="2" maxlength="2" style="height:1em;"> days, then move it to the archives. 
+						<br>
+						<div class="helptext">
+							We start counting after the last change to the exhibition. After the time is up, the exhibition will be moved to "All Exhibitions." 
+							<br>
+							<em> Enter "0" to permanently feature this exhibition. 
+								<snippet name="zero_is_unlimited" />
+							</em> 
+						</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Archived {fp:project}&nbsp;: 
+					</div>
+					<div class="item">
+						Keep this exhibition in the archives for <input type="text" name="ActiveLifespan" value="{ActiveLifespan}" size="2" maxlength="2" style="height:1em;"> days, then <em> delete </em> it! 
+						<br>
+						<div class="helptext">
+							<em> Enter "0" to permanently archive this exhibition. 
+								<snippet name="zero_is_unlimited" />
+							</em> 
+						</div>
+					</div>
+				</div>
+<!-- save button here ? -->
+			</div>
+		</div>
+		<div class="section">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+			<h3 class="entryform advanced"> Statement and Description </h3> 
+			<div align="right">
+				<div class="helptext">
+				</div>
+			</div>
+			<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+				<div class="entry">
+					<div class="label">
+						Statement&nbsp;: 
+					</div>
+					<div class="item">
+<textarea class="tipright" name="Statement" rows="7" cols="89">{Statement}</textarea> 
+						<div class="tip" title="This artist's statement will appear in the {fp:project}.">?</div>
+						<br clear="all">
+						<div class="helptext">
+							Add uploaded files to your text: 
+							<div class="tip" title="{help_uploaded_files}">?</div>
+						</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="label">
+						Description&nbsp;: 
+					</div>
+					<div class="item">
+<textarea class="tipright" name="Description" rows="7" cols="89">{Description}</textarea> 
+						<div class="tip" title="This project description will appear in the {fp:gallery} listing and in the {fp:project}.">?</div>
+						<br clear="all">
+						<div class="helptext">
+							Add uploaded files to your text: 
+							<div class="tip" title="{help_uploaded_files}">?</div>
+						</div>
+						<br clear="all">
+					</div>
+				</div>
+			</div>
+<!-- save button here ? -->
+		</div>
+		<div class="section">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+			<h3 class="entryform advanced"> Location </h3> 
+			<div align="left" class="advanced">
+				<div class="helptext">
+					Where was this exhibition created? The city and country are used to organize the projects under the {fp:Places} tab on the front page. Leave blank to show the {fp:project} beneath the place-name,&nbsp;"{fp:somewhere_places}".
+				</div>
+			</div>
+			<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+				<div class="entry">
+					<div class="label">
+						City&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="City" value="{City}" size="56"> 
+						<div class="helptext">
+						</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="label">
+						Country&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="Country" value="{Country}" size="56"> 
+						<div class="helptext">
+						</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div style="text-align:right;">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section advanced">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+			<h3 class="entryform advanced"> Printing </h3> 
+			<div align="right">
+				<div class="helptext">
+				</div>
+			</div>
+			<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+				<div class="entry advanced">
+					<div class="label">
+						{fp:priceset}&nbsp;: 
+					</div>
+					<div class="item">
+						{PriceSetList} 
+						<div class="tip" title="Choose a default {fp:priceset} for this project. ">?</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Test Print&nbsp;: 
+					</div>
+					<div class="item">
+						{Matchprint_CHECKBOX} 
+						<div class="helptext">
+							Artist must approve a test print from printer. 
+							<br>
+							<span class="important">Ordering a test print will delay delivery of your first sale to the buyer. The print will not be printed and shipped until you sign and return the test print!</span> 
+						</div>
+					</div>
+				</div>
+<!--
+				<div class="entry advanced">
+					<div class="label">
+						PPS Pricing Set&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="pps" value="{pps}" size="50"> 
+						<br>
+						<div class="tip" title="Enter the name of a pricing set, for Pictopia and similar suppliers ">?</div>
+					</div>
+				</div>
+				-->
+
+				<div class="entry advanced">
+					<div class="label">
+						Inkset&nbsp;: 
+					</div>
+					<div class="item">
+						{InksetList} 
+						<div class="tip" title="Choose an inkset. ">
+							? 
+						</div>
+					</div>
+				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Paper&nbsp;: 
+					</div>
+					<div class="item">
+						{PaperList} 
+						<div class="tip" title="Choose a paper for this series. ">
+							? 
+						</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div style="text-align:right;">
+						<snippet name="save" />
+						<snippet name="cancel" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</div>

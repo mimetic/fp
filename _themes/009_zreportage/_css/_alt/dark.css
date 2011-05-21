@@ -1,0 +1,169 @@
+/* @override http://localhost/fp/_themes/009_zreportage/_css/_alt/dark.css */
+
+/* Modified : September 18, 2008, 2:59 pm  */
+/* Title Color: The large type at the top of the page, usually your name, an exhibition name, or a gallery name. */
+#header-title { color : #ccc; }
+
+/* Subtitle Color : This is the smaller type in the header, usually your name or a gallery name. */
+#header-subtitle { color : #999; }
+
+/* Footer Text Color: Text at the bottom of page */
+#foot { color : #aaa; }
+
+/* Go To Links: Text links to exhibitions, slide shows, and so on. This is the default link color. */
+a:link, a:visited {
+	color: #b22326;
+}
+
+a:hover, a:active {
+	text-decoration: none;
+	color: #e50c0e;
+}
+/* Text Color in FAQ, About..., Stories, etc. */
+body { color : #ccc; }
+
+/* Location Text :  In an exhibition, the text which names where the pictures or artwork was created.  */
+.location { color : #ccc; }
+
+/* Project title : The exhibition title in the exhibition information. */
+.projecttitle { color : #ccc; }
+
+/* Current Menu Item: The color of the menu item that matches the page you are looking at.  */
+a.navbar.selected:link { color : #FFF; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:visited { color : #FFF; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:link { color : #ccc; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:visited { color : #ccc; }
+
+/* Menu bar divider : The color of the divider between each menu item. */
+.navbardivider { color : #ccc; }
+
+/* ADVANCED - Gallery statement and description text */
+.gallery-description { color : #ddd; }
+
+/* ADVANCED - Project Title in a Gallery (top of page) */
+.groups #header-title { color : #ccc; }
+
+/* ADVANCED - Gallery Listing navigation: Links to go to different galleries near bottom of page. */
+.group-nav { color : #eee; }
+
+/* ADVANCED - Menu bar - current page - click */
+.navbar .selected a:active { color : #F30; }
+
+/* ADVANCED - Menu bar - current page - hover */
+.navbar .selected a:hover { color : #F90; }
+
+/* ADVANCED - Menu bar - other pages - click */
+.navbar .unselected a:active { color : #F30; }
+
+/* ADVANCED - Menu bar - other pages - hover */
+.navbar .unselected a:hover { color : #F90; }
+
+/* ADVANCED - Menu bar - slide show - click/hover */
+.navbar .slideshow a:hover, .navbar.slideshow a:active { color : #F90; }
+
+/* ADVANCED - Menu bar - slide show */
+.navbar .slideshow a:link, .navbar.slideshow a:visited { color : #eee; }
+
+/* ADVANCED - Gallery - Popup picture - close link */
+#popup_close { color : #f90; }
+
+/* ADVANCED - Gallery - Popup picture - previous link */
+#popup_prev { color : #eee; }
+
+/* ADVANCED - Gallery - Popup picture - next link */
+#popup_next { color : #eee; }
+
+/* Caption Color */
+.captionblock .caption { color : #aaa; }
+
+.captionblock .title {
+	color: #ddd;
+}
+
+
+
+/* ---------- BACKGROUND COLORS ---------- */
+/* Background Color */
+body { background-color : #222; }
+
+/* Menu Bar Color */
+.navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Gallery Listing */
+.groups .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Gallery */
+.gallery .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Exhibition Listing */
+.listpage .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Slideshow*/
+.slideshow .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons - click: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button:active { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons - hover: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button:hover { background-color : transparent; }
+
+/* ---------- BORDERS ---------- */
+/* Exhibition Vertical Line : The color of the vertical line dividing the exhibition information from the pictures. */
+.gallery-description-divider { border-color : #990000; }
+
+/* Menu Bar Border Colors: The thin lines above and below the menu bar.   */
+.navbar-container { border-color : #333; }
+
+/* Footer Top Border : A thin line above the footer area at the bottom. */
+#footer-box { border-top : #990000; }
+
+/* ADVANCED - Menu bar - Exhibition: Use "transparent" to remove borders. */
+.gallery .navbar-container { border-color : #333; }
+
+/* ADVANCED - Menu bar - Gallery Listing: Use "transparent" to remove borders. */
+.groups .navbar-container { border-color : transparent; }
+
+/* ADVANCED - Menu bar - Exhibition Listing: Use "transparent" to remove borders. */
+.listpage .navbar-container { border-color : transparent; }
+
+/* ADVANCED - Menu bar - Slideshow: Use "transparent" to remove borders. */
+.slideshow .navbar-container { border-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button {  border-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons - click: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button:active { border-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons - hover: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button:hover { border-color : transparent; }
+
+/* ---------- FONTS ---------- */
+/* Default Website Font */
+html { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* Title and Subtitle Font */
+#header { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* Story Font */
+.story P { font-family : Georgia, "MS Serif", "New York", "Palatino Linotype", serif; }
+
+/* ADVANCED - Top Menu bar font */
+#topnav { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* ADVANCED - Bottom Menu bar font */
+#bottomnav { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* ---------- OTHER ---------- */
+.ui-icon {
+	background-image: url(../../../default/_img/ui/ui-icons_888888_256x240.png);
+}

@@ -1,0 +1,89 @@
+<!-- fpcart_cart_footer_compact -->
+
+<!-- DISPLAY THE CART FOOTER -->
+<!-- COUPONS/DISCOUNT -->
+<table>
+	<tr {showhide_discount}>
+		<th class='fpcart-footer'>
+			<span id='fpcart-subtotal'>
+				{DISCOUNT_DESCRIPTION} Discount ({DISCOUNT}%):
+			</span>
+		</th>
+		<td class='fpcart-footer'>
+			<span id='fpcart-subtotal'>
+				<strong>
+					({CURRENCY}&nbsp;{DISCOUNT_AMOUNT})</strong>
+			</span>
+		</td>
+	</tr>
+<!-- SUB-TOTAL -->
+	<tr>
+		<th class='fpcart-footer'>
+			<span id='fpcart-subtotal'>
+				Sub-Total :
+			</span>
+		</th>
+		<td class='fpcart-footer'>
+			<span id='fpcart-subtotal'><strong>{CURRENCY}&nbsp;{SUBTOTAL}</strong></span>
+		</td>
+	</tr>
+<!-- SHIPPING -->
+	<tr>
+		<th class='fpcart-footer'>
+			Shipping :
+ 
+		</th>
+		<td class='fpcart-footer'>
+			<span id="fpcart_shipping_display">{CURRENCY}&nbsp;{SHIPPING}</span>
+		</td>
+	</tr>
+<!-- HANDLING -->
+	<tr>
+		<th class='fpcart-footer'>
+			Handling:
+		</th>
+		<td class='fpcart-footer'>
+			<span id="fpcart_handling_display">{CURRENCY}&nbsp;{HANDLING}</span>
+		</td>
+	</tr>
+<!-- TAX -->
+	<tr id="salestaxdisplay" style="{DISPLAY_SALES_TAX};">
+		<th class='fpcart-footer'>
+			Tax:
+		</th>
+		<td class='fpcart-footer'>
+			<span id="fpcart_tax_display">{CURRENCY}&nbsp;{TAX}</span>
+		</td>
+	</tr>
+<!-- TOTAL -->
+	<tr>
+		<th class='fpcart-footer'>
+			Total:
+		</th>
+		<td class='fpcart-footer'>
+			<b>{CURRENCY}&nbsp;{TOTAL}</b>
+		</td>
+</tr>
+</table>
+<div>
+	<button type='button' id="fpcart_checkout" name='fpcart_checkout' class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all {CHECKOUT_BUTTON_CLASS}" value="fpcart-checkout" style="float:right;">
+		<span class="ui-button-text">
+			Checkout
+		</span>
+	</button>
+	<button id="ui-edit-shipping" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" type="button" style="padding-top,padding-bottom:2px;">
+	<span class="ui-button-text">
+		{SET_SHIPPING_LABEL}
+	</span>
+	</button>
+	<button id="ui-edit-coupon" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" type="button" style="padding-top,padding-bottom:2px;">
+	<span class="ui-button-text">
+		Use Coupon
+	</span>
+	</button>
+	<button type='button' name='fpcart_clear' class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
+	<span class="ui-button-text">
+		Clear Cart
+	</span>
+	</button>
+</div>

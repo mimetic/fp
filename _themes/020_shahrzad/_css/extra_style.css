@@ -1,0 +1,524 @@
+/* @override http://localhost/fp/_themes/020_shahrzad/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+html,body {
+	background-color: #FEFEFE;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Helvetica, Verdana, Geneva, Arial, sans-serif;
+}
+
+/* Main items in the listing, e.g. Project Names */
+
+
+a:link {
+	text-decoration: none;
+	color: #9BBCC8;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #9BBCC8;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #4d4d4d;
+}
+
+a:active {
+	text-decoration: none;
+	color: #a8a7a7;
+}
+
+/* Navbar link styles */
+
+a.navbar {
+	font-size: 12px;
+}
+
+a.navbar.unselected:link {
+	color: #a8a7a7;
+}
+
+a.navbar.unselected:visited {
+	color: #a8a7a7;
+}
+
+a.navbar.unselected:hover {
+	color: #4d4d4d;
+}
+
+a.navbar.unselected:active {
+	color: #a8a7a7;
+}
+
+/* Sublinks in listing (e.g. artist names underneath project names) */
+
+
+a.subtitle:link {
+	color: #a8a7a7;
+}
+
+a.subtitle:visited {
+	color: #a8a7a7;
+}
+
+a.subtitle:hover {
+	color: #4d4d4d;
+}
+
+a.subtitle:active {
+	color: #a8a7a7;
+}
+
+
+.list {
+}
+
+.galleryPictureColumn .description .captionblock {
+	background-color: white;
+	color: black;
+	z-index: 5;
+	padding: 0px;
+	border-collapse: collapse;
+	opacity: 0.85;
+	overflow: hidden;
+	border-style: none;
+}
+
+.galleryInfoColumn .title {
+	color: #878686;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.galleryInfoColumn .image_title {
+	font-style: normal;
+	font-weight: bold;
+}
+
+.galleryInfoColumn .caption {
+	font-size: 11px;
+	line-height: 14px;
+	color: #878686;
+}
+
+/* This allows you to keep the default CSS and add new styles for your theme. Display:table is a trick to kee the width correct, so it is properly calculated without having to specify the fixed width. It just works. */
+
+#container, .listpage #container, .groups #container, .catalog #container, .gallery #container, .fullpage #container {
+	width: auto;
+	padding: 20px;
+	display: table;
+	margin: 0px auto 0px;
+	position: relative;
+	height: auto;
+}
+
+.frameshop #container {
+}
+
+
+#containertopspacing {
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+}
+
+#main {
+}
+
+div.storylist {
+	text-align: right;
+}
+
+.projecttitle {
+	text-align: right;
+	color: #a2cbcb;
+	font-weight: bold;
+}
+
+
+.projectowner {
+	text-align: right;
+	color: #cccbcc;
+}
+
+
+div.location {
+	text-align: right;
+	font-size: 11px;
+	color: #878686;
+}
+
+#topper {
+	margin: 0;
+}
+
+.frameshop #topper {
+	background-color: #ffffff;
+	color: #333;
+	font-size: 10pt;
+	border: 1px solid #777;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#topper .navbar {
+	text-align: left;
+}
+
+#topper a:link {
+	text-decoration: none;
+	color: #279cc6;
+}
+
+#topper a:visited {
+	text-decoration: none;
+	color: #279cc6;
+}
+
+
+div#topnav.navbar-container {
+	margin: 0;
+}
+
+#mainlist {
+	margin-top: 0px;
+}
+
+#mainlist .listpage {
+	width: auto;
+}
+
+#mainlist .fullpage {
+	width: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* The fixed/overlow settings make this fill the page in IE. */
+
+#page {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #fefefe;
+	position: fixed;
+}
+
+#page.frameshop {
+	background-color: #cbcbcb;
+}
+
+#page.fullpage #main {
+
+}
+
+#header {
+	display: none;
+}
+
+.frameshop #header {
+	display: block;
+}
+
+#header-title {
+	color: #595656;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: 0;
+	text-align: right;
+	font-style: normal;
+	font-size: 16px;
+	margin-bottom: 50px;	
+	white-space: normal;
+}
+
+.gallery-title {
+	color: #595656;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: 0;
+	text-align: right;
+	font-style: normal;
+	font-size: 16px;
+	margin-bottom: 50px;	
+	white-space: normal;
+}
+
+.captionblock.project-title {
+	color: #9BBCC8;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: 0;
+	text-align: left;
+	font-size: 12px;
+	margin-bottom: 30px;
+}
+
+
+.info-title {
+	color: #595656;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: 0;
+	font-style: normal;
+	font-size: 16px;
+	margin-bottom: 50px;
+	white-space: normal;
+}
+
+#header-subtitle {
+	text-transform: uppercase;
+	font-size: 8px;
+}
+
+
+#foot {
+	position: relative;
+	margin-left: 20px;
+	width: 700px;
+	margin: auto;
+}
+
+#foot.fullpage {
+}
+
+#footer-box {
+	
+}
+
+#page.fullpage #pictureBehind {
+	display: none;
+}
+
+#ontop {
+	
+}
+
+.listpage #pictureBehind, .groups #pictureBehind, .catalog #pictureBehind {
+	position: fixed;
+	z-index: -50;
+	display: block;
+	top: 0;
+	left: 0;
+	background: no-repeat center top;
+	margin: 0px 0px 0px 220px;
+}
+
+.gallery #pictureBehind {
+	display: none;
+}
+
+div.gallery-description {
+	font-size: 12px;
+	line-height: 18px;
+	color: #878686;
+	width: auto;
+	margin-bottom: 20px;
+}
+
+
+td.gallery-intro {
+	width: 160px;
+	padding-right: 80px;
+}
+
+div.gallery-priceinfo {
+	margin: 30px 0 0;
+	border-style: none;
+	padding: 0;
+
+	font-size: 11px;
+	line-height: 14px;
+	color: #878686;
+	text-align: left;
+}
+
+div.navbar {
+	font-size: 12px;
+	line-height: 18px;
+	text-align: right;
+	margin: 0;
+	display: block;
+	padding: 0;
+}
+
+span.arrowbutton
+{
+	width: 10px;
+	height: 9px;
+	color: white;
+	background: transparent url(../_img/next.png) no-repeat center center;
+	padding: 0;
+	display: inline-block;
+	margin: 0 0 0 5px;
+}
+
+.navbar-container {
+	opacity: 1;
+}
+
+#bottomnav .navbar-container {
+	border-top: 0px transparent solid;
+	border-bottom: 0px transparent solid;
+}
+
+.fullpage .navbar-container {
+	
+}
+
+.navbardivider {
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+/* a way to get vertical menus on fullpage pages */
+
+.fullpage .navbardivider {
+	display: block;
+	margin: 0;
+	padding: 0;
+	visibility: hidden;
+	height: 1px;
+	width: 10px;
+}
+
+.listpage #topnav .navbardivider {
+	
+}
+
+#topnav {
+	margin-bottom: 30px;
+	border-style: none;
+	position: relative;
+	top: 0;
+}
+
+#bottomnav {
+	border-style: none;
+	margin: 0;
+	bottom: 0;
+	position: relative;
+}
+
+.groups #bottomnav {
+	background-color: #eee;
+	opacity: .75;
+}
+
+.listpage #bottomnav {
+	
+}
+
+.navbar-container-off {
+	opacity: .20;
+	border-top: 0px #111 solid;
+	border-bottom: 0px #111 solid;
+}
+
+.list .gallery-description .title {
+	white-space: normal;
+	line-height: 1.2em;
+	color: #595656;
+	font-weight: bold;
+	text-align: right;
+}
+
+.list .item {
+	line-height: 1.25em;
+	margin-top: 10px;
+	text-align: right;
+	font-size: 12px;
+	color: #9BBCC8;
+}
+
+.item .subtitle {
+	display: block;
+	margin: 2px 0;
+	font-size: 10px;
+}
+
+#page .listpage .description {
+	font-size: 11px;
+	font-style: italic;
+	margin-top: 20px;
+	text-align: right;
+}
+
+#page .listpage .statement {
+	font-size: 11px;
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	text-align: right;
+}
+
+.groups .statement {
+	margin-bottom: 20px;
+}
+
+.fullpage .statement {
+}
+
+.galleryColSpacer {
+	width: 0px;
+}
+
+td.galleryInfoColumn {
+	vertical-align: top;
+	padding-top: 0px;
+	padding-right: 20px;
+	padding-left: 40px;
+}
+
+td.infoSingleColumn {
+	vertical-align: top;
+	width: 606px;
+}
+
+.sampleimage {
+	float: right;
+	margin: 0 0 20px 20px;
+	padding: 0px;
+	border: 1px #333 solid;
+}
+
+div.galleryInfoColumn {
+	font-size: 10px;
+	width: 160px;
+	margin-left: 0px;
+}
+
+table.gallerytable {
+	width: auto;
+}
+
+.statement h1, .statement h2, .statement h3 {
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-bottom-style: none;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 10px;
+}
+
+.statement p {
+	margin-left: 0;
+}
+
+
+/* Story Page */
+
+.story #header-title {
+	text-align: left;
+}
+
+.story h1 {
+	font-weight: bold;
+	letter-spacing: 0;
+	text-transform: capitalize;
+}
+

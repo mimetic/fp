@@ -1,0 +1,9 @@
+<!--
+<div class="donation">
+	<h4>Do You like the pictures?</h4>
+	Please click on the <em>donation</em> links, above, and send {20} to help them do their next project. The photographers you see here have proven they can deliver creative and interesting work, and they need your support.<br>
+	<br>
+	Thank you!
+</div>
+
+-->

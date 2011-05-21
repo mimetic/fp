@@ -1,0 +1,1 @@
+This parent {fp:project} of this {fp:image} is marked "Not for sale". <i>Solution: <a href="admin.php?action=display&ID={PROJECTID}&table={PROJECTS}&PageID=tab3">Edit the parent {fp:project} settings</a> and set the {fp:priceset}.</i>

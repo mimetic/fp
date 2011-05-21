@@ -1,0 +1,1 @@
+<link rel="alternate" href="rss.php" type="application/rss+xml" title="" id="gallery" >

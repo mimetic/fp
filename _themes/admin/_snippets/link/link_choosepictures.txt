@@ -1,0 +1,1 @@
+<a href="?action=display&amp;PageID=tab3&amp;subset=PictureChooser&amp;ID={ID}&amp;nextaction=update&amp;table=Projects&amp;UserID={UserID}" target="_self">{fp:projects_choose_pictures}</a>

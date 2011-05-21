@@ -1,0 +1,89 @@
+<!--priceSet_sales_figures_form-->
+
+<h3 class="tabletitle">Sales Figures</h3>
+<div align="right">
+	<div class="helptext">
+	
+	</div>
+</div>
+<BR>
+
+<TABLE rules="rows" class="entryform grid" >
+	<TR class="entryform" style="border-right:1px solid gray;">
+		<TH class="entryformgrid" width="5%"> 
+		</TH>
+		<TH class="entryformgrid" width="47%">
+			Print Size<BR>
+		</TH>
+		<TH class="entryformgrid" width="48%" colspan="1">
+			Amount<BR>
+		</TH>
+	</TR>
+	
+	<TR >
+		<TD class="entryformgrid">
+			1
+		</TD>
+		<TD class="entryformgrid">
+			{printsize1} {UNITS}
+		</TD>
+		<TD class="entryformgrid">
+			<INPUT TYPE=text NAME="amount1" VALUE="{amount1}" NOWRAP SIZE=5>
+		</TD>
+	</TR>
+	<TR >
+		<TD class="entryformgrid">
+			2
+		</TD>
+		<TD class="entryformgrid">
+			{printsize2} {UNITS}
+		</TD>
+		<TD class="entryformgrid">
+			<INPUT TYPE=text NAME="amount2" VALUE="{amount2}" NOWRAP SIZE=5>
+		</TD>
+	</TR>
+	<TR >
+		<TD class="entryformgrid">
+			3
+		</TD>
+		<TD class="entryformgrid">
+			{printsize3} {UNITS}
+		</TD>
+		<TD class="entryformgrid">
+			<INPUT TYPE=text NAME="amount3" VALUE="{amount3}" NOWRAP SIZE=5>
+		</TD>
+	</TR>
+	<TR >
+		<TD class="entryformgrid">
+			4
+		</TD>
+		<TD class="entryformgrid">
+			{printsize4} {UNITS}
+		</TD>
+		<TD class="entryformgrid">
+			<INPUT TYPE=text NAME="amount4" VALUE="{amount4}" NOWRAP SIZE=5>
+		</TD>
+	</TR>
+	<TR >
+		<TD class="entryformgrid">
+			5
+		</TD>
+		<TD class="entryformgrid">
+			{printsize5} {UNITS}
+		</TD>
+		<TD class="entryformgrid">
+			<INPUT TYPE=text NAME="amount5" VALUE="{amount5}" NOWRAP SIZE=5>
+		</TD>
+	</TR>
+	<TR >
+		<TD class="entryformgrid">
+			6
+		</TD>
+		<TD class="entryformgrid">
+			{printsize6} {UNITS}
+		</TD>
+		<TD class="entryformgrid">
+			<INPUT TYPE=text NAME="amount6" VALUE="{amount6}" NOWRAP SIZE=5>
+		</TD>
+	</TR>
+</TABLE>

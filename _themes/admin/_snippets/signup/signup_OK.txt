@@ -1,0 +1,8 @@
+<div align="center">
+	<h3>Application Accepted</h3>
+</div>
+<BR>
+<p style="width=auto;margin-left:8em;margin-right:8em;">
+	Your username and password have been sent to your email, <B>{EMAIL}</b>. Please follow the instructions in the email to start using your account. You have {FP_SHOW_MAXCONFIRMTIME} to activate your account. If it hasn't been activated by that time, it will be deleted. We do this to make sure your email works, and to protect the system against evil robot programs attacking the system! </p>
+<br>
+<div style="text-align:right;">{google_adwords_conversion}</div>

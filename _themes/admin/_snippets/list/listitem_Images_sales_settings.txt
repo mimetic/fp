@@ -1,0 +1,13 @@
+<!-- listitem_Images_sales_settings -->
+<p>
+	Custom Edition Size: <input id="{ID}_param_05" class="ajaxsave numeric" title="{ID}" name="param_05" type="text" value="{param_05}" maxlength="5" style="width:30px;"> 
+	<button type="button" class="image-edit-restore-edsize" title="{ID}" value="{pseditionsize}">
+		Restore to {pseditionsize}
+	</button>
+</p>
+<p>
+	Prints sold outside this system: <input id="{ID}_param_18" class="ajaxsave numeric" title="{ID}" name="param_18" type="text" value="{param_18}" maxlength="5" style="width:30px;"><br>
+</p>
+<p>
+	Pricing:&nbsp;{PRICESETLIST}
+</p>

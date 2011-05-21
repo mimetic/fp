@@ -1,0 +1,4 @@
+<!--custom navbar-->
+<div id="topnav" class="editable" style="clear:both;"><div class="navbar-container rootVoices">
+	{NAVBAR}
+</div></div>

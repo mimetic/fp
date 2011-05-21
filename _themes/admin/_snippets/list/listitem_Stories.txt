@@ -1,0 +1,14 @@
+<tr class="listing">
+	<td width="50%" title="{Title}">
+		<b>{Title}</b> 
+		<span class="helptext">
+			{Lead} 
+		</span>
+	</td>
+	<td width="30%" title="{ProjectTitle}">
+		{ProjectTitle} 
+	</td>
+	<td width="20%" style="text-align:right;whitespace:nowrap;">
+		{EDIT_COMMAND} | {DELETE_COMMAND}
+	</td>
+</tr>

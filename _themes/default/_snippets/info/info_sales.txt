@@ -1,0 +1,10 @@
+<div class="info-title">Sales Information</div>
+
+<H3>How Do I Buy a Print?</H3>
+
+<p>If you wish to by a print, please contact the artist at {FP_COMMERCE_EMAIL_OBFUSCATED} for sales information. Sometimes, the artist is in a far off, distant land and cannot reply immediately, so please be patient.
+</p>
+
+<p>
+Thank you.
+</p>

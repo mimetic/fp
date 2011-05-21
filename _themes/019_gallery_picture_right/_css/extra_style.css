@@ -1,0 +1,241 @@
+/* @override 
+	http://localhost/fp/_themes/019_gallery_picture_right/_css/extra_style.css
+*/
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+body {
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+	height: auto;
+}
+
+.listpage #container, .groups #container, .catalog #container, .gallery #container {
+	padding: 0;
+	margin: 0;
+}
+
+.fullpage #container {
+	padding: 0;
+	margin: 0;
+}
+
+#topper {
+	padding: 0;
+	margin: 45px 0 0 50px;
+}
+
+#main {
+	margin: 0 0 0 50px;
+}
+
+#page.fullpage #main {
+	padding-left: 220px;
+}
+
+#mainlist {
+	width: 160px;
+	margin-top: 20px;
+}
+
+#mainlist .listpage {
+	width: 160px;
+}
+
+#header {
+	margin-bottom: 16px;
+	background-color: #fefefe;
+	padding: 10px;
+	opacity: 0.75;
+}
+
+#header-title {
+	color: #000;
+}
+
+#foot {
+/* width: 180px; */
+/*	position: absolute; */
+	bottom: 20px;
+	height: auto;
+	margin-left: 50px;
+	padding-left: 0;
+	margin-top: 0;
+}
+
+#foot.gallery {
+	background-color: #fefefe;
+	padding: 10px;
+	
+}
+
+#foot.fullpage {
+	height: auto;
+/*	position: absolute; */
+	top: 150px;
+	left: 0px;
+	width: 100px;
+}
+
+.gallery #footer-box {
+	width: 160px;
+}
+
+#page.fullpage #pictureBehind {
+	display: none;
+}
+
+#ontop {
+	
+}
+
+.listpage #pictureBehind, .groups #pictureBehind, .catalog #pictureBehind {
+	position: fixed;
+	z-index: -50;
+	display: block;
+	top: 0;
+	left: 0;
+	background: no-repeat center top;
+	margin: 0px 0px 0px 220px;
+	padding: 0;
+}
+
+.gallery #pictureBehind {
+	display: none;
+}
+
+div.navbar {
+	line-height: 13pt;
+	font-size: 8pt;
+	margin: 0;
+}
+
+.navbar-container {
+	color: #888;
+	border-top: 0px none #ccc;
+	border-bottom: 0px none #ccc;
+	padding-left: 50px;
+	margin-right: 50px;
+	white-space: normal;
+}
+
+#topnav .navbar-container {
+	opacity: 1;
+}
+
+#bottomnav .navbar-container {
+	border-top: 0px transparent solid;
+	border-bottom: 0px transparent solid;
+}
+
+.fullpage .navbar-container {
+	
+}
+
+.navbardivider {
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+/* a way to get vertical menus on fullpage pages */
+
+.fullpage .navbardivider {
+	display: block;
+	margin: 0;
+	padding: 0;
+	visibility: hidden;
+	height: 1px;
+	width: 10px;
+}
+
+.listpage #topnav .navbardivider {
+	display: block;
+	margin: 0;
+	padding: 0;
+	visibility: hidden;
+	height: 1px;
+	width: 10px;
+}
+
+#topnav {
+	border-top: 0px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 0px #E6E6E6 solid;
+	border-left: 0px;
+	margin-left: 0px;
+	padding: 0 10px 0 0;
+	margin-bottom: 30px;
+	width: 160px;
+	z-index: 100;
+}
+
+.gallery #topnav{
+	margin-bottom: 10px;
+}
+
+#bottomnav {
+	border-top: 0px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 0px #E6E6E6 solid;
+	border-left: 0px;
+	margin-left: 0;
+	padding: 0 10px 0 0;
+	background-color: transparent;
+	opacity: 1;
+}
+
+.groups #bottomnav {
+	background-color: #eee;
+	opacity: .75;
+}
+
+.listpage #bottomnav {
+	background-color: #eee;
+	opacity: .75;
+}
+
+.navbar-container-off {
+	opacity: .20;
+	border-top: 0px #111 solid;
+	border-bottom: 0px #111 solid;
+}
+
+.list .title {
+	white-space: normal;
+}
+
+.list .item {
+	line-height: 1.25em;
+	margin-top: 10px;
+}
+
+#page .listpage .description {
+	width: 150px;
+	font-size: 11px;
+	font-style: italic;
+	margin-top: 20px;
+}
+
+#page .listpage .statement {
+	width: 150px;
+	font-size: 11px;
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+#mainlist div.fullpage div.list div.statement {
+	
+}
+
+.groups .statement {
+	margin-bottom: 20px;
+}
+
+.fullpage .statement {
+	width: 500px;
+}

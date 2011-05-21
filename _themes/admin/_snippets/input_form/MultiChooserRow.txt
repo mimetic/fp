@@ -1,0 +1,10 @@
+<!--	<TD VALIGN=top> -->
+<div>
+		<div class="optionblocktitle">
+			By {title}
+		</div>
+		<div class="optionblock">
+			{text}
+		</div>
+</div>
+<!--	</TD> -->

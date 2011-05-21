@@ -1,0 +1,2 @@
+<!--listitem_admin_delete-->
+<a href="?action=delete&#x26;ID={ID}&#x26;table={table}&#x26;PageID={PAGEID}&#x26;desc={Title}&#x26;ProjectID={projectID}" class="confirm" alt="WAIT! {confirm_delete_sold_image} -->&nbsp;&quot;{Title}&quot;">Delete<span class="important">*</span></a>

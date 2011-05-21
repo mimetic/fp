@@ -1,0 +1,3 @@
+<span class="tip" title="Order, add, and remove {fp:images} in this {fp:project}. NOTE: This version uses much more bandwidth than the old version. Do not use on an expensive satellite connection!">
+<a href="?action=display&amp;PageID=tab3&amp;subset=ImageSorter&amp;ID={ID}&amp;nextaction=update&amp;table=Projects&amp;UserID={UserID}" target="_self">{fp:projects_manage_pictures}</a>
+</span>

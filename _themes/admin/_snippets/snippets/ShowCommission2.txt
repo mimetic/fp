@@ -1,0 +1,12 @@
+<!-- ShowCommission -->
+	<TR class="entryform">
+		<TH valign="top" align="right">
+			Commission #2:
+		</TH>
+		<TD>
+			
+			<div class="helptext">
+				The gallery sends <b>{Commission2}%</b> from the profit of a sale to the Paypal account: {PayPalBusiness2}.
+			</div>
+		</TD>
+	</TR>

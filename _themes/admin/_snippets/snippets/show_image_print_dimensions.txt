@@ -1,0 +1,1 @@
+ <span style="white-space: nowrap;">Print file: {width_print} &times; {height_print} px</span>

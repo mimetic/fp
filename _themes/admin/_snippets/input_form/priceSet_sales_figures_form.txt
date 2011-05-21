@@ -1,0 +1,42 @@
+<!--priceSet_sales_figures_form-->
+<h3 class="tabletitle">Sales Figures</h3> 
+<div align="right">
+	<div class="helptext">
+		Do not change these values except to correct the number prints sold. 
+	</div>
+</div>
+<br>
+<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+	<table class="entryform grid">
+		<tr>
+			<th width="20px">
+			</th>
+			<th align="center" style="text-align:center;">
+				{fp:image} Size
+				<br>
+			</th>
+			<th style="text-align:left;">
+				{EDITIONHEADER}
+				<br>
+			</th>
+		</tr>
+		{ROWS} 
+		<tr>
+			<th width="20px">
+			</th>
+			<th align="center" style="text-align:center;">
+			Outside Sales:
+			</th>
+			<th style="text-align:left;" colspan="1">
+				{OUTSIDESALES}
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2">
+			</th>
+			<th style="text-align:left;" colspan="1">
+				The next {fp:print} will be numbered #{NEXTPRINTNUMBER}
+			</th>
+		</tr>
+	</table>
+</div>

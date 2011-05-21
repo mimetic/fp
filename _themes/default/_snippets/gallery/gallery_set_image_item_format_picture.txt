@@ -1,0 +1,43 @@
+<!--gallery_set_image_item_format_picture-->
+<input id="pURL_{Images_ImageID}" type="hidden" size="10" value="{SLIDES}/{Images_URL}">
+<input id="FRAMEPATH_{Images_ImageID}" type="hidden" size="10" value="{THEMESDIR}/{THEME}/_img/pictureframes/">
+<input id="FRAMESTYLE_{Images_ImageID}" type="hidden" size="10" value="{FRAMESTYLE_ID}">
+<input id="ImgW_{Images_ImageID}" type="hidden" size="10" value="{IMG_Slide_Width}">
+<input id="ImgH_{Images_ImageID}" type="hidden" size="10" value="{IMG_Slide_Height}">
+<input id="SlideW_{Images_ImageID}" type="hidden" size="10" value="{SlideWidth}">
+<input id="SlideH_{Images_ImageID}" type="hidden" size="10" value="{SlideHeight}">
+<input id="PROJECTFRAMEWIDTH_{Images_ImageID}" type="hidden" size="10" value="{PROJECTFRAMEWIDTH}">
+<input id="GALLERYFADEDARKNESS_{Images_ImageID}" type="hidden" size="10" value="{GALLERYFADEDARKNESS}">
+<input id="PrevLinkID_{Images_ImageID}" type="hidden" size="10" value="{PrevLinkID}">
+<input id="NextLinkID_{Images_ImageID}" type="hidden" size="10" value="{NextLinkID}">
+<input id="Title_{Images_ImageID}" type="hidden" size="10" value="{Images_Title}">
+<input id="YEAR_{Images_ImageID}" type="hidden" size="10" value="{Images_YEAR}">
+<input id="YEAR_DIVIDER_{Images_ImageID}" type="hidden" size="10" value="{Images_YEAR_DIVIDER}">
+<input id="MONTH_{Images_ImageID}" type="hidden" size="10" value="{Images_MONTH}">
+<input id="MONTH_DIVIDER_{Images_ImageID}" type="hidden" size="10" value="{Images_MONTH_DIVIDER}">
+<input id="Fullname_{Images_ImageID}" type="hidden" size="10" value="{Images_Fullname}">
+
+<div id="buy_{Images_ImageID}" style="display:none;">{PopupBuyButtonEncoded}</div>
+<div rel="{Images_LightboxGroup}" class="gallerypic" name="{Images_Title}" title="{Images_Title}">
+	<div class="source" style="display:none;">{SLIDES}/{Images_URL}</div>
+	<!-- description for LightBox popup -->
+	<div class="description" style="display:none;"><snippet name="gallery_picture_full_info_popup" /></div>
+	<!-- picture to show -->
+	<table class="pictureframe">
+		<tr style="{FRAME_SHOW_HIDE}">
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_tl.jpg" width="{PROJECTFRAMEWIDTH}" height="{PROJECTFRAMEWIDTH}"></td>
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_t.jpg" width="{IMG_Width}" height="{PROJECTFRAMEWIDTH}"></td>
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_tr.jpg" width="{PROJECTFRAMEWIDTH}" height="{PROJECTFRAMEWIDTH}"></td>
+		</tr>
+		<tr>
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_l.jpg" width="{PROJECTFRAMEWIDTH}" height={IMG_Height}></td>
+			<td class="picturematte"  style="background-color:{MATTECOLOR};">{IMAGE_IMG_CODE}</td>
+			<td style="width:{PROJECTFRAMEWIDTH}px;height:{IMG_Height}px;{FRAME_SHOW_HIDE}"><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_r.jpg" width="{PROJECTFRAMEWIDTH}" height={IMG_Height}></td>
+		</tr>
+		<tr style="{FRAME_SHOW_HIDE}">
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_bl.jpg" width="{PROJECTFRAMEWIDTH}" height="{PROJECTFRAMEWIDTH}"></td>
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_b.jpg" width="{IMG_Width}" height="{PROJECTFRAMEWIDTH}"></td>
+			<td><img alt="" class="pictureframe" style="{FRAME_SHOW_HIDE}" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{THEME}/_img/pictureframes/{FRAMESTYLE_ID}_br.jpg" width="{PROJECTFRAMEWIDTH}" height="{PROJECTFRAMEWIDTH}"></td>
+		</tr>
+	</table>
+</div>

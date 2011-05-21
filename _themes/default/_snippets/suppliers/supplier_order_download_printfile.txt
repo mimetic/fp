@@ -1,0 +1,2 @@
+<br>
+<b>Print File Sent</b>: A high-resolution print file has been sent to your FTP download site. Please use this file to print the picture.

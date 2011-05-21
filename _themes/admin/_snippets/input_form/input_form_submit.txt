@@ -1,0 +1,5 @@
+<!--input_form_submit-->
+<div align="center">
+	<button type="submit" VALUE="Submit">Save</button>
+	<INPUT TYPE=reset VALUE="Reset"><BR>
+</div>

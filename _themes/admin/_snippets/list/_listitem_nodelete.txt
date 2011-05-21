@@ -1,0 +1,2 @@
+<!--listitem_nodelete.txt-->
+<button style="color:#888;" type="button" value="1" onclick="return false;" >Delete</button>

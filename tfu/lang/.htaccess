@@ -1,0 +1,6 @@
+## Allow access to extension xml files##
+<Files ~ "\.xml$">
+Order allow,deny
+Allow from all
+Satisfy all
+</Files> 

@@ -1,0 +1,10 @@
+<!--gallery_set_image_item_format_picture_solo: ID {Images_ImageID} -->
+<div rel="lightbox-mygroup" class="exhibit-image-entry" id="image_{Images_ImageID}_{Projects_ID}">
+	<div class="source" style="width:{OriginalWidth}px;height:{OriginalHeight}px;" src="{SLIDES}/{Images_URL}" title="{Images_Title}">{SLIDES}/{Images_URL}</div>
+	<div id="caption_{Images_ImageID}_{Projects_ID}" class="description" style="display:none;">
+		<snippet name="gallery_picture_full_info_solo" />
+		<div class="buttons">
+			{SHOW_CAPTION_BUTTON} {BuyPrint} {BuyPrintText} 
+		</div>
+	</div>
+</div>

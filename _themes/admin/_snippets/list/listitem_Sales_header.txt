@@ -1,0 +1,30 @@
+<!--listitem_Sales_header-->
+<tr class="listing">
+	<th width="150" valign="top">
+		Sale ID 
+	</th>
+	<th width="100" valign="top">
+		Cat. Num. 
+	</th>
+	<th width="200" valign="top">
+		Name 
+	</th>
+	<th width="120" valign="top" style="text-align:right;padding-right:20px;">
+		Date 
+	</th>
+	<th width="120" valign="top" style="text-align:right;padding-right:20px;">
+		NET Sale 
+	</th>
+	<th width="120" valign="top" class="{sorter: false}" style="text-align:right;padding-right:20px;">
+		Total/Detail 
+	</th>
+	<th width="150" valign="top" class="{sorter: false}">
+		Customer Address 
+	</th>
+	<th width="150" valign="top" class="{sorter: false}">
+		Description 
+	</th>
+	<th width="150" valign="top" class="{sorter: false}">
+		Print C.O.A. 
+	</th>
+</tr>

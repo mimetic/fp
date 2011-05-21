@@ -1,0 +1,2 @@
+The user <B>{username}</B> already exists. That must be you, and you don't
+need to sign up a second time.<BR>

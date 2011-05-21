@@ -1,0 +1,135 @@
+<!--frameshop_controls-->
+<div class="frameshop_controlpanel">
+	<div class="frameshop_controls">
+		<div class="infobox">
+			<!--<xxxsnippet name="frameshop_controls_paypal" >-->
+			<snippet name="frameshop_controls_fpcart" >
+			<!--
+			<div class="helptext">
+			<span id="TaxMethodMsg"></span> International buyers may be charged additional import duties by their home countries.
+			{DELAY_MESSAGE}
+			</div>
+			-->
+
+
+		</div>
+
+		<div class="infobox">
+<!-- SHOPPING CART -->
+			<span class="fpcart_collapsable fpcart_compacter_switch">
+				<input id="cart_compact_switch" type="checkbox" checked>Compact
+			</span>
+			<h2 id="fpcart_collapser" style="border-bottom: 0px;padding-bottom: 0px;"></h2>
+			<input id="fpcart_cart_compact" value="1" type="hidden">			
+			<div class="fpcart_collapsable">
+				<div id="fpcart"></div>
+			</div>
+<!-- end shopping cart -->
+		</div>
+
+
+		
+			{FP_FRAMESHOP_TESTING_MSG}
+		<div class="infobox" style="margin-bottom:0px;">
+<!--			<h2>
+				About this Picture 
+			</h2>-->
+			<p>
+				<b>&#8220;<span id="display_title">{Title}</span>&#8221;</b><br>
+				<span class="faded">{fp:by}</span> <span id="display_name">{Artist}</span><br>
+				<span id="display_date">{Date}</span>
+			</p>
+			<p>
+				<span class="faded">Catalog number <span id="display_number">{CATALOGNUMBER}</span><br></span>
+			</p>
+			<p>
+				<i>{Caption}</i><br>
+				<i>{Place}</i>
+			</p>
+			{PRINTING_DETAILS}
+			<p>
+				<span class="faded">Master Printer:</span> 
+				<button id="ui-open-masterprinter" class="ui-button" type="button">{fp:about} {PRINTERNAME}</button>
+			</p>
+			<br>
+			<!--<h2>Edition Information</h2>-->
+
+			{EDITIONINFO}
+		</div>
+	</div>
+	<input id="FRAMESHOP_PICTURE_SCALING" type="hidden" value="0">
+</div>
+
+<input id="artistname" type="hidden" value="{Artists_Fullname}">
+<input id="imagename" type="hidden" value="{Title}">
+
+<input id="currentpapersize"  type="hidden" value="">
+
+<input id="currentartistID"  type="hidden" value="{Artists_ID}">
+<input id="currentfilename"  type="hidden" value="{URL}">
+
+<!-- preview settings -->
+<input id="currentfilepath" name="currentfilepath" type="hidden" value="{WHICHPIX}/{URL}">
+<input id="pictureframespath"  type="hidden" value="{THEMESDIR}/{THEME}/_img/pictureframes/">
+<input id="previewwidth"  type="hidden" value="{IMG_Width}">
+<input id="previewheight"  type="hidden" value="{IMG_Height}">
+<input id="frameshoprefsize"  type="hidden" value="{FRAMESHOP_REF_SIZE}">
+
+<input id="currentimageID"  type="hidden" value="{ID}">
+<input id="dimslist"  type="hidden" value="{DIMENSIONS}">
+<input id="pdimslist"  type="hidden" value="{PDIMENSIONS}">
+<input id="framecodeslist"  type="hidden" value="{FRAMECODES}">
+<input id="framemattepricelist"  type="hidden" value="{FRAMEMATTEPRICELIST}">
+<input id="framenameslist"  type="hidden" value="{FRAMES}">
+<input id="framewidthslist"  type="hidden" value="{FRAMEWIDTHS}">
+<input id="glazingcodeslist"  type="hidden" value="{GLAZINGCODES}">
+<input id="glazinglist"  type="hidden" value="{GLAZING}">
+<input id="mattecodeslist"  type="hidden" value="{MATTECODES}">
+<input id="mattenameslist"  type="hidden" value="{MATTENAMES}">
+<input id="matteslist"  type="hidden" value="{MATTES}">
+<input id="maxdimslist"  type="hidden" value="{MAXDIMS}">
+<input id="maxpdimslist"  type="hidden" value="{MAXPDIMS}">
+<input id="maxprintsizelist"  type="hidden" value="{MAXPRINTSIZE}">
+<input id="papercodeslist"  type="hidden" value="{PAPERCODES}">
+<input id="paperslist"  type="hidden" value="{PAPERS}">
+<input id="inksetcodeslist"  type="hidden" value="{INKSETCODES}">
+<input id="inksetslist"  type="hidden" value="{INKSETS}">
+<input id="rowslist"  type="hidden" value="{ROWS}">
+<input id="sizeslist"  type="hidden" value="{SIZES}">
+<input id="papersizeslist"  type="hidden" value="{PAPERSIZES}">
+<input id="system_matte_bottom"  type="hidden" value="{MATTEBOTTOM}">
+<input id="system_matte_scale"  type="hidden" value="{MATTESCALE}">
+<input id="system_matte_width"  type="hidden" value="{MATTE_BORDER_WIDTH}">
+<input id="system_artborder_width"  type="hidden" value="{FRAMESHOP_ART_BORDER}">
+<input id="system_artborder_color"  type="hidden" value="{FRAMESHOP_ART_BORDER_COLOR}">
+<input id="system_artborder_noframe"  type="hidden" value="{FRAMESHOP_ART_BORDER_NOFRAME}">
+<input id="system_units"  type="hidden" value="{UNITS}">
+<input id="printpricelist"  type="hidden" value="{printpricelist}">
+<input id="weightlist"  type="hidden" value="{WEIGHTS}">
+<input id="weightsframedlist"  type="hidden" value="{WEIGHTSFRAMED}">
+
+<!-- supplier settings -->
+<input id="print_cost_unit"  type="hidden" value="{print_cost_unit}">
+<input id="print_cost_area_unit"  type="hidden" value="{print_cost_area_unit}">
+<input id="print_cost_rate"  type="hidden" value="{PRINT_COST_RATE}">
+<input id="print_cost_method"  type="hidden" value="{PRINT_COST_METHOD}">
+<input id="shipping_handling_rates"  type="hidden" value="{SHIP_HANDLING_RATES}">
+
+<!-- priceset -->
+<input id="pricesetid" type="hidden" value="{PRICESETID}">
+
+
+<div id="ui-dialog-masterprinter" title="{fp:about} {PRINTERNAME}" style="display:none;">
+	<p class="story">{SUPPLIERINFO}</p>
+</div>
+
+<script type="text/javascript" language="javascript">
+<!--
+	
+var FP_PRICING_DATA = { };
+
+//-->
+
+</script>
+
+<snippet name="frameshop_codes" >

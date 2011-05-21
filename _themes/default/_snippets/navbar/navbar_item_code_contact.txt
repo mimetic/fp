@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar unselected" href="mailto:{FP_INFO_EMAIL}">{fp:Contact}</a></div>

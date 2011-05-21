@@ -1,0 +1,6 @@
+<table class="entryform" >
+<div class="entryform">
+<div class="section">
+{LIST}
+</div>
+</div>

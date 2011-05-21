@@ -1,0 +1,114 @@
+/* @override http://localhost/fp/_themes/admin/_js/jquery/imagesorter/imagesorter.css */
+
+#inlist {
+	float: left;
+	min-height: 12em;
+}
+
+* html #inlist {
+	height: 12em;
+}
+
+/* IE6 */
+
+#outlist {
+	float: left;
+	min-height: 12em;
+}
+
+* html #outlist {
+	height: 12em;
+}
+
+/* IE6 */
+
+.gallery.custom-state-active {
+	background: #eee;
+}
+
+.gallery li {
+	float: left;
+	width: 160px;
+	height: 160px;
+	padding: 5px;
+	margin: 0 5px 5px 0;
+	text-align: center;
+}
+
+.gallery li h5 {
+	margin: 0 0 5px;
+	cursor: move;
+}
+
+.gallery li a {
+	float: right;
+}
+
+.gallery li a.ui-icon-zoomin {
+	float: left;
+}
+
+.gallery li img {
+	height: 100px;
+	cursor: move;
+}
+
+.imagesorter-container {
+	padding: 10px;
+	background-color: #222;
+}
+
+.imagesorter-item {
+	background-color: #fcfcfc;
+	position: relative;
+}
+
+.imagesorter-item.video {
+	background-color: #ccedff;
+	background: url(images/video.png) repeat;
+}
+
+.gallery .imagesorter-item img {
+	border: 1px inset #fffeff;
+}
+
+.gallery .imagesorter-item.video img {
+	border: 1px inset #7fbfff;
+}
+
+.gallery .imagesorter-item.artwork img {
+	border: 1px inset #764000;
+}
+
+.imagesorter-item-header {
+	height: 14px;
+	overflow: hidden;
+}
+
+.imagesorter-icon {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+.imagesorter-remove, .imagesorter-add {
+	right: 20px;
+}
+
+.imagesorter h3 {
+	color: #999899;
+	margin-bottom: 10px;
+}
+
+#imagesort_select_project {
+	background-color: #b3b2b3;
+	font-size: 12px;
+}
+
+div.imagesorter-slider-frame {
+	padding: 10px !important;
+}
+
+.imagesorter-item .video {
+	
+}

@@ -1,0 +1,31 @@
+<!--uploader_http-->
+<h4 class="sectiontitle">[ <a href="#" class="toggler">-</a> ] Add New Pictures (Non-Flash Uploader) </h4>
+<div class="advanced">
+	<FORM NAME="form2" ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+		<INPUT type="hidden" NAME=action VALUE="update">
+		<INPUT type="hidden" NAME=subset VALUE="Pictures">
+		<INPUT type="hidden" NAME=ID VALUE="{ID}">
+		<INPUT type="hidden" NAME=table VALUE="{table}">
+		<INPUT type="hidden" NAME=artistID VALUE="{artistID}">
+		<INPUT type="hidden" NAME=action VALUE="{action}">
+		<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}" >
+	
+		<H4 class="sectiontitle" style="margin-bottom:8px;">Add a New Picture (without Flash):</H4>
+		<div class="helptext">Use this uploader if the computer you're using doesn't have Flash installed.
+		Click 'browse' to choose a picture from your computer.<BR>
+		Maximum size allowed is 2&nbsp;MB; however, your connection to the Internet might
+		 only allow smaller files. It's common that you can only upload 1 MB files.</div><BR>
+		<table border="0" cellspacing="0" cellpadding="20"><tr>
+			<td>
+			<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}">
+			<input name="userfileTag" type="hidden" value="project_image">
+			<input name="userfile[]" type="file" size="50"><BR>
+			</td><td align="center">
+				<INPUT TYPE=submit NAME=Submit VALUE="Add Picture(s)">
+			</td>
+		</tr></table>
+		{ftpinfo}
+		<BR>
+		<BR>
+	</FORM>
+</div>

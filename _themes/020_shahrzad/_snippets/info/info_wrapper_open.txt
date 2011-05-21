@@ -1,0 +1,17 @@
+<table class="gallerytable">
+	<tr>
+		<td valign="top" class="gallery-intro">
+			<div class="gallery-description">
+				<div class="{sectionclass} gallery-title editable">
+					{TITLE}
+				</div>
+			</div>
+			{NAVBAR} {NAVBAR_2} 
+		</td>
+		<td class="galleryColSpacer" style="{gallery_spacing}">
+			<div class="galleryColSpacer" style="{gallery_spacing}">
+			</div>
+		</td>
+		<td class="infoSingleColumn" valign="top">
+			{sampleimage}
+			<div class="statement">

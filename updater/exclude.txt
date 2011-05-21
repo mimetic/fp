@@ -1,0 +1,51 @@
+# Exclude list for rsync for updating the fp gallery system
+
+_config/fpconfig.inc
+_config/my_config.inc
+_user/
+.*
+.*/
+.svn/
+.git/
+
+# Careful about the htaccess ... if we're using a modified version it will break
+# if we update it!
+.htaccess
+
+__*
+_backups/*
+*.bbproject*
+*.log
+audio/
+autosender_queue/*
+autosender/*
+error_log
+fp_private
+imtest/
+log/
+mysql_archives/
+nbproject*
+newsletter_dropbox/
+photos/
+phpemaillist/error_log
+phpemaillist/include/config.php
+pp/my_config.inc
+pp/process_*
+queue/
+test*
+tmp/
+updater
+updater/*
+updater/autoupdates/*
+
+# themes not ready for general public
+_themes/009_zreportage/
+_themes/012_default_jquery/
+_themes/013_default_thickbox/
+_themes/014_popups_with_frames
+
+# protect mysql updater entries from deletion on remote
+*.sql
+
+# development files
+FP To do.txt

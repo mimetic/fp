@@ -1,0 +1,10 @@
+<div align="center">
+	<h3>Activation Accepted</h3>
+</div>
+<BR>
+<p style="width=auto;margin-left:8em;margin-right:8em;">
+	Thank you for activating your account. You can now start working with your {FP_SYSTEM_DISPLAY_NAME} to show your pictures and sell your work.
+</p>
+<p style="width=auto;margin-left:8em;margin-right:8em;">
+	Go to the {fp:administration} to begin: <a href="http://{SYSTEMURL}{FP_SYSTEM_ADMIN_SCRIPT}">http://{SYSTEMURL}{FP_SYSTEM_ADMIN_SCRIPT}</a>
+</p>

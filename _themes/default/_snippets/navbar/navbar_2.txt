@@ -1,0 +1,4 @@
+<!-- navbar2 -->
+<div id="bottomnav" class="editable"><div class="{SECTIONCLASS} navbar-container">
+	{menuitems}
+</div></div>

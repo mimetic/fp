@@ -1,0 +1,2 @@
+<!--msg_locked_no_change_ed_size-->
+<span class="helptext">(the {fp:priceset} for this {fp:image} is <b>locked</b>. You cannot change the edition size.)</span>

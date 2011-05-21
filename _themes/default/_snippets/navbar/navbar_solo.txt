@@ -1,0 +1,4 @@
+<!--navbar solo-->
+<div id="topnav" class="editable" style="clear:both"><div class="{SECTIONCLASS} navbar-container">
+	{menuitems}
+</div></div>

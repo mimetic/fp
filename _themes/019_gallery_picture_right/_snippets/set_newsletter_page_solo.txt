@@ -1,0 +1,10 @@
+Projects	block_format	{newsletter_set_projects_block_format}
+Projects	item_format	{newsletter_set_projects_item_format}
+Projects	separator_format	{newsletter_block_separator}
+Artists	block_format	<h2>New photographs</h2>{list}
+Artists	item_format	<!--empty-->
+Artists	separator_format	, 
+Images	block_format	{newsletter_set_images_block_format}
+Images	item_format	{newsletter_set_images_item_format}
+Images	separator_format	<!--empty-->
+Images	row_format	</tr><tr>

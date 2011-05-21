@@ -1,0 +1,34 @@
+/* @override http://localhost/fp/_themes/006_branded/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+/* branding styles */
+#container
+{
+	padding-top: 15px;
+}
+
+#header
+{
+	height: 70px;
+	border: 0px #FFC solid;
+}
+
+#headerc .listpage
+{
+	background-image: none;
+}
+
+#headerc .groups
+{
+	background-image: none;
+}
+
+#banner
+{
+	background-repeat: no-repeat;
+	background-position: top left;
+	height: 70px;
+	width: 100%;
+}

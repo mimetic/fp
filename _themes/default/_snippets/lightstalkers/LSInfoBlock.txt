@@ -1,0 +1,7 @@
+<!-- START LSInfoBlock -->
+<TABLE rules="rows" width="325" border="0" cellpadding="4px">
+{list}
+</table>
+<div class="helptext">For more information see {Firstname} {Lastname}'s profile on <a href="http://www.lightstalkers.org/{shortname}" target="_blank">www.lightstalkers.org</a>
+</div>
+<!-- END LSInfoBlock -->

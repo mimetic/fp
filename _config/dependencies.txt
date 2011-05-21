@@ -1,0 +1,44 @@
+// This file allows a deletion in one table to
+// make deletions in others. So, if deleting a Project
+// means related entries in the Parts database should go,
+// this is describe here.
+// 
+// Each line is a command, actually. If we do a "CascadeDelete ("{PROJECTS}", $ID)
+// then each line, here, which is a {PROJECTS} line, will be executed by
+// mysql.
+// 
+// This table is a list of dependencies of the databases
+// Each line is executed for a given commmand and table
+// Note, to delete a row, not only are dependent tables listed
+// but the main table, too.
+// $ID and $table are replaced in the 'where' part with the main table's ID 
+// and the name of the main table.
+
+// If there's no entry for a table, it's assumed nothing
+// special has to be done with that table, and edit/delete/insert
+// happen without considering other tables.
+
+//COMMAND	TABLE	SUBTABLE	WHERE
+delete	{ARTISTS}	{ARTISTS}	ID = "{ID}"
+delete	{ARTISTS}	{PARTS}	PartTable = "{ARTISTS}" AND PartID = "{ID}"
+delete	{ARTISTS}	{PARTS}	PartTable = "{IMAGES}" AND ArtistID = "{ID}"
+delete	{ARTISTS}	{PARTS}	PartTable = "{STORIES}" AND ArtistID = "{ID}"
+delete	{ARTISTS}	{PARTS}	PartTable = "{GROUPS}" AND ArtistID = "{ID}"
+delete	{ARTISTS}	{IMAGES}	ArtistID = "{ID}"
+delete	{ARTISTS}	{PROJECTS}	ArtistID = "{ID}"
+delete	{ARTISTS}	{STORIES}	ArtistID = "{ID}"
+delete	{ARTISTS}	{GROUPS}	ArtistID = "{ID}"
+
+delete	{PROJECTS}	{PROJECTS}	ID = "{ID}"
+delete	{PROJECTS}	{PARTS}	ProjectID = "{ID}"
+
+delete	{IMAGES}	{IMAGES}	ID = "{ID}"
+delete	{IMAGES}	{COMMENTS}	ImageID = "{ID}"
+delete	{IMAGES}	{KEYWORDS}	ImageID = "{ID}"
+delete	{IMAGES}	{PARTS}	PartTable = "{IMAGES}" AND PartID = "{ID}"
+
+delete	{SETS}	{SETS}	ID = "{ID}"
+delete	{SETS}	{RATINGS}	SetID = "{ID}"
+
+delete	{GROUPS}	{GROUPS}	ID = "{ID}"
+delete	{GROUPS}	{PARTS}	PartTable = "{GROUPS}" AND PartID = "{ID}"

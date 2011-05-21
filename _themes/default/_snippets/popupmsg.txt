@@ -1,0 +1,2 @@
+<!--popupmsg-->
+{Images_Title} <i>by</i> {Images_FullName}

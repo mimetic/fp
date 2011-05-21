@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+	<TITLE>Color Picker simple Demo</TITLE>
+	<script src="jquery/jquery.js" type="text/javascript"></script>
+	<script src="jquery/ifx.js" type="text/javascript"></script>
+	<script src="jquery/idrop.js" type="text/javascript"></script>
+	<script src="jquery/idrag.js" type="text/javascript"></script>
+	<script src="jquery/iutil.js" type="text/javascript"></script>
+	<script src="jquery/islider.js" type="text/javascript"></script>
+
+	<script src="jquery/color_picker/color_picker.js" type="text/javascript"></script>
+
+
+	<link href="jquery/color_picker/color_picker.css" rel="stylesheet" type="text/css">
+	<!-- compliance patch for microsoft browsers -->
+	<!--[if lt IE 7]>
+		<link rel="stylesheet" href="jquery/color_picker/color_picker-ie6.css" type="text/css">
+	<![endif]-->
+	<!--[if gte IE 7]>
+		<link rel="stylesheet" href="jquery/color_picker/color_picker-ie7.css" type="text/css">
+	<![endif]-->
+</HEAD>
+<BODY>
+	<div>
+	<FORM name="fcp">
+
+
+Test :		<div style="float:left;width:65px;display:block"><input type="text" id="myhexcode" value="" style="width:60px;"></div><div style="float:left">
+
+<a href="javascript:void(0);" rel="colorpicker&objcode=myhexcode&objshow=myshowcolor&showrgb=1&okfunc=myokfunc" style="text-decoration:none;" ><div id="myshowcolor" style="width:15px;height:15px;border:1px solid black;">&nbsp;</div></a></div>
+
+
+		<script language="Javascript">
+
+			function myokfunc(){
+				alert("This is my custom function which is launched after setting the color");
+			}
+
+			//init colorpicker:
+			$(document).ready(
+				function()
+				{
+					$.ColorPicker.init();
+				}
+			);
+
+		</script>
+	</FORM>
+	</div>
+	<br /><br />
+	<a href="jQColorPicker.zip">Download the jQuery Color Picker and the Demo</a>
+</BODY>
+</HTML>

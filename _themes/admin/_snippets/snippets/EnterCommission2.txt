@@ -1,0 +1,26 @@
+<!-- EnterCommission2 -->
+		<TR class="entryform">
+			<TH valign="top" align="right">
+				Optional Commission :
+			</TH>
+			<TD>
+				<INPUT TYPE=text NAME='Commission2' VALUE="{Commission2}" SIZE="2">% <span class="helptext">(optional)</span>
+				<div class="helptext">
+					Enter a number between 0% and 100% for the percentage your chosen cause will get from the NET of a sale.
+				</div>
+			</TD>
+		</TR>
+		
+		<TR class="entryform">
+			<TH class="entryform" align="right">
+				Optional Pay Pal <br>
+				Business Email Address: 
+			</TH>
+			<TD>
+				<INPUT TYPE=text NAME="PayPalBusiness2" VALUE="{PayPalBusiness2}" SIZE=64> <span class="helptext">(optional)</span>
+				<BR>
+				<div class="helptext">
+					Enter the Paypal account (an email address) to which you wish to send your Optional Commission.
+				</div>
+			</TD>
+		</TR>

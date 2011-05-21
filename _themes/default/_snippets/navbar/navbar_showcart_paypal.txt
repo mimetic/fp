@@ -1,0 +1,4 @@
+<!--
+<span class="navbardivider">|</span>
+<div class="navbar"><a class="navbar unselected" href="https://{PAYPAL_POST_TO_URL}/cgi-bin/webscr?cmd=_cart&amp;business={PAYPAL_BUSINESS_EMAIL}&amp;display=1" target="_cart">{fp:Shopping Cart}</a></div>
+-->

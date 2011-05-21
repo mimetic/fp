@@ -1,0 +1,2 @@
+<!-- javascript_libraries -->
+{EXTRA_JS_LIBRARIES}

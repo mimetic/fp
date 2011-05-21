@@ -1,0 +1,8 @@
+<!--price_too_low_for_matchprint-->
+<div class="ui-widget">
+	<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+		<p>
+			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Alert:</strong> Print Only Item Price is less than Print Only Item Cost plus a {CURRENCY}{MatchPrintPrice} {CURRENCY_AFTER} test print!
+		</p>
+	</div>
+</div>

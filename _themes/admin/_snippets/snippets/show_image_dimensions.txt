@@ -1,0 +1,1 @@
+File size: <span style="white-space: nowrap;">{width} &times; {height} px</span>

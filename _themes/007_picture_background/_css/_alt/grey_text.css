@@ -1,0 +1,181 @@
+/* Modified : August 31, 2008, 3:39 pm  */
+/* Title Color: The large type at the top of the page, usually your name, an exhibition name, or a gallery name. */
+#header-title { color : #453434; }
+
+/* Subtitle Color : This is the smaller type in the header, usually your name or a gallery name. */
+#header-subtitle { color : transparent; }
+
+/* Footer Text Color: Text at the bottom of page */
+#foot { color : #453434; }
+
+/* Go To Slideshow Links: In an exhibition, the links to "Go to Slideshow" or "Go to Light Table" */
+a:link, a:visited { color : #453434; }
+
+a:hover { color: #cb6900; }
+
+a:active { color: #7f4100; }
+
+
+/* Current Menu Item: The color of the menu item that matches the page you are looking at.  */
+a.sspop:link { color: #eee; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.sspop:visited { color: #eee; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.sspop:link { color: #aaa; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.sspop:visited { color: #aaa; }
+
+/* Text Color in FAQ, About..., Stories, etc. */
+body { color : #453434; }
+
+/* Location Text :  In an exhibition, the text which names where the pictures or artwork was created.  */
+.location { color : #ccc; }
+
+/* Project title : The exhibition title in the exhibition information. */
+.projecttitle { color : white; }
+
+/* Current Menu Item: The color of the menu item that matches the page you are looking at.  */
+a.navbar.selected:link { color : #222; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:visited { color : #222; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:link { color : #222; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:visited { color : #222; }
+
+/* Menu bar divider : The color of the divider between each menu item. */
+.navbardivider { color : #888; }
+
+/* ADVANCED - Gallery statement and description text */
+.gallery-description { color : #999; }
+
+/* ADVANCED - Project Title in a Gallery (top of page) */
+.groups #header-title { color : #ccc; }
+
+/* ADVANCED - Gallery Listing navigation: Links to go to different galleries near bottom of page. */
+.group-nav { color : #eee; }
+
+/* ADVANCED - Menu bar - current page - click */
+.navbar .selected a:active { color : #666; }
+
+/* ADVANCED - Menu bar - current page - hover */
+.navbar .selected a:hover { color : #666; }
+
+/* ADVANCED - Menu bar - other pages - click */
+.navbar .unselected a:active { color : #ccc; }
+
+/* ADVANCED - Menu bar - other pages - hover */
+.navbar .unselected a:hover { color : #666; }
+
+/* ADVANCED - Menu bar - slide show - click/hover */
+.navbar .slideshow a:hover, .navbar.slideshow a:active { color : #666; }
+
+/* ADVANCED - Menu bar - slide show */
+.navbar .slideshow a:link, .navbar.slideshow a:visited { color : #999; }
+
+/* ADVANCED - Gallery - Popup picture - close link */
+#popup_close { color : #333; }
+
+/* ADVANCED - Gallery - Popup picture - previous link */
+#popup_prev { color : #333; }
+
+/* ADVANCED - Gallery - Popup picture - next link */
+#popup_next { color : #333; }
+
+/* Caption Color */
+.caption { color : #222; }
+
+/* ---------- BACKGROUND COLORS ---------- */
+/* Background Color */
+body { background-color : #222; }
+
+/* Menu Bar Color */
+.navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Gallery Listing */
+.groups .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Gallery */
+.gallery .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Exhibition Listing */
+.listpage .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Menu bar - Slideshow*/
+.slideshow .navbar-container { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons: Links and buttons for tear sheets, Buy Print, etc. */
+a.gallery-info-link:link { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons: Links and buttons for tear sheets, Buy Print, etc. */
+a.gallery-info-link:visited { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons - click: Links and buttons for tear sheets, Buy Print, etc. */
+a.gallery-info-link:active { background-color : transparent; }
+
+/* ADVANCED - Exhibition Links/buttons - hover: Links and buttons for tear sheets, Buy Print, etc. */
+a.gallery-info-link:hover { background-color : transparent; }
+
+/* ---------- BORDERS ---------- */
+/* Exhibition Vertical Line : The color of the vertical line dividing the exhibition information from the pictures. */
+.gallery-description-divider { border-color : #333; }
+
+/* Menu Bar Border Colors: The thin lines above and below the menu bar.   */
+.navbar-container { border-color: transparent; }
+
+/* Footer Top Border : A thin line above the footer area at the bottom. */
+#footer-box { border-top : transparent; }
+
+/* ADVANCED - Menu bar - Exhibition: Use "transparent" to remove borders. */
+.gallery .navbar-container { border-color: transparent; }
+
+/* ADVANCED - Menu bar - Gallery Listing: Use "transparent" to remove borders. */
+.groups .navbar-container { border-color: transparent; }
+
+/* ADVANCED - Menu bar - Exhibition Listing: Use "transparent" to remove borders. */
+.listpage .navbar-container { border-color: transparent; }
+
+/* ADVANCED - Menu bar - Slideshow: Use "transparent" to remove borders. */
+.slideshow .navbar-container { border-color: transparent; }
+
+/* ADVANCED - Exhibition Links/buttons: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button { color: #ccc; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc. - Links */
+a.gallery-info-link:link { color: #d8b997; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc. - Links */
+a.gallery-info-link:visited { color: #d8b997; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc. - Hover */
+a.gallery-info-link:hover { color: #ef0; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc.  - Active */
+a.gallery-info-link:active { color: #ff9c33; }
+
+/* ---------- FONTS ---------- */
+/* Default Website Font */
+html { font-family : "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, Verdana, sans-serif; }
+
+/* Title and Subtitle Font */
+#header { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* Story Font */
+.story P { font-family : Georgia, "MS Serif", "New York", "Palatino Linotype",; }
+
+/* ADVANCED - Top Menu bar font */
+#topnav { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* ADVANCED - Bottom Menu bar font */
+#bottomnav { font-family : "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif; }
+
+/* ---------- OTHER ---------- */
+.ui-icon {
+	background-image: url(../../../default/_img/ui/ui-icons_888888_256x240.png);
+}

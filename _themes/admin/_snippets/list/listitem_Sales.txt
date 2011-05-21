@@ -1,0 +1,36 @@
+<!--listitem_Orders-->
+<tr class="listing">
+	<td width="200" valign="top" title="{SaleID}">
+		Sale #{SaleID} 
+	</td>
+	<td title="{item_number}">
+		Catalog #{item_number} 
+	</td>
+	<td title="{item_name}">
+		{item_name} 
+	</td>
+	<td title="{paymentdatetime}">
+		<i>{payment_date}</i>
+	</td>
+	<td width="120" valign="top" style="text-align:right;padding-right:20px;">
+		{CURRENCY} {Amount_Formatted} {mc_currency}
+	</td>
+	<td width="120" valign="top">
+		{SALES_SUMMARY}
+	</td>
+	<td width="200" valign="top">
+		{address_name}
+		<br>
+		{address_street}
+		<br>
+		{address_city}, {address_state} {address_zip}
+		<br>
+	</td>
+	<td width="200" valign="top">
+		{item_desc} 
+	</td>
+	<td>
+		<button type="button" class="buttonlink" href="coa.php?saleID={SaleID}" target="_blank">
+			Print C.O.A.</a> 
+	</td>
+</tr>

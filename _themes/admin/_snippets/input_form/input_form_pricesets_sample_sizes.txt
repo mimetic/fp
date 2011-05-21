@@ -1,0 +1,5 @@
+<!--input_form_pricesets_sample_sizes-->
+<h4>For a 3:2 image (35mm film shape):</h4>
+Image: {SS_WIDTH} &times; {SS_HEIGHT} {UNITS}<br>
+Paper: {SS_PAPER_WIDTH} &times; {SS_PAPER_HEIGHT} {UNITS}<br>
+Matte/Frame: {SS_FRAME_WIDTH} &times; {SS_FRAME_HEIGHT} {UNITS}

@@ -1,0 +1,34 @@
+ 
+<tr class="entryform" style="white-space:normal;">
+	<td valign="top" align="left" style="white-space:normal;width:25%;">
+		{VALUES} 
+		<div style="color: #222;">
+			<b> {TITLE} </b> (text {PARAM}) 
+		</div>
+		<div class="helptext">
+			{DESCRIPTION}
+			<br>
+			<br>
+			CSS name: <i>{NAME}</i> 
+		</div>
+	</td>
+	<td>
+		<div class="te-body">
+			<table style="width:100%;padding:5px;">
+				<tr>
+					<td valign="top" width=150 style="white-space:nowrap;">
+						<div style="margin-right:20px;">
+							<input onchange="showColorC('{X}')" id='c_{X}' name='c_{X}' type='text' value="{VALUE}" size=10 class="iColorPicker"> 
+						</div>
+						<input id="{NAME}" name="{NAME}" type="hidden" value="{VALUE}"> 
+					</td>
+					<td valign="top" width="20%">
+						<div id='c1_{X}' class="{CLEANNAME}" style="color:{VALUE};">
+							Sample Text 
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</td>
+</tr>

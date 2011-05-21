@@ -1,0 +1,2 @@
+<!--error_theme_editor_not_exists-->
+Sorry, there's been a mistake! The theme you chose doesn't exist. This is clearly my fault, not yours, and you should complain immediately to the system administrator!

@@ -1,0 +1,15 @@
+/* TEXT COLORS */
+.footer      { color : #333; }
+.footer-on-dark      { color : #555; }
+.frameshop input      { color : #fff; }
+.frameshop select      { color : #333; }
+body      { background-color : #222; }
+.navbar .selected a:active      { color : #F30; }
+.navbar .selected a:hover      { color : #F90; }
+.navbar .selected a:link, .navbar .selected a:visited      { color : #ccc; }
+.navbar .slideshow a:hover, .navbar.slideshow a:active      { color : #F90; }
+.navbar .slideshow a:link, .navbar.slideshow a:visited      { color : #222; }
+.navbar a:active      { color : #F30; }
+.navbar a:hover      { color : #F90; }
+.navbar a:link, .navbar a:visited      { color : #444; }
+.navbardivider      { color : #888; }

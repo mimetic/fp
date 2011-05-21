@@ -1,0 +1,2 @@
+<!--sample_picture-->
+<img src="{PHOTOS}/{Images_URL}" alt="Picture" class="sampleimage">

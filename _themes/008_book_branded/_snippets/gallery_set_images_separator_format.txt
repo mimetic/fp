@@ -1,0 +1,11 @@
+<!--gallery_set_images_separator_format.txt-->
+		</tr>
+	</table>
+	<!-- end row container -->
+</div>
+<!-- end of item -->
+<!-- new item -->
+<div class="galleryRowDivider" style="{gallery_group_spacing}"></div>
+<div class="row-container">
+	<table class="gallerytable">
+		<tr>

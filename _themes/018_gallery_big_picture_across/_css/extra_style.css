@@ -1,0 +1,123 @@
+/* @override http://localhost/fp/_themes/018_gallery_big_picture_across/_css/extra_style.css */
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+
+/* This allows you to keep the default CSS and add new styles for your theme */
+
+body {
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+}
+
+#container {
+	
+
+}
+
+#mainlist {
+	width: 220px;
+	margin-top: 20px;
+}
+
+#mainlist .listpage {
+	width: 180px;
+}
+
+#header {
+	margin-bottom: 16px;
+}
+
+#foot {
+	
+
+}
+
+.listpage #foot {
+	
+}
+
+#footer-box {
+	border-style: none;
+}
+
+#page.fullpage #pictureBehind {
+	display: none;
+}
+
+#ontop {
+	
+}
+
+.listpage #pictureBehind, .groups #pictureBehind, .catalog #pictureBehind {
+	position: absolute;
+	z-index: -50;
+	display: block;
+	background: no-repeat center top;
+	margin: 90px 30px 80px 200px;
+}
+
+.gallery #pictureBehind {
+	display: none;
+}
+
+div.navbar {
+	margin: 0;
+}
+
+.navbar-container {
+	border-top: 0px none #ccc;
+	border-bottom: 0px none #ccc;
+}
+
+.navbardivider {
+	
+}
+
+#topnav .navbar-container {
+	opacity: 1;
+}
+
+#topnav {
+	border-top: 0px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 0px #E6E6E6 solid;
+	border-left: 0px;
+}
+
+.navbar-container-off {
+	opacity: .20;
+	border-top: 0px #111 solid;
+	border-bottom: 0px #111 solid;
+}
+
+#bottomnav .navbar-container {
+	border-top: 0px transparent solid;
+	border-bottom: 0px transparent solid;
+}
+
+#bottomnav {
+	border-top: 0px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 0px #E6E6E6 solid;
+	border-left: 0px;
+/
+
+*
+	margin: 0;
+	*/
+}
+
+.list .title {
+	white-space: normal;
+}
+
+.list .item {
+	line-height: 1.25em;
+	margin-top: 10px;
+}
+
+#page.groups .description, #page.groups .statement {
+	width: 170px;
+	padding-bottom: 20px;
+}

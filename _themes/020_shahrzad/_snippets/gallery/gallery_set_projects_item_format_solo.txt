@@ -1,0 +1,25 @@
+<!--gallery_set_projects_item_format-->
+<td valign="top" class="gallery-intro">
+	<div class="gallery-description">
+		<div class="{sectionclass} gallery-title editable">
+			{subtitle}
+		</div>
+		<div class="projecttitle">
+			{Projects_Title} 
+		</div>
+		<div class="projectowner">
+			{Artists_Fullname}
+		</div>
+		<div class="location">
+			{Projects_Place} 
+		</div>
+		<div class="statement">
+			{Projects_Statement} 
+		</div>
+		<div class="description">
+			{Projects_Description} 
+		</div>
+		{storylist} 
+	</div>
+	{NAVBAR} {NAVBAR_2} 
+</td>

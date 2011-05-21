@@ -1,0 +1,31 @@
+<!-- system_vars -->
+<script type="text/javascript" language="javascript">
+	var FP_GALLERY_TYPE = "{FP_GALLERY_TYPE}";
+	var FP_SINGLE_GALLERY_SINGLE_USER = "{FP_SINGLE_GALLERY_SINGLE_USER}";
+	var FP_SINGLE_GALLERY_MULTI_USER = "{FP_SINGLE_GALLERY_MULTI_USER}";
+	var FP_MULTI_GALLERY_SINGLE_USER = "{FP_MULTI_GALLERY_SINGLE_USER}";
+	var FP_MULTI_GALLERY_MULTI_USER = "{FP_MULTI_GALLERY_MULTI_USER}";
+	var FP_GALLERY_URL = "http://{SYSTEMURL}index.php?forceshow=1&fp_user={USERID}";
+	var FP_USER_ID = "{USERID}";
+	
+	var FP_SYSTEM_MISSING_PICTURE = "{FP_SYSTEM_MISSING_PICTURE_PATH}";
+	var FP_BLANK_IMAGE = "{BLANK_IMAGE}";
+	
+
+	var FPMatteRatio = 1 - {MATTESCALE};
+	FPMatteRatio = FPMatteRatio.toFixed(2);
+	var FPMatteBottomRatio = {MATTEBOTTOM};
+	FPMatteBottomRatio = FPMatteBottomRatio.toFixed(2);
+	var FPartborder = {FRAMESHOP_ART_BORDER};
+	var FP_UNITS = "{UNITS}";
+	var FP_PRINTDPI = "{FP_PRINTDPI}";
+	
+	var FP_SHIPPER_CODE = "{FP_SHIPPER_CODE}";
+	var FP_CURRENCY = "{CURRENCY}";
+	var FP_CURRENCY_AFTER = "{CURRENCY_AFTER}";
+	var FP_CURRENCY_POSITION = "{CURRENCY_POSITION}";
+	var FP_CUSTOMER_PICKUP_TEXT = "{FP_CUSTOMER_PICKUP_TEXT}";
+	
+	var FP_THEME_PREVIEW_PATHS_OBJ = {THEMEPREVIEWPATHS};
+	
+</script>

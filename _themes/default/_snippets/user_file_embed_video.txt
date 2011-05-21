@@ -1,0 +1,1 @@
+<a class="media" href="{PATH}">{TEXT}</a>

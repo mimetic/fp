@@ -1,0 +1,9 @@
+<!--gallery_picture_full_info-->
+<div class="captionblock overlay">
+	<div class="buttons">
+		{SHOW_CAPTION_BUTTON} {BuyPrint} {BuyPrintText} 
+	</div>
+	<div class="title"><span class="image_title">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}</div>
+	{Images_Caption}
+	{Credit}
+</div>

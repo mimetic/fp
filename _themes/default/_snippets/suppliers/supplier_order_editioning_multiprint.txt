@@ -1,0 +1,3 @@
+		<td valign="top">These are prints {EDITION_NUMBER_RANGE} in an edition of {EDITION_SIZE} prints.<br>
+			Please label these prints from "{NUMBER_IN_EDITION}/{EDITION_SIZE}" to "{LAST_EDITION_NUMBER}/{EDITION_SIZE}"	</td>
+		<td valign="top"></td>

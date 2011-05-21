@@ -1,0 +1,1 @@
+<div class="tip" title="{text}">?</div>

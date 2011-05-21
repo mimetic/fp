@@ -1,0 +1,39 @@
+
+link 	a:link, a:visited	 color	#b70
+hover	a:hover	 color	#b70
+active 	a:active 	 color	#b70
+Title in list 	.item .title 	 color	#F80
+Picture Caption 	.caption 	 color	#333
+Gallery Description 	.gallery-description 	 color	#333
+Help Text 	.helptext 	 color	#555
+Important Help Text 	.important 	 color	red
+Place Exhibition Created 	.location 	 color	#333
+Menu - Current Item - Active 	.navbar .selected a:active 	 color	#F80
+Menu - Current Item - hover 	.navbar .selected a:hover 	 color	#f80
+Menu - Current Item - link	.navbar .selected a:link, .navbar .selected a:visited	 color	#b70
+Menu - Other Items - link	.navbar .unselected a:link, .navbar .unselected a:visited 	 color	#b70
+Menu - Slideshow - link 	.navbar .slideshow a:link, .navbar .slideshow a:visited 	 color	#666
+Menu - Slideshow - hover 	.navbar .slideshow a:hover 	 color	#b70
+Menu - Slideshow - active 	.navbar .slideshow a:active 	 color	#FC0
+Menu Item Divider 	.navbardivider 	 color	#333
+Popup Caption 	.popup_window_caption 	 color	#999999
+Page Title 	.projecttitle 	 color	#999999
+Page Subtitle 	#head-subtitle 	 color	#444
+Page Title II	#head-title 	 color	#222
+Popup Close 	#popup_close 	 color	#222
+Popup Previous 	#popup_prev 	 color	#222
+Popup Next	#popup_next 	 color	#222
+Default Text 	body 	 color	#222
+
+Page Background 	body 	 background-color	#999
+Menu Bar Background 	.navbar-container 	 background-color	transparent
+Menu Bar Gallery List Background 	.navbar-container-off 	 background-color	transparent
+Menu Bar Slideshow Background 	.navbar-container-slideshow 	 background-color	transparent
+
+Menu Bar Top Line 	.navbar-container 	 border-top	1px solid #888
+Menu Bar Bottom Line 	.navbar-container 	 border-bottom	1px solid #888
+Menu Bar Gallery List Top Line	.navbar-container-off 	 border-top	1px solid #888
+Menu Bar Gallery List Bottom Line 	.navbar-container-off 	 border-bottom	1px solid #888
+Menu Bar Slideshow Top Line 	.navbar-container-slideshow 	 border-top	1px solid #888
+Menu Bar Slideshow Bottom Line 	.navbar-container-slideshow 	 border-bottom	1px solid #888
+Gallery Vertical Divider	.gallery-description-divider	 border-left	1px solid blue

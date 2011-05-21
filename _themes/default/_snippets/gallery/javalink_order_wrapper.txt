@@ -1,0 +1,4 @@
+<div class="printavailable">
+<A HREF="javascript:goPtp('{URL}', '{pps}', '{text}', '{PrintSalesID}');">Order a print</A><BR>
+(Available up to {text})
+</div>

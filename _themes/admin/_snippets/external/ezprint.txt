@@ -1,0 +1,2 @@
+<!-- EZPRINT -->
+<a href="http://ezprints.mye-pix.com/partner.asp?count=1&title0={Images_Title}}&lo_res_url0=http://www.frontline-photos.com/images/photos/thumbnails/{Images_URL}&hi_res_url0=http://www.frontline-photos.com/images/photos/originals/{Images_URL}&albumid0=&width0=1000&height0=1000" target="_blank">

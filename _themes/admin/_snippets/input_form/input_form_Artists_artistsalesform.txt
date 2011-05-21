@@ -1,0 +1,214 @@
+<!--input_form_Artists_artistsalesform-->
+<a id="printsales"><h3 class="tabletitle">Print Sales</h3></a> 
+<div align="right">
+	<div class="helptext">
+		<span class="important">*</span> marked fields must be filled in 
+	</div>
+</div>
+<div class="ui-widget ui-widget-content ui-corner-all" style="padding:20px;">
+	<table class="entryform">
+		{commission} {commission2} 
+		<tr class="entryform">
+			<th class="entryform" align="right">
+				Ecommerce : 
+			</th>
+			<td>
+				{ecommerceList} <span class="important">(required for sales)</span> 
+				<br>
+				<div class="helptext">
+					Choose an Ecommerce method. You can immediately turn of ALL sales here. 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th class="entryform" align="right">
+				{fp:supplier} : 
+			</th>
+			<td>
+				{VendorList} <span class="important">(required for sales)</span> 
+				<br>
+				<div class="helptext">
+					Choose a sales and printing service to sell your pictures. 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th class="entryform" align="right">
+				Print Service 
+				<br>
+				Customer&nbsp;ID : 
+			</th>
+			<td>
+				<input type="text" name="PrintSalesID" value="{PrintSalesID}" size="50"> <span class="important">(required for sales)</span> 
+				<br>
+				<div class="helptext">
+					This is your ID with your printing service, <em>which they should give to you.</em> Often this will simply be your name. 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th class="entryform" align="right">
+				Pay Pal Business 
+				<br>
+				Email Address: 
+			</th>
+			<td>
+				<input type="text" name="PayPalBusiness" value="{PayPalBusiness}" size="64"> <span class="important">(required for sales)</span> 
+				<br>
+				<div class="helptext">
+					Your <em>Pay Pal Business Email Address</em> is probably your email address. When you set up a PayPal business, or just have an account with PayPal, you use an email address for it. Enter that email address, here. 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th class="entryform" align="right">
+				Buy at Cost : 
+			</th>
+			<td>
+				To buy a {fp:print} <b>at cost</b> in {fp:The Print Shop}, use your password as a {fp:coupon}. 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th class="entryform" align="right">
+				{fp:coupon}s : 
+			</th>
+			<td>
+				<div style="float:right;" id="coupongen">
+				</div>
+<textarea id="param_05" name="param_05" rows="4" style="width:500px;">{param_05}</textarea> 
+				<br>
+				<div class="helptext">
+					{fp:coupon}s allow buyers to get discounts. You should also have a {fp:coupon}s to allow you to buy your own pictures from your printer at cost, i.e. 100% discount. 
+					<br>
+					Each line has three parts, separated by a comma: 
+					<ol>
+						<li>
+							Name of the discount, e.g. Art Dealer or At Cost 
+						<li>
+							The {fp:coupon} &mdash; use a long, complex code that cannot be stolen or figured out! 
+						<li>
+							The amount of the discount in percent, a number between 1 and 100. 
+					</ol>
+					Examples: 
+					<ul>
+						<li>
+							At Cost,1jd39381z,100 
+							<br>
+						<li>
+							Art Dealer,a7d6dj19d,50 
+					</ul>
+				</div>
+			</td>
+		</tr>
+<!--
+		<TR class="entryform">
+			<TH class="entryform" align="right">
+				Custom Print Sales Script : 
+			</TH>
+			<TD>
+<textarea name="PrintSaleCode" rows="4" cols="80">{PrintSaleCode}</textarea>
+				<BR>
+				<div class="helptext">
+					You can enter your own HTML code that will go below each picture in a gallery. This is normally used to buy prints, but you could do something else with it, such as connect to an on-line catalog.
+					<BR>
+					<em>Special codes:</em>
+					<BR>
+					<tt>&#123;PayPal}</tt> is replaced with a Pay Pal purchase button.
+					<BR>
+					<tt>&#123;Pictopia}</tt> is replaced with a Pictopia purchase button.
+					<BR>
+					<tt>&#123;ItemName}</tt> is replaced with the picture title.
+					<BR>
+					<tt>&#123;ItemNumber}</tt> is replaced with the picture's ID number in {FP_SYSTEM_DISPLAY_NAME}.
+					<BR>
+					<tt>&#123;ItemAmount}</tt> is replaced with the default price for the picture.
+					<BR>
+					<tt>&#123;BusinessEmail}</tt> is replaced with the Pay Pal Business Email Address (see above).
+					<BR>
+				</div>
+			</TD>
+		</TR>
+-->
+<!--
+<TR class="entryform">
+		<TH class="entryform" align="right">
+			Default Price for Prints :
+		</TH>
+		<TD>
+			{PriceList}<BR>
+			<div class="helptext">
+			For PayPal, you must set a default price for each print. These prices are set up
+			in the <EM>Prices</em> list.
+			</div>
+
+		</TD>
+	</TR>
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			DefaultEditionSize :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="DefaultEditionSize" VALUE="{DefaultEditionSize}" SIZE=30>
+		</TD>
+	</TR>
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			DefaultWidth :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="DefaultWidth" VALUE="{DefaultWidth}" SIZE=30>
+		</TD>
+	</TR>
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			DefaultHeight :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="DefaultHeight" VALUE="{DefaultHeight}" SIZE=30>
+		</TD>
+	</TR>
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			DefaultMatted :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="DefaultMatted" VALUE="{DefaultMatted}" SIZE=30>
+		</TD>
+	</TR>
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			Picture Frame Width :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="PictureFrameWidth" VALUE="{PictureFrameWidth}" SIZE=3><BR>
+			<div class="helptext">
+			The width of the picture frame around a matted picture.
+			</div>
+		</TD>
+	</TR>
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			Picture Frame Color :<BR>
+			
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="PictureFrameColor" VALUE="{PictureFrameColor}" SIZE=7><BR>
+			<div class="helptext">
+			The color of the picture frame around a matted picture,
+			written as a web color, e.g. #000000 is black. You must begin with # or the system might record your number wrong.
+			</div>
+		</TD>
+	</TR>
+-->
+		<tr>
+			<th class="entryform" align="right">
+			</th>
+			<td style="text-align:right;">
+				<div align="right">
+					<snippet name="save" />
+					<snippet name="cancel" />
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

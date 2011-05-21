@@ -1,0 +1,2 @@
+<div class="js-kit-comments" permalink="" path="{Images_ImageID}" label="Comment"></div>
+<script src="http://js-kit.com/comments.js" type="text/javascript" language="javascript"></script>

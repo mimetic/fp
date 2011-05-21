@@ -1,0 +1,6 @@
+<!--navbar_newsletter-->
+<div id="topnav" style="clear:both">
+	<div class="navbar">
+		<div class="slogan">{SUBTITLE}</div><div class="divider"> | </div><div class="date">{DATE}</div>
+	</div>
+</div>

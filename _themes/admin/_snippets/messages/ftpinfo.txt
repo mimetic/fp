@@ -1,0 +1,3 @@
+<div class="helptext">
+NOTE: If you want to upload your pictures using FTP, the FTP picture directory for this project is <B>{ProjectDir}</B>. However, you must request an FTP password from the {FP_SYSTEM_DISPLAY_NAME} administrator before you do this.
+</div>

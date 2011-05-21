@@ -1,0 +1,4 @@
+<!-- lightstalkers_link -->
+<a href="http://www.lightstalkers.org/{shortname}" target="_blank">
+<span class="ui-icon ui-icon-extlink" style="display:inline-block;height:13px;width:13px;margin-right:0px;margin-top:2px;"></span>
+Lightstalkers <span >(http://www.lightstalkers.org/{shortname})</span> </a><br>

@@ -1,0 +1,33 @@
+<!-- list_tableformat -->
+<!-- START LISTING -->
+<h3 class="tabletitle">{TABLE_ALIAS}</h3> 
+
+{LIST_HEADER}
+<table class="listing tablesorter">
+	<thead>
+		{header} 
+	</thead>
+	<tbody>
+		{listing} 
+	</tbody>
+		{totals}
+</table>
+<!--
+<div id="pager" class="pager">
+	<form>
+		<img src="{THEMESDIR}/{ADMIN_THEME}/_js/jquery/tablesorter/addons/pager/icons/first.png" class="first">
+		<img src="{THEMESDIR}/{ADMIN_THEME}/_js/jquery/tablesorter/addons/pager/icons/prev.png" class="prev">
+		<input type="text" class="pagedisplay">
+		<img src="{THEMESDIR}/{ADMIN_THEME}/_js/jquery/tablesorter/addons/pager/icons/next.png" class="next">
+		<img src="{THEMESDIR}/{ADMIN_THEME}/_js/jquery/tablesorter/addons/pager/icons/last.png" class="last">
+		<select class="pagesize">
+			<option value="20">20</option>
+			<option selected value="40">40</option>
+			<option value="60">60</option>
+		</select>
+	</form>
+</div>
+-->
+{LIST_FOOTER}
+
+<!-- END LISTING -->

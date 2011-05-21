@@ -1,0 +1,2 @@
+<!-- save -->
+<button name="action" value="update_close" type="submit">Save and Close</button>

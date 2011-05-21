@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title> FP Setup </title> 
+</head>
+<body>
+<h1> Setup FP </h1> 
+<div style="color:red;">
+	<i>WARNING: SETUP CAN BE SUPER-DUPER DESTRUCTIVE TO AN EXISTING SITE!</i> 
+</div>
+<br>
+{error} 
+
+<br>
+Database = {MYSQLDB} | user = {MYSQLUSER} | password = {MYSQLPASSWORD}<br>
+<div style="border:1px solid black;background-color:white;padding:10px;">
+	<h3>Results</h3> 
+	{msg} 
+</div>
+
+
+<form action="setup.php" method="post">
+	It is best to do these in order. At least, setting up the database depends on the config file working.<br>
+	<div style="border:1px solid blue;background-color:#E8E8FF;padding:10px;">
+		<input name="action" type="radio" value=""> Verify MYSQL connection and do nothing else?
+		<br><br>
+		
+		<input name="action" type="radio" value="makeuserdirs"> Set up user directories? 
+		<br>
+		<i> If they don't exist, create the user directories and add any files to them (.htaccess, index.html, etc.) they may require. <b> This is not destructive.</b> </i> 
+		<br><br>
+	
+		<input name="action" type="radio" value="updateconfig"> Update the Config file? 
+		<br>
+		<i> Set this box to change the config settings, below. </i> 
+		<br><br>
+	
+		
+		<input name="action" type="radio" value="makedb"> Set up Database? 
+		<br>
+		<i> <span style="color:red">This will erase any existing databases!</span> Set this box to set up the databases. Don't if you are just changing other settings. </i> 
+		<br><br>
+	
+		<input type="submit" onclick="return confirm('This may DESTROY any existing data! Are you sure?');"> <br>
+		<span style="color:red;">Setup Password: <input name="syspass" id="syspass" type="password" size="30" value="{syspass}"></span>
+
+	</div>
+	
+	<h3>User Config:</h3>
+	<i><font color="#990000">Blank entries will not be changed.</font></i><br>
+	<br>
+
+	Developing: {DEVELOPING}
+	<br>
+	<i>
+		 If this is true, the system URL is set to a testing URL which matches the PayPal Sandbox IPN URL. If TRUE, the URL of the system should match the URL of the real PayPal IPN URL.
+	</i>
+	<br>
+	<br>
+
+	FP_SIGNUP_OPEN: {FP_SIGNUP_OPEN}
+	<br>
+	<i>
+		 If this is true, users can sign up for accounts with the system.
+	</i>
+	<br>
+	<br>
+
+	FP_SIGNUP_CODE: <input name="FP_SIGNUP_CODE" value="{FP_SIGNUP_CODE}" type="input" size="60"> 
+	<br>
+	<i> This is the special code to allow new users to sign up. </i> 
+	<br><br>
+
+
+	Use Paypal Sandbox: {FP_USE_PAYPAL_SANDBOX}
+	<br>
+	<i> This determines whether we use the PayPal sandbox for testing or we use the real system for payments (both receiving and mass payments). True means we use the Sandbox. False means we use the real Paypal website. </i> 
+	<br><br>
+
+	Set FP_INSTALLATION_TYPE: {FP_INSTALLATION_TYPE} 
+	<br><br>
+
+	Set FP_GALLERY_TYPE: {FP_GALLERY_TYPE} 
+	<br><br>
+
+	Site Username: <input name="siteusername" value="{siteusername}" type="input" size="60"> 
+	<br>
+	<i> This is the same name for FTP or signing into the control panel. </i> 
+	<br><br>
+
+	Domain Name: <input name="FP_DOMAIN_NAME" value="{FP_DOMAIN_NAME}" type="input" size="60"> 
+	<br>
+	<i> The domain name of the site, e.g. mydomain.com </i> 
+	<br><br>
+
+	MySQL Password: <input name="MYSQLPASSWORD" value="{MYSQLPASSWORD}" type="input" size="60"> 
+	<br>
+	<i> We use username_fp for the MySQL username. Enter the password for this MySQL user. </i> 
+	<br><br>
+
+	Gallery Name: <input name="SYSTEMNAME" value="{SYSTEMNAME}" type="input" size="60"> 
+	<br>
+	<i> The UNIX-compatible name of your gallery website, no spaces or special characters, e.g. "frontline_photos". </i> 
+	<br><br>
+
+	Gallery Name: <input name="SYSTEM_DISPLAY_NAME" value="{SYSTEM_DISPLAY_NAME}" type="input" size="60"> 
+	<br>
+	<i> The name of your gallery website, e.g. "Frontline Photos". </i> 
+	<br><br>
+
+	FP System Storage: <input name="Storage" type="input" size="5" value="{Storage}"> 
+	<br><br>
+
+	FP System Administrator Password: <input name="Password" type="input" size="60" value="{Password}"> 
+	<br><br>
+
+	FP System Administrator Password Hint: <input name="Password_Reminder" type="input" size="60" value="{Password_Reminder}"> 
+	<br><br>
+
+	FP System Email: <input name="FP_SYSTEM_EMAIL" value="{FP_SYSTEM_EMAIL}" type="input" size="60"> 
+	<BR>
+	<i> Email address for system messages sent to you, e.g. pictures added. </i> 
+	<br><br>
+
+	FP System Info Email: <input name="FP_INFO_EMAIL" value="{FP_INFO_EMAIL}" type="input" size="60"> 
+	<BR>
+	<i> Email address for informational messages from the system to clients, etc. </i> 
+	<br><br>
+
+	FP System Commerce Email: <input name="FP_COMMERCE_EMAIL" value="{FP_COMMERCE_EMAIL}" type="input" size="60"> 
+	<BR>
+	<i> Email address for sales information and queries, etc. Usually "sales@mydomain.com"</i> 
+	<br><br>
+
+	Google Analytics Tracking Code: <input name="FP_GOOGLE_ANALYTICS_CODE" value="{FP_GOOGLE_ANALYTICS_CODE}" type="input" size="60"> 
+	<br><br>
+<h3>First User Info</h3>
+	Email (used for username): <input name="Email" value="{Email}" type="input" size="60"> 
+	<BR>
+	<i> User's email. Also used as username. </i> 
+	<br><br>
+
+	Firstname: <input name="Firstname" value="{Firstname}" type="input" size="60"> 
+	<BR>
+	<i> First user, first name. </i> 
+	<br><br>
+
+	Lastname: <input name="Lastname" value="{Lastname}" type="input" size="60"> 
+	<BR>
+	<i> First user, last name. </i> 
+	<br><br>
+
+	Set Access Level: {USER_GALLERY_TYPE} 
+	<br><br>
+
+
+
+	<input type="submit" onclick="return confirm('This will DESTROY any existing data! Are you sure?');"> 
+</form>
+</body>
+</html>

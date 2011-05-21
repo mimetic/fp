@@ -1,0 +1,6 @@
+<div class="subtitlebox">
+	<div class="infotext">
+		You are signed in as <B>{UserFullname}</b> in a <b>{FP_USER_TYPE_NAME} system.</b> Your access level is "{accessleveldesc}", you have <b>{freespace} MB</b> free of {userSpace} MB storage space. {SubscriptionDesc}
+	</div>
+</div>
+

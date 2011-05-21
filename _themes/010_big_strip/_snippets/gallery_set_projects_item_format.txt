@@ -1,0 +1,20 @@
+<!--gallery_set_projects_item_format-->
+<td valign="top" class="gallery" width="100">
+	<div class="gallery-description" >
+		<div id="header-title">{title}</div>
+
+		<div class="projecttitle">
+			{Projects_Title}
+		</div>
+		<div class="location">
+			{Projects_Place}
+		</div>
+		<div class="statement">
+			{Projects_Statement}
+		</div>
+		<div class="description">
+			{Projects_Description}
+		</div>
+		{storylist}
+	</div>
+</td>

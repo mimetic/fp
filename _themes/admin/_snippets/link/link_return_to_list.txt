@@ -1,0 +1,1 @@
+<a href="?action=show_list&amp;table={TABLE}&amp;PageID={PageTabID}"><b>{fp:Return_to_list}</b></a>

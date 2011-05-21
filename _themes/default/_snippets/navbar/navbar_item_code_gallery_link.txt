@@ -1,0 +1,1 @@
+<div class="navbar return-link"><a class="navbar unselected" href="groups.php">{fp:Return to}&nbsp;{FP_SYSTEM_DISPLAY_NAME}</a></div>

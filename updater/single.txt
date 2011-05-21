@@ -1,0 +1,5 @@
+# Include a single item for rsync for updating the fp gallery system
+# This is safer than sending everything in the fp directory
+# Maybe, later, we'll do that and use the exclude only?
+
+rss.php

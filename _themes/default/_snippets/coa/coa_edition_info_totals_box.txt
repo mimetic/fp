@@ -1,0 +1,5 @@
+<!--frameshop_edition_info_totals_box-->
+<div class="caption">
+	{LIMITEDEDITIONINFO}
+	{UNLIMITEDEDITIONINFO}
+</div>

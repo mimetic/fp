@@ -1,0 +1,4 @@
+<!--places_set_artists_item_format-->
+<div class="item editable">
+	<a class="item subtitle editable" href="artist.php?ArtistID={Artists_ArtistID}">{Artists_ArtistFullname}</a>
+</div>

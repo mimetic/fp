@@ -1,0 +1,10 @@
+<tr class="listing-header">
+	<th valign="top" width="40%">
+		Title
+	</th>
+	<th valign="top" width="20%" class="{sorter: false}">
+		{fp:Theme}
+	</th>
+	<th valign="top" width="40%" class="{sorter: false}">
+	</th>
+</tr>

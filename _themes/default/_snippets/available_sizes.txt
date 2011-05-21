@@ -1,0 +1,1 @@
+<span class="oldstylenums">{SIZE_INCHES}</span>&nbsp;in / <span class="oldstylenums">{SIZE_CM}</span>&nbsp;cm

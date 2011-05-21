@@ -1,0 +1,22 @@
+<!-- MENU1 -->
+<div class="ui-tabs ui-widget ui-widget-content" style="border-bottom:none;" id="tabs">
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header">
+		<li id="navbar-tab12" class="tab12 hot  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=help&amp;subset=quickstart&amp;PageID=tab12">START</a></li>
+		<li id="navbar-tab2" class="tab2 ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={ARTISTS}&amp;PageID=tab2">{fp:artists}</a></li>
+		<li id="navbar-tab3" class="tab3  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={PROJECTS}&amp;PageID=tab3">{fp:projects}</a></li>
+		<li id="navbar-tab4" class="tab4  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={GROUPS}&amp;PageID=tab4">{fp:groups}</a></li>
+		<li id="navbar-tab5" class="tab5  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={IMAGES}&amp;PageID=tab5&amp;ProjectID={FIRST_PROJECT_ID}">{fp:images}</a></li>
+		<li id="navbar-tab6" class="tab6  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={STORIES}&amp;PageID=tab6">{fp:Stories}</a></li>
+		<li id="navbar-tab13" class="tab13  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=display&amp;table={FILES}&amp;PageID=tab13">{fp:files}</a></li>
+		<li id="navbar-tab7" class="tab7 menu-tab-block-end  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={PRICESETS}&amp;PageID=tab7">{fp:PricesMenu}</a></li>
+		<li id="navbar-tab8" class="tab8  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=show_list&amp;table={SUPPLIERS}&amp;PageID=tab8">{fp:Suppliers}</a></li>
+		<!--<li id="navbar-tab9" class="tab9  ui-state-default ui-corner-top"><a class="my-tabs" href="http://{FP_EMAILER_ADMIN}" target="_blank">{fp:Newsletter}</a></li>-->
+		<!--<li id="navbar-tab10" class="tab10  ui-state-default ui-corner-top"><a class="my-tabs" href="snippeteditor.php?action=list&amp;PageID=tab10" target="_blank">Snippets</a></li>-->
+		<!--<li id="navbar-tab12" class="tab12  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=choose_vocab_user&amp;PageID=tab12">Vocabulary</a></li>-->
+		<li id="navbar-tab11" class="tab11  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=themeeditor&amp;PageID=tab11">{fp:Theme Editor}</a></li>
+		<li id="navbar-tabxy" class="tab menu-tab-block-end  ui-state-default ui-corner-top"><a class="my-tabs" href="http://{SYSTEMURL}index.php?forceshow=1" target="_blank">&rarr;See Website<!--{FP_SYSTEM_DISPLAY_NAME}--></a></li>
+		<li id="navbar-tabxxy" class="tab  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=logout">Log Out</a></li>
+		{SUBSCRIBE}
+		<li id="navbar-tab1" class="tab1 hot  ui-state-default ui-corner-top"><a class="my-tabs" href="?action=help&amp;subset={PAGEID}&amp;PageID=tab1">Help</a></li>
+	</ul>
+</div>

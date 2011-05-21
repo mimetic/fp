@@ -1,0 +1,12 @@
+<!--input_form_projects_stories_item -->
+<tr class="listing">
+	<td width="80%" valign="top">
+		<b>{Title}</b> 
+		<div class="helptext">
+			{Lead} 
+		</div>
+	</td>
+	<td width="20%" style="text-align:right;">
+		<a href='?action=display&amp;ID={ID}&amp;table={STORIES}'><b>Edit</b></a> | <a href='?action=confirm&amp;command=delete&amp;ID={ID}&amp;table={STORIES}&amp;desc={Name}'>Delete</a> 
+	</td>
+</tr>

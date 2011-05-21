@@ -1,0 +1,12 @@
+Places	block_format	{places_set_places_block_format}
+Places	item_format	<div class="title">{Places_Place}</div>
+Places	separator_format	<br>
+Projects	block_format	{places_set_projects_block_format}
+Projects	item_format	{places_set_projects_item_format_solo}
+Projects	separator_format	<!--empty-->
+Artists	block_format	{places_set_artists_block_format}
+Artists	item_format	{places_set_artists_item_format}
+Artists	separator_format	<!--empty -->
+Images	block_format	{projects_set_images_block_format}
+Images	item_format	{projects_set_images_item_format_solo}
+Images	separator_format	<!--empty -->

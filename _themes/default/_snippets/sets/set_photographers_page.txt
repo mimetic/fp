@@ -1,0 +1,6 @@
+Artists	block_format	<!--set_photographers_page--><div class="list">{LIST}</div>
+Artists	item_format	<div class="title editable">{Artists_Fullname} <a href="artist.php?ArtistID={Artists_ArtistID}&amp;GroupID={groupID}"><span class="subtitle editable">[info]</span></a></div>
+Artists	separator_format	<div class="spacer"></div>
+Projects	block_format	{list}<snippet name="donate_to_artist">
+Projects	item_format	<div class="item"><a class="item title editable" href="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</a><span class="list caption">&nbsp;{Projects_Lead}</span></div>
+Projects	separator_format	

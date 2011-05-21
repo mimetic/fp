@@ -1,0 +1,257 @@
+/* @override http://localhost/fp/_themes/default/_css/newsletter_style.css */
+
+html { font-family: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, Verdana, sans-serif; }
+
+body, p, ol, ul, dl, li, td, th, div { font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	background: #888;
+	color: #ccc;
+	margin: 0;
+	padding: 0;
+}
+
+p
+{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin-bottom: .25em;
+}
+
+h1, h2, h3, h4, h5
+{
+	background: none;
+	text-align: left;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.25em;
+	border-bottom: 1px dotted #333;
+}
+
+h1
+{
+	font-size: 14px;
+	padding: 20px 0 4px 0;
+	border-bottom: thin solid #999;
+}
+
+h2
+{
+	font-size: 12px;
+	margin-top: 2em;
+	margin-bottom: 0.5em;
+}
+
+h3, b.heading
+{
+	font-size: 10px;
+	letter-spacing: 0.25em;
+}
+
+h4
+{
+	font-size: 10px;
+	letter-spacing: 0;
+	text-transform: capitalize;
+}
+
+/* =============== */
+div#container_newsletter
+{
+	width: 7in;
+	background-color: #eee;
+	color: black;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	border: 1px solid gray;
+	padding: 20px;
+}
+
+.list .newsletter {
+}
+
+#error { color: red; }
+
+#footer-box
+{
+	padding: 15px;
+	border-top: 1px solid #444;
+}
+
+#main
+{
+}
+#mainc{ }
+
+#message { color: white; }
+
+#topnav
+{
+	margin-bottom: 20px;
+}
+
+.gallerypictureblock { vertical-align: bottom; }
+
+.title { 
+	color: #600;
+	margin-top: 4px;
+	margin-bottom: 8px;
+	font: 18px "Trebuchet MS", "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+#header {
+	margin-bottom: 15px;
+}
+
+#header-title {
+	font-size: 24px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	white-space: nowrap;
+	padding: 0;
+	color: gray;
+}
+
+#header-subtitle {
+	white-space: nowrap;
+	padding: 4px 10px;
+	display: none;
+}
+.navbar
+{
+	text-align: left;
+	border-top: 1px #E6E6E6 solid;
+	border-right: 0px;
+	border-bottom: 1px #E6E6E6 solid;
+	border-left: 0px;
+	white-space: nowrap;
+	height: 1.8em;
+	line-height: 1.8em;
+	font-size: 8pt;
+	font-weight: normal;
+}
+
+#container_newsletter .slogan {
+	position: relative;
+	display: inline;
+}
+
+#container_newsletter .date {
+	display: inline;
+	float: right;
+	position: relative;
+}
+
+#container_newsletter .divider {
+	display: none;
+}
+
+.title-box
+{
+	height: 50px;
+	border: 0 solid #f60;
+	margin: 0;
+}
+
+#mainlist
+{
+}
+
+
+.place
+{
+	font-style: italic;
+
+}
+
+.newsletter .credits
+{
+	font-style: italic;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-size: 7pt;
+	display: none;
+}
+
+a, a:visited
+{
+	text-decoration: none;
+	color: #600;
+	background: none;
+}
+
+#header-title a {
+	color: #333;
+}
+
+a:hover
+{
+	color: #C00;
+	background: none;
+}
+
+a:active
+{
+	background: none;
+	color: #300;
+	text-decoration: none;
+}
+
+#message { color: blue; }
+table { border-collapse: collapse; }
+
+table.picture {
+	border-collapse: collapse;
+	background-color: transparent;
+}
+
+table.picturerow {
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+table.picturerow td
+{
+}
+
+
+table.picturerow >tbody>tr>td:first-child {
+}
+
+
+td.whitespace {
+	background-color: transparent;
+	width: 0px;
+	height: 0px;
+}
+
+.newsletter-projectblock { border-bottom: 1px solid #333; }
+
+.footer
+
+{
+	color: #555;
+	text-align: center;
+	font-size: 10px;
+	display: block;
+	margin-top: 10px;
+}
+
+.newsletter div.separator {
+	border-top: 1px dotted gray;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.newsletter p.intro {
+	color: #666;
+	font-style: italic;
+	margin-bottom: 20px;
+}
+

@@ -1,0 +1,22 @@
+<div class="info-title">About the FP Galleries System</div>
+
+<H3>What is the FP Gallery System?</H3>
+<p>The FP Gallery System is a complete gallery and fine art print sales system for the Internet, designed  to meet the needs of photographers, photojournalists, artists, and art galleries.</p>
+
+FP Gallery is different from other portfolio, archive, and gallery systems. Visually, it is design to show your work as if it were in a traditional gallery, not a catalog. Functionally, it has special tools to solve problems unique to photojournalists. Finally, you can change quickly the graphic design of the site.
+
+Portfolio sites, like LiveBooks, are design almost other galleries because it lets you show your work as in a gallery, while most others 
+
+Most Internet galleries are really catalogs, and they display and sell pictures as from a catalog. The FP Gallery looks like an art gallery. It allows the artist to display his work in the way he wishes.</p>
+
+<p>The system has many special features designed for independent artists, especially photojournalists. For example, a photographer can submit pictures from the field &mdash; even from a war zone &mdash; while the system shows, edits, and sells without the need for editors, salesmen, or secretaries.</p>
+
+<p>Of course, this kind of automation and simplicity is useful for everyone, and the FP system is finding a following among all kinds of visual artists.</p>
+
+<p>A photographer in Afghanistan could present and sell pictures that are only hours old. Because all payments are delivered immediately, your purchases will allow that photographer to stay in the field longer.</p>
+
+<br>
+<br>
+<div style="border:thin solid #CCC;text-align:center;margin-top:6px;padding:4px;">
+	<a href="https://www.paypal.com/xclick/business={PAYPAL_BUSINESS_EMAIL}&amp;item_name=Donation+to+David+Gross+for+ongoing+development+and+maintenance+of+{FP_SYSTEM_DISPLAY_NAME}&amp;cn=Special+requests&amp;tax=0&amp;currency_code=USD" target="_blank">Click here to make a donation to support the development of this project!</a> 
+</div>

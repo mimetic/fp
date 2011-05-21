@@ -1,0 +1,81 @@
+<!-- SNIPPET : input_form_projects_choosepictures -->
+
+{Javascript}
+
+{DONOTHING}
+
+	<script type="text/javascript" language="javascript">
+		//<!--
+		function fp_confirm (msg) {
+			return (confirm(msg));
+		}
+		
+		$(document).ready(function(){
+		 
+			$("#mypiclist").sortable(); 
+		});
+		 
+		//-->
+	</script>
+
+<FORM NAME="form1" ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+	<INPUT type="hidden" NAME=action VALUE="update">
+	<INPUT type="hidden" NAME=subset VALUE="PictureOrder">
+	<INPUT type="hidden" NAME=ID VALUE="{ID}">
+	<INPUT type="hidden" NAME=table VALUE="{table}">
+	<INPUT type="hidden" NAME=artistID VALUE="{artistID}">
+	<INPUT type="hidden" NAME=action VALUE="{action}">
+	<INPUT type="hidden" NAME=showthumbstatus VALUE="{currentthumbstatus}">
+	<INPUT type="hidden" NAME=start VALUE="{start}">
+	<input type="hidden" name="MAX_FILE_SIZE" value="{FP_MAXUPLOADSIZE}" >
+	
+	<h3 class="tabletitle">Choose Pictures for <font color="#990000">{Title}</font> owned by <font color="#990000">{ownername}</font></h3>
+	<div class="ui-widget ui-corner-all padme links">
+		{Manageproject}
+		<span class="helptext"> | </span>
+		{ManagepicturesJQ}
+		<span class="helptext"> | </span>
+		{Uploadpictures}
+		<span class="helptext"> | </span>
+		{Orderpictures}
+		<span class="helptext"> | </span>
+		{Managestories}
+	</div>
+	<br>
+
+	<TABLE rules="rows" border="0" cellpadding="4">
+		<TR class="entryform">
+			<TD>
+			<H4 class="sectiontitle">Pictures in this Project ({ProjectDiskUsage} MB):</H4>
+				<div class="helptext" style="display:inline;float:left;">
+					Drag and drop pictures to reorder them. <span class="important">Be sure to save the new arrangement before you choose prev/next or show/hide thumbnails!</span>
+				</div>
+
+			<div align="right">
+				<div class="helptext">
+				<a href="?action=display&amp;subset=PictureOrder&amp;showthumbstatus={showthumbstatus}&amp;ID={ID}&amp;table={PROJECTS}&amp;PageID=tab3&amp;start={start}" target="_self">{showthumbstatus} thumbnails</a>
+				</div>
+			</div>
+			<BR>
+			<snippet name="prevnextbar">
+			<div id="sortable-ex" style="height: auto;">
+				<div class="picturelist" id="mypiclist" style="cursor: hand; cursor: pointer;">
+				{picturelist}
+				</div>
+				
+			</div>
+				<br>
+				<div style="text-align:center;">
+				items_per_page:  {items_per_page_popup} 
+					<button onclick="document.getElementById('neworder').value = $('#mypiclist').sortable('toArray');return true;">
+						Save New Arrangement 
+					</button>
+					<button onclick="return confirm ('Restore previous order?');">
+						Restore Arrangement 
+					</button>
+				</div>
+				<input name="neworder" id="neworder" type="hidden">
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>

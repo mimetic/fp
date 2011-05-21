@@ -1,0 +1,3 @@
+<!-- coa_edition_info_box -->
+<h2 class="coa">Edition Information</h2>
+{EDITIONINFO}

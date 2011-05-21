@@ -1,0 +1,33 @@
+<!-- fpcart_unique_item -->
+<tr>
+	<td>
+		<a href="{itemFinishing}" name="fpcart-preview-{itemID}" class="fpcart-finishing-link"><span class="fpcart-item-name">{itemName}</span>
+		</a>
+		<div id="fpcart-preview-{itemID}" class="fpcart-item-preview">
+			<img class="fpcart-item-preview" src="{itemPreviewURL}">
+		</div>
+		<span class="fpcart-item-desc">{itemDesc}</span>
+		<input type='hidden' name='fpcart_item_name[ ]' value='{itemName}' >
+		<input type='hidden' name='fpcart_item_id[ ]' value='{itemID}' >
+
+	</td>
+	<td class='fpcart-item-price'>
+		<span>{CURRENCY}&nbsp;{subtotal}</span> <input type='hidden' name='fpcart_item_price[ ]' value='{itemPrice}' />
+		<br>
+		Shipping: {CURRENCY}&nbsp;{item_display_shipping}<br>
+		Handling: {CURRENCY}&nbsp;{item_display_handling}
+		
+	</td>
+	<td class='fpcart-item-commands'>
+		<!--
+		<a href="#" class="fpcart-remove fpcart-command" value="{itemID}">{remove_item_text}</a><br>
+		<a href="{itemFinishing}" class="fpcart-finishing-link fpcart-command" >{finishing_name}</a>
+		-->
+		<button class="fpcart-button fpcart-remove ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all"  value="{itemID}">
+   			<span class="ui-button-text">Remove</span>
+		</button>
+		<button class="fpcart-button fpcart-finishing-link ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all"  value="{itemFinishing}">
+   			<span class="ui-button-text">Shop</span>
+		</button>
+	</td>
+</tr>

@@ -1,0 +1,1 @@
+<i>Gallery Member</i> : Menu bar shows link to the website gallery listing page.

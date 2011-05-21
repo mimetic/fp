@@ -1,0 +1,3 @@
+<!-- save -->
+<button name="action" value="update" type="submit" class="savebutton">Save</button> <button name="action" value="update_close" type="submit" class="saveclosebutton">Save and Close</button>
+

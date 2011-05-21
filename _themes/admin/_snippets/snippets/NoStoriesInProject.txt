@@ -1,0 +1,3 @@
+<div class="helptext">
+	No Stories in this project.
+</div>

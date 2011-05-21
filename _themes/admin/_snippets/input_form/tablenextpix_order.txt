@@ -1,0 +1,3 @@
+<span style="border:thin gray dotted;padding-left:1.0em;padding-right:1.0em;">
+<a href="?action=display&amp;subset=PictureOrder&amp;showthumbstatus={NOTshowthumbstatus}&amp;ID={ID}&amp;nextaction=update&amp;start={start}&amp;table={PROJECTS}" target="_self">Next</a>
+</span>

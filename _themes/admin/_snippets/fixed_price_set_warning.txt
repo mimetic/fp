@@ -1,0 +1,5 @@
+<!--fixed_price_set_warning-->
+<div class="important">
+WARNING: This entry contains actual sales information for <b>image #{CATALOGNUMBER}: {IMAGETITLE}</b>.<BR>
+Do not change it unless you mean to change the actual sales figures!
+</div>

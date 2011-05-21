@@ -1,0 +1,190 @@
+/* @override http://localhost/fp/_themes/default/_js/jquery/css/jquery-dig-fpcart.css */
+
+/*
+
+fpcart v1.1
+
+http://conceptlogic.com/fpcart/
+
+*/
+
+#fpcart {
+	
+}
+
+.fpcart-cart table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+/*
+	background-color: #fefef7;
+	border: 1px solid #e5e5e5;
+*/
+	margin-top: 0;
+	opacity: 1;
+}
+
+.fpcart-cart tr {
+	border-style: solid;
+	border-width: 1px;
+}
+
+.fpcart-cart th, .fpcart-cart td {
+	padding: 5px;
+	border: 1px solid #888;
+	vertical-align: top;
+	text-align: left;
+	font-weight: normal;
+	font-size: 80%;
+}
+
+div.fpcart-item-qty-box, input.fpcart-item-qty {
+	width: 2em;
+	text-align: right;
+	border: 1px solid #ccc;
+	font-size: 90%;
+	padding: 1px;
+}
+
+.fpcart-cart td.empty {
+	text-align: center;
+}
+
+.fpcart-cart p.fpcart-error {
+	text-align: center;
+	padding: 5px;
+}
+
+.fpcart-cart strong.fpcart-title {
+	
+}
+
+.fpcart-cart th {
+	/*background: #fdfae5;*/
+}
+
+th#fpcart-header {
+	text-align: right;
+	color: #7f7e7f;
+}
+
+$fpcart th#footer {
+	
+}
+
+th.fpcart-footer {
+	text-align: right;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+}
+
+td.fpcart-footer {
+	width: 8em;
+	text-align: right;
+}
+
+.fpcart-item-name {
+	width: 50%;
+}
+
+.fpcart-compact .fpcart-item-name{
+	width: 50%;
+}
+
+.fpcart-item-desc {
+	color: #666;
+	margin-top: 4px;
+	font-size: 10px;
+}
+
+td.fpcart-item-price {
+	width: auto;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.fpcart-item-price {
+	font-size: 80%;
+}
+
+.fpcart-cart a.fpcart-command {
+	font-weight: normal;
+	font-size: 90%;
+}
+
+button.fpcart-button {
+	margin: 4px;
+}
+
+button.fpcart-button .ui-button-text {
+	padding: 2px 4px;
+	font-size: 90%;
+	font-weight: normal;
+	font-style: normal;
+}
+
+td.fpcart-item-commands {
+	width: auto;
+	padding-top: 3px;
+	text-align: center;
+}
+
+td.fpcart-item-commands.fpcart-compact {
+	width: 100px;
+	line-height: 1.25em;
+	vertical-align: middle;
+	word-spacing: 0.5em;
+}
+
+.fpcart-subtotal {
+	font-weight: bold;
+	font-size: 100%;
+}
+
+
+
+.fpcart-subtotal-summary {
+	border-top: 1px solid #cccbcc;
+	padding-top: 2px;
+	margin-top: 2px;
+}
+
+.fpcart-cart span.fpcart-subtotal {
+	display: block;
+}
+
+.fpcart-cart span.fpcart-subtotal strong {
+	
+}
+
+.fpcart-cart input.fpcart-checkout {
+	float: right;
+}
+
+.fpcart-cart input.fpcart-paypal-checkout {
+	display: block;
+	padding: 10px;
+	margin: 20px auto;
+}
+
+.fpcart-tooltip {
+	border: solid 1px #000;
+	padding: 3px 7px 3px 25px;
+	background: url(checkmark.png) 3px center no-repeat #f2fcee;
+}
+
+.fpcart_compacter_switch {
+	font-size: x-small;
+	float: right;
+}
+
+.fpcart-item-preview
+{
+	border: 1 #666 solid;
+	margin: 4px;
+}
+img.fpcart-item-preview
+{
+	border: 1px #666 solid;
+}

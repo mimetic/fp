@@ -1,0 +1,4 @@
+<!-- input_form_projects_stories_block -->
+<table class="listing">
+{LIST}
+</table>

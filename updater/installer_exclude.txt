@@ -1,0 +1,36 @@
+# Exclude list for rsync for updating the fp gallery system
+
+__*
+test*
+_user/
+.*
+.svn
+*.svn
+.git
+*.log
+audio/
+error_log
+*.bbproject*
+log/
+mysql_archives/
+newsletter_dropbox/
+photos/
+phpemaillist/error_log
+_config/my_config.inc
+pp/my_config.inc
+pp/process_*
+queue/
+tmp/
+updater/
+autosender_queue
+nb_project
+
+#fp_private in testing setup is inside fp/
+fp_private/
+
+# protect mysql updater entries from deletion on remote
+*.sql
+
+# development files
+fp.bbproject
+FP To do.txt

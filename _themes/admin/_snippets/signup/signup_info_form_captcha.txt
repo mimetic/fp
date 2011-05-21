@@ -1,0 +1,118 @@
+<h2>Sign up for your free account:</h2>
+<br>
+<br>
+<div class="ui-widget">
+<form method="post" action="{FORMACTION}" name="loginform" onSubmit="return Validate();">
+	<table class="entryform">
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				First (Given) Name: 
+			</th>
+			<td valign="TOP">
+				<input type="text" name="Firstname" value="{Firstname}" maxlength="50" size="60" style="font-size: 0.8em;"> 
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				Last (Family) Name: 
+			</th>
+			<td valign="TOP">
+				<input type="text" name="Lastname" value="{Lastname}" maxlength="50" size="60" style="font-size: 0.8em;"> 
+			</td>
+		</tr>
+		
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				Password: 
+			</th>
+			<td valign="TOP">
+				<input type="text" name="Password" value="{Password}" maxlength="20" size="32" style="font-size: 0.8em;"> 
+				<input type=button value="Generate new password" onclick="document.loginform.Password.value = getPassword(12, '', false, false, true, false, true, true, true, false);" >
+				
+				<br>
+				<div class="helptext">
+					
+ 
+				</div>
+			</td>
+		</tr>
+
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				Email: 
+			</th>
+			<td valign="TOP">
+				<input type="text" name="Email" value="{Email}" maxlength="60" size="60" style="font-size: 0.8em;"> 
+				<br>
+				<div class="helptext">
+					Your username and password will be sent to this email address. This will be your user name to use {FP_SYSTEM_DISPLAY_NAME}. 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				Confirm Email: 
+			</th>
+			<td valign="TOP">
+				<input type="text" name="EmailConfirm" value="{EmailConfirm}" maxlength="60" size="60" style="font-size: 0.8em;"> 
+				<br>
+				<div class="helptext">
+					Reenter your email here to be sure you typed it correctly. 
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				Where did you 
+				<br>
+				hear about 
+				<br>
+				{FP_SYSTEM_DISPLAY_NAME}? 
+			</th>
+			<td valign="TOP">
+<textarea name="Referral" rows="4" style="width:80%;">{Referral}</textarea>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				
+			</th>
+			<td valign="TOP">
+				<input name="user_terms_of_service" id="user_terms_of_service" type="checkbox" value="tos">
+				I have read and accept the <a href="info_admin.php?topic=tos" target="_blank">Terms&nbsp;of&nbsp;Service and Privacy Policy</a>
+			</td>
+		</tr>
+		<tr class="entryform">
+			<th valign="TOP" align="RIGHT">
+				Anti-Spam Check:
+			</th>
+			<td valign="bottom">
+			<table>
+			<tr>
+			<td>
+				<img style="float:left;" src="captcha/captcha.php" alt="Security Image" width="200" height="70" border="1">
+			</td>
+			<td>
+				<span style="font-size: 30px;">&rarr;</span>
+			</td>
+			<td>
+				<input class="captcha" name="key" type="text" size="6" maxlength="6" title="Are you a HUMAN ?">
+				<br>
+				<div class="helptext">
+				Enter the letters from the picture.
+				</div>
+			</td>
+			</tr>
+			</table>
+				<div id="captcha-response"></div>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<div align="center">
+		<button class="ui-button" name="action" id="submit" value="apply" style="display:none;">
+   			<span class="ui-button-text">OK</span>
+		</button>
+	</div>
+	</form>
+</div>

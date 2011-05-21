@@ -1,0 +1,157 @@
+<div class="help">
+	<h3>How is this {fp:group} organized?</h3> 
+	<p>
+		This website shows one or more {fp:groups}. Each gallery contains one or more {fp:projects}. Each {fp:project} contains one or more {fp:images}. People who show work in this gallery are called {fp:artists}. 
+	</p>
+	<h3>What are {fp:projects}, {fp:groups}, and {fp:themes}?</h3> 
+	<p>
+		<dfn>{fp:project}</dfn> 
+		<br>
+		<cite>A collection of pictures or photographs. Like a show, photo-essay, photo-story, or book. (Exhibition - Exposition - Ausstellung - &#1080;&#1079;&#1083;&#1086;&#1078;&#1073;&#1077; - &#1074;&#1099;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; - Wystawa - Exposici&oacute;n)</cite> 
+	</p>
+	<p>
+		<dfn>{fp:group}</dfn> 
+		<br>
+		<cite>A collection of {fp:projects}, as in a real art gallery, which may show more than one artist on different floors or walls. Or, like a book, which may contain different chapters. (Gallery - Galerie - Galerie - &#1075;&#1072;&#1083;&#1077;&#1088;&#1080;&#1112;&#1072; - &#1043;&#1072;&#1083;&#1077;&#1088;&#1077;&#1103; - Galeria - Galer&iacute;a)</cite> 
+	</p>
+	<p>
+		<dfn>{fp:theme}</dfn> 
+		<br>
+		<cite>A setting that determines how a {fp:group} and/or {fp:project} will look. A {fp:theme} has rules for how to color text, backgrounds, and lines. It tells which fonts to use. You can modify {fp:themes}. (Theme - Template - Vorlage - &#1064;&#1072;&#1073;&#1083;&#1086;&#1085; - Szablon - Plantilla)</cite> 
+	</p>
+	<p>
+		<i>In case you're wondering, the terms are given in English, French, German, Serbian, Russian, Polish, and Spanish.</i> 
+	</p>
+	<h3>How to Begin?</h3> 
+	<p>
+		<i>I have a private {fp:group}...</i> 
+		<br>
+		Begin by making a new {fp:project}. Then, add some {fp:images} to your {fp:project}. You can choose a visual {fp:theme} and fine-tune it. If you want to sell {fp:pictures}, choose your {fp:priceset}. 
+	</p>
+	<p>
+		<i>I have a group {fp:group}...</i> 
+		<br>
+		Begin by making a new {fp:project}. Choose which {fp:group} the {fp:project} should be shown in. Add some {fp:images} to your {fp:project}. You can choose a visual {fp:theme} and fine-tune it. If you want to sell {fp:pictures}, choose your {fp:priceset}. You can also choose {fp:themes} for {fp:groups}. 
+	</p>
+	
+	<h3>New {fp:Projects}: How do I make a new {fp:Project}?</h3> 
+	<ol>
+		<li>
+			Click the "{fp:projects}" tab. 
+		</li>
+		<li>
+			Click the button, "New {fp:project}". 
+		</li>
+		<li>
+			Fill out the top of the form. 
+		</li>
+	</ol>
+	
+	
+	<a id="help_bkgd_pix"></a><h3>Background Pictures: How do I Choose the Background Pictures behind my {fp:Group} Page?</h3>
+	<p>
+	You can choose the set of pictures that appear in the background of your {fp:gallery} pages (when you are using a theme that shows background pictures). You do not need to "hide" the {fp:project}...if it is a "Slide Carousel", it will not appear in the lists of {fp:projects}.
+	</p>
+	<ol>
+		<li>
+			Make a new {fp:project}. Click on the {fp:projects} tab, then the "New {fp:Projects}" button. Call it "slideshow" or something like that.
+		</li>
+		<li>
+			Click on , "Show/Hide Advanced Features". Look for the checkbox called, "Slide Carousel", about the seventh item on the page. Click on the box to turn it on.
+		</li>
+		<li>
+			Click "Save". 
+		</li>
+	
+	</ol>
+	
+	<a id="help_files"></a><h3>How do I add {fp:images} to a {fp:project}?</h3> 
+	<ol>
+		<li>
+			All pictures must be JPG files, and the name must end with ".jpg". For example, <i><b>my_picture.jpg</b></i>
+			is OK, but <i><b>my_picture.tif</b></i> or <i><b>my_picture.jpeg</b></i> are not good files.
+		</li>
+		<li>
+			Click on the {fp:projects} tab. Click on "Upload", to the right of your {fp:project}'s name. Upload a new {fp:picture} to your {fp:project}. Your files must be JPG (and not "progressive" JPG).
+			<br>
+			<i>OR,</i> 
+			<br>
+			Email the picture, with <strong>full caption information</strong>, to <strong> pix@frontline-photos.com</strong>. The subject and text of your email don't matter at all. You're emailing a picture exactly as you might send it to an agency or client. The caption will appear under the picture, in the gallery. 
+		</li>
+		<li>
+			To put a picture into a project, not into your personal gallery, write "project=xxx" in the Special Instructions field of the caption info (file info in photoshop), where xxx is the 'nickname' of the new project. You'll see a space to choose a 'nickname' when you create a new project. 
+			<br>
+			Example: The nickname of my {fp:project} is "parisatnight", so I would write "project=parisatnight" in the Special Instructions field. 
+		</li>
+		<li>
+			<b> Testers: </b> If you're using the 'test', your name ("Credit" field <i> and/or </i> "Byline" field) in the caption MUST BE "John Doe". For username 'test2', set the Author field to "Jane Doe". If I set you up with your own username, you can use your real name. 
+		</li>
+	</ol>
+	<h3> Files: How do I Link to an Uploaded Files, or Embed a Video?: </h3> 
+	<p>
+		You can upload files, such as PDF, MOV, or MP3, using the {fp:files} tab. Once you have uploaded a file, you can have it show as a link, or an embedded video, inside text, anywhere in your {fp:groups}. 
+	</p>
+	<p>
+		After you upload your file, remember the name of it as it appears in the list on the left. For example, if you upload "My Picture.JPG" you will see "my_picture.jpg". Whereever you want it to appear &mdash; in your profile, for example &mdash; you must write the name with "[[" and "]]" around it. You can also add a title, if you're making a link to a file.
+	</p>
+	<h5>Examples:</h5> 
+	<ul compact>
+		<li>
+			Picture: Here is my picture: [[my_picture.jpg]] 
+		</li>
+		<li>
+			PDF file: Here is my resume: [[my_resume.pdf:Click to see my resume]] 
+		</li>
+		<li>
+			Audio: Listen to [[birds_singing.mp3:the sound of birds singing]] 
+		</li>
+		<li>
+			Video: Watch the event: [[video_of_event.mov:A Happy Day]] 
+		</li>
+	</ul>
+	<h5>How they appear:</h5> 
+	<ul>
+		<li>
+			Document files, such as "pdf","doc",or "txt" appear in as links in your the text. 
+		</li>
+		<li>
+			Picture files with the extensions "jpg","png","gif" are allowed. They will appear in the text as pictures. 
+		</li>
+		<li>
+			Video and Flash files with the extensions "swf","mov","mp4", and "mv4" will appear as movie players, be embedded in the text. 
+		</li>
+		<li>
+			Sound files, with the extension, "mp3", will pop open a new window and show a player. 
+		</li>
+	</ul>
+	<h3> Other good stuff: </h3> 
+	<ul>
+		<li>
+			set the city/country of a project, so it shows up right in "Places" listing 
+		</li>
+		<li>
+			Use matte or not, in a project...depends on the look you want 
+		</li>
+		<li>
+			Set the 'featured' lifespan, then the 'active' lifespan of a project. This controls how many days a {fp:project} is 
+		</li>
+		<li>
+			featured (i.e. on the "{fp:projects}" page), and how long after that it's still there under the photog's name on the {fp:artist}'s page. OH, just look at it, if this sounds too complex. 
+		</li>
+		<li>
+			You can ftp pictures, say to a client or agency, if you're in a hurry. OR, anything you send to frontline-photos can be automatically forwarded by FTP, if you want. 
+			<br>
+			(<a href="http://www.prophotofiler.com/" target="_blank">ProPhotoFiler</a> is better for this) 
+		</li>
+	</ul>
+	<h3> If your emailed picture didn't show up: </h3> This is the most common and frustrating problem. When you email a photo to the system, or try to submit one, be sure you have done the following: 
+	<ul>
+		<li>
+			Enter a name for the byline OR credit (it doesn't matter which) 
+		</li>
+		<li>
+			Enter 'project= 'nickname' in the Special Instructions field 
+		</li>
+	</ul>
+	<b> Write to <a href="mailto:dgross@mimetic.com"> David Gross </a> at dgross@mimetic.com if you need any help, or have any comments. Thank you for your help! </b> 
+</div>

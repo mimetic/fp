@@ -1,0 +1,65 @@
+<!-- OptionTransferBlock-->
+<FORM NAME="choosepix" ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+<INPUT type="hidden" NAME=action VALUE="update">
+<INPUT type="hidden" NAME=subset VALUE="Pictures">
+<INPUT type="hidden" NAME=ID VALUE="{ID}">
+<INPUT type="hidden" NAME=table VALUE="{table}">
+<INPUT type="hidden" NAME=artistID VALUE="{artistID}">
+<INPUT type="hidden" NAME=action VALUE="{action}">
+<!-- This variable lets the system know to change the list of images for a project!
+	 Without it, no update is done. Why? So we can update with NO images -->
+<INPUT type="hidden" NAME=updateimagelist VALUE="true">
+
+<script type="text/javascript" language="javascript">
+<!--
+// array of arrays of urls for all pictures in library
+var allurls = new Object ();
+// array of arrays of urls for all pictures in project
+var projecturls = new Object ();
+
+
+// Show thumbnail previews of pictures from the lists of pictures
+// x is the set of pictures, i.e pictures from one artist
+// whichlist tells us whether the user clicked in the list of all pictures, 
+// or in the list of pictures in the project
+// The function checks the "showpreviews" checkbox; if unchecked, nothing is shown
+// to save bandwidth.
+
+function showme (x, whichlist) {
+	i = document.getElementById(whichlist + x).selectedIndex;
+	v = document.getElementById(whichlist + x).value
+	show = document.getElementById("showpreviews").checked;
+	target = null;
+	
+	if (!show || !v) {
+		u = "{FP_SYSTEM_IMAGES}/blank.gif";
+		vb = "none";
+	} else {
+		//alert (x + ", " + whichlist + ", offset=" + i);
+		if (whichlist == "allpix") {
+			target = "previewa"+x;
+		} else {
+			target = "previewb"+x;
+		}
+		u = "{THUMBNAILS}/" + allurls[v];
+		vb = "block";
+	}
+	if (target) {
+		document.getElementById(target).src = u;
+		document.getElementById(target).style.display = vb;
+	}
+}
+
+//-->
+</script>
+
+<div style="margin-left:12px;border:1px solid #666;margin-top:8px;margin-bottom:8px;padding:4px;">
+	<input name="showpreviews" id="showpreviews" type="checkbox"> Show picture previews. 
+	<div class="helptext">
+		Turn on "Show Picture Previews" to see a thumbnail of a picture in a list as you click on it.
+	</div>
+</div>
+
+{list}
+
+</FORM>

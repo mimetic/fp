@@ -1,0 +1,9 @@
+<!--gallery_picture_full_info_popup_solo-->
+<div class="captionblock" style="margin:{PROJECTFRAMEWIDTH}px;padding:{MatteWidth}px {MatteWidth}px {MatteWidthBottom}px {MatteWidth}px;">
+	<div class="title"><span class="image_title">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}</div>
+	{Images_Caption}
+	{Credit}
+	<div class="buttons">
+		{SHOW_CAPTION_BUTTON} {BuyPrint} {BuyPrintText} 
+	</div>
+</div>

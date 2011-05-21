@@ -1,0 +1,51 @@
+<div class="info-title">Terms And Conditions</div>
+
+<h1>Terms And Conditions For Use of this Web Site</h1>
+
+<p>Here are the Terms &amp; Conditions for using this web site and for purchasing pictures and prints. This web site is located on the World Wide Web at http://{SYSTEMURL}. </p>
+
+<p>This agreement is between David Gross (the manager of this web site), the current owner of the web site {FP_SYSTEM_DISPLAY_NAME}, and any user or viewer of the web site.</p>
+
+<p style="text-transform: uppercase;">The following are the terms and conditions that govern your use of this site:</p>
+
+<p>These terms and conditions of use constitute a legal agreement between you and David Gross (also "we" or "our"). Please read this agreement ("agreement") in its entirety before you continue to use this website or download any image. If you do not agree, do not use the site.</p>
+
+<p>If you are under eighteen (18) years of age, you must have parental consent before ordering any photograph or image on this site. If you do buy or download any pictures from this site without parental consent, you are tricking us and infringing on our rights, and copyrights, as creators. Of course, we cannot be held responsible for any consequences of your trickery, and we may seek compensation for any losses we incur. We may also seek remuneration for the use, no matter how small, of our work.</p>
+
+<h3>Ownership of This Website</h3>
+
+<p>This website is owned and operated by David Gross and is provided as a service to the artists contributing to it. All of the content featured or displayed on this website, including, but not limited to, text, graphics, photographs, images, moving images, sound, illustrations and software ("Content"), is owned either by David Gross or by the creator of the content.</p>
+
+<h3>Ownership of Contributed Works</h3>
+
+<p><b>Contributers to this site (photographers and writers) own any and all material they contribute, as well as any material deriving from their work, including any copies or reduced-sized images of their own work. By contributing to this web site, Contributers are not assigning copyright to David Gross, nor anyone else, beyond the minimum necessary for use on this site and the use of its services (e.g. print sales). David Gross does not own any such submissions, nor any works derivative from those submissions. Contributers are not giving any rights to David Gross beyond the right to publish their pictures and stories on this web site, and to copy their picture files for the purposes of creating prints for sale by a printing service with the permission of the contributer.</b></p>
+
+<h3>Selling Prints</h3>
+
+<p>Contributers demonstrate their consent to the sale of prints by activating print sales in a project. This is done by choosing a "Pricing Set", so that print sales links appear in the gallery.</p>
+
+<p>David Gross is not responsible for any results of the publication of submissions by contributers to the site, especially when there are issues of copyright infringement, obscenity, or national security. David Gross agrees to remove any stolen pictures, obscene, or illegal pictures following written notification. Any consequences belong to the contributer who added the pictures or stories on the site.</p>
+
+<h3>Declaration of Protection of Intellectual Property</h3>
+
+<p>All elements of David Gross websites, including, but not limited to, the general design and the Content, are protected by trade dress, copyright, moral rights, trademark and other laws relating to intellectual property rights. Except as explicitly permitted under this or another agreement with David Gross, no portion or element of this website or its Content may be copied or retransmitted via any means and this website, its Content and all related rights shall remain the exclusive property of David Gross or its contributers unless otherwise expressly agreed. You shall indemnify David Gross against any losses, expenses, costs or damages incurred by any or all of them as a result of your breach of the terms of this Agreement or your unauthorized use of the Content and related rights. It is not David Gross' fault if someone steals pictures from it.</p>
+
+<p>This agreement refers to Images on the site, as well as physical prints or other derivations of such Images.</p>
+
+<p>You may not:</p>
+<ul>
+	<li>Sublicense, re-license, rent or lease any of the Images;</li>
+	<li>Copy or publish any of the Images to a network or bulletin board, or otherwise distribute or allow any of the Images to be distributed to or used by anyone other than the authorized users, without prior written consent from David Gross or the copyright holder of the Image;</li>
+	<li>Use any of the Images for any form of pornography, or in a libelous, defamatory, fraudulent, infringing, or otherwise illegal manner;</li>
+	<li>Use any of the Images to promote a business that sells or licenses photographic images, or otherwise competes with David Gross in any manner;</li>
+	<li>or Ship, transfer or export any of the Images into any country or use any of the Images in any manner prohibited by any export laws, restrictions or regulations.</li>
+</ul>
+
+<p>
+</p>
+<h3>Contributers to the Web Site</h3>
+
+<p>A person who adds pictures or stories to this web site is a "Contributer." You are responsible for any legal or ethical consequences of the publication or distribution of any materials of any kind you add to this web site. You agree, as demonstrated by the act of adding materials to the site, that you will not add any materials whose publication or distribution are illegal, or whose publication on this site constitute a violation of anyone's rights. Basically, you agree not to add anything you don't have copyright to or whose publication violates any laws of the United States. If you do, you agree to pay any and all costs or penalties that result from your action, including the time and expenses of David Gross.</p>
+
+
+<p>If you have any questions or comments send email to: <a href="mailto:{FP_INFO_EMAIL}">{FP_INFO_EMAIL}</a></p>

@@ -1,0 +1,4 @@
+<!-- popupBuyPrintButton -->
+{ShoppingCart}
+{Pictopia}
+{PayPal}

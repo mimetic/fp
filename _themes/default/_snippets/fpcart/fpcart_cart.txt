@@ -1,0 +1,41 @@
+<!-- fpcart_cart -->
+<!--<div style="text-align:right;">({ITEM_COUNT}&nbsp;items)</div>-->
+<div class="fpcart-cart">
+	<input id="fpcart_cart_empty_status" type="hidden" value="{CART_HAS_ITEMS}">
+	{ERRORMESSAGE}
+<script type="text/javascript" language="javascript">
+<!--
+	// activate the UI functionality of jQuery UI buttons
+	$('.ui-button').hover(
+		function(){ 
+			$(this).addClass("ui-state-hover"); 
+		},
+		function(){ 
+			$(this).removeClass("ui-state-hover"); 
+		}
+		).mousedown(function(){
+			$(this).addClass("ui-state-active"); 
+		})
+		.mouseup(function(){
+			$(this).removeClass("ui-state-active");
+		});
+//-->
+</script>
+			
+	{ERRORMESSAGE}
+	<form method='post' action='' onSubmit="return false;">
+			<table border='0'>
+				<tr>
+					<th id='fpcart-header' colspan='3'>
+						{ITEM_COUNT}&nbsp;item(s)
+					</th>
+				</tr>
+				
+				{CART_ITEMS} 
+			</table>
+			<div>
+
+	{FOOTER}
+	</form>
+</div>
+<!-- END fpcart -->

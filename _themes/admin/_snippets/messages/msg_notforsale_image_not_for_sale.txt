@@ -1,0 +1,1 @@
+This {fp:image} is marked "Not for sale". <i>Solutions: Open the {fp:image} settings and set the {fp:priceset} for this {fp:image}.</i>

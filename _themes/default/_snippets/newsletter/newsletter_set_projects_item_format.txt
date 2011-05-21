@@ -1,0 +1,15 @@
+<!--newsletter_set_projects_item_format-->
+	<p class="title">
+		<a href="http://{SYSTEMURL}gallery.php?ProjectID={Projects_ID}&amp;GroupID={groupID}">
+		&ldquo;{Projects_Title}&rdquo;
+		</a>
+	</p>
+	<p>
+		{Projects_Description}
+	</p>
+	<p>
+		{Projects_Statement}
+	</p>
+	<p class="place">
+		{Projects_Place}
+	</p>

@@ -1,0 +1,50 @@
+<!-- input_form_Stories -->
+
+{DONOTHING}
+
+<FORM ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+<input type="hidden" name="MAX_FILE_SIZE" value="275000">
+<INPUT type="hidden" NAME=ID VALUE="{ID}">
+<INPUT type="hidden" NAME=table VALUE="{table}">
+<INPUT type="hidden" NAME=action VALUE="{action}">
+<INPUT type="hidden" NAME=ProjectID VALUE="{ProjectID}">
+<INPUT type="hidden" name="PageID" VALUE="tab6">
+
+
+<h3  class="tabletitle">Edit <font color="#990000">{Title}</font> in {TABLE_ALIAS}</H3>
+<div align="right">
+	<div class="helptext">
+	<span class="important">*</span> marked fields must be filled in
+	</div>
+</div>
+
+<TABLE rules="rows" border="0" cellpadding="4px" width="100%">
+	<TR class="entryform">
+		<TH valign="top" align="right">
+			Title :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME=Title VALUE="{Title}" SIZE=30>
+			<span class="important">*</span>
+			<span class="helptext">The title or headline of the story.</span>
+		</TD>
+	</TR>
+
+	<TR class="entryform">
+		<TH valign="top" align="right">
+			Story :
+		</TH>
+		<TD valign=top>
+			<textarea name="Story" rows="15" cols="110">{Story}</textarea><br>
+			<div class="helptext">Add uploaded files to your text: <div class="tip" title="{help_uploaded_files}">?</div></div>
+
+		</TD>
+	</TR>
+</TABLE>
+<P>
+</P>
+<div align="center">
+<INPUT TYPE=submit NAME=Submit VALUE="OK">
+<INPUT TYPE=reset VALUE="Reset">
+</div>
+</FORM>

@@ -1,0 +1,23 @@
+<!--listitem_blank_coa_link-->
+<div>
+	<h3 class="tabletitle">Pre-Print Blank COA Forms</h3> 
+	<p>
+	<h3>Certificate of Authenticity</h3> 
+	<p>
+		<b>If you will not be signing your prints at your printer, please print at least 30 of the "skeleton" blank forms, sign them, and send them to your printer. This will allow your printer to print, ship and delivery prints without delay. Tell your printer to keep the signed forms in a safe place, like a safe!</b> 
+	</p>
+	<p align="center">
+		<button type="button" class="buttonlink" href="coa.php?supplierID={vendor}&amp;artistID={artistID}" target="_blank">
+			Print blank C.O.A. 
+		</button>
+	</p>
+	<p>
+		A Certificate of Authenticity (COA) is a document designed to demonstrate that the work of art is authentic. In the case of limited edition fine art prints, it is important to be able to show that the work of art is not a copy, nor a test print, but is one of the official prints from the series. If the print is not signed by the artist, then the COA is the only physical object connecting the print to the artist. In that case, the COA is even more important . 
+	</p>
+	<p>
+		Generally speaking, a valid COA for an artwork will include specific details about the artwork like when and how it was produced, the names of people or companies involved in the artwork's production, the work's exact title, and the dimensions of the art. The COA should also state the qualifications and full contact information of the individual or entity that authored the certificate with his or her complete and current contact information. Your printer needs blank Certificate of Authenticity (COA) forms that he can fill in, to accompany the final prints. 
+	</p>
+	<p>
+		Collectors generally require a COA to accompany a fine art print. 
+	</p>
+</div>

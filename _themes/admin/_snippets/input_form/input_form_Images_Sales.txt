@@ -1,0 +1,52 @@
+<!-- input_form_Images_Sales -->
+<tr>
+	<th valign="top" align="right" width="150" nowrap>
+		Sales : 
+	</th>
+	<td width="300">
+		<table width="150">
+			<tr>
+				<th valign="top"  colspan="2">
+					Summary
+				</th>
+			</tr>
+			<tr>
+				<th valign="top"  style="text-align:left;">
+					Edition Size : 
+				</th>
+				<td valign="top"  style="text-align:right;">
+					{editionsize}&nbsp;{fp:prints}
+				</td>
+			</tr>
+			<tr>
+				<th valign="top"  style="text-align:left;">
+					Sold : 
+				</th>
+				<td valign="top"  style="text-align:right;">
+					{sold}&nbsp;{fp:prints}
+				</td>
+			</tr>
+			<tr>
+				<th valign="top"  style="text-align:left;border-top:1px solid #888">
+					Remaining : 
+				</th>
+				<td valign="top"  style="text-align:right;border-top:1px solid #888">
+					{remaining}&nbsp;{fp:prints}
+				</td>
+			</tr>
+		</table>
+	</td>
+	<td>
+		<table class="grid" width="280">
+			<tr>
+				<th valign="top" >
+					Size 
+				</th>
+				<th valign="top" >
+					Sales 
+				</th>
+			</tr>
+			{SalesInfoOutput} 
+		</table>
+	</td>
+</tr>

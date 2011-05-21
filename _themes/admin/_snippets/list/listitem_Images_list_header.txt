@@ -1,0 +1,20 @@
+<div>
+	<div style="float:left;">
+		<button id="AllPreviewsSwitch" class="my-button ui-state-default ui-corner-all">
+			Show All Previews 
+		</button>
+	</div>
+	<div style="margin-left:100px; float:left;">
+		<form action="admin.php" method="get">
+			<input type="hidden" name="table" value="{table}"> <input type="hidden" name="action" id="action" value="show_list"> <input type="hidden" name="PageID" value="{PAGEID}"> List {fp:images} belonging to {PROJECTSLIST} 
+		</form>
+		<div>
+			Show rows containing: <input id="rowfilter" type="text">
+			<button type="button" class="my-shortbutton" id="clearrowfilter" >Clear</button>
+		</div>
+	</div>
+	<div style="float:right;">
+		{metadataeditor} 
+	</div>
+	<br clear="all">
+</div>

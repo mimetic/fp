@@ -1,0 +1,109 @@
+{DONOTHING}
+
+<FORM ACTION = "{ADMINFILENAME}" enctype="multipart/form-data" METHOD=POST>
+<input type="hidden" name="MAX_FILE_SIZE" value="275000">
+<INPUT type="hidden" NAME=ID VALUE="{ID}">
+<INPUT type="hidden" NAME=table VALUE="{table}">
+<INPUT type="hidden" NAME=OwnerID VALUE="{OwnerID}">
+<INPUT type="hidden" NAME=UserID VALUE="{UserID}">
+<INPUT type="hidden" NAME=action VALUE="{action}">
+
+<h3  class="tabletitle">Edit <font color="#990000">{Name}</font> in {TABLE_ALIAS}</h3>
+<TABLE rules="rows" border="0" cellpadding="4px">
+	<TR class="entryform" bgcolor="#EEE">
+		<TH valign="top" align="right">
+			Section:
+		</TH>
+		<TD align="left">
+			{Section}
+			 <div class="helptext">Choose a categorization in {FP_SYSTEM_DISPLAY_NAME}.</div>
+		</TD>
+	</TR>
+{publicprivateinput}
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right">
+			Name:
+		</TH>
+		<TD align="left">
+			<INPUT TYPE=text NAME=Name VALUE="{Name}" SIZE=30><BR>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right">
+			Contact Person:
+		</TH>
+		<TD align="left">
+			<INPUT TYPE=text NAME=Contact VALUE="{Contact}" SIZE=30><BR>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#EEE">
+		<TH valign="top" align="right" >
+			Email:
+		</TH>
+		<TD align="left">
+			<INPUT TYPE=text NAME=Email VALUE="{Email}" SIZE=30>
+			<div class="helptext">This email address is used for sending files</div>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right">
+			FTP&nbsp;Host:
+		</TH>
+		<TD align="left">
+			<INPUT TYPE=text NAME=FTP_host VALUE="{FTP_host}" SIZE=30>
+			<div class="helptext">Name of the FTP host, e.g. <tt>ftp.mimetic.com</tt></div>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right">
+			FTP&nbsp;Directory:
+		</TH>
+		<TD align="left">
+			<INPUT TYPE=text NAME=FTP_directory VALUE="{FTP_directory}" SIZE=30>
+			<div class="helptext">Initial directory on the FTP server, e.g. <tt>guest/news/</tt></div>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right" VALIGN=top>
+			FTP&nbsp;Username:
+		</TH>
+		<TD VALIGN=top>
+			<INPUT TYPE=text NAME=FTP_username VALUE="{FTP_username}" SIZE=30>
+			<div class="helptext">Your username for this FTP server</div>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right" VALIGN=top>
+			FTP&nbsp;Password:
+		</TH>
+		<TD VALIGN=top>
+			<INPUT TYPE=text NAME=FTP_password VALUE="{FTP_password}" SIZE=30>
+			<div class="helptext">Your password for this FTP server</div>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#DDD">
+		<TH valign="top" align="right" VALIGN=top>
+			Use&nbsp;Subdirectory:
+		</TH>
+		<TD VALIGN=top>
+			<input type="checkbox" name="UseSubDir" value="checked" {UseSubDir}>
+			<div class="helptext">If checked, {FP_SYSTEM_DISPLAY_NAME} will make a new directory on the FTP server for this project, e.g. <tt>News_Conference-JONES</tt>.<BR>
+Use this if you want all the files in their own directory on this client's FTP server. <B>You set the name of each project's directory in the project definition, not here.</B></div>
+		</TD>
+	</TR>
+	<TR class="entryform" bgcolor="#EEE">
+		<TH valign="top" align="right" VALIGN=top>
+			Notes:<BR>
+		</TH>
+		<TD VALIGN=top>
+			<TEXTAREA NAME=Notes ROWS=4 COLS="60" WRAP=virtual>{Notes}</TEXTAREA><BR>
+			<div class="helptext">These notes will not appear anywhere else but here.</div>
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<div align="center">
+	<INPUT TYPE=submit NAME=Submit VALUE="OK">
+	<INPUT TYPE=reset VALUE="Reset">
+</div>
+</FORM>

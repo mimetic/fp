@@ -1,0 +1,3 @@
+		<td valign="top">This is print #{NUMBER_IN_EDITION} in an edition of {EDITION_SIZE} prints.<br>
+			Please label this print "{NUMBER_IN_EDITION}/{EDITION_SIZE}"	</td>
+		<td valign="top"></td>

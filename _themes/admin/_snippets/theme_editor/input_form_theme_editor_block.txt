@@ -1,0 +1,56 @@
+<input name="count" type="hidden" value="{COUNT}"> 
+	<table rules="rows" border="0" cellpadding="4">
+		<tr class="entryform">
+			<td valign="top" colspan=2>
+				<div align="center">
+					<INPUT TYPE=submit NAME=subset VALUE="Save"> <INPUT TYPE=submit NAME=subset VALUE="Cancel"> <INPUT TYPE=reset VALUE="Reset">
+					<BR>
+					<div class="helptext" align="center">
+						To save this theme as a new variation, enter a name and click "save".
+						<BR>
+						<input name="newthemename" type="text" size="50"> 
+					</div>
+<!--
+					<BR>
+					<div style="font-size:9px;border:1px solid black;background-color:#ece;width:300px;">
+						USE THIS BUTTON TO REPAIR OLD THEMES ONLY! &rarr; <INPUT TYPE=submit NAME=subset VALUE="saveas"><BR>
+						<input name="templateThemeID" type="hidden" value="default:template">
+					</div>
+					<BR>
+					<div style="font-size:9px;border:1px solid black;background-color:#ece;width:300px;">
+						test! &rarr; <INPUT TYPE=submit NAME=subset VALUE="test"><BR>
+						<input name="templateThemeID" type="hidden" value="default:template">
+					</div>
+	-->
+				</div>
+				<br>
+				<div class="helptext">
+					<p>
+						This page lets you edit parts the style sheets that control how theme variations look. These files are standard CSS documents, and this editing page modifies those files. The color codes and font definitions used here are those used in HTML and CSS. You can find explanations and examples on the Internet.
+					</p>
+					<p>
+						<span class="important">Hint 1:</span> When you want something to disappear, either text or a border or a background, set the color to "transparent".
+						<br>
+					</p>
+					<p>
+						<span class="important">Hint 2:</span> Some styles over-ride others. If a style name has two parts, such as ".gallery .navbar-container", then it overrides the simple version, which is ".navbar-container" in this case. Enter "default" for the overriding, offending style (in this case .gallery .navbar-container) to make sure your setting for the simple version will work.
+						<br>
+					</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+
+
+<div id="theme-editor">
+	<TABLE rules="rows" border="0" cellpadding="4">
+		{LIST} 
+		<tr class="entryform">
+			<td valign="top" width="100%">
+				<h2 style="padding-top:15px;border:0px;">Other Style Settings</h2> 
+			</td>
+		</tr>
+		{LIST2} 
+	</TABLE>
+</div>

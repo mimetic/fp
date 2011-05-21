@@ -1,0 +1,2 @@
+<!--projects_set_images_item_format-->
+<snippet name="gallery_set_images_item_format_picture" />

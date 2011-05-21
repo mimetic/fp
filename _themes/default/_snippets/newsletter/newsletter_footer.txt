@@ -1,0 +1,11 @@
+<!--newsletter_footer-->
+<div class="separator">
+</div>
+<a href="http://{FP_EMAILER_UNSUBSCRIBE}?message=[messageid]&amp;user=[userid]&amp;hash=[passwd]">Unsubscribe</a> |
+<a href="http://{SYSTEMURL}info.php?subject=terms" target="_blank">Terms &#x26; Copyright</a> |
+<a href="http://{SYSTEMURL}info.php?subject=privacy" target="_blank">Privacy Policy</a>  |
+<a href="mailto:{FP_INFO_EMAIL}">Contact {FP_SYSTEM_DISPLAY_NAME}</a> <br>
+Contributors retain copyright over their submissions. <br>
+In using this website you agree to the Terms and Conditions. <br>
+The text and contents of the page are protected by copyright.<br>
+Copyright &#169; David Gross and/or contributers to this page and the associated web site(s).

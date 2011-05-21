@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title> Print Order </title> 
+</head>
+<body style="font-family: Arial, Helvetica;font-size: 12px;">
+<h2> Print Order </h2> 
+<hr>
+<b> Order Number: </b> {SaleID} 
+<br>
+<br>
+<b> Date: </b> {ORDER_DATE} 
+<br>
+<br>
+<table style="width:600px;font-family: Arial, Helvetica;font-size: 12px;">
+<tr>
+<td>
+<b> To: </b> 
+<br>
+{ORDER_TO} 
+<br>
+<i> {email} </i> 
+</td>
+<td>
+<b> From: </b> 
+<br>
+{ORDER_FROM} 
+<br>
+<i> {ARTIST_EMAIL} </i> 
+</td>
+</tr>
+</table>
+<br>
+<br>
+<b> Instructions: </b> 
+<div align="left" style="width:600px;background-color:#F8FFFF;border:thin solid #888;border-bottom:thick solid #888;padding:20px;">
+	<b>Customer Address:</b><BR>
+	{ORDER_SHIPTO}<br>
+	<i>Email: {payer_email}</i><br><br>
+	<b>Shipping: </b> {ORDER_SHIPPING_METHOD_TO_SHOW}
+</div>
+<br>
+<div align="left" style="width:600px;background-color:#F8FFFF;border:thin solid #888;border-top:thick solid #888;padding:20px;">
+	{ITEMS} 
+</div>
+<br>
+<div align="right" style="width:600px;background-color:#F8FFFF;border:thin solid #888;border-bottom:thick solid #888;padding:20px;">
+	<table style="font-size: 12px;">
+		<tr>
+			<td style="text-align:right;width:200px;">
+				Item total : 
+			</td>
+			<td style="text-align:right;">
+				{ORDER_ITEMSTOTAL} 
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">
+				Sales tax ({ORDER_TAX_RATE}%): 
+			</td>
+			<td style="text-align:right;">
+				{ORDER_TAX} 
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">
+				Shipping : 
+			</td>
+			<td style="text-align:right;">
+				{ORDER_SHIPPING} 
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">
+				Handling : 
+			</td>
+			<td style="text-align:right;">
+				{ORDER_HANDLING} 
+			</td>
+			<td></td>
+		</tr>
+<!--				<tr>
+					<td style="text-align:right;">
+						
+							S/H Total : 
+						
+					</td>
+					<td style="text-align:right;">
+						
+							{ORDER_SHTOTAL} 
+						
+					</td>
+					<td></td>
+				</tr>-->
+		<tr>
+			<th style="text-align:right;">
+				Total with shipping :
+			</th>
+			<th style="text-align:right;">
+				<i>{ORDER_TOTAL}</i> 
+			</th>
+			<th style="text-align:left;">
+				 
+			</th>
+		</tr>
+	</table>
+</div>
+<br>
+{memo} 
+<br>
+</body>
+</html>

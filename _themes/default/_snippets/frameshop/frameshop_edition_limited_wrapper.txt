@@ -1,0 +1,7 @@
+<!--frameshop_edition_limited_wrapper-->
+<p>The offering is a numbered, limited edition of {EDITIONSIZE} prints.<br>
+There {ARE_BLANK_PRINTS} available for sale from this edition.
+</p>
+<p>
+Prints are either signed by the artist or are accompanied by a signed and numbered certificate of authenticity, according to accepted standards. When possible, the prints are numbered and titled below the image.
+</p>

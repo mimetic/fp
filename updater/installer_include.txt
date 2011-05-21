@@ -1,0 +1,65 @@
+# Include list for rsync for updating the fp gallery system
+# This is safer than sending everything in the fp directory
+# Maybe, later, we'll do that and use the exclude only?
+
+.htaccess
+favicon.ico
+robots.txt
+
+_index.html
+admin.php
+artist.php
+frameshop.php
+gallery_single_story.php
+gallery_slideshow_pc.php
+gallery_slideshow_sv.php
+gallery_slideshow_tv.php
+gallery_slideshow.php
+gallery.php
+GrossRss.php
+groups.php
+index.php
+info.php
+ipn_res.php
+maintenance.php
+masspay.php
+mysql_backup.php
+newsletter.php
+photographers.php
+places.php
+postcardviewerxml.php
+projects.php
+rebuild_pictures.php
+rss.php
+send_order.php
+setup.php
+signup.php
+simpleviewerxml.php
+slideshowxml.php
+snippeteditor.php
+tearsheet.php
+tfu_login.php
+tiltviewerxml.php
+updater_mysql.php
+updater.php
+utilities.html
+screen_resize.html
+
+#all other .sql are excluded
+setup/fp.sql
+
+# Directories
+_config
+_themes
+fonts
+images
+lang
+includes
+phpemaillist
+postcardviewer
+pp
+setup
+simpleviewer
+tfu
+tiltviewer
+utilities

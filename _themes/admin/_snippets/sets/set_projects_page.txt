@@ -1,0 +1,9 @@
+Projects	block_format	<BR><div class="title">Featured Projects</div><BR>{list}
+Projects	item_format	<a class="entry" href="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</a><BR>
+Projects	separator_format	<!--empty-->
+ArtistPart	block_format	<span class="list caption">by</span> {list}<BR><FONT size=2>{Projects_Lead}</FONT><BR>
+ArtistPart	item_format	<A class="list caption" HREF="artist.php?ArtistID={ArtistPart_ArtistID}">{ArtistPart_Firstname}&nbsp;{ArtistPart_Lastname}</A>
+ArtistPart	separator_format	<span class="list caption">,&nbsp;</span>
+pix	block_format	{list}
+pix	item_format	<!--empty-->
+pix	separator_format	<!--empty-->

@@ -1,0 +1,11 @@
+<!-- input_form_projects_artist_list -->
+<div style="float:left;margin-right:12px;">
+	{artistlist}
+</div>
+<div class="helptext" >
+	You can allow other artists to join this project. 
+	Command-click to select more than one name in the list.
+	Once you choose another artist, on the picture management page
+	you can add to this project pictures and stories by that artist.
+</div>
+<br style="clear:both;">

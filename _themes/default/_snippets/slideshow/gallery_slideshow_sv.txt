@@ -1,0 +1,10 @@
+<!--gallery_slideshow_sv-->
+<div id="flashcontent">SimpleViewer requires JavaScript and the Flash Player. <a href="http://www.macromedia.com/go/getflashplayer/">Get Flash.</a></div>
+<script type="text/javascript">
+	var fo = new SWFObject("{THEMESDIR}/{DEFAULT_THEME}/_swf/sv_viewer.swf", "viewer", "100%", "100%", "8", "#111111");
+	
+	//		fo.addVariable("xmlDataPath", "simpleviewerxml.php?params=action-project,id-{projectid},maxImageWidth-940,maxImageHeight-630,textColor-0xcccccc,frameColor-0xf0f0f0,frameWidth-0,navPadding-100,stagePadding-0,thumbnailColumns-3,thumbnailRows-4,navPosition-left,enableRightClickOpen-false,vAlign-center,hAlign-center,showCaption-title");
+	fo.addVariable("xmlDataPath", "simpleviewerxml.php?params=action-project,id-{ProjectID},frameWidth-0,frameColor-0x000000,frameWidth-1,showCaption-title,showTitle-off");
+	
+	fo.write("flashcontent");
+</script>	

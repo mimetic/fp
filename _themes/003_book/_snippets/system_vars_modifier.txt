@@ -1,0 +1,6 @@
+<!-- system_vars_modifier -->
+<script type="text/javascript" language="javascript">
+
+var FP_SPACE_FOR_CAPTION = false;
+
+</script>

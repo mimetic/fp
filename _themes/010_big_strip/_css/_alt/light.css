@@ -1,0 +1,208 @@
+/* @override http://localhost/fp/_themes/006_branded/_css/_alt/light.css */
+/* Modified : September 1, 2008, 1:21 am  */
+/* Title Color: The large type at the top of the page, usually your name, an exhibition name, or a gallery name. */
+#header-title { color: #333; }
+
+/* Subtitle Color : This is the smaller type in the header, usually your name or a gallery name. */
+#header-subtitle { color: #888; }
+
+/* Footer Text Color: Text at the bottom of page */
+#foot { color: #333; }
+
+/* Go To Links: Text links to exhibitions, slide shows, and so on. This is the default link color. */
+a:link, a:visited { color: #000; }
+
+a:hover { color: #cb6900; }
+
+a:active { color: #7f4100; }
+
+/* Text Color in FAQ, About..., Stories, etc. */
+body { color: #222; }
+
+/* Location Text :  In an exhibition, the text which names where the pictures or artwork was created.  */
+div.gallery-description  div.location { color: #333; }
+
+/* Project title : The exhibition title in the exhibition information. */
+div.gallery-description  div.projecttitle { color: #111; }
+
+div.gallery-description div.projectowner { color: #111; }
+
+div.gallery-description div.statement { color: #333; }
+
+/* Current Menu Item: The color of the menu item that matches the page you are looking at.  */
+a.navbar.selected:link { color: #000; }
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:visited { color: #000; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:link { color: #333; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:visited { color: #333; }
+
+/* Menu bar divider : The color of the divider between each menu item. */
+.navbardivider { color: #888; }
+
+/* ADVANCED - Gallery statement and description text */
+.gallery-description { color: #333; }
+
+/* ADVANCED - Project Title in a Gallery (top of page) */
+.groups #header-title { color: #999999; }
+
+/* ADVANCED - Gallery Listing navigation: Links to go to different galleries near bottom of page. */
+.group-nav { color: #ccc; }
+
+/* ADVANCED - Gallery Listing navigation: Links to go to different galleries near bottom of page - link */
+.navbar a:link, .navbar a:visited { color: #444; }
+
+/* ADVANCED - Gallery Listing navigation: Links to go to different galleries near bottom of page - hover */
+.navbar a:hover { color: #cb6900; }
+
+/* ADVANCED - Gallery Listing navigation: Links to go to different galleries near bottom of page - active */
+.navbar a:active { color: #7f4100; }
+
+/* ADVANCED - Menu bar - current page - hover */
+.navbar .selected a:hover { color: #cb6900; }
+
+/* ADVANCED - Menu bar - current page - active */
+.navbar .selected a:active { color: #7f4100; }
+
+/* ADVANCED - Menu bar - other pages - hover */
+.navbar .unselected a:hover { color: #cb6900; }
+
+/* ADVANCED - Menu bar - other pages - click */
+.navbar .unselected a:active { color: #7f4100; }
+
+/* ADVANCED - Menu bar - slide show */
+.navbar .slideshow a:link, .navbar.slideshow a:visited { color: #eee; }
+
+/* ADVANCED - Menu bar - slide show - click/hover */
+.navbar .slideshow a:hover, .navbar.slideshow a:active { color: #fff; }
+
+/* ADVANCED - Gallery - Popup picture - close link */
+#popup_close { color: #222; }
+
+/* ADVANCED - Gallery - Popup picture - previous link */
+#popup_prev { color: #222; }
+
+/* ADVANCED - Gallery - Popup picture - next link */
+#popup_next { color: #222; }
+
+/* Caption Title */
+div.captionblock div.title { color: #222; }
+
+/* Overlaid Caption Color */
+#lightbox-infoContainer-overlay div.title { color: #111; }
+
+/* Caption Color */
+div.captionblock div.caption { color: #4b4a46;
+line-height: 1.3em;
+font-size: 11px; }
+
+/* Overlaid Caption Color */
+#lightbox-infoContainer-overlay div.caption { color: #111; }
+
+#lightbox-navBox a:link,#lightbox-navBox a:visited { color: #4b4a46; }
+
+#lightbox-navBox a:hover { color: #191917; }
+
+#lightbox-navBox a:active { color: #888; }
+
+/* ---------- BACKGROUND COLORS ---------- */
+/* Background Color */
+body { background-color: #eee; }
+
+/* Popup picture background color */
+#lightbox-overlay { background-color: #dfdcd5; }
+
+/* Menu Bar Color */
+.navbar-container { background-color: transparent; }
+
+/* ADVANCED - Menu bar - Gallery Listing */
+.groups .navbar-container { background-color: transparent; }
+
+/* ADVANCED - Menu bar - Gallery */
+.gallery .navbar-container { background-color: transparent; }
+
+/* ADVANCED - Menu bar - Exhibition Listing */
+.listpage .navbar-container { background-color: transparent; }
+
+/* ADVANCED - Menu bar - Slideshow*/
+.slideshow .navbar-container { background-color: transparent; }
+
+/* ADVANCED - Exhibition buttons: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button { background-color: transparent; }
+
+/* ADVANCED - Exhibition buttons - click: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button:active { background-color: transparent; }
+
+/* ADVANCED - Exhibition buttons - hover: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button:hover { background-color: transparent; }
+
+/* ---------- BORDERS ---------- */
+/* Exhibition Vertical Line : The color of the vertical line dividing the exhibition information from the pictures. */
+.gallery-description-divider { border-color: #333; }
+
+/* Menu Bar Border Colors: The thin lines above and below the menu bar.   */
+.navbar-container { border-color: transparent; }
+
+/* Footer Top Border : A thin line above the footer area at the bottom. */
+#footer-box { border-top: 0px solid #444; }
+
+/* ADVANCED - Menu bar - Exhibition: Use "transparent" to remove borders. */
+.gallery .navbar-container { border-color: #999; }
+
+/* ADVANCED - Menu bar - Gallery Listing: Use "transparent" to remove borders. */
+.groups .navbar-container { border-color: transparent; }
+
+/* ADVANCED - Menu bar - Exhibition Listing: Use "transparent" to remove borders. */
+.listpage .navbar-container { border-color: #999; }
+
+/* ADVANCED - Menu bar - Slideshow: Use "transparent" to remove borders. */
+.slideshow .navbar-container { border-color: transparent; }
+
+/* ADVANCED - Exhibition Links/buttons: Links and buttons for tear sheets, Buy Print, etc. */
+.gallery-info-link button { color: #999; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc. - Links */
+a.gallery-info-link:link { color: #000; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc. - Links */
+a.gallery-info-link:visited { color: #000; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc. - Hover */
+a.gallery-info-link:hover { color: #cb6900; }
+
+/* ADVANCED - Exhibition Links: Links and buttons for tear sheets, Buy Print, etc.  - Active */
+a.gallery-info-link:active { color: #7f4100; }
+
+/* ---------- FONTS ---------- */
+/* Default Website Font */
+html { font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Helvetica, Verdana, Geneva, Arial, sans-serif; }
+
+/* Title and Subtitle Font */
+#header { font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Helvetica, Verdana, Geneva, Arial, sans-serif; }
+
+/* Story Font */
+.story P { font-family: Georgia, "MS Serif", "New York", "Palatino Linotype"; }
+
+/* ADVANCED - Top Menu bar font */
+#topnav { font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Helvetica, Verdana, Geneva, Arial, sans-serif; }
+
+/* ADVANCED - Bottom Menu bar font */
+#bottomnav { font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Helvetica, Verdana, Geneva, Arial, sans-serif; }
+
+/* ADVANCED - Title on informational page, e.g. FAQ */
+div.info-title { color: #191917; }
+
+/* ---------- FRAMESHOP ---------- */
+/* ADVANCED - Bottom Menu bar font */
+div.infobox { color: #222;
+background-color: #f2efe8;
+border-width: 1px;
+border-color: #ccc; }
+
+/* ---------- OTHER ---------- */
+div.gallery-description-callout { background-color: #242424;
+border-color: #2d2d30; }

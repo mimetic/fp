@@ -1,0 +1,8 @@
+	<TR class="entryform">
+		<TH class="entryform" align="right">
+			Subscription :
+		</TH>
+		<TD>
+			{userlevelname}
+		</TD>
+	</TR>

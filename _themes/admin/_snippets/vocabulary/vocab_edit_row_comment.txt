@@ -1,0 +1,8 @@
+<div class="entry">
+	<div class="label" style="width:250px;">
+		&nbsp;
+	</div>
+	<div class="item">
+		<i>{COMMENT}</i>
+	</div>
+</div>

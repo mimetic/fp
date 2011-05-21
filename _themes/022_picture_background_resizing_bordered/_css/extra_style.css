@@ -1,0 +1,170 @@
+/* @override 
+	http://localhost/fp/_themes/022_picture_background_resizing_bordered/_css/extra_style.css
+*/
+
+/* Styles for a theme in addition to the base "style.css" sheet */
+/* This allows you to keep the default CSS and add new styles for your theme */
+body
+{
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: scroll;
+}
+
+#page {
+	position: relative;
+/*	min-height: 100%; */
+	width: 100%;
+}
+
+.listpage #container, .groups #container, .catalog #container
+{
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#topper {
+	padding: 0;
+	opacity: 0.80;
+}
+
+#topper-container { 	
+	width: 940px;
+	min-width: 820px;
+	margin: 0 auto 0;
+	border-top: 0px transparent solid;
+	border-bottom: 0px transparent solid;
+	padding: 20px 30px 0 50px;
+}
+
+#foot {
+	padding: 0;
+	opacity: 0.80;
+}
+
+
+.listpage #foot {
+	width: 940px;
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+.gallery #foot {
+	width: 100%;
+}
+
+#footer-box {
+	width: 940px;
+	min-width: 820px;
+	margin: 0 auto 0;
+	border-style: none;
+	padding-left: 50px;
+	padding-right: 30px;
+}
+
+#bottomnav {
+	margin: 0;
+}
+
+
+#pictureBehind { }
+#ontop { }
+
+.listpage #pictureBehind, .groups #pictureBehind, .catalog #pictureBehind
+{
+	opacity: .3;
+	/* for IE */
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: -1;
+	top: 0px;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-color: transparent;
+}
+
+.fullpage #pictureBehind { display: none; }
+
+.navbar-container
+{
+	border-top: 0px none #ccc;
+	border-bottom: 0px none #ccc;
+}
+
+#topnav {
+	border-style: none;
+	border-width: 0;
+}
+
+#topnav .navbar-container {
+	opacity: 1;
+}
+
+.navbar-container-off
+{
+	filter: alpha(opacity=20);
+	opacity: .20;
+	border-top: 0px #111 solid;
+	border-bottom: 0px #111 solid;
+}
+
+#bottomnav .navbar-container { 	
+	border-top: 0px transparent solid;
+	border-bottom: 0px transparent solid;
+}
+
+
+/* Current Menu Items: Current Menu Item: The color of the menu item that matches the page you are looking at. */
+a.navbar.selected:visited { color: #b70; }
+a.navbar.unselected:link { color: #222; }
+
+/* Other Menu Items: The color of the menu items for other pages. */
+a.navbar.unselected:visited { color: #222; }
+.navbar .slideshow a:link, .navbar .slideshow a:visited { color: #666; }
+.navbar .slideshow a:hover { color: #b70; }
+.navbar .slideshow a:active { color: #FC0; }
+.navbar a:active { color: #F80; }
+.navbar a:hover { color: #f80; }
+.navbar a:link, .navbar a:visited { color: #222; }
+.navbardivider { color: #333; }
+.pagetext { color: #ccc; }
+.popup_bkgd_coverup { color: transparent; }
+.popup_story { color: #ccc; }
+.popup_window { color: #ccc; }
+.popup_window_caption { color: #999999; }
+.pricelist a:active { color: #b70; }
+.pricelist a:hover { color: #f80; }
+.pricelist a:link { color: #333; }
+.pricelist a:visited { color: #333; }
+.pricelist h1 { color: #333; }
+.pricelist span { color: #333; }
+.pricelistmenu h1 { color: white; }
+.projecttitle { color: #999999; }
+.settingsbox { color: #fff; }
+.story #title-box { color: #999999; }
+#container_story { color: #333; }
+#container_tearsheet { color: #333; }
+#error { color: red; }
+#foot { color: #888; }
+#fs_matte_bottom { color: #333; }
+#fs_matte_top { color: #333; }
+#fs_pic_matte { color: #333; }
+#header-subtitle { color: #444; }
+#header-title { color: #222; }
+#message { color: #036; }
+#ns_popup_story_text, #popup_story_text { color: #333; }
+#ns_popup_text, #popup_text { color: transparent; }
+#popup_img { color: white; }
+#popup_img_coverup { color: blue; }
+#popup_close { color: #222; }
+#popup_prev { color: #222; }
+#popup_next { color: #222; }
+#popup_story { color: #333; }
+blockquote { color: #333; }
+body { color: #222; }
+body.story { color: #222; }
+
+

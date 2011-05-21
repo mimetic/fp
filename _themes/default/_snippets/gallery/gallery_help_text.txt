@@ -1,0 +1,7 @@
+<!--
+<div class="description">
+<b>How to use the Gallery:</b><br>
+Point at a picture for a description (if available),
+and click on a picture to enlarge it.
+</div>
+-->

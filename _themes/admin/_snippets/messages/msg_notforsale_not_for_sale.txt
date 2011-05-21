@@ -1,0 +1,1 @@
+This {fp:image} is marked "Not for sale". <i>Solutions: Change the {fp:priceset} for this image from "Not for sale" to another {fp:priceset}. Verify that the {fp:priceset} of the parent {fp:project} is not, "Not for sale".</i>

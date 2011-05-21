@@ -1,0 +1,70 @@
+<!-- input_form_pricesets_row_estimates -->
+				<tr class="">
+					<th class="grid" style="text-align:right;">
+						Item Costs: 
+					</th>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{PretaxPrintCost}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{MatteCost}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{FrameToPrintCost}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{FrameMatteCost}</span>
+					</td>
+				</tr>
+				<tr class="">
+					<th class="grid" style="text-align:right;">
+						
+					</th>
+					<th class="grid" style="text-align:right;">
+						Print Only
+					</th>
+					<th class="grid" style="text-align:right;">
+						Print + Matte
+					</th>
+					<th class="grid" style="text-align:right;">
+						Print+Frame
+					</th>
+					<th class="grid" style="text-align:right;">
+						Print+Matte+Frame
+					</th>
+				</tr>
+				<tr class="">
+					<th class="grid" style="text-align:right;">
+						Total Cost: 
+					</th>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{PretaxPrintCost}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{PretaxMatteCost}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{PretaxFrameToPrintCost}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{PretaxFrameMatteCost}</span>
+					</td>
+				</tr>
+				<tr class="" style="text-align:right;">
+					<th class="grid" style="text-align:right;">
+						Total Price: 
+					</th>
+					<td class="grid" style="text-align:right;">
+						<input type="hidden" value="{TotalPrintPrice}">
+						{CURRENCY} <span>{TotalPrintPrice}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{TotalMattePrice}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{TotalFrameToPrintPrice}</span>
+					</td>
+					<td class="grid" style="text-align:right;">
+						{CURRENCY} <span>{TotalFrameMattePrice}</span>
+					</td>
+				</tr>

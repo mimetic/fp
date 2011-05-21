@@ -1,0 +1,7 @@
+<!--gallery_stories_block-->
+<div class="projecttitle">
+	Writings
+</div>
+<div class="storylist">
+	{list} 
+</div>

@@ -1,0 +1,12 @@
+<!-- priceSet_sales_figures_row -->
+	<TR >
+		<TD class="entryformgrid">
+			{k}:
+		</TD>
+		<TD style="text-align:center;" class="entryformgrid">
+			{SIZE} 
+		</TD>
+		<TD class="entryformgrid" style="text-align:left;" >
+			<INPUT TYPE=text NAME="Amount[]" VALUE="{AMOUNT}" size=5> {UNITS} sold.
+		</TD>
+	</TR>

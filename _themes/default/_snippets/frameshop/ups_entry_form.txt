@@ -1,0 +1,94 @@
+<div id="ups-shipping-calculator" title="Shipping Calculator">
+
+	<input id="shipping-shippingName" value="UPS" type="hidden">
+	<form name="shipping" id="shippingform" action="javascript:false;">
+		<div style="display:none;">
+			shipping-rateCode : 
+			<input name="shipping-rateCode" id="shipping-rateCode" value="One+Time+Pickup" type="text">
+			<br>
+			shipping-shippingContainerCode : 
+			<input name="shipping-shippingContainerCode" id="shipping-shippingContainerCode" value="00" type="text">
+			<br>
+			shipping-packageWeight : 
+			<input name="shipping-packageWeight" id="shipping-packageWeight" value="" type="text">
+			<br>
+			shipping-shippingLength : 
+			<input name="shipping-shippingLength" id="shipping-shippingLength" value="" type="text">
+			<br>
+			shipping-shippingHeight : 
+			<input name="shipping-shippingHeight" id="shipping-shippingHeight" value="" type="text">
+			<br>
+			shipping-shippingWidth : 
+			<input name="shipping-shippingWidth" id="shipping-shippingWidth" value="" type="text">
+			<br>
+			shipping-shippingValue : 
+			<input name="shipping-shippingValue" id="shipping-shippingValue" value="" type="text">
+			<br>
+			weight_std : 
+			<input type="text" name="weight_std" id="shipping_weight_std" value="lbs.">
+			<input type="text" name="14_origCountry" id="shipping-originCountry" value="{SUPPLIER_COUNTRY}">
+			<input type="text" name="15_origPostal" id="shipping-originPostalCode" value="{SUPPLIER_ZIP}">
+			<input name="customValue" id="customValue" value="" maxlength="14" size="4" type="text">
+			<input name="currency" id="shipping-currency" value="USD" maxlength="3" size="3" type="text">
+		</div>
+	
+		<label for="22_destCountry">Ship to Country:</label>
+		<select name="22_destCountry" id="shipping-destCountry" class="text ui-widget-content ui-corner-all" >
+			{ups_country_select}
+		</select>
+		<br>
+		
+		<label for="19_destPostal">Ship to Postal Code: </label>
+		<input type="TEXT" name="19_destPostal" id="shipping-destPostalCode" size="6" maxlength="6" value="" class="text ui-widget-content ui-corner-all" > <BR>
+		<div style="margin-left:20px; display:inline-block;" id="ship_to_state_box"><b>US State:</b>
+		<select id="state" name="state" class="text ui-widget-content ui-corner-all" >
+			{state_select}
+		</select></div>
+		<br>
+		
+		<label for="shipping-rescom">Delivery:</label>
+		<select name="shipping-rescom" id="shipping-rescom" class="text ui-widget-content ui-corner-all">
+			<option value="01">Deliver to a Residence
+			<option value="02">Deliver to a Business
+		</select>
+		<br>
+		
+		<label for="13_product">Service:</label>
+		<select name="13_product" id="shipping-shippingProduct" class="text ui-widget-content ui-corner-all">
+			<option value="1DM">
+				Next Day Air Early AM 
+			<option value="1DA">
+				Next Day Air 
+			<option value="1DP">
+				Next Day Air Saver 
+			<option value="2DM">
+				2nd Day Air AM 
+			<option value="2DA">
+				2nd Day Air 
+			<option value="3DS" selected>
+				3 Day Select 
+			<option value="GND">
+				Ground 
+			<option value="STD">
+				Canada Standard 
+			<option value="XPR">
+				Worldwide Express 
+			<option value="XDM">
+				Worldwide Express Plus 
+			<option value="XPD">
+				Worldwide Expedited 
+		</select>
+		<div style="display:none;">
+			<br>
+			<br>
+			<b>Shipping Price: <span id="shipping_price_display_entry">0.00</span></b>
+			<br>
+			<span id="shipping_price_display_error" class="important"></span>
+		</div>
+	<br>
+	<br>
+	<div align='center'><b>OR</b></div>
+	</form>
+	<br>
+	<input name="pickup" id="pickup" type="checkbox" value="0"> I will pick up the item myself.<BR>
+</div>

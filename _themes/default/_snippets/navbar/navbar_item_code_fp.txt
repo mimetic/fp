@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar {navbar_selector_fp}" href="http://info.mimetic.com/" target="_blank"> {fp:PoweredBy} </a></div>

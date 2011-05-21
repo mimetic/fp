@@ -1,0 +1,33 @@
+<!-- fpcart_item -->
+<tr>
+	<td width="180">
+		<a href="{itemFinishing}" name="fpcart-preview-{itemID}" class="fpcart-finishing-link fpcart-compact fpcart-preview-trigger"><span class="fpcart-item-name">{itemName} <span style="font-size: 90%;">{itemShortDesc}</span></span></a>
+		<div id="fpcart-preview-{itemID}" class="fpcart-item-preview fpcart-preview-{itemID}" style="display:none;">
+			<img class="fpcart-item-preview" src="{itemPreviewURL}"><br>
+			<span class="fpcart-item-desc">{itemDesc}</span>
+		</div>
+		<br>
+		
+		
+		
+		<input type='hidden' name='fpcart_item_name[ ]' value='{itemName}' >
+		<input type='hidden' name='fpcart_item_id[ ]' value='{itemID}' >
+
+	</td>
+	<td class='fpcart-item-price' style="text-align:right;">
+		<input class='fp-cart fpcart-item-qty' id='fpcart-item-id-{itemID}' type='text' value='{itemQty}' > &times; {CURRENCY}&nbsp;{itemPrice}
+		<input type='hidden' name='fpcart_item_price[ ]' value='{itemPrice}' >
+		<div class="fpcart-preview-{itemID}" style="display:none;">
+			<br>
+			<div class="fpcart-item-price">Shipping: {CURRENCY}&nbsp;{item_display_shipping}</div>
+			<div class="fpcart-item-price">Handling: {CURRENCY}&nbsp;{item_display_handling}</div>
+		</div>
+		
+	</td>
+	<td class='fpcart-item-commands fpcart-compact'>
+
+		<a href="#" class="fpcart-remove fpcart-command" value="{itemID}">{remove_item_text}</a>
+		&nbsp;|&nbsp;
+		<a href="{itemFinishing}" class="fpcart-finishing-link fpcart-command" >{finishing_name}</a>
+	</td>
+</tr>

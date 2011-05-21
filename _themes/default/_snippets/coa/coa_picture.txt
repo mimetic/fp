@@ -1,0 +1,4 @@
+<!--<h2 style="text-align:center;margin-top:18px;">{ImageTitle}</h2>-->
+<div class="coa_picture">
+	<img class="coa" height="{IMG_Height}" width="{IMG_Width}" src="{WHICHPIX}/{URL}" alt="{Title}">
+</div>

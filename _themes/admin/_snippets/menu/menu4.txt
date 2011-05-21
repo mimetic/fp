@@ -1,0 +1,23 @@
+<!-- MENU 4 -->
+<div class="ui-tabs ui-widget ui-widget-content" style="border-bottom:none;" id="tabs">
+	<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header">
+		<li id="navbar-tab12" class="tab12 hot ui-state-default ui-corner-top">
+	<a class="my-tabs" href="?action=help&amp;subset=quickstart&amp;PageID=tab12">START</a>
+		</li>
+		<li id="navbar-tab2" class="tab2 ui-state-default ui-corner-top">
+	<a class="my-tabs" href="?action=show_list&amp;table={PRICESETS}&amp;PageID=tab2">{fp:PricesMenu}</a>
+		</li>
+		<li id="navbar-tab3" class="tab3 ui-state-default ui-corner-top">
+	<a class="my-tabs" href="?action=show_list&amp;table={SUPPLIERS}&amp;PageID=tab3">{fp:Suppliers}</a>
+		</li>
+		<li id="navbar-tab" class="tab ui-state-default ui-corner-top">
+	<a class="my-tabs" href="http://{SYSTEMURL}index.php?forceshow=1" target="_blank">&rarr;{FP_SYSTEM_DISPLAY_NAME}</a>
+		</li>
+		<li id="navbar-tab" class="tab ui-state-default ui-corner-top">
+	<a class="my-tabs" href="?action=logout">Log Out</a>
+		</li>
+		<li id="navbar-tab1" class="tab1 hot ui-state-default ui-corner-top">
+	<a class="my-tabs" href="?action=help&amp;subset={PAGEID}&amp;PageID=tab1">Help</a>
+		</li>
+	</ul>
+</div>

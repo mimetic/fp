@@ -1,0 +1,4 @@
+<!--link_to_artist_gallery-->
+<a href="projects.php?GroupID={Images_GroupID}" alt="More {fp:images} by this {fp:artist}">
+<span class="ui-icon ui-icon-extlink" style="display:inline-block;height:13px;width:13px;margin-right:0px;margin-top:2px;"></span>
+</a>

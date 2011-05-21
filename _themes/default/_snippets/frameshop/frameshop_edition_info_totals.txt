@@ -1,0 +1,2 @@
+<!--Frameshop_EditionInfo_totals-->
+Open edition prints available at {PRINTSIZE}<br>

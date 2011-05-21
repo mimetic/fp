@@ -1,0 +1,20 @@
+<!-- fpcart_cart -->
+<!--<div style="text-align:right;">({ITEM_COUNT}&nbsp;items)</div>-->
+<div class="fpcart-cart">
+	<input id="fpcart_cart_empty_status" type="hidden" value="{CART_HAS_ITEMS}">
+	{ERRORMESSAGE}
+	<form method='post' action='' onSubmit="return false;">
+			<table border='0'>
+<!--				<tr>
+					<th id='fpcart-header' colspan='3'>
+						<h2>FP Cart</strong>&nbsp;({ITEM_COUNT}&nbsp;items)</h2>
+					</th>
+				</tr>
+				-->
+				{CART_ITEMS} 
+			</table>
+{FOOTER}
+
+	</form>
+</div>
+<!-- END fpcart -->

@@ -1,0 +1,12 @@
+<!-- input_form_Images_editioning_custom -->
+<div id="custom_edition_size">
+	<br>
+	<br>
+	Enter a different edition size for this item : <input name="param_05" id="param_05" type="text" value="{param_05}" size="5" maxlength="5"> {fp:prints} 
+	<div style="float:right;">
+		<button type="button" id="UsePriceSetForEditionSize" value="{pseditionsize}">
+			Restore Pricing Set Value ({pseditionsize} {fp:images})
+		</button>
+		<snippet name="save" />
+	</div>
+</div>

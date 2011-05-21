@@ -1,0 +1,11 @@
+<!-- tableformat -->
+
+<!-- START LISTING -->
+
+<H3 class="tabletitle">{TABLE_ALIAS}</H3>
+<table class="listing">
+{header}
+{listing}
+</table>
+
+<!-- END LISTING -->

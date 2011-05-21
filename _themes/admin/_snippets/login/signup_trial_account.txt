@@ -1,0 +1,7 @@
+<!--signup_trial_account-->
+<br>
+<br>
+<div align="center">
+	Sign up <a href="http://{SYSTEMURL}{FP_SYSTEM_SIGNUP_SCRIPT}">here</a> for a free account on {FP_SYSTEM_DISPLAY_NAME}!
+</div>
+<br>

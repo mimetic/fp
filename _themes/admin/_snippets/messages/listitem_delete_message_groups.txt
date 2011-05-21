@@ -1,0 +1,1 @@
+WARNING: All {fp:projects} and all {fp:images} in this {fp:group}, which are not showing in another {fp:group}, WILL BE DELETED!

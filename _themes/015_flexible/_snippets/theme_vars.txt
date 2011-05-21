@@ -1,0 +1,5 @@
+<!-- theme_vars -->
+<script type="text/javascript" language="javascript">
+	FP_BKGD_RESIZE_NOCROP = false;
+	FP_SET_BKGD_PICTURE = false;
+</script>

@@ -1,0 +1,740 @@
+<!-- input_form_Artists -->
+{DONOTHING} 
+<form action="{ADMINFILENAME}" enctype="multipart/form-data" method="POST">
+	<input type="hidden" name="MAX_FILE_SIZE" value="275000">
+	<input type="hidden" name="ID" value="{ID}">
+	<input type="hidden" name="table" value="{table}">
+	<input type="hidden" name="ProjectID" value="{ProjectID}">
+	<input type="hidden" name="action" id="action" value="{action}">
+	<input type="hidden" name="PageID" value="tab8">
+	<h3 class="tabletitle">
+		Edit 
+		<font color="#990000">
+			{Name}
+		</font>
+		in {TABLE_ALIAS}
+	</h3>
+	<div align="right">
+		<div class="helptext">
+			<span class="important">
+				*
+			</span>
+			marked fields must be filled in 
+		</div>
+	</div>
+<!-- MATERIALS AND SHIPPING -->
+	<h3 class="tabletitle">
+		Materials and Shipping Prices
+	</h3>
+	<div align="right">
+		<div class="helptext">
+		</div>
+	</div>
+	<table class="entryform">
+<!-- wait on units...just force in/ft for now -->
+<!--
+	<TR>
+		<TH class="grid" valign="top" align="right">
+			Units
+		</TH>
+		<TD colspan=7>
+			print_cost_unit = {PrintCostUnitPopup},
+			print_cost_method = {PrintCostMethodPopup}
+		</TD>
+	</TR>
+-->
+		<tr>
+			<th class="grid" valign="top" align="right">
+				Costs 
+			</th>
+			<th class="grid" valign="top" style="text-align:center;">
+				Min. Price 
+			</th>
+			<th class="grid" valign="top" style="text-align:center;">
+				Price Rate
+			</th>
+			<th class="grid" valign="top" style="text-align:center;">
+				Handling 
+			</th>
+			<th class="grid" valign="top" style="text-align:center;">
+				Handling (Int'l) 
+			</th>
+			<th class="grid" valign="top" style="text-align:center;">
+				Packaging 
+			</th>
+			<th class="grid" valign="top" style="text-align:center;">
+				Depth/Tube Diameter
+			</th>
+<!-- 
+		<TH class="grid" valign="top" style="text-align:center;">
+			Weight
+		</TH>
+ -->
+		</tr>
+<!-- Printing -->
+		<tr class="entryform grid number">
+			<th class="grid" valign="top" align="right">
+				Printing : 
+			</th>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="PrintMinPrice" value="{PrintMinPrice}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Minimum price for a print.">
+					?
+				</div>
+			</td>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="PrintAreaPrice" value="{PrintAreaPrice}" size="7">/ft<sup>2</sup>&nbsp;
+				<div style="display:inline;" class="tip" title="Printing price based on area (please convert from metric, if necessary).">
+					?
+				</div>
+			</td>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="PrintHandling" value="{PrintHandling}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Handling cost to pack and prepare a print for shipping.">
+					?
+				</div>
+			</td>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="PrintHandlingIntl" value="{PrintHandlingIntl}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Handling cost to pack and prepare a print for shipping internationally.">
+					?
+				</div>
+			</td>
+			<td>
+				<input type="text" name="PrintPacking" value="{PrintPacking}" size="2">
+				{PACKAGING_METHOD_LABEL}
+				<div style="display:inline;" class="tip" title="{PACKAGING_METHOD_TIP}">
+					?
+				</div>
+			</td>
+			<td>
+				Tube : <input type="text" name="PrintDepth" value="{PrintDepth}" size="3">
+				&nbsp;{UNITS}&nbsp;
+				<div style="display:inline;" class="tip" title="&lt;b&gt;Tube:&lt;/b&gt; What is the diameter of the tube? &lt;i&gt;To calculate shipping for a tube, be sure to set Packing % to zero.&lt;/i&gt;&lt;br&gt;&lt;b&gt;Package:&lt;/b&gt; How thick is the packaging for a print? The package has width, height, and depth. Depth is the thinnest measurement, typically 1 to 5 inches.">
+					?
+				</div>
+			</td>
+		</tr>
+<!-- Matte -->
+		<tr class="entryform grid number">
+			<th class="grid" valign="top" align="right">
+				Matte : 
+			</th>
+			<td class="grid">
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="MatteMinPrice" value="{MatteMinPrice}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Minimum price for a matte.">
+					?
+				</div>
+			</td>
+			<td class="grid">
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="MatteAreaPrice" value="{MatteAreaPrice}" size="7"><span id="frame-measurement-method-label">/{param_02}&nbsp;
+				<div style="display:inline;" class="tip" title="Matte price based on area (please convert from metric, if necessary).<br>Check the U.I. Method box to calculate using the United Inch method instead of by area.">
+					?
+				</div>
+			</td>
+			<td class="grid">
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="MatteHandling" value="{MatteHandling}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Handling cost to pack and prepare a matted print for shipping.">
+					?
+				</div>
+			</td>
+			<td class="grid">
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="MatteHandlingIntl" value="{MatteHandlingIntl}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Handling cost to pack and prepare a matted print for shipping internationally.">
+					?
+				</div>
+			</td>
+			<td class="grid">
+				<input type="text" name="MattePacking" value="{MattePacking}" size="2">
+				{PACKAGING_METHOD_LABEL}
+				<div style="display:inline;" class="tip" title="{PACKAGING_METHOD_TIP}">
+					?
+				</div>
+			</td>
+			<td class="grid">
+				Depth : <input type="text" name="MatteDepth" value="{MatteDepth}" size="3">
+				&nbsp;{UNITS}&nbsp;
+				<div style="display:inline;" class="tip" title="How deep is the packaging for a matted print? The package has width, height, and depth. Depth is the thinnest measurement, typically 1 to 5 inches.">
+					?
+				</div>
+			</td>
+<!-- 
+		<TD class="grid" >
+			<input type="text" name="MatteWeight" value="{MatteWeight}" size="3">&nbsp;{WEIGHT_UNIT}&nbsp;<div style="display:inline;" class="tip" title="Number of prints in this size. For an open (unlimited) edition, enter 0.">?</div>
+		</TD>
+ -->
+		</tr>
+<!-- Frame -->
+		<tr class="entryform grid number">
+			<th class="grid" valign="top" align="right">
+				Frame : 
+			</th>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="FrameMinPrice" value="{FrameMinPrice}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Minimum price for a frame.">
+					?
+				</div>
+			</td>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="FrameAreaPrice" value="{FrameAreaPrice}" size="7"><span id="frame-measurement-method-label">/{param_01}&nbsp;
+				<div style="display:inline;" class="tip" title="Framing price based on area (please convert from metric, if necessary).<br>Check the U.I. Method box to calculate using the United Inch method instead of by area.">
+					?
+				</div>
+			</td>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="FrameHandling" value="{FrameHandling}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Handling cost to pack and prepare a framed print for shipping.">
+					?
+				</div>
+			</td>
+			<td>
+				{CURRENCY}&nbsp;<input class="twodecimals" type="text" name="FrameHandlingIntl" value="{FrameHandlingIntl}" size="7">&nbsp;
+				<div style="display:inline;" class="tip" title="Handling cost to pack and prepare a framed print for shipping internationally.">
+					?
+				</div>
+			</td>
+			<td>
+				<input type="text" name="FramePacking" value="{FramePacking}" size="2">
+				{PACKAGING_METHOD_LABEL}
+				<div style="display:inline;" class="tip" title="{PACKAGING_METHOD_TIP}">
+					?
+				</div>
+			</td>
+			<td>
+				Depth : <input type="text" name="FrameDepth" value="{FrameDepth}" size="3">
+				&nbsp;{UNITS}&nbsp;
+				<div style="display:inline;" class="tip" title="Number of prints in this size. For an open (unlimited) edition, enter 0.">
+					?
+				</div>
+			</td>
+<!-- 
+		<td>
+			<input type="text" name="FrameWeight" value="{FrameWeight}" size="3">&nbsp;{WEIGHT_UNIT}&nbsp;<div style="display:inline;" class="tip" title="Number of prints in this size. For an open (unlimited) edition, enter 0.">?</div>
+		</TD>
+ -->
+		</tr>
+		<tr class="entryform grid number">
+			<th>
+				Sales Tax : 
+			</th>
+			<td colspan="7" style="text-align:left;">
+				<input type="text" class="twodecimals" name="SalesTaxRate" value="{SalesTaxRate}" size="5">
+				&nbsp;%&nbsp;
+				<div style="display:inline;" class="tip" title="Sales tax rate for the state/county/city of the {fp:supplier}.">
+					?
+				</div>
+			</td>
+		</tr>
+		<tr class="entryform grid number">
+			<th class="entryform">
+				Test Print Cost : 
+			</th>
+			<td class="entryform" colspan="7" style="text-align:left;">
+				{CURRENCY}&nbsp;<input class="twodecimals" name="MatchPrintPrice" value="{MatchPrintPrice}" type="text" size="6">
+				<div style="display:inline;" class="tip" title="Complete price to the artist of a test print, including shipping, etc. Only one test print will be made per print, and the cost will be deducted from the first sale.">
+					?
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>
+			</th>
+			<td colspan="7" style="text-align:right;">
+				<button type="submit">
+					Save
+				</button>
+			</td>
+		</tr>
+	</table>
+<!-- -->
+	<h3 class="tabletitle">
+		{fp:Supplier} Basic Information
+	</h3>
+	<div align="right">
+		<div class="helptext">
+		</div>
+	</div>
+	<table class="entryform">
+		<tr>
+			<th valign="top" align="right" width="25%">
+				Link to Artist : 
+			</th>
+			<td>
+				{ArtistIDList} 
+				<div class="tip" title="Choose the {fp:artist} to link this {fp:supplier} to. You can create a new {fp:artist} for this purpose, if you wish &mdash; you don't have to use a real {fp:artist}. The {fp:supplier} can use the system by signing in as the {fp:artist}, but if his user level is set to &lt;i&gt;{fp:supplier}&lt;/i&gt; then he can edit only own his sales information and see only his own sales.">
+					?
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th valign="top" align="right" width="25%">
+				Name : 
+			</th>
+			<td>
+				<input type="text" name="Name" value="{Name}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Contact Name : 
+			</th>
+			<td>
+				<input type="text" name="Firstname" value="{Firstname}" size="20">
+				<input type="text" name="Middlename" value="{Middlename}" size="1">
+				<input type="text" name="Lastname" value="{Lastname}" size="30">
+				<span class="helptext">
+					(First, Middle, Last)
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Telephone (1) : 
+			</th>
+			<td>
+				<input type="text" name="Tel1" value="{Tel1}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Telephone (2) : 
+			</th>
+			<td>
+				<input type="text" name="Tel2" value="{Tel2}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Fax : 
+			</th>
+			<td>
+				<input type="text" name="Fax" value="{Fax}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Email : 
+			</th>
+			<td>
+				<input type="text" name="Email" value="{Email}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				PayPal Business Email : 
+			</th>
+			<td>
+				<input type="text" name="PayPalBusiness" value="{PayPalBusiness}" size="30">
+				<div class="tip" title="Enter the PayPal business email for this {fp:supplier}. This is the PayPal-registered email where the {fp:supplier} will receive PayPal payments. This may or may not be the same as the email account the {fp:supplier} uses for communications.">
+					?
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Web Site : 
+			</th>
+			<td>
+				<input type="text" name="Website" value="{Website}" size="50">
+			</td>
+		</tr>
+		<tr>
+			<th>
+			</th>
+			<td style="text-align:right;">
+				<button type="submit">
+					Save
+				</button>
+			</td>
+		</tr>
+	</table>
+<!-- -->
+	<h3 class="tabletitle">
+		Mailing/Shipping Address
+	</h3>
+	<div align="right">
+		<div class="helptext">
+		</div>
+	</div>
+	<table class="entryform">
+		<tr>
+			<th valign="top" align="right" width="25%">
+				Address line 1 : 
+			</th>
+			<td>
+				<input type="text" name="Address1" value="{Address1}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Address line 2 : 
+			</th>
+			<td>
+				<input type="text" name="Address2" value="{Address2}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				City : 
+			</th>
+			<td>
+				<input type="text" name="City" value="{City}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				State (if applicable) : 
+			</th>
+			<td>
+				<input type="text" name="State" value="{State}" size="3" maxlength="2">
+				<span class="helptext">
+					Use a two letter code, e.g. "NY"
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				ZIP Code/Postal Code : 
+			</th>
+			<td>
+				<input type="text" name="Zip" value="{Zip}" size="30">
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Country : 
+			</th>
+			<td>
+				<input type="text" name="Country" value="{Country}" size="3" maxlength="2">
+				<span class="helptext">
+					Use a two letter country code, e.g. "US"
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th>
+			</th>
+			<td style="text-align:right;">
+				<button type="submit">
+					Save
+				</button>
+			</td>
+		</tr>
+	</table>
+<!-- -->
+	<h3 class="tabletitle">
+		Email and FTP for Sending Pictures
+	</h3>
+	<div align="right">
+		<div class="helptext">
+			The {fp:supplier} must provide this information. 
+		</div>
+	</div>
+	<table class="entryform">
+		<tr>
+			<th>
+				Email Address : 
+			</th>
+			<td>
+				<input type="text" name="EmailDelivery" value="{EmailDelivery}" size="50">
+				<div class="tip" title="If the {fp:supplier} receives {fp:pictures} by email, enter the email here.">
+					?
+				</div>
+				<span class="helptext">
+					example : 
+					<tt>
+						pictures@myvendor.com
+					</tt>
+				</span>
+			</td>
+		</tr>
+<!--
+	<tr>
+		<th>
+			Ordering System URL :
+		</TH>
+		<TD>
+			<INPUT TYPE=text NAME="OrdersURL" VALUE="{OrdersURL}" SIZE=50><br>
+			<span class="helptext">
+			<div class="tip" title="If the {fp:supplier} receives orders via a website, enter the URL of that website here. The website must be able to understand the parameters this system will send it.">?</div>
+			example : <tt>http://orders.myvendor.com/order.php</tt>
+			</span>			
+		</TD>
+	</TR>
+-->
+	 
+	<tr>
+		<th>
+			FTP Address : 
+		</th>
+		<td>
+			<input type="text" name="ftp_server" value="{ftp_server}" size="50"> 
+			<div class="tip" title="If the {fp:supplier} receives {fp:pictures} by FTP, enter the FTP information here, and below.">
+				? 
+			</div>
+			<div class="helptext">
+				example : <tt> ftp.myvendor.com </tt> 
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Directory on FTP site : 
+		</th>
+		<td>
+			<input type="text" name="ftp_directory" value="{ftp_directory}" size="64">
+			<span class="helptext">
+				example : 
+				<tt>
+					myname/dropbox
+				</tt>
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			FTP User Name : 
+		</th>
+		<td>
+			<input type="text" name="ftp_user_name" value="{ftp_user_name}" size="50">
+		</td>
+	</tr>
+	<tr>
+		<th>
+			FTP Password : 
+		</th>
+		<td>
+			<input type="text" name="ftp_user_pass" value="{ftp_user_pass}" size="50">
+		</td>
+	</tr>
+	<tr>
+		<th>
+		</th>
+		<td style="text-align:right;">
+			<button type="submit">
+				Save
+			</button>
+		</td>
+	</tr>
+</table>
+<!-- -->
+<h3 class="tabletitle">
+	Profile
+</h3>
+<div align="right">
+	<div class="helptext">
+		Enter your company profile here. It will be available in the Frame Shop. 
+	</div>
+</div>
+<table class="entryform">
+	<tr>
+		<th valign="top" align="right" width="100">
+			Profile&nbsp;: 
+		</th>
+		<td width="200">
+<textarea class="tipright" name="Description" rows="10" cols="100">{Description}</textarea> 
+			<div class="tip" title="Enter a company profile for this {fp:supplier}. Customers can read the profile on the Print Shop page.">
+				?
+			</div>
+			<br clear="all">
+			<div class="helptext">
+				Add uploaded files to your text: 
+				<div class="tip" title="{help_uploaded_files}">
+					?
+				</div>
+			</div>
+			<br>
+			<div class="helptext">
+				You don't need to use &lt;br&gt; codes &mdash; Returns will be translated for you. You can use the following HTML tags: &lt;a&gt; &lt;b&gt; &lt;br&gt; &lt;dd&gt; &lt;dl&gt; &lt;dt&gt; &lt;em&gt; &lt;i&gt; &lt;li&gt; &lt;ol&gt; &lt;p&gt; &lt;strong&gt; &lt;u&gt; &lt;ul&gt;. 
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th>
+		</th>
+		<td style="text-align:right;">
+			<button type="submit">
+				Save
+			</button>
+		</td>
+	</tr>
+</table>
+<!-- -->
+<h3 class="tabletitle">
+	Inksets and Papers
+</h3>
+<div align="right">
+	<div class="helptext">
+		<b>
+			Enter each item on its own line.
+		</b>
+		Avoid long names...the entire description must be less than 200 characters.
+		<br>
+	</div>
+</div>
+<table class="entryform">
+	<tr>
+		<th valign="top" align="right" width="100">
+			Papers : 
+		</th>
+		<td width="200">
+<textarea name="Papers" rows="5" cols="35">{Papers}</textarea>
+			<br>
+			<span class="helptext">
+				Enter a display name on new line for each kind of paper you offer. Examples : Premium Luster, White Rag, Watercolor 
+			</span>
+		</td>
+		<td>
+<textarea name="PaperCodes" rows="5" cols="35">{PaperCodes}</textarea>
+			<br>
+			<span class="helptext">
+				Each line of this field is your company's ordering code for a paper, e.g. "sv" for Somerset Velvet. Each line corresponds to an entry in the fields to the left. 
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<th valign="top" align="right" width="100">
+			Inksets : 
+		</th>
+		<td width="200">
+<textarea name="Inksets" rows="5" cols="35">{Inksets}</textarea>
+			<br>
+			<span class="helptext">
+				Enter a display name on new line for each kind of inkset you offer. Examples : Epson Pigment, Iris, PiezoTone 
+			</span>
+		</td>
+		<td>
+<textarea name="InksetCodes" rows="5" cols="35">{InksetCodes}</textarea>
+			<br>
+			<span class="helptext">
+				Each line of this field is your company's ordering code for an inkset, e.g. "ep" for Epson pigment printing. Each line corresponds to an entry in the fields to the left. 
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<th>
+		</th>
+		<td style="text-align:right;">
+			<button type="submit">
+				Save
+			</button>
+		</td>
+	</tr>
+</table>
+<!-- -->
+<h3 class="tabletitle">
+	Supplies and Finishing
+</h3>
+<div align="right">
+	<div class="helptext">
+		<b>
+			Enter each item on its own line.
+		</b>
+		Avoid long names...the entire description must be less than 200 characters.
+		<br>
+	</div>
+</div>
+<table class="entryform">
+	<tr>
+		<th valign="top" align="right" width="100">
+			Frames : 
+		</th>
+		<td width="200" colspan="2">
+<textarea name="Frames" rows="5" cols="35">{Frames}</textarea>
+			<br>
+			<span class="helptext">
+				Each line of this field is the display name of a frame, e.g. Black Metal. Each line corresponds, in order, to one of the frames shown below. If you don't offer framing, don't write anything here. To not show an entry, type '/' at the beginning, e.g. /Black Metal. 
+			</span>
+		</td>
+		<td valign="top">
+<textarea name="FrameCodes" rows="5" cols="35">{FrameCodes}</textarea>
+			<br>
+			<span class="helptext">
+				Each line of this field is your company's ordering code for a frame style, e.g. "bm" for a black metal frame. Each line corresponds, in order, to one of the frames below.
+				<br><b>If you do not offer frames, clear this field.</b>
+
+			</span>
+		</td>
+		<td width="120">
+		</td>
+	</tr>
+	<tr>
+		<th valign="top" align="right" width="100">
+			Frames Styles : 
+		</th>
+		<td colspan="3">
+			<table style="padding:20px;border-collapse: collapse;border-spacing: 0px;">
+				<tr>
+					<td style="padding:10px;">
+<div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_tl.jpg" width="{FP_FRAME_WIDTH_1}" height="{FP_FRAME_WIDTH_1}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_t.jpg" width="100" height="{FP_FRAME_WIDTH_1}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_tr.jpg" width="{FP_FRAME_WIDTH_1}" height="{FP_FRAME_WIDTH_1}"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_l.jpg" width="{FP_FRAME_WIDTH_1}" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/blank.jpg" width="100" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_r.jpg" width="{FP_FRAME_WIDTH_1}" height="100"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_bl.jpg" width="{FP_FRAME_WIDTH_1}" height="{FP_FRAME_WIDTH_1}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_b.jpg" width="100" height="{FP_FRAME_WIDTH_1}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/1_br.jpg" width="{FP_FRAME_WIDTH_1}" height="{FP_FRAME_WIDTH_1}"></div></td>
+<td style="padding:10px;">
+<div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_tl.jpg" width="{FP_FRAME_WIDTH_2}" height="{FP_FRAME_WIDTH_2}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_t.jpg" width="100" height="{FP_FRAME_WIDTH_2}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_tr.jpg" width="{FP_FRAME_WIDTH_2}" height="{FP_FRAME_WIDTH_2}">						</div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_l.jpg" width="{FP_FRAME_WIDTH_2}" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/blank.jpg" width="100" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_r.jpg" width="{FP_FRAME_WIDTH_2}" height="100"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_bl.jpg" width="{FP_FRAME_WIDTH_2}" height="{FP_FRAME_WIDTH_2}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_b.jpg" width="100" height="{FP_FRAME_WIDTH_2}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/2_br.jpg" width="{FP_FRAME_WIDTH_2}" height="{FP_FRAME_WIDTH_2}"></div>
+</td>
+<td style="padding:10px;">
+<div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_tl.jpg" width="{FP_FRAME_WIDTH_3}" height="{FP_FRAME_WIDTH_3}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_t.jpg" width="100" height="{FP_FRAME_WIDTH_3}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_tr.jpg" width="{FP_FRAME_WIDTH_3}" height="{FP_FRAME_WIDTH_3}"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_l.jpg" width="{FP_FRAME_WIDTH_3}" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/blank.jpg" width="100" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_r.jpg" width="{FP_FRAME_WIDTH_3}" height="100"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_bl.jpg" width="{FP_FRAME_WIDTH_3}" height="{FP_FRAME_WIDTH_3}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_b.jpg" width="100" height="{FP_FRAME_WIDTH_3}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/3_br.jpg" width="{FP_FRAME_WIDTH_3}" height="{FP_FRAME_WIDTH_3}"></div></td>
+<td style="padding:10px;">
+<div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_tl.jpg" width="{FP_FRAME_WIDTH_4}" height="{FP_FRAME_WIDTH_4}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_t.jpg" width="100" height="{FP_FRAME_WIDTH_4}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_tr.jpg" width="{FP_FRAME_WIDTH_4}" height="{FP_FRAME_WIDTH_4}"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_l.jpg" width="{FP_FRAME_WIDTH_4}" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/blank.jpg" width="100" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_r.jpg" width="{FP_FRAME_WIDTH_4}" height="100"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_bl.jpg" width="{FP_FRAME_WIDTH_4}" height="{FP_FRAME_WIDTH_4}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_b.jpg" width="100" height="{FP_FRAME_WIDTH_4}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/4_br.jpg" width="{FP_FRAME_WIDTH_4}" height="{FP_FRAME_WIDTH_4}"></div></td>
+<td style="padding:10px;">
+<div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_tl.jpg" width="{FP_FRAME_WIDTH_5}" height="{FP_FRAME_WIDTH_5}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_t.jpg" width="100" height="{FP_FRAME_WIDTH_5}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_tr.jpg" width="{FP_FRAME_WIDTH_5}" height="{FP_FRAME_WIDTH_5}"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_l.jpg" width="{FP_FRAME_WIDTH_5}" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/blank.jpg" width="100" height="100"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_r.jpg" width="{FP_FRAME_WIDTH_5}" height="100"></div><div style="margin:0px;padding:0px;white-space:nowrap;"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_bl.jpg" width="{FP_FRAME_WIDTH_5}" height="{FP_FRAME_WIDTH_5}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_b.jpg" width="100" height="{FP_FRAME_WIDTH_5}"><img alt="" class="pictureframe" border="0" hspace="0" vspace="0" src="{THEMESDIR}/{DEFAULT_THEME}/_img/pictureframes/5_br.jpg" width="{FP_FRAME_WIDTH_5}" height="{FP_FRAME_WIDTH_5}"></div>					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Mattes : 
+		</th>
+		<td valign="top">
+<textarea name="Mattes" rows="5" cols="35">{Mattes}</textarea>
+			<br>
+			<span class="helptext">
+				Enter a display name for each kind of matte you offer, with one matte per line. Examples : White, Cream, Black 
+			</span>
+		</td>
+		<td width="80">
+<textarea name="MatteColors" rows="5" cols="20">{MatteColors}</textarea>
+			<br>
+			<span class="helptext">
+				Enter HTML colors values, e.g. #FFFFAA, for each matte you entered in the field to the left. 
+			</span>
+		</td>
+		<td valign="top">
+<textarea name="MatteCodes" rows="5" cols="20">{MatteCodes}</textarea>
+			<br>
+			<span class="helptext">
+				Each line of this field is your company's ordering code for a matte style, e.g. "wh" for a white matte. Each line corresponds to an entry in the fields to the left.<br>
+				<b>If you do not offer mattes, clear this field.</b>
+			</span>
+		</td>
+	</tr>
+	<!--
+	<tr>
+		<th>
+			Glazing : 
+		</th>
+		<td valign="top">
+<textarea name="Glazing" rows="5" cols="35">{Glazing}</textarea>
+			<br>
+			<span class="helptext">
+				Enter a display name for each kind of glazing you offer, with one name per line. Examples : Plain Glass, UV-Protective, Museum Glass 
+			</span>
+		</td>
+		<td colspan="2">
+<textarea name="GlazingCodes" rows="5" cols="35">{GlazingCodes}</textarea>
+			<br>
+			<span class="helptext">
+				Each line of this field is your company's ordering code for a glazing style, e.g. "uv" for UV-protective glass. Each line corresponds to an entry in the fields to the left. 
+			</span>
+		</td>
+		<td>
+		</td>
+	</tr>
+	-->
+</table>
+<p>
+</p>
+<div align="center">
+	<input type="submit" name="Submit" value="OK">
+	<input type="reset" value="Reset">
+</div>
+</form>

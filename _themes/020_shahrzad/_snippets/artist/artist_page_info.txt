@@ -1,0 +1,54 @@
+<!-- Sharzad: artist_page_info -->
+<table class="gallerytable">
+	<tr>
+		<td valign="top" class="gallery-intro">
+			<div class="gallery-description">
+				<div class="{sectionclass} gallery-title editable">
+					{TITLE}
+				</div>
+				{LIST}
+			</div>
+			{NAVBAR} {NAVBAR_2} 
+		</td>
+		<td class="galleryColSpacer" style="{gallery_spacing}">
+			<div class="galleryColSpacer" style="{gallery_spacing}">
+			</div>
+		</td>
+		<td class="infoSingleColumn" valign="top">
+			{sampleimage}
+			<div class="statement">
+			
+					{Blog}
+			
+					{Awards}
+			
+					{Statement}
+			
+					{Biography}
+			
+					{Exhibitions}
+			
+					{Publications}
+			
+					{FullBiography}
+			
+					<h2>Contact</h2>
+					<p>
+					Email: <script type="text/javascript" language="javascript">
+					<!--
+					document.write (decode64 ("{email}"));
+					//-->
+					</script>
+					<br>
+					{Tel1}
+					{Tel2}
+					{Tel3}
+					{agency}
+
+					{website}
+					{lightstalkers}
+					</p>
+			</div>
+		</td>
+	</tr>
+</table>

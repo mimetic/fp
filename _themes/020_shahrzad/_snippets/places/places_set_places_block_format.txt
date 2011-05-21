@@ -1,0 +1,36 @@
+<!--places_set_places_block_format -->
+<table class="gallerytable">
+	<tr>
+		<td valign="top" class="gallery-intro">
+			<div class="gallery-description">
+				<div class="{sectionclass} gallery-title editable">
+					{subtitle}
+				</div>
+				<div class="description editable">{Description}</div>
+				<div class="statement editable">{Statement}</div>
+				{LIST}
+			</div>
+			{NAVBAR} {NAVBAR_2} 
+		</td>
+		<td class="galleryColSpacer" style="{gallery_spacing}">
+			<div class="galleryColSpacer" style="{gallery_spacing}">
+			</div>
+		</td>
+		<td class="galleryPictureColumn" valign="top" id="gallery_picture">
+			<div id="exhibit" class="exh">
+				<!-- warning: this div will be removed & replaced! Don't store anything in here! -->
+				<div class="exh-no-js" id="exhibit-no-js">
+					Please stand by, images loading. 
+				</div>
+			</div>
+		</td>
+		<td class="galleryColSpacer" style="{gallery_spacing}">
+			<div class="galleryColSpacer" style="{gallery_spacing}">
+			</div>
+		</td>
+		<td class="galleryInfoColumn">
+			<div id="captionstage" class="galleryInfoColumn"></div>	
+		</td>
+	</tr>
+</table>
+<!-- END places_set_places_block_format -->

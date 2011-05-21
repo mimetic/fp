@@ -1,0 +1,4 @@
+<!--input_form_goback-->
+<div align="center">
+	<a href="?action=show_list&table={TABLE}">Go Back</a><BR>
+</div>

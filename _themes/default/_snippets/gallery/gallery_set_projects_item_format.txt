@@ -1,0 +1,32 @@
+<!--gallery_set_projects_item_format-->
+<td valign="top" class="gallery">
+	<div class="gallery-description" >
+		<!--
+		<div class="projecttitle editable">
+			{Projects_Title}
+		</div>
+		-->
+		<div class="location editable">
+			{Projects_Place}
+		</div>
+		<span class="sspop" id="slideshowssp">{slideshowpopup}</span>
+		<span class="sspop" id="slideshowsv">{slideshowpopupsv}</span>
+		<span class="sspop" id="slideshowpc">{slideshowpopuppc}</span>
+		<span class="sspop" id="slideshowtv">{slideshowpopuptv}</span>
+		<br>
+		<div class="statement editable">
+			{Projects_Statement}
+		</div>
+		<div class="description editable">
+			{Projects_Description}
+		</div>
+		{storylist}
+		<div style="position:relative;bottom:0px;">
+			{gallery_help_text}
+		</div>
+	</div>
+</td>
+<td valign="top">
+	<div id="gallery_divider_line" class="gallery-description-divider editable" style="height:{DefaultYSize}px;">
+	</div>
+</td>

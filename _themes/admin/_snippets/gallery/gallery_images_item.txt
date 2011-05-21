@@ -1,0 +1,34 @@
+<TD VALIGN=top>
+	<table>
+		<tr>
+			<td valign="top" colspan="3">
+				 <div class="gallerypictureblock" style="height:{DefaultYSize};">
+				 <a href="javascript:pop_me_up('gallery_single_pic.php?image={Images_URL}&ImageID={Images_ImageID}','scrollbars=no,toolbars=no,resizable=yes');"><IMG SRC="{whichversion}/{Images_URL}" ALIGN=top border=0></a>
+				 </div>
+			</td>
+		</tr>
+		<tr>
+		<td width=10><BR></td>
+			<td valign="top">
+				<BR>
+				<div class="captionblock">
+					<div class="caption">
+						{Images_Caption}
+					</div>
+					<BR>
+					<span class="signature">
+					({Images_Firstname} {Images_Lastname})
+					</span>
+					<BR>
+					{BuyPrint}
+				</div>
+			</td>
+		<td width=10><BR></td>
+		</tr>
+	</table>
+	<P>
+</TD>
+<TD WIDTH=50>
+	<!-- space between pictures -->
+	<BR><img src="images/mim_nav_04.gif" alt="" width="100" height="19">
+</TD>

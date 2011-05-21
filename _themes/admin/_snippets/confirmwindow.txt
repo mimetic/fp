@@ -1,0 +1,39 @@
+<BR>
+<div align="center">
+	<table border="1" bgcolor="#FFFF33" cellspacing="0" cellpadding="10">
+		<tr>
+			<td>
+			<h2> 
+				<center>
+					Are you sure? 
+				</center>
+			</h2> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<th valign="top">
+						Description : 
+					</th>
+					<td valign="top">
+						{Description} {extra}
+					</td>
+				</tr>
+			</table>
+			<br>
+			<div align="center">
+				Are you sure you want to <b> {command} </b> this item? 
+				<br>
+				<br>
+				<a href=\"?ID={ID}&table={table}&action={command}\" class="button">Yes, {command}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				<a href=\"?table={table}\" class="button">Do NOT {command}</a> 
+			</div>
+			<br>
+		</td>
+	</tr>
+</table>
+</div>
+<BR>
+<BR>

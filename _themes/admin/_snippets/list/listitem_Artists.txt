@@ -1,0 +1,17 @@
+<tr class="listing">
+	<td  title="{Lastname}, {Firstname}">
+		{Lastname}, {Firstname}
+	</td>
+	<td title="{Username}">
+		{Username}
+	</td>
+	<td  title="{Email}">
+		{Email}
+	</td>
+	<td  style="text-align:right;" title="">
+		<span class="helptext"><span class="important">{CONFIRMED}</span>{STORAGE} MB</span> 
+	</td>
+	<td  style="text-align:right;" title="">
+		{EDIT_COMMAND} | {DELETE_COMMAND} 
+	</td>
+</tr>

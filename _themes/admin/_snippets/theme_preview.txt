@@ -1,0 +1,7 @@
+<!-- theme_preview -->
+<div id="theme-preview-box">
+</div>
+<!--
+<input id="test" type="text">
+<input id="test2" type="text">
+-->

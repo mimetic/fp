@@ -1,0 +1,7 @@
+<!--gallery_picture_full_info_popup-->
+<div class="captionblock">
+	<div class="title">{Images_FullName}<br>
+	<span class="image_title">{Images_Title}</span>{YEAR_DIVIDER}{YEAR}</div>
+	{Images_Caption}
+	{Credit}
+</div>
