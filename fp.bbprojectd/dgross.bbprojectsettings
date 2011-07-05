@@ -5,11 +5,11 @@
 	<key>EmbeddedEditorHidden:dgross</key>
 	<false/>
 	<key>ExpandedEditorWidth:dgross:displays([(0, 0), (1920, 1200)])</key>
-	<integer>806</integer>
+	<integer>971</integer>
 	<key>ExpandedItems:dgross</key>
 	<array>
 		<string>4F2E14FE-E477-47F7-974F-F6951D02FD86</string>
-		<string>9B389783-FC3F-4DBB-9099-76B40A9E54AC</string>
+		<string>4FBADA87-495B-4411-8978-8DF45F8EE86A</string>
 	</array>
 	<key>FileFilterID:dgross</key>
 	<string>msng</string>
@@ -18,22 +18,22 @@
 		<dict>
 			<key>AliasData</key>
 			<data>
-			AAAAAAGcAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
-			pq86SCsAAAAc0McSZXhwb3J0X3Byb2plY3QucGhwAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8o
-			qcn8SrEAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAAmZw
-			ABAACAAAyKcRqgAAABEACAAAyfytIQAAAAEAEAAc0McAHJLvABgP
-			nwAYD50AAgA1TWFjaW50b3NoIEhEOlVzZXJzOmRncm9zczpTaXRl
-			czpmcDpleHBvcnRfcHJvamVjdC5waHAAAA4AJgASAGUAeABwAG8A
-			cgB0AF8AcAByAG8AagBlAGMAdAAuAHAAaABwAA8AGgAMAE0AYQBj
-			AGkAbgB0AG8AcwBoACAASABEABIAKS9Vc2Vycy9kZ3Jvc3MvU2l0
-			ZXMvZnAvZXhwb3J0X3Byb2plY3QucGhwAAATABUvVm9sdW1lcy9N
-			YWNpbnRvc2ggSEQAABUAAgAi//8AAA==
+			AAAAAAGkAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
+			pq86SCsAAAB/4lcNZnVuY3Rpb25zLmluYwAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI7C
+			w8n8kVlURVhUAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAACGlu
+			Y2x1ZGVzABAACAAAyKcRqgAAABEACAAAyfzzyQAAAAEAFAB/4lcA
+			f8iVAByS7wAYD58AGA+dAAIAOU1hY2ludG9zaCBIRDpVc2Vyczpk
+			Z3Jvc3M6U2l0ZXM6ZnA6aW5jbHVkZXM6ZnVuY3Rpb25zLmluYwAA
+			DgAcAA0AZgB1AG4AYwB0AGkAbwBuAHMALgBpAG4AYwAPABoADABN
+			AGEAYwBpAG4AdABvAHMAaAAgAEgARAASAC0vVXNlcnMvZGdyb3Nz
+			L1NpdGVzL2ZwL2luY2x1ZGVzL2Z1bmN0aW9ucy5pbmMAABMAFS9W
+			b2x1bWVzL01hY2ludG9zaCBIRAAAFQACACL//wAA
 			</data>
 			<key>FileURL</key>
-			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/export_project.php</string>
+			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/includes/functions.inc</string>
 			<key>RelativePath</key>
-			<string>./export_project.php</string>
+			<string>./includes/functions.inc</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -42,22 +42,69 @@
 		<dict>
 			<key>AliasData</key>
 			<data>
-			AAAAAAGWAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
-			pq86SCsAAAAc0McRZXh0cmFjdGltYWdlcy5waHAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0s
-			pshjdugAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAAmZw
-			ABAACAAAyKcRqgAAABEACAAAyGPZWAAAAAEAEAAc0McAHJLvABgP
-			nwAYD50AAgA0TWFjaW50b3NoIEhEOlVzZXJzOmRncm9zczpTaXRl
-			czpmcDpleHRyYWN0aW1hZ2VzLnBocAAOACQAEQBlAHgAdAByAGEA
-			YwB0AGkAbQBhAGcAZQBzAC4AcABoAHAADwAaAAwATQBhAGMAaQBu
-			AHQAbwBzAGgAIABIAEQAEgAoL1VzZXJzL2Rncm9zcy9TaXRlcy9m
-			cC9leHRyYWN0aW1hZ2VzLnBocAATABUvVm9sdW1lcy9NYWNpbnRv
-			c2ggSEQAABUAAgAi//8AAA==
+			AAAAAAF2AAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
+			pq86SCsAAAB/yJUJc2V0dXAucGhwAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/l
+			RMn8kVkAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAAmZw
+			ABAACAAAyKcRqgAAABEACAAAyfzzyQAAAAEAEAB/yJUAHJLvABgP
+			nwAYD50AAgAsTWFjaW50b3NoIEhEOlVzZXJzOmRncm9zczpTaXRl
+			czpmcDpzZXR1cC5waHAADgAUAAkAcwBlAHQAdQBwAC4AcABoAHAA
+			DwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgAgL1VzZXJz
+			L2Rncm9zcy9TaXRlcy9mcC9zZXR1cC5waHAAEwAVL1ZvbHVtZXMv
+			TWFjaW50b3NoIEhEAAAVAAIAIv//AAA=
 			</data>
 			<key>FileURL</key>
-			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/extractimages.php</string>
+			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/setup.php</string>
 			<key>RelativePath</key>
-			<string>./extractimages.php</string>
+			<string>./setup.php</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAGeAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
+			pq86SCsAAAB/1doMZnBjb25maWcuaW5jAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/V
+			4sn8kVcAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAB19j
+			b25maWcAABAACAAAyKcRqgAAABEACAAAyfzzxwAAAAEAFAB/1doA
+			f8iVAByS7wAYD58AGA+dAAIAN01hY2ludG9zaCBIRDpVc2Vyczpk
+			Z3Jvc3M6U2l0ZXM6ZnA6X2NvbmZpZzpmcGNvbmZpZy5pbmMAAA4A
+			GgAMAGYAcABjAG8AbgBmAGkAZwAuAGkAbgBjAA8AGgAMAE0AYQBj
+			AGkAbgB0AG8AcwBoACAASABEABIAKy9Vc2Vycy9kZ3Jvc3MvU2l0
+			ZXMvZnAvX2NvbmZpZy9mcGNvbmZpZy5pbmMAABMAFS9Wb2x1bWVz
+			L01hY2ludG9zaCBIRAAAFQACACL//wAA
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/_config/fpconfig.inc</string>
+			<key>RelativePath</key>
+			<string>./_config/fpconfig.inc</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAGgAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
+			pq86SCsAAAB/1doNc3lzY29uZmlnLmluYwAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAf
+			2cn9XlUAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAB19j
+			b25maWcAABAACAAAyKcRqgAAABEACAAAyf3AxQAAAAEAFAB/1doA
+			f8iVAByS7wAYD58AGA+dAAIAOE1hY2ludG9zaCBIRDpVc2Vyczpk
+			Z3Jvc3M6U2l0ZXM6ZnA6X2NvbmZpZzpzeXNjb25maWcuaW5jAA4A
+			HAANAHMAeQBzAGMAbwBuAGYAaQBnAC4AaQBuAGMADwAaAAwATQBh
+			AGMAaQBuAHQAbwBzAGgAIABIAEQAEgAsL1VzZXJzL2Rncm9zcy9T
+			aXRlcy9mcC9fY29uZmlnL3N5c2NvbmZpZy5pbmMAEwAVL1ZvbHVt
+			ZXMvTWFjaW50b3NoIEhEAAAVAAIAIv//AAA=
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/_config/sysconfig.inc</string>
+			<key>RelativePath</key>
+			<string>./_config/sysconfig.inc</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -73,8 +120,8 @@
 	<key>ToolbarVisible:dgross</key>
 	<true/>
 	<key>ViewSplitterPosition:dgross</key>
-	<real>0.26660600304603577</real>
+	<real>0.27860325574874878</real>
 	<key>WindowFrame:dgross:displays([(0, 0), (1920, 1200)])</key>
-	<string>rect(85,139,1035,1238)</string>
+	<string>rect(44,126,1146,1472)</string>
 </dict>
 </plist>

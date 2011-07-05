@@ -192,6 +192,7 @@ FP_PERSONAL_LEVEL = Can edit only exhibitions
 FP_SUPPLIER_LEVEL = Can edit only supplier info
 
 */
+// Full administrator
 define ("FP_ADMINISTRATOR_LEVEL", 1);
 // Can edit galleries and exhibitions (multi-gallery administrator)
 define ("FP_NORMAL_LEVEL", 2);

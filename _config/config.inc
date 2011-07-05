@@ -544,8 +544,7 @@ $FP_RANDOM_SHAPE_TOLERANCE = .2;
 // Force the top menu to show a link returning to the main gallery.
 // This is an option for artists, and this flag will over ride them.
 // Useful if you're running a gallery, not a coop.
-$FP_SHOW_RETURN_TO_GROUP = true;
-
+$FP_SHOW_RETURN_TO_GROUP = false;
 
 //=============  DEFAULT PARAMS SETTINGS
 // These are arrays of param defaults for each table.
@@ -633,8 +632,23 @@ $FP_COMMERCE_EMAIL_OBFUSCATED = "<span class=\"obfuscated\">".str_replace ("@", 
 // Really, the admin should be able to override this!
 $FP_COMMENTS_URL = "http://mimetic.ning.com";
 
+// ================================================
+// ================================================
+// NO USER CHANGEABLE SETTINGS BELOW
+// ================================================
+// ================================================
+
+
 // ============ user overrides to general config file
 file_exists ("_config/my_config.inc") && include "_config/my_config.inc";
+
+
+
+// ================================================
+// ================================================
+// Override the above setting in single-galley systems...there is no main gallery to go to!
+if (FP_GALLERY_TYPE == FP_SINGLE_GALLERY_SINGLE_USER || FP_GALLERY_TYPE == FP_SINGLE_GALLERY_MULTI_USER)
+	$FP_SHOW_RETURN_TO_GROUP = false;
 
 // ================================================
 // ================================================
