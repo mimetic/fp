@@ -5,11 +5,11 @@
 	<key>EmbeddedEditorHidden:dgross</key>
 	<false/>
 	<key>ExpandedEditorWidth:dgross:displays([(0, 0), (1920, 1200)])</key>
-	<integer>971</integer>
+	<integer>625</integer>
 	<key>ExpandedItems:dgross</key>
 	<array>
-		<string>4F2E14FE-E477-47F7-974F-F6951D02FD86</string>
-		<string>4FBADA87-495B-4411-8978-8DF45F8EE86A</string>
+		<string>516949F4-E9E3-4EB8-B38A-B39292A069EC</string>
+		<string>9B389783-FC3F-4DBB-9099-76B40A9E54AC</string>
 	</array>
 	<key>FileFilterID:dgross</key>
 	<string>msng</string>
@@ -18,57 +18,10 @@
 		<dict>
 			<key>AliasData</key>
 			<data>
-			AAAAAAGkAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
-			pq86SCsAAAB/4lcNZnVuY3Rpb25zLmluYwAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI7C
-			w8n8kVlURVhUAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAACGlu
-			Y2x1ZGVzABAACAAAyKcRqgAAABEACAAAyfzzyQAAAAEAFAB/4lcA
-			f8iVAByS7wAYD58AGA+dAAIAOU1hY2ludG9zaCBIRDpVc2Vyczpk
-			Z3Jvc3M6U2l0ZXM6ZnA6aW5jbHVkZXM6ZnVuY3Rpb25zLmluYwAA
-			DgAcAA0AZgB1AG4AYwB0AGkAbwBuAHMALgBpAG4AYwAPABoADABN
-			AGEAYwBpAG4AdABvAHMAaAAgAEgARAASAC0vVXNlcnMvZGdyb3Nz
-			L1NpdGVzL2ZwL2luY2x1ZGVzL2Z1bmN0aW9ucy5pbmMAABMAFS9W
-			b2x1bWVzL01hY2ludG9zaCBIRAAAFQACACL//wAA
-			</data>
-			<key>FileURL</key>
-			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/includes/functions.inc</string>
-			<key>RelativePath</key>
-			<string>./includes/functions.inc</string>
-			<key>TypeID</key>
-			<string>_CFileLocator</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>AliasData</key>
-			<data>
-			AAAAAAF2AAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
-			pq86SCsAAAB/yJUJc2V0dXAucGhwAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/l
-			RMn8kVkAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAAmZw
-			ABAACAAAyKcRqgAAABEACAAAyfzzyQAAAAEAEAB/yJUAHJLvABgP
-			nwAYD50AAgAsTWFjaW50b3NoIEhEOlVzZXJzOmRncm9zczpTaXRl
-			czpmcDpzZXR1cC5waHAADgAUAAkAcwBlAHQAdQBwAC4AcABoAHAA
-			DwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgAgL1VzZXJz
-			L2Rncm9zcy9TaXRlcy9mcC9zZXR1cC5waHAAEwAVL1ZvbHVtZXMv
-			TWFjaW50b3NoIEhEAAAVAAIAIv//AAA=
-			</data>
-			<key>FileURL</key>
-			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/setup.php</string>
-			<key>RelativePath</key>
-			<string>./setup.php</string>
-			<key>TypeID</key>
-			<string>_CFileLocator</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>AliasData</key>
-			<data>
 			AAAAAAGeAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
 			pq86SCsAAAB/1doMZnBjb25maWcuaW5jAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/V
-			4sn8kVcAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAB19j
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI7H
+			Fsn8kVdURVhUAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAB19j
 			b25maWcAABAACAAAyKcRqgAAABEACAAAyfzzxwAAAAEAFAB/1doA
 			f8iVAByS7wAYD58AGA+dAAIAN01hY2ludG9zaCBIRDpVc2Vyczpk
 			Z3Jvc3M6U2l0ZXM6ZnA6X2NvbmZpZzpmcGNvbmZpZy5pbmMAAA4A
@@ -86,30 +39,6 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>AliasData</key>
-			<data>
-			AAAAAAGgAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADI
-			pq86SCsAAAB/1doNc3lzY29uZmlnLmluYwAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAf
-			2cn9XlUAAAAAAAAAAP////8AAAkAAAAAAAAAAAAAAAAAAAAAB19j
-			b25maWcAABAACAAAyKcRqgAAABEACAAAyf3AxQAAAAEAFAB/1doA
-			f8iVAByS7wAYD58AGA+dAAIAOE1hY2ludG9zaCBIRDpVc2Vyczpk
-			Z3Jvc3M6U2l0ZXM6ZnA6X2NvbmZpZzpzeXNjb25maWcuaW5jAA4A
-			HAANAHMAeQBzAGMAbwBuAGYAaQBnAC4AaQBuAGMADwAaAAwATQBh
-			AGMAaQBuAHQAbwBzAGgAIABIAEQAEgAsL1VzZXJzL2Rncm9zcy9T
-			aXRlcy9mcC9fY29uZmlnL3N5c2NvbmZpZy5pbmMAEwAVL1ZvbHVt
-			ZXMvTWFjaW50b3NoIEhEAAAVAAIAIv//AAA=
-			</data>
-			<key>FileURL</key>
-			<string>file://localhost/Volumes/Macintosh%20HD/Users/dgross/Sites/fp/_config/sysconfig.inc</string>
-			<key>RelativePath</key>
-			<string>./_config/sysconfig.inc</string>
-			<key>TypeID</key>
-			<string>_CFileLocator</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>ShowInvisibles:dgross</key>
 	<false/>
@@ -120,8 +49,8 @@
 	<key>ToolbarVisible:dgross</key>
 	<true/>
 	<key>ViewSplitterPosition:dgross</key>
-	<real>0.27860325574874878</real>
+	<real>0.27745664119720459</real>
 	<key>WindowFrame:dgross:displays([(0, 0), (1920, 1200)])</key>
-	<string>rect(44,126,1146,1472)</string>
+	<string>rect(44,273,1139,1138)</string>
 </dict>
 </plist>

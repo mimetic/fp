@@ -1187,7 +1187,11 @@
 			if (this.padding < 1) {
 				mattescale = this.padding;
 				matteWidth = Math.ceil ((iHeight*mattescale)/2 );
-				matteExtra = Math.ceil (iHeight*this.padding_extra );
+				if (matteWidth > 0) {
+					matteExtra = Math.ceil (iHeight*this.padding_extra );
+				} else {
+					matteExtra = 0
+				}
 				iWidth =  Math.ceil (iWidth * (1-mattescale)) ;
 				iHeight = Math.ceil (iHeight * (1-mattescale));
 				$('#lightbox-imageContainer').css('padding',matteWidth);
