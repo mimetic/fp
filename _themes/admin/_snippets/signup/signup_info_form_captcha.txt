@@ -110,7 +110,7 @@
 	</table>
 	<br>
 	<div align="center">
-		<button class="ui-button" name="action" id="submit" value="apply" style="display:none;">
+		<button class="ui-button ui-button-text-only " name="action" id="submit" value="apply" style="display:none;">
    			<span class="ui-button-text">OK</span>
 		</button>
 	</div>

@@ -547,10 +547,11 @@ Returns:
 			
 			$('#'+fieldnames.shipping_destPostal_id).val('');
 			$('#'+fieldnames.shipping_pickup_id).val('').attr('checked', false).change();
-
 			
-			
-			$.cartAjax ("clear", data, false);
+			// The cart has been 100% cleared, so we must be sure to
+			// set up all the basic cart params again.
+			var callback = $.UpdateCartParams
+			$.cartAjax ("clear", data, false, callback);
 			
 			// activate all Add buttons
 			$("*[id^=add_to_cart]").each(function()
@@ -792,7 +793,7 @@ Returns:
 		
 	// AJAX: send command to PHP scripts
 	// Automatically update cart with the result.
-	$.cartAjax = function (cmd, data, updatecart) {
+	$.cartAjax = function (cmd, data, updatecart, callback) {
 		$('#' + fieldnames.stage).fadeTo(100,0.5);
 		var data = {
 			'cmd'			: cmd,
@@ -819,10 +820,14 @@ Returns:
 				}
 			}
 			
+			if (callback) {
+				callback()
+			}
+			
 			// Update the cart on screen
-			if (updatecart)
+			if (updatecart) {
 				$.updateCartOnPage();
-
+			}
 			$('#' + fieldnames.stage).html(cartHTML).fadeTo(100,1.0).addActionsToCartItems();
 		}, "text");
 	}
@@ -841,6 +846,8 @@ Returns:
 			var t = $(this).attr('name');
 			$('.'+t).slideUp();
 		});
+		// give roll-over, etc., to cart buttons
+		$('.fpcart-cart .ui-button').button();
 
 	}
 

@@ -24,10 +24,10 @@
 		<a href="{itemFinishing}" class="fpcart-finishing-link fpcart-command" >{finishing_name}</a>
 		-->
 		<button class="fpcart-button fpcart-remove ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all"  value="{itemID}">
-   			<span class="ui-button-text">Remove</span>
+   			Remove
 		</button>
 		<button class="fpcart-button fpcart-finishing-link ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all"  value="{itemFinishing}">
-   			<span class="ui-button-text">Shop</span>
+   			Shop
 		</button>
 	</td>
 </tr>

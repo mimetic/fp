@@ -86,7 +86,7 @@
 	<br>
 	<div align="center">
 		<button class="ui-button" name="action" id="submit" value="apply">
-   			<span class="ui-button-text">OK</span>
+   			OK
 		</button>
 	</div>
 	</form>

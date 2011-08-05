@@ -2,8 +2,8 @@
 	FP Shipping Javascripts
 */
 
-
-function buildUPSQuoteURL (rateCode, resComCode, ){
+/*
+function buildUPSQuoteURL (rateCode, resComCode){
 
 	
 
@@ -23,7 +23,7 @@ function buildUPSQuoteURL (rateCode, resComCode, ){
 		return $returnval;
 	}
 }
-
+*/
 
 function StorePreOrder()
 {

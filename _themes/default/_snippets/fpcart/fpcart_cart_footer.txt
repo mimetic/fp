@@ -67,23 +67,15 @@
 </table>
 <div>
 	<button type='button' id="fpcart_checkout" name='fpcart_checkout' class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all {CHECKOUT_BUTTON_CLASS}" value="fpcart-checkout" style="float:right;">
-		<span class="ui-button-text">
 			Checkout
-		</span>
 	</button>
 	<button id="ui-edit-shipping" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" type="button" style="padding-top,padding-bottom:2px;">
-	<span class="ui-button-text">
 		{SET_SHIPPING_LABEL}
-	</span>
 	</button>
 	<button id="ui-edit-coupon" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" type="button" style="padding-top,padding-bottom:2px;">
-	<span class="ui-button-text">
 		Use Coupon
-	</span>
 	</button>
 	<button type='button' name='fpcart_clear' class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all">
-	<span class="ui-button-text">
 		Clear Cart
-	</span>
 	</button>
 </div>

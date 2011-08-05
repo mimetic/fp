@@ -117,11 +117,12 @@ button.fpcart-button {
 	margin: 4px;
 }
 
-button.fpcart-button .ui-button-text {
+.fpcart-button .ui-button-text {
 	padding: 2px 4px;
 	font-size: 90%;
 	font-weight: normal;
 	font-style: normal;
+	border: 10px solid blue;
 }
 
 td.fpcart-item-commands {

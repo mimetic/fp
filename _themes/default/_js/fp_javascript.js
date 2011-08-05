@@ -550,6 +550,7 @@ $(document).ready( function() {
 					// What if the state doesn't update before the 'save' gets called?
 					// Let's be sure, just in case the call doesn't happen.
 					setState($('#shipping-destPostalCode').val(), document.getElementById("state"));
+					var s = $("#state").val()
 					$.UpdateCartShippingParams();	//update fpcart shipping params
 					$(this).dialog('close');
 				}

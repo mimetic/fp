@@ -939,7 +939,7 @@ $("button.close-window").click(function()
 	{
 	window.close();
 	}
-).addClass('wrapped');
+);
 
 
 
