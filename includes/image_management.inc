@@ -875,8 +875,9 @@ function ProcessLocalImages ($overwrite = false, $allowed_reserved_names = false
 		list($filename, $artistID, $projectID) = $file;
 		$DEBUG && fp_error_log(__FUNCTION__ . ": Process $filename for artist $artistID, project $projectID", 3, FP_PICTURES_LOG);
 		$DEBUG && $msg .= __FUNCTION__ . ": Process $filename for artist $artistID, project $projectID<BR>";
-		$user = new FPUser ();
-		$user->loadUser ($project['ArtistID']);
+		$user = new FPUser (); 
+		//$user->loadUser ($project['ArtistID']);
+		$user->loadUser ($artistID);
 		$watermark = $user->DefaultCopyrightNotice;
 		$result = ProcessOneImage ($filename, "image/jpeg", $filename, $watermark, $overwrite, $allowed_reserved_names);
 		$DEBUG && $msg .= __FUNCTION__ .":".__LINE__ .	": ran ProcessOneImage on $filename<BR>\n".ArrayToTable ($result);
@@ -1487,6 +1488,7 @@ function ResizeImage($newsizes, $source, $dest, $border=0, $watermark = false) {
 	global $slide_size, $default_size, $thumb_size;
 	global $msg, $error;
 
+	
 	$DEBUG = 0;
 	$VERBOSE = true;
 	// Don't check whether we're overwriting an existing file that might be newer,
@@ -1532,6 +1534,8 @@ function ResizeImage($newsizes, $source, $dest, $border=0, $watermark = false) {
 		$DEBUG && !$success && $error .= __FUNCTION__.__LINE__.": ImageCopyResampled failed<br>";
 		if (!$success) return false;
 		
+		$DEBUG && fp_error_log(__FUNCTION__.__LINE__. ": Watermark = $watermark", 3, FP_PICTURES_LOG);
+
 		if ($watermark) {
 			$DEBUG && $msg .= "Watermark with '$watermark'<BR>";
 			if ($watermark != true) {
@@ -1775,14 +1779,15 @@ function WatermarkImage (&$im, $text = "", $xoffset = 0, $yoffset = 0) {
 	global $BASEDIR;
 	global $error, $msg;
 	
-	$DEBUG = false;
+	$DEBUG = 0;
 	
 	$result = true;
 	imagealphablending($im,true); 
 	$border = 20;
 	
 	$DEBUG && ($error .= __FUNCTION__.": Watermark start<BR>");
-	
+	$DEBUG && fp_error_log(__FUNCTION__.__LINE__. ": Watermark a file with $text", 3, FP_PICTURES_LOG);
+
 	if ($text) {
 
 		// Convert UTF to Latin2, which is needed for the TT fonts
@@ -2271,7 +2276,7 @@ function CalcPrintSizesFromImageID ($ID, $printsizes, $maxonly = false) {
 // This can be used to calculate paper size, once the actual image size is known
 function GetArtBorders ($printsizes) {
 	global $msg, $error;
-	$DEBUG = 1;
+	$DEBUG = 0;
 	
 	$borders = array();
 	foreach ($printsizes as $size) {

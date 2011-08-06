@@ -57,6 +57,7 @@ $fields['ITEM_NAME'] = htmlspecialchars($image['Title'], ENT_QUOTES);
 
 $artistID = $image['ArtistID'];
 $artist = FetchArtist ($artistID);
+$artist || $artist = array();
 
 // rename keys to avoid possible bad substitutions
 while (list ($k,$v) = each ($artist)) {
