@@ -7,7 +7,7 @@
 $folder = $_SESSION["tfu_upload_dir"];
 $folder || tfu_debug("ERROR! The folder from session is empty!");
 
-if ($_SESSION["tfu_upload_extensions"]) {
+if (isset($_SESSION["tfu_upload_extensions"]) && $_SESSION["tfu_upload_extensions"]) {
 	$allowed_file_extensions = $_SESSION["tfu_upload_extensions"];
 } else {
 	$allowed_file_extensions = 'jpg,jpeg';
