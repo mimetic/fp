@@ -243,7 +243,7 @@ function BuyAPrint (imageID, projectID, currentframe, currentmatte, currentsize,
 // Same as above, but more objecty...
 function GoToPrintShop (obj) {
 	var url = "frameshop.php";
-	var params = 'projectID=' + obj.projectID + '&ImageID=' + obj.imageID + '&currentframe=' + obj.currentframe + '&currentmatte=' + obj.currentmatte + '&currentsize=' + obj.currentsize ;
+	var params = 'ProjectID=' + obj.projectID + '&ImageID=' + obj.imageID + '&currentframe=' + obj.currentframe + '&currentmatte=' + obj.currentmatte + '&currentsize=' + obj.currentsize ;
 
 	// add return URL, possibly with current page index value
 	var r = document.URL;
