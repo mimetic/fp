@@ -1637,7 +1637,7 @@ function CalcResizeImage ($width,$height,$newW,$newH) {
 // BE VERY SURE you've set permissions!
 // IF $watermark is set, tell the resizer to watermark the image while it resizes.
 function ResizeNewImages ($filename, $name, $watermark =	false) {
-	global $MAILED_DIR, $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $FRAMED, $ORIGINALS, $BASEDIR, $LOGS;
+	global $MAILED_DIR, $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $FRAMED, $ORIGINALS, $BASEDIR, $LOGS, $DEVELOPING;
 	global $PROCESSED_PHOTOS, $PROCESSED_SLIDES, $PROCESSED_THUMBNAILS, $PROCESSED_MATTED, $PROCESSED_FRAMED, $PROCESSED_ORIGINALS;
 	global $default_size, $slide_size, $default_border, $thumb_size, $thumb_border;
 	global $msg, $error;
@@ -1693,7 +1693,7 @@ function ResizeNewImages ($filename, $name, $watermark =	false) {
 		// unshapr mask radius=.5, sigma=.5, amount=1.2, threshhold=0.05
 		$sharpen = " -unsharp .5x.5+1.2+0.05";
 		$basics = " -units 'pixelsperinch' -density '72x72'";
-		$profile = " -intent Perceptual -profile ".FP_PROFILE_SRGB;
+		$profile = " -intent Perceptual -profile '$BASEDIR/".FP_PROFILE_SRGB."'";
 		// We can choose a different filter here.
 		$filter = "";
 		$loadsize = ceil($slide_size[0]*$mult) . "x" . ceil($slide_size[1]*$mult);
@@ -1726,11 +1726,11 @@ function ResizeNewImages ($filename, $name, $watermark =	false) {
 		$fontfile = $BASEDIR . "/" . FP_WATERMARK_FONT_DIR. "/".FP_WATERMARK_FONT_NAME;
 		
 		if ($watermark) {
-			$cmd = "convert -size 300x300 xc:none -fill grey \
-			-font '$fontfile' -pointsize 14 -gravity center \
+			$cmd = FP_IM_CONVERT." -size 400x400 xc:none -fill grey \
+			-font '$fontfile' -pointsize ".FP_WATERMARK_FONT_SIZE." -gravity center \
 			-annotate 315x315+20+20 '$watermark' \
 			miff:- |\
-			composite -tile -dissolve 50% - '$BASEDIR/$PROCESSED_SLIDES/$name'  '$BASEDIR/$PROCESSED_SLIDES/$name'";
+			".FP_IM_COMPOSITE." -tile -dissolve ".floor(FP_WATERMARK_OPACITY/1.27)."% - '$BASEDIR/$PROCESSED_SLIDES/$name'  '$BASEDIR/$PROCESSED_SLIDES/$name'";
 			exec ($cmd, $output, $response);
 			$response && $im_error += 1;
 			$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking slides for $name", 3, FP_PICTURES_LOG);
@@ -1740,11 +1740,11 @@ function ResizeNewImages ($filename, $name, $watermark =	false) {
 
 		// Watermark the Gallery pic
 		if ($watermark && FP_WATERMARK_GALLERY_PIX) {
-			$cmd = "convert -size 150x150 xc:none -fill grey \
+			$cmd = FP_IM_CONVERT." -size 150x150 xc:none -fill grey \
 			-font '$fontfile' -pointsize 10 -gravity center \
 			-annotate 315x315+20+20 '$watermark' \
 			miff:- |\
-			composite -tile -dissolve 25% - '$BASEDIR/$PROCESSED_PHOTOS/$name'  '$BASEDIR/$PROCESSED_PHOTOS/$name'";
+			".FP_IM_COMPOSITE." -tile -dissolve 25% - '$BASEDIR/$PROCESSED_PHOTOS/$name'  '$BASEDIR/$PROCESSED_PHOTOS/$name'";
 			exec ($cmd, $output, $response);
 			$response && $im_error += 1;
 			$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking gallery pix $name", 3, FP_PICTURES_LOG);
@@ -1779,7 +1779,7 @@ function WatermarkImage (&$im, $text = "", $xoffset = 0, $yoffset = 0) {
 	global $BASEDIR;
 	global $error, $msg;
 	
-	$DEBUG = 0;
+	$DEBUG = 1;
 	
 	$result = true;
 	imagealphablending($im,true); 

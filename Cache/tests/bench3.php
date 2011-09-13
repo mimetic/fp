@@ -1,13 +1,13 @@
 <?php
 
 // Bench script of Cache_Lite_Function
-// $Id: bench3.php,v 1.4 2005/12/04 16:03:55 fab Exp $
+// $Id: bench3.php 202006 2005-12-04 16:03:55Z fab $
 
 require_once('Cache/Lite/Function.php');
 
 $options = array(
     'caching' => true,
-    'cacheDir' => 'tmp/cache/',
+    'cacheDir' => '/tmp/',
     'lifeTime' => 10
 );
 
