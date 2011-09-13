@@ -5606,6 +5606,9 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 					} else {
 						$row['DELETE_COMMAND'] = Substitutions(FetchSnippet ("listitem_delete"), $row);
 					}
+					
+					$row["Summary"] = strip_tags($row["Summary"]);
+					
 					// THEME_LIST field popup
 					$checked = array ($params[FP_PARAM_GALLERY_THEME]);
 					$ThemeList = OptionListFromArray (
@@ -5871,6 +5874,9 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 					} else {
 						$row['DELETE_COMMAND'] = Substitutions(FetchSnippet ("listitem_delete"), $row);
 					}
+					
+					$row["Summary"] = strip_tags($row["Summary"]);
+					
 					$checked = array ($row['Theme']);
 					$ThemeList = OptionListFromArray (
 						$Themes->FP_THEMES_LIST,
@@ -5888,6 +5894,7 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 					$row['THEME_MENU'] = $ThemeList;
 
 					break;
+					
 				case $SUPPLIERS :
 					$row['Title'] = $row['Name'];
 					$row['DELETE_COMMAND'] = Substitutions(FetchSnippet ("listitem_delete"), $row);
