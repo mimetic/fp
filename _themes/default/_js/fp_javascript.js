@@ -931,6 +931,9 @@ $(document).ready( function() {
 			};
 		resizeOneGalleryPicture( $(this), settings );
 	});
+
+
+	/*
 	
 	$(".positionable").draggable({
 			containment: '#scrollable',
@@ -948,7 +951,8 @@ $(document).ready( function() {
 			}
 
 		});
-
+		
+		*/
 
 
 

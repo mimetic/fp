@@ -53,7 +53,7 @@ URGENT: LIVE THEME EDITOR
 JUST FOR FUN....
 - positionable pix in project
 	- each move must write it's position, relative the "wall", via JSON to the project
-	
+	_ *** See default fp_javascript.js — at the end the positionable JS is turned OFF
 
 
 
