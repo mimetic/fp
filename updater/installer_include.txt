@@ -6,7 +6,6 @@
 favicon.ico
 robots.txt
 
-_index.html
 admin.php
 artist.php
 frameshop.php
@@ -16,7 +15,6 @@ gallery_slideshow_sv.php
 gallery_slideshow_tv.php
 gallery_slideshow.php
 gallery.php
-GrossRss.php
 groups.php
 index.php
 info.php

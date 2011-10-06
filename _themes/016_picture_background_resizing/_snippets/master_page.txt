@@ -70,7 +70,7 @@
 	{master_page_popups} 
 <!-- end section class -->
 </div>
-<div id="foot">
+<div id="foot" class="editable">
 	<div id="footc">
 		<div id="footer-box" class="{SOLIDIFY}">
 			{NAVBAR_2} 

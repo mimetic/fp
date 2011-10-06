@@ -8,6 +8,7 @@ _user/
 *.svn
 .git
 *.log
+*.pgp
 audio/
 error_log
 *.bbproject*

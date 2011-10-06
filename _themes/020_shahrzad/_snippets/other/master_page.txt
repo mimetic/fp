@@ -65,7 +65,7 @@
 	<!-- end main -->
 			</div></div>
 	<!--end container -->
-			<div id="foot" class="{sectionclass}"><div id="footc">
+			<div id="foot" class="{sectionclass} editable"><div id="footc">
 				<div id="footer-box">
 					<div id="footleft">
 						{footer_left}

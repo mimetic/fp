@@ -66,7 +66,7 @@
 		</div>
 	<!-- end section class -->
 	</div>
-	<div id="foot"><div id="footc">
+	<div id="foot" class="editable"><div id="footc">
 		<div id="footer-box">
 			{NAVBAR_2}
 			<div id="footleft">

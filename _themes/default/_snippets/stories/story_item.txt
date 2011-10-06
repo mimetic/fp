@@ -1,7 +1,7 @@
 <!--gallery_single_story_item-->
 <div class="story">
-	<h1>{title}</h1>
-	<div class="story_byline">
+	<h1 class="story editable">{title}</h1>
+	<div class="story_byline editable">
 		<!--by {fullname}-->
 	</div>
 	{story}

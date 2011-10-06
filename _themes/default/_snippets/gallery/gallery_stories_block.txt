@@ -1,6 +1,6 @@
 <!--gallery_stories_block-->
 <div class="projecttitle">
-	Writings
+	{fp:Writings}
 </div>
 <div class="storylist">
 	{list} 

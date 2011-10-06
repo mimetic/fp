@@ -2,10 +2,13 @@
 
 /* ----- STANDARD HTML ENTRIES ------------------------- */
 
+* {
+	padding: 0;
+	margin: 0;
+}
+
 html {
 	height: 100%;
-	margin: 0;
-	padding: 0;
 	top: 0;
 	left: 0;
 	font-family: "Trebuchet MS", "Lucida Grande", Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -119,11 +122,16 @@ form {
 #container {
 	text-align: left;
 	position: relative;
-
-
+	min-height: 100%;
+	
 /*	margin: 45px 50px 20px 50px; */
 	padding: 45px 30px 30px 50px;
-	height: auto;
+	height: 100%;
+}
+
+/* Hack for IE 6 */
+* html #container {
+	height: 100%;
 }
 
 #page.fullpage #container {
@@ -141,6 +149,7 @@ form {
 #page {
 	position: absolute;
 	min-height: 500px;
+	height:  100%;
 	width: 100%;
 }
 
@@ -207,11 +216,9 @@ form {
 
 .catalog #flashcontent {
 	width: 100%;
-/
-
-*
-
-height: 415px; */
+/*
+height: 415px; 
+*/
 }
 
 /* These are slideshows that also show with the SlideShowPro gallery */
@@ -248,11 +255,9 @@ height: 415px; */
 
 #headerc {
 	position: relative;
-/
-
-*
-
-height: 35px; */
+/*
+height: 35px; 
+*/
 }
 
 /* this modified dynamically in the 'branded' theme */
@@ -816,6 +821,10 @@ p.story {
 	text-indent: 0px;
 }
 
+.story h1 {
+	font-size: 18px;
+}
+
 .storylist {
 	border-right: none;
 	border-bottom: none;
@@ -1030,11 +1039,8 @@ a.group-table-title:active {
 	border: 0 solid #333;
 	margin-right: 15px;
 	margin-bottom: 25px;
-/
-
-*
-
-height: 50px;
+/*
+	height: 50px;
 	width: 75px;
 */
 }
@@ -1353,7 +1359,6 @@ THIS FAILS IN IE */
 
 #popup {
 	position: fixed;
-	_position: absolute;
 	
 
 /*
@@ -1366,7 +1371,6 @@ hack for internet explorer 6
 #popup_story {
 	display: none;
 	position: fixed;
-	_position: absolute;
 	
 
 /*
@@ -1446,7 +1450,6 @@ div.popup_window_caption {
 
 .popup_bkgd_coverup {
 	position: fixed;
-	_position: absolute;
 	
 
 /*
@@ -2025,9 +2028,9 @@ is used by a jQuery function.
 
 #lightbox-imageBox {
 	background-color: white;
-/
-
-* border: 1px solid black; */
+/*
+ 	border: 1px solid black; 
+ */
 }
 
 #lightbox-close-button:hover {
@@ -2111,7 +2114,7 @@ body.cssEdit {
 }
 
 .cssEditHighlight {
-	background-color: rgba(248,255,197,90);
+	background-color: rgba(248,255,197,0.9);
 	color: black;
 	border-width: 1px;
 }

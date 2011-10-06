@@ -71,7 +71,7 @@
 		{master_page_popups}
 	<!-- end section class -->
 	</div>
-	<div id="foot" class="{sectionclass}"><div id="footc">
+	<div id="foot" class="{sectionclass} editable"><div id="footc">
 		<div id="footer-box">
 			{NAVBAR}
 			{NAVBAR_2}
