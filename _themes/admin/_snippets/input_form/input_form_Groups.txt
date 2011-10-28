@@ -89,12 +89,12 @@
 							</div>
 						</div>
 					</div>
-					<div class="entry advanced">
+					<div class="entry">
 						<div class="label">
 							Hide Listing : 
 						</div>
 						<div class="item">
-							{param_27_checkbox} <span class="helptext"> Hide the list of {fp:projects} on the page. This is useful when you use drop-down menus. </span> 
+							{param_27_checkbox} <span class="helptext"> Hide the list of {fp:projects} on the page. This is useful to hide all exhibitions, or when you use drop-down menus. <span class="important">This will hide all {fp:projects} in this {fp:group}!</span></span> 
 						</div>
 					</div>
 
