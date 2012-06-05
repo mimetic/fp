@@ -21,12 +21,14 @@ echo =========================================
 echo Update gallery websites with rsync
 echo =========================================
 
-echo  ***** DRY RUN ON!!!!! *****
+echo ===== DRY RUN ON!!!!! ======
 
 #_rsync girlswho girlswholike.us public_html/
-_rsync dgphoto davidgrossphoto.com public_html/
+#_rsync dgphoto davidgrossphoto.com public_html/
+#_rsync justmiel justmiel.com public_html/
 #_rsync artpress artpressgallery.com public_html/
 #_rsync shahrzad shahrzadkamel.com public_html/
+#_rsync alpsime alpsime.com public_html/
 
 echo =========================================
 echo END
