@@ -1,12 +1,75 @@
-----------------------------------
-History TWG Flash Uploader 2.12.1
+-------------------------------
+History TWG Flash Uploader 2.16
 
 by Michael Dempfle
 www.tinywebgallery.com
---------------------------------
+-------------------------------
 
 (php) means that the change is only in the php part and not in the flash - only the version number is changed in the flash!
-2.12.1
+
+2.16
+New: After upload file infos are read from the server. In the JFU editor button now the image can be preselected after the upload is finshed.
+New: After creating a thumbnail in the JFUploader editor plugin file infos are read from the server. In the JFU editor button now the thumbnail is preselected after the thumbnail creation is finshed. 
+New: session_cache folder is now protected automatically by a index.htm and .htaccess file.
+Fix: http/s detection fixed for IIS. On IIS https was used for direct links because the detection flag is handled differently there.
+Fix: EventListeners for the previews where added every time you selected a file. As a result of this the Javascript when selecting an element was called one time more each selection. Now it is only done once how it should be.
+Fix: When hide remote view is choosen the buttons that don't make sense are removed.
+Fix: When the flash was loaded and settings that changes the layout was choosen some settings causes a short flickering. Now when the flash get the proper setting this should not happen anymore.
+Fix: Diplay of copy works now fine at big server view and switch sides.
+ 
+2.15.1
+No changes at TFU - only for JFU and WFU!
+
+2.15
+New: The freeware version does not have a 3 MB limit anymore! It is replaced by a 3 MB popup where you can continue after entering a number. Above this limit only 5 files at a time can be uploaded. So you can now test the upload limits of your server with the freeware version.
+New: You can switch the server and upload windows. See switch_sides in the config.
+New: Support of IDN-Domains. Please read howto 20 of the TFU FAQ.
+New: $date_format: you can define how the date in the flash is displayed.
+New: TWG uses the index of a file and not the filesnames directly to support all encodings. Now you can use the file names as well to support parallel use of the flash. See $use_index_for_files or howto 21 of the TFU FAQ
+New: Memory is shown when extended debug is enabled! So you can now track the memory usage even during upload!
+New: Serbian language file added. Thanks to Zoran Kuzmanovic.
+Fix: Date on the serverside was only shown when the directory had no special chars. Now the directory can have special chars, spaces...
+Fix: Directory limit was not working properly because of a number format problem.
+Fix: Directory limits where not checked when after showing the error message again. So it was possilbe to upload even when the limit was present.
+Fix: hide_remote_side was not hidding the remote side label. Now it is and the 'upload queue' is shown at this location. 
+
+2.14.3
+Only the version number was increased because of improvements in JFU and WFU (check it - now custom profiles are supported!)
+
+2.14.2
+Fix: (php) The check if a file can be deleted is now working on even more servers.
+Fix: (php) Normalize function does now support ÖÄÜ which are now converted to lowercase as well.
+Fix: (php) Normalize function does now work for utf-8 as well.
+
+2.14.1
+Fix: When creation of folders was disabled and write protected folders where detected then the "Add files" button was not activated again if you go to a directory that was working again. Now the Button is activated if the folder is writable again.
+Fix: If you add files and move afterwards to a diretory which is not writeable the flash was still showing an active upload button. Now the button is disabled and enabled again in a directory where the upload would work.
+Fix: (php) fix encoding and normalize filenames switched in tfu_uplad.php to have the correct file encoding
+Fix: (php) $sort_directores_by_date was not working properly - now it does.
+Fix: (php) error_log can be not allowed which was shown in Joomla on the frontend. Now this message is hidden.
+
+2.14
+New: Create files added. You can allow txt, all editable files and all file to be created. Please check $enable_file_creation and $enable_file_creation_extensions
+New: Date can be shown on the server side instead of the size. Please see tfu.htm for optimal usage.
+New: Sort directories by date was added: $sort_directores_by_date
+New: directory_file_limit_size - you can now specify a quota for a directory structure.
+New: & in directory names are now supported.
+New: Extensions for the Joomla Editor button.
+New: You can decide in which format pdf previews are saved. jpg and png is supported. CYMK pdf's are converted to RGB images!
+New: Version check of the files. Each main files has a version number and TFU dies if not all files have the same version.
+New: autoscroll to top after create and change directories and upload
+New: upload error messages are now displayed in the log file!
+Fix: $forbidden_view_file_extensions was not working in 2.13 because I disabled this by mistake. Now it works fine again.
+Fix: if $forbidden_view_file_extensions was set files without extensions where hidden automatically. Now a extra , (empty extension) after this list hides files without extension.
+Fix: The edit button was shown after deleting a file. Now it is hidden properly.
+
+2.13.1
+- New: The zip files pattern does now support the folder as well. You can use {folder} which does add the current folder to the zip name
+- Fix: On servers that add ads or a counter automatially to each request TFU was not always working. I have added now a extra parameter at the end which prevents that one of the important parameters are modified.
+
+2.13
+- New: (php) An info text of the images is rendered onto the previews
+- New: The complete configuration data is now sent encrypted to the flash. Before only security related stuff was encoded. But no one has to know the configuration.
 - New: Better fullscreen support.
 - New: The flash can now be used in the frontend of wordpress!
 - New: When you rename something the old filename is now displayed as default.
@@ -15,8 +78,15 @@ www.tinywebgallery.com
 - New: $zip_file_pattern - You can define how the file name of the zip does look like. Please read the doc in tfu_config.php.
 - New: $check_safemode in tfu_helper.php - on some systems the check for the safemode completely fails. If this is the case you can turn off this at the top of tfu_helper.php where some internal variables are defined.
 - New: Renaming of the case of extensions is now possible even when rename extension is disabled.
+- New: $has_post_processing - you can set tis to true if you do a lot after the upload. The flash has an internal warning after 10 sec. By setting this variable to "true" you get additional 10 sec. For bigger files 2 sec are added for each 10 MB
+- Fix: Added stripslashes for the description
+- Fix: The description is now written before the plugins are called.
+- Fix: The check for not valid extensions was improved. 
 - Fix: Added 2 @ to suppress warings that can happend on sysems where some functions do work like they should.
-- Fix: Renaming files + normalize filenames for extensions with big characters as not possible. Now it is. 
+- Fix: Renaming files + normalize filenames for extensions with big characters was not possible. Now it is. 
+- Fix: Download as zip was creating zip files which where not working with the internal mac unzipper. I have fixed the external class I was using for this. Now it works fine for Mac too.
+- Fix: The language selector dropdown in tfu.htm was not working anymore because I updated the swfobjects implementation. Now it works fine again.
+- Fix: No php code is enctypted anymore. The whole reg check is now implemented in the flash.
 
 2.12
 - New: session id is read by the external interface through Javascript. So you don't have to specify the parameter session_id when calling TFU if Javascript is enabled in the browser.

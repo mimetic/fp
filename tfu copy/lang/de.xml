@@ -1,0 +1,26 @@
+<!--
+TWG Flash Uploader 2.10 - german language file 
+
+Please note - This file is only a delta file!
+English, German and Spanisch are build into the flash already!
+
+Go to the default.xml and copy the text you want to change into this 
+file. The example below is only a dummy!
+
+If you make any changes make sure to save the file as UTF-8! Otherwise special characters
+are not displayed properly!
+-->
+<TFU>
+  <LANG><KEY>key</KEY><VALUE>New value</VALUE></LANG>
+  <!-- The feature below is not documented yet - I will do this is nthe next version! -->
+  <LANG><KEY>post_template</KEY><VALUE>Name: %name%
+Firma: %company%
+Adresse: %address%
+PLZ/Ort: %postcode% %city%
+Telefon: %telephone%
+Fax: %fax%
+E-Mail: %email%
+
+Bitte geben Sie hier Ihre Bestellungswünsche an:
+</VALUE></LANG>
+</TFU>

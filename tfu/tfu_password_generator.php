@@ -1,6 +1,6 @@
 <?php
 /*************************  
-  Copyright (c) 2004-2010 TinyWebGallery
+  Copyright (c) 2004-2012 TinyWebGallery
   written by Michael Dempfle
  
   This program is free software; you can redistribute it and/or modify 
@@ -9,7 +9,7 @@
   either version 2 of the License, or (at your option) any later version. 
   See license.txt for details.
  
-  TFU version: 2.12.x
+  TFU version: 2.15.x
  
   $Date: 2007-02-16 09:17:41 +0100 (Fr, 16 Feb 2007) $
   $Revision: 41 $
@@ -24,7 +24,7 @@
 <style type="text/css">
 .noflash { padding:10px; margin:10px; border: 1px solid #555555; background-color: #f8f8f8; text-align:center; width:430px; }
 body { font-family : Verdana,Lucida,sans-serif; font-size: 11px; margin:10px; background-color: #ffffff;}
-h2 { background-color : #eeeeee; font-size: 12px; font-weight: bold; border-bottom: 1px solid #000000; padding: 2px 2px 2px 10px; }
+h2 { background-color : #ffffff; font-size: 12px; font-weight: bold; border-bottom: 1px solid #000000; padding: 2px 2px 2px 10px; }
 </style>
 </head>
 <body>

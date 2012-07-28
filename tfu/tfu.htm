@@ -3,7 +3,7 @@
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="http://www.tinywebgallery.com/favicon.ico" type="image/x-icon">
-<title>TWG Flash Uploader 2.12.1</title>
+<title>TWG Flash Uploader 2.16</title>
 <script type="text/javascript">
 function uploadFinished(loc) {
    // here you can do something after the upload - loc is the parameter you provide in the config!
@@ -102,6 +102,10 @@ function debugError(errorString) {
   alert(errorString);
 }
 
+// Used for the JFUploader plugin!
+function setImage(index, name, x , y) {
+}
+
 /*
  You can refresh the file list by Javascript. This is e.g. used in WFU where the thumbnails are generated
  in an extra step and to keep the listing of the flash and the file in synch.  
@@ -112,6 +116,17 @@ function refreshFileList() {
       obj.refreshFileList();
    }
 } 
+
+/**
+ * This is the function you have modify the return value if you use IDN-Domains
+ * Please read the howto about IDN in the TFU FAQ 20.
+ * The standalone version need the alias url + the full path to the tfu folder.
+ * The Joomla, Wordpress and TWG version has config parameters which are 
+ * explained in the howto as well.    
+ */ 
+function getIDN() {
+  return "";
+}
 
 /**
 This function is only here to demonstrate the different languages of TWG
@@ -125,7 +140,9 @@ params.scale = "noScale";
 var attributes = { id: "flash_tfu", name: "flash_tfu" };
 
 flashvars.lang=lang;
-swfobject.embedSWF("tfu_212.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+
+document.getElementById("flashcontainer").innerHTML = "<div id=\"flashcontent\">Loading</div>";
+swfobject.embedSWF("tfu_216.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 }
 </script>
 
@@ -148,32 +165,14 @@ h2 { background-color : #eeeeee; font-size: 12px; font-weight: bold; border-bott
 </style>
 </head>
 <body bgcolor="#ffffff" onLoad="if (document.getElementById('mymovie')) document.getElementById('mymovie').focus()">
-<h1>TWG Flash Uploader 2.12.1 Demo Page</h1>
+<h1>TWG Flash Uploader 2.16 Demo Page</h1>
 The TWG Flash Uploader is a very comfortable way for your users to upload file to a remote server. Because it's based on flash it can be used by almost everyone. You can simply upload files by selecting files on your hard drive andsimply press the upload button.
 For more details please go to the web page.<br>
 
 <p><b>Please check the source code of this page how to integrate TFU properly.</b></p>
-<p>You will find 2 swf's in the download: tfu_&lt;version&gt;.swf and tfu_preloader.swf. The tfu_preloader.swf does only load the main flash and shows a small percentage counter. The flash is only ~130k - therefore it's up to you if you want to provide the loading status. <br>
+<p>You will find 2 swf's in the download: tfu_&lt;version&gt;.swf and tfu_preloader.swf. The tfu_preloader.swf does only load the main flash and shows a small percentage counter. The flash is only ~146k - therefore it's up to you if you want to provide the loading status. <br>
 By default the preloader is not enabled because if you are registered and download is enabled you get an error from the flash plugin if you download a file. If you don't enable downloads you can use the preloader without restrictions. </p>
-<h2>Requirements</h2>
-Client: Flash >= 8, Java >= 1.4.x if you want to use the file split applet<br>
-Server: php >= 4.3.5 + gdlib installed + if you use apache: mod_secuity has to be disabled or can be disabled by the provided .htaccess file (See FAQ 1 of the<a href="http://www.tinywebgallery.com/en/tfu/web_faq.php"> TFU Howto/FAQ</a>).
-<h2>URL parameters</h2>
-<ul>
-   <li><b>lang</b> is the switch for the language - valid entries are de, en, fr, es, bg, br, it, cn, cz, nl, ct, da, no, pl, pt, se, sk, tw and jp e.g. Add this to the flash e.g. tfu_212.swf?lang=de</li>
-   <li><span class="style1">session_id</span> - you can specify a session id by passing the current session id if you want to share your current session with the tfu_* files - it will be added to every call to the server. <strong>Please note</strong>: If you want to pass variables over the session this parameter is <strong>mandatory</strong> because Firefox does not handle this properly otherwise! Since TFU 2.12 this value is read by Javascript internally from the Flash. If you are sure that Javascript is always available you don't need to specify this parameter anymore.</li>
-	 <li><b>session_name</b> -  The default of this value is TFUSESSID. I do not use the default PHPSESSID because it you set session. use_trans_sid=off then this would be filtered and upload would fail! I recommend NOT to change this. You have to change php code as well if you do!</li>
-<li><strong>base</strong> - This is only needed if you  use the flash if not all files are in one directory. Needed to load the language files properly - Read howto 8 of the TFU FAQ.</li>
-<li><b>tfu_description_mode=true</b> - Only use this if you want to enable the description mode. The flash is then loaded already with the grid layout needed for the description mode. If you don't set this then you see the Size/Date colums for a very short moment. Only use this if you have a professional license or above because otherwise it simply does not work because the functionality is NOT attached to this parameter.</li>
-<li><b>hide_remote_view=true</b> - Use this if you want to hide the remote view. The flash is then loaded already with the layout without the remote view. If you don't set this then you see the remote view for a very short moment. Don't forget to set this in the config too because the functionality is NOT attached to this parameter.</li>
-<li><b>big_server_view=true</b> - Use this if you want the server side the same size as the upload. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment. Don't forget to set this in the config too because the internal functionality is NOT attached to this parameter.</li>
-
-<li><strong>c_*</strong> - color settings of the flash - available if you have a professional license or above. See howto 9. <br>
-</li>
-</ul>
-<p>All other settings are done in the tfu_config.php - The parameters are explained there. Please read the faq on the web pagefor more info's.</p>
-<p>
-Available languages:
+<p>Available languages:
   <select name="select" id="select" onChange="changeLanguage(this.options[this.selectedIndex].value);" class="checkbox">
     <option value="en">English</option>
     <option value="de">German</option>
@@ -182,47 +181,55 @@ Available languages:
     <option value="br">Brasilian</option>
     <option value="ct">Catalan</option>
     <option value="cn">Chinese simplified</option>
-	<option value="tw">Chinese traditional</option>
-		<option value="cz">Czech</option>
-   	<option value="da">Danish</option>
+    <option value="tw">Chinese traditional</option>
+    <option value="cz">Czech</option>
+    <option value="da">Danish</option>
     <option value="nl">Dutch</option>
     <option value="fr">French</option>
     <option value="gr">Greek</option>
     <option value="it">Italian</option>
-   	<option value="jp">Japanese</option>
-	<option value="no">Norway</option>
-	<option value="pt">Portuguese</option>
-	<option value="pl">Polish</option>
-	<option value="ru">Russian</option>
-	<option value="sk">Slovak</option>
-	<option value="se">Swedish</option>
+    <option value="jp">Japanese</option>
+    <option value="no">Norway</option>
+    <option value="pt">Portuguese</option>
+    <option value="pl">Polish</option>
+    <option value="ru">Russian</option>
+    <option value="rs">Serbian</option>
+    <option value="sk">Slovak</option>
+    <option value="se">Swedish</option>
   </select>
   <br>
-<p>
-  The flash does now show  language flags too - check the tfu_config.php : $language_dropdown and read the documentation there to configure it properly!
 </p>
 <noscript>
 &nbsp;(Please activate Javascript to enable the switch to another language)
 </noscript>
-</p>
-<br>
 <center>
-<!--
+<div style="height:370px">
+  <!--
 
 
 Here Is the code how to include the flash!
 
 
 -->
-<!-- include with javascript - best solution because otherwise you get the "klick to activate border in IE" -->
-<script type="text/javascript" src="swfobject.js"></script>
-<script type="text/javascript">
-   document.write('<div id="flashcontent"><div class="noflash">TWG Flash Uploader requires at least Flash 8.<br>Please update your browser.</div></div>');
+  <!-- include with javascript - best solution because otherwise you get the "klick to activate border in IE" -->
+  <script type="text/javascript" src="swfobject.js"></script>
+  <script type="text/javascript">
+   document.write('<div id="flashcontainer"><div id="flashcontent"><div class="noflash">TWG Flash Uploader requires at least Flash 8.<br>Please update your browser.</div></div></div>');
 var flashvars = {};
 // - The following 3 lines would make a blue header bar with white text if you have a professional license or above
 // flashvars.c_header_bg = "7777FF";
 // flashvars.c_header_bg_2 = "0000FF";
 // flashvars.c_text_header = "FFFFFF";
+
+// Please read the description in the html page for details.
+// flashvars.tfu_description_mode="true";
+// flashvars.hide_remote_view="true";
+// flashvars.big_server_view="true";
+// flashvars.show_server_date_instead_size="true";
+// flashvars.enable_absolut_path="true";
+// flashvars.switch_sides="true";
+// flashvars.hide_upload="true";  // This is when you set $allowed_file_extensions = ''
+// flashvars.show_size="false"; // This is the parameter show_size from the config. You have to use "true" and "false". Not like in tfu_config '' for false. 
 
 var params = {};
 // needed for fullscreen 
@@ -230,36 +237,63 @@ params.allowfullscreen = "true";
 params.scale = "noScale";
 var attributes = { id: "flash_tfu", name: "flash_tfu" };
 
-swfobject.embedSWF("tfu_212.swf", "flashcontent", "650", "375", "8.0.0", "", flashvars, params, attributes);
+swfobject.embedSWF("tfu_216.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 // Use this if you want to use the preloader
 // swfobject.embedSWF("tfu_preloader.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
     
 </script>
-<!-- end include with Javascript -->
-<!-- static html include -->
-<noscript>
-<object name="mymovie" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="650" height="340"  align="middle">
-<param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="tfu_212.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><param name="scale" value="noScale" /><param name="allowFullScreen" value="true" /><embed src="tfu_212.swf" name="mymovie" quality="high" bgcolor="#ffffff" width="650" height="340" align="middle" scale="noScale" allowfullscreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-</object>
-</noscript>
-<!-- end static html include -->
-<!--
+  <!-- end include with Javascript -->
+  <!-- static html include -->
+  <noscript>
+  <object name="mymovie" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="650" height="340"  align="middle">
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="movie" value="tfu_216.swf" />
+    <param name="quality" value="high" />
+    <param name="bgcolor" value="#ffffff" />
+    <param name="scale" value="noScale" />
+    <param name="allowFullScreen" value="true" />
+    <embed src="tfu_216.swf" name="mymovie" quality="high" bgcolor="#ffffff" width="650" height="340" align="middle" scale="noScale" allowfullscreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+  </object>
+  </noscript>
+  <!-- end static html include -->
+  <!--
 
 
 End of include code
 
 
 -->
+</div>
 <div class="small" id="status">Here a status is displayed if you have Javascript events defined and a license file exists.</div>
 </center>
-<p align=center>
-Please note: TFU has to be installed on a web server because it reads all it's setting from the server! If you only open the tfu.htm file from you local hard drive the flash displays an error.</p>
-</p> Have fun using TFU.
+<p align=center> Please note: TFU has to be installed on a web server because it reads all it's setting from the server! If you only open the tfu.htm file from you local hard drive the flash displays an error.</p>
+<p></p>
+Have fun using TFU.
+<h2>Requirements</h2>
+Client: Flash >= 8, Java >= 1.4.x if you want to use the file split applet<br>
+Server: php >= 4.3.5 + gdlib installed + if you use apache: mod_secuity has to be disabled or can be disabled by the provided .htaccess file (See FAQ 1 of the<a href="http://www.tinywebgallery.com/en/tfu/web_faq.php"> TFU Howto/FAQ</a>).
+<h2>URL parameters</h2>
+<ul>
+   <li><b>lang</b> is the switch for the language - valid entries are de, en, fr, es, bg, br, it, cn, cz, nl, ct, da, no, pl, pt, se, sk, tw and jp e.g. Add this to the flash e.g. tfu_216.swf?lang=de</li>
+   <li><span class="style1">session_id</span> - you can specify a session id by passing the current session id if you want to share your current session with the tfu_* files - it will be added to every call to the server. <strong>Please note</strong>: If you want to pass variables over the session this parameter is <strong>mandatory</strong> because Firefox does not handle this properly otherwise! Since TFU 2.12 this value is read by Javascript internally from the Flash. If you are sure that Javascript is always available you don't need to specify this parameter anymore.</li>
+	 <li><b>session_name</b> -  The default of this value is TFUSESSID. I do not use the default PHPSESSID because it you set session. use_trans_sid=off then this would be filtered and upload would fail! I recommend NOT to change this. You have to change php code as well if you do!</li>
+<li><strong>base</strong> - This is only needed if you  use the flash if not all files are in one directory. Needed to load the language files properly - Read howto 8 of the TFU FAQ.</li>
+<li><b>tfu_description_mode=true</b> - Only use this if you want to enable the description mode. The flash is then loaded already with the grid layout needed for the description mode. If you don't set this then you see the Size/Date colums for a very short moment. Only use this if you have a professional license or above because otherwise it simply does not work because the functionality is NOT attached to this parameter.</li>
+<li><b>hide_remote_view=true</b> - Use this if you want to hide the remote view. The flash is then loaded already with the layout without the remote view. If you don't set this then you see the remote view for a very short moment. Don't forget to set this in the config too because the functionality is NOT attached to this parameter.</li>
+<li><b>big_server_view=true</b> - Use this if you want the server side the same size as the upload. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment. Don't forget to set this in the config too because the internal functionality is NOT attached to this parameter.</li>
+<li><b>show_server_date_instead_size=true</b> - Use this if you want to show the server date instead of the size. The flash is then loaded already with the right text. If you don't set this and only in the config then you see the size header text for a very short moment. Don't forget to set this in the config too because the internal functionality is NOT attached to this parameter.</li>
+<li><b>enable_absolut_path=true</b> - This parameter is for the support of IDN domains. Please read <a target='blank' href='http://www.tinywebgallery.com/en/tfu/tfu_faq_20.php/'>howto 20</a> of the TFU FAQ. There you have a detailes description how to configure this workaround.</li>
+<li><b>switch_sides=true</b> - Use this if you want the server side on the right the and upload side on the the left side. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment. Don't forget to set this in the config too.</li>
+<li><b>hide_upload=true</b> - Use this if you want to hide the upload view. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment. Don't forget to set this in the config too. This is when you set $allowed_file_extensions = ''.</li>
+<li><b>show_size=false</b> - Use this if you want to hide the size column. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment. Don't forget to set this in the config too. This is when you set $show_size = ''.</li>
+<li><strong>c_*</strong> - color settings of the flash - available if you have a professional license or above. See howto 9. <br>
+</li>
+</ul>
+<p>All other settings are done in the tfu_config.php - The parameters are explained there. Please read the faq on the web pagefor more info's.</p>
 <h2>How to setup TFU secure!</h2>
-<p>Please go to the website and read <a href="http://www.tinywebgallery.com/en/tfu/web_faq.php#13">TFU how-to 13</a>. It's important to make a secure setup on your system! </p>
+<p>Please go to the website and read <a href="http://www.tinywebgallery.com/en/tfu/tfu_faq_13.php">TFU how-to 13</a>. It's important to make a secure setup on your system! </p>
 <h2>Server settings</h2>
-<p>By calling the tfu_config.php directly you get some server settings displayed. This are the limitations of your server - not of TFU. Please read the TFU <a href="http://www.tinywebgallery.com/en/tfu/web_faq.php#4">how-to 4</a> on the website if you want to increase the upload limit. You can open this page by clicking <a href="tfu_config.php">here</a>.
+<p>By calling the tfu_config.php directly you get some server settings displayed. This are the limitations of your server - not of TFU. Please read the TFU <a href="http://www.tinywebgallery.com/en/tfu/tfu_faq_4.php">how-to 4</a> on the website if you want to increase the upload limit. You can open this page by clicking <a href="tfu_config.php">here</a>.
 </p>
 <h2>Latest version </h2>
 <p>Currently the latest version of TFU is:<br><iframe src="http://www.tinywebgallery.com/updatecheck/tfu.txt" frameborder="0" width="80" scrolling="no" height="30" ></iframe></p>
@@ -284,10 +318,10 @@ Since version 2.9 TFU does support that you can include and execute your own cod
 
 <h2>Registration &amp; Help </h2>
 <p>Please go to <a href="http://www.tinywebgallery.com/en/register_tfu.php" target="_blank">www.tinywebgallery.com</a> to register TFU and get  additional features. You can now register TFU <a href="http://www.tinywebgallery.com/en/register_tfu.php" target="_blank"><strong>for free</strong></a> too. </p>
-<p>On the website you get more help if you have a problem using/installing TFU. Check the TFU <a href="http://www.tinywebgallery.com/en/tfu/web_faq.php#1">how-to 1</a> first if you have any problems. If this does not solve your problem please use the forum. </p>
+<p>On the website you get more help if you have a problem using/installing TFU. Check the TFU <a href="http://www.tinywebgallery.com/en/tfu/tfu_faq_1.php">how-to 1</a> first if you have any problems. If this does not solve your problem please use the forum. </p>
 <h2>Password encryption</h2>
 <p>I have added a small password generator in the file<a href="tfu_password_generator.php"> tfu_password_generator.php</a>. I have included this generator below in a small iframe ;).</p>
-<center><iframe src="tfu_password_generator.php" width="500" height="260" scrolling="auto" frameborder="0"></iframe></center>
+<center><iframe src="tfu_password_generator.php" width="500" height="280" scrolling="auto" frameborder="0"></iframe></center>
 <h2>TFU file split applet</h2>
 <p>Many servers have a very small upload limit and this does not allow
 to upload images or movies in the original size.</p>
@@ -311,6 +345,6 @@ to download the sources.</p>
 <h1><a name="faq"></a>FAQ</h1>
 <p>The FAQ for TFU can be found at <a href="http://www.tinywebgallery.com" target="_blank">www.tinywebgallery.com/en/tfu/web_faq.php</a></p>
 <p>&nbsp;</p>
-<center><small>TWG Flash Uploader - Copyright (c) 2004-2009 TinyWebGallery.</small></center>
+<center><small>TWG Flash Uploader - Copyright (c) 2004-2012 TinyWebGallery.</small></center>
 </body>
 </html>

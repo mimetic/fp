@@ -190,5 +190,5 @@ Translated/išvertė: Mindaugas Murza, 1:50 AM 12/9/2009
 		<!--   new 2.10.2 -->
 		<LANG><KEY>upload_cached</KEY><VALUE>Panašu, kad įkėlimas kešuojamas vietinio proxy serverio arba ugniasienės (firewall). Prašome perskaityti papildomą info.</VALUE></LANG>
 		<!-- you have to use &lt; &lg; -->
-    <LANG><KEY>upload_cached_box</KEY><VALUE>Panašu, kad įkėlimas kešuojamas vietinio proxy serverio arba ugniasienės (firewall). Prašome palaukti, kol pamatysite 'įkėlimas baigtas'. Jei įkėlimas nepavyksta - reikia keisti ugniasienės, proxy ar kitos naudojamos tinklo saugumo programinės įrangos nustatymus. &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_faq.php#18"&gt;&lt;b&gt;ČIA&lt;/b&gt;&lt;/a&gt; galite paskaityti kaip tai padaryti.</VALUE></LANG>
+    <LANG><KEY>upload_cached_box</KEY><VALUE>Panašu, kad įkėlimas kešuojamas vietinio proxy serverio arba ugniasienės (firewall). Prašome palaukti, kol pamatysite 'įkėlimas baigtas'. Jei įkėlimas nepavyksta - reikia keisti ugniasienės, proxy ar kitos naudojamos tinklo saugumo programinės įrangos nustatymus. &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/tfu_faq_18.php"&gt;&lt;b&gt;ČIA&lt;/b&gt;&lt;/a&gt; galite paskaityti kaip tai padaryti.</VALUE></LANG>
 </TFU>

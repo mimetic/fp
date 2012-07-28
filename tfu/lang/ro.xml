@@ -358,7 +358,7 @@ TWG Flash Uploader 2.10.x - Romanian language file
 
 		<!-- you have to use &lt; &lg; -->
 
-    <LANG><KEY>upload_cached_box</KEY><VALUE>xxAsteptaţi pânã încãrcarea se terminã. Dacã nu reuşeşte trebuie sã verificaţi programele Dumneavoastrã de securitate. Click &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_faq.php#18"&gt;&lt;b&gt;aici&lt;/b&gt;&lt;/a&gt; pentru detalii.</VALUE></LANG>
+    <LANG><KEY>upload_cached_box</KEY><VALUE>xxAsteptaţi pânã încãrcarea se terminã. Dacã nu reuşeşte trebuie sã verificaţi programele Dumneavoastrã de securitate. Click &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/tfu_faq_18.php"&gt;&lt;b&gt;aici&lt;/b&gt;&lt;/a&gt; pentru detalii.</VALUE></LANG>
 
 </TFU>
 

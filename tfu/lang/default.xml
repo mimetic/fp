@@ -1,5 +1,5 @@
 <!--
-TWG Flash Uploader 2.11.x - default language file 
+TWG Flash Uploader 2.16.x - default language file 
 
 Please note - This is only the template for translation!
 English, German and Spanisch are build into the flash already!
@@ -184,16 +184,29 @@ are not displayed properly!
 		<LANG><KEY>post_template</KEY><VALUE>Hello %name%. Please enter additional details here before you upload your files.</VALUE></LANG>
     <!-- end extension -->
     <!--   new 2.10  -->
-		<LANG><KEY>download_again</KEY><VALUE>Please select 'Download' again to download the next file.</VALUE></LANG>	  
-		<!--   new 2.10.2 -->
-		<LANG><KEY>upload_cached</KEY><VALUE>The upload is maybe cached by a lokal proxy or firewall. Please read the info box.</VALUE></LANG>
-		<!-- you have to use &lt; &lg; -->
-    <LANG><KEY>upload_cached_box</KEY><VALUE>It seems that the upload is cached by a lokal proxy or firewall. Please wait until 'Upload finished' is shown. If the uploads fails you have to configure your firewall/proxy/security suite. Please click &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_faq.php#18"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; for details how to do this.</VALUE></LANG>
+	<LANG><KEY>download_again</KEY><VALUE>Please select 'Download' again to download the next file.</VALUE></LANG>	  
+	<!--   new 2.10.2 -->
+	<LANG><KEY>upload_cached</KEY><VALUE>The upload is maybe cached by a local proxy or firewall. Please read the info box.</VALUE></LANG>
+	<!-- you have to use &lt; &lg; -->
+    <LANG><KEY>upload_cached_box</KEY><VALUE>It seems that the upload is cached by a local proxy or firewall. Please wait until 'Upload finished' is shown. If the uploads fails you have to configure your firewall/proxy/security suite. Please click &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/tfu_faq_18.php"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; for details how to do this.</VALUE></LANG>
     <!--   new 2.10.4 -->
-    <LANG><KEY>session_error_ok</KEY><VALUE>This server does not handle the session of the flash properly. An internal workaround was activated successfully. For more information what was done please click &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/web_faq.php#12"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; to go to the TFU FAQ.</VALUE></LANG>
-		<LANG><KEY>session_error_ok_status</KEY><VALUE>Please reload the page and upload again.</VALUE></LANG>
-		<LANG><KEY>session_error_man</KEY><VALUE>This server does not handle the session of the flash properly. An internal workaround could NOT be activated automatically. Please click &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/web_faq.php#12"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; to go to the TFU FAQ that tells you how to solve this problem.</VALUE></LANG>
-		<LANG><KEY>session_error_man_status</KEY><VALUE>This problem cannot be solved automatically. Please read the info box.</VALUE></LANG>
-	
-
+    <LANG><KEY>session_error_ok</KEY><VALUE>This server does not handle the session of the flash properly. An internal workaround was activated successfully. For more information what was done please click &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/tfu_faq_12.php"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; to go to the TFU FAQ.</VALUE></LANG>
+	<LANG><KEY>session_error_ok_status</KEY><VALUE>Please reload the page and upload again.</VALUE></LANG>
+	<LANG><KEY>session_error_man</KEY><VALUE>This server does not handle the session of the flash properly. An internal workaround could NOT be activated automatically. Please click &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/tfu_faq_12.php"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; to go to the TFU FAQ that tells you how to solve this problem.</VALUE></LANG>
+	<LANG><KEY>session_error_man_status</KEY><VALUE>This problem cannot be solved automatically. Please read the info box.</VALUE></LANG>
+	<!--   new 2.11 -->
+	<LANG><KEY>progress_total</KEY><VALUE>Total: %s</VALUE></LANG>
+	<LANG><KEY>progress_time_running</KEY><VALUE>Time: %s</VALUE></LANG>
+	<LANG><KEY>seperator_1000</KEY><VALUE>,</VALUE></LANG>
+	<LANG><KEY>seperator_komma</KEY><VALUE>.</VALUE></LANG>
+	<!--   new 2.14 -->
+	<LANG><KEY>dir_limit_size</KEY><VALUE>The quota for this directoy is %s. Please remove some files.</VALUE></LANG>
+	<LANG><KEY>dir_limit_size_quota</KEY><VALUE>Quota: %s.</VALUE></LANG>
+	<LANG><KEY>menu_create_file</KEY><VALUE>Create file</VALUE></LANG>
+	<LANG><KEY>create_file_label</KEY><VALUE>Create file</VALUE></LANG>
+	<LANG><KEY>file_created</KEY><VALUE>File '%s' created.</VALUE></LANG>
+	<LANG><KEY>file_exists</KEY><VALUE>File '%s' already exists.</VALUE></LANG>
+	<LANG><KEY>file_not_created</KEY><VALUE>File '%s' could not be created.</VALUE></LANG>
+	<LANG><KEY>file_create_error_edit</KEY><VALUE>You can only create files with an extension that you are allowed to edit: %s</VALUE></LANG>
+	<LANG><KEY>file_create_error_txt</KEY><VALUE>You can only create files with the extension .txt</VALUE></LANG>
 </TFU>

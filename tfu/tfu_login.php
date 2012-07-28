@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 2.12.x
+ * TWG Flash uploader 2.16.x
  *
- * Copyright (c) 2004-2010 TinyWebGallery
+ * Copyright (c) 2004-2012 TinyWebGallery
  * written by Michael Dempfle
  *
  *    This file is the login and stetup file of the flash.
@@ -10,11 +10,12 @@
  *    Have fun using TWG Flash Uploader
  */
 define('_VALID_TWG', '42');
+
 if (isset($_GET['TFUSESSID'])) { // this is a workaround if you set php_flag session.use_trans_sid=off + a workaround for some servers that don't handle sessions correctly if you open 2 instances of TFU
     session_id($_GET['TFUSESSID']);
 }
 session_start();
-
+    
 $install_path = '';      // Please read the howto 8 of the TFU FAQ what you have to do with this parameter! You need a / at the end if you set it + you have to 
 include $install_path . "tfu_helper.php";
 
@@ -58,6 +59,12 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
     $rn = substr(session_id(), 0, 5) . $rn . session_id();
 
     include $install_path . "tfu_config.php";
+    
+    // check if all included files have the same version to avoid problems during update!
+    if ($tfu_config_version != '2.16' || $tfu_help_version != '2.16') {
+      tfu_debug('Not all files belong to this version. Please update all files.');
+    }
+
     /**
      * end parameters - now you can implement your own authentification and autorisation
     */
@@ -82,6 +89,7 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
             if ($user == $userarray[0] && $pass == $userarray[1]) {
                 $login = "true";
                 $folder = $userarray[2];
+              /*
                 if ($userarray[3] != "") {
                     $show_delete = $userarray[3];
                 }
@@ -89,6 +97,7 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
                     $enable_folder_browsing = $enable_folder_creation = $userarray[4];
                     $enable_folder_deletion = $enable_folder_rename = $userarray[4];
                 }
+                */
                 break;
             } else {
                 $login = "reauth";
@@ -108,13 +117,8 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
     if (file_exists($license_file)) {
         ob_start();
         include $license_file;
-        ob_end_clean();
-        // we encrypt the license data since 1.7 to enhance security!
-        $d = tfu_enc($d, $rn);
-        $l = tfu_enc($l, $rn);
-        $m = tfu_enc($m, $rn);
-        $s = tfu_enc($s, $rn, 50);
-        $reg_infos = "&d=" . $d . "&s=" . $s . "&m=" . $m . "&l=" . $l;
+        ob_end_clean();   
+        $reg_infos = "&d=" . $d . "&s=" . $s . "&l=" . $l ."&dd=" . urlencode($d); 
     } else {
         $reg_infos = ""; // means freeware version!
     }

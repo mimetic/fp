@@ -1,0 +1,123 @@
+<html>
+<head>
+	<title>TFU File Split Applet</title>
+<style type="text/css">
+.noflash { padding:10px; margin:10px; border: 1px solid #555555; background-color: #f8f8f8; text-align:center; width:330px; }
+a { color: #000099; text-decoration: none;  font-weight: bold; }
+a visited { color: #000099;}
+a link { color: #000099;}
+a hover { color: #999999;}
+body,table { font-family : Verdana,Lucida,sans-serif; font-size: 12px; margin:10px;}
+h1 { background-color : #3333ff; font-weight: bold; font-size: 16px; border: 1px solid #9999ff; padding: 4px 4px 4px 10px; color: #FFFFFF; }
+h2 { background-color : #eeeeee; font-size: 12px; font-weight: bold; border-bottom: 1px solid #000000; padding: 2px 2px 2px 10px; }
+</style>
+</head>
+<h1>TFU file split applet</h1>
+<p>Many servers have a very small upload limit and this does not allow
+to upload images or movies in the original size.</p>
+The TFU file split applet is a small Java applet where you can split your files into smaller pieces and store it back on your hard disk.
+You can then upload these pieces with TFU and they are merged in the backend.
+If you want your user to get around this limit you can offer them this applet. Please see below how to test if your server does support splited files! <br>
+<p>You need <b><a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">JDK >= 1.4</a></b> installed to use this applet.
+The applet needs access to your hard disk to read/write the files. This is only possible with a signed applet. If you open the applet you get a warning:</p>
+<p align="center">"The application's digital signature is invalid. Do you want to run the application"</p>
+This is because this is a <b>selfsigned applet</b>. If you want to verify that this is the original applet that
+comes from www.TinyWebGallery.com go to the <a href="http://www.tinywebgallery.com/tfufsa.htm" target="_blank">website</a>  for instructions how to verify the signature.
+<p align=center>
+<!--
+
+
+Here Is the code how to include the flash!
+
+
+-->
+<!-- include with javascript - best solution because otherwise you get the "klick to activate border in IE" -->
+<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript">
+  includeTfuApplet(100);
+</script>
+<!-- end include with Javascript -->
+<!-- static html include -->
+<noscript>
+<applet codebase="."
+        code="de.tfu.FileSplitApplet" name="de.tfu.FileSplitApplet"
+        width=400 height=300
+        archive="fsa_signed.jar" align=top>
+	  <param name="automaticSize" value="100">
+</applet>
+</noscript>
+<!-- end static html include -->
+<!--
+
+
+End of include code
+
+
+-->
+</p>
+<p>I think the usage of this tool is quite self explaining: Select files - select an output directory - select your split size - split!</p>
+
+<p>The input file test.jpg will be splitted e.g. in test.jpg.part1 and test.jpg.part2.<br>
+If you use this applet with TFU you should use "part" als split prefix because this is the default setting configured in the flash.
+If you upload splitted files you have to upload <strong>all</strong> splitted files in one upload! Otherwise TFU only merges the ones you have uploaded.</p>
+<p>The applet is currently available in German and English and the language is automatically selected by the settings of your system. <br>
+If you want to translate the applet to your language: In the fas_signed.jar is a folder resources where a properties file for each language exists. Simply translate it and send this file back to me and i'll create a new signed jar. </p>
+<h2>Setup</h2>
+Check the source code of this page how to include the applet.
+<h2>Parameter</h2>
+<p><strong>automaticSize</strong>: This is the size you can set as automatic size in the applet. If you enter 100 the split files size is 100k.<br>
+Normally you should set this variable to the upload limit of your server! This can nicely done with php. e.g.:</p>
+<p><br>
+  /* get maximum upload size */<br>
+  function getMaximumUploadSize()<br>
+  {<br>
+  $upload_max = return_kbytes(ini_get('upload_max_filesize'));<br>
+  $post_max = return_kbytes(ini_get('post_max_size'));<br>
+  return $upload_max &lt; $post_max ? $upload_max : $post_max;<br>
+  }<br>
+  <br>
+  function return_kbytes($val)<br>
+  {<br>
+  $val = trim($val);<br>
+  if (strlen($val) == 0){ return 0; }<br>
+  $last = strtolower($val{strlen($val)-1});<br>
+  switch($last){ <br>
+  case 'g': $val *= 1024;<br>
+  case 'm': $val *= 1024;<br>
+  case 'k': $val *= 1;<br>
+  }<br>
+  return $val;<br>
+}</p>
+<h2>How to check if your server support splited files</h2>
+<p>I have tested the TWG Uplad Flash and the TFU File Split Applet on several systems and not all servers do support this kind of upload (e.g. funpic.de does not - my TWG server does). The test is quite simple - you have to upload a file bigger than your file upload limit and TWG has to be able to process it. I have written a small howto with the steps you have to do:</p>
+<ol>
+  <li>Find your server limits - Open tfu_config.php (tfu installed on your server) - it tells you the php upload limit and the php memory limit.</li>
+  <li>You can do the ftp or/and the image test. <br>
+    If you want to do the image test please create an image with a image software (e.g. Paint shop pro) that is bigger then your php upload limit<br>
+    Using png's with 16 Million colors is quite big ;). Normally these programs tell you what the uncompessed size of this image is.<br>
+    <br>
+    I have created 4 images you can use for testing: <br>
+    <a href="http://www.tinywebgallery.com/png/4000x3000_10MB_(75MB).png">4000x3000_10MB_(75MB).png</a> (Resolution 4000x3000, Size: 10 MB, needed php memory to process this file properly ~ 75 MB)<br>
+    <a href="http://www.tinywebgallery.com/png/3000x2250_6MB_(40MB).png">3000x2250_6MB_(40MB).png</a><br>
+    <a href="http://www.tinywebgallery.com/png/2500x1875_3_5MB_(26MB).png">2500x1875_3_5MB_(26MB).png</a><br>
+    <a href="http://www.tinywebgallery.com/png/2000x1500_3MB_(16MB).png">2000x1500_3MB_(16MB).png</a><br>
+<br>
+    For the ftp test you simply need any file that is bigger than your upload limit!</li>
+  <li>Split this file with the File Split Applet (use the size closest to your upload limit). use part as split prefix </li>
+  <li>Enable support of splitted files in TFU by changing <br>
+  $split_extension=&quot;FALSE&quot;; to $split_extension=&quot;part&quot;; <br>
+  in the file tfu_config.php
+  </li>
+  <li>Make sure if you do the ftp test that the file you have selected is in the $allowed_file_extensions list of tfu_config.php</li>
+  <li>Upload all parts of the splitted file.</li>
+  <li>The file should now be merged and be visible as one file on the left side.</li>
+  <li>FTP test: Open your ftp and download this file. Check if this file is  o.k. - At this point some server already have  restrictions! They don't allow to process any files bigger than the upload limit. If the download works and the file is o.k. then normally you can use the Flash splitting capability!</li>
+  <li>Image test: Select the file (that is an image) and a preview of this image should appear or the flash tells you that the flash cannot be processed (it detects that the memory is too little but if this can be detected the file can be read - php needs~ 2x the uncompressed size of the image to process it ) - if not php is can not load this files - means images bigger than the upload limit cannot be processed - if you check the tfu.log (only exists if an error happens and the tfu main dir is writeable) in the tfu directory of the server you should see an error message that the file is not valid (because php could only load a par of it) - if this is the case you cannot use the Flash splitting capability!<br>
+  </li>
+</ol>
+<p>Have fun using TFU File Split Applet </p>
+<p>The applet is open source and released under the LGPL. Please go to <a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_tfufsa.php">www.tinywebgallery.com/tfufsa.htm</a> if you want
+to download the sources or more informations.</p>
+<center><small>TWG Flash Uploader - Copyright (c) 2004-2007 TinyWebGallery.</small></center>
+</body>
+</html>

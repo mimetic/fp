@@ -1,0 +1,389 @@
+----------------------------------
+History TWG Flash Uploader 2.12.1
+
+by Michael Dempfle
+www.tinywebgallery.com
+--------------------------------
+
+(php) means that the change is only in the php part and not in the flash - only the version number is changed in the flash!
+2.12.1
+- New: Better fullscreen support.
+- New: The flash can now be used in the frontend of wordpress!
+- New: When you rename something the old filename is now displayed as default.
+- New: External Javascript Interface added to refresh the remote view. See tfu.htm for details.
+- New: $forbidden_view_file_filter - This is the most advanced filter to hide files. fnmatch is used so you can use e.g. a*.txt, exa*e.log. Seperate different filters by komma.   
+- New: $zip_file_pattern - You can define how the file name of the zip does look like. Please read the doc in tfu_config.php.
+- New: $check_safemode in tfu_helper.php - on some systems the check for the safemode completely fails. If this is the case you can turn off this at the top of tfu_helper.php where some internal variables are defined.
+- New: Renaming of the case of extensions is now possible even when rename extension is disabled.
+- Fix: Added 2 @ to suppress warings that can happend on sysems where some functions do work like they should.
+- Fix: Renaming files + normalize filenames for extensions with big characters as not possible. Now it is. 
+
+2.12
+- New: session id is read by the external interface through Javascript. So you don't have to specify the parameter session_id when calling TFU if Javascript is enabled in the browser.
+- New: $remove_multiple_php_extension. TFU does detect multiple extensions (e.g. .php.gif) and does now remove the .php part because this can be a security problem when your server supports multiple extensions and the image has included php code. This is now enabled by default because currently some of this files are around where your server could been hacked.
+- New: $scan_images. Scans images (gif,png,jpg) for php code. This is done by default when no size could be detected. By setting this to true all files are scanned because there are gif exploits around that returns valid sizes! Default is true.  
+- New: $compression This is the compression used for jpg images when you resize a file  - 100 is no compression. Normally 75 or 80 is used. The value is used for GD-Lib and image magick. Default: 80
+- New: Enhanced security. // in paramters are not allowed anymore because of protocol resolution bypass (// translates to http://)
+- Fix: Typos in the German language file corrected.    
+- Fix: Dutch language file updated
+- Fix: login="auth" was not storing the user name in the session for the notification e-mail because the first call was stored. Now the login name of a sucessfull login is used.
+- Fix: The encoding of the upload notification e-mails is ANSI - but the text from the config files utf-8. Now a conversion is done to display e.g. öäü properly.
+
+2.11.1
+- Fix: The download does now work for bigger files than the php memory limit. I added an ob_flush() + a set_time_limit() which allows the download of big files too.  
+
+2.11
+- New: New big progress bar with self configurable animations and images - available for professional users and above.
+       Go to the plugins page for more bars and animations!
+- New: FTP mode to create directories. On some servers (mainly with safe mode on) directories can not be created properly with php. You can use ftp for this now.
+- New: Bigger server view. Set $big_server_view to "true" to enable this. You have also to set big_server_view=true when caling the flash so that the layout is loaded properly at the beginning and not after the login is done!
+- Fix: The download unter IE does now work much better. Especially the progress bar! I have optimized the return header and the chunk size that is sent back to the browser.       
+- Fix: $hide_hidden_files was only working for files. Now it works for directories as well.
+- Fix: Some small code refactories.
+- Fix: Fixed some typos.
+- Fix: The copy/move tree was stored in the session and this was not updated when creating/moving/deleting. Now this works fine.
+
+2.10.7
+- New: Upload of files with the size 0. This is not supported directly by flash upload. I do this by creating the file through a direct php call. 
+- New: Download of 0 KB files are now disabled because flash does not support this.
+- New: Plugins are now called by file functions (e.g. delete, create folder) too. Check the updated plugins and the new help on the plugin page.
+- Fix: $hide_hidden_files was not working properly because this settings was not used for actions like preview, delete... Please update to this version or don't use this feature because at delete the wrong files would be deleted!
+- Fix: The new zip class was not compatible to php 4.x - now it is.
+- Fix: The first text was sometimes shown in english because the language was not loaded yet. Now this is synchronized.
+
+v2.10.6
+- New: I use a new implementation for zipping files now - it only uses 2 time the file size of a single file and NOT the size of the whole zip in memory! This makes zip downloads much more powerful because for images even little php memory is enough.
+- New: $hide_hidden_files option added - all files starting with a . can now be automatically hidden.
+- New: The new logo was integrated on the info page of the flash
+- New: Added the new logo to the TFU demo page.
+- New: Hungary and Romanian language files added.
+- Fix: When hiding the remote view the upload never finished - Don't know in which version this feature broke.
+- Fix: If no debug file should be printed the error_log is used. I do return now after this and do not try to write a local log.
+
+v2.10.5
+- New: Added some text on tfu.htm 
+- New: Stack trace is printed to the debug file when enhanced debug is enabled
+- New: Added the Javascript function debugError() to TWG - This makes it possible to get the error messages that are normally wrapped by TFU!
+- New: I'm using a different zip class now - it uses only 2x filesize of memory and not the size of the whole zip!
+- Fix: If the size is configured wrong now a debug message is printed.
+- Fix: On Mac files without extensions could ne be delected if a filter was set. If you now select all as allowed file extension no filter is used anymore instead of *.*
+- Fix: Improved time zone detection.
+- Fix: I added a small sleep after the last uploaded file. On some servers the directory listing does not seem to be updated in real time.
+- Fix: After creating the session_cache directory automatically now the permissions of this folder are set to 777. Before the server defaults where used.
+- Fix: I saved the helper file in utf-8 by mistake and destroyed all the special chars like öäü for the normalisation - now it works fine again.
+- Fix: For very long big uploads where the file takes very long to be stored the message was printed too earyly. Now it's printed when the file is really uploaded
+- Fix: For long upload I have changed the message. I removed the 'Upload completed' before the note because the upload is not really done.
+- Fix: Server side size is now formated the same way as all other sizes
+- Fix: Size till 100 MB are shown in KB. Makes it easier to compare file sizes. Bigger files are shown in MB because of space.
+
+v2.10.4
+- New: TFU does now automatically detect the session loss and tries to provide a workaround. This was already done since TFU 1.7 but now this does work on many more servers and messages are shown in the flash to tell the user what to do!
+- Fix: I reimplemented the image magick resize. Now 2 ways are done. First I try to resize the existing file. If this fails I resize the file to a different name and copy the resized file back to the destination.
+- Fix: I increased the timeout intil the proxy message is shown to a minimum of 4 sec. Before it was maybe to short. 
+- Fix: The proxy message was sometimes shown after the upload because the timer was started twice and not resetet every time.
+- Fix: date_default_timezone_set was by default using Berlin/Europe. I have changed this that now first date_default_timezone_get is used.
+
+v2.10.3
+- New: I added a few more debug entries for the upload debug
+- New: Debug file is now 2 MB and not 1 MB anymore and one backup is made once it is full
+- New: I added a check if images are really resized if image magick is used. If not I retry when the file is moved to it's final destination.
+- Fix: The description was encoded in the notification e-mail. Now it is added by a :
+
+v2.10.2
+New: Too fast uploads which are caused by Kaspersky Internet Suite are detected now and a warning + a message box is shown. Howto 18 explains how to configure it.
+New: Images (gif, jpg, png) are now checked if they are images and if not, the files are checked and if php stuff is in it the php is disabled. 
+Fix: The description in the email notification was encoded as well. This was not good when full url was in the e-mail because the whole link was used if you simply click on it - now it's seperated ...
+
+v2.10.1
+Please note - I want to have the flash only 3 numbers in the file name. Therefore the file name will change next in version 2.11. The last version is always displayed in the flash or when you call tfu_config.php directly. 
+New: Auto increase of memory if a problem is detected here. On some servers this does work ;).
+New: The license file detection does now work for *.*.yourdomain.com as well.
+Fix: Download of multiple files was not working anymore because the the new flash 10 restrictions. I had to change the implementation that if you select more than one file you have to click download for every file now. Sorry about that but this is the only way with flash 10.
+Fix: When selecting a text file and a preview at the same time both the image preview and the view button where shown. Now the preview is disabled if 2 items are selected.
+Fix: When you select more than one file than in the status a wrong message was shown. Now no message is shown anymore.
+Fix: I changed the encoding of notification e-mails. I removed the urlencode because characters like öäü did not work this way. Now only spaces are encoded.
+
+v2.10
+New: You can enable TFU to read form fields from the html page and add then to the upload as 'get' parameters. Please read howto 15 how to configure this.
+New: When double clicking on a folder TFU was jumping to the sub dir and back with the 2nd click. Now a 300 ms timeout does exists between changing folders which prevents this.
+New: The flash sends a ping every 5 minutes to keep the session alive. Very usefull if downloads are over 30 minutes or if the flash stays open for a longer period of time.
+New: 3 plugins are available for TFU - This is supported since 2.9 but only used for TWG yet - check the new plugins page on the website.
+New: $enable_upload_debug - you can now debug the tfu_upload.php. If your upload fails you can see how far the upload worked.
+New: Czech translation added - thanks to Marian
+New: Added c_status as new color setting - you can now set the status bar to a different color.
+New: You can now disable the resize and the size is still sent - makes it possible to easliy set a default size.
+Fix: File sizes over 2 GB where not displayed properly - now they are.
+Fix: Downloads are now displayed properly up to 4 GB. Flash can only do 2 GB by default and with my workaround 4 GB. Files above can be downloaded but over 4 GB the progress does start from the beginning.
+Fix: Upload is now prepard to show the progress bar properly up to 4 GB. But I have no server where I can test this.
+Fix: The debug was debugging a little bit too much. A couple of unimportant warnings are skipped now.
+Fix: The javascript parameters where not able to have any & which are important if you want to specify an url to foreward after an upload. Now they work fine!
+Fix: Added ts= to all timestamps. Seems there are servers that don't like numeric keys.
+Fix: An error message when a image was selected double was wrong assinged.
+
+v2.9.1
+Fix: The language selector was only working for en,de,es but not for the other languages anymore!
+
+v2.9.0.2
+New: Updated dutch language file - thanks to Mattijs
+New: If you cannot create directories you can try to disable the automatic detection which prevents this. If you set this to 'false' the flash tries to create the directory; maybe it works ;). - try to upload files into the directory and create another subdirectory too. If this works you can leave this to false.
+New: Caching of the xml tree structure - took quite long for e.g. Joomla installations.
+Fix: A small typo was fixed: deaktivated -> deactivated
+
+v2.9.0.1
+New: $dir_chmod was added - you can now change the permission of the server if the umask is not set properly.
+Fix: The "Folder is not writeable" message was not printed with a certain tfu setting.
+Fix: download was not working if not all files where in one directory and you where following the howto. I fixed a small path variable and now it works fine with this configuration was well.
+
+v2.9
+New: Description can be made mandatory
+New: Overwriting existing files can be forbidden. Files are automatically removed from the upload queue
+New: Preview of pdf's. you need image magick + the thumbs folder to enable this - check howto 6 of the TFU FAQ.
+New: Japanese language file - Thanks to Richard.
+New: Russian language file - Thanks to Sergey Grey Novikov
+Fix: The whole encoding was refactored.
+Fix: Couple of small wording fixes in the English and German language file
+Fix: Spanish language file is now complete again - Thanks to Sergio
+Fix: Renamed seems_utf8 to tfu_seems_utf8 because this method is used in a different Joomla component as well which interferes (And I think it is the same function because I got this from the php page as well.)
+Fix: Minor code refactorings.
+Fix: retry message was printed a couple of times if the error was too early.
+
+v2.8.3
+New: (flash) Now it is possible to set c_list_header_solid for the flash. You can now make the header of the grids in the flash is a solid color. Before only a gradient was possible
+New: (flash) Direct download unter https does now work. Before it was only working under http
+New: (php) Normalise file names does now work for rename files as well.
+New: (php) Improved normalize function. Now ä,ö,ü are replaced by ae,oe,ue or é with e instead of an _
+Fix: (flash) Direct download was not working if an - was in the domain name because it was encoded. 
+Fix: (flash) The realpath function was not taking ./ into account. Now this is done fine and direct download links including an ./ are expanded properly.
+Fix: (php) basename function is only used when really needed. It was used to protect modified/wrong file names. This should fix problems of chinese filenames that are UTF-8 encoded.
+
+v2.8.2
+Fix: (flash + php) After an upload deleting the root directory was enabled in the menu. Now this is not possible anymore. It's restricted in the flash and on the php side. 
+
+v2.8.1 - 28.11.2008
+New: (php) Directory names can now be normalized: $normalise_directory_names. The default is false.
+New: (php) In the notification e-mail you can enable to print the full path now with $upload_notification_use_full_path. The default is false. 
+Fix: (php) Rename of files was not working after the refactoring. Now it works fine again.
+Fix: (php) The description in the notification e-mail is utf-8 encoded but the e-mail is not. Now an utf-8 e-mail is sent.
+
+v2.8.0.3
+Fix: (php) Session recovery was improved. Now the tfu_file.php checks as well if the session is lost and restores it if needed.
+
+v2.8.0.2
+Fix: (php) Download as zip was only compatible to php > 5 - not it work with php 4.x again.
+Fix: (php) An old call by reference was removed. 
+
+v2.8.0.1 - 30.10.2008
+New: (flash + xml) A better error message if the remote folder does not exists is shown. Before the check permissions message was used.
+New: (flash) Server side only view: If you don't specify any allowed files extensions the upload queue is now hidden and the remove view is shown over the whole flash
+Fix: (php) move folders was throwing an error because of a wrong variable name. Now it's fine again.
+
+v2.8 - 4.10.2008
+New: (flash + php) You can now enable that multiple files are downloaded as one zip that is created dynamically. You have to make sure that you have enough space and the zip folder where the zip file is created dynamically is writeable.
+New: (xml) Catalan language file. Thanks to Bernat Garrigós.
+New: (php) Edition is shown on the tfu_config (tfu_login) info screen.
+Fix: (flash) When switching between languages and the loading took a little bit longer the text edit screnn was visible for a short time. Now it's hidden during startup.
+Fix: (flash) The remote view was shown when the login is shown even when the remote view should be hidden. Now this parameter is processed before the login check.
+Fix (xml) A couple of language files where not valid xml. I rechecked all and fixed the errors.
+
+v2.7.8 - 04.10.2008    
+New: (php) Support for my_tfu_config.php. Store your changes to tfu_config.php here. Then you can easily update TFU by overwriting all files.
+New: (php) Added check for image magick on the the help screen - call tfu_login.php or tfu_config directly.
+Fix: (php) The SERVER_NAME variable is only used as backup now. HTTP_HOST is now used instead because not all servers are configured properly and sometimes this was a problem.
+Fix: (php) Some function declarations where missing the & for calls for reference. On some systems (php > 5.2) this gave a warning. 
+Fix: (flash + php) description mode was not enabled properly with all licences. An new parameter can be set to optimize the description mode. Check tfu.htm for the settings.
+Removed: (php + flash) I removed the config_file_nr parameter in the flash because not even I was using it. Using a dynanic config file like in TWG and JFU is much better.
+
+v2.7.7 - 17.07.2008
+Refactoring: (flash + php) Some more cleanups done.
+Fix: (flash) A wrong error message was shown if the registration file was not valid. 
+
+v2.7.6 - 24.06.2008
+New: (php) Better normalize function. Does now not replace everything by _ but e.g. ä with ae or an é with e.
+Fix: (flash) the base dir was added twice - the flash could not be used like described in howto 8 - not it can.
+
+v2.7.5.1 - 18.06.2008
+Fix: (php) Image magick was the default resize method! I changed it back to gd lib because image magick is not available on most systems!
+
+v2.7.5 - 04.06.2008
+New: (flash + php) Description mode - you can enter a description next to the file name. This is saved in a txt file or added to the upload e-mail - This is only available in the professional version or above.
+New: (flash + php) Custom http error messages can be set. You have to add your custom messages to the language file. Check the howto of the TFU FAQ page if you want to do this. This is only available in the professional version or above.
+New: (php) $normalise_file_names: you can now remove all not ansi characters from a filename during upload. öäü are replaced by _ and the whole filename is made lowercase. This is helpfull if you want to process the images after the upload and you don't want to have problems with the encoding.
+Fix: (php) Preview text was not shown properly - always preview not available was shown.
+Fix: (php) image magic support was not working because one helper function was missing - now it works fine again.
+Refactoring: (flash + php) tfu_config.php is now a real config file. The flash reads now the tfu_login.php where the login is handled. Read the new howto about TFU and security! 
+
+v2.7.4.4 - 05.05.2008
+New: (flash) Changes needed for Joomla 1.5 integration.
+New: (flash) Support for placeholder for subdomains. e.g. *.tinywebgallery.com can now be used in a license file ;). 
+Fix: (flash) Enhanced retry detection.
+Fix: (flash) basedir was not used for download. This is needed for SEF support in joomla!
+
+v2.7.4.3 - 01.05.2008
+Fix: (flash) Copy button was shown for folders after coping a file. Copy for folders is not allowed.
+Fix: (flash) Some elements were not hidden when another menu item was selected. Now all dynamic elements are hidden before another one is shown.
+
+v2.7.4.2 - 25.04.2008
+Fix: (php) Edit and view was only working till a && because the data was not encoded. Now this is done and all files can be processed.
+
+v2.7.4.1 - 17.04.2008
+Fix: (php) The session_cache folder is created after a invalid request. But sometimes this is not needed. If the workaround does not work I now delete this folder again.
+
+v2.7.4 - 13.04.2008
+New: (flash + php) Retry of files added. TFU does now retry up to 3 times if an upload fails because of a IO timeout. 
+New: (flash) previewSelect has a new parameter; fullname is the full path to the file you selected. Can be used for e.g. a mp3 preview.
+Fix: (flash) Format of MB was not correct sometimes e.g. 1.10 was shown. Now 1.9 like it should be is displayed.
+Fix: (flash) The progress bar lines where not displayed properly with large file lists (>20). I was rounding during the calculation and this error was adding up till the end and was visible then. Now I only rond for the display and not during calculation anymore.
+
+v2.7.3 - 05.04.2008
+Fix: (flash + php) validation of input parameters where to tight in 1.7.1. Not even öäü was possible for filenames and directories anymore.
+Fix: (php) Encoding for create dir/rename dir/rename file was not working nicely for unwanted chars now they are replaced by _
+Fix: (php) Used basedir instead of basename. basename was a helper function from twg that is not pressent in TFU. rename did not work because of this. 
+Fix: (php) basename has a bug in php in some version. A workaround does exist which I implemented. Special characters like öäü where removed by this php function if they where at the beginning.
+
+v2.7.2 - 04.04.2008
+Fix: (php) The session removal time of the internal session handling was set to 60 s instead of 24 hours. This was leading to timeouts if you need this workaround!
+Fix: (flash) Sometimes a "undefined" in the flash was shown (only in 2.7.1). After a refresh everything was fine. Now it's fine all the time.
+Refactoring: (php) I started to refactor parts of the code to make it faster and nicer to read. Till 2.8 I'll make a complete redesign of the php files to get better structured files.
+
+v2.7.1 - Security update - 31.3.2008
+IMPORTANT: (php + flash) Not all parameters where checked on the server side. 
+      This makes it possible to upload any file type if the flash is used with $login="true" and no login check is made
+      in the tfu_config.php (E.g. TWG does use it's own user management and calling tfu_config.php with any parameter 
+      is not a problem because it's checked internally! Please read the FAQ 13 how to integrate the flash in a secure way!
+New: (php) You can now hide certain extensions from the remote view: $allowed_view_file_extensions, $forbidden_view_file_extensions - only available for registered users.
+New: (php) Better info when you call tfu_config.php -  shows now the maximum resize resolution.
+New: (flash + php) Better workaround if session is killed by the server because of the flash.
+New: (flash) I implemented a realpath function in flash - now the $show_full_url_for_selected_file always shows a url without .. even when you have the upload folder e.g. 2 levels higher than TWG
+Fix: (php) Copy of a file in the same folder was killing the file - now a copy like in windows is created! Copy of ... Copy (2) of ...
+Fix: (php) When using the coy/move functionality "upload" was always shown in the tree. This has now changed to /.
+
+v2.7.0.1 - 22.02.2008
+Fix: (php) Sort by date was not working anymore - now it works again ;).
+Fix: (php) gd lib detection improved
+
+v2.7 - 16.02.2008
+New: (php) Internal session backup handling. On some servers the session is lost in tfu_upload.php - TFU is then creating a subdir temp_session where this data is stored too!
+New: (Flash+php) Fullscreen preview for images. Images can now be shown in fullscreen. Flash player > 9.0.28 is needed to use this functionality.
+New: (Flash) Deletion of files need now a confirmation. 
+New: (Flash+php) Passwords are now sent sha-1 encoded from the flash. Therefore passwords have to be stored this way - please use the included password generator to generate the passwords. 
+New: (Flash+php) Registration data is now sent sha-1 encoded. Makes the flash a little bit bigger because no sha-1 algorithm comes with flash - therefore I has to add one.
+New: (Flash+php) View and edit of text files (+ display of line numbers)
+New: (Flash+php) Text editor autoremoves spaces and return before <?php and after ?> which cause php errors
+New: (Flash+php) Autodetection of file encoding (UTF-8 or ANSI) and file format (UNIX/DOS)
+New: (Flash) Better upload messages with big files - Does now track until the upload is really done. 
+New: (Flash) Better 'remaining time' counter
+New: (Flash+php) Bigger big preview image from 400x275 to 440x280
+New: The license model has changed! Existing licenses still have the same functionality! They are only renamed and the "No help button" license gets the professinal license and the functions copy/move and change of colors are moved from the enterprise license (former personal license) to this license.
+New: 2 chinese language files: simplified and traditional
+New: (Flash+html) 5 new Javascript events: change_folder, create_folder, rename_folder, delete_folder, copymove - See tfu.htm for working examples
+New: (php) Support for image magick to resize files during upload. 
+Fix: (Flash) Small layout improvements - changed the width of some fields to fit all languages better
+Fix: (Flash) Upload completed message was not always printed. Now it is.
+Fix: (Flash) Language switching looks now much smother.
+Fix: (php) moving a folder returned with an error message although is was o.k. The correct return type is now returned
+Fix: (php) It was possible to create directores in an upper level - now entries like / and \ are removed from file and folder names.
+Fix: (php) .. was not always shown on top. e.g. some danish chars where shown before. 
+Fix: (Flash) Colors where not set properly if the login window was used.
+Fix: (Flash) The login screen transparent background was 2px too little on the top. Now it covers the whole flash.
+Fix: (Preloader) Added the colors to the preloader.
+Fix: (Flash) During loading of the flash the invidible elements where shown on a Mac. I added a white layer that is removed right after the loading. Looks now much better on a Mac ;).
+Fix: (Flash) Login button does now get the focus at tab - now login without pressing the login button with the mouse is possible.
+
+v2.6.1
+New: (Flash+php) Multiple download is now supported. You can select mutile files and then you get a file selection window for each file
+Fix: (Flash) Some small layout fixes - the close and ? buttons are now a little bit nicer.
+
+v2.6.0.3 - 09.10.2007
+Fix: (Flash) Error message when removing files was not displayed properly. Now it works fine again.
+
+v2.6.0.2
+Fix: Download was not working when not all files where in one directory - read the howto of the TFU FAQ to do this setup!
+
+v2.6.0.1  - 13.09.2007
+Fix: Language was not changed on the remote file grid (Name, Size) - this works now.
+
+v2.6 - 8.9.2007
+New: (Flash+php) Size column for the remote view - is now a grid and not a list anymore - needed a icon cell renderer to get the icons into this list! - the whole layout changed a little bit therefore!
+New: (Flash) Language select box in the right upper corner - nice flags are shown now!
+New: (Flash) Download buttons can now be shown instead the delete button and the delete button has moved to the menu then (only for reg users.)
+New: (Flash) Language files are now read from an xml file - check the lang folder - you can now make your own translation very easy!
+New: (Flash + php) Joomla Flash Uploader is available - (runs version 2.5.1 - will be updated soon) see tfu.tinywebgallery.com
+New: (Flash + php) Personal licenses can now copy/move files and move folders. Makes the uploader a file manager for your web server!
+New: (Flash + php) Directories are now shown with a nice folder icon.
+New: (Flash + php) Selection of multiple files on the server side grid and the possibility to delete more than one file.
+New: (Flash) Remaining time is now shown at upload and download.
+New: (Flash) Formating of sizes is now improved. Numbers as shown nicer now everywhere: e.g.  1 KB, 2.2 MB (instead of 2200 KB), 13 MB (instaed of 13000 KB)
+New: (Flash) New helper .as file - all helper functions are now in a seperate class. Couple of more .as files do exist now too ;). 
+New: (php) The mail notification does now include the uploaded files + the user
+New: (php) Improved info handling - shows the file info for non images now much faster.
+New: (xml) Polish language file - Thanks to Marcin Bara
+New: (xml) Slovak language file - Thanks to Martin Sereday 
+New: (Flash + php) internally I do now work with a tfusessid not phpsessid because this is striped off if php has set php_flag session.use_trans_sid=off
+
+
+v2.5.1 - 1.8.2007
+New: (Flash) Personal liceses can change the colors of the flash! - see tfu.htm
+New: (Flash) You can enable direct downloads in the flash. see tfu_config.php
+New: (Flash) Size of the file can be shown
+Fix: (Flash) loading preview and preview infos are now synchronized - was a problem on some servers
+Fix: (flash) Optimized some messages that they are displayed nicer
+Fix: (flash) When you are over the upload limit or you add a file that is not allowed to upload the already existing upload queue is not cleared anymore.
+Fix: (flash) when you hit return in the login form the login is sent
+Fix: (php) Preview where not loaded all the time. Use the thumbs directory + this version to fix this.
+Fix: (php) Thumbs directory was not working properly. It was using the same preview image for big and small images. now 2 different ones are generated ;).
+Fix: (php) The php files do now send full content headers for downloads and previews
+
+v2.5 - 15.04.2007
+New: (flash) Preloader for the twg_flash_uploader.swf - it shows the percentage how much of the main flash is loaded. this is implemented as extra small flash because a build in preloader would work very bad for tfu because 90% of the code is in as and library files - and they are loaded before frame 1 - therefore this preloader would start at 90% when you first see it!
+New: (flash) Support for splitted files - you can upload .part files that are joined by TFU (e.g. image.jpg.part1 + image.jpg.part2 is joind to image.jpg) - you can split the files with most files splitters - 
+New: (java) TFU file split applet - call fsa_signed.htm and read ;).
+New: (flash) Show download button instead of options - set $enable_file_download = "button" - only works if all other elements from the menu are not shown!
+New: (flash) Dutch, Italian and Chinese version
+New: (flash) Support to use the flash without cookies - you can now specify session_name and session_id when starting the flash (session_name is set to the system default if not specified)
+New: (php) Support for chinese file names - read the faq about details - this is not enabled by default! (switch is in tfu_helper.php) - Thanks to Eric and Ken!
+New: (php) Optional caching of thumbs. Simply create a folder called "thumbs" in the tfu folder.
+New: (php) Resize does now work for gifs and pngs too.
+New: (php) Support for brocken jpg images if you have php >= 5.1.3 - reads the dimension from exif - before 5.1.3 this images could not be read from php at all!
+New: (php) Checking of memory usage with feedback to the flash
+New: (html) New html page tfu.htm
+New: (php) Better integration of TFU - read the FAQ 8 for details.
+New: (flash) Registration file does automatically trigger the removal of the ?
+Fix: (php) $timezone was not set - needed for php > 5.1.x
+Fix: (flash) List of the extensions did not work proberly if spaces where used. Now the extensions are trimmed.
+Fix: (flash) Length of some textboxes where too small for some languages - I made them bigger ;).
+Fix: (flash) Changed the colors of the progress bar that the text is better readable.
+Fix: (flash) Fix for flash warning message if script loads too long! - happens when big files are downloaded!
+Fix: (flash) Download message added if the download does not start right away
+Fix: (flash) Better message handling at flashstart
+
+12.12.2006 v2.4
+Fix: (php) The sorting of directories was not synconized - this made it possilble that he directory you selected was not the one used on the server - e.g. test and test1 was treated wrong.
+Fix: (flash) Better error messages when a directory is not writeable and no upload is possible
+
+01.12.2006 v2.3
+Fix: (php) Support for special german characters like öäö... they where working  not properly - the file name on the server was shown o.k. in the flash but on the hd it was wrong. I fixed the encoding differences between php and the flash! Works now for directories as well!
+Fix: (php) Sorting bug when using special character like öäü - I was comparing the encoded filename with the normal filename - therefore it was possible to select on item and anotherone got displayed
+
+18.11.2006 v2.2
+New: Better messages for uploading big files
+New: Message that you can click on a preview to see the big preview!
+Fix: Fix for flash warning message if script loads too long! - happens when big files are uploaded!
+
+25.10.2006 v2.1
+New: Simple user management
+New: Email notification
+New: enhanced big preview
+New: Spanish version
+Fix: The posix php extension can be disabled - this is detected now!
+
+10.10.2006 v2.0
+New: Remote directory browsing
+New: Delete and rename of files
+New: Delete and rename of folders 
+New: Creation of folders 
+New: Remote folder view 
+New: Big preview of an image by clicking on the preview
+New: German and French version
+
+15.8.2006 v1.0 
+Initial Release

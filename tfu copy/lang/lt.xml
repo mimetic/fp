@@ -1,0 +1,194 @@
+<!--
+TWG Flash Uploader 2.10.x - default language file 
+
+Please note - This is only the template for translation!
+English, German and Spanisch are build into the flash already!
+
+Only use this as template for you translation - the flash does not read this file!
+All available language keys can be found here. If you find a not fully translated
+file and you can translate it please complete the xml and send it back to me.
+
+If you make any changes make sure to save the file as UTF-8! Otherwise special characters
+are not displayed properly!
+
+Translated/išvertė: Mindaugas Murza, 1:50 AM 12/9/2009
+-->
+<TFU>
+	<!-- Menu items -  - be carefull with the length - menu is not resized if the text is too long! -->
+	<LANG><KEY>menu_refresh</KEY><VALUE>Atnaujinti</VALUE></LANG>
+	<LANG><KEY>menu_create_folder</KEY><VALUE>Sukurti apl.</VALUE></LANG>
+	<LANG><KEY>menu_delete_folder</KEY><VALUE>Ištrinti apl.</VALUE></LANG>
+	<LANG><KEY>menu_rename_folder</KEY><VALUE>Pervadinti apl.</VALUE></LANG>
+	<LANG><KEY>menu_download_file</KEY><VALUE>Parsiųsti bylą</VALUE></LANG>
+	<LANG><KEY>menu_rename_file</KEY><VALUE>Pervadinti bylą</VALUE></LANG>
+	<!-- Buttons - be carefull with the lenght - buttons are not resized if the text is too long! -->
+	<LANG><KEY>bt_login</KEY><VALUE>Prisijungti</VALUE></LANG>
+	<LANG><KEY>bt_refresh</KEY><VALUE>Atnaujinti</VALUE></LANG>
+	<LANG><KEY>bt_refresh_wait</KEY><VALUE>Palaukite...</VALUE></LANG>
+	<LANG><KEY>bt_rename</KEY><VALUE>Pervadinti</VALUE></LANG>
+	<LANG><KEY>bt_delete</KEY><VALUE>Ištrinti</VALUE></LANG>
+	<LANG><KEY>bt_Upload</KEY><VALUE>Įkelti</VALUE></LANG>
+	<LANG><KEY>bt_add</KEY><VALUE>Pasirinkti...</VALUE></LANG>
+	<LANG><KEY>bt_remove</KEY><VALUE>Pašalinti</VALUE></LANG>
+	<LANG><KEY>bt_create</KEY><VALUE>Sukurti</VALUE></LANG>
+	<LANG><KEY>bt_cancel</KEY><VALUE>Atšaukti</VALUE></LANG>
+	<LANG><KEY>bt_extras</KEY><VALUE>Veiksmai...</VALUE></LANG>
+	<LANG><KEY>bt_download</KEY><VALUE>Parsiųsti</VALUE></LANG>
+	<!-- Text in the frontend -->
+	<LANG><KEY>status_txt</KEY><VALUE>Būklė:</VALUE></LANG>
+	<LANG><KEY>upload_folder</KEY><VALUE>Aplankas serveryje</VALUE></LANG>
+	<LANG><KEY>txt_resize</KEY><VALUE>Sumaž.</VALUE></LANG>
+	<LANG><KEY>txt_progress</KEY><VALUE>Eiga</VALUE></LANG>
+	<LANG><KEY>txt_queue</KEY><VALUE>Įkeliamos bylos</VALUE></LANG>
+	<LANG><KEY>txt_create_folder</KEY><VALUE>Įveskite aplanko pavadinimą</VALUE></LANG>
+	<LANG><KEY>txt_delete_folder</KEY><VALUE>Ar norite ištrinti aplanką serveryje?</VALUE></LANG>
+	<LANG><KEY>txt_new_foldername</KEY><VALUE>Naujas aplanko pav.: </VALUE></LANG>
+	<LANG><KEY>txt_new_filename</KEY><VALUE>Naujas bylos pavadinimas: </VALUE></LANG>
+	<LANG><KEY>txt_preview</KEY><VALUE>Peržiūra</VALUE></LANG>
+	<LANG><KEY>txt_remote</KEY><VALUE>Serveryje</VALUE></LANG>
+	<LANG><KEY>txt_remote_files</KEY><VALUE>bylos</VALUE></LANG>
+	<LANG><KEY>grid_name</KEY><VALUE>Pavadinimas</VALUE></LANG>
+	<LANG><KEY>grid_size</KEY><VALUE>Dydis</VALUE></LANG>
+	<LANG><KEY>grid_date</KEY><VALUE>Data/Laikas</VALUE></LANG>
+	<LANG><KEY>upload_files</KEY><VALUE>(%s)</VALUE></LANG>
+	<LANG><KEY>upload_file</KEY><VALUE>(1)</VALUE></LANG>
+	<LANG><KEY>upload_size</KEY><VALUE>Įkėlimo dydis: %s</VALUE></LANG>
+	<!-- text of the login panel -->
+	<LANG><KEY>login_titel</KEY><VALUE>Prisijungti</VALUE></LANG>
+	<LANG><KEY>login_username</KEY><VALUE>Prisijungimo vardas</VALUE></LANG>
+	<LANG><KEY>login_password</KEY><VALUE>Slaptažodis</VALUE></LANG>
+	<LANG><KEY>login_message</KEY><VALUE>Jūs bandote naudotis TWG Upload Flash neprisijungę, prisijungimas nepavyko, pasibaigė sesija arba neteisinga konfigūracija!</VALUE></LANG>
+	<LANG><KEY>login_message_server</KEY><VALUE>Licenzijos byla naudojama šiame serveryje negalioja šiam domenui (%s). Prašome gauti licenzijos bylą šiam domenui. Kol kas - TWG Flash Uploader veiks nemokamu režimu (su apribojimais)!</VALUE></LANG>
+	<LANG><KEY>login_message_lic</KEY><VALUE>Licenzijos byla naudojama šiame serveryje sugadinta arba nebegalioja. Prašome gauti licenzijos bylą domenui %s. Kol kas - TWG Flash Uploader veiks nemokamu režimu (su apribojimais)!</VALUE></LANG>
+	<!-- info dialog -->
+	<LANG><KEY>message</KEY><VALUE>Bylos kurias pasirinkote įkelti jau yra serveryje. Jei įkelsite - jos bus perrašytos vietoje esančių serveryje. Pasikartojančios įkeliamos bylos yra paryškintos. Jei paspausite 'Išmesti' jos bus pašalinos iš sąrašo.</VALUE></LANG>
+	<LANG><KEY>please_login</KEY><VALUE>Prašome prisijungti</VALUE></LANG>
+	<LANG><KEY>wrong_username</KEY><VALUE>Neteisingas prisijungimo vardas/slaptažodis.</VALUE></LANG>
+	<!-- dropdown of the file select dialog -->
+	<LANG><KEY>dropdown_all_supported</KEY><VALUE>Leistini bylų tipai</VALUE></LANG>
+	<LANG><KEY>dropdown_all</KEY><VALUE>Visos bylos</VALUE></LANG>
+	<!-- everything below here shows up in the status line!  -->
+	<!-- status messages - please keep all spaces because some text is merged sometimes  -->
+	<LANG><KEY>create_folder_savemode</KEY><VALUE>Draudžiama keisti šį aplanką (+ įjungtas saugus režimas). Jokie veiksmai negalimi.</VALUE></LANG>
+	<LANG><KEY>create_folder_permissions</KEY><VALUE>Draudžiama keisti šį aplanką. Jokie veiksmai negalimi.</VALUE></LANG>		
+	<LANG><KEY>create_text_permissions</KEY><VALUE>Jums draudžiama kurti aplankus.</VALUE></LANG>		
+	<LANG><KEY>max_file_size</KEY><VALUE>Didžiausias leidžiamas įkeliamos bylos dydis: %s. </VALUE></LANG>
+	<LANG><KEY>select_files</KEY><VALUE>Prašome pasirinkti bylas kurias norite įkelti.</VALUE></LANG>
+	<LANG><KEY>upload_started</KEY><VALUE>Įkėlimas prasidėjo. Prašome palaukti...</VALUE></LANG>
+	<LANG><KEY>upload_started_resize</KEY><VALUE>Įkėlimas prasidėjo. Nuotraukų mažinimas po įkėlimo galie užtrukti! Prašome palaukti...</VALUE></LANG>
+	<LANG><KEY>download_completed</KEY><VALUE>Parsiuntimas baigtas.</VALUE></LANG>
+	<LANG><KEY>download_started</KEY><VALUE>Parsiuntimas prasidėjo. Prašome palaukti...</VALUE></LANG>
+	<LANG><KEY>upload_files_in_queue</KEY><VALUE>%s bylos(ų) jau buvo įkeliamųjų sąraše.</VALUE></LANG>
+	<LANG><KEY>upload_file_in_queue</KEY><VALUE>1 byla jau buvo įkeliamųjų sąraše.</VALUE></LANG>
+	<LANG><KEY>delete_queue</KEY><VALUE>%s bylos(ų) pašalintos iš įkeliamųjų sąrašo.</VALUE></LANG>
+	<LANG><KEY>wrong_extension</KEY><VALUE>Neleistinas bylos tipas: %s. </VALUE></LANG>
+	<LANG><KEY>smaller_size</KEY><VALUE>Prašome kelti mažesnes bylas! Didžiausias leidžiamas dydis: %s KB. </VALUE></LANG>
+	<LANG><KEY>remote_updated</KEY><VALUE>Serverio bylų sąrašas atnaujintas.</VALUE></LANG>
+	<LANG><KEY>freeware</KEY><VALUE>Nemokamos versijos įkeliamų bylų dydžio apribojimas %s MB. Prašome pasirinkti mažiau bylų.</VALUE></LANG>
+	<LANG><KEY>max_upload_size</KEY><VALUE>Administratorius apribojo įkeliamų bylų dydį iki %s MB. Prašome pasirinkti mažiau bylų.</VALUE></LANG>
+	<LANG><KEY>max_upload_files</KEY><VALUE>Administratorius apribojo įkeliamų bylų dydį kiekį (%s). Prašome pasirinkti mažiau bylų.</VALUE></LANG>
+	<LANG><KEY>upload_error</KEY><VALUE>Įkėlimas nepavyko. Neįkelta bylų: %s.</VALUE></LANG>
+	<LANG><KEY>upload_error_mem</KEY><VALUE>Nepavyko įkelti %s iš %s bylų. %s bylų sumažinimui nepakako serverio atminties!</VALUE></LANG>
+	<LANG><KEY>upload_completed</KEY><VALUE>Įkėlimas baigtas. </VALUE></LANG>
+	<LANG><KEY>upload_completed_note</KEY><VALUE>Pastaba: Didelėms byloms įkelti reikia daugiau laiko!</VALUE></LANG>
+	<LANG><KEY>loading</KEY><VALUE>Keliama </VALUE></LANG>
+	<LANG><KEY>file_selected</KEY><VALUE>Pasirinkta byla: '%s'. </VALUE></LANG>
+	<LANG><KEY>file_selected_error</KEY><VALUE>Pasirinkta byla: '%s'. Peržiūra negalima.</VALUE></LANG>
+	<LANG><KEY>file_selected_url</KEY><VALUE>Tiesioginė nuoroda:  %s</VALUE></LANG>
+	<LANG><KEY>folder_deleted</KEY><VALUE>Ištrintas aplankas '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_not_deleted</KEY><VALUE>Nepavyko ištrinti aplanko '%s'.</VALUE></LANG>
+	<LANG><KEY>file_deleted</KEY><VALUE>Ištrinta byla '%s'.</VALUE></LANG>
+	<LANG><KEY>file_not_deleted</KEY><VALUE>Nepavyko ištrinti bylos '%s'.</VALUE></LANG>
+	<LANG><KEY>file_deleted_permissions</KEY><VALUE>Nepavyko ištrinti bylos '%s'. Patikrinkite teises.</VALUE></LANG>
+	<LANG><KEY>folder_created</KEY><VALUE>Sukurtas aplankas '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_exists</KEY><VALUE>Aplankas '%s' serveryje jau yra.</VALUE></LANG>
+	<LANG><KEY>folder_not_created</KEY><VALUE>Nepavyko sukurti aplanko '%s'.</VALUE></LANG>
+	<LANG><KEY>action_cancled</KEY><VALUE>Veiksmas atšauktas.</VALUE></LANG>
+	<LANG><KEY>action_cancled_upload</KEY><VALUE>Veiksmas atšauktas. Prašome atnaujinti sąrašą serveryje. Gali tekti ištrinti nepilnai įkeltas bylas.</VALUE></LANG>
+	<LANG><KEY>files_added</KEY><VALUE>Pasirinkta įkelti bylų: %s </VALUE></LANG>
+	<LANG><KEY>folder_rename_to</KEY><VALUE>Nepavyko aplanko pervadinti į '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_rename</KEY><VALUE>Aplankas pervadintas į '%s'.</VALUE></LANG>
+	<LANG><KEY>folder_rename_empty</KEY><VALUE>Naujas aplanko pavadinimas negali būti tuščias.</VALUE></LANG>
+	<LANG><KEY>folder_rename_root</KEY><VALUE>Aplankas negali būti pervadintas - nes jis šakninis.</VALUE></LANG>
+	<LANG><KEY>folder_rename_exists</KEY><VALUE>Aplankas '%s' jau yra. Prašome pasirinkti kitą pavadinimą.</VALUE></LANG>
+	<LANG><KEY>file_rename_empty</KEY><VALUE>Naujas bylos vardas negali būti tuščias.</VALUE></LANG>
+	<LANG><KEY>file_rename_exists</KEY><VALUE>Byla '%s' jau yra. Prašome pasirinkti kitą pavadinimą.</VALUE></LANG>
+	<LANG><KEY>file_rename_error</KEY><VALUE>Nepavyko pervadinti bylos '%s'.</VALUE></LANG>
+	<LANG><KEY>file_rename_permissions</KEY><VALUE>Nepavyko pervadinti bylos '%s'. Patikrinkite teises.</VALUE></LANG>
+	<LANG><KEY>file_extension_error_rename</KEY><VALUE>Nepavyko pervadinti bylos - negalima keisti bylos išplėtimo!</VALUE></LANG>
+	<LANG><KEY>file_rename_to</KEY><VALUE>Byla '%s' pervadinta į '%s'.</VALUE></LANG>
+	<LANG><KEY>dir_limit</KEY><VALUE>Aplanke negali būti bylų daugiau nei %s. Prašome ištrinti %s bylas(ų) iš įkeliamųjų sąrašo.</VALUE></LANG>
+	<LANG><KEY>dir_limit_2</KEY><VALUE>Aplanke negali būti bylų daugiau nei %s. Prašome ištrinti %s neegzistuojančias bylas iš įkeliamųjų sąrašo.</VALUE></LANG>
+	<LANG><KEY>loading_preview</KEY><VALUE>Kraunama '%s' peržiūra.</VALUE></LANG>
+	<LANG><KEY>loading_big_preview</KEY><VALUE>Kraunama didelė '%s' peržiūra.</VALUE></LANG>
+	<!-- error messages  -->
+	<LANG><KEY>error</KEY><VALUE>Klaida</VALUE></LANG>
+	<LANG><KEY>error_:</KEY><VALUE>Klaida: %s</VALUE></LANG>
+	<LANG><KEY>error_http</KEY><VALUE>Klaida: %s - %s</VALUE></LANG>
+	<LANG><KEY>error_406</KEY><VALUE>Klaida Http 403/406: Įkelkite pateiktą .htaccess bylą į aplanką su twg_flash_uploader.swf.</VALUE></LANG>
+	<LANG><KEY>download_progress</KEY><VALUE>Parsiųsta %s / %s</VALUE></LANG>
+	<LANG><KEY>upload_progress</KEY><VALUE>%s / %s </VALUE></LANG>
+	<LANG><KEY>big_preview</KEY><VALUE>Spustelėkite ant peržiūros padidinti foto.</VALUE></LANG>
+	<LANG><KEY>download_wait</KEY><VALUE>Prašome palaukti. Ruošiama parsiuntimui</VALUE></LANG>
+	<!-- new 2.6 -->
+	<LANG><KEY>files_deleted</KEY><VALUE>ištrinta bylų: %s.</VALUE></LANG>
+	<LANG><KEY>files_not_deleted</KEY><VALUE>Nepavyko ištrinti %s bylų.</VALUE></LANG>
+	<LANG><KEY>files_deleted_permissions</KEY><VALUE>Nepavyko ištrinti %s bylų. Patikrinkite teises.</VALUE></LANG>	
+	<LANG><KEY>menu_copy_file</KEY><VALUE>Perkelti/kopijuoti bylas</VALUE></LANG>
+	<LANG><KEY>menu_copy_folder</KEY><VALUE>Perkelti aplanką</VALUE></LANG>
+	<LANG><KEY>select_copy_text</KEY><VALUE>Pasirinkite į kurį aplanką</VALUE></LANG>
+	<LANG><KEY>copymove_copy</KEY><VALUE>nukopijuota</VALUE></LANG>
+	<LANG><KEY>copymove_move</KEY><VALUE>perkelta</VALUE></LANG>
+	<LANG><KEY>copymove_error</KEY><VALUE>%s bylų iš %s nepavyko %s. Patikrinkite aplanko teises.</VALUE></LANG> 
+	<LANG><KEY>copymove_ok</KEY><VALUE>%s bylų sėkmingai %s.</VALUE></LANG>
+	<LANG><KEY>copymove_some</KEY><VALUE>%s bylų iš %s %s.</VALUE></LANG>
+	<LANG><KEY>copymove_exists</KEY><VALUE>%s bylų iš %s %s. %s bylų jau yra.</VALUE></LANG>
+	<LANG><KEY>copymove_dest</KEY><VALUE>Pasirinkta į aplanką: %s.</VALUE></LANG>
+	<LANG><KEY>bt_copy</KEY><VALUE>Kopijuoti</VALUE></LANG>
+	<LANG><KEY>bt_move</KEY><VALUE>Perkelti</VALUE></LANG>
+	<LANG><KEY>ck_overwrite</KEY><VALUE>Perrašyti</VALUE></LANG>
+	<LANG><KEY>move_folder_ok</KEY><VALUE>Aplankas sėkmingai %s.</VALUE></LANG>
+	<LANG><KEY>move_folder_error1</KEY><VALUE>Aplankas ne%s. Pasirinkta į tą patį aplanką.</VALUE></LANG>
+	<LANG><KEY>move_folder_error2</KEY><VALUE>Aplankas ne%s. Pasirinkta į to paties aplanko poaplankį.</VALUE></LANG>
+	<LANG><KEY>move_folder_error3</KEY><VALUE>Aplankas ne%s. Aplankas jau yra.</VALUE></LANG>
+	<LANG><KEY>move_folder_error4</KEY><VALUE>Aplankas ne%s. Prašome patikrinti aplanko teises.</VALUE></LANG>
+	<LANG><KEY>progress_time</KEY><VALUE>Užtruksime: %s</VALUE></LANG>
+	<LANG><KEY>progress_time_m</KEY><VALUE>min.</VALUE></LANG>
+	<LANG><KEY>progress_time_s</KEY><VALUE>s.</VALUE></LANG>
+	<LANG><KEY>copymove_dest</KEY><VALUE>Pasirinkta į: %s.</VALUE></LANG>
+	<LANG><KEY>menu_delete_file</KEY><VALUE>Ištrinti bylas</VALUE></LANG>
+	<!-- new 2.7 -->
+	<LANG><KEY>bt_save</KEY><VALUE>Saugoti</VALUE></LANG>
+	<LANG><KEY>bt_view</KEY><VALUE>Žiūrėti</VALUE></LANG>
+	<LANG><KEY>bt_edit</KEY><VALUE>Keisti</VALUE></LANG>
+	<LANG><KEY>loading</KEY><VALUE>Kraunama byla ...</VALUE></LANG>
+	<LANG><KEY>saved</KEY><VALUE>Byla '%s' išsaugota.</VALUE></LANG>
+	<LANG><KEY>not_writable</KEY><VALUE>draudžiama rašyti</VALUE></LANG>
+	<LANG><KEY>loaded</KEY><VALUE>Byla '%s' įkrauta.</VALUE></LANG>
+	<LANG><KEY>txt_delete_file</KEY><VALUE>Norite ištrinti šias bylas?</VALUE></LANG>
+    <!-- new 2.7.4 - automatic retry -->
+	<LANG><KEY>timeout</KEY><VALUE>Pakartotinas bandymas nepavyko. Patikrinkite ryšį.</VALUE></LANG>
+	<LANG><KEY>retry</KEY><VALUE>Bandymas %s iš </VALUE></LANG>
+	 <!-- new 2.7.4.5 - optional description -->
+	<LANG><KEY>grid_description</KEY><VALUE>Papildomas aprašymas</VALUE></LANG>
+	<LANG><KEY>grid_description_default</KEY><VALUE>Įrašykite aprašymą</VALUE></LANG>
+	<!-- new 2.7.5 -->
+	<LANG><KEY>error_color</KEY><VALUE>Jūs nustatėte flash spalvas. Tai įmanoma tik jei turite professional arba aukštesnę licenziją. Prašome pašalinti spalvų nustatymus c_*.</VALUE></LANG>
+    <!--  new 2.8.0.1 -->
+	<LANG><KEY>dir_not_exists</KEY><VALUE>Nėra tokio aplanko serveryje. Prašome patikrinti nustatymus.</VALUE></LANG>
+	<LANG><KEY>no_file_extensions</KEY><VALUE>Įkelti bylas neleidžiama. Rodomas tik serverio aplankas.</VALUE></LANG>
+    <!--  new 2.9 --> 
+    <LANG><KEY>message_not_overwrite</KEY><VALUE>Bent viena iš pasirinktų bylų jau yra serveryje. Perrašymas uždraustas todėl pasikartojančios bylos pašalintos iš įkeliamųjų sąrašo.</VALUE></LANG>
+    <LANG><KEY>description_mandatory</KEY><VALUE>Prašome kiekvienai bylai pateikti aprašymą.</VALUE></LANG>	
+    <!--  new 2.9.2 --> 
+     <!-- special extensions - not documented yet -->
+    <LANG><KEY>bt_finish</KEY><VALUE>Baigti</VALUE></LANG>
+		<LANG><KEY>post_template</KEY><VALUE>Sveiki %name%. Prašome pateikti papildomas detales prieš įkeliant bylas.</VALUE></LANG>
+    <!-- end extension -->
+    <!--   new 2.10  -->
+		<LANG><KEY>download_again</KEY><VALUE>Prašome paspausti 'Parsiųsti', kad parsiųstumėte sekančią bylą.</VALUE></LANG>	  
+		<!--   new 2.10.2 -->
+		<LANG><KEY>upload_cached</KEY><VALUE>Panašu, kad įkėlimas kešuojamas vietinio proxy serverio arba ugniasienės (firewall). Prašome perskaityti papildomą info.</VALUE></LANG>
+		<!-- you have to use &lt; &lg; -->
+    <LANG><KEY>upload_cached_box</KEY><VALUE>Panašu, kad įkėlimas kešuojamas vietinio proxy serverio arba ugniasienės (firewall). Prašome palaukti, kol pamatysite 'įkėlimas baigtas'. Jei įkėlimas nepavyksta - reikia keisti ugniasienės, proxy ar kitos naudojamos tinklo saugumo programinės įrangos nustatymus. &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_faq.php#18"&gt;&lt;b&gt;ČIA&lt;/b&gt;&lt;/a&gt; galite paskaityti kaip tai padaryti.</VALUE></LANG>
+</TFU>
