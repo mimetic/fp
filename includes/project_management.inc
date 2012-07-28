@@ -1095,6 +1095,11 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 			// Hide listing of projects? Useful if you turn on drop-down menus
 			$currvals['param_'.FP_PARAM_GROUP_HIDE_LISTING.'_CHECKBOX'] = YesNo ('param_'.FP_PARAM_GROUP_HIDE_LISTING, GetParam ($params, FP_PARAM_GROUP_HIDE_LISTING ) );
 
+			// Show web fonts fields
+			$currvals['param_'.FP_PARAM_GROUP_WEB_FONTS_HEAD] = GetParam ($params, FP_PARAM_GROUP_WEB_FONTS_HEAD);
+			$currvals['param_'.FP_PARAM_GROUP_WEB_FONTS_CSS] = GetParam ($params, FP_PARAM_GROUP_WEB_FONTS_CSS);
+			$currvals['param_'.FP_PARAM_GROUP_WEB_FONTS_NAMES] = GetParam ($params, FP_PARAM_GROUP_WEB_FONTS_NAMES);
+
 			// Navbar editor
 			$currvals['param_'.FP_PARAM_GALLERY_CUSTOM_MENU.'_CHECKBOX'] = YesNo ('param_'.FP_PARAM_GALLERY_CUSTOM_MENU, GetParam ($params, FP_PARAM_GALLERY_CUSTOM_MENU ) );
 

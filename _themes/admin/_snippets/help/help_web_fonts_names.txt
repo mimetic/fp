@@ -1,0 +1,1 @@
+The system needs to know the names of your Web fonts. Enter them here, separated by commas. <br>Example:<br><code>Helvetica,Metrophic,Fredericka the Great</code>

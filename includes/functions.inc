@@ -4804,6 +4804,16 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 	$newsletter = $Themes->newsletterCSS;	// full path to newsletter stylesheet
 
 
+	// Web Fonts info for this group (gallery)
+	$webfontsCSS = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_CSS];
+	if ($webfontsCSS) {
+		$webFontStylesheet = Substitutions (FetchSnippet ("webfont_css_wrapper"), array("webfontcss"=>$webfontsCSS) );
+		$webFontList = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_NAMES];
+	} else {
+		$webFontStylesheet = "";
+		$webFontList = "";
+	}
+
 	// Theme directories as a Javascript array.
 	// Used to make a list of theme dirs, so javascript can find previews of themes
 	$themePreviewPaths = join(', ', $Themes->FP_THEMES_PREVIEWS_FOR_JS);
@@ -4866,6 +4876,12 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 			"GALLERY_STYLESHEET"			=>	$gallerycss,		// NOT IN USE
 			"STYLESHEETS"				=>	StyleSheetHTML ($sheetnames),
 			"FP_GALLERY_TYPE"			=>	FP_GALLERY_TYPE,
+
+			// WEB FONTS
+			"MASTER_PAGE_HEAD_WEBFONTS"	=>  $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_HEAD],
+			"WEBFONT_STYLESHEET"		=>  $webFontStylesheet,
+			"FP_WEB_FONT_LIST"			=>	$webFontList,
+
 
 			// SYSTEM VARIABLES
 			"FP_SINGLE_GALLERY_SINGLE_USER" =>	FP_SINGLE_GALLERY_SINGLE_USER,

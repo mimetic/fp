@@ -670,6 +670,7 @@ file_exists (AS_SENDER_QUEUE) || touch (AS_SENDER_QUEUE);
 
 //============= PARAMS
 // These constants let you reference params without worrying about the reference code (01, 02, etc.)
+//----
 // GALLERY (PROJECT) PARAMS
 define ("FP_PARAM_GALLERY_GROUPING",	 	'01');
 define ("FP_PARAM_GALLERY_SPACING", 		'02');
@@ -681,10 +682,12 @@ define ("FP_PARAM_GALLERY_SCALING", 		'07');
 define ("FP_PARAM_GALLERY_COMMENTS", 		'08');
 define ("FP_PARAM_GALLERY_ITEM_SETTINGS", 	'09');
 
+//----
 // SUPPLIER PARAMS
 define ("FP_PARAM_SUPPLIER_FRAME_COST_METHOD",	'01');
 define ("FP_PARAM_SUPPLIER_MATTE_COST_METHOD",	'02');
 
+//----
 // IMAGES PARAMS
 define ("FP_PARAM_IMAGE_OFFSITE", 		'01');
 define ("FP_PARAM_IMAGE_WIDTH", 		'02');
@@ -705,6 +708,7 @@ define ("FP_PARAM_IMAGE_NO_SELL_FRAME",		'16');
 define ("FP_PARAM_IMAGE_FIXED_PRICE",		'17');
 define ("FP_PARAM_AMOUNT_SOLD_OUTSIDE",		'18');
 
+//----
 // ARTIST PARAMS
 define ("FP_PARAM_ARTIST_BLOG", 		'01');
 define ("FP_PARAM_ARTIST_LINKS", 		'02');
@@ -712,6 +716,7 @@ define ("FP_PARAM_ARTIST_LINKNAMES", 		'03');
 define ("FP_PARAM_ARTIST_GALLERY_LINK", 	'04');
 define ("FP_PARAM_ARTIST_COUPONS", 		'05');
 
+//----
 // GROUPS PARAMS
 // 1 & 2 indicate whether the top (1) and bottom (2) menus are replaced with custom menus
 define ("FP_PARAM_GROUP_MENU_1", 			'01');
@@ -751,7 +756,13 @@ define ("FP_PARAM_GROUP_LOGO", 	'26');
 // Hide listing of exhibitions on the page? useful to use only drop-down menus
 define ("FP_PARAM_GROUP_HIDE_LISTING",		'27');
 
+// Hide listing of exhibitions on the page? useful to use only drop-down menus
+define ("FP_PARAM_GROUP_WEB_FONTS_HEAD",		'28');
+define ("FP_PARAM_GROUP_WEB_FONTS_CSS",		'29');
+define ("FP_PARAM_GROUP_WEB_FONTS_NAMES",		'30');
 
+
+//----
 // PRICESET PARAMS
 define ("FP_PARAM_PRICESET_TIER", 		'01');
 

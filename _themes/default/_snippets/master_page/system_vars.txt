@@ -41,6 +41,8 @@ var FP_THEME = "{THEME}";
 var FP_THEME_ID = "{THEME_ID}";
 var FP_THEME_NAME = "{THEME_NAME}";
 
+var FP_WEB_FONT_LIST = "{FP_WEB_FONT_LIST}";
+
 var FP_PROJECT_ID = "{PROJECT_ID}";
 var FP_GROUP_ID = "{GROUPID}";
 
