@@ -2,22 +2,31 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <!-- this template is master_page.txt -->
-	<head>
-		<title>{pagetitle}</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="MSSmartTagsPreventParsing" content="true">
-		<meta name="date" content="{DATETIME}">
-{META_INDEX}
-{STYLESHEETS}
-{GALLERY_STYLESHEET}
+<head>
+	<title>{pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="date" content="{DATETIME}">
+	{META_INDEX}
+	{MASTER_PAGE_HEAD_WEBFONTS}
 
-<script src="{JAVASCRIPT_PATH}/jquery/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
+
+	<!-- system stylesheets -->
+	{STYLESHEETS}
+
+	<!-- webfonts stylesheet to allow web fonts -->
+	{WEBFONT_STYLESHEET}
+	
+	<!-- Gallery stylesheet -->
+	{GALLERY_STYLESHEET}
+
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
 	<script src="{JAVASCRIPT_PATH}/jquery/jquery.rightClick.js" type="text/javascript" language="javascript"></script>
 	<script src="{JAVASCRIPT_PATH}/jquery/jquery.defuscate.js" type="text/javascript" language="javascript"></script>
-<script src="{JAVASCRIPT}" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT}" type="text/javascript" language="javascript"></script>
 
-		<snippet name="google_analytics_js">
-		</head>
+	<snippet name="google_analytics_js">
+</head>
 
 <!--	<body onload="init(271);">-->
 	<body class="story">

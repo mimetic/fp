@@ -154,7 +154,7 @@ REQUIRES:
 			$(this).click(function() {
 				cookieValue = {'status' : 'edit', 'userID' : FP_USER_ID};
 				$.SetCookie(cookieName, cookieValue, cookieOptions);
-				window.open(FP_GALLERY_URL, '_blank');
+				window.open(FP_GALLERY_URL+"&clearcache=1", '_blank');
 			});
 		});
 	}

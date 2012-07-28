@@ -3,12 +3,12 @@
 <html lang="en">
 <!-- this template is master_page.txt -->
 <head>
-	{MASTER_PAGE_HEAD_WEBFONTS}
 	<title>{pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="MSSmartTagsPreventParsing" content="true">
 	<meta name="date" content="{DATETIME}">
 	{META_INDEX}
+	{MASTER_PAGE_HEAD_WEBFONTS}
 	
 	<!-- place before system style sheets, which may override these defaults -->
 	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/jquery.lightbox.css"  type="text/css">

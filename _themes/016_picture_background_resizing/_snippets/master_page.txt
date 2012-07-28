@@ -7,14 +7,23 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="MSSmartTagsPreventParsing" content="true">
 	<meta name="date" content="{DATETIME}">
-	{META_INDEX} 
+	{META_INDEX}
+	{MASTER_PAGE_HEAD_WEBFONTS}
+ 
 <!-- place before system style sheets, which may override these defaults -->
 	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/jquery.lightbox.css" type="text/css">
 	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/menu.css" type="text/css">
 	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/iColorPicker.css" type="text/css">
 	<link type="text/css" href="{JAVASCRIPT_PATH}/jquery/css/custom-theme/jquery-ui-custom.css" rel="stylesheet">
-<!-- system stylesheets -->
-	{STYLESHEETS} {GALLERY_STYLESHEET} 
+	<!-- system stylesheets -->
+	{STYLESHEETS}
+
+	<!-- webfonts stylesheet to allow web fonts -->
+	{WEBFONT_STYLESHEET}
+	
+	<!-- Gallery stylesheet -->
+	{GALLERY_STYLESHEET}
+
 <!-- system vars for javascript here -->
 	<snippet name="system_vars" />
 	<snippet name="system_vars_modifier" />

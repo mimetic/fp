@@ -8,6 +8,8 @@
 	<meta name="MSSmartTagsPreventParsing" content="true">
 	<meta name="date" content="{DATETIME}">
 	{META_INDEX}
+	{MASTER_PAGE_HEAD_WEBFONTS}
+
 	
 	<!-- place before system style sheets, which may override these defaults -->
 	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/thickbox/thickbox.css"  type="text/css">
@@ -17,6 +19,11 @@
 	<link type="text/css" href="{JAVASCRIPT_PATH}/jquery/css/custom-theme/jquery-ui-custom.css" rel="stylesheet">	
 	<!-- system stylesheets -->
 	{STYLESHEETS}
+
+	<!-- webfonts stylesheet to allow web fonts -->
+	{WEBFONT_STYLESHEET}
+	
+	<!-- Gallery stylesheet -->
 	{GALLERY_STYLESHEET}
 	
 	<!-- system vars for javascript here -->

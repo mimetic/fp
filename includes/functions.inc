@@ -4805,13 +4805,29 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 
 
 	// Web Fonts info for this group (gallery)
+	// If missing, get it from the main gallery
 	$webfontsCSS = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_CSS];
+	
 	if ($webfontsCSS) {
 		$webFontStylesheet = Substitutions (FetchSnippet ("webfont_css_wrapper"), array("webfontcss"=>$webfontsCSS) );
 		$webFontList = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_NAMES];
+		$webFontHead = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_HEAD];
+	} elseif ($groupID != PUBLIC_GROUP_ID) {
+		$temp = new FPGroup(PUBLIC_GROUP_ID);
+		$webfontsCSS = $temp->params[FP_PARAM_GROUP_WEB_FONTS_CSS];
+		if ($webfontsCSS) {
+			$webFontStylesheet = Substitutions (FetchSnippet ("webfont_css_wrapper"), array("webfontcss"=>$webfontsCSS) );
+			$webFontList = $temp->params[FP_PARAM_GROUP_WEB_FONTS_NAMES];
+			$webFontHead = $temp->params[FP_PARAM_GROUP_WEB_FONTS_HEAD];
+		} else {
+			$webFontStylesheet = "";
+			$webFontList = "";
+			$webFontHead = "<!-- NO WEB FONT HEAD (A) -->";
+		}
 	} else {
 		$webFontStylesheet = "";
 		$webFontList = "";
+		$webFontHead = "<!-- NO WEB FONT HEAD (B) -->";
 	}
 
 	// Theme directories as a Javascript array.
@@ -4878,7 +4894,7 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 			"FP_GALLERY_TYPE"			=>	FP_GALLERY_TYPE,
 
 			// WEB FONTS
-			"MASTER_PAGE_HEAD_WEBFONTS"	=>  $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_HEAD],
+			"MASTER_PAGE_HEAD_WEBFONTS"	=>  $webFontHead,
 			"WEBFONT_STYLESHEET"		=>  $webFontStylesheet,
 			"FP_WEB_FONT_LIST"			=>	$webFontList,
 
