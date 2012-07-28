@@ -170,7 +170,61 @@
 			
 		</div>
 		
+		<!-- Web Fonts -->
+
+		<div class="section Xadvanced">
+			<div class="advanced" style="float:right;">
+				<snippet name="go_top" />
+			</div>
+			<h3 class="entryform">Web Fonts</h3> 
+	
+			<div class="entry">
+				<div class="label">
+					Web Fonts Head : 
+				</div>
+				<div class="item">
+					<textarea class="tipright" name="param_28" rows="4" cols="89">{param_28}</textarea>
+					<div class="tip" title="	The web font code for the head tag.">?</div>
+					<div style="clear:both;">
+						<span class="helptext">HEAD code to install your web fonts:</span> <div class="tip" title="{help_web_fonts_head}">?</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="entry">
+				<div class="label">
+					Web Fonts CSS : 
+				</div>
+				<div class="item">
+					<textarea class="tipright" name="param_29" rows="4" cols="89">{param_29}</textarea>
+					<div class="tip" title="	The web font code for the CSS style sheets.">?</div>
+					<div style="clear:both;">
+						<span class="helptext">CSS code to install your web fonts:</span> <div class="tip" title="{help_web_fonts_css}">?</div>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+
+			<div class="entry">
+				<div class="label">
+					Web Fonts Names : 
+				</div>
+				<div class="item">
+					<textarea class="tipright" name="param_30" rows="4" cols="89">{param_30}</textarea>
+					<div class="tip" title="	The names of your web fonts.">?</div>
+					<div style="clear:both;">
+						<span class="helptext">CSS names of your web fonts:</span> <div class="tip" title="{help_web_fonts_names}">?</div>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+
 	</form>
+
+
+
 	
 	<div class="section advanced">
 		<div class="advanced" style="float:right;">
@@ -295,6 +349,7 @@
 			</div>
 		</form>
 	</div>
+
 
 </div>
 <!-- end input_forms_groups -->

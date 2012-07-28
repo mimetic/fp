@@ -3,6 +3,7 @@
 <html lang="en">
 <!-- this template is master_page.txt -->
 <head>
+	{MASTER_PAGE_HEAD_WEBFONTS}
 	<title>{pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="MSSmartTagsPreventParsing" content="true">
@@ -17,6 +18,11 @@
 	<link rel="stylesheet" rev="stylesheet" href="{JAVASCRIPT_PATH}/jquery/css/custom-theme/jquery-ui-custom.css" type="text/css">
 	<!-- system stylesheets -->
 	{STYLESHEETS}
+
+	<!-- webfonts stylesheet to allow web fonts -->
+	{WEBFONT_STYLESHEET}
+	
+	<!-- Gallery stylesheet -->
 	{GALLERY_STYLESHEET}
 	
 	<!-- system vars for javascript here -->

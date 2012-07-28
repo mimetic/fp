@@ -1,0 +1,1 @@
+Web fonts require some code to be used in the CSS of your web page. Different systems use different codes. <i>Copy this code from your web fonts source, e.g. Google Fonts.</i><br><br>For example, Google Fonts uses something like this:<br><small>font-family: &quot;Fredericka the Great&quot;, cursive;</small>

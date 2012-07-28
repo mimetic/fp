@@ -1,0 +1,3 @@
+	<!-- master_page_header_webfonts -->
+	<!-- WEB FONTS IN HEAD -->
+	<link href='http://fonts.googleapis.com/css?family={GoogleFontsHeaderFamily}' rel='stylesheet' type='text/css'>
