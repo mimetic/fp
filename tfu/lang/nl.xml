@@ -181,11 +181,11 @@ are not displayed properly!
 		<!--   new 2.10.2 -->
 		<LANG><KEY>upload_cached</KEY><VALUE>Het lijkt erop dat de upload gecached is door een lokale proxy of firewall. Lees aub de informatie box.</VALUE></LANG>
 		<!-- you have to use &lt; &lg; -->
-    <LANG><KEY>upload_cached_box</KEY><VALUE>Het lijkt erop dat de upload gecached is door een lokale proxy of firewall. Gelieve even te wachten tot 'Upload voltooid' wordt weergegeven. Als de upload mislukt moet u uw firewall/proxy/security suite configureren. Klik &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_faq.php#18"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; voor details hoe dit te doen.</VALUE></LANG>
+    <LANG><KEY>upload_cached_box</KEY><VALUE>Het lijkt erop dat de upload gecached is door een lokale proxy of firewall. Gelieve even te wachten tot 'Upload voltooid' wordt weergegeven. Als de upload mislukt moet u uw firewall/proxy/security suite configureren. Klik &lt;a target="_blank" href="http://www.tinywebgallery.com/en/tfu/tfu_faq_18.php"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; voor details hoe dit te doen.</VALUE></LANG>
     <!--   new 2.10.4 -->
-    <LANG><KEY>session_error_ok</KEY><VALUE>Deze server gaat niet goed om met de sessie van de flash. Een interne oplossing is succesvol geactiveerd. Wilt u meer informatie over wat er gedaan is? Klik &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/web_faq.php#12"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; om naar de TFU FAQ te gaan.</VALUE></LANG>
+    <LANG><KEY>session_error_ok</KEY><VALUE>Deze server gaat niet goed om met de sessie van de flash. Een interne oplossing is succesvol geactiveerd. Wilt u meer informatie over wat er gedaan is? Klik &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/tfu_faq_12.php"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt; om naar de TFU FAQ te gaan.</VALUE></LANG>
 		<LANG><KEY>session_error_ok_status</KEY><VALUE>Svp re-load de pagina en upload opnieuw.</VALUE></LANG>
-		<LANG><KEY>session_error_man</KEY><VALUE>Deze server gaat niet goed om met de sessie van de flash. Het is NIET mogelijk om automatisch een interne oplossing te activeren. Klik &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/web_faq.php#12"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;  om naar de TFU FAQ te gaan, die u laat zien hoe u dit probleem kunt oplossen.</VALUE></LANG>
+		<LANG><KEY>session_error_man</KEY><VALUE>Deze server gaat niet goed om met de sessie van de flash. Het is NIET mogelijk om automatisch een interne oplossing te activeren. Klik &lt;a target='_blank' href="http://www.tinywebgallery.com/en/tfu/tfu_faq_12.php"&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;  om naar de TFU FAQ te gaan, die u laat zien hoe u dit probleem kunt oplossen.</VALUE></LANG>
 		<LANG><KEY>session_error_man_status</KEY><VALUE>Dit probleem kan niet automatisch worden opgelost. Lees de info box.</VALUE></LANG>
 	
 </TFU>

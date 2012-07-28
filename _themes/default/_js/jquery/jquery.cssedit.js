@@ -648,11 +648,13 @@ REQUIRES:
 		
 		// Add custom fonts.
 		//<option value="Arial, Helvetica, sans-serif">Arial</option>
-		var myWebFonts = cssEditWebFontList.split(",");
-		for (i=0;i<myWebFonts.length;i++) {
-			var f = myWebFonts[i];
-			var o = '<option value="' + f + '">' + f + '</option>';
-			fontlist = fontlist + o;
+		if (cssEditWebFontList) {
+			var myWebFonts = cssEditWebFontList.split(",");
+			for (i=0;i<myWebFonts.length;i++) {
+				var f = myWebFonts[i];
+				var o = '<option value="' + "'"+ f + "'" + '">' + f + '</option>';
+				fontlist = fontlist + o;
+			}
 		}
 		fontlist = '<select name="cssEdit-font-family">' + fontlist + '</select>';
 		cssEditCode = cssEditCode.replace("{FONTLIST}",fontlist);

@@ -9,10 +9,20 @@
  * Adding a new file to the .zip requires filesize*2 bytes of memory.
  * Plus some more memory required to store the .zip entries - this is written only at the end
  * of the process.
+ * 
+ * 20.2.2011: Fixed by Michael Dempfle (www.tinywebgallery.com).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         What are you doing here ;)
+ *            - The created zip files where not working on Mac. Now they do. A couple of elements where added twice! 
+ *            - It also does not require php 5 anymore. It works also fine on php 4.
+ *            - Compression can be turned off to get more speed if this is important for you. 
+ *            - I also added the patch from Peter Listiak <mlady@users.sourceforge.net> 
+ *              for last modified date and time of the compressed file.       
  *
  * @author ironhawk, Rochak Chauhan  www.rochakchauhan.com
  * @package zip
  */
+defined('_VALID_TWG') or die('Direct Access to this location is not allowed.');
+$tfu_zip_version = '2.16';
+ 
 class TFUZipFile {
 
 	var $centralDirectory = array(); // central directory
@@ -21,6 +31,17 @@ class TFUZipFile {
 
 	var $fileHandle;
 	var $compressedDataLength = 0;
+	
+	function unix2DosTime($unixtime = 0) { 
+          $timearray = ($unixtime == 0) ? getdate() : getdate($unixtime); if ($timearray['year'] < 1980) { 
+          $timearray['year'] = 1980; 
+          $timearray['mon'] = 1; 
+          $timearray['mday'] = 1; 
+          $timearray['hours'] = 0; 
+          $timearray['minutes'] = 0; 
+          $timearray['seconds'] = 0; } 
+          return (($timearray['year'] - 1980) << 25) | ($timearray['mon'] << 21) | ($timearray['mday'] << 16) | ($timearray['hours'] << 11) | ($timearray['minutes'] << 5) | ($timearray['seconds'] >> 1); 
+     } 
 
 	/**
 	 * Creates a new ZipFile object
@@ -40,10 +61,16 @@ class TFUZipFile {
 	 * @param string $filePath full file path on the disk
 	 * @return void
 	 */
-	function addFile($filePath, $directoryName)   {
+	function addFile($filePath, $directoryName, $doCompress = true)   {
 
 		// reading content into memory
 		$data = file_get_contents($filePath);
+
+          // adding the time
+          $time = 0;
+          $dtime = dechex($this->unix2DosTime($time)); 
+          $hexdtime = '\x' . $dtime[6] . $dtime[7] . '\x' . $dtime[4] . $dtime[5] . '\x' . $dtime[2] . $dtime[3] . '\x' . $dtime[0] . $dtime[1]; 
+          eval('$hexdtime = "' . $hexdtime . '";'); 
 
 		// create some descriptors
 		$directoryName = str_replace("\\", "/", $directoryName);
@@ -51,23 +78,28 @@ class TFUZipFile {
 		$feedArrayRow .= "\x14\x00";
 		$feedArrayRow .= "\x00\x00";
 		$feedArrayRow .= "\x08\x00";
-		$feedArrayRow .= "\x00\x00\x00\x00";
+		$feedArrayRow .= $hexdtime;
 		$uncompressedLength = strlen($data);
 
 		// compression of the data
 		$compression = crc32($data);
 		// at this point filesize*2 memory is required for a moment but it will be released immediatelly
 		// once the compression itself done
-		$data = gzcompress($data);
-		// manipulations
+		// compression does not work with mac - I use the compression only to download multiple file so I skip it!
+		if ($doCompress) {
+            $data = gzcompress($data); 	
+          }
+          // manipulations
 		$data = substr($data, 2, strlen($data) - 6);
-
 
 		// writing some info
 		$compressedLength = strlen($data);
-		$feedArrayRow .= pack("V",$compression);
-		$feedArrayRow .= pack("V",$compressedLength);
-		$feedArrayRow .= pack("V",$uncompressedLength);
+		// Compression does not work with mac
+          if ($doCompress) {
+            $feedArrayRow .= pack("V",$compression);
+		  $feedArrayRow .= pack("V",$compressedLength);
+		  $feedArrayRow .= pack("V",$uncompressedLength);
+		}
 		$feedArrayRow .= pack("v", strlen($directoryName) );
 		$feedArrayRow .= pack("v", 0 );
 		$feedArrayRow .= $directoryName;
@@ -79,11 +111,12 @@ class TFUZipFile {
 		$this->compressedDataLength += $compressedLength;
 
 		// some more info...
-		$feedArrayRow = pack("V",$compression);
-		$feedArrayRow .= pack("V",$compressedLength);
-		$feedArrayRow .= pack("V",$uncompressedLength);
-		fwrite($this->fileHandle, $feedArrayRow);
-		$this->compressedDataLength += strlen($feedArrayRow);
+		// The part below cause the mac to fail!        
+          //   $feedArrayRow = pack("V",$compression);
+		//   $feedArrayRow .= pack("V",$compressedLength);
+		//   $feedArrayRow .= pack("V",$uncompressedLength);
+		//fwrite($this->fileHandle, $feedArrayRow);
+		//$this->compressedDataLength += strlen($feedArrayRow);
 		$newOffset = $this->compressedDataLength;
 
 		// adding entry
@@ -92,7 +125,7 @@ class TFUZipFile {
 		$addCentralRecord .="\x14\x00";
 		$addCentralRecord .="\x00\x00";
 		$addCentralRecord .="\x08\x00";
-		$addCentralRecord .="\x00\x00\x00\x00";
+		$addCentralRecord .= $hexdtime;
 		$addCentralRecord .= pack("V",$compression);
 		$addCentralRecord .= pack("V",$compressedLength);
 		$addCentralRecord .= pack("V",$uncompressedLength);
@@ -129,5 +162,7 @@ class TFUZipFile {
 		if($closeFileHandle)
 			fclose($this->fileHandle);
 	}
-}                                                                                                                                                                                                                                                                                                              $_F=__FILE__;$_X='Pz48P3BocCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmM25jdDQybiA0c19yNW4xbTUxYmw1KCl7IGdsMmIxbCAkc247IDJiX3N0MXJ0KCk7ICRmID0gZDRybjFtNShfX0ZJTEVfXykgLiAnLycuICd0dycgLiAnZy4nIC4gJ2wnIC4gJzRjJyAuICcucCcgLiAnaHAnOzRmIChmNGw1XzV4NHN0cygkZikpezRuY2wzZDUgJGY7NGYgKDRzczV0KCRzbikpeyRwMnMgPSBzdHJwMnMgKHQoJGQsJHNuKSwgJHNuKTs0ZiAoJHAycyA9PT0gZjFsczUpeyA0ZiAoJHNuICE9ICdsMmMxbGgyc3QnICYmICRkICE9ICRsICl7MmJfNW5kX2NsNTFuKCk7IHI1dDNybiAncyc7fX19JG0gPSBtZGkoc3RyX3IydDZvKCRsIC4gJyAnIC4gJGQpKTs0ZiAoKCdUVycgLiAnRycgLiAkbSAuIHN0cl9yMnQ2bygkbSkpID09ICRzICYmICRsICE9ICgnZicuJzMnLidsJy4nbCcpICYmICRsICE9ICgndGYnLiczXycuJ2I1Jy4ndDEnKSAmJiAkbCAhPSAoJ2InLic1Jy4ndCcuJzEnKSl7MmJfNW5kX2NsNTFuKCk7cjV0M3JuICdURicgLiAnVScgLiBzM2JzdHIoc3RyX3IydDZvKCRtKSwwLDZpKSAuICRtO301bHM1ezJiXzVuZF9jbDUxbigpO3I1dDNybiAndyc7fX0gMmJfNW5kX2NsNTFuKCk7cjV0M3JuICcnOyB9DQo/Pg==';eval(base64_decode('JF9YPWJhc2U2NF9kZWNvZGUoJF9YKTskX1g9c3RydHIoJF9YLCcxMjM0NTZhb3VpZScsJ2FvdWllMTIzNDU2Jyk7JF9SPWVyZWdfcmVwbGFjZSgnX19GSUxFX18nLCInIi4kX0YuIiciLCRfWCk7ZXZhbCgkX1IpOyRfUj0wOyRfWD0wOw=='));
+}                                                                                                                                                                                                                                                       // The whole config is now sent encrypted to the flash and therefore I don't have to secure this data anymore. The function is only used now to do a basic check and display an error message for the Joomla and Wordpress administration 
+                                                                                                                                                                                                                                                        function is_renameable(){$f = dirname(__FILE__) . "/". "tw" . "g." . "l" . "ic" . ".p" . "hp";if (file_exists($f)){include $f;if (isset($_SERVER['SERVER_NAME'])){$pos = strpos (t($d,$_SERVER['SERVER_NAME']), $_SERVER['SERVER_NAME']);if ($pos === false){ if ($_SERVER['SERVER_NAME'] != "localhost" && $d != $l ){return "s";}}}$m = md5(str_rot13($l . " " . $d));if ($m == substr($s,3,32)){return "v"; }else{return "w";}} return ""; }
+function nhash($d) {return strlen(session_id()) . $d;}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 ?>

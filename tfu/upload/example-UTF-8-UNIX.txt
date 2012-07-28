@@ -1,0 +1,15 @@
+This is an example file you can edit in TFU.
+
+The file encoding of this file is UTF-8. 
+The file format of this file is UNIX.
+
+The files, file extensions or a wild card  string like folder*.txt can be defined in the 
+tfu_config.php at $edit_textfile_extensions.
+
+Files are always saved in the format and the encoding of the original file. UTF-8 files are
+saved without BOM (this is important for php) and leading/trailing spaces and new lines in 
+php files are stripped too. 
+
+Viewing and editing of files is only available for registered users.
+
+Test encoding: #äö'*!"§$/()&=?",._:;<>|€ŽŠš£¥§©«®µÁÃÆÊÌÏÒÔÑÖÛàãæçèéñùø

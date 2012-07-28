@@ -172,7 +172,7 @@
 		
 		<!-- Web Fonts -->
 
-		<div class="section Xadvanced">
+		<div class="section advanced">
 			<div class="advanced" style="float:right;">
 				<snippet name="go_top" />
 			</div>
@@ -204,7 +204,6 @@
 				</div>
 	
 			</div>
-		</div>
 
 			<div class="entry">
 				<div class="label">
