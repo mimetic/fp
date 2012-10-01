@@ -36,6 +36,7 @@ _rsync lisakess lisakessler.net public_html/
 _rsync massimos massimosciacca.mimetic.com public_html/
 _rsync seekthef seekthefoufou.com public_html/
 _rsync artpress artpressgallery.com public_html/
+_rsync danapopa danapopa.com public_html/
 
 echo =========================================
 echo END

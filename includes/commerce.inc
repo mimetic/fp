@@ -2913,7 +2913,7 @@ function DeleteUnusedOrders () {
 		DeleteRowByID( DB_SALES, $sale['id']);
 		}
 	} else {
-		fp_error_log(__FUNCTION__.": Failed search for unused orders with query:\n$query", 3, FP_ERROR_LOG );
+		// fp_error_log(__FUNCTION__.": Did not find any unused orders with query:\n$query", 3, FP_MAINTENANCE_LOG );
 	}
 		
 }

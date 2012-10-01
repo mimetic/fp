@@ -735,6 +735,11 @@
 				delete scripts.colorBlend;
 			}
 			
+			/*
+			NO NEED FOR THIS! CAUSES LOAD ERRORS BECAUSE THE SCRIPT
+			CANNOT BE FOUND!
+			*/
+			/*
 			// Include stylesheets
 			for ( stylesheet in stylesheets )
 			{
@@ -746,6 +751,7 @@
 				linkEl.id = 'lightbox-stylesheet-'+stylesheet.replace(/[^a-zA-Z0-9]/g, '');
 				$('#'+linkEl.id).remove();
 				bodyEl.appendChild(linkEl);
+alert ("css???:"+href)
 			}
 			
 			// Include javascripts
@@ -758,6 +764,7 @@
 				$('#'+scriptEl.id).remove();
 				bodyEl.appendChild(scriptEl);
 			}
+			*/
 			
 			// Cleanup
 			delete scripts;

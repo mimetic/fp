@@ -26,3 +26,4 @@
 
 <script src="{JAVASCRIPT_PATH}/jquery/jquery.shadowTilt.js" type="text/javascript" language="javascript"></script>
 
+<!-- jquery libraries end -->

@@ -3,7 +3,7 @@
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="http://www.tinywebgallery.com/favicon.ico" type="image/x-icon">
-<title>TWG Flash Uploader 2.16</title>
+<title>TWG Flash Uploader 2.17</title>
 <script type="text/javascript">
 function uploadFinished(loc) {
    // here you can do something after the upload - loc is the parameter you provide in the config!
@@ -142,7 +142,7 @@ var attributes = { id: "flash_tfu", name: "flash_tfu" };
 flashvars.lang=lang;
 
 document.getElementById("flashcontainer").innerHTML = "<div id=\"flashcontent\">Loading</div>";
-swfobject.embedSWF("tfu_216.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+swfobject.embedSWF("tfu_217.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 }
 </script>
 
@@ -165,7 +165,7 @@ h2 { background-color : #eeeeee; font-size: 12px; font-weight: bold; border-bott
 </style>
 </head>
 <body bgcolor="#ffffff" onLoad="if (document.getElementById('mymovie')) document.getElementById('mymovie').focus()">
-<h1>TWG Flash Uploader 2.16 Demo Page</h1>
+<h1>TWG Flash Uploader 2.17 Demo Page</h1>
 The TWG Flash Uploader is a very comfortable way for your users to upload file to a remote server. Because it's based on flash it can be used by almost everyone. You can simply upload files by selecting files on your hard drive andsimply press the upload button.
 For more details please go to the web page.<br>
 
@@ -237,7 +237,7 @@ params.allowfullscreen = "true";
 params.scale = "noScale";
 var attributes = { id: "flash_tfu", name: "flash_tfu" };
 
-swfobject.embedSWF("tfu_216.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+swfobject.embedSWF("tfu_217.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 // Use this if you want to use the preloader
 // swfobject.embedSWF("tfu_preloader.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
     
@@ -247,12 +247,12 @@ swfobject.embedSWF("tfu_216.swf", "flashcontent", "650", "340", "8.0.0", "", fla
   <noscript>
   <object name="mymovie" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="650" height="340"  align="middle">
     <param name="allowScriptAccess" value="sameDomain" />
-    <param name="movie" value="tfu_216.swf" />
+    <param name="movie" value="tfu_217.swf" />
     <param name="quality" value="high" />
     <param name="bgcolor" value="#ffffff" />
     <param name="scale" value="noScale" />
     <param name="allowFullScreen" value="true" />
-    <embed src="tfu_216.swf" name="mymovie" quality="high" bgcolor="#ffffff" width="650" height="340" align="middle" scale="noScale" allowfullscreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+    <embed src="tfu_217.swf" name="mymovie" quality="high" bgcolor="#ffffff" width="650" height="340" align="middle" scale="noScale" allowfullscreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
   </object>
   </noscript>
   <!-- end static html include -->
@@ -274,7 +274,7 @@ Client: Flash >= 8, Java >= 1.4.x if you want to use the file split applet<br>
 Server: php >= 4.3.5 + gdlib installed + if you use apache: mod_secuity has to be disabled or can be disabled by the provided .htaccess file (See FAQ 1 of the<a href="http://www.tinywebgallery.com/en/tfu/web_faq.php"> TFU Howto/FAQ</a>).
 <h2>URL parameters</h2>
 <ul>
-   <li><b>lang</b> is the switch for the language - valid entries are de, en, fr, es, bg, br, it, cn, cz, nl, ct, da, no, pl, pt, se, sk, tw and jp e.g. Add this to the flash e.g. tfu_216.swf?lang=de</li>
+   <li><b>lang</b> is the switch for the language - valid entries are de, en, fr, es, bg, br, it, cn, cz, nl, ct, da, no, pl, pt, se, sk, tw and jp e.g. Add this to the flash e.g. tfu_217.swf?lang=de</li>
    <li><span class="style1">session_id</span> - you can specify a session id by passing the current session id if you want to share your current session with the tfu_* files - it will be added to every call to the server. <strong>Please note</strong>: If you want to pass variables over the session this parameter is <strong>mandatory</strong> because Firefox does not handle this properly otherwise! Since TFU 2.12 this value is read by Javascript internally from the Flash. If you are sure that Javascript is always available you don't need to specify this parameter anymore.</li>
 	 <li><b>session_name</b> -  The default of this value is TFUSESSID. I do not use the default PHPSESSID because it you set session. use_trans_sid=off then this would be filtered and upload would fail! I recommend NOT to change this. You have to change php code as well if you do!</li>
 <li><strong>base</strong> - This is only needed if you  use the flash if not all files are in one directory. Needed to load the language files properly - Read howto 8 of the TFU FAQ.</li>

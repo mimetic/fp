@@ -1,6 +1,6 @@
 <?php
 /**
- * TWG Flash uploader 2.16.x
+ * TWG Flash uploader 2.17.x
  *
  * Copyright (c) 2004-2012 TinyWebGallery
  * written by Michael Dempfle
@@ -14,7 +14,7 @@
  * * ensure this file is being included by a parent file
  */
 defined('_VALID_TWG') or die('Direct Access to this location is not allowed.');
-$tfu_help_version = '2.16';
+$tfu_help_version = '2.17';
 // some globals you can change
 $check_safemode = true;              // New 2.12.x - By default TFU checks if you have a safe mode problem. On some server this test does not work. There you can try to turn it off and test if you can e.g. create directories, upload files to new created directories.
 $session_double_fix = false; // this is only needed if you get errors because of corrupt sessions. If you turn this on a backup is made and checked if the first one is corrupt
@@ -46,7 +46,7 @@ tfu_setHeader();
 include dirname(__FILE__) . '/tfu_zip.class.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_zip_version != '2.16') {
+if ($tfu_zip_version != '2.17') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
@@ -1219,13 +1219,13 @@ function tfu_seems_utf8($Str)
     return true;
 }
 
-function cp1252_to_utf8($str)
+function tfu_cp1252_to_utf8($str)
 {
     global $cp1252_map;
     return strtr(utf8_encode($str), $cp1252_map);
 }
 
-function utf8_to_cp1252($str)
+function tfu_utf8_to_cp1252($str)
 {
     global $cp1252_map;
     return utf8_decode(strtr($str, array_flip($cp1252_map)));
@@ -1276,7 +1276,7 @@ function tfu_enc($str, $id, $length = false)
 
 function setSessionVariables()
 {
-    global $folder, $user, $login;
+    global $folder, $start_folder, $user, $login;
     // this settings are needed in the other php files too!
     if ($login == 'true') {
         $_SESSION['TFU_LOGIN'] = 'true';
@@ -1288,6 +1288,11 @@ function setSessionVariables()
     }
     $_SESSION['TFU_RN'] = parseInputParameter($_POST['twg_rn']);
     $_SESSION['TFU_ROOT_DIR'] = $_SESSION['TFU_DIR'] = $folder;
+    
+    if ($start_folder != '') {
+        $_SESSION['TFU_DIR'] = $folder . '/' . $start_folder;
+    }
+    
     store_temp_session();
 }
 
@@ -1668,7 +1673,7 @@ function printServerInfo()
     echo '<br><p><center>Some info\'s about your server. This limits are not TFU limits. You have to change this in the php.ini.</center></p>';
     echo '<div class="install">';
     echo '<table><tr><td>';
-    echo '<tr><td width="400">TFU version:</td><td width="250">2.15.1&nbsp;';
+    echo '<tr><td width="400">TFU version:</td><td width="250">2.17&nbsp;';
     // simply output the license type by checking the strings in the license. No real check like in the flash is done here.
     
     if ($m != "" && $m != "s" && $m !="w" ) {
@@ -1786,16 +1791,18 @@ function check_image_magic($path = "", $check_image_magic = true) {
  *  is always done.
  **/
 function normalizeFileNames($imageName){
-   global $normalizeSpaces;
+   global $normalizeSpaces, $normalize_upper_case;
 
   // it's needed to decode first because str_replace does not handle str_replace in utf-8
   $imageName = utf8_decode($imageName);
   // we make the file name lowercase ÄÖÜ as well.
   // seems not to be available on all systems.
-  if (function_exists("mb_strtolower")) { 
-    $imageName = mb_strtolower($imageName); 
-  } else {
-    $imageName = strtolower($imageName); 
+  if ($normalize_upper_case) {
+    if (function_exists("mb_strtolower")) { 
+      $imageName = mb_strtolower($imageName); 
+    } else {
+      $imageName = strtolower($imageName); 
+    }
   }
   
   if ($normalizeSpaces == 'true') {
@@ -2141,7 +2148,7 @@ function  tfu_text($file) {
         $format = 'DOS';
     }
     if (!tfu_seems_utf8($content_new)) {
-        $content_new = cp1252_to_utf8($content_new);
+        $content_new = tfu_cp1252_to_utf8($content_new);
         $enc = 'ANSI';
     }
     echo urlencode($content_new);
@@ -2156,7 +2163,7 @@ function tfu_savetext($file, $overwrite=true) {
     } else {
       $content = urldecode($_POST['data']);
       if ($_POST['encoding'] == 'ANSI') {
-          $content = utf8_to_cp1252($content);
+          $content = tfu_utf8_to_cp1252($content);
       }
       if ($_POST['format'] == 'DOS') {
           $content = preg_replace("/\r\n|\r|\n/", chr(13) . chr(10), $content);
@@ -2758,6 +2765,51 @@ function file_upload_error_message($error_code) {
         default:
             return 'Unknown upload error';
     }
+}
+
+function tfu_mail($to, $subject, $body, $from, $type = 'text/plain') {
+global $fix_utf8, $use_smtp, $smtp_host, $smtp_port, $smtp_user, $smtp_password;
+
+if (strnatcmp(phpversion(),'5.0.0') >= 0) { // new version - used for php > 5 
+    require_once('class.phpmailer.php');
+   
+    $mail             = new PHPMailer();
+    $mail->CharSet = 'utf-8';
+    // $mail->SMTPDebug  = 2;  
+    
+    if ($use_smtp) {
+      $mail->IsSMTP(); // telling the class to use SMTP
+      $mail->SMTPAuth   = true;           // enable SMTP authentication
+      $mail->Host       = $smtp_host;     // sets the SMTP server
+      $mail->Port       = $smtp_port;     // set the SMTP port for the GMAIL server
+      $mail->Username   = $smtp_user;     // SMTP account username
+      $mail->Password   = $smtp_password; // SMTP account password
+    }
+    $mail->SetFrom($from);
+    $mail->AddReplyTo($from);
+    $mail->AddAddress($to);
+    
+    $mail->Subject = $subject;
+    if ($type == 'text/plain') {
+      $mail->Body = $body;
+    } else {
+      $mail->MsgHTML($body);
+    }
+    
+    if(!$mail->Send()) {
+      tfu_debug("Mailer Error: " . $mail->ErrorInfo);
+    }
+
+} else { // old php 4 compatible sending!  
+      $submailheaders = "From: $from\n";
+      $submailheaders .= "Reply-To: $from\n";
+      $submailheaders .= "Return-Path: $from\n"; 
+      if ($fix_utf8 != '') {
+        $submailheaders .= 'Content-Type: text/plain; charset=' . $fix_utf8;
+      }
+      $subject = fix_decoding($subject, $fix_utf8);
+      @mail ($to, html_entity_decode ($subject), html_entity_decode ($body), $submailheaders); 
+   } 
 }
 
 @ob_end_clean();

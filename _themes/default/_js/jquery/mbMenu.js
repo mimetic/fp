@@ -43,8 +43,8 @@
       closeOnMouseOut:false,
       closeAfter:500,
       minZindex:"auto", // or number
-      hoverIntent:0, //if you use jquery.hoverIntent.js set this to time in milliseconds; 0= false;
-      submenuHoverIntent:200, //if you use jquery.hoverIntent.js set this to time in milliseconds; 0= false;
+      hoverIntent: 0, //if you use jquery.hoverIntent.js set this to time in milliseconds; 0= false;
+      submenuHoverIntent: 0, //if you use jquery.hoverIntent.js set this to time in milliseconds; 0= false;
       onContextualMenu:function(){} //it pass 'o' (the menu you clicked on) and 'e' (the event)
     },
     buildMenu : function (options){

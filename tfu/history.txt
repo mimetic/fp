@@ -1,12 +1,19 @@
--------------------------------
-History TWG Flash Uploader 2.16
+---------------------------------
+History TWG Flash Uploader 2.17
 
 by Michael Dempfle
 www.tinywebgallery.com
--------------------------------
+---------------------------------
 
 (php) means that the change is only in the php part and not in the flash - only the version number is changed in the flash!
 
+2.17
+New: E-mail can now be sent with smtp. See the 5 new settings in tfu_config.php.
+New: $normalize_upper_case - If you enable normalize file names or directory names you can decide here if upper case chars are converted to lower case or not.
+New: $start_folder - You can define a start folder below your root folder. If you do this you are still able to navigate up to your root folder but the start folder is shown when you start the flash the first time. The start folder is always relative to the root folder. e.g. 'subdir' would be the folder 'upload\subdir'
+New: New e-mail plugin is available. 
+Fix: $directory_file_limit_size was not working inside multiple subdirectories. Now always the root directory is used a calculation start point. 
+  
 2.16
 New: After upload file infos are read from the server. In the JFU editor button now the image can be preselected after the upload is finshed.
 New: After creating a thumbnail in the JFUploader editor plugin file infos are read from the server. In the JFU editor button now the thumbnail is preselected after the thumbnail creation is finshed. 

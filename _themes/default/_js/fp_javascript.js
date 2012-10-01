@@ -209,7 +209,7 @@ $(document).ready( function() {
 	
 	
 	// This is now done by the jQuery plugin. Hmmm.
-	/*
+
 	// Add a popup functon to each picture
 	// jQuery Lightbox Plugin : baluptin/dgross version
 	$.Lightbox.construct({
@@ -227,7 +227,7 @@ $(document).ready( function() {
 				show_button_nav: false,
 				use_body_background_color : true
 			});
-	*/
+	
 
 	// ------------------------------------------
 	// FLEXIBLE: Resize Tagged Pictures In The Project So It Fits The Window

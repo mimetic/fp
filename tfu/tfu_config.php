@@ -1,6 +1,6 @@
 <?php
 /**
- * TWG Flash uploader 2.16.x
+ * TWG Flash uploader 2.17.x
  *
  * Copyright (c) 2004-2012 TinyWebGallery
  * written by Michael Dempfle
@@ -29,7 +29,7 @@
  */
 
 if (defined('_VALID_TWG')) {
-$tfu_config_version = '2.16';
+$tfu_config_version = '2.17';
 
     $login = 'true';                     // The login flag - has to set by yourself below 'true' is logged in, 'auth' shows the login form, 'reauth' should be set if the authentification has failed. 'false' if the flash should be shown with an eroror message that the authorisation finally failed. When using auth by default the users of the file .htuser.php are used. Please go to this file to setup users.
     $folder = 'upload';                  // this is the root upload folder. If you use login='auth' by default the folder from the user profile in .htusers.php is used!
@@ -72,7 +72,7 @@ $tfu_config_version = '2.16';
     $hide_directory_in_title = 'false';  // You can disable the display of the upload dir in the title bar if you set this to 'true'
     $truncate_dir_in_title = 'false';    // You can truncate everything before the main upload directory if you set this to true. So only sub directories are shown in the title.
     // the text of the email is stored in the tfu_upload.php if you like to change it :)
-    $upload_notification_email = '';     // you can get an email everytime a fileupload was initiated! The mail is sent at the first file of an upload queue! '' = no emails - php mail has to be configured properly! Enter the e-mail you want to send the notification to.
+    $upload_notification_email = '';     // you can get an email everytime a fileupload was initiated! The mail is sent at the first file of an upload queue! '' = no emails - php mail has to be configured properly! Enter the e-mail you want to send the notification to. Also set the from address!
     $upload_notification_email_from = ''; // the sender of the notification email!
     $upload_notification_email_subject = 'Files were uploaded by the TWG Flash Uploader'; // Subject of the email - you should set a nicer one after the login or in tfu_upload.php
     $upload_notification_email_text = 'The following files where uploaded by %s: %s'; // Text of the email - the first %s ist the username (if no is set 'not set is used'), the 2nd %s is the list of files that where uploaded!
@@ -162,28 +162,38 @@ $tfu_config_version = '2.16';
 
     // Watermark text on the images when you click on the small thumb - will display some information about the image.
     $info_text = '{dimension} | {size} | {date}'; // New 2.13 - Defines if a info text is shown and which info is printed. You can define your own string here: {dimension}, {size} and {date} are place holders you can use.
-    $info_textcolor_R = 255;             // New 2.13 - The color of the info text. Define the red value of a RGB color in decimal here.
-    $info_textcolor_G = 60;              // New 2.13 - The color of the info text. Define the green value of a RGB color in decimal here.
-    $info_textcolor_B = 60;              // New 2.13 - The color of the info text. Define the blue value of a RGB color in decimal here.
-    $info_font = "verdana.ttf";          // New 2.13 - The font which should be used. By default verdana is included in the install package.
-    $info_fontsize = 8;                  // New 2.13 - The font size of the info text
+    $info_textcolor_R = 255;             // The color of the info text. Define the red value of a RGB color in decimal here.
+    $info_textcolor_G = 60;              // The color of the info text. Define the green value of a RGB color in decimal here.
+    $info_textcolor_B = 60;              // The color of the info text. Define the blue value of a RGB color in decimal here.
+    $info_font = "verdana.ttf";          // The font which should be used. By default verdana is included in the install package.
+    $info_fontsize = 8;                  // The font size of the info text
 
     $has_post_processing= "false";       // New 2.13 - The flash waits 10 sec after the upload it to 100% if it has finished. If you do a lot of processing like generating thumbnails and .... this can be too short. By setting this to true you get additional 10 sec :). This is the default e.g. in TWG where the thumbnails and small images are generated right after the upload.
 
     // New 2.14
-    $directory_file_limit_size = -1;     // New 2.14 - (Number) You can specify a maximum size in KB (!!!) someone is allowed to have in his folders. -1 means no limit! This setting does count all subfolders as well. Excluded directories and hidden files are counted as well if the legacy functions are used (see $directory_file_limit_size_system). If you like the exact amount set $directory_file_limit_size_system = false to use the backup which does handle excluded directories and hidden files like set in the configuration - only available in the registered version!
-    $directory_file_limit_size_system = true; // New 2.14 - (true,false) Use system implementations for quota. See the description of $directory_file_limit_size - when set to true the legacy function is used which is up to 20 times faster.
-    $sort_directores_by_date = false;    // New 2.14 - (true,false) true: Sort directores that last created folders are shown on top, alphapetically otherwise.
-    $show_server_date_instead_size='false'; // New 2.14 - ('true','false') true: shows the date instead of the server size. false: shows the size of the file. $show_size has to be set to true! Pleae check the tfu.htm for the flash parameter for optimal display.
-    $pdf_thumb_format = 'png';           // New 2.14 - (png,jpg): you can define the output for pdf generation. jpg gives smaller images and png better quality but larger files. Please try with your pdf's you expect!
-    $enable_file_creation = 'false';     // New 2.14 - ('true','false') Show the menu item to create files - only available for registered users.
-    $enable_file_creation_extensions = 'txt'; // New 2.14 - (edit,txt,all) You can define which files can be created. 'edit' files defined in $edit_textfile_extensions are allowed. 'txt': only .txt files, 'all': all file extensions
+    $directory_file_limit_size = -1;     // (Number) You can specify a maximum size in KB (!!!) someone is allowed to have in his folders. -1 means no limit! This setting does count all subfolders as well. Excluded directories and hidden files are counted as well if the legacy functions are used (see $directory_file_limit_size_system). If you like the exact amount set $directory_file_limit_size_system = false to use the backup which does handle excluded directories and hidden files like set in the configuration - only available in the registered version!
+    $directory_file_limit_size_system = true; // (true,false) Use system implementations for quota. See the description of $directory_file_limit_size - when set to true the legacy function is used which is up to 20 times faster.
+    $sort_directores_by_date = false;    // (true,false) true: Sort directores that last created folders are shown on top, alphapetically otherwise.
+    $show_server_date_instead_size='false'; // ('true','false') true: shows the date instead of the server size. false: shows the size of the file. $show_size has to be set to true! Pleae check the tfu.htm for the flash parameter for optimal display.
+    $pdf_thumb_format = 'png';           // (png,jpg): you can define the output for pdf generation. jpg gives smaller images and png better quality but larger files. Please try with your pdf's you expect!
+    $enable_file_creation = 'false';     // ('true','false') Show the menu item to create files - only available for registered users.
+    $enable_file_creation_extensions = 'txt'; // (edit,txt,all) You can define which files can be created. 'edit' files defined in $edit_textfile_extensions are allowed. 'txt': only .txt files, 'all': all file extensions
     
     // New 2.15
-    $switch_sides = 'false';             // New 2.15 - ('true','false') - Use this if you want the server side on the right the and upload side on the the left side. Please set the value also at the flash. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment.
-    $use_index_for_files = true;         // New 2.15 - (true,false) - By default the file name and the index of a file is sent to the server. Here you can decide which way to use. true: index, false: filename. Please read howto 21 of the TFU FAQ if you want to change the default behaviour.
-    $date_format = 'd.m.y';              // New 2.15 - (String) - You can define how the dates are displayed in the flash. flash does unfortunately not supprt standard formating. So Please use the following syntax: d: day (2 digits), m: month (2 digits), y: year (4 digits). You can use this variables how you like ;). e.g. y-m-d, y-m-d, m/d/y.
+    $switch_sides = 'false';             // ('true','false') - Use this if you want the server side on the right the and upload side on the the left side. Please set the value also at the flash. The flash is then loaded already with the right layout. If you don't set this and only in the config then you see the default view for a very short moment.
+    $use_index_for_files = true;         // (true,false) - By default the file name and the index of a file is sent to the server. Here you can decide which way to use. true: index, false: filename. Please read howto 21 of the TFU FAQ if you want to change the default behaviour.
+    $date_format = 'd.m.y';              // (String) - You can define how the dates are displayed in the flash. flash does unfortunately not supprt standard formating. So Please use the following syntax: d: day (2 digits), m: month (2 digits), y: year (4 digits). You can use this variables how you like ;). e.g. y-m-d, y-m-d, m/d/y.
     
+    // New 2.17
+    $normalize_upper_case=true;         // New 2.17 (true,false) if you enable normalize file names or directory names you can decide here if upper case chars are converted to lower case or not.
+    $start_folder='';                   // New 2.17 (String) You can define a start folder below your root folder. If you do this you are still able to navigate up to your root folder but the start folder is shown when you start the flash the first time. The start folder is always relative to the root folder. e.g. 'subdir' would be the folder 'upload\subdir'
+    // please do not forget to set the normal e-mail settings above!
+    $use_smtp = false;                 // New 2.17 (true,false) false: use build in php mail, true: use smtp. Please provide the settings below. 
+      $smtp_host = "smtp host";        // New 2.17 (String) The smtp host. If you want to use ssl please use e.g. ssl://smtp.strato.de. See http://php.net/manual/en/transports.inet.php for available transport protocols. 
+      $smtp_port = 465;                // New 2.17 (Number) The smtp port. 456 is the default for ssl!
+      $smtp_user = "<user>";           // New 2.17 (String) The smtp user name
+      $smtp_password = "<password>";   // New 2.17 (String) The smtp password
+   
     // special extension - a post upload panel - this is only implemented for JFU and not documented yet!
     $post_upload_panel='false';
     /*  This is example data for the post upload panel - this is not documented yet!

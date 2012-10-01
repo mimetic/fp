@@ -1,2 +1,3 @@
 <!-- javascript_libraries -->
 {EXTRA_JS_LIBRARIES}
+<!-- javascript_libraries end -->

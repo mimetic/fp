@@ -2402,3 +2402,217 @@ Dim and not dimmed items
 .fp_dim {
 	display: none;
 }
+
+
+/*
+MBmenu localization
+Drop-down menus
+*/
+
+/* SELECTED is used by the rest of the navbar system, and it means the page we're not, not the item we're pointing to! This can cause trouble... */
+
+.menuShadow {
+	top: 4px;
+	opacity: 0.5;
+}
+
+
+.menuContainer{
+/*overflow:hidden;*/
+  position:absolute;
+  background-color: #888;
+  -moz-box-shadow:#999 2px 2px 10px;
+  -webkit-box-shadow:#999 2px 2px 10px;
+  box-shadow:#999 2px 2px 10px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-top-right-radius:4px;
+  -webkit-border-top-left-radius:0px;
+  -webkit-border-bottom-right-radius:4px;
+  -webkit-border-bottom-left-radius:4px;
+	margin-top: 8px;
+	border: 0px solid #888;
+  padding: 4px 0;
+	font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.menuContainer .line {
+	background-color: none;
+	width: 100%;
+	opacity: 1.0;
+}
+
+.menuContainer .line.title {
+	text-align: right;
+}
+
+.menuContainer .line.title a {
+}
+
+.menuContainer td a {
+	text-decoration: none;
+	color: white;
+	text-shadow: #444 1px 1px 2px;
+}
+
+.menuContainer td.voice {
+	/*
+	border-top: 1px solid #f3f3f3;*/
+	padding: 5px;
+	background-color: none;
+}
+
+.menuContainer .separator {
+	background-color: #f1f1f1;
+	height: 1px;
+}
+
+.menuContainer td.img {
+	border-top: 1px solid #f3f3f3;
+	text-align: center;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	color: #c3c3c3;
+	background-color: #f9f9f9;
+	width: 24px;
+	padding: 5px;
+}
+
+.menuContainer td.img img {
+	width: 20px;
+}
+
+.menuContainer .textBox {
+	padding: 5px;
+	background-color: #ffffff;
+	color: #c3c3c3;
+}
+
+.menuContainer .selected td {
+	background-color: #aaa;
+	opacity: 1.0;
+	background-image: url("../images/mbMenu/bgnd_sel_2.jpg")
+	border-style: none;
+	color: #eaeaea;
+}
+
+.menuContainer .selected td a {
+	color: #212121;
+	text-shadow: #444 1px 1px 0;
+}
+
+.menuContainer .disabled td, .menuContainer .disabled td a {
+	color: #cccccc;
+}
+
+.menuContainer .subMenuOpener {
+	background-image: url("../images/mbMenu/menuArrow.gif");
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*
+vertical menu
+*/
+
+/**/
+
+.rootVerticalVoices {
+	background-color: #333;
+	padding: 0px;
+}
+
+.rootVerticalVoices td.rootVoice {
+
+
+/*border-top:1px solid #666;*/
+	width: 130px;
+	font-family: Arial,Helvetica,sans-serif;
+	color: gray;
+	font-size: 13px;
+	padding: 7px;
+	cursor: pointer;
+}
+
+.rootVerticalVoices td.selected {
+	background-image: url("../images/mbMenu/bgnd_sel_4.png");
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.verticalMenu {
+	background-color: #000;
+
+/*
+ The menu container style must be set via the options paramiter
+ within the function call due to a Safari bug interpreting css on the fly...
+ */
+}
+
+.verticalMenu .line {
+	background-color: #333;
+	width: 100%;
+}
+
+.verticalMenu td a {
+	text-decoration: none;
+	color: #d3d3d3;
+}
+
+.verticalMenu td.voice {
+	border-top: 0px solid #666;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	padding: 5px;
+}
+
+.verticalMenu .separator {
+	background-color: #666;
+	height: 1px;
+}
+
+.verticalMenu td.img {
+	border-top: 0px solid #666;
+	font-family: Arial,Helvetica,sans-serif;
+	text-align: center;
+	font-size: 12px;
+	color: #c3c3c3;
+	background-color: #333;
+	width: 24px;
+	padding: 5px;
+}
+
+.verticalMenu td.img img {
+	width: 20px;
+}
+
+.verticalMenu .textBox {
+	padding: 10px;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color: #c3c3c3;
+}
+
+.verticalMenu .selected td {
+	background-image: url("../images/mbMenu/bgnd_sel_4.png");
+}
+
+.verticalMenu .selected td a {
+	color: #fff;
+}
+
+.verticalMenu .disabled td, .verticalMenu .disabled td a {
+	color: #666;
+}
+
+.verticalMenu .subMenuOpener {
+	background-image: url("../images/mbMenu/menuArrow_w.gif");
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.verticalMenu .menuShadow {
+	background: black;
+	padding: 5px;
+}
+
+/* --- end of MBmenu localization */

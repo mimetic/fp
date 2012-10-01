@@ -1,6 +1,6 @@
 <?php
 /**
- * TWG Flash uploader 2.16.x
+ * TWG Flash uploader 2.17.x
  *
  * Copyright (c) 2004-2012 TinyWebGallery
  * written by Michael Dempfle
@@ -16,7 +16,7 @@ if (isset($_GET['TFUSESSID'])) { // this is a workaround if you set php_flag ses
 }
 session_start();
     
-$install_path = '';      // Please read the howto 8 of the TFU FAQ what you have to do with this parameter! You need a / at the end if you set it + you have to 
+$install_path = 'tfu';      // Please read the howto 8 of the TFU FAQ what you have to do with this parameter! You need a / at the end if you set it + you have to 
 include $install_path . "tfu_helper.php";
 
 restore_temp_session(true); // this restores a lost session if your server handles sessions wrong - only important for joomla because for TFU standalone nothing is in the session yet.
@@ -61,7 +61,7 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
     include $install_path . "tfu_config.php";
     
     // check if all included files have the same version to avoid problems during update!
-    if ($tfu_config_version != '2.16' || $tfu_help_version != '2.16') {
+    if ($tfu_config_version != '2.17' || $tfu_help_version != '2.17') {
       tfu_debug('Not all files belong to this version. Please update all files.');
     }
 
@@ -89,7 +89,7 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
             if ($user == $userarray[0] && $pass == $userarray[1]) {
                 $login = "true";
                 $folder = $userarray[2];
-              /*
+              
                 if ($userarray[3] != "") {
                     $show_delete = $userarray[3];
                 }
@@ -97,7 +97,7 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
                     $enable_folder_browsing = $enable_folder_creation = $userarray[4];
                     $enable_folder_deletion = $enable_folder_rename = $userarray[4];
                 }
-                */
+               
                 break;
             } else {
                 $login = "reauth";

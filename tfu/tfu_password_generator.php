@@ -9,7 +9,7 @@
   either version 2 of the License, or (at your option) any later version. 
   See license.txt for details.
  
-  TFU version: 2.15.x
+  TFU version: 2.17.x
  
   $Date: 2007-02-16 09:17:41 +0100 (Fr, 16 Feb 2007) $
   $Revision: 41 $
@@ -69,8 +69,8 @@ function replaceInput($input)
 		$output = "error";
 	}
 	// we check for security if a .. is in the path we remove this!	and .// like in http:// is invalid too!
-	$output = ereg_replace("\.\.", "", $output);
-	$output = ereg_replace("://", "___", $output);
+	$output = str_replace('..', '', $output);
+	$output = str_replace('://', '___', $output);
 	return $output;
 }
 ?>

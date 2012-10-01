@@ -1,6 +1,6 @@
 <?php
 /**
- * TWG Flash uploader 2.16.x
+ * TWG Flash uploader 2.17.x
  *
  * Copyright (c) 2004-2012 TinyWebGallery
  * written by Michael Dempfle
@@ -41,7 +41,7 @@ restore_temp_session(); // this restores a lost session if your server handles s
 include 'tfu_config.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_config_version != '2.16' || $tfu_help_version != '2.16') {
+if ($tfu_config_version != '2.17' || $tfu_help_version != '2.17') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
@@ -222,13 +222,6 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['t
     // E-mail section
     // we only send an email for the last item of an upload cycle and if the e-mail plugin is not used.   
     if ($upload_notification_email != '' && $remaining == 0 && !$email_plugin) {
-        $submailheaders = "From: $upload_notification_email_from\n";
-        $submailheaders .= "Reply-To: $upload_notification_email_from\n";
-        $submailheaders .= "Return-Path: $upload_notification_email_from\n"; 
-        if ($fix_utf8 != '') {
-          $submailheaders .= 'Content-Type: text/plain; charset=' . $fix_utf8;
-        }
-        $subject = fix_decoding($upload_notification_email_subject, $fix_utf8);
         $filestr = "\n\n";
         foreach ($_SESSION['TFU_LAST_UPLOADS'] as $filename) {
             if ($upload_notification_use_full_path) {
@@ -245,7 +238,7 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['t
         if (isset ($_SESSION['TFU_PRE_UPLOAD_DATA'])) {
           $mailtext .= "\n\n" . $_SESSION['TFU_PRE_UPLOAD_DATA'];  
         }
-        @mail ($upload_notification_email, html_entity_decode ($subject), html_entity_decode ($mailtext), $submailheaders); 
+        tfu_mail($upload_notification_email, $upload_notification_email_subject, $mailtext, $upload_notification_email_from); 
     }
     if ($remaining == 0) { // cleanup
       unset($_SESSION['TFU_PRE_UPLOAD_DATA']);
@@ -264,4 +257,5 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['t
 }
 echo ' '; // important - solves bug for Mac!
 flush();
+
 ?>
