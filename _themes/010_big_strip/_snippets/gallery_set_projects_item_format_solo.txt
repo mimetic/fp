@@ -1,4 +1,4 @@
-<!--gallery_set_projects_item_format-->
+<!--gallery_set_projects_item_format_solo-->
 <td valign="top" class="gallery" width="100">
 	<div class="gallery-description" >
 		<div id="header-title">{title}</div>
@@ -6,9 +6,12 @@
 		<div class="projecttitle">
 			{Projects_Title}
 		</div>
+			<!-- Hide this for a solo gallery! -->
+			<!--
 		<div class="projectowner">
 			{Artists_Fullname}
 		</div>
+		-->
 		<div class="location">
 			{Projects_Place}
 		</div>

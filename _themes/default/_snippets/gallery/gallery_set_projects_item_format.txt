@@ -6,6 +6,9 @@
 			{Projects_Title}
 		</div>
 		-->
+		<div class="projectowner editable">
+		{Artists_Fullname}
+		</div>
 		<div class="location editable">
 			{Projects_Place}
 		</div>

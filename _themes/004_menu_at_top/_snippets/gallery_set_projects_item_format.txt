@@ -6,6 +6,9 @@
 		<span class="sspop" id="slideshowpc">{slideshowpopuppc}</span>
 		<span class="sspop" id="slideshowtv">{slideshowpopuptv}</span>
 		<br>
+		<div class="projectowner editable">
+			{Artists_Fullname}
+		</div>
 		<div class="location">
 			{Projects_Place}
 		</div>

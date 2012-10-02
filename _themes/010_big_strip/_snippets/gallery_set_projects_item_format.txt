@@ -3,6 +3,9 @@
 	<div class="gallery-description" >
 		<div id="header-title">{title}</div>
 
+		<div class="projectowner editable">
+			{Artists_Fullname}
+		</div>
 		<div class="projecttitle">
 			{Projects_Title}
 		</div>

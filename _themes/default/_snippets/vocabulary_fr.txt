@@ -27,6 +27,15 @@ AboutArtist,About
 // "About", in general
 About,Au sujet dé
 
+// Menus
+New Projects,{fp:Projects} nouveaux
+All Projects,Tous {fp:Projects}
+By Artist,trier {fp:Artist}
+By Location,Lieu
+by, par
+Agency,Agence
+goHome,Accueil
+
 // Shopping cart
 Shopping Cart,Shopping Cart
 

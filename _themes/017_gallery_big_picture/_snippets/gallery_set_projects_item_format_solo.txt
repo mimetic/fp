@@ -1,4 +1,4 @@
-<!--gallery_set_projects_item_format-->
+<!--gallery_set_projects_item_format_solo-->
 <td valign="top" class="gallery">
 	{NAVBAR}
 	<div class="gallery-description editable" >
@@ -7,9 +7,11 @@
 			{Projects_Title}
 		</div>
 		-->
+		<!--
 		<div class="projectowner editable">
 		{Artists_Fullname}
 		</div>
+		-->
 		<div class="location editable">
 			{Projects_Place}
 		</div>

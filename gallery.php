@@ -217,7 +217,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	}
 
 	$output = FetchSnippet ('master_page');
-	$header = FetchSnippet ("master_page_header");
+	$header = FetchSnippet ("master_page_header_gallery");
 
 	// If developing, don't use the google analytics stuff (slows us down)
 	if ($DEVELOPING) {

@@ -6,9 +6,12 @@
 			{Projects_Title}
 		</div>
 		-->
+		<!-- Hide this for a solo gallery! -->
+		<!--
 		<div class="projectowner editable">
 		{Artists_Fullname}
 		</div>
+		-->
 		<div class="location editable">
 			{Projects_Place}
 		</div>

@@ -1,12 +1,15 @@
-<!--gallery_set_projects_item_format-->
+<!--gallery_set_projects_item_format_solo-->
 	<div class="gallery-description" >
 		<div id="gallery-description-callout" class="editable">
 			<div class="projecttitle editable">
 				{Projects_Title}
 			</div>
+			<!-- Hide this for a solo gallery! -->
+			<!--
 			<div class="projectowner editable">
 				{Artists_Fullname}
 			</div>
+			-->
 			<div class="location editable">
 				{Projects_Place}
 			</div>

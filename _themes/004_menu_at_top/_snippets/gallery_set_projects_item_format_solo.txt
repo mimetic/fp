@@ -1,4 +1,4 @@
-<!--gallery_set_projects_item_format-->
+<!--gallery_set_projects_item_format_solo-->
 <td valign="top" class="gallery">
 	<div class="gallery-description" >
 		<span class="sspop" id="slideshowssp">{slideshowpopup}</span>

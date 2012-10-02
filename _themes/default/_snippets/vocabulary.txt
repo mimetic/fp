@@ -16,7 +16,7 @@ Privacy,Privacy Policy
 Contact,Contact
 Administration,Administration
 Go Back,Go Back
-ReturnTo,Return to
+ReturnTo,Return to&nbsp;
 Blog,Blog
 PoweredBy,Powered by Mimetic Galleries
 Catalog,Catalog
@@ -59,6 +59,7 @@ By Artist,By {fp:Artist}
 By Location,By Place
 by, by
 Agency,Agency
+goHome,Home
 
 // slideshow links in the gallery
 slideshow_ssp,Go to Slide Show
@@ -98,3 +99,4 @@ Sales,Sales
 theme,Theme
 themes,Themes
 notAvailable,NA
+home,Home
