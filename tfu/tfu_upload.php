@@ -27,6 +27,7 @@ if (isset($_GET['TFUSESSID'])) { // this is a workaround if you set php_flag ses
 }
 session_cache_limiter("private");
 session_cache_limiter("must-revalidate");
+
 session_start();
 
 $install_path = ''; // do not change!

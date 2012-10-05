@@ -4,8 +4,25 @@
  User configuration file. Values overwrite those in tfu_config.php
 */
 
+/*
+
+**** WHEN UPDATING TFU, BE SURE TO MODIFY TFU_UPLOAD.PHP!!! ****
+Set the session name to "fp_admin" on line 31!
+session_name("fp_admin");
+
+*/
+
+
+session_write_close();
+
+$prevSessionName = session_name("fp_admin") || "";
+session_start();
 $folder = $_SESSION["tfu_upload_dir"];
 $folder || tfu_debug("ERROR! The folder from session is empty!");
+session_name($prevSessionName);
+
+
+#tfu_debug("Upload folder is $folder");
 
 if (isset($_SESSION["tfu_upload_extensions"]) && $_SESSION["tfu_upload_extensions"]) {
 	$allowed_file_extensions = $_SESSION["tfu_upload_extensions"];
