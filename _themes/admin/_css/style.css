@@ -1,5 +1,3 @@
-/* @override http://localhost/fp/_themes/admin/_css/style.css */
-
 html {
 	
 }
@@ -1300,6 +1298,7 @@ div.tip {
 	-moz-border-radius: 6px; 
 	-webkit-border-radius: 6px; 
 	border-radius: 6px;
+	margin: 4px;
 }
 
 .tipright {
@@ -1726,14 +1725,14 @@ h2 {
 	font-size: 1em;
 	font-family: "Courier New", Courier, mono;
 	background-color: white;
-	padding: 1em 2em 2em 1em;
+	padding: 10px 15px 30px 10px;
 }
 
 .editable_textarea textarea {
 	font-family: "Courier New", Courier, mono;
 }
 
-.editable_text button, .editable_textarea button {
+.editable_text form button {
 	height: 1.4em;
 	display: block; 
 	line-height: 1em;
@@ -1741,12 +1740,20 @@ h2 {
 	padding: .1em 1em;
 	float: right;
 font-family: Segoe UI, Arial, sans-serif; font-size: .8em;
-	border: 1px solid gray;
-	-moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px;
-	background-color: #fefefe;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 2px 8px 0;
 }
+
+.editable_textarea form button {
+	height: 1.4em;
+	display: block; 
+	line-height: 1em;
+	font-size: 1em;
+	padding: .1em 1em;
+	float: right;
+font-family: Segoe UI, Arial, sans-serif; font-size: .8em;
+	margin: 10px 10px 0;
+}
+
 
 .list-light-text {
 	color: #999899;

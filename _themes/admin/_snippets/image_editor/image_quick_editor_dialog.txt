@@ -1,6 +1,6 @@
 <!-- image_quick_editor_dialog -->
 <div style="display:none;">
-	<div id="imageQuickEditor{ID}" class="imageQuickEditor" title="{CATALOGNUMBER}: {Title}">
+	<div id="imageQuickEditor{ID}" class="imageQuickEditor" title="{CATALOGNUMBER}: {Title} &nbsp;&nbsp;&nbsp; ({URL})">
 		Title : <div class="editable_text" fieldid="{ID}" table="Images" name="Title">{Title}</div>
 		<br>
 		<br>

@@ -33,38 +33,8 @@ Set to 1/2 height of icon graphic. */
 {
 }
 
-.exh-tools div:hover
-{
-	background-position: center -13px;
-}
 
-/* need height/width because we use the bkgd
-   to show the icon */
 
-.exh-tools div
-{
-	width: 10px;
-	height: 13px;
-	display: inline-block;
-	background: white no-repeat center top;
-}
-
-div.exh-prev
-{
-	background-image: url(../gfx/prev-small.png) ;
-}
-
-div.exh-next
-{
-	background-image: url(../gfx/next-small.png) ;
-}
-
-div.exh-enlarge
-{
-	width: 18px ;
-	margin: 0 20px;
-	background-image: url(../gfx/enlarge-16h.png) ;
-}
 
 div.exh-compact
 {

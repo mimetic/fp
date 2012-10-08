@@ -79,9 +79,9 @@
 	zoom: 1;
 /* IE float container hasLayout fix */
 	z-index: 1;
-	position: relative;
 	display: inline-block;
 	opacity: 1;
+	position: absolute;
 }
 
 .exh-tools.exh-left {
@@ -89,30 +89,124 @@
 }
 
 .exh-tools.exh-right {
-	right: 0px;
+	right: 50px;
 }
 
-.exh-tools div {
+.exh-tools.exh-center {
+	right: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+.exh-tools {
+	text-align: center;
+	cursor: pointer;
+	width: 150px;
+}
+
+
+/* Normal versions of tools */
+
+.exh-tools div
+{
 	width: 25px;
 	height: 35px;
-	text-align: center;
+	background: white no-repeat center top;
 	display: inline-block;
-	background: red no-repeat center top;
-	cursor: pointer;
-	float: left;
 }
 
-.exh-tools div:hover {
+.exh-tools div:active {
 	background-position: center -35px;
 }
 
-div.exh-prev {
-	background-image: url(../gfx/prev.png);
+div.exh-prev
+{
+	background-image: url(../gfx/prev.png) ;
 }
 
-div.exh-next {
-	background-image: url(../gfx/next.png);
+
+div.exh-next
+{
+	background-image: url(../gfx/next.png) ;
 }
+
+div.exh-enlarge
+{
+	width: 60px ;
+	margin: 0 20px;
+	background-image: url(../gfx/enlarge.png) ;
+}
+
+/* Small versions of tools */
+
+.exh-tools.small div
+{
+	width: 20px;
+	height: 20px;
+	background: white no-repeat center top;
+}
+
+.exh-tools.small div:active {
+	background-position: center -20px;
+}
+
+.small div.exh-prev
+{
+	background-image: url(../gfx/prev-small.png) ;
+	width: 20px;
+}
+
+.small div.exh-next
+{
+	background-image: url(../gfx/next-small.png) ;
+	width: 20px;
+}
+
+.small div.exh-enlarge
+{
+	width: 20px ;
+	margin: 0 20px;
+	background-image: url(../gfx/enlarge-small.png) ;
+}
+
+
+/* Large versions of tools */
+
+.exh-tools.large
+{
+	width: 200px;
+}
+.exh-tools.large div
+{
+	width: 35px;
+	height: 45px;
+	background: white no-repeat center top;
+}
+
+.exh-tools.large div:active {
+	background-position: center -45px;
+}
+
+.large div.exh-prev
+{
+	background-image: url(../gfx/prev-large.png) ;
+}
+
+.large div.exh-next
+{
+	background-image: url(../gfx/next-large.png) ;
+}
+
+.large div.exh-enlarge
+{
+	width: 62px ;
+	margin: 0 20px;
+	background-image: url(../gfx/enlarge-large.png) ;
+}
+
+
 
 div.exh-prev-null {
 }
@@ -121,8 +215,6 @@ div.exh-next-null {
 }
 
 div.exh-enlarge {
-	width: 49px;
-	margin: 0 10px;
 }
 
 div.exh-compact {
@@ -169,6 +261,7 @@ div.exh-compact {
 	-khtml-border-radius: 6px 0 0 0;
 	-webkit-border-radius: 6px 0 0 0;
 	border-radius: 6px 0 0 0;
+	margin-left: 20px;
 }
 
 .exh-loading {

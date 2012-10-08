@@ -2,4 +2,7 @@
 			<h5 class="imagesorter-item-header">{TITLE}</h5>
 			{IMG}
 			<a href="#" title="Delete this image" class="imagesorter-icon imagesorter-delete ui-icon ui-icon-trash">Delete image</a>
+			<a href="#" title="imageQuickEditor{ID}" class="imageQEopener imagesorter-icon imagesorter-edit ui-icon ui-icon-info">Edit image</a>
+			
+			<snippet name="image_quick_editor_dialog"/>
 		</li>

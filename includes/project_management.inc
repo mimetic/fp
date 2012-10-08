@@ -2581,9 +2581,11 @@ function ManagementFormImageSorter ($projectID)
 			"URL"			=> $picture['URL'],
 			"CAPTION"		=> $picture['Caption'],
 			"TITLE"			=> $picture['Title'],
-			"ITEM_CLASS"		=> $itemclass,
-			"PID"			=> 'active'
+			"ITEM_CLASS"	=> $itemclass,
+			"PID"			=> 'active',
+			"ID"			=> $picture['ID']
 		));
+		$oneitem = Substitutions($oneitem, $picture);
 		$k++;
 		$inListRows .= $oneitem;
 		}
@@ -2606,8 +2608,11 @@ function ManagementFormImageSorter ($projectID)
 			"CAPTION"		=> $picture['Caption'],
 			"TITLE"			=> $picture['Title'],
 			"ITEM_CLASS"		=> $itemclass,
-			"PID"			=> $picture['ProjectID']
+			"PID"			=> $picture['ProjectID'],
+			"ID"			=> $picture['ID']
+
 		));
+		$oneitem = Substitutions($oneitem, $picture);
 		$k++;
 		$outListRows .= $oneitem;
 		}

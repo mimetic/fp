@@ -828,6 +828,11 @@ function InitImageSorter () {
 			addImage($item);
 		} else if ($target.is('a.ui-icon-minus')) {
 			removeImage($item);
+		} else if ($target.is('a.ui-icon-info')) {
+			//var i = $this.find('imagesorter-edit').title;
+			//alert (i);
+			
+			//$('#'+i).dialog('open');
 		}
 
 		return false;
@@ -840,6 +845,8 @@ function StartImageSorter () {
 		$gallery = $('.imagesorter #inlist'), $archive = $('.imagesorter #outlist'), $trash = $('.imagesorter #trash');
 		add_icon = '<a href="#" title="Add image" class="imagesorter-icon imagesorter-add ui-icon ui-icon-plus">Add image</a>';	
 		remove_icon = '<a href="#" title="Remove image" class="imagesorter-icon imagesorter-remove ui-icon ui-icon-minus">Remove image</a>';
+
+		//edit_icon = '<a href="#" title="imageQuickEditor{ID}" class="imageQEopener imagesorter-icon imagesorter-edit ui-icon ui-icon-info">Edit image</a>';
 	
 		$('.imagesorter li .ui-state-highlight').css('background-color','#F2f');
 	
@@ -862,9 +869,10 @@ function StartImageSorter () {
 		})
 		.disableSelection();
 		//alert ("StartImageSorter");
-		$('.imagesorter #inlist > .imagesorter-item').append(remove_icon);
-		$('.imagesorter #outlist > .imagesorter-item').append(add_icon);
-	
+		// Add remove, add, and edit info icons
+		$('.imagesorter #inlist > .imagesorter-item').append(remove_icon);//.append(edit_icon);
+		$('.imagesorter #outlist > .imagesorter-item').append(add_icon);//.append(edit_icon);
+			
 		$(".imagesorter ul, .imagesorter li").disableSelection();
 	}
 }	

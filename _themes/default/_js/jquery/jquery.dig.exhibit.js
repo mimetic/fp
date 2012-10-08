@@ -636,12 +636,22 @@
 				obj.addClass(opts.jsclass);
 			}
 			
+			// Set size of tools
+			if (opts.toolsize == 'large') {
+				exhTools.addClass(opts.largetoolclass);
+			} else if (opts.toolsize == 'small') {
+				exhTools.addClass(opts.smalltoolclass);
+			}
+			
 			// give tools a directional class
 			if (opts.direction == 'left') {
 				exhTools.addClass(opts.dlclass);
 			}
 			else if (opts.direction == 'right') {
 				exhTools.addClass(opts.drclass);
+			}
+			else {
+				exhTools.addClass(opts.dcclass);
 			}
 			
 			if (!opts.resizing) {
@@ -733,39 +743,43 @@
 
 			// opts.showtools: 1=popup, 2=show, 3=hide
 			// show tools on hover
-			exhStage.hover(
-				function(e){
-					opts.showtools == 1 && exhTools.stop().fadeTo(100,opts.opacity);
-				},
-				function(e){
-					opts.showtools == 1 && exhTools.stop().fadeTo(500,0);
-				}
-			);
-			exhTools.mouseleave(
-				function(e){
-					opts.showtools == 1 && exhTools.stop().fadeTo(500,0);
-				}
-			);
-			exhTools.mouseenter(
-				function(e){
-					opts.showtools == 1 && exhTools.stop().fadeTo(100,opts.opacity);
-				}
-			);
+			if (opts.showtools != 2) {
+				exhStage.hover(
+					function(e){
+						opts.showtools == 1 && exhTools.stop().fadeTo(100,opts.opacity);
+					},
+					function(e){
+						opts.showtools == 1 && exhTools.stop().fadeTo(500,0);
+					}
+				);
+				exhTools.mouseleave(
+					function(e){
+						opts.showtools == 1 && exhTools.stop().fadeTo(500,0);
+					}
+				);
+				exhTools.mouseenter(
+					function(e){
+						opts.showtools == 1 && exhTools.stop().fadeTo(100,opts.opacity);
+					}
+				);
+			}
 			
 			// show caption on hover
 			// Hide only if we can be sure the caption is inside the stage area
 			// and we can point to it, for "buy this picture" links.
-			exhStage.hover(
-				function(e){
-					//opts.showcaption == 1 && displayCaption(im.caption[cur]);
-					opts.showcaption == 1 && displayCaption(cur);
-				},
-				function(e){
-					if (!opts.captiontarget) {
-						opts.showcaption == 1 && hideCaption(true);
+			if (opts.showcaption == 1) {
+				exhStage.hover(
+					function(e){
+						//opts.showcaption == 1 && displayCaption(im.caption[cur]);
+						opts.showcaption == 1 && displayCaption(cur);
+					},
+					function(e){
+						if (!opts.captiontarget) {
+							opts.showcaption == 1 && hideCaption(true);
+						}
 					}
-				}
-			);
+				);
+			}
 
 			// previous image button
 			exhPrev.click(function(){
@@ -992,7 +1006,11 @@
 		lclass:				'exh-loading',			// class to be applied to stage while loading image
 		dlclass:				'exh-left',				// class to be applied to exh-tools if exhibit opens to the left
 		drclass:				'exh-right',				// class to be applied to exh-tools if exhibit opens to the right
+		dcclass:				'exh-center',				// class to be applied to exh-tools if exhibit opens to the center
 		direction:			'left',					// direction that exhibit-box opens, can be "left" or "right"
+		toolsize:			'',				// "" or "large", size of exh-tools
+		largetoolclass:		'large',				// class to be applied to exh-tools to make it larger
+		smalltoolclass:		'small',				// class to be applied to exh-tools to make it larger
 		duration:			250,						// duration of transitional effect when enlarging or closing the box
 		transition:			true,					// use a fadein/fadeout transition between images
 

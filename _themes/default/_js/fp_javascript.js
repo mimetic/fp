@@ -355,9 +355,9 @@ $(document).ready( function() {
 		var options = {
 			cur:			FP_CURRENT_IMAGE_INDEX,		// current item in page index of images to show
 			stage:		'#exhibit',			// selector of the stage element ... where to show the pictures
-			direction:  'left',			
 			lclass:     'exh-loading',      //class to be applied to stage while loading image
-			direction:  'left',             //direction that exhibit-box opens, can be "left" or "right"
+			direction:  'center',             //direction that exhibit-box opens, can be "left" or "right"
+			toolsize:	'small',			// use large tools (alt is "small" or "medium")
 			duration:   250,                //duration of transitional effect when enlarging or closing the box
 			opacity:    0.7,                //opacity of navigational overlay
 			countpos:   'below',          //position of image-counter - can be false, "overlay" or "caption"
