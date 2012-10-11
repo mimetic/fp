@@ -1014,20 +1014,23 @@ Local over-rides:
 				$userDir = FP_DIR_USER;
 				foreach ($snippetdirs as $dir) {
 					$dir = basename ($dir);
-					foreach (glob ($themepath . "/" . FP_SNIPPETSDIR . "/$dir/*.txt") as $fn) {
-						// If there is a User version of the snippet, use that instead
-						// Check exact for file in exactly the same dir structure
-						$fnUser = $userDir . "/$fn";
-						if (file_exists($fnUser)) {
-							$fn = $fnUser;
-						} else {
-							// Check if the file is only in the user's snippets dir
-							$fnUser = "$userDir/$themepath/".FP_SNIPPETSDIR.'/'.basename($fn);
-							file_exists($fnUser) && $fn = $fnUser;
+					$files = glob ($themepath . "/" . FP_SNIPPETSDIR . "/$dir/*.txt");
+					if ($files) {
+						foreach ($files as $fn) {
+							// If there is a User version of the snippet, use that instead
+							// Check exact for file in exactly the same dir structure
+							$fnUser = $userDir . "/$fn";
+							if (file_exists($fnUser)) {
+								$fn = $fnUser;
+							} else {
+								// Check if the file is only in the user's snippets dir
+								$fnUser = "$userDir/$themepath/".FP_SNIPPETSDIR.'/'.basename($fn);
+								file_exists($fnUser) && $fn = $fnUser;
+							}
+							// trim 3 or 4 char extension to get snippet name
+							$name = strtolower(preg_replace ("/(\.....?)$/","",basename($fn)));
+							$snippets[$name] = file_get_contents ($fn);
 						}
-						// trim 3 or 4 char extension to get snippet name
-						$name = strtolower(preg_replace ("/(\.....?)$/","",basename($fn)));
-						$snippets[$name] = file_get_contents ($fn);
 					}
 				}
 
@@ -1036,9 +1039,12 @@ Local over-rides:
 						? $snippets['vocabulary_user'] = file_get_contents ($userDir."/".'vocabulary.txt')
 						: $snippets['vocabulary_user'] = "";
 
-				foreach (glob ($themepath . "/" . FP_JSDIR . "/*.js") as $fn) {
-					$name = strtolower(trim (basename($fn)));
-					$snippets[$name] = file_get_contents ($fn);
+				$files = glob ($themepath . "/" . FP_JSDIR . "/*.js");
+				if ($files) {
+					foreach ($files as $fn) {
+						$name = strtolower(trim (basename($fn)));
+						$snippets[$name] = file_get_contents ($fn);
+					}
 				}
 				$myTheme['snippets'] = $snippets;
 			} else {
@@ -1082,36 +1088,8 @@ Local over-rides:
 				$user_vlist = glob ("$userDir/$vglob");
 
 				// load system variation files
-				foreach ($vlist as $v) {
-					$myVariation = array ();
-					$v_filename = str_replace(".css", "", basename($v));
-					$v_id = $myTheme['id'] . ":" . $v_filename;
-					$v_id = preg_replace("/\s/", "_", $v_id);
-					$v_name = $myTheme['name'].":".mb_convert_case (basename ($v_filename), MB_CASE_TITLE);
-					$v_name = str_replace("_", " ", $v_name);
-					$myVariation['id'] =  $v_id;
-					$myVariation['name'] = $v_name;
-					$myVariation['theme_id'] = $myTheme['id'];
-					$myVariation['path'] = trim(basename($v));
-					$myVariation['is_variation'] = true;
-					$myVariation['userfile'] = false;
-					$this->FP_Themes[$v_id] = $myVariation;
-					$this->FP_THEMES_LIST[$v_id] = $v_name;
-
-					// Get theme preview file
-					$previewfile = $previewpath."/{$v_filename}.png";
-
-					file_exists($previewfile) && ($this->FP_THEMES_PREVIEWS[$v_id] = $v_id . ":" . $previewfile);
-					// note : => __ (two underscores)
-					$k = str_replace(":","__", $v_id);
-					file_exists($previewfile) && $this->FP_THEMES_PREVIEWS_FOR_JS[$v_id] = '_'.$k . ':"' . $previewfile . '"';
-				}
-
-				// Load admin user variation files
-				if ($this->userID != FP_ADMINISTRATOR) {
-					$admin_vlist = glob (FP_DIR_USER."/".$vglob);
-					// load admin user variation files
-					foreach ($admin_vlist as $v) {
+				if ($vlist) {
+					foreach ($vlist as $v) {
 						$myVariation = array ();
 						$v_filename = str_replace(".css", "", basename($v));
 						$v_id = $myTheme['id'] . ":" . $v_filename;
@@ -1126,6 +1104,38 @@ Local over-rides:
 						$myVariation['userfile'] = false;
 						$this->FP_Themes[$v_id] = $myVariation;
 						$this->FP_THEMES_LIST[$v_id] = $v_name;
+	
+						// Get theme preview file
+						$previewfile = $previewpath."/{$v_filename}.png";
+	
+						file_exists($previewfile) && ($this->FP_THEMES_PREVIEWS[$v_id] = $v_id . ":" . $previewfile);
+						// note : => __ (two underscores)
+						$k = str_replace(":","__", $v_id);
+						file_exists($previewfile) && $this->FP_THEMES_PREVIEWS_FOR_JS[$v_id] = '_'.$k . ':"' . $previewfile . '"';
+					}
+				}
+
+				// Load admin user variation files
+				if ($this->userID != FP_ADMINISTRATOR) {
+					$admin_vlist = glob (FP_DIR_USER."/".$vglob);
+					// load admin user variation files
+					if ($admin_vlist) {
+						foreach ($admin_vlist as $v) {
+							$myVariation = array ();
+							$v_filename = str_replace(".css", "", basename($v));
+							$v_id = $myTheme['id'] . ":" . $v_filename;
+							$v_id = preg_replace("/\s/", "_", $v_id);
+							$v_name = $myTheme['name'].":".mb_convert_case (basename ($v_filename), MB_CASE_TITLE);
+							$v_name = str_replace("_", " ", $v_name);
+							$myVariation['id'] =  $v_id;
+							$myVariation['name'] = $v_name;
+							$myVariation['theme_id'] = $myTheme['id'];
+							$myVariation['path'] = trim(basename($v));
+							$myVariation['is_variation'] = true;
+							$myVariation['userfile'] = false;
+							$this->FP_Themes[$v_id] = $myVariation;
+							$this->FP_THEMES_LIST[$v_id] = $v_name;
+						}
 					}
 				}
 
@@ -1133,23 +1143,25 @@ Local over-rides:
 				// mark them in the list with a "*"
 				($DEBUG && $loadThemesOnly) && print __FUNCTION__.": Load Themes Only ON<BR>";
 				($DEBUG && $loadThemesOnly) && var_dump ($user_vlist);
-				foreach ($user_vlist as $v) {
-					$myVariation = array ();
-					$v_filename = str_replace(".css", "", basename($v));
-					$v_id = $myTheme['id'] . ":" . $v_filename;
-					$v_id = preg_replace("/\s/", "_", $v_id);
-					$v_name = $myTheme['name'].":".mb_convert_case (basename ($v_filename), MB_CASE_TITLE) . "*";
-					$v_name = str_replace("_", " ", $v_name);
-					$myVariation['id'] =  $v_id;
-					$myVariation['name'] = $v_name;
-					$myVariation['theme_id'] = $myTheme['id'];
-					$myVariation['path'] = trim(basename($v));
-					$myVariation['is_variation'] = true;
-					$myVariation['userfile'] = true;
-					$this->FP_Themes[$v_id] = $myVariation;
-					$this->FP_THEMES_LIST[$v_id] = $v_name;
-					($DEBUG && $loadThemesOnly) && print __FUNCTION__.": Loaded v_id<BR>";
-
+				if ($user_vlist) {
+					foreach ($user_vlist as $v) {
+						$myVariation = array ();
+						$v_filename = str_replace(".css", "", basename($v));
+						$v_id = $myTheme['id'] . ":" . $v_filename;
+						$v_id = preg_replace("/\s/", "_", $v_id);
+						$v_name = $myTheme['name'].":".mb_convert_case (basename ($v_filename), MB_CASE_TITLE) . "*";
+						$v_name = str_replace("_", " ", $v_name);
+						$myVariation['id'] =  $v_id;
+						$myVariation['name'] = $v_name;
+						$myVariation['theme_id'] = $myTheme['id'];
+						$myVariation['path'] = trim(basename($v));
+						$myVariation['is_variation'] = true;
+						$myVariation['userfile'] = true;
+						$this->FP_Themes[$v_id] = $myVariation;
+						$this->FP_THEMES_LIST[$v_id] = $v_name;
+						($DEBUG && $loadThemesOnly) && print __FUNCTION__.": Loaded v_id<BR>";
+	
+					}
 				}
 			}
 		}
