@@ -1,6 +1,8 @@
 FP GALLERY TO DO:
 
 
+*** What happens to exhibitions when you delete a gallery?
+*** What happens when you delete an exhibition as a normal user? It seems to remain, but go to the admin user!
 
 
 *** IT SEEMS YOU CAN BUY ANYTHING BY USING THE ID CODE IN THE URL OF THE PRINT SHOP. DOESN'T IT CHECK WHETHER THE ITEM IS REALLY FOR SALE? ***
