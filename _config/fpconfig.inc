@@ -70,7 +70,7 @@ FP_SINGLE_GALLERY_MULTI_USER jumps to the public gallery, to the list of exhibit
 We set the default here, but it could change if the admin user changes his subscription.
 */
 
-$FP_GALLERY_TYPE = FP_MULTI_GALLERY_MULTI_USER;
+$FP_GALLERY_TYPE = FP_MULTI_GALLERY_SINGLE_USER;
 define ("FP_GALLERY_TYPE", $FP_GALLERY_TYPE);
 
 /*

@@ -107,9 +107,20 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		$slideshow_head = "";
 	}
 	
-	$hidelist
-	? $grouptable = "<!-- hidden -->"
-	: $grouptable = DisplayGroupsList ($vars['start']);
+	$showmode = $vars['showmode'];
+	$displayCascade = $vars['displayCascade'];
+
+	$displayCascade = true;
+	
+	if ($hidelist) {
+		$list = "<!-- hidden -->";
+	} else {
+		if ($displayCascade) {
+			$list = GetGroupCascade($showmode);
+		} else {
+			$list = DisplayGroupsList ($vars['start']);
+		}
+	}
 	
 	// We use the site logo on this page!
 	
@@ -138,7 +149,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'GALLERY_STYLESHEET'	=> "",
 		'header'				=> $header,
 		'background_img_style'		=> $bkgd,
-		'list'				=> $grouptable, 
+		'list'				=> $list, 
 		'sectionclass'		=> "groups",
 		'GROUPICON'			=> $GroupIcon,
 		'GROUPBANNER'		=> $GroupBanner,
@@ -169,5 +180,77 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$DEVELOPING || $Cache_Lite->save($output, $cacheid, $cachegroup);
 }	
 print $output;
+
+
+
+
+
+// ------------------------------------------------------------------------
+// Get a cascade, starting with groups
+// NOT ACTIVE YET: $showmode : FP_FEATURED = show featured projects, FP_ACTIVE = show active projects
+
+function GetGroupCascade ($showmode = null) {
+	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	
+	$myGroup || $myGroup = new FPGroup();
+	$groupID = $myGroup->ID;
+	
+	$tables	= array (
+		"Groups"	=> "$GROUPS, $PROJECTS, $PARTS",
+		"Projects" => "$PROJECTS, $PARTS", 
+		"ArtistInfo" => "$ARTISTS, $PARTS"
+	);
+	// Most themes won't show a list of images with each project, but one might wish to.
+	// We use a snippet...if it resolves to TRUE, we create images!
+	// By making this option, we speed up the searches. Why grab a large stack of image records unnecessarily?
+	$showimages = FetchSnippet("projects_show_images");
+	if ($showimages) {
+		$tables["Images"] = "$PARTS, $IMAGES";
+	}
+		
+
+	// SETS
+
+	$d = "DATE_FORMAT($PROJECTS.ProjectDate, '%M %D, %Y') as ProjectDate";
+	$d .= ", if (length($PROJECTS.Description) < 150, concat($PROJECTS.Description, if ($PROJECTS.Description != '', '<BR>', '')), concat(substring($PROJECTS.Description,1,150),'...<BR>')) AS Lead ";
+	
+	$sets = array (
+		"Groups"		=>	"DISTINCT $GROUPS.ID, $GROUPS.Title, TRIM(LEADING 'The ' from $GROUPS.Title) as SortTitle",
+		"Projects"		=>	"DISTINCT $PROJECTS.ID, ".ProjectsCalcFields("$PROJECTS.*, $d"),
+		"ArtistInfo"	=>	"DISTINCT $ARTISTS.ID AS ArtistID, $ARTISTS.Firstname as fn, $ARTISTS.Lastname as qq, $PARTS.ProjectID, $ARTISTS.Firstname, CONCAT_WS(' ', $ARTISTS.Firstname, $ARTISTS.Lastname) AS Fullname"
+	);
+
+
+	$subquery = "SELECT DISTINCT $PARTS.projectID from $PROJECTS, $PARTS WHERE $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = 'Images' AND $PROJECTS.Public < 1 AND $PROJECTS.Slides < 1";
+	$Groups_where = "$PROJECTS.GroupID = $GROUPS.ID AND $PROJECTS.ID IN ($subquery)";
+
+	$Projects_where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = {Groups_ID} AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = '{$IMAGES}'";
+
+	//$Artists_where = "$PARTS.ProjectID = '{Projects_ID}' AND $ARTISTS.ID = $PARTS.ArtistID";
+	$Artists_where = "Artists.ID = Parts.ArtistID AND $PARTS.ProjectID = '{Projects_ID}'";
+	
+	$wheres	= array (
+						"Groups"		=>	$Groups_where,
+						"Projects"		=>	$Projects_where,
+						"ArtistInfo"		=>	$Artists_where
+					 );
+			
+	$orders	= array (
+						"Groups"		=>	"SortTitle",
+						"Projects"		=>	"$PROJECTS.Title",
+						"ArtistInfo"	=>	"$ARTISTS.Lastname, $ARTISTS.Firstname"
+					 );
+
+	if ($myGroup->IsSolo(true)) {
+		$formats = FetchFormatSet ('groups_page_solo');
+	} else {				 
+		$formats = FetchFormatSet ('groups_page');
+	}
+	
+	$list = FetchCascade ($tables, $sets, $wheres, $orders, $formats, '', '', true);
+
+	return $list;
+}
+
 
 ?>

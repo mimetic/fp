@@ -3,7 +3,7 @@ Groups	item_format	{groups_set_item_format}
 Groups	separator_format	<br clear=all>
 Projects	block_format	{list}
 Projects	item_format	{groups_set_projects_item_format}
-Projects	separator_format	<br>
-ArtistInfo	block_format	{list}
-ArtistInfo	item_format	{groups_set_artists_item_format}
+Projects	separator_format	<!-- -->
+ArtistInfo	block_format	<!-- solo group: do not show artists -->
+ArtistInfo	item_format	<!-- -->
 ArtistInfo	separator_format	<!-- -->
