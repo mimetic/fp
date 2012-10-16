@@ -1,0 +1,2 @@
+<!--groups_set_groups_block_format-->
+<div class="list">{LIST}</div>
