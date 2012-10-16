@@ -769,7 +769,11 @@ $(document).ready( function() {
 	APPLY JQUERY ACCORDION MENU
 	================================================================
 */
-	$( "#accordion" ).accordion();
+	$( "#accordion" ).accordion({
+		collapsible : true,
+		heightStyle : "content",
+		active : false
+	});
 
     
 /*
