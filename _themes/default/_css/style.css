@@ -558,6 +558,11 @@ div.navbar {
 	border-style: none;
 }
 
+.groups p.group-list-description {
+	font-style: italic;
+	opacity: 0.5;
+}
+
 .slideshow .navbar-container {
 	background-color: transparent;
 	width: 100%;

@@ -1,5 +1,7 @@
 FP GALLERY TO DO:
 
+*** CHANGES TO JQUERY UI CUSTOM SCREW UP LIVE THEME EDITOR DISPLAY. MUST CUSTOMIZE THIS TO WORK FOR ACCORDIAN, NOT FOR ALL ****
+
 
 *** What happens to exhibitions when you delete a gallery?
 *** What happens when you delete an exhibition as a normal user? It seems to remain, but go to the admin user!

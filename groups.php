@@ -107,10 +107,17 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		$slideshow_head = "";
 	}
 	
+	// Unused for now...
 	$showmode = $vars['showmode'];
-	$displayCascade = $vars['displayCascade'];
-
-	$displayCascade = true;
+	
+	// Set with a snippet — if it has a value, then do it.
+	$displayCascade = trim(FetchSnippet ("groups_page_display_cascade"));
+	if (trim(strtolower($displayCascade)) == "false") {
+		$displayCascade = false;
+	}
+	
+	// testing
+	//$displayCascade = true;
 	
 	if ($hidelist) {
 		$list = "<!-- hidden -->";
@@ -215,7 +222,7 @@ function GetGroupCascade ($showmode = null) {
 	$d .= ", if (length($PROJECTS.Description) < 150, concat($PROJECTS.Description, if ($PROJECTS.Description != '', '<BR>', '')), concat(substring($PROJECTS.Description,1,150),'...<BR>')) AS Lead ";
 	
 	$sets = array (
-		"Groups"		=>	"DISTINCT $GROUPS.ID, $GROUPS.Title, TRIM(LEADING 'The ' from $GROUPS.Title) as SortTitle",
+		"Groups"		=>	"DISTINCT $GROUPS.*, TRIM(LEADING 'The ' from $GROUPS.Title) as SortTitle",
 		"Projects"		=>	"DISTINCT $PROJECTS.ID, ".ProjectsCalcFields("$PROJECTS.*, $d"),
 		"ArtistInfo"	=>	"DISTINCT $ARTISTS.ID AS ArtistID, $ARTISTS.Firstname as fn, $ARTISTS.Lastname as qq, $PARTS.ProjectID, $ARTISTS.Firstname, CONCAT_WS(' ', $ARTISTS.Firstname, $ARTISTS.Lastname) AS Fullname"
 	);
