@@ -502,6 +502,62 @@ a.item.title:active {
 	
 }
 
+/* ----- MASTER PAGE LINKS : COLLAPSING MENUS ------------------------- */
+
+#mainlist .list ul {
+	list-style-type: none;
+}
+
+.menulist .menuitem {
+	margin-top: .25em;
+	margin-bottom: 1.5em;
+}
+
+.menulist-icon {
+	display: inline-block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: -32px -16px;
+	width: 16px;
+	height: 16px;
+	background-image: url(images/ui-icons_ef8c08_256x240.png);
+	margin-right: 2px;
+	margin-left: -16px;
+	vertical-align: -3px;
+}
+
+.menulist-expanded .menulist-icon {
+	background-position: -32px -16px;
+}
+
+.menulist-collapsed .menulist-icon {
+	background-position: -64px -16px;	
+}
+
+.menulist-collapsible.menulist-expanded {
+
+}
+
+.menulist-collapsible.menulist-collapsed {
+	font-weight: bold;
+}
+
+.menulist-collapsible:hover {
+	background-color: #efd0a7;
+}
+
+.menulist-collapsible:active {
+	background-color: #ef8c08;
+}
+
+.group-list-description {
+	font-style: italic;
+	margin-bottom: 4px;
+	font-size: 90%;
+	opacity: 0.8;
+}
+
 /* ----- MENU BAR (g) ------------------------- */
 
 #topnav {
@@ -993,7 +1049,6 @@ a.sspop:active {
 }
 
 .group-list {
-	margin-bottom: 20px;
 }
 
 .group-table-boundary {
@@ -1010,14 +1065,15 @@ a.sspop:active {
 }
 
 .group-table-title-block {
-	
+	margin-bottom: 4px;
 }
 
-a.group-table-title {
+.group-table-title, a.group-table-title {
 	padding-bottom: 2px;
 	font-size: 10pt;
-	letter-spacing: 0.1em;
 	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: .15em;
 }
 
 a.group-table-title:link {

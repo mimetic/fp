@@ -16,7 +16,8 @@
 			expandHtml: 'Expand',
 			collapseHtml: 'Collapse',
 			expandClass: '',
-			collapseClass:''
+			collapseClass:'',
+			speed: 300
         };
         
         var options = $.extend(defaults, options);
@@ -51,12 +52,12 @@
 		function hideElement(obj, method){
 			callBeforeCallback(obj);
 			if(method == 1){
-				obj[options.target](options.targetOnly)[effectHide]();
+				obj[options.target](options.targetOnly)[effectHide](options.speed);
 				obj.html(expHtml);
 				obj.removeClass(options.collapseClass);
 				obj.addClass(options.expandClass);
 			}else{
-				$(document).find(options.target)[effectHide]();
+				$(document).find(options.target)[effectHide](options.speed);
 				obj.html(expHtml);
 				obj.removeClass(options.collapseClass);
 				obj.addClass(options.expandClass);
@@ -67,12 +68,12 @@
 		function showElement(obj, method){
 			callBeforeCallback(obj)
 			if(method == 1){
-				obj[options.target](options.targetOnly)[effectShow]();
+				obj[options.target](options.targetOnly)[effectShow](options.speed);
 				obj.html(collHtml);
 				obj.removeClass(options.expandClass);
 				obj.addClass(options.collapseClass);
 			}else{
-				$(document).find(options.target)[effectShow]();
+				$(document).find(options.target)[effectShow](options.speed);
 				obj.html(collHtml);
 				obj.removeClass(options.expandClass);
 				obj.addClass(options.collapseClass);

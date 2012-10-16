@@ -16,12 +16,12 @@
 
 		<div class="infobox">
 <!-- SHOPPING CART -->
-			<span class="fpcart_collapsable fpcart_compacter_switch">
+			<span class="fpcart_collapsible fpcart_compacter_switch">
 				<input id="cart_compact_switch" type="checkbox" checked>Compact
 			</span>
 			<h2 id="fpcart_collapser" style="border-bottom: 0px;padding-bottom: 0px;"></h2>
 			<input id="fpcart_cart_compact" value="1" type="hidden">			
-			<div class="fpcart_collapsable">
+			<div class="fpcart_collapsible">
 				<div id="fpcart"></div>
 			</div>
 <!-- end shopping cart -->

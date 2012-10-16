@@ -744,7 +744,7 @@ $(document).ready( function() {
 		var collapsedHTML = '<span id="fpcart_collapser_icon" class="ui-state-default ui-corner-all ui-icon ui-icon-triangle-1-s" style="float:left;"></span><span style="margin-left:10px;">Shopping Cart</span>';
 		$('#fpcart_collapser').collapser(
 			{
-			target: '.fpcart_collapsable',
+			target: '.fpcart_collapsible',
 			targetOnly: null,
 			effect: 'slide',
 			changeText: true,
@@ -766,14 +766,46 @@ $(document).ready( function() {
 
 /*
 	================================================================
-	APPLY JQUERY ACCORDION MENU
+	FIRST COLLAPSING MENU METHOD: JQUERY UI ACCORDION MENU
 	================================================================
 */
+
 	$( "#accordion" ).accordion({
 		collapsible : true,
 		heightStyle : "content",
 		active : false
 	});
+
+
+
+/*
+	================================================================
+	SECOND COLLAPSING MENU METHOD: JQUERY COLLAPSE
+	================================================================
+*/
+	
+	// Start collapsed
+	$('.menulist-collapsible').addClass("menulist-collapsed");
+	
+	// Hide the collapsable parts
+	$('.menulist .menuitem').hide();
+
+	// Note: callback function slides up all panels BEFORE new panel slid down.
+	$('.menulist-collapsible').collapser(
+		{
+		target: 'next',
+		targetOnly: null,
+		effect: 'slide',
+		changeText: false,
+		expandClass: 'menulist-expanded',
+		collapseClass:'menulist-collapsed',
+		speed : 200
+		}, function(){
+			$('.menulist .menuitem').slideUp();
+		}
+	);
+
+
 
     
 /*

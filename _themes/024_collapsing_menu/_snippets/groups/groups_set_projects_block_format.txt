@@ -1,0 +1,7 @@
+<!--groups_set_projects_item_format-->
+<div class="menuitem">
+	<div class="group-list-description">{Groups_Description}</div>
+	<ul>
+		{list}
+	</ul>
+</div>

@@ -1,0 +1,2 @@
+<!--groups_set_item_format-->
+<div class="menulist-collapsible"><div class="group-table-title-block editable"><span class="menulist-icon"></span><span class="group-table-title editable">{Groups_Title}</span></div></div>

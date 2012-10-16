@@ -1,0 +1,2 @@
+<!--groups_set_artists_item_format.txt-->
+<a class="list caption" HREF="artist.php?ArtistID={ArtistInfo_ArtistID}">{ArtistInfo_Fullname}</A><br>

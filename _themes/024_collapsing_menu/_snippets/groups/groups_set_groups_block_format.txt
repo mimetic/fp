@@ -1,0 +1,4 @@
+<!--groups_set_groups_block_format-->
+<div class="menulist">
+	{LIST}
+</div>

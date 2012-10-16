@@ -614,7 +614,7 @@
 			{	// Load the files like default
 			
 				// Get the src of the first script tag that includes our js file (with or without an appendix)
-				this.src = $('script[src*='+this.files.js.lightbox+']:first').attr('src');
+				this.src = $('script[src*="'+this.files.js.lightbox+'"]:first').attr('src');
 				
 				// Make sure we found ourselves
 				if ( !this.src )

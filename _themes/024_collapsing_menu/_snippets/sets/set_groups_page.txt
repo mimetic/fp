@@ -1,0 +1,9 @@
+Groups	block_format	{groups_set_groups_block_format}
+Groups	item_format	{groups_set_item_format}
+Groups	separator_format	<!-- -->
+Projects	block_format	{list}
+Projects	item_format	{groups_set_projects_item_format}
+Projects	separator_format	<!-- -->
+ArtistInfo	block_format	{list}
+ArtistInfo	item_format	{groups_set_artists_item_format}
+ArtistInfo	separator_format	<!-- -->

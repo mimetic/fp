@@ -1,0 +1,4 @@
+<!--groups_set_projects_item_format-->
+<li>
+<a class="item projecttitle editable" href="gallery.php?ProjectID={Projects_ID}">{Projects_Title}</a>
+</li>
