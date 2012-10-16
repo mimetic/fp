@@ -1,4 +1,6 @@
 <!--groups_set_projects_item_format-->
+<div>
 <ul>
 {list}
 </ul>
+</div>
