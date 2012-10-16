@@ -8,7 +8,7 @@ $(document).ready( function() {
 
 
 	// show obfuscated email addresses which have class=obfuscate
-	$(".obfuscated").defuscate();
+	//$(".obfuscated").defuscate();
 
 	// Confirmations
 	// Uncheck checkboxes if checked.

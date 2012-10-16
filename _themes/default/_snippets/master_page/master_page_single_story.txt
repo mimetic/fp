@@ -20,7 +20,7 @@
 	<!-- Gallery stylesheet -->
 	{GALLERY_STYLESHEET}
 
-	<script src="{JAVASCRIPT_PATH}/jquery/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
+	<script src="{JAVASCRIPT_PATH}/jquery/jquery-1.8.2.min.js" type="text/javascript" language="javascript"></script>
 	<script src="{JAVASCRIPT_PATH}/jquery/jquery.rightClick.js" type="text/javascript" language="javascript"></script>
 	<script src="{JAVASCRIPT_PATH}/jquery/jquery.defuscate.js" type="text/javascript" language="javascript"></script>
 	<script src="{JAVASCRIPT}" type="text/javascript" language="javascript"></script>

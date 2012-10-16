@@ -1,5 +1,5 @@
 <!-- jquery libraries -->
-<script src="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/jquery-1.7.2.min.js" type="text/javascript" language="javascript"></script>
+<script src="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/jquery-1.8.2.min.js" type="text/javascript" language="javascript"></script>
 <script src="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
 <script src="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/iColorPicker-noLink-dg.js" type="text/javascript" language="javascript"></script>
 <script src="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/jquery.bgiframe.min.js" type="text/javascript" language="javascript"></script>
