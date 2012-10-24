@@ -1659,8 +1659,11 @@ function ResizeNewImages ($filename, $name, $watermark =	false) {
 	$response = "";
 		
 	if (FP_IMAGE_TOOL == "gd") {
+		$VERBOSE && fp_error_log("Resizing $filename using GD", 3, FP_PICTURES_LOG);
 		// SLIDES: RESIZE TO LARGE VIEWING SIZE (RESIZE ORIGINAL -> SLIDE)
+$VERBOSE && fp_error_log("START!", 3, FP_PICTURES_LOG);
 		$success = ResizeImage($slide_size, $filename, "$BASEDIR/$PROCESSED_SLIDES/$name", $default_border, $watermark);
+$VERBOSE && fp_error_log("END!", 3, FP_PICTURES_LOG);
 		$success || fp_error_log(__LINE__.": FAILED to resize to {$slide_size[0]}, $filename -> $name", 3, FP_PICTURES_LOG);
 		if (!$success) return false;
 		//chmod ("$BASEDIR/$PROCESSED_SLIDES/$name", 0644);
@@ -1680,6 +1683,7 @@ function ResizeNewImages ($filename, $name, $watermark =	false) {
 		//chmod ("$BASEDIR/$PROCESSED_THUMBNAILS/$name", 0644);
 		$VERBOSE && fp_error_log("Finished resize to THUMBNAIL size of $filename -> $name", 3, FP_PICTURES_LOG);
 	
+		$VERBOSE && fp_error_log("Finished resizing $filename using GD!", 3, FP_PICTURES_LOG);
 	}
 	else	// using ImageMagick
 	{
@@ -1779,7 +1783,7 @@ function WatermarkImage (&$im, $text = "", $xoffset = 0, $yoffset = 0) {
 	global $BASEDIR;
 	global $error, $msg;
 	
-	$DEBUG = 1;
+	$DEBUG = 0;
 	
 	$result = true;
 	imagealphablending($im,true); 

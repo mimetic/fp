@@ -66,18 +66,18 @@ $LINK = StartDatabase(MYSQLDB);
 Setup ();
 
 
-$msg = "";
+$output = "";
 
-$msg .= '<html lang="en">
+$output .= '<html lang="en">
 <head>
 	<meta <meta http-equiv="refresh" content="'.$refresh.'">
 </head>
 <body>';
 
 
-$msg .= "<h1>Rebuild Pictures FP</h1>";
-$msg .= date("F j, Y, g:i a"). "<BR><BR>";
-$msg .= "This program rebuilds all pictures in the FP system. If you change your picture parameters in config.inc, you might wish to rebuild the pictures.<BR>";
+$output .= "<h1>Rebuild Pictures FP</h1>";
+$output .= date("F j, Y, g:i a"). "<BR><BR>";
+$output .= "This program rebuilds all pictures in the FP system. If you change your picture parameters in config.inc, you might wish to rebuild the pictures.<BR>";
 
 $self = $_SERVER['PHP_SELF'];
 set_time_limit(5 * 60);
@@ -98,33 +98,33 @@ if ($command == "go") {
 }
 
 
-$msg .= "The list of pix already built is $LOGS/$log<BR>";
-$msg .= "URL parameters: 
+$output .= "The list of pix already built is $LOGS/$log<BR>";
+$output .= "URL parameters: 
 <ul>
 <li>reset -> q=clear</li>
 <li>process -> q=go</li>
 <li>process X pictures at once -> maxpix=X</li>
 <li>hide output -> hide=1</li>
 </ul>";
-//$msg .= "Example: php -q util_rebuild_pictures.php q=go maxpix=3 hide=1<BR><BR>";
+//$output .= "Example: php -q util_rebuild_pictures.php q=go maxpix=3 hide=1<BR><BR>";
 
-$msg .= "<form action='$self'>\n";
-$msg .= '<button type="submit" name="q">Simulation</button> ';
-$msg .= '<button type="submit" name="q" value="clear">Reset List to Process</button> ';
-$msg .= '<button type="submit" name="q" value="go">Process Images</button> <br><br>';
-$msg .= 'Pictures to process at one time (maxpix): <input name="maxpix" type="text" value="' . $maxpix . '" size="3"><br>';
-$msg .= 'Refresh delay: <input name="refresh" type="text" value="' . $refresh . '" size="3"> seconds<br>';
-$msg .= 'Updater Password: <input name="syspass" id="syspass" type="password" size="40" value="' . $syspassEntered . '"><br>';
+$output .= "<form action='$self'>\n";
+$output .= '<button type="submit" name="q">Simulation</button> ';
+$output .= '<button type="submit" name="q" value="clear">Reset List to Process</button> ';
+$output .= '<button type="submit" name="q" value="go">Process Images</button> <br><br>';
+$output .= 'Pictures to process at one time (maxpix): <input name="maxpix" type="text" value="' . $maxpix . '" size="3"><br>';
+$output .= 'Refresh delay: <input name="refresh" type="text" value="' . $refresh . '" size="3"> seconds<br>';
+$output .= 'Updater Password: <input name="syspass" id="syspass" type="password" size="40" value="' . $syspassEntered . '"><br>';
 
 
-$msg .= "\n</form>\n";
+$output .= "\n</form>\n";
 
 //maintenance lock file
-$mlockfile = "$TMPDIR/maintenance-lock-flag.txt";
+$mlockfile = "$BASEDIR/$TMPDIR/maintenance-lock-flag.txt";
 // write lock
 $lockfile = "$BASEDIR/rebuild_pix_lock.txt";
 $locked = file_exists ($lockfile);
-$locked && $msg .= "<h1>Lock file set!</h1>";
+$locked && $output .= "<h1>Lock file set!</h1>";
 
 if ($syspassEntered == $syspass && !$locked) {
 	
@@ -145,7 +145,7 @@ if ($syspassEntered == $syspass && !$locked) {
 		$pixrebuild = file ("$LOGS/$log", FILE_IGNORE_NEW_LINES | FILE_IGNORE_NEW_LINES);
 		$pixrebuild || $pixrebuild = array ();
 		
-		//$msg .= ArrayToTable ($pixrebuild);
+		//$output .= ArrayToTable ($pixrebuild);
 		
 		$k=0;
 		$i = 0;
@@ -154,7 +154,7 @@ if ($syspassEntered == $syspass && !$locked) {
 		$files = array_diff($files, $pixrebuild);
 		$filesremaining = count($files) - $maxpix;
 		$filesremaining > 0 || $filesremaining = 0;
-		$msg .= "Files remaining to process after this : $filesremaining<BR>";
+		$output .= "Files remaining to process after this : $filesremaining<BR>";
 	
 		sort ($files, SORT_STRING);
 	
@@ -176,20 +176,22 @@ if ($syspassEntered == $syspass && !$locked) {
 						// move original to processed
 						$from = "$BASEDIR/$ORIGINALS/$filename";
 						$to = "$BASEDIR/$PROCESSED_ORIGINALS/$filename";
-						copy ($from, $to) || $msg .= __FUNCTION__.":".__LINE__.": Could not copy $from to $to<BR>";
+						copy ($from, $to) || $output .= __FUNCTION__.":".__LINE__.": Could not copy $from to $to<BR>";
 						chmod ($to, 0777);
-	
+//print "Resize $filename to fit ". FP_SLIDE_WIDTH . " x " . FP_SLIDE_HEIGHT . "<BR>";	
 						$source = $to;
-						//DeleteAllPicVersions ($filename);
+//print "Moved original to processed: $filename<BR>";
 						ResizeNewImages ($source, $filename, $watermarktext);
+//print "ResizeNewImages: $filename<BR>";
 						MoveProcessedToMain ($filename);
-						
+//print "MoveProcessedToMain: $filename<BR>";
+	
 						$proctime = round(microtime(true) - $stime, 2);
 						// Remove lockfile
 						unlink ($lockfile);
 					}
 					
-					//$msg .= "Rebuild: $filename<BR>";
+					//$output .= "Rebuild: $filename<BR>";
 					$pixlist .= "<TD align=\"center\">
 							<img src=\"$PHOTOS_GALLERY/$filename\"><br>$filename<br>{$proctime} sec.
 						</TD> \n";
@@ -207,14 +209,14 @@ if ($syspassEntered == $syspass && !$locked) {
 						$k = 0;
 					}
 				} else {
-					$msg .= "error: $source does not exist<BR>";
+					$output .= "error: $source does not exist<BR>";
 				}
 			}
 		}
 		$pixlist .= "</TR></TABLE>";
-		$msg .= 	$simmsg . $pixlist;
+		$output .= 	$simmsg . $pixlist;
 		$remaining = join ("<BR>", $files);
-		$msg .= "Remaining pictures: <BR>$remaining<BR>";
+		$output .= "Remaining pictures: <BR>$remaining<BR>";
 	}
 } else {
 	file_exists($lockfile) 
@@ -223,18 +225,18 @@ if ($syspassEntered == $syspass && !$locked) {
 	$delay = time() - $lock;
 	if ($delay > (60*3)) {
 		file_exists($lockfile) && unlink ($lockfile);
-		$msg .= "Oops, locked too long.<BR>";
+		$output .= "Oops, locked too long.<BR>";
 	}
 	$locked
-		? $msg .= "Still processing<BR>"
-		: $msg .= "Wrong or missing password<BR>";
+		? $output .= "Still processing<BR>"
+		: $output .= "Wrong or missing password<BR>";
 }
 
-$msg .= "<hr> END";
-$msg .= '</body>
+$output .= "<hr> END";
+$output .= '</body>
 </html>';
 
-$hideOutput || print $msg;
+$hideOutput || print $output;
 
 mysql_close($LINK);
 $FP_MYSQL_LINK->close();

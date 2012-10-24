@@ -6,8 +6,11 @@ error_reporting(E_ALL);
 //var_dump ($_REQUEST);
 $text = "";
 $theme = "";
+$action = "";
 
-$action = $_REQUEST['action'];
+
+isset($_REQUEST['action']) && $action = $_REQUEST['action'];
+
 $action || $action = "list";
 isset($_REQUEST['f']) && $filename = basename ($_REQUEST['f']);
 // Note: I don't need stripslashes on my computer...but needed on server!
@@ -20,13 +23,14 @@ if (isset($_REQUEST['text'])) {
 isset($_REQUEST['theme']) && $theme = $_REQUEST['theme'];
 $theme || $theme = "default";
 
-print "<div style='border:1px solid black;padding:20px;margin:10px;background:#FC0'>";
-print "<h2>FP Snippet Editor</h2>";
-print "</div>";
 
-print "<div style='border:1px solid black;padding:20px;margin:10px;background:#CCC'>";
-//print "Action: $action<BR>";
-//print "Filename: $filename<BR>";
+print "<div style='border:1px solid black;padding:20px;margin:10px;background:#FC0'>\n";
+print "<h2>FP Snippet Editor</h2>\n";
+print "</div>\n";
+
+print "<div style='border:1px solid black;padding:20px;margin:10px;background:#CCC'>\n";
+//print "Action: $action<BR>\n";
+//print "Filename: $filename<BR>\n";
 
 
 print '<form action="snippeteditor.php" enctype="multipart/form-data" method="post">';
@@ -34,22 +38,35 @@ print '<form action="snippeteditor.php" enctype="multipart/form-data" method="po
 $list = array ();
 switch ($action) {
 	case 'edit'	:
-		print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>";
-		print "<input name=\"theme\" type=\"hidden\" value=\"$theme\">";
-		print "<input name=\"f\" type=\"hidden\" value=\"$filename\">";
-		editFile ($filename, $theme);
-		print "</div>";
+		$dir = null;
+		isset($_REQUEST['dir']) && $dir = $_REQUEST['dir'];
+		print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>\n";
+		editFile ($filename, $dir, $theme);
+		print "</div>\n";
 		break;
 	case 'update' :
-		print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>";
-		$result = updateFile ($filename, $theme, $text);
+		$dir = null;
+		isset($_REQUEST['dir']) && $dir = $_REQUEST['dir'];
+		print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>\n";
+		$result = updateFile ($filename, $dir, $theme, $text);
 		if ($result) 
-			print "Successful update of $filename<BR>";
-		displayList ($theme);
-		print "</div>";
+			print "Successful update of $filename<BR>\n";
+		displayList ($theme, $dir);
+		print "</div>\n";
+		break;
+	case 'open' :
+		$dir = null;
+		isset($_REQUEST['dir']) && $dir = $_REQUEST['dir'];
+		displayList ($theme, $dir);
+		break;
+	case 'restore' :
+		$dir = null;
+		isset($_REQUEST['dir']) && $dir = $_REQUEST['dir'];
+		restoreFile($filename, $dir, $theme);
+		displayList ($theme, $dir);
 		break;
 	default :
-		displayList ($theme);
+		displayList ($theme, null);
 }
 
 print '</form>';
@@ -57,56 +74,152 @@ print '</div><BR>';
 
 // =============
 
-function updateFile ($filename, $theme, $text) {
-	$dir = "_themes/$theme/_snippets";
+function updateFile ($filename, $dir, $theme, $text) {
+	print "Updated $filename in $dir<BR>";
+	
+
+	if (!$dir) {
+		$dir = "_themes/$theme/_snippets";
+	} else {
+		//$dir = "_themes/$theme/_snippets";
+	}
+	
+	$res = true;
+	// make backup dir if necessary
 	file_exists ("$dir/_backup") || mkdir ("$dir/_backup", 0777);
-	if (copy ("$dir/$filename", "$dir/_backup/$filename.bak")) {
-		if (WriteTextFile ("$dir/$filename", $text)) {
-			$result = "Updated $filename";
-		} else {
-			$result = false;
-		}
+	
+	// make copy of original if missing
+	if (!file_exists ("$dir/_backup/$filename.bak")) {
+		$res = copy ("$dir/$filename", "$dir/_backup/$filename.bak");
+	}
+	
+	if ($res && WriteTextFile ("$dir/$filename", $text)) {
+		$result = "Updated $filename";
+	} else {
+		$result = false;
+	}
+
+	return $result;
+}
+
+function restoreFile ($filename, $dir, $theme) {
+	print "Restored $filename in $dir<BR>";
+	
+
+	if (!$dir) {
+		$dir = "_themes/$theme/_snippets";
+	} else {
+		//$dir = "_themes/$theme/_snippets";
+	}
+	
+	if (file_exists ("$dir/_backup") && copy ("$dir/_backup/$filename.bak", "$dir/$filename")) {
+		$result = "Restored $filename";
+		unlink("$dir/_backup/$filename.bak");
 	} else {
 		$result = false;
 	}
 	return $result;
 }
 
-function displayList ($theme) {
+function displayList ($theme, $dir) {
 	$themelist = fetchThemeList ();
-	print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>";
-	print "<h3>List of Themes:</h3>";
-	print "<ol>\n";
+	print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>\n";
+	print "<h3>List of Themes:</h3>\n";
+	print "<ol>\n\n";
 	foreach ($themelist as $t) {
-		print "<li><a href=\"./snippeteditor.php?action=list&theme=$t\">$t</a></li>\n";
-		//print "<li>" . $t . "</li>\n";
+		print "<li><a href=\"./snippeteditor.php?action=list&theme=$t\">$t</a></li>\n\n";
+		//print "<li>" . $t . "</li>\n\n";
 	}
-	print "</ol>\n";
-print "</div>";
-print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>";
-	print "<h3>Snippets in <em>$theme</em></h3>";
-	$dir = "_themes/$theme/_snippets";
-	$filelist = fetchFileList ($dir);
+	print "</ol>\n\n";
+	print "</div>\n";
+	print "<div style='border:1px solid black;padding:20px;margin:10px;background:#EEA'>\n";
+	
+	if ($dir) {
+		print "<h3>Sub-Folder : <em>$dir</em></h3>\n";
+		print "<a href=\"./snippeteditor.php?dir=$dir&action=list&theme=$theme\">(Go up)</a>\n";
+	} else {
+		print "<h3>Snippets in : <em>$theme</em></h3>\n";
+	}
+
+	if (!$dir) {
+		$dir = "_themes/$theme/_snippets";
+	}
+	
+	
+	// FILES
+	$themefilelist = fetchFileList ($dir);
+	
 	//print 'Theme Name: <input name="theme" type="text" value="' . $theme . '" size="30">&nbsp;&nbsp;<button type="submit" value="list" name="action">Show List</button>';
 	$k = 1;
-	print "<ol>\n";
-	foreach ($filelist as $f) {
+	print "<ol style='width:60%;'>\n\n";
+	
+	$filelist = $themefilelist['files'];
+	$dirlist = $themefilelist['dirs'];
+	
+	$bkgd1 = "#EEA";
+	$bkgd2 = "#fafac8";
+	$bkgd = $bkgd1;
+	
+	
+	foreach ($filelist as $file) {
+		$f = $file['filename'];
+		$t = $file['type'];
 		$fdisplay = basename ($f);
-		print "<li><a href=\"./snippeteditor.php?f=$f&action=edit&theme=$theme\">$fdisplay</a></li>\n";
+		
+		$bakfile = basename ($f).".bak";
+		if (file_exists ("$dir/_backup/$bakfile") ) {
+			$restore = "<span style=''/><i><a href=\"./snippeteditor.php?f=$f&dir=$dir&action=restore&theme=$theme\">Restore Original Values</a></i></span>";
+		} else {
+			$restore = "<span style='margin-left:100px;'/><i>(unchanged)</i></span>";
+		}
+
+		if ($bkgd == $bkgd1) {
+			$bkgd = $bkgd2;
+		} else {
+			$bkgd = $bkgd1;
+		}
+		print "<li style='background:$bkgd;height:1.5em;padding:3px;font:Trebuchet MS;'><div style='float:right;'/>$restore</div> <a href=\"./snippeteditor.php?f=$f&dir=$dir&action=edit&theme=$theme\">$fdisplay</a> <br style='clear:all;'/></li>\n\n";
 		$k++;
 	}
-	print "</ol>\n";
-	print "</div>";
+	print "</ol>\n\n";
+
+
+	// SUB-FOLDERS
+
+	print "<h3>Sub-Folders in <em>$dir</em></h3>\n";
+	$k = 1;
+	print "<ol>\n\n";
+	
+	foreach ($dirlist as $file) {
+		$f = $file['filename'];
+		$t = $file['type'];
+		$fdisplay = basename ($f);
+		print "<li><a href=\"./snippeteditor.php?dir=$f&action=open&theme=$theme\">$fdisplay</a>\n\n";
+		$k++;
+	}
+	print "</ol>\n\n";
+	
+	//
+	print "</div>\n";
+
 }
 
-function editFile ($filename, $theme) {
-	$dir = "_themes/$theme/_snippets";
+function editFile ($filename, $dir, $theme) {
+	
+	if (!$dir) {
+		$dir = "_themes/$theme/_snippets";
+	}
 	$fname = basename ($filename);
-	print "<h2>Edit <em>$fname</em></h2>";
+	print "<h2>Edit <em>$fname</em></h2>\n";
 	$text = ReadTextFile ("$dir/$filename");
 	print '
 	<textarea name="text" rows="20" cols="120">' . $text . '</textarea><BR>';
-	print '<button type="submit" name="action" value="update">Update</button> <button type="submit" name="action" value="list">Cancel</button><BR>';
+
+	print "<input name='f' type='hidden' value='$filename'>\n";
+	print "<input name='dir' type='hidden' value='$dir'>\n\n";
+	print "<input name='theme' type='hidden' value='$theme'>\n\n";
+
+	print '<button type="submit" name="action" value="update">Save Changes</button> <button type="submit" name="action" value="list">Cancel</button><BR>';
 }
 
 //------------------
@@ -146,13 +259,26 @@ function WriteTextFile ($filename, $str) {
 
 function fetchFileList ($dir) {
 	$filelist = array ();
-	foreach (glob("$dir/*.txt") as $filename) {
-		$filelist[] .= $filename;
+	$dirlist = array ();
+	//foreach (glob("$dir/*.txt") as $filename) {
+	foreach (glob("$dir/*") as $filename) {
+		if (substr($filename,1,1) != ".") {
+			$t = filetype($filename);
+			if ($t == "dir") {
+			 	if (basename($filename) !="_backup") {
+					$dirlist[] = array ("filename"=>$filename, "type"=>filetype($filename) );
+				}
+			} else {
+				$filelist[] = array ("filename"=>$filename, "type"=>filetype($filename) );
+			}
+		}
 	}
-	return $filelist;
+	$a = array ("files" => $filelist, "dirs" => $dirlist);
+	return $a;
 }
 
 function fetchThemeList () {
+	$themes = array ();
 	$filelist = array ();
 	foreach (glob("./_themes/*") as $theme) {
 		if (is_dir ($theme))

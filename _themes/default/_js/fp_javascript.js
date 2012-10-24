@@ -373,10 +373,12 @@ $(document).ready( function() {
 			blabel:     '',                 //label for enlarge button
 			clabel:     'Click to close',   //label for expanded stage (to hint closing)
 			hpad: 570,						// width of non-picture stuff on page (not inc. "picture spacing")
-			vpad: 200,						// Reduce pic by this amount when trying to fit to window 
+			vpad: 100,						// Reduce pic by this amount when trying to fit to window 
 			//resizing: FP_EXHIBIT_RESIZING,	// Don't use: we always use resizing; if you want fixed width/height, set it below
 			fixedwidth: FP_EXHIBIT_FIXEDWIDTH,	// forced width of widest image in a set. No resizing.
 			fixedheight: FP_EXHIBIT_FIXEDHEIGHT,	// forced height of tallest image in a set. No resizing.
+			maxPicHeight:		FP_SLIDE_HEIGHT,  // The height of an UNRESIZED image itself. This should be set to the size of the largest image!
+			maxPicWidth:		FP_SLIDE_WIDTH,  // These can be set to avoid resizing beyond the real size.
 			matteshow: FPSHOWMATTED,
 			mattecolor: MATTECOLOR,
 			mattescale: FPMatteRatio,		// Percent of picture given to matte, e.g. .25 = 25% of image is matte, 75% is picture.

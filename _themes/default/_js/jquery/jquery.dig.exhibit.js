@@ -193,9 +193,7 @@
 				im.title[i] = imgObj.attr('title');					// the image title
 				im.width[i] = imgObj.css('width').replace('px','');	// the image width
 				im.height[i] = imgObj.css('height').replace('px','');	// the image height
-				
 				im.id[i] = this.id;
-				
 				debug('$.fn.exhibit -> Loading "' + im.small[i] + '",  title:"' + im.title[i] + '", w:"' + im.width[i] + '", h:"' + im.height[i] + ', cap id ('+opts.caption+'): ');
 
 				
@@ -243,9 +241,7 @@
 		
 		// -------- LOCAL UTILITY FUNCTIONS
 		
-		
-
-
+				
 		////////////////////////////////////////////////////////////////////
 		//
 		// $.fn.exhibit.display
@@ -984,6 +980,17 @@
 				if (maxHeight < 200)
 					maxHeight = 200;
 				//debug('$.fn.exhibit.GetMaxDisplayArea: MaxWidth = '+maxWidth+", MaxHeight="+maxHeight);
+				
+				// If max picture height/width are set, use them
+				if (opts.maxPicHeight && opts.maxPicWidth) {
+					if (maxHeight > opts.maxPicHeight) {
+						maxHeight = opts.maxPicHeight;
+					}
+					if (maxWidth > opts.maxPicWidth) {
+						maxWidth = opts.maxPicWidth;
+					}
+				}
+				
 			}
 			return {height:maxHeight, width:maxWidth};
 		}
@@ -1033,6 +1040,8 @@
 		hpad:				100,						// extra padding around resizing image
 		vpad:				100,						// extra padding around resizing image
 		resizing:			1,						// 1: resize image to fit screen, 0: use fixedwidth/fixedheight
+		maxPicHeight:		10000,					// The height of an UNRESIZED image itself. This should be set to the size of the largest image!
+		maxPicWidth:		10000,					// These can be set to avoid resizing beyond the real size.
 		fixedwidth:			0,						// if fixedwidth>0: force stage to fixedwidth pixels WIDE.
 		fixedheight:			0,						// Height of picture area when fixedwidth is used.
 		matteshow:			0,						// show a matte
