@@ -204,7 +204,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'RANDOM_IMG'			=> $randomimage,
 		'RANDOM_IMG_LIST'		=> $randomImageList,
 		'sectionclass'			=> "listpage",
-		'master_page_popups'		=> "",
+		'master_page_popups'		=> FetchSnippet("client_access_dialog"),
 		'message'				=> $msg,
 		'error'					=> $error
 		));

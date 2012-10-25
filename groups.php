@@ -174,7 +174,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'RANDOM_IMG_LIST'		=> $randomImageList,
 		'message' 			=> $msg,
 		'error' 				=> $error,
-		'master_page_popups'		=> ""
+		'master_page_popups'		=> FetchSnippet("client_access_dialog")
 		));
 	$output = ReplaceAllSnippets ($output);
 	$output = ReplaceSysVars ($output);
@@ -231,7 +231,17 @@ function GetGroupCascade ($showmode = null) {
 	$subquery = "SELECT DISTINCT $PARTS.projectID from $PROJECTS, $PARTS WHERE $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = 'Images' AND $PROJECTS.Public < 1 AND $PROJECTS.Slides < 1";
 	$Groups_where = "$PROJECTS.GroupID = $GROUPS.ID AND $PROJECTS.ID IN ($subquery)";
 
-	$Projects_where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = {Groups_ID} AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = '{$IMAGES}'";
+
+	// If no client userID set, don't filter anything out.
+	if ($userID == '') {
+		$showmode = '';
+		$showPrivateProjects = "( $PROJECTS.client_list IS NULL OR TRIM($PROJECTS.client_list) = '' )";
+	} else {
+		$showPrivateProjects = "( ( $PROJECTS.client_list IS NULL OR TRIM($PROJECTS.client_list) = '' ) OR (MATCH($PROJECTS.client_list) AGAINST (\"$userID\" IN BOOLEAN MODE)) )";
+	}
+
+	$Projects_where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = {Groups_ID} AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = '{$IMAGES}' AND $showPrivateProjects";
+
 
 	//$Artists_where = "$PARTS.ProjectID = '{Projects_ID}' AND $ARTISTS.ID = $PARTS.ArtistID";
 	$Artists_where = "Artists.ID = Parts.ArtistID AND $PARTS.ProjectID = '{Projects_ID}'";

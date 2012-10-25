@@ -66,13 +66,36 @@ $(document).ready( function() {
 	});
 	
 	// Add tool tips
+	$('.tip').balloon({
+		position : "top",
+		classname: "balloonTip",
+		css: {
+		  minWidth: "20px",
+		  maxWidth: "350px",
+		  padding: "10px",
+		  borderRadius: "6px",
+		  border: "solid 1px #777",
+		  boxShadow: "4px 4px 4px #555",
+		  color: "#666",
+		  backgroundColor: "#FFFF66",
+		  opacity: "0.90",
+		  zIndex: "32767",
+		  textAlign: "left",
+		  textSize: "16px",
+		  lineHeight: "18px"
+		}
+	});
+
+	/*
+	// Add tool tips
 	$('.tip').bt({
 		hoverIntentOpts: {
     			interval: 150,
 			timeout: 1500
 		},
 		fill: "#FFFF33",
-		strokeWidth: 1, /*no stroke*/
+		// no stroke
+		strokeWidth: 1, 
 		spikeLength: 30,
 		spikeGirth: 13,
 		padding: 10,
@@ -82,6 +105,7 @@ $(document).ready( function() {
 			fontSize: '13px'
 		}
 	});
+	*/
 
 	$('#SlideShowSlideDuration').change(function() {
 		var showTime, showTimeToShow, picCount, transition, showPause, defaultShowPause, x, pauseToShow;

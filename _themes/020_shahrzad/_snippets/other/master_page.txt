@@ -70,7 +70,10 @@
 	<!-- end mainlist-->
 				</div></div>
 	<!-- end main -->
-			</div></div>
+			</div>
+	<!--master_page_popups -->
+		{master_page_popups}
+			</div>
 	<!--end container -->
 			<div id="foot" class="{sectionclass} editable"><div id="footc">
 				<div id="footer-box">

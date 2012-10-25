@@ -86,12 +86,18 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$showmode = $vars['showmode'];
 	$projects_where = "";
 	
+	// Private user signed in?	
+	isset($_SESSION['clientid']) ? $userID = $_SESSION['clientid'] : $userID = "";
+
+	//print "UserID = ".$userID."<BR>";	
+
+
 	switch ($showmode) {
 		case 'active' : 
 			$pageid = FP_ACTIVE;
 			$hidelist
 			? $list = "<!-- hidden -->"
-			: $list = GetProjectCascade ($myGroup, FP_ACTIVE);
+			: $list = GetProjectCascade ($myGroup, FP_ACTIVE, $userID);
 			break;
 		case 'nolist' :
 			$list = "";
@@ -100,7 +106,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			$pageid = FP_FEATURED;
 			$hidelist
 			? $list = "<!-- hidden -->"
-			: $list = GetProjectCascade ($myGroup, FP_FEATURED);
+			: $list = GetProjectCascade ($myGroup, FP_FEATURED, $userID);
 			break;
 	}
 
@@ -169,7 +175,8 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'sectionclass'			=> "listpage",
 		'message'			=> $msg,
 		'error'				=> $error,
-		'master_page_popups'		=> ""	// don't need these
+		'clientcode'		=> $userID,
+		'master_page_popups'		=> FetchSnippet("client_access_dialog")
 		));
 
 	$output = ReplaceAllSnippets ($output);
@@ -186,8 +193,10 @@ print $output;
 
 
 // ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 
-function GetProjectCascade ($myGroup, $showmode = null) {
+function GetProjectCascade ($myGroup, $showmode = null, $userID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	
 	$myGroup || $myGroup = new FPGroup();
@@ -212,7 +221,7 @@ function GetProjectCascade ($myGroup, $showmode = null) {
 	$d .= ", if (length($PROJECTS.Description) < 150, concat($PROJECTS.Description, if ($PROJECTS.Description != '', '<BR>', '')), concat(substring($PROJECTS.Description,1,150),'...<BR>')) AS Lead ";
 	
 	$sets = array (
-		"Projects"		=>	"DISTINCT " . ProjectsCalcFields("$PROJECTS.*, $d"),
+		"Projects"		=>	"DISTINCT " . ProjectsCalcFields("$PROJECTS.*, $d") . ", ( $PROJECTS.client_list > '' ) as IsPrivate",
 		"ArtistPart"		=>	"DISTINCT $PARTS.ProjectID, $ARTISTS.ID AS ArtistID, $ARTISTS.Lastname, $ARTISTS.Firstname, CONCAT_WS(' ', $ARTISTS.Firstname, $ARTISTS.Lastname) AS Fullname",
 		"Images"		=> "DISTINCT $IMAGES.*, $IMAGES.ID AS ImageID"
 	);
@@ -220,18 +229,37 @@ function GetProjectCascade ($myGroup, $showmode = null) {
 	
 	// WHERE
 
+	// If no client userID set, don't filter anything out.
+	if ($userID == '') {
+		$showmode = '';
+		$showPrivateProjects = "( $PROJECTS.client_list IS NULL OR TRIM($PROJECTS.client_list) = '' )";
+	} else {
+		$showPrivateProjects = "( ( $PROJECTS.client_list IS NULL OR TRIM($PROJECTS.client_list) = '' ) OR (MATCH($PROJECTS.client_list) AGAINST (\"$userID\" IN BOOLEAN MODE)) )";
+	}
+
+
+	$projects_where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = $groupID AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = '{$IMAGES}' AND $showPrivateProjects";
+
+
 	// Don't show sys admin projects and slide projects
-	$projects_where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = $groupID AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = '{$IMAGES}'";
 	switch ($showmode) {
 		case FP_FEATURED :
 			$projects_where = GetFeaturedWhere ($projects_where);
 			break;
+			
 		case FP_ACTIVE :
 			$projects_where = GetActiveWhere ($projects_where);
 			break;
+			
+		case FP_PRIVATE :
+			// SAME as below
 		default :
+			$projects_where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = $groupID AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = '{$IMAGES}' AND $showPrivateProjects";
 			break;
 	}
+
+//print "showmode: $showmode, userID: $userID<BR>$projects_where";
+
 
 	$ArtistPart_where = "$PARTS.ProjectID = '{Projects_ID}' AND $PARTS.PartTable = '{$IMAGES}' AND $PARTS.ArtistID = $ARTISTS.ID";
 	$Images_where = "$PARTS.ArtistID = {ArtistPart_ArtistID} AND $PARTS.ProjectID = {Projects_ID} AND $PARTS.PartTable = '$IMAGES' and $PARTS.PartID = $IMAGES.ID";
@@ -258,6 +286,7 @@ function GetProjectCascade ($myGroup, $showmode = null) {
 
 	return $list;
 }
+
 
 
 ?>

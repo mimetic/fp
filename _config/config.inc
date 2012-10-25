@@ -602,7 +602,7 @@ $FP_PARAMS_DEFAULTS[DB_GROUPS] = array (
 	FP_PARAM_GROUP_MENU_2_8	=>	'',
 
 	// checkbox: using custom or built-in menus?
-	FP_PARAM_GALLERY_CUSTOM_MENU	=>	'0',
+	FP_PARAM_GROUP_CUSTOM_MENU	=>	'0',
 
 	// custom menu items
 	FP_PARAM_GROUP_MENU_CUSTOM_1	=>	'<a href="http://www.facebook.com/" target="_blank">Find me on FaceBook</a>',

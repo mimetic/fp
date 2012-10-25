@@ -24,6 +24,56 @@ $(document).ready( function() {
 		this.id = "x"+n+this.id;
 	});
 	*/
+
+
+
+	// =================================================
+	// Client access
+
+		function doClientLogin() {
+			//var action = $("#client_access_form").attr('action');
+			var action = "ajax_gallery.php";
+			var clientid = $("#client_access_username").val();
+			
+			var form_data = {
+				data: {
+					clientid: clientid,
+					//password: $("#client_access_password").val(),
+					cmd: "clientaccess"
+				}
+			};
+
+			$.ajax({
+				type: "POST",
+				url: action,
+				data: form_data,
+				success: function(res)
+				{
+					response = JSON.parse(res);
+					if(response == 'success') {
+						if (clientid == "" ) {
+							$("#client_access_message").html("<p class='error'><span>Client code cleared.</span></p>");	
+						} else {
+							$("#client_access_message").html("<p class='success'><span>You have logged in successfully!<span></p>");
+						}
+					} else {
+						$("#client_access_message").html("<p class='error'><span>Invalid username and/or password.</span></p>");	
+					}
+					$("#client_access_dialog, #lean_overlay").delay(800).fadeOut('slow', function() { location.reload(true); } );
+				}
+			});
+			
+			return false;
+		}
+
+	$("a[rel*=leanModal]").leanModal({
+				top : 200, 
+				overlay : 0.4, 
+				closeButton: ".modal_close" 
+				});
+	
+	$("#client_access_form").submit( doClientLogin );
+	
 	
 	
 	// =================================================

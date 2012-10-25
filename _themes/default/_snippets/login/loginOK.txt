@@ -1,0 +1,4 @@
+<div align="center">
+	<h2>Welcome to {FP_SYSTEM_DISPLAY_NAME}</h2> 
+</div>
+{help_quickstart_{ACCESSLEVEL}}

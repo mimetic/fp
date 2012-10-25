@@ -5,7 +5,11 @@
 //
 // Localizing system settings, e.g. database, are in fpconfig.inc
 // Localizing visual/functional settings are in config.inc
-// version 12.17.2007
+//
+// The version must be of the form, yyyy.mm.dd-x, where x starts at 01
+// Auto-Update Version 2012.10.24-01
+//
+// System Version 2012.10.24-01
 
 // Report simple running errors
 ini_set ("display_errors", "1");
@@ -93,6 +97,7 @@ define ("FP_HOMEDIR", $baseURL);
 // system Flags
 define ('FP_FEATURED', 'new');
 define ('FP_ACTIVE', 'all');
+define ('FP_PRIVATE', 'private');
 
 
 // Max execution time for the Maintenance.php script
@@ -681,6 +686,7 @@ define ("FP_PARAM_SLIDES_PROJECT", 		'06');
 define ("FP_PARAM_GALLERY_SCALING", 		'07');
 define ("FP_PARAM_GALLERY_COMMENTS", 		'08');
 define ("FP_PARAM_GALLERY_ITEM_SETTINGS", 	'09');
+//define ("FP_PARAM_GALLERY_CLIENTLIST", 	'10');
 
 //----
 // SUPPLIER PARAMS
@@ -739,8 +745,10 @@ define ("FP_PARAM_GROUP_MENU_2_5", 		'15');
 define ("FP_PARAM_GROUP_MENU_2_6", 		'16');
 define ("FP_PARAM_GROUP_MENU_2_7", 		'17');
 define ("FP_PARAM_GROUP_MENU_2_8", 		'18');
+
 // checkbox: using custom or built-in menus?
-define ("FP_PARAM_GALLERY_CUSTOM_MENU", 	'19');
+define ("FP_PARAM_GROUP_CUSTOM_MENU", 	'19');
+
 // HTML code for custom menu items in custom menus
 define ("FP_PARAM_GROUP_MENU_CUSTOM_1", 	'20');
 define ("FP_PARAM_GROUP_MENU_CUSTOM_2", 	'21');
@@ -785,24 +793,26 @@ define ("FP_NAVBAR_HOME_CODE", $FP_NAVBAR_HOME_CODE);
 
 // Snippet file names for the Title text (the name) for each menu
 $FP_NAVBAR_ITEMS = array (
-		"new"			=>	"navbar_item_title_new",
-		"new menu"		=>	"navbar_item_title_new_menu",
-		"all"			=>	"navbar_item_title_all",
-		"all menu"		=>	"navbar_item_title_all_menu",
-		"artist"		=>	"navbar_item_title_artist",
-		"place"			=>	"navbar_item_title_place",
-		"blog"			=>	"navbar_item_title_blog",
-		"about"			=>	"navbar_item_title_about",
-		"faq"			=>	"navbar_item_title_faq",
-		"terms"			=>	"navbar_item_title_terms",
-		"privacy"		=>	"navbar_item_title_privacy",
-		"contact"		=>	"navbar_item_title_contact",
-		"admin"			=>	"navbar_item_title_admin",
+		"new"				=>	"navbar_item_title_new",
+		"new menu"			=>	"navbar_item_title_new_menu",
+		"all"				=>	"navbar_item_title_all",
+		"all menu"			=>	"navbar_item_title_all_menu",
+		"artist"			=>	"navbar_item_title_artist",
+		"place"				=>	"navbar_item_title_place",
+		"blog"				=>	"navbar_item_title_blog",
+		"about"				=>	"navbar_item_title_about",
+		"faq"				=>	"navbar_item_title_faq",
+		"terms"				=>	"navbar_item_title_terms",
+		"privacy"			=>	"navbar_item_title_privacy",
+		"contact"			=>	"navbar_item_title_contact",
+		"admin"				=>	"navbar_item_title_admin",
 		$FP_NAVBAR_HOME_CODE	=>	"navbar_item_title_home",
-		"catalog"		=>	"navbar_item_title_catalog",
-		"shows"			=>	"navbar_item_title_shows",
-		"share"			=>	"navbar_item_title_share",
-		"fp"			=>	"navbar_item_title_fp"
+		"catalog"			=>	"navbar_item_title_catalog",
+		"shows"				=>	"navbar_item_title_shows",
+		"share"				=>	"navbar_item_title_share",
+		"fp"				=>	"navbar_item_title_fp",
+		"client"			=>	"navbar_item_title_client_login",
+		"clientwelcome"		=>	"navbar_item_title_client_welcome"
 		);
 		
 $FP_NAVBAR_ITEMS_SOLO  = array (
@@ -829,7 +839,9 @@ $FP_NAVBAR_ITEMS_CODE = array (
 		"catalog"		=>	"navbar_item_code_catalog",
 		"shows"			=>	"navbar_item_code_shows",
 		"share"			=>	"navbar_item_code_share",
-		"fp"			=>	"navbar_item_code_fp"
+		"fp"			=>	"navbar_item_code_fp",
+		"client"		=>	"navbar_item_code_client_login",
+		"clientwelcome"		=>	"navbar_item_code_client_welcome"
 		);
 
 $FP_NAVBAR_ITEMS_CODE_SOLO = array (
@@ -858,6 +870,8 @@ $FP_NAVBAR_POPUP_MENU = array (
 		"shows"			=>	"all shows",
 		"share"			=>	"share",
 		"fp"			=>	"powered by FP",
+		"client"		=>	"client access",
+		"clientwelcome"	=>	"client welcome",
 		"custom1"		=>	"custom 1",
 		"custom2"		=>	"custom 2",
 		"custom3"		=>	"custom 3",

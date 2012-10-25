@@ -4,7 +4,8 @@
 		{PublicPrivateCheckMark} 
 	</td>
 	<td title="{Title}">
-		<a href="http://{SYSTEMURL}gallery.php?ProjectID={ID}" target="_blank"><B>{Title}</B></a>
+		<a href="http://{SYSTEMURL}gallery.php?ProjectID={ID}" target="_blank"><B>{Title}</B></a> {IsPrivateFlag} 
+		{ClientListFormatted}
 		<br>
 		<span class="helptext">
 			{Summary}

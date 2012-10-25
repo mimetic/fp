@@ -26,88 +26,119 @@ $Cache_Lite = new Cache_Lite($options);
 $Cache_Lite->clean();
 unset ($Cache_Lite);
 
-
-
 $LINK = StartDatabase(MYSQLDB);
 Setup ();
 /*
  *
- * UPDATER CODE HERE
+ * UPDATER CODE HERE:
+ *
  */
 
-$updaterdescription = "Update 4/20/2011";
+$version = "2012.10.24-02";
+$updaterdescription = "Updated system to version: $version";
+
 //-----------------
 
+// Get current version
+$fn = "$BASEDIR/_config/sysconfig.inc";
+$f = file_get_contents ("_config/sysconfig.inc");
+preg_match("/Auto-Update Version (.*)/i", $f, $vv);
+$currentVersion = trim($vv[1]);
 
-$fn = "$BASEDIR/_config/fpconfig.inc";
-$f = file_get_contents ("_config/fpconfig.inc");
+//print_r($vv);
+//print ("Current version vs new version : $currentVersion vs $version<BR>");
 
-
-// Update MYSQL tables
-
-$query = "ALTER TABLE  `Projects` ADD `OwnerAccessOnly` BOOLEAN DEFAULT 0 AFTER `GroupID`;";
-$result = mysql_query($query);
-
-$query = "ALTER TABLE  `PriceSets` ADD `MaxFramedSize` INT DEFAULT 0 AFTER `GroupID`;";
-$result = mysql_query($query);
-
-//mysql_query("ALTER TABLE `Sales` ADD `Cart` TEXT;");
-mysql_query("ALTER TABLE `Sales` ADD `discount_amount` float;");
-mysql_query("ALTER TABLE `Sales` ADD `discount_rate` float;");
-mysql_query("ALTER TABLE `Sales` ADD `invoice` varchar(127);");
-mysql_query("ALTER TABLE `Sales` ADD `currency_code` varchar(3);");
-
-mysql_query("ALTER TABLE `Sales` ADD `address_name` varchar(128);");
-mysql_query("ALTER TABLE `Sales` ADD `address_state` varchar(2);");
-mysql_query("ALTER TABLE `Sales` ADD `address_street` varchar(200);");
-mysql_query("ALTER TABLE `Sales` ADD `address_zip` varchar(20);");
-mysql_query("ALTER TABLE `Sales` ADD `address_city` varchar(40);");
-mysql_query("ALTER TABLE `Sales` ADD `address_country` varchar(64);");
-mysql_query("ALTER TABLE `Sales` ADD `address_country_code` varchar(2);");
-
-mysql_query("ALTER TABLE `Sales` ADD `contact_phone` varchar(20);");
-mysql_query("ALTER TABLE `Sales` ADD `first_name` varchar(64);");
-mysql_query("ALTER TABLE `Sales` ADD `last_name` varchar(64);");
-mysql_query("ALTER TABLE `Sales` ADD `payer_business_name` varchar(127);");
-mysql_query("ALTER TABLE `Sales` ADD `payer_email` varchar(127);");
-mysql_query("ALTER TABLE `Sales` ADD `payer_id` varchar(13);");
-
-mysql_query("ALTER TABLE `Sales` ADD `item_id` bigint(20) AFTER item_number;");
-
-
-
-if (!strpos ($f, "FP_GOOGLE_CONVERSION_ID")) {
+if ($version > $currentVersion) {
+	// Update MYSQL tables
+	
+	$query = "ALTER TABLE  `Projects` ADD `OwnerAccessOnly` BOOLEAN DEFAULT 0 AFTER `GroupID`;";
+	$result = mysql_query($query);
+	
+	mysql_query("ALTER TABLE `Projects` ADD `client_list` TEXT;");
+	
+	
+	$query = "ALTER TABLE  `PriceSets` ADD `MaxFramedSize` INT DEFAULT 0 AFTER `GroupID`;";
+	$result = mysql_query($query);
+	
+	//mysql_query("ALTER TABLE `Sales` ADD `Cart` TEXT;");
+	mysql_query("ALTER TABLE `Sales` ADD `discount_amount` float;");
+	mysql_query("ALTER TABLE `Sales` ADD `discount_rate` float;");
+	mysql_query("ALTER TABLE `Sales` ADD `invoice` varchar(127);");
+	mysql_query("ALTER TABLE `Sales` ADD `currency_code` varchar(3);");
+	
+	mysql_query("ALTER TABLE `Sales` ADD `address_name` varchar(128);");
+	mysql_query("ALTER TABLE `Sales` ADD `address_state` varchar(2);");
+	mysql_query("ALTER TABLE `Sales` ADD `address_street` varchar(200);");
+	mysql_query("ALTER TABLE `Sales` ADD `address_zip` varchar(20);");
+	mysql_query("ALTER TABLE `Sales` ADD `address_city` varchar(40);");
+	mysql_query("ALTER TABLE `Sales` ADD `address_country` varchar(64);");
+	mysql_query("ALTER TABLE `Sales` ADD `address_country_code` varchar(2);");
+	
+	mysql_query("ALTER TABLE `Sales` ADD `contact_phone` varchar(20);");
+	mysql_query("ALTER TABLE `Sales` ADD `first_name` varchar(64);");
+	mysql_query("ALTER TABLE `Sales` ADD `last_name` varchar(64);");
+	mysql_query("ALTER TABLE `Sales` ADD `payer_business_name` varchar(127);");
+	mysql_query("ALTER TABLE `Sales` ADD `payer_email` varchar(127);");
+	mysql_query("ALTER TABLE `Sales` ADD `payer_id` varchar(13);");
+	
+	mysql_query("ALTER TABLE `Sales` ADD `item_id` bigint(20) AFTER item_number;");
 	
 	// Update MYSQL tables
 	mysql_query("ALTER TABLE `PriceSets` ADD `Params` TEXT;");
 	
-	// ad words to fpconfig
 
-	$s = '// Can the admin user change the website commission';
-	$r = '// Google Adwords Conversion codes
-// Signup page:
-define ("FP_GOOGLE_CONVERSION_ID", "");
-define ("FP_GOOGLE_CONVERSION_LABEL", "");
-// Checkout page:
-define ("FP_GOOGLE_CONVERSION_ID_CHECKOUT", "");
-define ("FP_GOOGLE_CONVERSION_LABEL_CHECKOUT", "");
+
+	$fn = "$BASEDIR/_config/fpconfig.inc";
+	$f = file_get_contents ("_config/fpconfig.inc");
+	if (!strpos ($f, "FP_GOOGLE_CONVERSION_ID")) {
+		
+		
+		// ad words to fpconfig
 	
-// Can the admin user change the website commission';
-	$r = $r.$s;
-	$f = str_replace($s,$r,$f);
-	rename ($fn, $fn."-".date("Y-m-d,H-m-s").".bak");
-	file_put_contents($fn, $f);
+		$s = '// Can the admin user change the website commission';
+		$r = '// Google Adwords Conversion codes
+	// Signup page:
+	define ("FP_GOOGLE_CONVERSION_ID", "");
+	define ("FP_GOOGLE_CONVERSION_LABEL", "");
+	// Checkout page:
+	define ("FP_GOOGLE_CONVERSION_ID_CHECKOUT", "");
+	define ("FP_GOOGLE_CONVERSION_LABEL_CHECKOUT", "");
+		
+	// Can the admin user change the website commission';
+		$r = $r.$s;
+		
+		$f = str_replace($s,$r,$f);
+		rename ($fn, $fn."-".date("Y-m-d,H-m-s").".bak");
+		file_put_contents($fn, $f);
 
-
+	
+		// --------------------------
+		// Update the version in the sysconfig.inc file
+		$fn = "$BASEDIR/_config/sysconfig.inc";
+		$f = file_get_contents ("_config/sysconfig.inc");
+		$s = "/Auto-Update Version .*/i";
+		$r = "Auto-Update Version $version";
+		$f = preg_replace($s,$r,$f);
+		rename ($fn, $fn."-".date("Y-m-d,H-m-s").".bak");
+		file_put_contents($fn, $f);
+	
+	
+		//----------------- WRITE LOG -----------------
+		fp_error_log("AUTO-UPDATER: $updaterdescription", 3, FP_UPDATES_LOG);
+		
+	}
+	
+} else {
 	//----------------- WRITE LOG -----------------
-	fp_error_log("AUTOUPDATER: $updaterdescription", 3, FP_UPDATES_LOG);
-	
-}
+	fp_error_log("AUTO-UPDATER: Attempt to update the system, but it is already version $version", 3, FP_UPDATES_LOG);
 
- 
+} // end of the version check
+
 /*
  * END UPDATER CODE
  */
+ 
+ 
 mysql_close($LINK);
 $FP_MYSQL_LINK->close();
 
@@ -134,6 +165,9 @@ if (!$DEVELOPING) {
 	}
 	rename(__FILE__, $ff);
 }
+
+
+
 
 
 ?>
