@@ -1,0 +1,1 @@
+<div class="navbar"><a class="navbar {navbar_selector_place}" id="go" rel="leanModal" name="client_access_dialog" href="#client_access_dialog" >{fp:ClientLogin}</a></div>

@@ -242,7 +242,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		"blog"					=> $blogblock,
 		'message' 				=> $msg,
 		'error'					=> $error,
-		'master_page_popups'	=> ""	// don't need these
+		'master_page_popups'		=> FetchSnippet("client_access_dialog")
 		));
 							
 	

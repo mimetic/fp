@@ -123,13 +123,13 @@ form {
 	text-align: left;
 	position: relative;
 	min-height: 100%;
-	
-/*	margin: 45px 50px 20px 50px; */
+	/*	margin: 45px 50px 20px 50px; */
 	padding: 45px 30px 30px 50px;
 	height: 100%;
 }
 
 /* Hack for IE 6 */
+
 * html #container {
 	height: 100%;
 }
@@ -149,7 +149,7 @@ form {
 #page {
 	position: absolute;
 	min-height: 500px;
-	height:  100%;
+	height: 100%;
 	width: 100%;
 }
 
@@ -216,9 +216,7 @@ form {
 
 .catalog #flashcontent {
 	width: 100%;
-/*
-height: 415px; 
-*/
+	/* height: 415px; */
 }
 
 /* These are slideshows that also show with the SlideShowPro gallery */
@@ -255,6 +253,8 @@ height: 415px;
 
 #headerc {
 	position: relative;
+
+
 /*
 height: 35px; 
 */
@@ -532,11 +532,11 @@ a.item.title:active {
 }
 
 .menulist-collapsed .menulist-icon {
-	background-position: -64px -16px;	
+	background-position: -64px -16px;
 }
 
 .menulist-collapsible.menulist-expanded {
-
+	
 }
 
 .menulist-collapsible.menulist-collapsed {
@@ -805,6 +805,11 @@ a.navbar.slideshow:active {
 	font-weight: bold;
 }
 
+.private_item {
+	color: #c0c0c0;
+	font-size: smaller;
+}
+
 .gallery-description div.projectowner {
 	margin-bottom: 10px;
 }
@@ -1049,6 +1054,7 @@ a.sspop:active {
 }
 
 .group-list {
+	
 }
 
 .group-table-boundary {
@@ -1100,6 +1106,8 @@ a.group-table-title:active {
 	border: 0 solid #333;
 	margin-right: 15px;
 	margin-bottom: 25px;
+
+
 /*
 	height: 50px;
 	width: 75px;
@@ -1220,6 +1228,8 @@ td.galleryPictureColumn {
 	padding: 0px;
 	border-collapse: collapse;
 	position: relative;
+
+
 /*	overflow: hidden; */
 }
 
@@ -1231,12 +1241,12 @@ div.galleryPictureColumn {
 }
 
 div.galleryPictureContainer {
+	
 }
 
 div.galleryPictureContainer .description .captionblock {
 	height: auto;
 }
-
 
 .galleryTextColumn {
 	margin: 0px;
@@ -1365,9 +1375,7 @@ body.slideshow {
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
-	
-
-/*
+	/*
 
 THIS FAILS IN IE */
 	top: -50%;
@@ -1420,11 +1428,9 @@ THIS FAILS IN IE */
 
 #popup {
 	position: fixed;
-	
-
-/*
-hack for internet explorer 6
-*/
+	/*
+	hack for internet explorer 6
+	*/
 	top: 0px;
 	left: 0px;
 }
@@ -1432,9 +1438,8 @@ hack for internet explorer 6
 #popup_story {
 	display: none;
 	position: fixed;
-	
+	/*
 
-/*
 hack for internet explorer 6
 */
 	top: 0px;
@@ -1511,9 +1516,7 @@ div.popup_window_caption {
 
 .popup_bkgd_coverup {
 	position: fixed;
-	
-
-/*
+	/*
 
 hack for internet explorer 6*/
 	top: 0px;
@@ -1529,9 +1532,7 @@ hack for internet explorer 6*/
 	background-attachment: fixed;
 	padding: 0px;
 	margin: 0px;
-	
-
-/*
+	/*
 
 vertical-align: top;
 	*/
@@ -2065,6 +2066,7 @@ Groups pages, such as groups/galleries
 /* 
 List pages, such as projects/exhibitions
 */
+
 #page div.listpage div.description {
 	font-style: italic;
 	margin-top: 20px;
@@ -2075,7 +2077,6 @@ List pages, such as projects/exhibitions
 	margin-top: 15px;
 	margin-bottom: 20px;
 }
-
 
 /*  the hidden part of a popup/slidedown set of code. the 'showme' is wrapped inside a 'showchild' div, which
 is used by a jQuery function.
@@ -2089,6 +2090,8 @@ is used by a jQuery function.
 
 #lightbox-imageBox {
 	background-color: white;
+
+
 /*
  	border: 1px solid black; 
  */
@@ -2464,7 +2467,6 @@ Dim and not dimmed items
 	display: none;
 }
 
-
 /*
 MBmenu localization
 Drop-down menus
@@ -2477,22 +2479,22 @@ Drop-down menus
 	opacity: 0.5;
 }
 
+.menuContainer {
 
-.menuContainer{
 /*overflow:hidden;*/
-  position:absolute;
-  background-color: #888;
-  -moz-box-shadow:#999 2px 2px 10px;
-  -webkit-box-shadow:#999 2px 2px 10px;
-  box-shadow:#999 2px 2px 10px;
-  -moz-border-radius: 0 0 4px 4px;
-  -webkit-border-top-right-radius:4px;
-  -webkit-border-top-left-radius:0px;
-  -webkit-border-bottom-right-radius:4px;
-  -webkit-border-bottom-left-radius:4px;
+  position: absolute;
+	background-color: #888;
+	-moz-box-shadow: #999 2px 2px 10px;
+	-webkit-box-shadow: #999 2px 2px 10px;
+	box-shadow: #999 2px 2px 10px;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
 	margin-top: 8px;
 	border: 0px solid #888;
-  padding: 4px 0;
+	padding: 4px 0;
 	font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
@@ -2507,6 +2509,7 @@ Drop-down menus
 }
 
 .menuContainer .line.title a {
+	
 }
 
 .menuContainer td a {
@@ -2516,7 +2519,9 @@ Drop-down menus
 }
 
 .menuContainer td.voice {
-	/*
+	
+
+/*
 	border-top: 1px solid #f3f3f3;*/
 	padding: 5px;
 	background-color: none;
@@ -2571,11 +2576,10 @@ Drop-down menus
 	background-position: right;
 }
 
-/*
-vertical menu
+/* 
+vertical menu 
 */
 
-/**/
 
 .rootVerticalVoices {
 	background-color: #333;
@@ -2583,9 +2587,9 @@ vertical menu
 }
 
 .rootVerticalVoices td.rootVoice {
+	/
 
-
-/*border-top:1px solid #666;*/
+*border-top:1px solid #666;*/
 	width: 130px;
 	font-family: Arial,Helvetica,sans-serif;
 	color: gray;
@@ -2602,8 +2606,9 @@ vertical menu
 
 .verticalMenu {
 	background-color: #000;
+/
 
-/*
+*
  The menu container style must be set via the options paramiter
  within the function call due to a Safari bug interpreting css on the fly...
  */
@@ -2677,3 +2682,170 @@ vertical menu
 }
 
 /* --- end of MBmenu localization */
+
+/* --- jquery leanModal popup for signin */
+
+#lean_overlay {
+	position: fixed;
+	z-index: 100;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	display: none;
+}
+
+#client_access_dialog {
+	width: 404px;
+	padding-bottom: 2px;
+	display: none;
+	background: #FFF;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+}
+
+#client_access_dialog .header {
+	background: #d5d5d5 url(../_img/hd-bg.png);
+	padding: 18px 18px 14px 18px;
+	border-bottom: 1px solid #CCC;
+	border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+#client_access_dialog .header  h2 {
+	color: #444;
+	font-weight: 700;
+	margin-bottom: 3px;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+	font-size: 1.5em;
+}
+
+#client_access_dialog header  p {
+	color: #444;
+	font-size: 1.3em;
+	margin: 0;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+	text-shadow: none;
+}
+
+#client_access_dialog .txt-fld {
+	position: relative;
+	width: 364px;
+	padding: 14px 20px;
+	border-bottom: 1px solid #EEE;
+	text-align: right;
+}
+
+#client_access_dialog .btn-fld {
+	width: 254px;
+	overflow: hidden;
+	padding: 12px 20px 12px 130px;
+}
+
+#client_access_dialog .txt-fld label {
+	display: block;
+	float: left;
+	width: 90px;
+	padding-top: 8px;
+	color: #222;
+	font-size: 1.3em;
+	text-align: left;
+}
+
+#client_access_dialog .txt-fld input {
+	width: 244px;
+	padding: 8px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size: 1.2em;
+	color: #222;
+	background: #F7F7F7;
+	font-family: "Helvetica Neue";
+	outline: none;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #E7E6E6;
+	border-bottom: 1px solid #E7E6E6;
+}
+
+#client_access_dialog .txt-fld input.good_input {
+	background: #DEF5E1 url(../_img/good.png) 236px center no-repeat;
+}
+
+#client_access_dialog .txt-fld input.error_input {
+	background: #FDE0E0;
+}
+
+#client_access_dialog p {
+	position: absolute;
+	bottom: 12px;
+	left: 20px;
+	width: 262px;
+	color: #FFF;
+	font-size: 1.1em;
+	padding-bottom: 5px;
+	text-align: left;
+	margin: 0;
+	text-shadow: none;
+}
+
+#client_access_dialog p.error span {
+	display: inline-block;
+	background: #D43636;
+	padding: 6px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+#client_access_dialog p.success span {
+	display: inline-block;
+	background: #008f51;
+	padding: 6px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+
+#client_access_dialog .txt-fld input:focus, .txt-fld textarea:focus {
+	background-color: #FAF9DC;
+}
+
+#client_access_dialog button {
+	float: right;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	background: #3F9D4A;
+	border: none;
+	width: auto;
+	overflow: visible;
+	font-size: 1.4em;
+	color: #FFF;
+	padding: 7px 10px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+#client_access_dialog .modal_close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: url(../_img/modal_close.png);
+	z-index: 2;
+}

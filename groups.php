@@ -174,7 +174,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'RANDOM_IMG_LIST'		=> $randomImageList,
 		'message' 			=> $msg,
 		'error' 				=> $error,
-		'master_page_popups'		=> ""
+		'master_page_popups'		=> FetchSnippet("client_access_dialog")
 		));
 	$output = ReplaceAllSnippets ($output);
 	$output = ReplaceSysVars ($output);

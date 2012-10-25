@@ -97,7 +97,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'pagetitle' 			=> $title,
 		'message'			=> $msg,
 		'error'				=> $error,
-		'master_page_popups'	=> ""
+		'master_page_popups'		=> FetchSnippet("client_access_dialog")
 		));
 	$output = ReplaceAllSnippets ($output);
 	$output = ReplaceSysVars ($output);

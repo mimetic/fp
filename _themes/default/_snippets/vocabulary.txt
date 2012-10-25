@@ -28,6 +28,9 @@ Return to, Return to
 Information, Information
 Buy,Buy
 somewhere_places,Somewhere...
+ClientAccess,Client Access
+private,private
+
 
 // About, as in 'About John Doe'
 AboutArtist,About
@@ -60,6 +63,7 @@ By Location,By Place
 by, by
 Agency,Agency
 goHome,Home
+ClientLogin,Client Access
 
 // slideshow links in the gallery
 slideshow_ssp,Go to Slide Show

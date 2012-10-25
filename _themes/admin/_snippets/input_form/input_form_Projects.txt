@@ -51,6 +51,15 @@
 						<div class="tip" title="Limit access to this project to the owner, even if other artists are contributers? ">?</div>
 					</div>
 				</div>
+				<div class="entry advanced">
+					<div class="label">
+						Client List&nbsp;: 
+					</div>
+					<div class="item">
+						<input type="text" name="client_list" value="{client_list}" size="80"> 
+						<div class="tip" title="List of clients who can see this {fp:project}. If empty, then everyone can see the {fp:project}.<br>e.g. John Doe, Mary Smith">?</div>
+					</div>
+				</div>
 				<div class="entry">
 					<div class="label">
 						Gallery&nbsp;: 

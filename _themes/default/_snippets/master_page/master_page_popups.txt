@@ -70,3 +70,5 @@
 	<div id="popup_video_content" class="centered-in-window"></div>
 	<a id="popup_video_close">{fp:Close}</a>
 </div>
+
+{client_access_dialog}

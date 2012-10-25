@@ -1,0 +1,28 @@
+<!-- client_access_dialog -->
+<div id="client_access_dialog">
+	<div id="ct">
+		<div class="header">
+			<h2>Client Access</h2>
+			<a class="modal_close" href="#"></a>
+			Enter your client code to see your {fp:projects}.
+		</div>
+		
+		<form action="" id="client_access_form">
+			<input name="GroupID" type="hidden" value="{GroupID}"/>
+			<div class="txt-fld">
+				<label for="">Client Code</label>
+				<input id="client_access_username" class="good_input" name="clientid" type="text" />
+			</div>
+			<!--
+			<div class="txt-fld">
+				<label for="">Password</label>
+				<input id="client_access_password" name="password" type="text" />
+			</div>
+			-->
+			<div class="btn-fld">
+			<button type="submit">Enter &raquo;</button>
+		</div>
+		 </form>
+		<div id="client_access_message"></div>
+	</div>
+</div>

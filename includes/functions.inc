@@ -5804,7 +5804,7 @@ function NavBar ($groupID, $currentchoice = "", $whichnavbar = "") {
 
 	$f['NAVBAR_FAQ_DIVIDER'] = "";
 
-	if (GetParam ($myGroup->params, FP_PARAM_GALLERY_CUSTOM_MENU)) {
+	if (GetParam ($myGroup->params, FP_PARAM_GROUP_CUSTOM_MENU)) {
 		// Custom Navbar (created in the admin)
 		$navbar = BuildCustomNavbar($whichnavbar, $solo);
 		$menuHasItems = ($navbar != "");
@@ -8119,6 +8119,37 @@ function CompactArraysToStrings ($vars) {
 	return $vars;
 
 }
+
+
+
+
+
+
+
+/*
+------------------------------------------------------------------------
+-- CLIENT SIGN IN
+
+Very simple. We just get the client id. Other functions use this to determine whether
+they want to show data based on it. For example, the projects list should check
+whether a project is visible by a particular client.
+------------------------------------------------------------------------
+*/
+function clientLogin($username) {
+
+	$DEBUG = false;
+
+	$DEBUG  && fp_error_log(__FUNCTION__ . ": BEGIN", 3, FP_ACTIVITY_LOG);
+	$DEBUG  && fp_error_log(__FUNCTION__ . ": Username = $username", 3, FP_ACTIVITY_LOG);
+
+	$_SESSION['clientid'] = $username;
+	fp_error_log(__FUNCTION__ . ": Someone signed in as $username", 3, FP_ACTIVITY_LOG);
+	return true;
+
+}
+
+
+
 
 
 ?>

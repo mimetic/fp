@@ -123,7 +123,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 		'message'			=> $msg,
 		'error'				=> $error,
 		'CLEARCACHE'			=> $clearcache ? ",clearcache=1" : "",
-		'master_page_popups'	=> ""	// don't need these
+		'master_page_popups'		=> FetchSnippet("client_access_dialog")
 		));
 
 	$output = ReplaceAllSnippets ($output);

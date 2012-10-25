@@ -1101,7 +1101,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 			$currvals['param_'.FP_PARAM_GROUP_WEB_FONTS_NAMES] = GetParam ($params, FP_PARAM_GROUP_WEB_FONTS_NAMES);
 
 			// Navbar editor
-			$currvals['param_'.FP_PARAM_GALLERY_CUSTOM_MENU.'_CHECKBOX'] = YesNo ('param_'.FP_PARAM_GALLERY_CUSTOM_MENU, GetParam ($params, FP_PARAM_GALLERY_CUSTOM_MENU ) );
+			$currvals['param_'.FP_PARAM_GROUP_CUSTOM_MENU.'_CHECKBOX'] = YesNo ('param_'.FP_PARAM_GROUP_CUSTOM_MENU, GetParam ($params, FP_PARAM_GROUP_CUSTOM_MENU ) );
 
 			for ($i=1;$i<=8;$i++) {
 				$checked = array (GetParam ($params, constant("FP_PARAM_GROUP_MENU_1_$i")));
@@ -1284,7 +1284,13 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 				? $currvals['OwnerAccessOnly_CHECKBOX'] = "{fp:Yes}."
 				: $currvals['OwnerAccessOnly_CHECKBOX'] = "{fp:No}.";
 			}
-			
+
+			// Client list:
+			// List of client sign-in names that allow viewer to see the
+			// this particular exhibition.
+			// NOW it is a real field.
+			// $currvals['client_list'] = $params[FP_PARAM_GALLERY_CLIENTLIST];
+
 			
 			// Captions: show, hide, or popup
 			$checked = array ($params[FP_PARAM_GALLERY_SHOWCAPTIONS]);

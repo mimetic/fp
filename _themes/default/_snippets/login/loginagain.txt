@@ -1,0 +1,11 @@
+<div align="center">
+	<BR>
+	<h3>This is a security time-out.</h3>
+	<BR>
+	To prevent unauthorized use of your account in {FP_SYSTEM_DISPLAY_NAME}, 
+	{FP_SYSTEM_DISPLAY_NAME} needs you to log again.<BR>
+	<BR>
+	<B>Don't worry! You haven't lost any work.</B><BR>
+	<BR>
+	<a class="button" href="{ADMINFILENAME}">Log In</a>
+</div>
