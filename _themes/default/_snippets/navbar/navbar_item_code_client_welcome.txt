@@ -1,1 +1,1 @@
-<div class="navbar">{fp:Welcome} {clientcode}</div>
+<div class="navbar"><i>{fp:Welcome}, {clientcode}</i></div>

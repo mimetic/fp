@@ -5968,8 +5968,14 @@ function BuildCustomNavbar ($which = "1", $solo = false) {
 	for ($i=1;$i<=8;$i++) {
 		$k = GetParam ($myGroup->params, constant("FP_PARAM_GROUP_MENU_".$which."_".$i));
 		if ($k)
-			$items[] = $k;
+			// CLIENT WELCOME code should not show if no user is logged in
+			if ($k == "clientwelcome") {
+				(isset($_SESSION['clientid']) && $_SESSION['clientid'] != "") && $items[] = $k;
+			} else {
+				$items[] = $k;
+			}
 	}
+
 	
 	// Make sure 'home' link is there if it should be
 	if (FP_SHOW_RETURN_TO_GROUP && ($which == 1) && !(array_search(FP_NAVBAR_HOME_CODE, $items)))
@@ -6957,17 +6963,17 @@ function ProjectsCalcFields ($fields) {
 
 // Use this to set WHERE to choose Active AND Featured projects, based on project age
 function GetActiveWhere ($where = '') {
-	$where && ($where .= " AND ");
-	$where .= '(((TO_DAYS(NOW()) - TO_DAYS(IF(Projects.LastUpdate, Projects.LastUpdate, Projects.ProjectDate))) <= IF(Projects.ActiveLifeSpan, Projects.ActiveLifeSpan + Projects.Lifespan, Projects.LifeSpan))';
-	$where .= 'OR (Projects.ActiveLifeSpan = 0))';
+	$where && ($where .= " AND");
+	$where .= ' (((TO_DAYS(NOW()) - TO_DAYS(IF(Projects.LastUpdate, Projects.LastUpdate, Projects.ProjectDate))) <= IF(Projects.ActiveLifeSpan, Projects.ActiveLifeSpan + Projects.Lifespan, Projects.LifeSpan))';
+	$where .= ' OR (Projects.ActiveLifeSpan = 0))';
 	return $where;
 }
 
 // Use this to set	WHERE to choose Featured projects but not Active projects, based on project age
 function GetFeaturedWhere ($where = '') {
-	$where && ($where .= " AND ");
-	$where .= '(((TO_DAYS(NOW()) - TO_DAYS(Projects.LastUpdate)) <= Projects.Lifespan) ';
-	$where .= 'OR (Projects.Lifespan = 0)) ';
+	$where && ($where .= " AND");
+	$where .= ' (((TO_DAYS(NOW()) - TO_DAYS(Projects.LastUpdate)) <= Projects.Lifespan)';
+	$where .= ' OR (Projects.Lifespan = 0)) ';
 	return $where;
 }
 

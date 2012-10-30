@@ -59,7 +59,16 @@ $(document).ready( function() {
 					} else {
 						$("#client_access_message").html("<p class='error'><span>Invalid username and/or password.</span></p>");	
 					}
-					$("#client_access_dialog, #lean_overlay").delay(800).fadeOut('slow', function() { location.reload(true); } );
+					$("#lean_overlay").delay(800).fadeOut('slow');
+					$("#client_access_dialog").delay(800).fadeOut('slow', function() {
+										u = window.location
+										// get rid of the # anchor
+										if (window.location.search) {
+											window.location.search = window.location.search + "&clearcache=1"
+										} else {
+											window.location.search = "clearcache=1"
+										}
+								} );
 				}
 			});
 			

@@ -2,6 +2,7 @@
 
 _config/fpconfig.inc
 _config/my_config.inc
+*.bak
 _user/
 .*
 .*/
