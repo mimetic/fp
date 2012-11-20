@@ -15,3 +15,4 @@ newsletter_dropbox
 photos
 tmp
 *.bak
+/pp/my_config.inc
