@@ -239,6 +239,8 @@ function CalcPrintCost (i) {
 
 // Validate Price Set Entry
 function ValidatePriceSetEntry () {
+	var err, ok, i,s
+	
 	err = "";
 	ok = true;
 	// Weights entered?
@@ -258,7 +260,7 @@ function ValidatePriceSetEntry () {
 				if (isNaN(i))
 					err = err + "The new entry in Print Pricing for size "+s+" is missing weight information.\n ";
 				else
-					err = err + "Print Pricing entry #"+i+" is missing weight information.\n ";
+					err = err + "Print Pricing entry #"+i+" is missing Shipping Weight information.\n ";
 				}
 			if (err)
 				alert (err);

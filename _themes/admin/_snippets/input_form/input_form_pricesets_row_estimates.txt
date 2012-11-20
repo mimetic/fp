@@ -1,7 +1,7 @@
 <!-- input_form_pricesets_row_estimates -->
 				<tr class="">
 					<th class="grid" style="text-align:right;">
-						Item Costs: 
+						Item Costs<sup class="important">1</sup>: 
 					</th>
 					<td class="grid" style="text-align:right;">
 						{CURRENCY} <span>{PretaxPrintCost}</span>
@@ -35,7 +35,7 @@
 				</tr>
 				<tr class="">
 					<th class="grid" style="text-align:right;">
-						Total Cost: 
+						Total Cost<sup class="important">2</sup>: 
 					</th>
 					<td class="grid" style="text-align:right;">
 						{CURRENCY} <span>{PretaxPrintCost}</span>

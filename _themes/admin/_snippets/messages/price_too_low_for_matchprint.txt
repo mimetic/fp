@@ -2,7 +2,14 @@
 <div class="ui-widget">
 	<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
 		<p>
-			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Alert:</strong> Print Only Item Price is less than Print Only Item Cost plus a {CURRENCY}{MatchPrintPrice} {CURRENCY_AFTER} test print!
+			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Alert:</strong> Raise your prices to pay for a test print from your printer! 
+		</p>
+		<p>
+		If you buy test prints from your printer, you should raise your prices to cover the cost of the first test print, or you will lose money on your first sale.
+		</p>
+		<p>
+		The <i>Print Only Item Price</i> is less than <i>Print Only Item Cost</i> plus a {CURRENCY}{MatchPrintPrice} {CURRENCY_AFTER} test print!<br>
+			<i>Note: Test Print settings are in each each {fp:exhibition} --- see the Advanced Settings in each {fp:exhibition} to set whether a test print will be ordered for a sale from that exhibition.</i>
 		</p>
 	</div>
 </div>

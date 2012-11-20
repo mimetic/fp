@@ -805,7 +805,7 @@ function GetAllPrintPricesByID ($imageID, $supplier, $priceset, $dims = null, $i
 		$height = $imgsize['height_print'];
 	}
 	
-	if (!$imgsize) {
+	if (!($width + $height)) {
 		return array();
 	}
 	

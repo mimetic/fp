@@ -1,6 +1,6 @@
 <!-- priceset_calculation_estimated_message -->
-<ul>
+<ol>
 <!--<li>Enter "0" to use automatic calculations from the {fp:supplier}'s settings. -->
-<li>The above calculations apply to the {fp:image}, "{TITLE}" ({URL}).</li>
 <li>If a cost you enter is less than the {fp:supplier}'s minimum cost, then the {fp:supplier}'s minimum cost will be used.</li>
-</ul>
+<li>The above calculations apply to the {fp:image}, "{TITLE}" ({URL}).</li>
+</ol>
