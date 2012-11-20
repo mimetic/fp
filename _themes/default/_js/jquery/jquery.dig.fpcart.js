@@ -574,23 +574,25 @@ Returns:
 
 	
 	// Update current page shipping HTML fields from the PHP cart
+	// Be careful not to overwrite existing values with empty strings (was happening before)
+	// when the AJAX doesn't respond fast enough, or something like that.
 	$.UpdatePageShippingFieldsFromCart = function (shipping_params)
 	{
 		if (shipping_params) {
-			$('#'+fieldnames.shipping_product_id).val(shipping_params.product);
-			$('#'+fieldnames.shipping_origCountry_id).val(shipping_params.origCountry);
-			$('#'+fieldnames.shipping_origPostal_id).val(shipping_params.origPostal);
-			$('#'+fieldnames.shipping_destPostal_id).val(shipping_params.destPostal);
-			$('#'+fieldnames.shipping_destCountry_id).val(shipping_params.destCountry);
-			$('#'+fieldnames.shipping_currency_id).val(shipping_params.currency);
+			shipping_params.product && $('#'+fieldnames.shipping_product_id).val(shipping_params.product);
+			shipping_params.origCountry && $('#'+fieldnames.shipping_origCountry_id).val(shipping_params.origCountry);
+			shipping_params.origPostal && $('#'+fieldnames.shipping_origPostal_id).val(shipping_params.origPostal);
+			shipping_params.destPostal && $('#'+fieldnames.shipping_destPostal_id).val(shipping_params.destPostal);
+			shipping_params.destCountry && $('#'+fieldnames.shipping_destCountry_id).val(shipping_params.destCountry);
+			shipping_params.currency && $('#'+fieldnames.shipping_currency_id).val(shipping_params.currency);
 			//$('#'+fieldnames.shipping_customValue_id).val(shipping_params.customValue);
-			$('#'+fieldnames.shipping_pickup_id).val(shipping_params.pickup);
-			$('#'+fieldnames.shipping_rateCode_id).val(shipping_params.rateCode);
-			$('#'+fieldnames.shipping_rescom_id).val(shipping_params.rescom);
-		$('#'+fieldnames.shipping_shippingContainerCode_id).val(shipping_params.shippingContainerCode);
-			$('#'+fieldnames.shipping_shippingName_id).val(shipping_params.shippingName);
-			$('#'+fieldnames.shipping_state_id).val(shipping_params.state);
-			$('#'+fieldnames.shipping_weight_std_id).val(shipping_params.weight_std);
+			shipping_params.pickup && $('#'+fieldnames.shipping_pickup_id).val(shipping_params.pickup);
+			shipping_params.rateCode && $('#'+fieldnames.shipping_rateCode_id).val(shipping_params.rateCode);
+			shipping_params.rescom && $('#'+fieldnames.shipping_rescom_id).val(shipping_params.rescom);
+			shipping_params.shippingContainerCode && $('#'+fieldnames.shipping_shippingContainerCode_id).val(shipping_params.shippingContainerCode);
+			shipping_params.shippingName && $('#'+fieldnames.shipping_shippingName_id).val(shipping_params.shippingName);
+			shipping_params.state && $('#'+fieldnames.shipping_state_id).val(shipping_params.state);
+			shipping_params.weight_std && $('#'+fieldnames.shipping_weight_std_id).val(shipping_params.weight_std);
 		}
 	}
 	
@@ -805,6 +807,8 @@ Returns:
 			//alert (res);
 			var res = JSON.parse(res);
 			var cartHTML = res.output;
+			if (res.error)
+				alert (res.error);
 			if (res.msg)
 				alert (res.msg);
 			//alert ("addButtonState: "+res.addButtonState);
@@ -929,7 +933,7 @@ Returns:
 	// cart shipping field ID's
 		shipping_product_id		: 'shipping-shippingProduct',
 		shipping_origCountry_id		: 'shipping-originCountry',
-		shipping_origPostal_id		: 'shipping-originPostalCode',
+		shipping_origPostal_id		: 'shippingOriginPostalCode',
 		shipping_destPostal_id		: 'shipping-destPostalCode',
 		shipping_destCountry_id		: 'shipping-destCountry',
 		shipping_currency_id		: 'shipping-currency',

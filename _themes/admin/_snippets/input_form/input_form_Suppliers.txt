@@ -203,7 +203,7 @@
 			<td>
 				Depth : <input type="text" name="FrameDepth" value="{FrameDepth}" size="3">
 				&nbsp;{UNITS}&nbsp;
-				<div style="display:inline;" class="tip" title="Number of prints in this size. For an open (unlimited) edition, enter 0.">
+				<div style="display:inline;" class="tip" title="How deep is the packaging for a framed print? The package has width, height, and depth. Depth is the thinnest measurement, typically 1 to 5 inches.">
 					?
 				</div>
 			</td>

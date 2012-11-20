@@ -1,4 +1,7 @@
-/* @override http://localhost/fp/_themes/default/_js/jquery/css/jquery-dig-fpcart.css */
+/* @override 
+	http://localhost/fp/_themes/default/_js/jquery/css/jquery-dig-fpcart.css
+	http://www.lisakessler.net/_themes/default/_js/jquery/css/jquery-dig-fpcart.css
+*/
 
 /*
 
@@ -11,6 +14,23 @@ http://conceptlogic.com/fpcart/
 #fpcart {
 	
 }
+
+#fpcart a {
+	color: #3f557f;
+}
+
+#fpcart a:visited {
+	color: #3f557f;
+}
+
+#fpcart a:hover {
+	color: #2861cb;
+}
+
+#fpcart a:active {
+	color: #0057ff;
+}
+
 
 .fpcart-cart table {
 	width: 100%;

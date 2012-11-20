@@ -34,7 +34,7 @@ _rsync girlswho girlswholike.us public_html/
 #  _rsync danapopa danapopa.com public_html/
 #  _rsync deanchap deanchapmanphotos.com public_html/
 #  _rsync artpress artpressgallery.com public_html/
-#  _rsync lisakess lisakessler.net public_html/
+_rsync lisakess lisakessler.net public_html/
 
 echo =========================================
 echo END

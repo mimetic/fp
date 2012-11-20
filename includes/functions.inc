@@ -8004,7 +8004,8 @@ function countAvailableItems ($codes) {
 	$items = explode ("\n", $codes);
 	$k = 0;
 	foreach ($items as $item) {
-		if ($item[0] != "/")
+		$item = trim($item);
+		if ($item != "" && $item[0] != "/")
 			$k++;
 	}
 	return $k;

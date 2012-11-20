@@ -189,7 +189,7 @@ function UPSShippingCalculator (target, options) {
 			// Where we get data: ID's of HTML form elements
 			shippingProductID:			"#shipping-shippingProduct",
 			origin_cityID:				"#shipping-originCity",
-			originPostalCodeID:			"#shipping-originPostalCode",
+			originPostalCodeID:			"#shippingOriginPostalCode",
 			originCountryID:				"#shipping-originCountry",
 			destCityID:					"#shipping-destCity",
 			destPostalCodeID:			"#shipping-destPostalCode",

@@ -14,24 +14,24 @@
 					<div class="shadow">
 						<table align="center" cellpadding="0" cellspacing="0" border="0">
 							<tr>
-								<td><img hspace="0" vspace="0" border="0" id="fs1" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
-								<td><img hspace="0" vspace="0" border="0" id="fs2" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
-								<td><img hspace="0" vspace="0" border="0" id="fs3" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs1" src="images/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs2" src="images/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs3" src="images/blank.png" alt="" ></td>
 							</tr>
 							<tr>
-								<td><img hspace="0" vspace="0" border="0" id="fs4" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs4" src="images/blank.png" alt="" ></td>
 								<td align="center">
 								<table id="fs_pic_matte" align="center" cellpadding="0" cellspacing="0" border="0">
 										<tr>
-											<td align="center"><div><img hspace="0" vspace="0" border="0" id="fs_matte_top" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></div><div><img id="fs5" src="{WHICHPIX}/{URL}" style="width:{MattedWIDTH}px;height:{MattedHeight}px;" alt="" ></div><div><img hspace="0" vspace="0" border="0" id="fs_matte_bottom" src="{THEMESDIR}/{THEME}/_img/blank.png" alt=""></div></td>
+											<td align="center"><div><img hspace="0" vspace="0" border="0" id="fs_matte_top" src="images/blank.png" alt="" ></div><div><img id="fs5" src="{WHICHPIX}/{URL}" style="width:{MattedWIDTH}px;height:{MattedHeight}px;" alt="" ></div><div><img hspace="0" vspace="0" border="0" id="fs_matte_bottom" src="images/blank.png" alt=""></div></td>
 										</tr>
 									</table></td>
-								<td><img hspace="0" vspace="0" border="0" id="fs6" src="{THEMESDIR}/{THEME}/_img/blank.png" height="218" width="21"  alt=""></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs6" src="images/blank.png" height="218" width="21"  alt=""></td>
 							</tr>
 							<tr>
-								<td><img hspace="0" vspace="0" border="0" id="fs7" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
-								<td><img hspace="0" vspace="0" border="0" id="fs8" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
-								<td><img hspace="0" vspace="0" border="0" id="fs9" src="{THEMESDIR}/{THEME}/_img/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs7" src="images/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs8" src="images/blank.png" alt="" ></td>
+								<td><img hspace="0" vspace="0" border="0" id="fs9" src="images/blank.png" alt="" ></td>
 							</tr>
 						</table>
 					</div>
