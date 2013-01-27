@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 2.17.x
+ * TWG Flash uploader 3.0
  *
- * Copyright (c) 2004-2012 TinyWebGallery
+ * Copyright (c) 2004-2013 TinyWebGallery
  * written by Michael Dempfle
  *
  *     This file does all file functions of TFU
@@ -29,14 +29,9 @@
  */
 define('_VALID_TWG', '42');
 
-if (isset($_GET['TFUSESSID'])) { // this is a workaround if you set php_flag session.use_trans_sid=off + a workaround for some servers that don't handle sessions correctly if you open 2 instances of TFU
-    session_id($_GET['TFUSESSID']);
-}
-session_cache_limiter("private");
-session_cache_limiter("must-revalidate");
-session_start();
-
 $install_path = ''; // do not change!
+
+include 'tfu_session.php';
 include 'tfu_helper.php';
 
 restore_temp_session(); // this restores a lost session if your server handles sessions wrong and increases the session time!
@@ -44,7 +39,7 @@ restore_temp_session(); // this restores a lost session if your server handles s
 include 'tfu_config.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_config_version != '2.17' || $tfu_help_version != '2.17') {
+if ($tfu_config_version != '3.0' || $tfu_help_version != '3.0') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
@@ -211,7 +206,10 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_SESSION['TFU_RN']) && isset($_GET['
         $dirs = ($enable_folder_browsing == "true") ? implode("|", $myDirs) : "";
 
         $dirsub = create_directory_title($dir, $hide_directory_in_title, $truncate_dir_in_title , $fix_utf8);
-        $currentdir = basename($dir); // currently only the last folder is shown
+
+        $normalizeSpaces = true;
+        $normalize_upper_case = true;
+        $currentdir = normalizeFileNames(basename($dir)); // currently only the last folder is shown
         $baseurl = "&baseurl=" . getRootUrl() . $dir . "/"; // the baseurl
         if ($fix_utf8 == "") {
             $baseurl = utf8_encode($baseurl); // the baseurl
@@ -221,6 +219,7 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_SESSION['TFU_RN']) && isset($_GET['
            $status .= '&dir_size=' . getFoldersize($size_dir);
         }
         store_temp_session();
+               
         $size = $nrFiles . " files (" . formatSize($size) . ")"; // formating of the display can be done here!
        echo "&tfufiles=" . $size . "|" . $files . "&tfudirs=" . $dirs . $status . "&currentDir=".$currentdir."&dirtext=" . $dirsub . $mem_errors . $upload_ok . $baseurl . '&last=true';
     } else {

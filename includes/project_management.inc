@@ -690,10 +690,10 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 
 	// Set default Session var for the WTF flash uploader
 	// When uploading to projects, the ProjectID will be added as a directory
-	$_SESSION['tfu_upload_dir'] = "$BASEDIR/$MAILED_DIR";
+	$_SESSION['TFU_DIR'] = "$BASEDIR/$MAILED_DIR";
 
 	IF ($DEBUG) {
-		$msg .= __FUNCTION__.__LINE__.":". $_SESSION['tfu_upload_dir']."<BR>";
+		$msg .= __FUNCTION__.__LINE__.":". $_SESSION['TFU_DIR']."<BR>";
 		$msg .= __FUNCTION__.__LINE__.": SID = ". SID."<BR>";
 		$msg .= __FUNCTION__.__LINE__.": Session name = ". session_name()."<BR>";
 	}
@@ -1604,14 +1604,14 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 				// Set the TFU uploader to the right directory
 				$uldir = "$BASEDIR/$MAILED_DIR/".$record['ID'];
 				file_exists ($uldir) || mkdir ($uldir, 0755);
-				$_SESSION['tfu_upload_dir'] = $uldir;
+				$_SESSION['TFU_DIR'] = $uldir;
 				$_SESSION["tfu_upload_extensions"] = null;
 				break;
 			case DB_FILES :
 				$uploader = FetchSnippet ("uploader_files");
 				$uldir = GetUserDirectory ($artistID) . FP_SUBDIR_USER_FILES;
 				file_exists ($uldir) || mkdir ($uldir, 0755);
-				$_SESSION['tfu_upload_dir'] = $uldir;
+				$_SESSION['TFU_DIR'] = $uldir;
 				$_SESSION["tfu_upload_extensions"] = "all";
 				break;
 		}

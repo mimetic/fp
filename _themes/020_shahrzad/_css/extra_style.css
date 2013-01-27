@@ -1,4 +1,7 @@
-/* @override http://localhost/fp/_themes/020_shahrzad/_css/extra_style.css */
+/* @override 
+	http://localhost/fp/_themes/020_shahrzad/_css/extra_style.css
+	http://www.davidgrossphoto.com/_themes/020_shahrzad/_css/extra_style.css
+*/
 
 /* Styles for a theme in addition to the base "style.css" sheet */
 html,body {
@@ -321,7 +324,7 @@ div.gallery-description {
 
 td.gallery-intro {
 	width: 160px;
-	padding-right: 80px;
+	padding-right: 40px;
 }
 
 div.gallery-priceinfo {

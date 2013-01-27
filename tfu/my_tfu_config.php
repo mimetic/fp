@@ -4,25 +4,23 @@
  User configuration file. Values overwrite those in tfu_config.php
 */
 
-/*
 
-**** WHEN UPDATING TFU, BE SURE TO MODIFY TFU_UPLOAD.PHP!!! ****
-Set the session name to "fp_admin" on line 31!
-session_name("fp_admin");
-
-*/
+$enable_upload_debug = false;        // This enables the debuging ouput at the upload. You should only use this after contacting me!
+$enable_enhanced_debug = false;      // This shows the request to each debug line.
 
 
-session_write_close();
+// CRUCIAL: TELLS WHERE TO UPLOAD THE FILES!
+//$folder = $_SESSION["tfu_upload_dir"];
 
-$prevSessionName = session_name("fp_admin") || "";
-session_start();
-$folder = $_SESSION["tfu_upload_dir"];
-$folder || tfu_debug("ERROR! The folder from session is empty!");
-session_name($prevSessionName);
+//tfu_debug(__FILE__);
+//tfu_debug("SESSION: ".print_r($_SESSION, true));
 
 
-#tfu_debug("Upload folder is $folder");
+// CRUCIAL: TELLS WHERE TO UPLOAD THE FILES!
+// Get the upload folder from the fp_admin session
+$folder = $_SESSION["TFU_DIR"];
+
+//tfu_debug("Upload folder is $folder");
 
 if (isset($_SESSION["tfu_upload_extensions"]) && $_SESSION["tfu_upload_extensions"]) {
 	$allowed_file_extensions = $_SESSION["tfu_upload_extensions"];

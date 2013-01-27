@@ -188,7 +188,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			// Active means active projects in the system.
 			// example: XML.php?action=active
 			$set = "ID";
-			$where = "($PROJECTS.Public = 0) ";
+			$where = "($PROJECTS.Public = 0) AND ($PROJECTS.client_list = '' )";
 			$restrictToGroup && $where .= "AND ($PROJECTS.GroupID = $groupID) ";
 			$where = GetActiveWhere($where);
 			$table = $PROJECTS;
@@ -223,7 +223,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 				// get featured projects where the artist is part of the project
 				// Get images from the artist, from the Parts table, where the
 				// project is featured.
-				$where = "($PROJECTS.Public = 0) AND $PARTS.ArtistID = '$artistID' AND $PARTS.PartTable = 'Images'";
+				$where = "($PROJECTS.Public = 0) AND $PARTS.ArtistID = '$artistID' AND $PARTS.PartTable = 'Images' AND ($PROJECTS.client_list = '' )";
 				$restrictToGroup && $where .= " AND $PROJECTS.GroupID = $groupID AND $PROJECTS.ID IN (SELECT ID FROM $PROJECTS WHERE GroupID = '$groupID')";
 				//$where = GetFeaturedWhere ($where);
 				$where .= " AND (((TO_DAYS(NOW()) - TO_DAYS($PROJECTS.LastUpdate)) <= $PROJECTS.Lifespan) OR ($PROJECTS.Lifespan = 0))";
@@ -273,7 +273,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			$DEBUG && print "GroupID: {$record['GroupID']}<br>";
 
 			$set = "ID";
-			$where = "($PROJECTS.Public = 0) ";
+			$where = "($PROJECTS.Public = 0)  AND ($PROJECTS.client_list = '' )";
 			$restrictToGroup && $where .= "AND ($PROJECTS.GroupID = $groupID) ";
 			$where = GetActiveWhere($where);
 			$table = $PROJECTS;

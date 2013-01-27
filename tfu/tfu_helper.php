@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 2.17.x
+ * TWG Flash uploader 3.0
  *
- * Copyright (c) 2004-2012 TinyWebGallery
+ * Copyright (c) 2004-2013 TinyWebGallery
  * written by Michael Dempfle
  *
  *
@@ -14,7 +14,7 @@
  * * ensure this file is being included by a parent file
  */
 defined('_VALID_TWG') or die('Direct Access to this location is not allowed.');
-$tfu_help_version = '2.17';
+$tfu_help_version = '3.0';
 // some globals you can change
 $check_safemode = true;              // New 2.12.x - By default TFU checks if you have a safe mode problem. On some server this test does not work. There you can try to turn it off and test if you can e.g. create directories, upload files to new created directories.
 $session_double_fix = false; // this is only needed if you get errors because of corrupt sessions. If you turn this on a backup is made and checked if the first one is corrupt
@@ -46,7 +46,7 @@ tfu_setHeader();
 include dirname(__FILE__) . '/tfu_zip.class.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_zip_version != '2.17') {
+if ($tfu_zip_version != '3') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
@@ -171,6 +171,7 @@ if (!isset($skip_error_handling)) {
 function resize_file($image, $size, $compression, $image_name, $dest_image = false)
 {
     global $use_image_magic, $image_magic_path, $enable_upload_debug, $store;
+    global $use_size_as_height;
 
     if (!isset($store)) {
       $store = 0;
@@ -206,7 +207,7 @@ function resize_file($image, $size, $compression, $image_name, $dest_image = fal
                  if ($enable_upload_debug) { tfu_debug('Resize: Image ('. $oldsizex .'x' .$oldsizey. ') is not resized with setting "' . $size . '"'); }
                  return 1;
              }
-             if ($oldsizex > $oldsizey) { // querformat - this keeps the dimension between horzonal and vertical
+             if ($oldsizex > $oldsizey && !$use_size_as_height) { // querformat - this keeps the dimension between horzonal and vertical
                  $width = $size;
                  $height = ($width / $oldsizex) * $oldsizey;
              } else { // hochformat - this keeps the dimension between horzonal an vertical
@@ -1290,7 +1291,10 @@ function setSessionVariables()
     $_SESSION['TFU_ROOT_DIR'] = $_SESSION['TFU_DIR'] = $folder;
     
     if ($start_folder != '') {
-        $_SESSION['TFU_DIR'] = $folder . '/' . $start_folder;
+        $new_folder = $folder . '/' . $start_folder;
+        if (file_exists($new_folder)) {
+            $_SESSION['TFU_DIR'] = $new_folder;
+        }
     }
     
     store_temp_session();
@@ -1439,6 +1443,12 @@ function restore_temp_session($checkrn = false)
             $data = file_get_contents($cachename);
             set_error_handler('on_error_no_output'); // is needed because error are most likly but we don't care about fields we don't even know
             $sdata = unserialize($data);
+            // check if there is maybe a session and the temp session is only here for backup
+            // save the old session and add the existing values to internal one!
+            if (isset($_SESSION) && count($_SESSION) > 0) {
+                // merge arrays
+                foreach($_SESSION as $k => $v) { $sdata[$k] = $v; }
+            }           
             set_error_handler('on_error');
             if (isset($sdata) && (isset($sdata['TFU_RN']) || $checkrn)) {
                 $_SESSION = $sdata;
@@ -1673,7 +1683,7 @@ function printServerInfo()
     echo '<br><p><center>Some info\'s about your server. This limits are not TFU limits. You have to change this in the php.ini.</center></p>';
     echo '<div class="install">';
     echo '<table><tr><td>';
-    echo '<tr><td width="400">TFU version:</td><td width="250">2.17&nbsp;';
+    echo '<tr><td width="400">TFU version:</td><td width="250">3&nbsp;';
     // simply output the license type by checking the strings in the license. No real check like in the flash is done here.
     
     if ($m != "" && $m != "s" && $m !="w" ) {
@@ -1785,6 +1795,11 @@ function check_image_magic($path = "", $check_image_magic = true) {
    }
 }
 
+function fixencodingfordisk($value) {
+  return iconv("UTF-8", "ISO-8859-1", $value);
+} 
+
+
 /**
  *  Normalizes the file names - fix_encoding has to be called before this function is used.
  *  This isn't done here because normalize filenames is an optional step while fix_encoding
@@ -1793,26 +1808,25 @@ function check_image_magic($path = "", $check_image_magic = true) {
 function normalizeFileNames($imageName){
    global $normalizeSpaces, $normalize_upper_case;
 
-  // it's needed to decode first because str_replace does not handle str_replace in utf-8
-  $imageName = utf8_decode($imageName);
-  // we make the file name lowercase ÄÖÜ as well.
-  // seems not to be available on all systems.
-  if ($normalize_upper_case) {
-    if (function_exists("mb_strtolower")) { 
-      $imageName = mb_strtolower($imageName); 
-    } else {
-      $imageName = strtolower($imageName); 
-    }
+   // it's needed to decode first because str_replace does not handle str_replace in utf-8
+   $imageName = utf8_decode($imageName);
+   // we make the file name lowercase Ã„Ã–Ãœ as well.
+   // seems not to be available on all systems.
+   if ($normalize_upper_case) {
+     $imageName = replaceChars($imageName);
+     if (function_exists("mb_strtolower")) { 
+       $imageName = mb_strtolower($imageName); 
+     } else {
+       $imageName = strtolower($imageName); 
+     } 
   }
   
   if ($normalizeSpaces == 'true') {
     $imageName=str_replace(' ','_',$imageName);
   }
-  // Some characters I know how to fix ;).
-  $imageName=str_replace(array('ä','ö','ü','ß'),array('ae','oe','ue','ss'),$imageName);
-  // and some others might need
-  $imageName=str_replace(array('á','à','ã','â','ç','¢','é','ê','è','ë','í','î','ï','ì','ñ','ô','ó','õ','ò','š','ú','ù','û','ü','ý','ÿ','ž'),
-                         array('a','a','a','a','c','c','e','e','e','e','i','i','i','i','n','o','o','o','o','s','u','u','u','u','y','y','z'),$imageName);
+  
+  // replace is not called all the time - therefore called again here.
+  $imageName = replaceChars($imageName);
  
   // we remove the rest of unwanted chars
   $patterns[] = '/[\x7b-\xff]/';  // remove all characters above the letter z.  This will eliminate some non-English language letters
@@ -1823,7 +1837,20 @@ function normalizeFileNames($imageName){
   $patterns[] = '/[\x21-\x2c]/u'; // remove range of shifted characters on keyboard - !"#$%&'()*+
   $patterns[] = '/[\x5b-\x60]/u'; // remove range including brackets - []\^_`
   $replacement ="_";
-  return utf8_encode(preg_replace($patterns, $replacement, $imageName));
+  $imageName =  utf8_encode(preg_replace($patterns, $replacement, $imageName));
+  return $imageName;
+  
+}
+
+function replaceChars($imageName) {
+      // Some characters I know how to fix ;).  Ã¤,Ã¶,Ã¼,ÃŸ - char is used below because this file is saved in utf-8 and if
+  // I use Ã¤ this would be the utf-8 Ã¤ which is <> the ansi Ã¤ which is used here because of the utf8_decode
+  $imageName=str_replace(array(chr(228) ,chr(246),chr(252), chr(223)),array('ae','oe','ue','ss'),$imageName);
+  // and some others might needed - here are not all chars mapped.
+  $imageName=str_replace(array(chr(224),chr(225),chr(226),chr(227),chr(229),chr(230),chr(231),chr(162),chr(232),chr(233),chr(234),chr(235),chr(236),chr(237),chr(238),chr(239),chr(241),chr(242),chr(243),chr(244),chr(245),chr(154),chr(249),chr(250),chr(251),chr(253),chr(255),chr(158)),
+                         array('a','a','a','a','a','ae','c','c','e','e','e','e','i','i','i','i','n','o','o','o','o','s','u','u','u','y','y','z'),$imageName);
+  $imageName=str_replace(array(chr(196),chr(214),chr(220)), array('ae','oe','ue'),$imageName);
+  return $imageName; 
 }
 
 function execute_command ($command) {
@@ -2223,17 +2250,6 @@ function tfu_zip_download($files, $enable_file_download) {
         exit(0);
     }
 
-    /*
-    $createZip = new createZip;
-    $nrfiles = count($files);
-    for ($i = 0; $i < $nrfiles; $i++) {
-      $createZip -> addFile(file_get_contents($files[$i]), my_basename($files[$i]));
-    }
-    $fileName = $zip_folder . '/' . $_GET['zipname'];
-    $fd = fopen ($fileName, "wb");
-    $out = fwrite ($fd, $createZip -> getZippedfile());
-    fclose ($fd);
-    */
     $nrfiles = count($files);
 
     if ($zip_file_pattern == '') {
@@ -2306,6 +2322,9 @@ function create_dir($dir, $enable_folder_creation, $fix_utf8) {
               $result = mkdir ($createdir);
               if ($result && $dir_chmod != 0) {
                 @chmod($createdir, $dir_chmod);
+              }
+              if (!$result) {
+                tfu_debug('Directory "' . $createdir . '" could not be created');
               }
             }
             $status = ($result) ? '&create_dir=true':'&create_dir=false';
@@ -2579,7 +2598,7 @@ function my_basename($name) {
 /**
  * Fixes the encoding of the file names we get from the flash. They come utf-8 encoded
  * from the flash and writing this directly to the filesystem produces depending on the
- * system unreadable file names. Especially if special characters like öäü or even
+ * system unreadable file names. Especially if special characters like Ã¶Ã¤Ã¼ or even
  * chinese Characters are used.
 */
 function fix_decoding($encoded_filename, $fix_utf8) {
@@ -2639,10 +2658,10 @@ function resetSessionTree() {
 function check_multiple_extensions($image, $remove_multiple_php_extension) {
   if ($remove_multiple_php_extension) {
     $ext = getExtension($image);
-    if (substr($ext,0,2) != "php") {
+    if (substr($ext,0,3) != "php") {
       $image2 = str_replace(".php", "", $image);
       if ($image != $image2) {
-          tfu_debug("SECURITY WARNING: Please check the file ".$image2.". It was uploaded with an image extensions and also a nested php extension. On some server this is a security problem (multiple extensions) and therefore the .php part of the file name was removed!" );
+          tfu_debug("SECURITY WARNING: Please check the file ".$image2.". It was uploaded with a extensions and also a nested php extension. On some server this is a security problem (multiple extensions) and therefore the .php part of the file name was removed!" );
           $image = $image2;
       }
     }
@@ -2787,8 +2806,12 @@ if (strnatcmp(phpversion(),'5.0.0') >= 0) { // new version - used for php > 5
     }
     $mail->SetFrom($from);
     $mail->AddReplyTo($from);
-    $mail->AddAddress($to);
-    
+
+    // split for multiple e-mails
+    $to_array = array_filter(explode(',',$to));
+    foreach($to_array as $to_email) {
+         $mail->AddAddress($to_email);  
+    }
     $mail->Subject = $subject;
     if ($type == 'text/plain') {
       $mail->Body = $body;

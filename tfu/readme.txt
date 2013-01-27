@@ -1,5 +1,5 @@
 ---------------------------------------------------------
-TWG Flash Uploader 2.16.x Freeware - README
+TWG Flash Uploader 3.0 Freeware - README
 
 For the latest version please go to 
 http://www.tinywebgallery.com/en/tfu/web_overview.php
@@ -7,7 +7,7 @@ http://www.tinywebgallery.com/en/tfu/web_overview.php
 
 Requirements
 ------------
-Browser:    Flash 8 plugin
+Browser:    Flash >= 8 plugin
             JDK >= 1.4 if you want to use the TFU File Split Applet
 Web Server: php >= 4.3.5 with gdlib > 2.0
 

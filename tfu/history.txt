@@ -1,17 +1,35 @@
----------------------------------
-History TWG Flash Uploader 2.17
+------------------------------
+History TWG Flash Uploader 3.0
 
 by Michael Dempfle
 www.tinywebgallery.com
----------------------------------
+--------------------------------
 
 (php) means that the change is only in the php part and not in the flash - only the version number is changed in the flash!
+
+3.0
+All planned features for version 3 are now implemented. Have fun with version 3 of TFU.
+ 
+New: Add files and the Upload button can now be styled individualy! You can set color, background color, font weight and theme for both! See the uploaded howto
+New: multiple recipient e-mail are now supported with smtp as well. Separate e-mails by , 
+New: Session override when session_cache does exist. If the global session does contain values but the internal session handling is active (sesssion_cache folder does exist) the global data was nor used. Now the gobal settings does overwrite tfu settings.
+New: Parameter $use_size_as_height. If you set this to true horizontal and vertical images are all resized to the given size. So vertical images are wider than the given size!
+New: Improved support for MAC uploads. An additional / at the end of the upload string fixes an i/o error on some Mac configurations.
+Fix: Improved normalisation. Now many more inputs are normalized properly.
+Fix: Directories with special chars like צהü where not displayed in the title bar.
+Fix: Elements where overlapping when selecting multiple menu items
+Fix: When a file was selected, and a preview is not available the button was invisible but still enabled.
+Fix: A blank preview was loaded by the invisible button 
+Fix: $remove_multiple_php_extension was always removing .php extensions when enabled. Now is only removed them when the file has another extension afterwards. 
 
 2.17
 New: E-mail can now be sent with smtp. See the 5 new settings in tfu_config.php.
 New: $normalize_upper_case - If you enable normalize file names or directory names you can decide here if upper case chars are converted to lower case or not.
 New: $start_folder - You can define a start folder below your root folder. If you do this you are still able to navigate up to your root folder but the start folder is shown when you start the flash the first time. The start folder is always relative to the root folder. e.g. 'subdir' would be the folder 'upload\subdir'
 New: New e-mail plugin is available. 
+New: tfu_session.php handles now the start of the session. This part was identical in some files and is now not dupplicated anymore.  
+New: You can now create a file called my_tfu_session.php where you can do whatever you want directly after the session start. This will be used in the next version of JFUploader to load the session from the Joomla database!
+New: tfu_session.php does now exist. The start of the session is not in different files anymore. So if you want to e.g. modify the session name this can now be done in one place. 
 Fix: $directory_file_limit_size was not working inside multiple subdirectories. Now always the root directory is used a calculation start point. 
   
 2.16

@@ -18,7 +18,7 @@ Administration,Administration
 Go Back,Go Back
 ReturnTo,Return to
 Blog,Blog
-PoweredBy,Powered by Mimetic Galleries
+PoweredBy,Mimetic Galleries
 Share,Partager
 
 // About, as in 'About John Doe'

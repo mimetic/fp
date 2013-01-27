@@ -1,9 +1,9 @@
 <?php 
   /**
-	 * TWG Flash uploader 2.9.x
-	 * 
-	 * Copyright (c) 2004-2007 TinyWebGallery
-	 * written by Michael Dempfle
+   * TWG Flash uploader 3
+   * 
+   * Copyright (c) 2004-2013 TinyWebGallery
+   * written by Michael Dempfle
    *
    *  Basic password file for TFU. Used for the easy login implemented 
    *  in tfu_config.php
@@ -32,9 +32,7 @@
       );
 	*/
 	$GLOBALS["users"]=array(
-	  array("test","a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","upload","",""),
-	  array("test1","a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","upload","",""),
-	  array("test2","a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","upload","",""),
-	  array("test3","a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","upload","","")
-    ); 
+	  array("test","a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","upload","","")
+    );        
+     
 ?>

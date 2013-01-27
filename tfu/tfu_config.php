@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 2.17.x
+ * TWG Flash uploader 3.0
  *
- * Copyright (c) 2004-2012 TinyWebGallery
+ * Copyright (c) 2004-2013 TinyWebGallery
  * written by Michael Dempfle
  *
  *    This file is the main configuration file of the flash.
@@ -29,7 +29,7 @@
  */
 
 if (defined('_VALID_TWG')) {
-$tfu_config_version = '2.17';
+$tfu_config_version = '3.0';
 
     $login = 'true';                     // The login flag - has to set by yourself below 'true' is logged in, 'auth' shows the login form, 'reauth' should be set if the authentification has failed. 'false' if the flash should be shown with an eroror message that the authorisation finally failed. When using auth by default the users of the file .htuser.php are used. Please go to this file to setup users.
     $folder = 'upload';                  // this is the root upload folder. If you use login='auth' by default the folder from the user profile in .htusers.php is used!
@@ -38,8 +38,9 @@ $tfu_config_version = '2.17';
     $resize_data = '100000,1280,1024,800'; // The data for the resize dropdown
     $resize_label = 'Original,1280,1024,800'; // The labels for the resize dropdown
     $resize_default = '0';               // The preselected entry in the dropdown (1st = 0)
+    $use_size_as_height = false;         // new 3. If you set this to true horizontal and vertical images are all resized to the given size. So vertical images are wider than the given size!
     $allowed_file_extensions = 'all'; // 'jpeg,gif,png,jpg';    // Allowed file extensions! 'all' allowes all types - this list is the supported files in the browse dropdown! If this field is empty then the upload grid is removed and the server only view is enabled. Please note: The filter of the file chooser dialog is limited. Don't use more than ~25 extensions. If you specify more TFU automatically uses 'All Files' - Then all files are listed and not supported extensions are checked by the flash after pressing 'Open'.
-    $forbidden_file_extensions = 'php';  // Forbidden file extensions! - only usefull if you use 'all' and you want to skip some exensions! php e.g. means php* ! then php4 and so on is covered as well!
+    $forbidden_file_extensions = '';  // Forbidden file extensions! - only usefull if you use 'all' and you want to skip some exensions! php e.g. means php* ! then php4 and so on is covered as well!
     // Enhanced features - this are only defaults! if TFU detects that this is not possible this functions are disabled!
     $hide_remote_view = 'false';         // If you want to disable the remote view set 'true' as value! '' or 'false' shows the remote view!
     $show_preview = is_gd_version_min_20(); // Show the small preview. Valid is 'true' and 'false' (Strings!) - the function is_gd_version_min_20 checks if the minimum requirements for resizing images are there!
@@ -123,7 +124,7 @@ $tfu_config_version = '2.17';
     $description_mode_mandatory='false'; // true - a description has to be provided for each file; false - description is optional.
     
     $overwrite_files='true';             // true - Existing files are overwritten; false - existing files are not overwritten.
-    $normalizeSpaces='false';            // if you enable normalize file names or directory names you can decide here if spaces are replaces with an _ or not.
+    $normalizeSpaces='true';            // if you enable normalize file names or directory names you can decide here if spaces are replaces with an _ or not.
     $file_chmod=0;                       // by using 0 the default mode of the files is used. Then the creation depend on the umask of the server.  If you want the files to have different permissions please use the octal representation e.g. 0777, 0755, 0644 ...
     $dir_chmod=0;                        // by using 0 the default mode of the directory is used. Then the creation depend on the umask of the server. If you want the directory to have different permissions please use the octal representation e.g. 0777, 0755, 0644 ...
 
@@ -189,8 +190,8 @@ $tfu_config_version = '2.17';
     $start_folder='';                   // New 2.17 (String) You can define a start folder below your root folder. If you do this you are still able to navigate up to your root folder but the start folder is shown when you start the flash the first time. The start folder is always relative to the root folder. e.g. 'subdir' would be the folder 'upload\subdir'
     // please do not forget to set the normal e-mail settings above!
     $use_smtp = false;                 // New 2.17 (true,false) false: use build in php mail, true: use smtp. Please provide the settings below. 
-      $smtp_host = "smtp host";        // New 2.17 (String) The smtp host. If you want to use ssl please use e.g. ssl://smtp.strato.de. See http://php.net/manual/en/transports.inet.php for available transport protocols. 
-      $smtp_port = 465;                // New 2.17 (Number) The smtp port. 456 is the default for ssl!
+      $smtp_host = "localhost";        // New 2.17 (String) The smtp host. If you want to use ssl please use e.g. ssl://smtp.strato.de. See http://php.net/manual/en/transports.inet.php for available transport protocols. 
+      $smtp_port = 456;                // New 2.17 (Number) The smtp port. 456 is the default for ssl!
       $smtp_user = "<user>";           // New 2.17 (String) The smtp user name
       $smtp_password = "<password>";   // New 2.17 (String) The smtp password
    
