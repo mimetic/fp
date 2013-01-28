@@ -9,9 +9,6 @@ $enable_upload_debug = false;        // This enables the debuging ouput at the u
 $enable_enhanced_debug = false;      // This shows the request to each debug line.
 
 
-// CRUCIAL: TELLS WHERE TO UPLOAD THE FILES!
-//$folder = $_SESSION["tfu_upload_dir"];
-
 //tfu_debug(__FILE__);
 //tfu_debug("SESSION: ".print_r($_SESSION, true));
 

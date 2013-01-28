@@ -19,9 +19,7 @@ if (isset($_GET['TFUSESSID'])) { // this is a workaround if you set php_flag ses
     session_id($_GET['TFUSESSID']);
 }
 
-// DIG: SET THE SESSION TO THE SAME AS THE ONE ADMIN USES.
 session_name("fp_admin");
-
 
 session_cache_limiter("private");
 session_cache_limiter("must-revalidate");

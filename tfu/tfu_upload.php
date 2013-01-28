@@ -28,9 +28,25 @@ $store = 0;         // do not change!
 $email_plugin = false; // do not change!
 
 include 'tfu_session.php';
+//	$s = print_r($_SESSION, true);
 include 'tfu_helper.php';
 
+/*
+tfu_debug(__FILE__);
+tfu_debug ("After tfu_session.php ");
+tfu_debug ($s);
+
+tfu_debug(__FILE__);
+tfu_debug ("After tfu_session.php and tfu_helper.php");
+tfu_debug("SESSION: ".print_r($_SESSION, true));
+*/
+
 restore_temp_session(); // this restores a lost session if your server handles sessions wrong!
+
+/*
+tfu_debug ("After restore temp session.");
+tfu_debug("SESSION: ".print_r($_SESSION, true));
+*/
 
 include 'tfu_config.php';
 
@@ -49,11 +65,11 @@ Otherwise the session is maybe not started properly!
  * This is some debug information - please uncomment this if I ask for it in a debug session ;).
  */
 
-tfu_debug("session id : " . session_id());
-tfu_debug("session name : " . session_name());
-tfu_debug("session TFU: " . $_GET['TFUSESSID']);
-tfu_debug("login: " . $_SESSION["TFU_LOGIN"]);
-tfu_debug("dir: " . $_SESSION["TFU_DIR"]);
+// tfu_debug("session id : " . session_id());
+// tfu_debug("session name : " . session_name());
+// tfu_debug("session TFU: " . $_GET['TFUSESSID']);
+// tfu_debug("login: " . $_SESSION["TFU_LOGIN"]);
+// tfu_debug("dir: " . $_SESSION["TFU_DIR"]);
 
 // we check if a valid authenification was done in tfu_config.php
 if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['tfu_rn']) && isset($_SESSION['TFU_RN']) && $_SESSION['TFU_RN'] == parseInputParameter($_GET['tfu_rn'])) {
