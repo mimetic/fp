@@ -114,7 +114,7 @@ $FP_RESIZE_TO_BKGD_IMAGE = 0;
 
 // ------------------
 // Group settings:
-$FP_MAX_GROUP_SIZE = 15;
+$FP_MAX_GROUP_SIZE = 25;
 
 $groups_display_cols	= 1;
 $groups_items_per_page	= 6;
