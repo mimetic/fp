@@ -13,7 +13,7 @@ var params = { };
 params.allowfullscreen = "true";
 var attributes = { };
 
-swfobject.embedSWF("tfu/tfu_3.0.swf?base=tfu", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+swfobject.embedSWF("tfu/tfu_3.0.swf?base=tfu&session_name=fp_admin", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 // Use this if you want to use the preloader
 // swfobject.embedSWF("tfu_preloader.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 
