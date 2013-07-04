@@ -34,8 +34,9 @@ Setup ();
  *
  */
 
-$version = "2012.10.24-02";
-$updaterdescription = "Updated system to version: $version";
+$version = "2013.07.04-07";
+$updaterdescription = "Updated system to version $version";
+$updaterdescription .= "\n Add htaccess files to _user, mailed photos, and photos directories.";
 
 //-----------------
 
@@ -49,69 +50,30 @@ $currentVersion = trim($vv[1]);
 //print ("Current version vs new version : $currentVersion vs $version<BR>");
 
 if ($version > $currentVersion) {
-	// Update MYSQL tables
-	
-	$query = "ALTER TABLE  `Projects` ADD `OwnerAccessOnly` BOOLEAN DEFAULT 0 AFTER `GroupID`;";
-	$result = mysql_query($query);
-	
-	mysql_query("ALTER TABLE `Projects` ADD `client_list` TEXT;");
-	
-	
-	$query = "ALTER TABLE  `PriceSets` ADD `MaxFramedSize` INT DEFAULT 0 AFTER `GroupID`;";
-	$result = mysql_query($query);
-	
-	//mysql_query("ALTER TABLE `Sales` ADD `Cart` TEXT;");
-	mysql_query("ALTER TABLE `Sales` ADD `discount_amount` float;");
-	mysql_query("ALTER TABLE `Sales` ADD `discount_rate` float;");
-	mysql_query("ALTER TABLE `Sales` ADD `invoice` varchar(127);");
-	mysql_query("ALTER TABLE `Sales` ADD `currency_code` varchar(3);");
-	
-	mysql_query("ALTER TABLE `Sales` ADD `address_name` varchar(128);");
-	mysql_query("ALTER TABLE `Sales` ADD `address_state` varchar(2);");
-	mysql_query("ALTER TABLE `Sales` ADD `address_street` varchar(200);");
-	mysql_query("ALTER TABLE `Sales` ADD `address_zip` varchar(20);");
-	mysql_query("ALTER TABLE `Sales` ADD `address_city` varchar(40);");
-	mysql_query("ALTER TABLE `Sales` ADD `address_country` varchar(64);");
-	mysql_query("ALTER TABLE `Sales` ADD `address_country_code` varchar(2);");
-	
-	mysql_query("ALTER TABLE `Sales` ADD `contact_phone` varchar(20);");
-	mysql_query("ALTER TABLE `Sales` ADD `first_name` varchar(64);");
-	mysql_query("ALTER TABLE `Sales` ADD `last_name` varchar(64);");
-	mysql_query("ALTER TABLE `Sales` ADD `payer_business_name` varchar(127);");
-	mysql_query("ALTER TABLE `Sales` ADD `payer_email` varchar(127);");
-	mysql_query("ALTER TABLE `Sales` ADD `payer_id` varchar(13);");
-	
-	mysql_query("ALTER TABLE `Sales` ADD `item_id` bigint(20) AFTER item_number;");
-	
-	// Update MYSQL tables
-	mysql_query("ALTER TABLE `PriceSets` ADD `Params` TEXT;");
-	
 
 
-	$fn = "$BASEDIR/_config/fpconfig.inc";
-	$f = file_get_contents ("_config/fpconfig.inc");
-	if (!strpos ($f, "FP_GOOGLE_CONVERSION_ID")) {
-		
-		
-		// ad words to fpconfig
-	
-		$s = '// Can the admin user change the website commission';
-		$r = '// Google Adwords Conversion codes
-	// Signup page:
-	define ("FP_GOOGLE_CONVERSION_ID", "");
-	define ("FP_GOOGLE_CONVERSION_LABEL", "");
-	// Checkout page:
-	define ("FP_GOOGLE_CONVERSION_ID_CHECKOUT", "");
-	define ("FP_GOOGLE_CONVERSION_LABEL_CHECKOUT", "");
-		
-	// Can the admin user change the website commission';
-		$r = $r.$s;
-		
-		$f = str_replace($s,$r,$f);
-		rename ($fn, $fn."-".date("Y-m-d,H-m-s").".bak");
-		file_put_contents($fn, $f);
+		//----------------- WRITE LOG -----------------
+		fp_error_log("AUTO-UPDATER: $updaterdescription", 3, FP_UPDATES_LOG);
 
+		if ( file_exists("$BASEDIR/$ORIGINALS/.htaccess") && !unlink ("$BASEDIR/$ORIGINALS/.htaccess") ) 
+			fp_error_log("AUTO-UPDATER: failed to delete $BASEDIR/$ORIGINALS/.htaccess", 3, FP_UPDATES_LOG);
+
+		if ( file_exists("$BASEDIR/$ORIGINALS/.htaccess") ) {
+			unlink ("$BASEDIR/$ORIGINALS/.htaccess") ;
+		} else {
+			fp_error_log("*** Cannot delete $BASEDIR/$ORIGINALS/.htaccess", 3, FP_UPDATES_LOG);
+		}
+
+		if ( file_exists("$BASEDIR/$FP_DIR_USER/.htaccess") && !unlink ("$BASEDIR/$FP_DIR_USER/.htaccess") ) 
+			fp_error_log("AUTO-UPDATER: failed to delete $BASEDIR/$FP_DIR_USER/.htaccess", 3, FP_UPDATES_LOG);
+
+		if ( file_exists("$BASEDIR/$MAILED_DIR/.htaccess") && !unlink ("$BASEDIR/$MAILED_DIR/.htaccess") ) 
+			fp_error_log("AUTO-UPDATER: failed to delete $BASEDIR/$MAILED_DIR/.htaccess", 3, FP_UPDATES_LOG);
+			
+		ConfirmSetup();
 	
+		
+		
 		// --------------------------
 		// Update the version in the sysconfig.inc file
 		$fn = "$BASEDIR/_config/sysconfig.inc";
@@ -121,12 +83,7 @@ if ($version > $currentVersion) {
 		$f = preg_replace($s,$r,$f);
 		rename ($fn, $fn."-".date("Y-m-d,H-m-s").".bak");
 		file_put_contents($fn, $f);
-	
-	
-		//----------------- WRITE LOG -----------------
-		fp_error_log("AUTO-UPDATER: $updaterdescription", 3, FP_UPDATES_LOG);
 		
-	}
 	
 } else {
 	//----------------- WRITE LOG -----------------

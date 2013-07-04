@@ -26,15 +26,26 @@ echo Update gallery websites with rsync
 echo =========================================
 
 
-#_rsync girlswho girlswholike.us public_html/
-#_rsync dgphoto davidgrossphoto.com public_html/
-# _rsync mimetic mimetic.com public_html/
-# _rsync justmiel justmiel.com public_html/
+_rsync girlswho girlswholike.us public_html/
+# _rsync mimetic mimetic.com public_html/gallery/
 # _rsync alpsime alpsime.com public_html/
+# _rsync atelius atelius.com public_html/
+# _rsync caroline carolineabitbol.com public_html/
+# _rsync dgphoto davidgrossphoto.com public_html/
+#_rsync fireseas fireseason2009.com public_html/
+# _rsync frontlin frontline-photos.com public_html/
+# _rsync milosbic milosbicanski.com public_html/
+# _rsync justmiel justmiel.com public_html/
+# _rsync karenrob karenrobinson.mimetic.com public_html/
+# _rsync georgege georgegeorgiou.net public_html/
+# _rsync vanessaw vanessawinship.com public_html/
+# _rsync lisakess lisakessler.net public_html/
+# _rsync massimos massimosciacca.mimetic.com public_html/
+# _rsync seekthef seekthefoufou.com public_html/
+# _rsync artpress artpressgallery.com public_html/
 # _rsync danapopa danapopa.com public_html/
 # _rsync deanchap deanchapmanphotos.com public_html/
-# _rsync artpress artpressgallery.com public_html/
-# _rsync lisakess lisakessler.net public_html/
+
 
 echo =========================================
 echo END

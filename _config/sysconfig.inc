@@ -7,7 +7,7 @@
 // Localizing visual/functional settings are in config.inc
 //
 // The version must be of the form, yyyy.mm.dd-x, where x starts at 01
-// Auto-Update Version 2012.10.24-01
+// Auto-Update Version 2013.07.04-05
 //
 // System Version 2012.10.24-01
 
@@ -26,9 +26,11 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE );
 
 // Autoload classes
 function __autoload($class_name) {
-	file_exists("includes/" . $class_name . '.inc')
-	? require_once ("includes/" . $class_name . '.inc')
-	: require_once ("includes/" . $class_name . '.php');
+	$d = dirname(dirname(__FILE__)."../") . "/includes/";
+	//echo ("Looking for ".$d . $class_name . '.inc');
+	file_exists($d . $class_name . '.inc')
+	? require_once ($d . $class_name . '.inc')
+	: require_once ($d . $class_name . '.php');
 }
 
 // ================================

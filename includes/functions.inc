@@ -4570,41 +4570,56 @@ function ConfirmSetup ( $TableDefinitions = "Tables") {
 	// create same inside $PROCESSED directory
 	$old_umask = umask(0);
 	$indexfile = "$BASEDIR/$setupdir/files/index.html";
-	$htaccessfile = file_get_contents("$BASEDIR/$setupdir/files/htaccess-photos.txt");
-
-	// copy htaccess to originals photos directory
-	if (!file_exists("$BASEDIR/$ORIGINALS/.htaccess")) {
-		copy ("$BASEDIR/$setupdir/files/htaccess-photos-originals.txt", "$BASEDIR/$ORIGINALS/.htaccess")
-				? $msg .= "Copied htaccess protection to photos main directory<br>"
-				: $msg .= "*** Failed to copy $BASEDIR/$setupdir/files/htaccess-photos-originals.txt --> $BASEDIR/$ORIGINALS/.htaccess<br>";
-	}
 
 	file_exists("$BASEDIR/$PHOTOSDIR") || mkdir ("$BASEDIR/$PHOTOSDIR", 0755);
-	file_exists("$BASEDIR/$PHOTOSDIR/index.html") || copy ($indexfile, "$BASEDIR/$PHOTOSDIR/index.html");
+	//file_exists("$BASEDIR/$PHOTOSDIR/index.html") || copy ($indexfile, "$BASEDIR/$PHOTOSDIR/index.html");
+
+	// copy htaccess to originals photos directory
+	if (!file_exists("$BASEDIR/.htaccess")) {
+		if (copy ("$BASEDIR/$setupdir/files/htaccess-photos-originals.txt", "$BASEDIR/.htaccess")) {
+			$msg .= "Copied htaccess protection to photos main directory<br>";
+			chmod("$BASEDIR/.htaccess", 0644);
+		} else {
+			$msg .= "*** Failed to copy $BASEDIR/$setupdir/files/htaccess-photos-originals.txt --> $BASEDIR/.htaccess<br>";
+		}
+	}
 
 	file_exists("$BASEDIR/$PROCESSEDDIR") || mkdir ("$BASEDIR/$PROCESSEDDIR", 0755);
-	file_exists("$BASEDIR/$PROCESSEDDIR/index.html") || copy ($indexfile, "$BASEDIR/$PROCESSEDDIR/index.html");
+	//file_exists("$BASEDIR/$PROCESSEDDIR/index.html") || copy ($indexfile, "$BASEDIR/$PROCESSEDDIR/index.html");
 
 	foreach ($PICTURE_DIRECTORIES as $dir) {
 		$dir= rtrim ($dir, "/");
 		file_exists("$BASEDIR/$dir") || mkdir ("$BASEDIR/$dir", 0755);
-		file_exists("$BASEDIR/$dir/index.html") || copy ($indexfile, "$BASEDIR/$dir/index.html");
+		//file_exists("$BASEDIR/$dir/index.html") || copy ($indexfile, "$BASEDIR/$dir/index.html");
 	}
 	// _user directory
 	file_exists("$BASEDIR/$FP_DIR_USER") || mkdir ("$BASEDIR/$FP_DIR_USER", 0755);
 
 	// copy htaccess to mailed (input from user) photos directory
+	if (!file_exists("$BASEDIR/$FP_DIR_USER/.htaccess")) {
+		if (copy ("$BASEDIR/$setupdir/files/htaccess-users.txt", "$BASEDIR/$FP_DIR_USER/.htaccess")) {
+			$msg .= "Copied htaccess protection to _user directory<br>";
+			chmod("$BASEDIR/$FP_DIR_USER/.htaccess", 0644);
+		} else {
+			$msg .= "*** Failed to copy $BASEDIR/$setupdir/files/htaccess-users.txt --> $BASEDIR/$FP_DIR_USER/.htaccess<br>";
+		}
+	}
+
+	// copy htaccess to mailed (input from user) photos directory
 	if (!file_exists("$BASEDIR/$MAILED_DIR/.htaccess")) {
-		copy ("$BASEDIR/$setupdir/files/htaccess-photos-originals.txt", "$BASEDIR/$MAILED_DIR/.htaccess")
-				? $msg .= "Copied htaccess protection to photos upload directory<br>"
-				: $msg .= "*** Failed to copy $BASEDIR/$setupdir/files/htaccess-photos-originals.txt --> $BASEDIR/$MAILED_DIR/.htaccess<br>";
+		if (copy ("$BASEDIR/$setupdir/files/htaccess-photos-originals.txt", "$BASEDIR/$MAILED_DIR/.htaccess")) {
+			$msg .= "Copied htaccess protection to photos upload directory<br>";
+			chmod("$BASEDIR/$MAILED_DIR/.htaccess", 0644);
+		} else {
+			$msg .= "*** Failed to copy $BASEDIR/$setupdir/files/htaccess-photos-originals.txt --> $BASEDIR/$MAILED_DIR/.htaccess<br>";
+		}
 	}
 
 	// _user/_audio, user slideshow audio
 	file_exists("$BASEDIR/$FP_DIR_USER/$AUDIODIR") || mkdir ("$BASEDIR/$FP_DIR_USER/$AUDIODIR", 0755);
-	file_exists("$BASEDIR/$FP_DIR_USER/$AUDIODIR/index.html") || copy ($indexfile, "$BASEDIR/$FP_DIR_USER/$AUDIODIR/index.html");
+	//file_exists("$BASEDIR/$FP_DIR_USER/$AUDIODIR/index.html") || copy ($indexfile, "$BASEDIR/$FP_DIR_USER/$AUDIODIR/index.html");
 	file_exists("$BASEDIR/$FP_DIR_USER/$SLIDESHOW_AUDIO") || mkdir ("$BASEDIR/$FP_DIR_USER/$SLIDESHOW_AUDIO", 0755);
-	file_exists("$BASEDIR/$FP_DIR_USER/$SLIDESHOW_AUDIO/index.html") || copy ($indexfile, "$BASEDIR/$FP_DIR_USER/$SLIDESHOW_AUDIO/index.html");
+	//file_exists("$BASEDIR/$FP_DIR_USER/$SLIDESHOW_AUDIO/index.html") || copy ($indexfile, "$BASEDIR/$FP_DIR_USER/$SLIDESHOW_AUDIO/index.html");
 
 	// _user/video
 	//file_exists("$BASEDIR/$FP_DIR_USER/".FP_DIR_VIDEO) || mkdir ("$BASEDIR/$FP_DIR_USER/".FP_DIR_VIDEO, 0755);
@@ -4612,7 +4627,7 @@ function ConfirmSetup ( $TableDefinitions = "Tables") {
 
 	// _user/files
 	file_exists("$BASEDIR/$FP_DIR_USER/".FP_SUBDIR_USER_FILES) || mkdir ("$BASEDIR/$FP_DIR_USER/".FP_SUBDIR_USER_FILES, 0755);
-	file_exists("$BASEDIR/$FP_DIR_USER/".FP_SUBDIR_USER_FILES."/index.html") || copy ($indexfile, "$BASEDIR/$FP_DIR_USER/".FP_SUBDIR_USER_FILES."/index.html");
+	//file_exists("$BASEDIR/$FP_DIR_USER/".FP_SUBDIR_USER_FILES."/index.html") || copy ($indexfile, "$BASEDIR/$FP_DIR_USER/".FP_SUBDIR_USER_FILES."/index.html");
 
 	// Logs
 	file_exists(FP_DIR_LOG) || mkdir (FP_DIR_LOG, 0755);

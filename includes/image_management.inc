@@ -429,7 +429,10 @@ function FindOneImageAssignment ($filename) {
 	global $msg, $error;
 	
 	$DEBUG = 0;
-	$VERBOSE = 0;
+	$VERBOSE = 1;
+
+fp_error_log("\n--------------------------------", 3, FP_PICTURES_LOG);
+
 	
 	// If there's an info file with the picture, get the data from it. It might have the user ID.
 	$infofile = str_ireplace(".jpg", ".txt", $filename);
@@ -439,9 +442,11 @@ function FindOneImageAssignment ($filename) {
 
 	// If the picture was uploaded, then the session variables will be set and we
 	// can get the artist ID from that, in case the user didn't caption properly!
-	isset ($_SESSION['fp_user']) ? $fp_user = $_SESSION['fp_user'] : $fp_user = NULL;
-	$fp_user == FP_ADMINISTRATOR && $fp_user = null;
 	
+	$fp_user = null;
+	//isset ($_SESSION['fp_user']) ? $fp_user = $_SESSION['fp_user'] : $fp_user = NULL;
+	$fp_user == FP_ADMINISTRATOR && $fp_user = null;
+
 	// In a single-user system, artist ID is the main user. 
 	if (FP_INSTALLATION_TYPE == FP_INSTALLATION_PRIVATE && ($FP_GALLERY_TYPE == FP_MULTI_GALLERY_SINGLE_USER || $FP_GALLERY_TYPE == FP_SINGLE_GALLERY_SINGLE_USER)) {
 		$fp_user = GetMainUserID();
@@ -465,6 +470,12 @@ function FindOneImageAssignment ($filename) {
 
 	// If $fp_user set, then attach to the current user.
 	$fp_user && $artistID = $fp_user;
+
+// The above methods don't work,
+// So let the following methods do the work:
+// Check metadata, or use the owner of the gallery we're uploading to.
+$artistID = false;
+
 
 	// Otherwise, figure out the artist by checking the author/byline/credit/source for a known user name
 	if ($artistID) {
@@ -557,13 +568,18 @@ function FindOneImageAssignment ($filename) {
 	} else {
 		// We got the project and the artist, let's deal with the picture
 		if ($artistID && $projectID) {
-			$VERBOSE && fp_error_log(__FUNCTION__.__LINE__.": Found User={$user->ID}, Project ID=$projectID for $filename", 3, FP_PICTURES_LOG);
+			$VERBOSE && fp_error_log(__FUNCTION__.__LINE__.": Found User={$user->ID} ({$user->Lastname}), Project ID=$projectID for $filename", 3, FP_PICTURES_LOG);
 		} else {
 			fp_error_log(__FUNCTION__.__LINE__.":  *** Could not figure out artist/project info ({$user->ID} / $projectID) for $filename, so I rejected it.", 3, FP_PICTURES_LOG);
 			$DEBUG || unlinkb ($filename) || $error .= "Cannot delete $filename<BR>";
 			return false;
 		}
 	}
+
+	//fp_error_log(__FUNCTION__.": CONCLUSION: ArtistiD = $artistID, ", 3, FP_PICTURES_LOG);
+	fp_error_log("\n--------------------------------", 3, FP_PICTURES_LOG);
+
+
 	return array ($projectID, $artistID);
 }
 
@@ -884,7 +900,7 @@ function ProcessLocalImages ($overwrite = false, $allowed_reserved_names = false
 		if ($result) {
 			$result = AddProcessedImagesToDatabase ($artistID, $projectID, false);
 			$result
-				? fp_error_log(__FUNCTION__.__LINE__. ": Add $filename to system with projectID = '{$projectID}'", 3, FP_PICTURES_LOG)
+				? fp_error_log(__FUNCTION__.__LINE__. ": Add $filename to system with projectID = '{$projectID}' and artistID = '{$artistID}'", 3, FP_PICTURES_LOG)
 				: fp_error_log(__FUNCTION__.__LINE__. ": *** Failed to add $filename to system with projectID = '{$projectID}'", 3, FP_PICTURES_LOG);
 		}
 	}
@@ -2545,7 +2561,7 @@ function is_processing_image ($filename) {
 	global $PROCESSED_ORIGINALS;
 	global $msg, $error;
 	
-	$VERBOSE = true;
+	$VERBOSE = false;
 	$toolong = 3 * 60 * 60; // three minutes
 	
 	$filename = basename ($filename);
@@ -2555,8 +2571,12 @@ function is_processing_image ($filename) {
 	
 	// Recover from crashes which set lock
 	// If file is missing, remove lock. If more than 5 minutes have passed, removed lock.
-	if (isset($locks[$filename]) && ((time() - $locks['time'] < $toolong) or file_exists ("$BASEDIR/$PROCESSED_ORIGINALS/$filename")) ) {
-		fp_error_log(__FUNCTION__.": $filename does not exist, remove lock.", 3, FP_PICTURES_LOG);
+	if (isset($locks[$filename]) && ( (time() - $locks['time'] > $toolong) or (!file_exists ("$BASEDIR/$PROCESSED_ORIGINALS/$filename")) ) ) {
+		if (!file_exists ("$BASEDIR/$PROCESSED_ORIGINALS/$filename")) {
+			fp_error_log(__FUNCTION__.": $filename does not exist, remove lock.", 3, FP_PICTURES_LOG);
+		} else {
+			fp_error_log(__FUNCTION__.": $filename was locked too long.", 3, FP_PICTURES_LOG);
+		}
 		clear_lock_for_file ($filename);	
 	}
 

@@ -47,7 +47,7 @@ mysql_close($LINK);
 $FP_MYSQL_LINK->close();
 
 
-$mlockfile = "$TMPDIR/maintenance-lock-flag.txt";
+$mlockfile = dirname(__FILE__)."/$TMPDIR/maintenance-lock-flag.txt";
 if (file_exists ($mlockfile)) {
 	$mlock = trim(ReadTextFile ($mlockfile));
 } else {
