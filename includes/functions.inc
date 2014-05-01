@@ -318,6 +318,7 @@ function Display ($result = array() ) {
 	$line = mysql_fetch_array($result, MYSQL_ASSOC);
 	$keys = array_keys ($line);
 	print "\t<tr>\n";
+	reset ($line);
 	while (list ($k, $col_value) = each ($line)) {
 		print "\t\t<th><i>$k:</i></th>\n";
 	}
@@ -346,6 +347,7 @@ function makeUpdate($arr) {
 	global $ALLOWEDTAGS;
 
 	$pairs = array();
+	reset($arr);
 	while (list($key, $value) = each($arr)) {
 		if (($key != "ID") AND (array_key_exists ($key, $arr))) {
 			$pairs[] =	"$key = ". quote_smart($value);
@@ -363,6 +365,7 @@ function FixCheckBoxFields ($pairs) {
 	global $Themes;
 	global $msg, $error;
 	$DEBUG = 0;
+	reset ($pairs);
 	while (list($key, $value) = each ($pairs)) {
 		if (preg_match ('/_CHECKBOX/', $key)) {
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": $key : $value<BR>";
@@ -473,8 +476,8 @@ function UpdateRecord ( $table, $ID, $pairs ) {
 	$pairs = StripNonExistantFields ($table, $pairs);
 	$pairs = PackageParams ($pairs);
 	$pairs = SerializeArraysInPairs ($pairs);
-	reset($pairs);
 
+	reset($pairs);
 	while (list($k,$v) = each ($pairs)) 
 		{
 		/* Create a prepared statement */
@@ -930,6 +933,7 @@ function Substitutions ($arr, $subs, $fixquotes=false) {
 		$returnarr = true;
 	}
 	
+	reset ($arr);
 	while (list($key,$text) = each($arr)) {
 		if ($text && is_array($subs)) {
 			$TIMER && $starttime = microtime(true);
@@ -1211,6 +1215,7 @@ function FetchFormatSet ($FormatSetID) {
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": Got format file<BR>";
 
 	$lines = explode("\n", $text);
+	reset ($lines);
 	while (list($linenum, $rawline)	= each($lines)) {
 		$rawline = trim ($rawline);
 		if ($rawline) {
@@ -1591,6 +1596,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 		
 
 
+		reset ($lines);
 		while ( ($column < 500) && list($column, $line)	= each($lines) ) {
 
 			
@@ -1613,6 +1619,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 			/* ==== GET $FIELDS === */
 			/* Fetch values for this row */
 			$k=0;
+			reset ($line);
 			while (list($key, $var)	= each($line)) {
 				$keyname = "{$prefix}$key";
 				// If we detect htmlentities, then convert UTF-8 string fields to html entities
@@ -2575,6 +2582,7 @@ function FetchRandomImage ($where="", $format = 'sample_picture', $shape=null, $
 	
 	// We should now have an image to show.
 	if (! empty($arr)) {
+		reset ($arr);
 		while (list ($key, $value) = each ($arr)) {
 			$imageinfo['Images_'.$key] = $value;
 		}
@@ -4385,13 +4393,15 @@ function FetchDefaults ($arr) {
 // Remove fields with no value from the array
 // This isn't the same as a field with a value of ""!
 function StripBlankFields ($arr) {
-	global $Themes;
+	global $Themes, $error, $msg;
+
 	$vars = array();
 	if ($arr)
 	{
-		while (list ($k, $v) = each($arr)) {
+		reset($arr);
+		while (list ($k, $v) = each($arr)) {				
 			if (!empty($v)) {
-				$vars[$k] = $v;
+				$vars[$k] = $v;				
 			}
 		}
 	}
@@ -4498,14 +4508,17 @@ function FillInInfo ($text,$ImageID, $ArtistID, $projectID) {
 
 	$fields = array();
 	$project = FetchProject($projectID);
+	reset ($project);
 	while (list($key,$value) = each($project)) {
 		$fields["$" . "Projects$key"] = $value;
 	}
 	$artist = FetchArtist($ArtistID);
+	reset ($artist);
 	while (list($key,$value) = each($artist)) {
 		$fields["$" . "Artists$key"] = $value;
 	}
 	$image = FetchImage($ImageID);
+	reset ($image);
 	while (list($key,$value) = each($image)) {
 		$fields["$" . "Images$key"] = $value;
 	}
@@ -5389,6 +5402,7 @@ function WriteTextFile ($filename, $str) {
 /* Show an array */
 function PrintArray ($myarray) {
 	print "<table border=1>\n";
+	reset ($myarray);
 	while (list($k, $v) =  each ($myarray)) {
 		print "<tr><td>$k</td><td>$v</td><tr>\n";
 	}
@@ -5401,6 +5415,7 @@ function ArrayToTable ($myarray) {
 	if ($myarray && is_array ($myarray)) {
 		//$table = "<table border=\"1\" width=\"100%\" >\n";
 		$table = "<table style='border:1px solid gray;'>\n";
+		reset ($myarray);
 		while (list($k, $v) =  each ($myarray)) {
 			if (! $v)
 				$v = " ";
@@ -5421,6 +5436,7 @@ function ArrayToTable ($myarray) {
 // Make an HTML table from an array (make it horizontal, just VALUES)
 function ArrayToTableH ($myarray) {
 	$table = "<table border=1 width=100%><tr>\n";
+	reset ($myarray);
 	while (list($k, $v) =  each ($myarray)) {
 		if (! $v)
 			$v = " ";
@@ -5520,6 +5536,7 @@ function FetchRemoteLSData ($URL, $prefix = "") {
 
 	$format = FetchSnippet ("LSInfoLineItem");
 	$list = "<!-- LS values -->\n";
+	reset ($record);
 	while (list($key, $value) = each($record)) {
 		if ( $record[$key][1] ) {
 			// make a formatted block line for output
@@ -5939,6 +5956,7 @@ function FetchNavbarItems () {
 	global $FP_NAVBAR_ITEMS;
 
 	$items = array ();
+	reset ($FP_NAVBAR_ITEMS_CODE);
 	while (list($k, $v) = each ($FP_NAVBAR_ITEMS_CODE)) {
 		$items[$k] = FetchSnippet ($v);
 	}
@@ -6081,6 +6099,7 @@ function FetchNavbarTitles ($groupID = null) {
 	// $DEBUG && $msg .= __FUNCTION__.": THEME: $myTheme<BR>";
 
 	$FP_NAVBAR_ITEM_NAMES = array ();
+	reset ($FP_NAVBAR_ITEMS);
 	while (list($k, $v) = each ($FP_NAVBAR_ITEMS)) {
 		//$FP_NAVBAR_ITEM_NAMES[0][$k] = FetchSnippet ($v, $myTheme);
 		$FP_NAVBAR_ITEM_NAMES[0][$k] = FetchSnippet ($v);
@@ -6349,6 +6368,7 @@ function PackageParams ($vars) {
 		$params = array ();
 	}
 
+	reset ($vars);
 	while (list ($k, $v) = each ($vars)) {
 		if (substr($k,0,6) == "param_" && strlen($k) == 8) {
 			$pk = substr($k, 6,2);
@@ -7153,7 +7173,8 @@ function UniqueFilename ($dir, $filename) {
 function ArrayToJavascriptVars($arr, $prefix = "FPVARS_") {
 	$script = "<script type=\"text/javascript\" language=\"javascript\">\n";
 	$row = "";
-	while (list($k,$v) = each ($arr)) {
+	reset ($vars);
+	while (list($k,$v) = each ($vars)) {
 		$row .= "$k = $v;\n";
 	}
 	$script .= $row . "\n</script>\n";
@@ -7166,6 +7187,7 @@ function ArrayToJavascriptVars($arr, $prefix = "FPVARS_") {
 // If the index $i is set, then get the values only for that index
 function UnpackPriceSetRow($record, $i=null) {
 	if ($record) {
+		reset ($record);
 		while (list($k,$v) = each ($record)) {
 			if (strtolower(substr($k,0,2)) == "a_") {
 				$newK = substr($k,2,strlen($k)-2);
@@ -8130,6 +8152,7 @@ function CompactArraysToStrings ($vars) {
 	global $msg, $error;
 
 	// Convert arrays to strings
+	reset ($vars);
 	while (list($k,$v) = each ($vars)) {
 		if (is_array($v)) {
 			array_walk ($v, 'trimME');

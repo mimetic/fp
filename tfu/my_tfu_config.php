@@ -19,11 +19,17 @@ $folder = $_SESSION["TFU_DIR"];
 
 //tfu_debug("Upload folder is $folder");
 
+// I think this is too dangerous, now I've been hacked...
+// Let's limit to JPG, PDF, sound files
+/*
 if (isset($_SESSION["tfu_upload_extensions"]) && $_SESSION["tfu_upload_extensions"]) {
 	$allowed_file_extensions = $_SESSION["tfu_upload_extensions"];
 } else {
-	$allowed_file_extensions = 'jpg,jpeg';
+	$allowed_file_extensions = 'jpg,jpeg,mp3,pdf';
 }
+*/
+$allowed_file_extensions = 'jpg,jpeg,mp3,pdf,aac,m4a';
+
 $show_preview = false; // Show the small preview. Valid is 'true' and 'false' (Strings!) - the function is_gd_version_min_20 checks if the minimum requirements for resizing images are there!
 $show_big_preview = 'false'; // Show the big preview - clicking on the preview image shows a bigger preview
 $show_delete = 'true'; // Shows the delete button - if download is set to button this moves to the menu!

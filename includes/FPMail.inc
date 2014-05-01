@@ -127,9 +127,9 @@ class FPMail {
 	    // If we have a user, then get correct input directories for attachments
 	    // Non-JPG files go into the user's files directory
 	    if ($user->userID) {
-		$userfiles = GetUserDirectory ($user->userID) . FP_SUBDIR_USER_FILES;
-		$this->userID = $user->userID;
-		$this->info['userID'] = $this->userID;
+			$userfiles = GetUserDirectory ($user->userID) . FP_SUBDIR_USER_FILES;
+			$this->userID = $user->userID;
+			$this->info['userID'] = $this->userID;
 	    }
 
 	    // Write images and supporting data files for each

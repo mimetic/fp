@@ -7,7 +7,7 @@
 // Localizing visual/functional settings are in config.inc
 //
 // The version must be of the form, yyyy.mm.dd-x, where x starts at 01
-// Auto-Update Version 2013.07.04-05
+// Auto-Update Version 2013.07.04-07
 //
 // System Version 2012.10.24-01
 

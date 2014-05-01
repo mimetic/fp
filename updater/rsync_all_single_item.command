@@ -10,7 +10,7 @@ function _rsync ()
 	echo -------------------------------------
 	
 	echo ===== REAL UPDATE, NOT DRY RUN !!!!! ======
-	rsync -avzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt $4 /Users/dgross/Sites/fp/* $1@$2:$3
+	rsync -avzp --delete -e "ssh -p 50613 -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt $4 /Users/dgross/Sites/fp/* $1@$2:$3
 	
 	# DRY RUN
 	#echo ===== DRY RUN ON! ======
@@ -26,13 +26,11 @@ echo Update gallery websites with rsync
 echo =========================================
 
 
-_rsync girlswho girlswholike.us public_html/
+#_rsync girlswho girlswholike.us public_html/
 # _rsync mimetic mimetic.com public_html/gallery/
 # _rsync alpsime alpsime.com public_html/
-# _rsync atelius atelius.com public_html/
 # _rsync caroline carolineabitbol.com public_html/
-# _rsync dgphoto davidgrossphoto.com public_html/
-#_rsync fireseas fireseason2009.com public_html/
+#_rsync dgphoto davidgrossphoto.com public_html/
 # _rsync frontlin frontline-photos.com public_html/
 # _rsync milosbic milosbicanski.com public_html/
 # _rsync justmiel justmiel.com public_html/
@@ -41,10 +39,11 @@ _rsync girlswho girlswholike.us public_html/
 # _rsync vanessaw vanessawinship.com public_html/
 # _rsync lisakess lisakessler.net public_html/
 # _rsync massimos massimosciacca.mimetic.com public_html/
-# _rsync seekthef seekthefoufou.com public_html/
 # _rsync artpress artpressgallery.com public_html/
 # _rsync danapopa danapopa.com public_html/
 # _rsync deanchap deanchapmanphotos.com public_html/
+
+#_rsync atelius atelius.com public_html/
 
 
 echo =========================================

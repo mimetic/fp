@@ -11,18 +11,24 @@
 	dumped into the same 'input' folders. 
 */
 
+
+//------------------
+// get contents of a file into a string
+function myReadTextFile ($filename) {
+	if (file_exists($filename)) {
+		return file_get_contents ($filename);
+	} else {
+		return "file $filename not found";
+	}
+}
+
+
 $start = microtime (true);
 
 $error = "";
 $msg = "";
 
-include "_config/sysconfig.inc";
-include "_config/fpconfig.inc";
-include "_config/config.inc";
-include "includes/functions.inc";
-include "includes/project_management.inc";
-include "includes/image_management.inc";
-include "includes/commerce.inc";
+require_once "_config/sysconfig.inc";
 
 error_reporting  ( E_ERROR | E_WARNING | E_PARSE ); 
 
@@ -41,15 +47,12 @@ set_time_limit (FP_MAINTENANCE_TIMELIMIT);
 
 // Remove sales/orders that were not processed
 $DEBUG && print "Maintenance: DeleteUnusedOrders<BR>";
-$LINK = StartDatabase(MYSQLDB);
-DeleteUnusedOrders();
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+
 
 
 $mlockfile = dirname(__FILE__)."/$TMPDIR/maintenance-lock-flag.txt";
 if (file_exists ($mlockfile)) {
-	$mlock = trim(ReadTextFile ($mlockfile));
+	$mlock = trim(myReadTextFile ($mlockfile));
 } else {
 	$mlock = 0;
 	touch ($mlockfile);
@@ -59,6 +62,24 @@ $DEBUG && $mlock = 0;
 
 // If lock is off...
 if ($mlock == 0) {
+
+	// Move here to reduce load
+	require_once "_config/fpconfig.inc";
+	require_once "_config/config.inc";
+	require_once "includes/functions.inc";
+	require_once "includes/project_management.inc";
+	require_once "includes/image_management.inc";
+	require_once "includes/commerce.inc";
+
+
+	// COMMERCE DISABLED, NO ONE USES IT ANYWAY
+
+	//$LINK = StartDatabase(MYSQLDB);
+	//DeleteUnusedOrders();
+	//mysql_close($LINK);
+	//$FP_MYSQL_LINK->close();
+
+
 	$mlock = time();
 	$mlockformatted = date('j F, Y g:i:s a', $mlock);
 	$DEBUG && print "Start Maintenance at $mlockformatted<BR>\n";
@@ -90,9 +111,9 @@ if ($mlock == 0) {
 	$DEBUG && print __FILE__.":".__LINE__. ": locktime = $mlock ($mlockformatted), time passed=" . (time() - $mlock) . "<BR>";
 
 	if (time() - $mlock > FP_MAINTENANCE_RESET_TIME ) {
-		fp_error_log("Maintenance: I RESET THE MAINTENANCE--IS-BUSY FLAG...PROBABLY A CRASH?", 3, FP_MAINTENANCE_LOG);
-		WriteTextFile ($mlockfile, null);
-		$DEBUG && print __FILE__.":".__LINE__. ": I RESET THE MAINTENANCE--IS-BUSY FLAG...PROBABLY A CRASH?<BR>";
+// 		fp_error_log("Maintenance: I RESET THE MAINTENANCE--IS-BUSY FLAG...PROBABLY A CRASH?", 3, FP_MAINTENANCE_LOG);
+// 		WriteTextFile ($mlockfile, null);
+// 		$DEBUG && print __FILE__.":".__LINE__. ": I RESET THE MAINTENANCE--IS-BUSY FLAG...PROBABLY A CRASH?<BR>";
 	}
 }
 
