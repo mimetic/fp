@@ -20,4 +20,5 @@ $FP_WATERMARK_FONT_NAME = "Vera.ttf";
 //$slide_size		= array (1500, 800);	// works well for 1900x1200 and larger
 $slide_size		= array (1500, 1000);	// works well for 1900x1200 and larger
 
+
 ?>

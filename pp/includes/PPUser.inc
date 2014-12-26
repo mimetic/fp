@@ -137,7 +137,7 @@ class PPUser{
 			}
 		}
 		$this->remCookieDomain = $this->remCookieDomain == '' ? $_SERVER['HTTP_HOST'] : $this->remCookieDomain;
-		$this->dbConn = ($dbConn=='')? mysql_connect($this->dbHost.':'.$this->dbPort, $this->dbUser, $this->dbPass):$dbConn;
+		$this->dbConn = ($dbConn=='')? new mysqli($this->dbHost.':'.$this->dbPort, $this->dbUser, $this->dbPass):$dbConn;
 		if ( !$this->dbConn )
 			die(mysql_error($this->dbConn));
 		mysql_select_db($this->dbName, $this->dbConn) or die(mysql_error($this->dbConn));

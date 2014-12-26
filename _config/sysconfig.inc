@@ -186,7 +186,7 @@ define ("MAXPIXELS", 23000000);
 
 
 // Number of emailed pictures to process at once, so we don't overload the server
-$PIXTOPROCESS = 1;
+$PIXTOPROCESS = 3;
 define ("FP_PIXTOPROCESS", $PIXTOPROCESS);
 
 /*

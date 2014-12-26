@@ -26,7 +26,7 @@ echo Update gallery websites with rsync
 echo =========================================
 
 
-#_rsync girlswho girlswholike.us public_html/
+_rsync girlswho girlswholike.us public_html/
 # _rsync mimetic mimetic.com public_html/gallery/
 # _rsync alpsime alpsime.com public_html/
 # _rsync caroline carolineabitbol.com public_html/

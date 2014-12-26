@@ -193,7 +193,7 @@ print $page;
 function StartDatabase($host, $user, $password, $myDB) {
 	global $error;
 	
-	$LINK = mysql_connect($host, $user, $password);
+	$LINK = new mysqli($host, $user, $password);
 	if (!$LINK) {
 		$error .= "Could not connect to $host:$myDB as $user/$password.";
 		return;

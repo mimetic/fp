@@ -678,7 +678,7 @@ function DBStart($host, $db, $user, $password) {
 	$DEBUG = TRUE;
 
 	$DEBUG && $msg .= "Connect to $user@$db:$password on $host<BR>";
-	$LINK = mysql_connect($host, $user, $password)
+	$LINK = new mysqli($host, $user, $password)
 		or $error .= "Could not connect to the site ($host, $user, $password)...the server must be very busy.";
 
 	if ($DEBUG)

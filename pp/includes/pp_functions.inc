@@ -605,8 +605,8 @@ function StartDatabase($mysqlhost, $myDB, $myUser = MYSQLUSER, $myPassword = MYS
 	// Start up the database
 
 
-	$DEBUG && print "BEGIN StartDatabase<BR>mysql_connect(".MYSQLHOST.", $myUser, $myPassword)<br>";
-	if ( $LINK = mysql_connect($mysqlhost, $myUser, $myPassword) ) {
+	$DEBUG && print "BEGIN StartDatabase<BR>new mysqli(".MYSQLHOST.", $myUser, $myPassword)<br>";
+	if ( $LINK = new mysqli($mysqlhost, $myUser, $myPassword) ) {
 		// Select the DATABASE
 		if ( mysql_select_db($myDB) ) {
 			return $LINK;

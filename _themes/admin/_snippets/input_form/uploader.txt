@@ -17,8 +17,14 @@
 		
 		<div style="margin-top:10px;padding:10px;background:#FFFFCC;border:1px solid #888;text-align:center;margin-left:auto;margin-right:auto;">
 			<span class="helptext">When you're finished uploading pictures, click here to start creating thumbnails.</span><br>
+			<!--
 			<span class="helptext">The system only processes {FP_PIXTOPROCESS} picture(s) each minute or so, but it will continue to process pictures automatically.<br>
 			<b>Don't worry if you still see your pictures listed above...they system will get to them shortly.</b></span>
+			-->
+			<br>
+			<span class="helptext important"><B>*** You must click this button until all your pictures are processed! ***</B><br>
+			The system will process {FP_PIXTOPROCESS} picture(s) at a time.</span><br>
+			<br>
 			<FORM NAME="refresh" ACTION="admin.php" enctype="multipart/form-data" METHOD=POST style="margin:0px;">
 				<INPUT type="hidden" NAME=subset VALUE="Pictures">
 				<INPUT type="hidden" NAME=ID VALUE="{ID}">

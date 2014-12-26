@@ -11,9 +11,6 @@ Of course, now that GD 2.x is working, it would be cool to be able to use either
 
 */
 
-
-
-
 //-------------------------------
 // Printing, matting, framing calculations
 
@@ -679,6 +676,10 @@ function AddProcessedImagesToDatabase ($artistID = null, $projectID = null, $sen
 
 			$fileinfo['Title'] || $fileinfo['Title'] = $fileinfo['Headline'];
 			$fileinfo['Title'] || $fileinfo['Title'] = $fileinfo['ObjectName'];
+			if (!$fileinfo['Title'] && FP_IMAGES_DEFAULT_TITLE == "filename") {
+				$ext = findexts ($filename);
+				$fileinfo['Title'] = str_replace("." . $ext, "", $filename);
+			}
 			$fileinfo['Title'] || $fileinfo['Title'] = "Untitled";
 
 			$fileinfo['ObjectName'] || $fileinfo['ObjectName'] = $filename;
@@ -2052,7 +2053,7 @@ function FetchIPTCInfo ($filename) {
 	$info = array ();
 	$fileinfo = array();
 
-	$size = GetLocalImageSize ($filename, &$info); // get the iptc block into $info
+	$size = GetLocalImageSize ($filename, $info); // get the iptc block into $info
 
 	if (isset($info["APP13"])) {
 		$iptc = iptcparse($info["APP13"]);
@@ -2403,7 +2404,7 @@ function GetImageSizeByID ($ID) {
 // so we have more control over where "local" files are stored in the future.
 function GetLocalImageSize ($path, &$info=null) {
 	if (file_exists($path)) {
-		return GetImageSize ($path, &$info);
+		return GetImageSize ($path, $info);
 	} else {
 		return null;
 	}

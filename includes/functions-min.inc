@@ -65,7 +65,7 @@ function StartDatabase($myDB) {
 	// Start up the database
 
 	$DEBUG && print "BEGIN StartDatabase<BR>";
-	$LINK = mysql_connect(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD)
+	$LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD)
 			or die("Could not connect to the site...the server must be very busy.");
 
 	if ($DEBUG)

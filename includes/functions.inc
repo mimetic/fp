@@ -6295,11 +6295,15 @@ function do_post_request($url, $data, $optional_headers = null) {
 
 // get a file name extension
 function findexts ($filename) {
+	$ext = pathinfo($filename, PATHINFO_EXTENSION);
+	return $ext;
+	/*
 	$filename = strtolower($filename) ;
 	$exts = explode("[/\\.]", $filename) ;
 	$n = count($exts)-1;
 	$exts = $exts[$n];
 	return $exts;
+	*/
 } 
 
 

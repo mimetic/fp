@@ -39,7 +39,9 @@ isset ($_REQUEST['debug']) && $DEBUG = true;
 // Delay a random amount of time, if flag is set.
 // This should help reduce the loca when all users on a server call this script
 // at the same time, which happens with a cron tab.
-$DEBUG || (FP_RANDOM_DELAY_MAINTENANCE && sleep (rand(0,15)));
+
+// TURN OFF:
+//$DEBUG || (FP_RANDOM_DELAY_MAINTENANCE && sleep (rand(0,15)));
 
 
 
@@ -103,6 +105,9 @@ if ($mlock == 0) {
 	}
 } else {
 	// if lock is on...
+	// Need this for fp_error_log calls
+	require_once "includes/functions-min.inc";
+
 	$mlockformatted = date('j F, Y g:i:s a', $mlock);
 	$mlock && fp_error_log("Maintenance CRON cancelled: Maintenance CRON is already running (started at $mlockformatted)", 3, FP_MAINTENANCE_LOG);
 	$DEBUG && print __FILE__.":".__LINE__. ": Maintenance is already running.<BR>\n";

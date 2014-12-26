@@ -637,6 +637,14 @@ $FP_COMMERCE_EMAIL_OBFUSCATED = "<span class=\"obfuscated\">".str_replace ("@", 
 // Really, the admin should be able to override this!
 $FP_COMMENTS_URL = "http://mimetic.ning.com";
 
+
+// Picture Processing: use filename for title if missing?
+// If "filename", use the filename.
+// Else, use "Untitled"
+$FP_IMAGES_DEFAULT_TITLE = "Untitled";
+
+
+
 // ================================================
 // ================================================
 // NO USER CHANGEABLE SETTINGS BELOW
@@ -767,5 +775,6 @@ define ('FP_RANDOM_SHAPE_TOLERANCE', $FP_RANDOM_SHAPE_TOLERANCE);
 define ("FP_COMMERCE_EMAIL_OBFUSCATED", $FP_COMMERCE_EMAIL_OBFUSCATED);
 define ('FP_PROJECT_UPDATED_INTERVAL', $FP_PROJECT_UPDATED_INTERVAL);
 define ('FP_SHIPPING_TUBE_EXTRA', $FP_SHIPPING_TUBE_EXTRA);
+define ('FP_IMAGES_DEFAULT_TITLE', $FP_IMAGES_DEFAULT_TITLE);
 
 ?>
