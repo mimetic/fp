@@ -133,16 +133,16 @@ if ($syspassEntered == $syspass) {
 				
 				if (!$LINK) {
 					$error .= "<div style='border:1px solid red;padding:10px;'>";
-					$error .= mysql_error($LINK) . "<br>Query:<br>$queryline";
+					$error .= mysqli_error($LINK) . "<br>Query:<br>$queryline";
 					$error .= "</div>";
 				} else {
-					// split query into lines (mysql_query does only one line)
+					// split query into lines (mysqli_query does only one line)
 					$queries = explode("\r", $query);
 					foreach ($queries as $queryline) {
 						$queryline = trim ($queryline);
 						// run the query
-						!$testing && $result = mysql_query($queryline);
-						!$testing ? $e = mysql_error($LINK) : $e = false;
+						!$testing && $result = mysqli_query ($queryline);
+						!$testing ? $e = mysqli_error($LINK) : $e = false;
 						if ($e) {
 							$error .= "Error updating <b>$myDB</b>: <i>" . $e . "</i><br>Query: <i>$queryline</i><br>";
 						} else {
@@ -152,7 +152,7 @@ if ($syspassEntered == $syspass) {
 					}
 				}
 				// Disconnect from database
-				mysql_close($LINK);
+				mysqli_close($LINK);
 				$FP_MYSQL_LINK->close();
 				$msg .= "<br>";
 				$comment .= "# Modify database: $myDB\n";
@@ -203,7 +203,7 @@ function StartDatabase($host, $user, $password, $myDB) {
 		print "Connected successfully<BR>";
 	
 	// Select the DATABASE
-	if (!mysql_select_db("$myDB")) {
+	if (!mysqli_select_db($LINK, "$myDB")) {
 		$error .= "Could not select database $myDB";
 	}
 	

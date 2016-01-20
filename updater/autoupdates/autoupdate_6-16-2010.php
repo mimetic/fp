@@ -43,8 +43,8 @@ if (!strpos ($f, "FP_ADMIN_CHANGE_COMMISSION")) {
 /*
  * END UPDATER CODE
  */
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 /*
  * RENAMER:

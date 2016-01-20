@@ -96,8 +96,8 @@ if ($version > $currentVersion) {
  */
  
  
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 /*
  * RENAMER:

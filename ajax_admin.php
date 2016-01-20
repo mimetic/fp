@@ -59,7 +59,7 @@ switch ($cmd) {
 		$vars['neworder'] = $order;
 		$projectID = $data['id'];
 		if ($projectID) {
-			$project = new FPProject ($projectID);
+			$project = new FPProject ($LINK, $projectID);
 			$project->SetProjectImages ($order);
 			$res = true;
 		} else {
@@ -102,7 +102,7 @@ switch ($cmd) {
 	case "update_project_picture_settings" :
 		$ID = $data['id'];
 		$values = $data['values'];
-		$project = new FPProject($ID);
+		$project = new FPProject ($LINK, $ID);
 		$res = $project->SaveProjectPictureSettings ($values);
 		ClearAllCache ();
 
@@ -113,8 +113,8 @@ switch ($cmd) {
 		
 }
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 
 ?>

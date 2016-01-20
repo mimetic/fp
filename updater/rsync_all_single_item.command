@@ -7,14 +7,16 @@ function _rsync ()
 {
 	echo -------------------------------------
 	echo Update $2
+	echo using port 50613
 	echo -------------------------------------
 	
-	echo ===== REAL UPDATE, NOT DRY RUN !!!!! ======
-	rsync -avzp --delete -e "ssh -p 50613 -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt $4 /Users/dgross/Sites/fp/* $1@$2:$3
+ 	echo ===== REAL UPDATE, NOT DRY RUN !!!!! ======
+ 	rsync -avzp --delete -e "ssh -p 50613 -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Volumes/Macintosh\ HD/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Volumes/Macintosh\ HD/Users/dgross/Sites/fp/updater/exclude.txt $4 /Volumes/Macintosh\ HD/Users/dgross/Sites/fp/* $1@$2:$3
 	
 	# DRY RUN
-	#echo ===== DRY RUN ON! ======
-	#rsync -navzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt $4 /Users/dgross/Sites/fp/* $1@$2:$3
+#	echo ===== DRY RUN ON! ======
+#	echo ===== Using port 50613 =====
+#	rsync -navzp --delete -e "ssh -i /Users/dgross/.ssh/mirror-rsync-key -p 50613" --include-from=/Users/dgross/Sites/fp/updater/include.txt --exclude-from=/Users/dgross/Sites/fp/updater/exclude.txt $4 /Users/dgross/Sites/fp/* $1@$2:$3
 
 	echo -------------------------------------
 	echo
@@ -26,11 +28,12 @@ echo Update gallery websites with rsync
 echo =========================================
 
 
-_rsync girlswho girlswholike.us public_html/
+# _rsync girlswho girlswholike.us public_html/
+# _rsync matthieuchazal matthieuchazal.com public_html/
 # _rsync mimetic mimetic.com public_html/gallery/
 # _rsync alpsime alpsime.com public_html/
 # _rsync caroline carolineabitbol.com public_html/
-#_rsync dgphoto davidgrossphoto.com public_html/
+# _rsync dgphoto davidgrossphoto.com public_html/
 # _rsync frontlin frontline-photos.com public_html/
 # _rsync milosbic milosbicanski.com public_html/
 # _rsync justmiel justmiel.com public_html/

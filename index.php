@@ -17,10 +17,10 @@ $LINK = StartDatabase(MYSQLDB);
 $fp_user = CleanUserInput($_REQUEST['fp_user']);
 
 Setup ();
-list ($UserType) = mysql_fetch_array (mysql_query ( "select UserLevel from ".DB_ARTISTS." where ID=".FP_ADMINISTRATOR ), MYSQL_NUM);
+list ($UserType) = mysqli_fetch_array (mysqli_query ($LINK, "select UserLevel from ".DB_ARTISTS." where ID=".FP_ADMINISTRATOR ), MYSQLI_NUM);
 $UserType && $FP_GALLERY_TYPE == $UserType;
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 switch ($UserType) {
 	// 1=single user

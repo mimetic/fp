@@ -37,7 +37,7 @@ ADD COLUMN `a_FrameToPrintShipWeight` TEXT,
 ADD COLUMN `a_FrameMatteShipWeight` TEXT,
 ADD COLUMN `a_Amount` TEXT;";
 
-$result = mysql_query($query);
+$result = mysqli_query ($query);
 
 $query = "ALTER TABLE `Suppliers` 
 ADD COLUMN `PrintMinPrice` FLOAT,
@@ -63,16 +63,16 @@ ADD COLUMN `FrameDepth` FLOAT,
 ADD COLUMN `FrameWeight` FLOAT,
 ADD COLUMN `SalesTaxRate` FLOAT;";
 
-$result = mysql_query($query);
+$result = mysqli_query ($query);
 
 $query = "ALTER TABLE  `Sales` ADD  `tax` FLOAT NOT NULL AFTER `shipping_method`;";
 			
-$result = mysql_query($query);
+$result = mysqli_query ($query);
 
 $query = "ALTER TABLE `Artists` ADD COLUMN `Commission2` int(2) DEFAULT 0 AFTER `Commission`,
 ADD COLUMN `PayPalBusiness2` varchar(64) AFTER `PayPalBusiness`;";
 
-$result = mysql_query($query);
+$result = mysqli_query ($query);
 
 $query = "ALTER TABLE `PriceSets`
 DROP COLUMN `priceframed1`,
@@ -148,7 +148,7 @@ DROP COLUMN `mattecost4`,
 DROP COLUMN `mattecost5`,
 DROP COLUMN `mattecost6`;";
 
-$result = mysql_query($query);
+$result = mysqli_query ($query);
 
 
 
@@ -159,7 +159,7 @@ fp_error_log("AUTOUPDATER: $updaterdescription", 3, FP_MAINTENANCE_LOG);
 /*
  * END UPDATER CODE
  */
-mysql_close($LINK);
+mysqli_close($LINK);
 
 /*
  * RENAMER:

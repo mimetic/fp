@@ -16,7 +16,7 @@ $first ? $second : $third
 */
 
 
-//error_reporting	(E_ERROR | E_WARNING | E_PARSE );
+error_reporting	(E_ERROR | E_WARNING | E_PARSE );
 
 //------------------
 
@@ -58,30 +58,33 @@ function Setup () {
 //------------------
 function StartDatabase($myDB) {
 	global $DEPENDENCIES_FILE, $DEPENDENCIES;
-	global $FP_MYSQL_LINK;
-	global $MESSAGE;
+	global $LINK, $FP_MYSQL_LINK;
+	global $msg, $error;
 
 	$DEBUG = FALSE;
 	// Start up the database
 
 	$DEBUG && print "BEGIN StartDatabase<BR>";
-	$LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD)
-			or die("Could not connect to the site...the server must be very busy.");
+	$LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+//			or die("Could not connect to the site...the server must be very busy.");
 
-	if ($DEBUG)
-		print "Connected successfully<BR>";
+	if (mysqli_connect_error()) {
+		 die('Connect Error (' . mysqli_connect_errno() . ') '
+					. mysqli_connect_error());
+	}
 
 	// Select the DATABASE
-	mysql_select_db($myDB)
-			or die("Could not select database $myDB");
+ 	mysql_select_db($myDB)
+ 			or die("Could not select database $myDB");
 
 	$DEPENDENCIES = GetDependencies($DEPENDENCIES_FILE);
 	$DEBUG && print "END StartDatabase<BR>";
 
 	
 	// ** Make a new object, too!
-	$FP_MYSQL_LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
-
+	//$FP_MYSQL_LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+	
+	
 	if (mysqli_connect_error()) 
 		{
 		die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
@@ -273,8 +276,8 @@ function DeleteUnusedSnippets ($text) {
 
 // For some reason, the built-in mysql_list_fields is deprecated.
 function MysqlListFields ($table) {
-	$res = mysql_query("SHOW COLUMNS FROM `$table`");
-	while ($row = mysql_fetch_array($res))
+	$res = mysqli_query ("SHOW COLUMNS FROM `$table`");
+	while ($row = mysqli_fetch_array($res))
 		$col_names[]=$row[0];
 	return $col_names;
 }

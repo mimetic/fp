@@ -184,8 +184,8 @@ if ( $response == "VERIFIED" ) {
 
 $error && WriteLog (__LINE__ . "\nResponse: $response\nIP= {$_SERVER['REMOTE_ADDR']}\nError: $error\nIPN variables = \"" . $IPNsend . "\"");
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 //----- END ----
 // ====================

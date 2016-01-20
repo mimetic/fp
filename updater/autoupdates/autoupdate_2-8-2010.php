@@ -39,7 +39,7 @@ $updaterdescription = "Update 1/31/2010: Add PrintNumber to Sales";
 //-----------------
 
 
-mysql_query("ALTER TABLE `Sales` ADD COLUMN `PrintNumber` INT;");
+mysqli_query ("ALTER TABLE `Sales` ADD COLUMN `PrintNumber` INT;");
 
 
  
@@ -49,8 +49,8 @@ fp_error_log("AUTOUPDATER: $updaterdescription", 3, FP_MAINTENANCE_LOG);
 /*
  * END UPDATER CODE
  */
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 /*
  * RENAMER:

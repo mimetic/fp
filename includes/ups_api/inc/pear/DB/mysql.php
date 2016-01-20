@@ -274,7 +274,7 @@ class DB_mysql extends DB_common
      */
     function disconnect()
     {
-        $ret = @mysql_close($this->connection);
+        $ret = @mysqli_close($this->connection);
         $this->connection = null;
         return $ret;
     }
@@ -285,7 +285,7 @@ class DB_mysql extends DB_common
     /**
      * Sends a query to the database server
      *
-     * Generally uses mysql_query().  If you want to use
+     * Generally uses mysqli_query ().  If you want to use
      * mysql_unbuffered_query() set the "result_buffering" option to 0 using
      * setOptions().  This option was added in Release 1.7.0.
      *
@@ -307,8 +307,8 @@ class DB_mysql extends DB_common
         }
         if (!$this->autocommit && $ismanip) {
             if ($this->transaction_opcount == 0) {
-                $result = @mysql_query('SET AUTOCOMMIT=0', $this->connection);
-                $result = @mysql_query('BEGIN', $this->connection);
+                $result = @mysqli_query ('SET AUTOCOMMIT=0', $this->connection);
+                $result = @mysqli_query ('BEGIN', $this->connection);
                 if (!$result) {
                     return $this->mysqlRaiseError();
                 }
@@ -318,7 +318,7 @@ class DB_mysql extends DB_common
         if (!$this->options['result_buffering']) {
             $result = @mysql_unbuffered_query($query, $this->connection);
         } else {
-            $result = @mysql_query($query, $this->connection);
+            $result = @mysqli_query ($query, $this->connection);
         }
         if (!$result) {
             return $this->mysqlRaiseError();
@@ -377,7 +377,7 @@ class DB_mysql extends DB_common
             }
         }
         if ($fetchmode & DB_FETCHMODE_ASSOC) {
-            $arr = @mysql_fetch_array($result, MYSQL_ASSOC);
+            $arr = @mysqli_fetch_array($result, MYSQLI_ASSOC);
             if ($this->options['portability'] & DB_PORTABILITY_LOWERCASE && $arr) {
                 $arr = array_change_key_case($arr, CASE_LOWER);
             }
@@ -507,8 +507,8 @@ class DB_mysql extends DB_common
                     return $this->mysqlRaiseError(DB_ERROR_NODBSELECTED);
                 }
             }
-            $result = @mysql_query('COMMIT', $this->connection);
-            $result = @mysql_query('SET AUTOCOMMIT=1', $this->connection);
+            $result = @mysqli_query ('COMMIT', $this->connection);
+            $result = @mysqli_query ('SET AUTOCOMMIT=1', $this->connection);
             $this->transaction_opcount = 0;
             if (!$result) {
                 return $this->mysqlRaiseError();
@@ -533,8 +533,8 @@ class DB_mysql extends DB_common
                     return $this->mysqlRaiseError(DB_ERROR_NODBSELECTED);
                 }
             }
-            $result = @mysql_query('ROLLBACK', $this->connection);
-            $result = @mysql_query('SET AUTOCOMMIT=1', $this->connection);
+            $result = @mysqli_query ('ROLLBACK', $this->connection);
+            $result = @mysqli_query ('SET AUTOCOMMIT=1', $this->connection);
             $this->transaction_opcount = 0;
             if (!$result) {
                 return $this->mysqlRaiseError();

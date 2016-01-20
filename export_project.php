@@ -37,7 +37,7 @@ $LINK = StartDatabase(MYSQLDB);
 
 $projectID = $_REQUEST['projectid'];
 
-$project = new FPProject($projectID);
+$project = new FPProject ($LINK, $projectID);
 if (!$project->ID) {
 	$error = "Project {$projectID} does not exist.";
 }
@@ -47,7 +47,7 @@ if (!$error) {
 }
 
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 ?>

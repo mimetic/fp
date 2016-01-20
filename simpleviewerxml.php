@@ -120,11 +120,11 @@ switch ($action) {
 		$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
 		
 		$DEBUG && print "Query: $query<HR>";
-		$result = mysql_query ($query);
+		$result = mysqli_query ($LINK, $query);
 
 		if ($result) {
 			$XML = new SlideshowXML($params);
-			while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				$XML->addProjects ( $project['ID'] );
 			}
 			$XML->serialize();
@@ -164,7 +164,7 @@ switch ($action) {
 			$query = "SELECT DISTINCT $PARTS.PartID AS ImageID FROM $PARTS, $PROJECTS WHERE $where ORDER BY RAND()";			
 			$DEBUG && print "Artist $shortname<BR>$query<HR>";
 
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 
 			if ($result) {	
 				$artistname = $artist['Firstname'] . " " . $artist['Lastname'];
@@ -173,7 +173,7 @@ switch ($action) {
 				$XML = new SlideshowXML($params);
 				$albumID = "My Album";
 				$XML->addAlbum ($albumID, $params, $project, $images);
-				while ($parts = mysql_fetch_array($result, MYSQL_ASSOC)) {
+				while ($parts = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$imageID = $parts['ImageID'];
 					$DEBUG && print "-> $imageID<BR>";
 					$image = FetchImage($imageID);
@@ -192,14 +192,14 @@ switch ($action) {
 		$table = $PROJECTS;
 		$order = "Title";
 		$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
-		$result = mysql_query ($query);
+		$result = mysqli_query ($LINK, $query);
 
 		$albumInfo['title'] = "Frontline Photos";
 		$albumInfo['link'] = "http://www.frontline-photos.com/";
 		$albumInfo['description'] = "Featured Projects";
 		$XML = new SlideshowXML($params);	
 		if ($result) {
-			while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				$projectIDList[] = $project['ID'];
 				$XML->addProjects ( $project['ID'] );
 			}
@@ -456,8 +456,8 @@ class SlideshowXML {
 				$images = array ();
 				// get all images in this project
 				$query = "select * from $PARTS where ProjectID = '$projectID' and PartTable = '$IMAGES' ORDER BY $PARTS.OrderInProject";
-				$result = mysql_query($query);
-				while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) {
+				$result = mysqli_query ($LINK, $query);
+				while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$image = FetchImage ($part['PartID']);
 					$images[] = buildImage ($image);
 				}

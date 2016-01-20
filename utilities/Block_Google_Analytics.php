@@ -19,6 +19,6 @@ $page = "<body onLoad=\"javascript pageTracker._setVar('test_value');\">Block Go
 $page = ReplaceSysVars ($output);
 print $page;
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 ?>

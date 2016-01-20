@@ -78,7 +78,7 @@ if ($mlock == 0) {
 
 	//$LINK = StartDatabase(MYSQLDB);
 	//DeleteUnusedOrders();
-	//mysql_close($LINK);
+	//mysqli_close($LINK);
 	//$FP_MYSQL_LINK->close();
 
 
@@ -99,7 +99,7 @@ if ($mlock == 0) {
 			fp_error_log("Pictures found, ran ProcessLocalImages(), execution time is $time", 3, FP_MAINTENANCE_LOG);
 			$DEBUG && print __FILE__.":".__LINE__. ": Processed pictures using ProcessLocalImages.<BR>\n";
 		}
-		mysql_close($LINK);
+		mysqli_close($LINK);
 		$FP_MYSQL_LINK->close();
 		WriteTextFile ($mlockfile, null);
 	}

@@ -50,14 +50,14 @@ if($_GET['id']) {
 	$page = Substitutions ($page, $vars);
 	$page = ReplaceSysVars ($page);
 	print $page;
-	mysql_close($LINK);
-	$FP_MYSQL_LINK->close();
+	mysqli_close($LINK);
+	//$FP_MYSQL_LINK->close();
 	exit;
 	
 } else {
 	header("Location: order.php"); 
-	mysql_close($LINK);
-	$FP_MYSQL_LINK->close();
+	mysqli_close($LINK);
+	//$FP_MYSQL_LINK->close();
  	exit; 
 }
 $page = HandleResults ($subscriber, FetchSnippet ("return"));
@@ -73,8 +73,8 @@ $page = Substitutions ($page, $vars);
 $page = ReplaceSysVars ($page);
 print $page;
 
-//mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+//mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 
 

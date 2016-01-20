@@ -113,8 +113,17 @@ if ($syspass == $syspassEntered) {
 	$vars['MYSQLPASSWORD'] = $password;
 
 	// Try to get system values from Admin user in database
+	print ( "Try to get system values from Admin user in database.<br>");
+	
 	$a = GetAdminUserValues (MYSQLHOST, $db, $user, $password);
 	$a || $a = array ();
+	
+	if ($a) {
+		print ("Got values");
+	} else {
+		print ("Failed to get values from database!");
+	}
+	print ("<hr>");
 	
 	// Overwrite config file values we got with database values
 	while (list ($k,$v) = each ($a)) {
@@ -295,17 +304,17 @@ function DBMakeTables ($host, $db, $user, $password, $sql_query) {
 		$sql_query = split_sql_file($sql_query, $delimiter);
 		$x = 1;
 		foreach($sql_query as $query){
-			mysql_query($query);
+			mysqli_query ($LINK, $query);
 			$DEBUG && $msg .= $x++.") ". $query."<BR>";
-			if (mysql_errno($LINK)) {
-				$error .= $x++.") ". substr($query, 0,50)."..."."<BR>" . mysql_errno($LINK) . ": " . mysql_error($LINK). "<br>\n";
-				$result = mysql_errno($LINK);
+			if (mysqli_errno($LINK)) {
+				$error .= $x++.") ". substr($query, 0,50)."..."."<BR>" . mysqli_errno($LINK) . ": " . mysqli_error($LINK). "<br>\n";
+				$result = mysqli_errno($LINK);
 			}
 		} 
 		$msg .= 'Database Successfully populated<br>';
 	} else {
 		$error .= "Could not start database<BR>";
-		$result = mysql_errno($LINK);
+		$result = mysqli_errno($LINK);
 	}
 	return $result;
 }
@@ -495,9 +504,9 @@ function UpdateAdminUser ($host, $db, $user, $password, $vars) {
 				);
 								
 		$pairs = StripBlankFields ($pairs);
-		$myUser = new FPUser(FP_ADMINISTRATOR);
+		$myUser = new FPUser($LINK, FP_ADMINISTRATOR);
 		$myUser->UpdateUser ($pairs);
-		mysql_close($LINK);
+		mysqli_close($LINK);
 		// $FP_MYSQL_LINK->close();
 	}
 }
@@ -514,7 +523,7 @@ function GetAdminUserValues ($host, $db, $user, $password) {
 	$LINK = @DBStart($host, $db, $user, $password);
 	if ($LINK) {
 		$record = FetchArtist( FP_ADMINISTRATOR );
-		mysql_close($LINK);
+		mysqli_close($LINK);
 		// $FP_MYSQL_LINK->close();
 	} else {
 		$msg .= "$host/$db/$user/$password don't work to open a database.<BR>";
@@ -562,7 +571,7 @@ function DBFillIn ($host, $db, $user, $password, $vars) {
 
 	Maintenance ();
 	
-	mysql_close($LINK);
+	mysqli_close($LINK);
 	// $FP_MYSQL_LINK->close();
 }
 
@@ -601,8 +610,8 @@ function CreateAdminUser ($vars) {
 	$newID = AddRecord( DB_ARTISTS, $pairs );
 	if ($newID) {
 		$q = "UPDATE ".DB_ARTISTS." SET `ID` = " . FP_ADMINISTRATOR . " WHERE `ID` = $newID";
-		mysql_query($q);
-		if (($newID != 1) && mysql_affected_rows () == 0 )
+		mysqli_query ($q);
+		if (($newID != 1) && mysqli_affected_rows () == 0 )
 			$msg .= __FUNCTION__.": *** Failed to set Administrator to ID=".FP_ADMINISTRATOR."<br>";
 	}
 	$newID ? $msg .= "Created System Administrator<br>" : $error .= "Could not add System Administrator to ".DB_ARTISTS."<br>";
@@ -636,7 +645,7 @@ function AddMainUser ($vars) {
 	$params = SetParam ($params, FP_PARAM_ARTIST_GALLERY_LINK, 0);
 	$pairs['Params'] = $params;
 	
-	$myUser = new FPUser();
+	$myUser = new FPUser($LINK);
 	$newID = $myUser->newUser($pairs, FP_NEW_ARTIST_GALLERY);
 
 	// $newID = AddRecord( DB_ARTISTS, $pairs );
@@ -674,19 +683,24 @@ function InstallMissingPicture ($fn) {
 
 //------------------
 function DBStart($host, $db, $user, $password) {
-	global $error;
+	global $error, $msg;
+	global $FP_MYSQL_LINK;
+
 	$DEBUG = TRUE;
 
 	$DEBUG && $msg .= "Connect to $user@$db:$password on $host<BR>";
 	$LINK = new mysqli($host, $user, $password)
-		or $error .= "Could not connect to the site ($host, $user, $password)...the server must be very busy.";
+		or $error .= "DBStart: Could not connect to the site ($host, $user, $password) ". mysqli_error();
 
 	if ($DEBUG)
-		$msg .= "Connected successfully to $db<BR>";
+		$msg .= "DBStart: Connected successfully to $db<BR>";
 	
 	// Select the DATABASE
-	mysql_select_db("$db")
-		or $error .= "Could not select database $db";
+	mysqli_select_db($LINK, "$db")
+		or $error .= "DBStart: Could not select database $db: ". mysqli_error();
+	
+	
+	//$FP_MYSQL_LINK = $LINK;
 	
 	return $LINK;
 }

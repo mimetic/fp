@@ -139,8 +139,8 @@ class PPUser{
 		$this->remCookieDomain = $this->remCookieDomain == '' ? $_SERVER['HTTP_HOST'] : $this->remCookieDomain;
 		$this->dbConn = ($dbConn=='')? new mysqli($this->dbHost.':'.$this->dbPort, $this->dbUser, $this->dbPass):$dbConn;
 		if ( !$this->dbConn )
-			die(mysql_error($this->dbConn));
-		mysql_select_db($this->dbName, $this->dbConn) or die(mysql_error($this->dbConn));
+			die(mysqli_error($this->dbConn));
+		mysqli_select_db($this->dbConn, $this->dbName) or die(mysqli_error($this->dbConn));
 		if( !isset( $_SESSION ) )
 			session_start();
 		if ( !empty($_SESSION[$this->sessionVariable]) ) {
@@ -174,10 +174,10 @@ class PPUser{
 		}
 		$res = $this->query("SELECT * FROM `{$this->dbTable}` 
 		WHERE `{$this->tbFields['login']}` = '$username' AND `{$this->tbFields['pass']}` = $password LIMIT 1",__LINE__);
-		if ( @mysql_num_rows($res) == 0)
+		if ( @mysqli_num_rows($res) == 0)
 			return false;
 		if ( $loadUser ) {
-			$this->userData = mysql_fetch_array($res);
+			$this->userData = mysqli_fetch_array($res);
 			$this->userID = $this->userData[$this->tbFields['userID']];
 			$_SESSION[$this->sessionVariable] = $this->userID;
 			
@@ -355,10 +355,10 @@ class PPUser{
 		$creationdate = "UNIX_TIMESTAMP(Timestamp) AS CreationDate";
 		$res = $this->query("SELECT *, $fullname, $creationdate FROM `{$this->dbTable}` WHERE `{$this->tbFields['userID']}` = '".$this->escape($userID)."' LIMIT 1");
 		
-		if ( mysql_num_rows($res) == 0 )
+		if ( mysqli_num_rows($res) == 0 )
 				return false;
 		
-		$this->userData = mysql_fetch_array($res);
+		$this->userData = mysqli_fetch_array($res);
 		
 		// Add object variables for each field in the table
 		// This is for read-only! We won't store values set this way!
@@ -391,20 +391,20 @@ class PPUser{
 	// Check if a user already exists
 	function userExists ($username) {
 		$q = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '$username' LIMIT 1";
-		$exists = mysql_num_rows($this->query($q));
+		$exists = mysqli_num_rows($this->query($q));
 		return $exists;
 	}
 
 	// Check if a user already exists
 	function userIDExists ($userID) {
 		$q = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['userID']}` = '$userID' LIMIT 1";
-		$exists = mysql_num_rows($this->query($q));
+		$exists = mysqli_num_rows($this->query($q));
 		return $exists;
 	}
 
 	function escape($str) {
 		$str = get_magic_quotes_gpc()?stripslashes($str):$str;
-		$str = mysql_real_escape_string($str, $this->dbConn);
+		$str = mysqli_real_escape_string($str, $this->dbConn);
 		return $str;
 	}
 	
@@ -421,9 +421,9 @@ class PPUser{
 	private function query($sql, $line = 'Uknown')
 	{
 		//if (defined('DEVELOPMENT_MODE') ) echo '<b>Query to execute: </b>'.$sql.'<br /><b>Line: </b>'.$line.'<br />';
-		$res = mysql_db_query($this->dbName, $sql, $this->dbConn);
+		$res = mysqli_db_query($this->dbName, $sql, $this->dbConn);
 		if ( !res )
-			$this->error(mysql_error($this->dbConn), $line);
+			$this->error(mysqli_error($this->dbConn), $line);
 		return $res;
 	}
 	

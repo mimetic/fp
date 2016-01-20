@@ -36,6 +36,12 @@
 
 class FPUser{
 	/*Settings*/
+
+	/**
+	 * The mysqli database connection
+	 */
+	var $mysqli_connection;
+
 	/**
 	 * The database that we will use
 	 * var string
@@ -110,7 +116,7 @@ class FPUser{
 	var $displayErrors = true;
 	/*Do not edit after this line*/
 	var $userID;
-	//var $dbConn;
+	
 	var $userData=array();
 	// List of fields in the database table
 	var $fieldlist;
@@ -128,12 +134,14 @@ class FPUser{
 	 * @param array $settings
 	 * @return void
 	 */
-	function FPUser($id = null, $keepInSession = false, $dbConn = '', $settings = '')
+	function __construct ($mysqli_connection, $id = null, $keepInSession = false, $dbConn = '', $settings = '')
 	{
 		global $msg, $error;
 		$DEBUG = 0;
 		
 		$DEBUG && $starttime = microtime(true);
+		
+		$this->mysqli_connection = $mysqli_connection;
 		
 		$this->fieldlist = MysqlListFields ($this->dbTable);
 
@@ -146,14 +154,16 @@ class FPUser{
 				}
 			}
 		}
+		
+		// DO NOT CONNECT TO A DB
 		/*
 		$this->remCookieDomain = $this->remCookieDomain == '' ? $_SERVER['HTTP_HOST'] : $this->remCookieDomain;
-		$this->dbConn = ($dbConn=='')? mysql_connect($this->dbHost.':'.$this->dbPort, $this->dbUser, $this->dbPass):$dbConn;
+		$this->dbConn = ($dbConn=='')? mysqli_connect($this->dbHost.':'.$this->dbPort, $this->dbUser, $this->dbPass):$dbConn;
 		
 		if ( !$this->dbConn )
-			die(mysql_error($this->dbConn));
+			die(mysqli_error($this->dbConn));
 		
-		mysql_select_db($this->dbName, $this->dbConn) or die(mysql_error($this->dbConn));
+		mysqli_select_db($this->dbName, $this->dbConn) or die(mysqli_error($this->dbConn));
 		*/
 
 		// If $id is set then we load that user
@@ -198,10 +208,10 @@ class FPUser{
 		}
 		$res = $this->query("SELECT * FROM `{$this->dbTable}` 
 		WHERE `{$this->tbFields['login']}` = '$username' AND `{$this->tbFields['pass']}` = $password LIMIT 1",__LINE__);
-		if ( @mysql_num_rows($res) == 0)
+		if ( @mysqli_num_rows($res) == 0)
 			return false;
 		if ( $loadUser ) {
-			$this->userData = mysql_fetch_array($res);
+			$this->userData = mysqli_fetch_array($res);
 			$this->userID = $this->userData[$this->tbFields['userID']];
 			$this->ID = $this->userID;
 			$_SESSION[$this->sessionVariable] = $this->userID;
@@ -327,7 +337,7 @@ class FPUser{
 			//$this->error('That account is active already.', __LINE__);
 		$res = $this->query("UPDATE `{$this->dbTable}` SET {$this->tbFields['active']} = 1 
 				WHERE `{$this->tbFields['userID']}` = '".$this->escape($this->userID)."' LIMIT 1");
-		if (@mysql_affected_rows() == 1)
+		if (@mysqli_affected_rows() == 1)
 			{
 				$this->userData[$this->tbFields['active']] = true;
 				return true;
@@ -344,7 +354,7 @@ class FPUser{
 		}
 		
 		$res = $this->query("SELECT `{$this->tbFields['userID']}` FROM `{$this->dbTable}` WHERE `activationHash` = '$hash' LIMIT 1",__LINE__);
-		if ( $rec = mysql_fetch_array($res) ){
+		if ( $rec = mysqli_fetch_array($res) ){
 			$this->userID = $rec[$this->tbFields['userID']];
 			$this->activate ();
 			$this->loadUser();
@@ -377,7 +387,7 @@ class FPUser{
 		
 		// Create user's gallery (if appropriate)
 		if ($newID && FP_USERS_GET_GALLERY && (FP_MULTI_GALLERY_SINGLE_USER or FP_MULTI_GALLERY_MULTI_USER)) {
-			$myGroup = new FPGroup ();
+			$myGroup = new FPGroup ($this->mysqli_connection);
 			$myGroup->MakeGroupForUser ($newID);
 		}
 		
@@ -446,7 +456,7 @@ class FPUser{
 		$creationdate = "UNIX_TIMESTAMP(Timestamp) AS CreationDate";
 		$res = $this->query("SELECT *, $fullname, $creationdate FROM `{$this->dbTable}` WHERE `{$this->tbFields[$fieldname]}` = '".$this->escape($userID)."' LIMIT 1");
 		
-		if ( mysql_num_rows($res) == 0 )
+		if ( mysqli_num_rows($res) == 0 )
 				return false;
 
 		// clear user variables in $this
@@ -454,7 +464,7 @@ class FPUser{
 			$this->$f = null;
 		}
 
-		$this->userData = mysql_fetch_assoc($res);
+		$this->userData = mysqli_fetch_assoc($res);
 
 		// Add object variables for each field in the table
 		// This is for read-only! We won't store values set this way!
@@ -526,7 +536,7 @@ class FPUser{
 		//Get an activation hash and mail it to the user
 		//We need a unique hash, length 50
 		$hash = $this->randomPass(50);
-		while( mysql_num_rows($this->query("SELECT * FROM `{$this->dbTable}` WHERE `ActivationHash` = '$hash' LIMIT 1")) == 1)
+		while( mysqli_num_rows($this->query("SELECT * FROM `{$this->dbTable}` WHERE `ActivationHash` = '$hash' LIMIT 1")) == 1)
 			$hash = $this->randomPass(50);
 		//Adding the user. The logic is simple. We need to provide an associative array, where keys are the field names and values are the values
 		$data['ActivationHash'] = $hash;
@@ -559,14 +569,14 @@ class FPUser{
 	// Check if a user already exists
 	function userExists ($username) {
 		$q = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['login']}` = '$username' LIMIT 1";
-		$exists = mysql_num_rows($this->query($q));
+		$exists = mysqli_num_rows($this->query($q));
 		return $exists;
 	}
 
 	// Check if a user already exists
 	function userIDExists ($userID) {
 		$q = "SELECT * FROM `{$this->dbTable}` WHERE `{$this->tbFields['userID']}` = '$userID' LIMIT 1";
-		$exists = mysql_num_rows($this->query($q));
+		$exists = mysqli_num_rows($this->query($q));
 		return $exists;
 	}
 
@@ -577,10 +587,10 @@ class FPUser{
 	function fetchByEmail ($email) {
 		$q = "SELECT * FROM `{$this->dbTable}` WHERE Email = '$email' LIMIT 1";
 		$res = $this->query($q);
-		if ( mysql_num_rows($res) == 0 )
+		if ( mysqli_num_rows($res) == 0 )
 		    return false;
 
-		$user = mysql_fetch_assoc($res);
+		$user = mysqli_fetch_assoc($res);
 		$userID = $user['ID'];
 		$this->loadUser ($userID);
 		return true;
@@ -588,7 +598,7 @@ class FPUser{
 
 	function escape($str) {
 		$str = get_magic_quotes_gpc()?stripslashes($str):$str;
-		$str = mysql_real_escape_string($str);
+		$str = mysqli_real_escape_string($this->mysqli_connection, $str);
 		return $str;
 	}
 	
@@ -658,9 +668,9 @@ class FPUser{
 	private function query($sql, $line = 'Unknown')
 	{
 		//if (defined('DEVELOPMENT_MODE') ) echo '<b>Query to execute: </b>'.$sql.'<br /><b>Line: </b>'.$line.'<br />';
-		$res = mysql_query($sql);
+		$res = mysqli_query ($this->mysqli_connection, $sql);
 		if ( !$res )
-			$this->error(mysql_error(), $line);
+			$this->error(mysqli_error( $this->mysqli_connection ), $line);
 		return $res;
 	}
 	

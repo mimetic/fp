@@ -18,7 +18,7 @@ $message->GetPictureFromEmailFile ();
 $DEVELOPING && var_dump ($message);
 //var_dump ($message);
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 ?>

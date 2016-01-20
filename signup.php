@@ -37,7 +37,7 @@ $_SESSION['theme'] = ADMIN_THEME;
 $_SESSION['GroupID'] = FP_ADMINISTRATOR_GROUP;
 
 $userID = null;
-$user = new FPUser();
+$user = new FPUser( $LINK );
 if (!FP_SIGNUP_OPEN) {
 	$result = "closed";
 } else {
@@ -172,7 +172,7 @@ print $output;
 
 
 // close MySQL connection
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 ?>

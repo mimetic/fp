@@ -111,8 +111,8 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 
     //print $page;
 
-    mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+    mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
     $output = compress_html($page);
     $DEVELOPING || $Cache_Lite->save($output, $cacheid, $cachegroup);

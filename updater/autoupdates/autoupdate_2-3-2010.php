@@ -39,7 +39,7 @@ $updaterdescription = "Updated on ".$datetime.": Add Params to Suppliers DB.";
 //-----------------
 
 
-mysql_query("ALTER TABLE  `Suppliers` ADD  `Params` TEXT NOT NULL");
+mysqli_query ("ALTER TABLE  `Suppliers` ADD  `Params` TEXT NOT NULL");
  
 //----------------- WRITE LOG -----------------
 fp_error_log("AUTOUPDATER: $updaterdescription", 3, FP_MAINTENANCE_LOG);
@@ -47,8 +47,8 @@ fp_error_log("AUTOUPDATER: $updaterdescription", 3, FP_MAINTENANCE_LOG);
 /*
  * END UPDATER CODE
  */
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 /*
  * RENAMER:

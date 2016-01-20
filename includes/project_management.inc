@@ -3,9 +3,8 @@
 These functions are for managing projects, sys admin, basic functions, not the kind of thing to modify, etc.
 */
 
-
 // MP3 utils. Used to read the duration of an MP3, to set the slide duration in a slide show
-include ("mp3_id3_utils.php");
+require_once ("mp3_id3_utils.php");
 
 // MP3 utilities. Much better than the one above.
 require_once('getid3/getid3.php');
@@ -24,6 +23,7 @@ function HandleAction($actions, &$vars) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $items_per_page;	// a global that is modified by the arrange pictures form
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -238,7 +238,7 @@ function HandleAction($actions, &$vars) {
 					if ($newID != FP_ADMINISTRATOR) {
 						// Add artist to current group
 						$groupID = $vars['GroupID'];
-						$myGroup = new FPGroup ($groupID);
+						$myGroup = new FPGroup ($LINK, $groupID);
 						$myGroup->AddMembersToGroup ($newID, $groupID);
 					}
 					$vars['ID'] = $newID;
@@ -346,7 +346,7 @@ function HandleAction($actions, &$vars) {
 
 				// Update Groups
 				case $GROUPS :
-					$myGroup = new FPGroup( $ID );
+					$myGroup = new FPGroup ($LINK, $ID );
 
 					$arr = array ();
 					isset($vars['artistlist']) || $vars['artistlist'] = $arr;
@@ -397,7 +397,7 @@ function HandleAction($actions, &$vars) {
 
 				// Update Projects
 				case $PROJECTS :
-					$project = new FPProject ($ID);
+					$project = new FPProject ($LINK, $ID);
 
 					if (empty($vars['Title']) && isset($vars['Title']))
 						$vars['Title'] = "Untitled Project";
@@ -671,6 +671,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 	global $USER_AUDIO_EXTENSIONS, $USER_VIDEO_EXTENSIONS, $USER_IMAGE_EXTENSIONS;
 	global $user;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -1077,7 +1078,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 			
 			$currvals['FP_PREVIEW_TYPE'] = "group";
 			
-			$myGroup = new FPGroup ($ID);
+			$myGroup = new FPGroup ($LINK, $ID);
 			$showpp = SHOW_PUBLICPRIVATE_FOR_GROUPS;
 
 			// Add owner's name to Group page
@@ -1270,7 +1271,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 			if ($params[FP_PARAM_GALLERY_THEME] != 0) {
 				$currvals['THEME_ID'] = $params[FP_PARAM_GALLERY_THEME];
 			} else {
-				$myProject = new FPProject($ID);
+				$myProject = new FPProject ($LINK, $ID);
 				$currvals['THEME_ID'] = $myProject->GetProjectThemeID();
 			}
 			
@@ -1403,11 +1404,11 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 					$otherArtistList = FetchArtistListHTML ($currentgroup, $record['ID'], true);
 				} else {
 
-					$myProject = new FPProject($ID);
+					$myProject = new FPProject ($LINK, $ID);
 					$artistlist = $myProject->MemberList(true);
 
 
-					//$myGroup = new FPGroup( $record['GroupID'] );
+					//$myGroup = new FPGroup ($LINK, $record['GroupID'] );
 					//$artistlist = $myGroup->MemberList( true );
 					$namelist = array();
 					foreach ($artistlist as $a) {
@@ -1705,6 +1706,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 // If no $ID, then it's request for a blank for a new record
 function GetRecordForEditForm ($ID, $table) {
 	global $msg, $error;
+	global $LINK;
 	// If $ID, then get the data and fill out the form
 	// If no $ID, then it's request for a blank for a new record
 	$params = array();
@@ -1738,6 +1740,7 @@ function GetRecordForEditForm ($ID, $table) {
 // Build the form for editing an image record for use in DisplayRecordForEdit().
 function BuildEditImageForm ($ID, $record, $params, $currvals) {
 	global $msg, $error;
+	global $LINK;
 
 	isset($_SESSION['fp_user']) && $fp_user = $_SESSION['fp_user'];
 	if ($fp_user) {
@@ -1914,6 +1917,7 @@ function BuildEditImageForm ($ID, $record, $params, $currvals) {
 // Build the form for editing an Price Set record for use in DisplayRecordForEdit().
 function BuildEditPricesetForm  ($ID, $record, $params, $currvals) {
 	global $msg, $error;
+	global $LINK;
 
 	isset($_SESSION['fp_user']) && $fp_user = $_SESSION['fp_user'];
 	if ($fp_user) {
@@ -2160,6 +2164,7 @@ function BuildProjectImagesMulti ($projectID, $fp_user = "", $numbered = false, 
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -2206,6 +2211,7 @@ function BuildProjectStories ($projectID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 
@@ -2256,6 +2262,7 @@ function BuildOptionTransfer ($projectID, $extrahtml ="", $numbered = false) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $OTCODE;	// See note near the end of admin.php. $OTCODE is built here to go into the <body> tag.
 
@@ -2270,7 +2277,7 @@ function BuildOptionTransfer ($projectID, $extrahtml ="", $numbered = false) {
 
 	//$artistlist = FetchProjectArtists ($projectID, $fp_user, False, $PROJECTS);
 
-	$project = new FPProject ($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	$artistlist = $project->MemberNames();
 
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ": Current artist list = " . ArrayToTable($artistlist) . "<BR>";
@@ -2356,6 +2363,7 @@ function BuildOptionTransferStories ($projectID, $extrahtml ="", $numbered = fal
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $OTCODE;	// See note near the end of admin.php. $OTCODE is built here to go into the <body> tag.
 
@@ -2370,7 +2378,7 @@ function BuildOptionTransferStories ($projectID, $extrahtml ="", $numbered = fal
 
 	//$artistlist = FetchProjectArtists ($projectID, $fp_user, False, $PROJECTS);
 
-	$project = new FPProject ($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	$artistlist = $project->MemberNames();
 
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ": Current artist list = " . ArrayToTable($artistlist) . "<BR>";
@@ -2437,6 +2445,7 @@ function BuildOptionTransferStories ($projectID, $extrahtml ="", $numbered = fal
 function FetchPriceSetsHTML ($artistID, $pricesetID='0', $blankentry = "", $includeCustom=false, $extrahtml = "") {
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= "DEBUG ".__FUNCTION__."<BR>";
@@ -2446,10 +2455,10 @@ function FetchPriceSetsHTML ($artistID, $pricesetID='0', $blankentry = "", $incl
 	$pricesetID ? $x = " OR (ID = $pricesetID)" : $x = "";
 	$query = "select * from $PRICESETS WHERE (ImageID is NULL) OR (ImageID = 0) $x ORDER BY Title";
 	$DEBUG && $msg .= "$query<BR>";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 
 	if ($result) {
-		while ($priceset = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($priceset = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$values[$priceset['ID']] = $priceset['Title'];
 			$DEBUG && $msg .= __FUNCTION__.": pricesetid = {$priceset['ID']}, Title = {$priceset['Title']}<BR>";
 		}
@@ -2479,6 +2488,7 @@ function FetchPriceSetsHTML ($artistID, $pricesetID='0', $blankentry = "", $incl
 
 function FetchArtistListHTML ($groupID = null, $projectID = null, $hideCurrentUser = false) {
 	global $msg, $error;
+	global $LINK;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 
 	isset($_SESSION['fp_user']) ? $fp_user = $_SESSION['fp_user'] : $fp_user = FP_ADMINISTRATOR;
@@ -2502,7 +2512,7 @@ function FetchArtistListHTML ($groupID = null, $projectID = null, $hideCurrentUs
 
 	if ($groupID) {
 		//get list of artists in this project, make them the checked in option list
-		$myGroup = new FPGroup( $groupID );
+		$myGroup = new FPGroup ($LINK, $groupID );
 		$artistlist = $myGroup->MemberList( true );
 		$DEBUG && $msg .= __FUNCTION__ .":".__LINE__.": artistlist:".ArrayToTable (array_keys ($artistlist));
 	} else {
@@ -2550,13 +2560,14 @@ function ManagementFormImageSorter ($projectID)
 	global $BASEDIR, $LOGS;
 	global $fp_user;
 	global $msg, $error;
+	global $LINK;
 	
 	$sorter = FetchSnippet("imagesorter-main");
 	$item = FetchSnippet("imagesorter-image");
 	$inListRows = "<!-- inListRows -->\n";
 	$outListRows = "<!-- outListRows -->\n";
 	
-	$project = new FPProject($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	// List of pix in the project
 	$inlist = $project->PictureList();
 	$allpix = ProjectArtistsPixlist($projectID);
@@ -2656,6 +2667,7 @@ function ManagementFormPictures ($ID, $showthumbstatus = "Hide", $form = "", $it
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 	global $display_cols, $items_per_page;
 	global $OTCODE;
 
@@ -2856,6 +2868,7 @@ function ManagementFormChoosePictures ($ID, $showthumbstatus = "Hide", $form = "
 	global $display_cols, $items_per_page, $items_per_page_arr;
 	global $OTCODE;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$DEBUG && $msg .= __FUNCTION__.__LINE__.": DEBUG ON<BR>";
@@ -2867,7 +2880,7 @@ function ManagementFormChoosePictures ($ID, $showthumbstatus = "Hide", $form = "
 
 	// Get the project
 	$record = FetchProject ($ID);
-	$project = new FPProject($ID);
+	$project = new FPProject ($LINK, $ID);
 
 	// Picture list for preview/thumbnails. Only contains processed pictures. List of ID's
 	// Order is set by OrderInProject field of Parts
@@ -3022,6 +3035,7 @@ function ManagementFormOrderPictures ($ID, $showthumbstatus = "Hide", $form = ""
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 	global $display_cols, $items_per_page, $items_per_page_arr;
 	global $OTCODE;
 
@@ -3229,6 +3243,7 @@ function ManagementFormStories ($ID) {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS, $SITEIMAGES;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 	global $display_cols, $items_per_page;
 
 	$DEBUG = false;
@@ -3306,6 +3321,7 @@ function ManagementFormStoriesOLD ($ID) {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS, $SITEIMAGES;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 	global $display_cols, $items_per_page;
 
 	$DEBUG = false;
@@ -3375,6 +3391,7 @@ function ManagementFormStoriesOLD ($ID) {
 function AddStoryToProject ($StoryID, $ArtistID, $projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$DEBUG && $msg .= __FILE__. __LINE__ . "AddStoryToProject<BR>" . $query;
@@ -3394,6 +3411,9 @@ function AddStoryToProject ($StoryID, $ArtistID, $projectID) {
 // Set the owner of a project
 // - If the owner has a Part, remove that part
 function SetProjectOwner ($projectID, $ownerID) {
+	global $msg, $error;
+	global $LINK;
+
 	if (!$projectID)
 		return false;
 	if (!$ownerID)
@@ -3401,11 +3421,11 @@ function SetProjectOwner ($projectID, $ownerID) {
 	$pairs = array ('ArtistID' => $ownerID);
 	EditTable ('update', DB_PROJECTS, $projectID, $pairs);
 	$query = "select * from Parts where PartID = '$ownerID' AND ProjectID = '$projectID' AND PartTable = '".DB_ARTISTS."' LIMIT 1";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	// If part exists for the owner, delete it
-	if (mysql_num_rows($result)) {
+	if (mysqli_num_rows($result)) {
 		$query  = "delete from ".DB_PARTS." where PartID = '$ownerID' AND ProjectID = '$projectID' AND PartTable = '".DB_ARTISTS."'";
-		mysql_query ($query);
+		mysqli_query ($LINK, $query);
 	}
 }
 
@@ -3429,12 +3449,13 @@ function SetProjectTheme ($projectID, $themeID) {
 function AddArtistToProject ($artistID, $projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
 	// check to see if artist is already in the project
 	$query = "select * from ".DB_PARTS." where PartID = '$artistID' AND ProjectID = '$projectID' AND PartTable = '".DB_ARTISTS."'";
-	$res = mysql_num_rows (mysql_query($query));
+	$res = mysqli_num_rows (mysqli_query ($LINK, $query));
 	$DEBUG && $msg .= __FUNCTION__.__LINE__. ": $query<BR>add artist to project<BR>";
 	$DEBUG && $msg .= __FUNCTION__.__LINE__. ": Found $res results for artist in project<BR>";
 	if ($res == 0) {
@@ -3465,11 +3486,14 @@ function AddArtistToProject ($artistID, $projectID) {
 
 function AddArtistToGroup ($artistID, $groupID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
+	global $msg, $error;
+	global $LINK;
+
 	$DEBUG = false;
 	// check to see if artist is already in the group
 	$query = "select * from Parts where ArtistID = '$artistID' AND GroupID = '$groupID' AND PartTable = 'Groups'";
-	$result = mysql_query($query);
-	$result && $arr = mysql_fetch_array($result, MYSQL_ASSOC);
+	$result = mysqli_query ($LINK, $query);
+	$result && $arr = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$DEBUG && print "AddArtistToProject:<BR>$query<BR>add artist to project<BR>";
 	$DEBUG && var_dump ($arr);
 	if (empty($arr)) {
@@ -3499,6 +3523,7 @@ function AddArtistToGroup ($artistID, $groupID) {
 // ONLY CALL THIS WITH A $PROJECT RECORD!!!
 function DeletePicturesIfChecked ($record) {
 	global $msg, $error;
+	global $LINK;
 	global $IMAGES;
 	$DEBUG = false;
 
@@ -3533,6 +3558,7 @@ function DeletePicturesIfChecked ($record) {
 // return original, or modified nickname
 function UniqueProjectNickname ($projectID, $nickname=null) {
 	global $msg, $error;
+	global $LINK;
 
 	$k = 1;
 	$project = FetchProject ($projectID);
@@ -3543,7 +3569,7 @@ function UniqueProjectNickname ($projectID, $nickname=null) {
 	}
 
 	$result = FetchAllProjects ("Nickname = \"$nickname\" AND ID != \"$projectID\"");
-	$k = mysql_num_rows($result);
+	$k = mysqli_num_rows($result);
 
 	if ( $k > 0) {
 		$oldnickname = $nickname;
@@ -3568,6 +3594,7 @@ function FetchGroupListHTML ($userID = null, $groupID, $extraHTML="") {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -3594,6 +3621,7 @@ function FetchArtistProjectListHTML ($userID = null, $projectID, $extraHTML="") 
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -3634,6 +3662,7 @@ function FetchArtistProjectListHTML ($userID = null, $projectID, $extraHTML="") 
 
 function FetchProjectDates ($p) {
 	global $msg, $error;
+	global $LINK;
 	global $BASEDIR, $LOGS;
 
 	$DEBUG = 0;
@@ -3781,6 +3810,7 @@ function DeleteProject ($projectID, $verbose = true) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$NODELETE = 0;
@@ -3803,6 +3833,7 @@ function DeleteProject ($projectID, $verbose = true) {
 // destined for a project which has been deleted.
 function DeleteImageUploadDir ($projectID = null) {
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = false;
 
 	if (!$projectID)
@@ -3825,26 +3856,27 @@ function ReassignPicturesToNewProject ($projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= __FUNCTION__."<BR>";
 
 	$query = "SELECT * FROM $IMAGES WHERE ProjectID='$projectID'";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	$DEBUG && $msg .= __FUNCTION__.__LINE__ .": $query<BR>";
 
-	while ($image = mysql_fetch_array ( $result, MYSQL_ASSOC)) {
+	while ($image = mysqli_fetch_array ( $result, MYSQLI_ASSOC)) {
 		$imageID = $image['ID'];
 
 		// Get images which are shown in other projects than the one to be deleted.
 		$query = "SELECT * FROM $PARTS WHERE PartID = '$imageID' AND PartTable = '$IMAGES' AND ProjectID != '$projectID' LIMIT 0,1";
-		$res2 = mysql_query ($query);
+		$res2 = mysqli_query ($LINK, $query);
 
 		$DEBUG && $msg .= __FUNCTION__.__LINE__ .": $query<BR>";
 
-		if (mysql_num_rows($res2) > 0) {
+		if (mysqli_num_rows($res2) > 0) {
 			// Change image projectID to some different project that uses the image
-			$part = mysql_fetch_array ( $res2, MYSQL_ASSOC);
+			$part = mysqli_fetch_array ( $res2, MYSQLI_ASSOC);
 			UpdateRecord ($IMAGES, $imageID, array('ProjectID' => $part['ProjectID']));
 			$DEBUG || fp_error_log(__FUNCTION__.": Reassigning image #{$imageID} to a Project #{$part['ProjectID']}.", 3, FP_MAINTENANCE_LOG);
 			$DEBUG && $msg .= __FUNCTION__." : Image $imageID will be reassigned to project #{$part['ProjectID']}<BR>";
@@ -3866,15 +3898,16 @@ function DeleteProjectPictures ($projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
 	$DEBUG && $msg .= __FUNCTION__."<BR>";
 
 	$query = "SELECT * FROM $IMAGES WHERE ProjectID = '$projectID'";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	$DEBUG && $msg .= "Query: $query<BR>";
-	while ($image = mysql_fetch_array ( $result, MYSQL_ASSOC)) {
+	while ($image = mysqli_fetch_array ( $result, MYSQLI_ASSOC)) {
 		$ID = $image['ID'];
 
 		// If image has a price site (meaning it has sales), don't delete!
@@ -3913,13 +3946,14 @@ function ImageTotalSalesCount($ID) {
 // Pass project ID and entered password to check
 function ProjectLogin ($projectID, $ProjectPassword) {
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = false;
 
 	if (!(empty($username) OR empty($password))) {
 		$fields = "ProjectPassword";
 		$where = "WHERE ID = '$projectID' and ProjectPassword = '$ProjectPassword'";
-		$result = mysql_query ("SELECT $fields from Projects $where");
-		$record = mysql_fetch_array ($result, MYSQL_ASSOC);
+		$result = mysqli_query ("SELECT $fields from Projects $where");
+		$record = mysqli_fetch_array ($result, MYSQLI_ASSOC);
 		if (empty($record)) {
 			//$msg .= "Incorrect password or username.";
 			//$ArtistID = '';
@@ -3978,6 +4012,7 @@ function AddImageToProject ($ImageID, $projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $BASEDIR, $MAILED_DIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= __FUNCTION__."<BR>";
@@ -4033,9 +4068,11 @@ function AddImageToProject ($ImageID, $projectID) {
 // It's NOT the ID of the part itself.
 function RemoveImageFromProject ($ID, $projectID) {
 	global $msg, $error;
+	global $LINK;
+	
 	$DEBUG = false;
 	$query = "DELETE FROM Parts WHERE Parts.ProjectID = $projectID AND Parts.PartID = $ID";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 
 	$DEBUG && print "DELETE FROM Parts WHERE Parts.ProjectID = $projectID AND Parts.PartID = $ID<BR>";
 }
@@ -4187,6 +4224,7 @@ function FTPImages ($IDlist, $filenames, $ftp_server, $directory, $newfolder, $f
 function FTPOriginalFiles ($files, $newfilenames, $ftp_server, $directory, $newfolder, $ftp_user_name, $ftp_user_pass , $SOURCEDIR ) {
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 
@@ -4293,6 +4331,7 @@ function FTPOriginalFiles ($files, $newfilenames, $ftp_server, $directory, $newf
 function FTPImageToArchiveSite ($ID) {
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 
@@ -4492,6 +4531,8 @@ function UserCanAddRecord ($table, $fp_user) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $FP_GALLERY_TYPE;
 	global $msg, $error;
+	global $LINK;
+	global $LINK;
 
 	$accesslevel = FetchAccessLevel ($fp_user);
 
@@ -4502,8 +4543,8 @@ function UserCanAddRecord ($table, $fp_user) {
 	if ($accesslevel != FP_SUPPLIER_LEVEL) {
 		switch ($table) {
 			case $ARTISTS :
-				$result = mysql_query("SELECT ID from ".DB_ARTISTS);
-				if (mysql_num_rows($result) < 2) {
+				$result = mysqli_query ("SELECT ID from ".DB_ARTISTS);
+				if (mysqli_num_rows($result) < 2) {
 					$access = true;
 				} else {
 					switch ($accesslevel) {
@@ -4516,8 +4557,8 @@ function UserCanAddRecord ($table, $fp_user) {
 				}
 				break;
 			case $GROUPS :
-				$result = mysql_query("SELECT ID from ".DB_GROUPS);
-				if (mysql_num_rows($result) < 1) {
+				$result = mysqli_query ($LINK, "SELECT ID from ".DB_GROUPS);
+				if (mysqli_num_rows( $result) < 1) {
 					$access = true;
 				} else {
 					switch ($accesslevel) {
@@ -4562,6 +4603,7 @@ function UserCanAddRecord ($table, $fp_user) {
 function UpdateStoryParts ($projectID, $vars) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Beginning :<BR>";
@@ -4619,7 +4661,7 @@ function UpdateStoryParts ($projectID, $vars) {
 	// delete part records for rejected stories
 	if ($stories_to_remove) {
 		$query = "DELETE from Parts where ProjectID = $projectID AND PartTable = '$STORIES' and PartID in ($stories_to_remove)";
-		$result = mysql_query($query);
+		$result = mysqli_query ($LINK, $query);
 	}
 
 	// insert new stories not already in the project
@@ -4662,6 +4704,7 @@ function UpdateStoryParts ($projectID, $vars) {
 function UpdateStoryPartsOLD ($projectID, $vars) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Beginning :<BR>";
@@ -4684,7 +4727,7 @@ function UpdateStoryPartsOLD ($projectID, $vars) {
 	// delete all parts of this project
 	$query = "DELETE from Parts where ProjectID = $projectID AND PartTable = 'Stories'";
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": $query<BR>";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 
 	// insert story parts
 	foreach ($stories as $ID) {
@@ -4720,6 +4763,7 @@ function UpdateStoryPartsOLD ($projectID, $vars) {
 function UpdateImageParts ($projectID, $vars) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 	
 	$DEBUG = 0;
 	$DEBUG && $msg .= __FUNCTION__ .":".__LINE__.": Beginning UpdateImageParts:<BR>";
@@ -4737,7 +4781,7 @@ function UpdateImageParts ($projectID, $vars) {
 	isset($_SESSION['fp_user']) ? $fp_user = $_SESSION['fp_user'] : $fp_user = 1;
 	
 	//$artists = array_keys (FetchProjectArtists ($projectID, $fp_user, FALSE));
-	$project = new FPProject ($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	$artistIDs = array_keys($project->MemberList());
 	
 	$DEBUG && $msg .= __FUNCTION__ .":".__LINE__.": VARS".ArrayToTable ($vars);
@@ -4779,7 +4823,7 @@ function UpdateImageParts ($projectID, $vars) {
 	// delete part records for rejected images
 	$query = "DELETE from Parts where ProjectID = $projectID AND PartTable = '".DB_IMAGES."' and PartID in ($images_to_remove)";
 	$DEBUG && $msg .= __FUNCTION__.": all images in project = $images_in_project<BR>";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 
 	// insert new images not already in the project
 	foreach ($images_to_add as $ID) {
@@ -4824,6 +4868,7 @@ function UpdateImageParts ($projectID, $vars) {
 function UpdateArtistParts ($ID, $vars, $table) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -4856,7 +4901,7 @@ function UpdateArtistParts ($ID, $vars, $table) {
 	// Reminder: $ID is the group or project ID
 	switch ($table) {
 		case $GROUPS :
-			$myGroup = new FPGroup( $ID );
+			$myGroup = new FPGroup ($LINK, $ID );
 
 			// Get the owner, change to new owner if necessary
 			if (isset ($vars['ArtistID'])) {
@@ -4978,6 +5023,7 @@ function UpdateArtistParts ($ID, $vars, $table) {
 function RemoveArtistFromProject ($projectID, $artistID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	// delete parts for this project which involve this artist.
 	$where = "ProjectID = '$projectID' AND ArtistID = '$artistID'";
@@ -4996,6 +5042,7 @@ function RemoveArtistFromProject ($projectID, $artistID) {
 
 function ConfirmWindow ($table, $ID, $command, $extra = "") {
 	global $msg, $error;
+	global $LINK;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $error, $msg;
 
@@ -5041,6 +5088,7 @@ function ConfirmWindow ($table, $ID, $command, $extra = "") {
 function UserHasAccess ($table, $ID = 0, $public = true) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	if (! $ID)
 		return false;
@@ -5082,15 +5130,16 @@ function UserHasAccess ($table, $ID = 0, $public = true) {
 // We DO NOT add in the amount allocated to user $ID if sent
 function GetStorageStats ($ID = null) {
 	global $msg, $error;
+	global $LINK;
 
 	$query = "SELECT SUM(Storage) FROM " . DB_ARTISTS . " WHERE ID != " . FP_ADMINISTRATOR;
 	$ID && $query .= " AND ID != $ID";
-	$result = mysql_query($query);
-	$record = mysql_fetch_array($result, MYSQL_ASSOC);
+	$result = mysqli_query ($LINK, $query);
+	$record = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$allocated = array_shift($record);
 
 	$query = "SELECT Storage FROM " . DB_ARTISTS . " WHERE ID = " . FP_ADMINISTRATOR;
-	$record = mysql_fetch_array(mysql_query($query), MYSQL_ASSOC);
+	$record = mysqli_fetch_array(mysqli_query ($LINK, $query), MYSQLI_ASSOC);
 	$total = array_shift($record);
 
 	return array ($allocated, $total);
@@ -5102,6 +5151,7 @@ function WhichGroups ($member = null) {
 	global $Themes;
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -5116,9 +5166,9 @@ function WhichGroups ($member = null) {
 	} else {
 		$query = "SELECT * FROM $GROUPS";
 	}
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$DEBUG && $error .= __FUNCTION__ .":<BR>" . $query . "<BR>";
-	while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$groups[$record['ID']] = $record;
 		$DEBUG && $error .= __FUNCTION__.": --> ".$record['Title']."<BR>";
 	}
@@ -5133,6 +5183,7 @@ function SetDefaultProject ($ArtistID, $projectID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 	$artist = FetchArtist ($ArtistID);
 	$artist['ProjectID'] = $projectID;
 	$result = EditTable ("update", $ARTISTS, $ArtistID, $artist);
@@ -5148,6 +5199,7 @@ function MakeArtistProject ($ArtistID, $groupID = null) {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": MakeArtistProject ($ArtistID)<BR>";
@@ -5317,6 +5369,8 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 	global $Themes;
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES, $SUPPLIERS, $SALES, $PAYPAL, $PAYMENTS;
 	global $msg, $error;
+	global $LINK;
+	global $LINK;
 
 	$DEBUG = 0;	// NOTE: there's second $DEBUG setting below.
 	$DEBUG && $msg .= "Begin " . __FUNCTION__ ."<BR>";
@@ -5384,7 +5438,7 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 			// admin users can see all groups
 			$accesslevel < 2 && $query = "SELECT *, substring(Description,1,300) AS Summary,TRIM(LEADING 'The ' from Title) as SortTitle from $GROUPS $order";
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": query=$query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		case $PROJECTS :
 		// Do it this way because the FetchAllProjects gets calculated fields
@@ -5406,7 +5460,7 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 			}
 
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": query=$query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		case $IMAGES :
 			$order = " ORDER BY ProjectSortTitle, SortTitle";
@@ -5428,12 +5482,12 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 				$query = "SELECT DISTINCT $IMAGES.*, if($PROJECTS.Title != '', TRIM(LEADING 'The ' from $PROJECTS.Title), 'no {fp:project}') AS ProjectSortTitle, TRIM(LEADING 'The ' from $IMAGES.Title) as SortTitle, $PROJECTS.Title as ProjectTitle FROM $IMAGES LEFT JOIN $PROJECTS ON $IMAGES.ProjectID = $PROJECTS.ID WHERE $byproject $IMAGES.ArtistID = $ArtistID AND $IMAGES.Type = 'normal' $order $limit";
 			}
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": query=<br>$query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		case $STORIES :
 			$order = " ORDER BY SortTitle";
 			$query = "SELECT $STORIES.*, if($PROJECTS.Title != '', $PROJECTS.Title, 'no {fp:project}') AS ProjectTitle, TRIM(LEADING 'The ' from $STORIES.Title) as SortTitle FROM $STORIES LEFT JOIN $PROJECTS ON $STORIES.ProjectID = $PROJECTS.ID WHERE $STORIES.ArtistID = $ArtistID $order";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": query=$query<BR>";
 			break;
 		case $ARTISTS :
@@ -5442,14 +5496,14 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 			$accesslevel > FP_ADMINISTRATOR  ? $where = "WHERE ID = $ArtistID" : $where = "";
 			$query = "SELECT $set FROM $querytable $where $order";
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": BTPFetchRows, Artist = $ArtistID<BR>$query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		case $PRICESETS :
 			$order = " ORDER BY Title";
 			$accesslevel > FP_ADMINISTRATOR_LEVEL ? $where = "WHERE ISNULL(ImageID) OR ArtistID = $ArtistID OR ArtistID = " . FP_ADMINISTRATOR . " OR ISNULL(ArtistID) " : $where = "" ;
 			$query = "SELECT $set FROM $querytable $where $order";
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": BTPFetchRows, Artist = $ArtistID<BR>$query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		case $SUPPLIERS :
 			$order = " ORDER BY Name";
@@ -5458,17 +5512,17 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 			$accesslevel > FP_ADMINISTRATOR  ? $where = "WHERE ArtistID = $ArtistID" : $where = "";
 			$query = "SELECT $set FROM $querytable $where $order";
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": BTPFetchRows, Artist = $ArtistID<BR>$query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		case $SALES :
 			$order = " ORDER BY paymentdatetime";
 			$query = "SELECT $set FROM $querytable $where $order";
 			$DEBUG && $msg .= "Query: $query<BR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 			break;
 		default :
 			$query = "SELECT $set FROM $querytable $where $order";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 	}
 
 	return $result;
@@ -5527,6 +5581,7 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES, $SALES, $PAYMENTS, $SUPPLIERS;
 	global $FP_GALLERY_TYPE;
 	global $msg, $error;
+	global $LINK;
 
 
 	$DEBUG = 0;
@@ -5570,7 +5625,7 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 		$fp_user_accesslevel = $rowArtist['AccessLevel'];
 
 
-		while ($row = mysql_fetch_array($projectresult, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($projectresult, MYSQLI_ASSOC)) {
 			//$DEBUG && print __FILE__ ." ". __FUNCTION__." ".__LINE__." ".ArrayToTable ($row);
 			
 			array_walk ($row, 'trimME');
@@ -5658,7 +5713,7 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 					
 					$row['GROUP_MENU'] = $GroupList;
 
-					$myGroup = new FPGroup($row['GroupID']);
+					$myGroup = new FPGroup ($LINK, $row['GroupID']);
 					$row['GROUP_MENU_SORTFIELD'] = trim($myGroup->title);
 
 					break;
@@ -6059,6 +6114,7 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 // $msg might be blank
 function BuildTablePage ($queryset, $table, $projectID, $fp_user, $limit=0) {
 	global $msg, $error;
+	global $LINK;
 	//global $Themes;
 	$format = BTPFetchFormat ($queryset, $table);
 	
@@ -6121,6 +6177,7 @@ function SortNoThe ($a, $b) {
 function GroupsPopup ($where = null) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 
 	$grouplist = FetchAllGroupsArrays ();
 	$extrahtml = "";

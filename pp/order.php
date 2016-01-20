@@ -366,7 +366,7 @@ $page = StripEmptyVars ($page);
 
 print $page;
 
-mysql_close($LINK);
+mysqli_close($LINK);
 // We don't use mysqli in pp (yet!)
 //$FP_MYSQL_LINK->close();
 

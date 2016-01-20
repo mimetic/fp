@@ -190,6 +190,6 @@ switch( $paypal_ipn->get_payment_status() )
 
 } 
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 ?>

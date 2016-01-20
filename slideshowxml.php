@@ -196,14 +196,14 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
 			
 			$DEBUG && print "Query: $query<HR>";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 	
 			if ($result) {
 	// 			$albumInfo['title'] = "Frontline Photos";
 	// 			$albumInfo['link'] = "http://www.frontline-photos.com/";
 	// 			$albumInfo['description'] = "Photographs from Featured Projects";
 				$XML = new SlideshowXML();	
-				while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+				while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$XML->addProjects ( $project['ID'] );
 				}
 				$output = $XML->serialize();
@@ -231,7 +231,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 				$query = "SELECT DISTINCT $PARTS.PartID AS ImageID FROM $PARTS, $PROJECTS WHERE $where ORDER BY RAND()";			
 				$DEBUG && print "Artist $shortname<BR>$query<HR>";
 	
-				$result = mysql_query ($query);
+				$result = mysqli_query ($LINK, $query);
 	
 				if ($result) {	
 					$artistname = $artist['Firstname'] . " " . $artist['Lastname'];
@@ -240,7 +240,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 					$XML = new SlideshowXML();
 					$albumID = "My Album";
 					$XML->addAlbum ($albumID, $title, $description);
-					while ($parts = mysql_fetch_array($result, MYSQL_ASSOC)) {
+					while ($parts = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 						$imageID = $parts['ImageID'];
 						$DEBUG && print "-> $imageID<BR>";
 						$image = FetchImage($imageID);
@@ -279,14 +279,14 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			$table = $PROJECTS;
 			$order = "Title";
 			$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
-			$result = mysql_query ($query);
+			$result = mysqli_query ($LINK, $query);
 	
 	// 		$albumInfo['title'] = "Frontline Photos";
 	// 		$albumInfo['link'] = "http://".$SYSTEMURL."/";
 	// 		$albumInfo['description'] = "Featured Projects";
 			$XML = new SlideshowXML();	
 			if ($result) {
-				while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+				while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$projectIDList[] = $project['ID'];
 					$XML->addProjects ( $project['ID'] );
 				}

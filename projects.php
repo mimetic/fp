@@ -74,7 +74,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$vars['fp_user'] && $_SESSION['fp_user'] = $vars['fp_user'];
 	
 	$groupID = $_SESSION['GroupID'];
-	$myGroup = new FPGroup ($groupID);
+	$myGroup = new FPGroup ($LINK, $groupID);
 	$_SESSION['theme'] = $myGroup->theme;
 
 	$hidelist = $myGroup->GetParam(FP_PARAM_GROUP_HIDE_LISTING);
@@ -183,8 +183,8 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$output = ReplaceSysVars ($output);
 	$output = DeleteUnusedSnippets ($output);
 	
-	mysql_close($LINK);
-	$FP_MYSQL_LINK->close();
+	mysqli_close($LINK);
+	//$FP_MYSQL_LINK->close();
 
 	$output = compress_html($output);
 	$DEVELOPING || $DEVELOPING || $Cache_Lite->save($output, $cacheid, $cachegroup);
@@ -198,8 +198,9 @@ print $output;
 
 function GetProjectCascade ($myGroup, $showmode = null, $userID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
 	
-	$myGroup || $myGroup = new FPGroup();
+	$myGroup || $myGroup = new FPGroup ($LINK);
 	$groupID = $myGroup->ID;
 	
 	$tables	= array (

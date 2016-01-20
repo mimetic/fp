@@ -163,9 +163,9 @@ function KillOrphans () {
 	$DEBUG = false;
 	
 	$query = 'select * from Images';
-	$result = mysql_query($query);
+	$result = mysqli_query ($query);
 	if ($result) {
-		while ($image = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($image = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$url = $image['URL'];
 			$ID = $image['ID'];
 			if (!file_exists("$ORIGINALS/$url")) {
@@ -178,10 +178,10 @@ function KillOrphans () {
 
 
 	$query = 'select * from Parts';
-	$result = mysql_query($query);
+	$result = mysqli_query ($query);
 	if ($result) 
 	{
-		while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) 
+		while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) 
 		{
 			$ID = $part['ID'];
 			$projectID = $part['ProjectID'];
@@ -227,7 +227,6 @@ function KillOrphans () {
 
 function HandleImage ($action, $ID, $ArtistID=0, $projectID=0, $vars=array(), $filename = "") {
 	global $DEPENDENCIES, $_FILES;
-	global $MESSAGE;
 	global $MAILED_DIR;
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $FRAMED, $ORIGINALS;
 	global $BASEDIR;
@@ -2493,7 +2492,9 @@ function DeleteSlideshowAudioFile ($projectID) {
 
 // Get the filename for an audio clip --- it's based on the project ID
 function GetSlideshowAudioPath ($projectID) {
-	$project = new FPProject($projectID);
+	global $LINK;
+	
+	$project = new FPProject ($LINK, $projectID);
 	$userDir = GetUserDirectory($project->owner);
 	$path = $userDir.FP_SUBDIR_USER_FILES;
 	return $path;
@@ -2512,8 +2513,9 @@ function GetProjectSlideshowAudio ($projectID) {
 	global $SLIDESHOW_AUDIO;
 	global $BASEDIR;
 	global $msg, $error;
+	global $LINK;
 
-	$project = new FPProject($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	return $project->audio;
 }
 
@@ -2712,9 +2714,9 @@ function DeleteUnreferencedImages($delete=false) {
 	global $msg, $error;
 	
 	$query = "SELECT * FROM ".DB_IMAGES." ORDER BY ID";
-	$result = mysql_query($query);
+	$result = mysqli_query ($query);
 	
-	while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$ID = $record['ID'];
 		$pix[$record['URL']] = $record['URL'];
 	}
@@ -2749,9 +2751,9 @@ function DeleteMissingPix ($delete = false) {
 	
 	$output = "";
 	$query = "SELECT * FROM ".DB_IMAGES." ORDER BY ID";
-	$result = mysql_query($query);
+	$result = mysqli_query ($query);
 	
-	while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	
 		$ID = $record['ID'];
 	
@@ -2788,8 +2790,8 @@ function DeleteMissingPix ($delete = false) {
 				$a = array ();
 				
 				$query = "SELECT * FROM ".DB_PARTS." WHERE ( PartTable = \"".DB_IMAGES."\" AND PartID = \"$ID\" ) ORDER BY ID";
-				$parts = mysql_query($query);
-				while ($part = mysql_fetch_array($parts, MYSQL_ASSOC)) {
+				$parts = mysqli_query ($query);
+				while ($part = mysqli_fetch_array($parts, MYSQLI_ASSOC)) {
 					$a[] =$part['ID'];
 					DeleteRowByID( DB_PARTS, $part['ID'] );
 				}

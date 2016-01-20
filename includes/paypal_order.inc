@@ -768,7 +768,7 @@ class paypal_order
 
 		$where = "WHERE txn_id='" . $this->paypal_post_vars['txn_id'] . "'";
 		$query = "UPDATE $PAYPAL SET $set $where";
-		return mysql_query($query);
+		return mysqli_query ($query);
 	}
 
 	// Check that the order exists in our Sales db.
@@ -787,9 +787,9 @@ class paypal_order
 		$where = "WHERE invoice = '$invoice' AND txn_id = '' ";
 		$query = "SELECT * from $SALES $where";
 		
-		$result = mysql_query($query);
-		if ($result && mysql_num_rows($result)) {
-			$result = mysql_fetch_array($result, MYSQL_ASSOC);
+		$result = mysqli_query ($query);
+		if ($result && mysqli_num_rows($result)) {
+			$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			fp_error_log("OK (".__FUNCTION__.") : confirmed invoice = $invoice.", 3, FP_ORDER_LOG );
 			
 		} else {
@@ -815,9 +815,9 @@ class paypal_order
 		if ($this->paypal_post_vars['txn_type'] == "cart") {
 			// MULTI-ITEM ORDER
 			$query = "SELECT * from ".DB_SALES." WHERE `invoice` = '".$this->paypal_post_vars['invoice']."'";
-			$result = mysql_query($query);
-			if ($result && mysql_num_rows($result)) {
-				$result = mysql_fetch_array($result, MYSQL_ASSOC);
+			$result = mysqli_query ($query);
+			if ($result && mysqli_num_rows($result)) {
+				$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				fp_error_log("OK (" . __FUNCTION__ . ") : confirmed order invoice #{$invoice}.", 3, FP_ORDER_LOG);
 			} else {
 				$result = 0;
@@ -831,9 +831,9 @@ class paypal_order
 			$where = "WHERE id = '$item_number' ";
 			$query = "SELECT * from $SALES $where";
 
-			$result = mysql_query($query);
-			if ($result && mysql_num_rows($result)) {
-				$result = mysql_fetch_array($result, MYSQL_ASSOC);
+			$result = mysqli_query ($query);
+			if ($result && mysqli_num_rows($result)) {
+				$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				fp_error_log("OK (" . __FUNCTION__ . ") : confirmed order ID=$item_number.", 3, FP_ORDER_LOG);
 			} else {
 				$result = 0;
@@ -867,9 +867,9 @@ class paypal_order
 			$where = "WHERE secret = '$secret'";
 			$query = "SELECT * from $SALES $where limit 1";
 
-			$result = mysql_query($query);
-			if ($result && mysql_num_rows($result)) {
-				$result = mysql_fetch_array($result, MYSQL_ASSOC);
+			$result = mysqli_query ($query);
+			if ($result && mysqli_num_rows($result)) {
+				$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				fp_error_log("OK (" . __FUNCTION__ . ") : confirmed order made where secret = $secret.\n query=$query", 3, FP_ORDER_LOG);
 			} else {
 				$result = 0;
@@ -941,9 +941,9 @@ class paypal_order
 			$itemRowID = mysql_real_escape_string($this->paypal_post_vars["item_number$xx"]);
 			$invoice = mysql_real_escape_string($this->paypal_post_vars["invoice"]);
 			$query = "select * from ".DB_SALES." where invoice = '$invoice' AND item_number = '$itemRowID'";
-			$result = mysql_query($query);
+			$result = mysqli_query ($query);
 			if ($result) {
-				$saleRecord = mysql_fetch_array($result, MYSQL_ASSOC);
+				$saleRecord = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				$saleID = $saleRecord['id'];
 			} else {
 				return false;

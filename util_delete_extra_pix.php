@@ -33,9 +33,9 @@ $list .= '<form>
 </form>';
 
 $query = "SELECT * FROM ".DB_IMAGES." ORDER BY ID";
-$result = mysql_query($query);
+$result = mysqli_query ($LINK, $query);
 
-while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	$ID = $record['ID'];
 	$pix[$record['URL']] = $record['URL'];
 }
@@ -95,7 +95,7 @@ $text = ReplaceSysVars ($text, $table, $fp_user, $ID, $nextaction);
 $text = DeleteUnusedSnippets ($text);
 print $text;
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 ?>

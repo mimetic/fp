@@ -175,8 +175,8 @@ class SlideshowXML {
 				$images = array ();
 				$record = FetchProject ($projectID);
 				$query = "select * from $PARTS where ProjectID = '$projectID' and PartTable = '$IMAGES' ORDER BY $PARTS.OrderInProject";
-				$result = mysql_query($query);
-				while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) {
+				$result = mysqli_query ($query);
+				while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$image = FetchImage ($part['PartID']);
 					//$images[$image['CreatedDate']] = $this->buildImage ($image);
 					$images[] = $this->buildImage ($image);

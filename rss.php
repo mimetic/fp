@@ -98,7 +98,7 @@ case "active" :
 	$table = $PROJECTS;
 	$order = "Title";
 	$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 
 	if ($result) {
 	$chaninfo['title'] = FP_SYSTEM_DISPLAY_NAME;
@@ -106,7 +106,7 @@ case "active" :
 	$chaninfo['description'] = "Photographs from Featured Projects";
 	$rss = SetUpRSS ($chaninfo, $medium);
 
-	while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$projectIDList[] = $project['ID'];
 	}
 	$rss = AddProjectsToRSS ($rss, $projectIDList);
@@ -139,7 +139,7 @@ case "artist" :
 	// Get images from the artist, from the Parts table, where the
 	// project is featured.
 	$query = "SELECT DISTINCT $PARTS.PartID AS ImageID FROM $PARTS, $PROJECTS WHERE ($PROJECTS.Public = 0) AND $PARTS.PartTable = '$IMAGES' AND $PARTS.ProjectID = $PROJECTS.ID and $PARTS.ArtistID = " . $artistID . " AND (((TO_DAYS(NOW()) - TO_DAYS($PROJECTS.LastUpdate)) <= $PROJECTS.Lifespan) OR ($PROJECTS.Lifespan = 0))";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 
 	//if ($result) {
 	$chaninfo['title'] = FP_SYSTEM_DISPLAY_NAME;
@@ -148,7 +148,7 @@ case "artist" :
 	$chaninfo['pubDate'] = $pubDate;
 	$rss = SetUpRSS ($chaninfo, $medium);
 	$rss = AddProjectsToRSS ($rss, array ('ID'=>$record['ID']));
-	while ($parts = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($parts = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$imageID = $parts['ImageID'];
 		$image = FetchImage($imageID);
 		$rss = AddPictureToRSS ($rss, $image);
@@ -175,9 +175,9 @@ default :
 	// Get pubDate - most recently updated project
 	//$query = "SELECT UNIX_TIMESTAMP(max(Timestamp)) from $PROJECTS WHERE $where";
 	$query = "SELECT UNIX_TIMESTAMP(max(LastUpdate)) from $PROJECTS WHERE $where";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	if ($result) {
-	$date = mysql_result($result, 0);
+	$date = mysqli_result($result, 0);
 	if ($date) {
 		$pubDate = date ("D, d M Y H:i:s O", $date);
 	} else {
@@ -191,7 +191,7 @@ default :
 	$table = $PROJECTS;
 	$order = "Title";
 	$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 
 	$chaninfo['title'] = FP_SYSTEM_DISPLAY_NAME;
 	$chaninfo['link'] = $SYSTEMURL;
@@ -199,7 +199,7 @@ default :
 	$chaninfo['pubDate'] = $pubDate;
 	$rss = SetUpRSS ($chaninfo, $medium);
 	if ($result) {
-	while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$projectIDList[] = $project['ID'];
 	}
 	$rss = AddProjectsToRSS ($rss, $projectIDList);
@@ -213,13 +213,14 @@ default :
 
 function SetUpRSS ($chaninfo, $medium) {
 	global $SYSTEMURL;
+	global $LINK;
 	
 	// add in site channel info
 	$extraChanInfo = FetchSnippet ($medium . "_channelinfo");	// this has returns, so let's make it a file
 	$rss = new RSSWriter($chaninfo, $extraChanInfo, $medium);
 	
 	// Get icon from group 1 (main group)
-	$mygroup = new FPGroup (1);
+	$mygroup = new FPGroup ($LINK, 1);
 	$icon = $mygroup->IconFilename();
 	
 	($medium == "itunes") || $rss->setImage($chaninfo['title'],
@@ -257,8 +258,8 @@ if (count($projectIDList)) {
 		$chaninfo["link"] = $SYSTEMURL;
 		$chaninfo["description"] = $description;
 		$record = GetRecord ("Projects", $ID);
-		$result = mysql_query($query);
-		while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$result = mysqli_query ($LINK, $query);
+		while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$pixlist[$part['PartID']] = FetchImage ($part['PartID']);
 		}
 		$pixlist && ksort ($pixlist);
@@ -288,8 +289,8 @@ if (count($projectIDList)) {
 			$query = "select DISTINCT * from $PARTS where ProjectID = '$projectID' and PartTable = '$IMAGES' $order LIMIT 1";
 		}
 
-		$result = mysql_query($query);
-		while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$result = mysqli_query ($LINK, $query);
+		while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$image = FetchImage ($part['PartID']);
 			$image['ProjectID'] = $projectID;
 			$pixlist[$part['PartID']] = $image;

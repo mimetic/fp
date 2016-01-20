@@ -65,8 +65,8 @@ if(is_object($cart)) {
 } else {
 	$result['error'] = "No cart";
 }
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 header("Content-type: text/plain");
 $x = json_encode($result);

@@ -2868,14 +2868,16 @@ function ShippingCost ($saleID) {
 // 
 function DeleteUnusedOrders () {
 	global $BASEDIR, $LOGS;
+	global $LINK;
+	
 	// Delete any orders which have not been confirmed, and 
 	// after a certain time period.
 	$where = "(txn_id = '') AND TIME_TO_SEC(TIMEDIFF(NOW(), order_time )) > ".FP_CLEAR_UNCONFIRMED_ORDERS_DELAY;
 	$query = "SELECT id, item_number, item_id, quantity FROM ".DB_SALES." WHERE $where";
 
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	if ($result) {
-	while ($sale = mysql_fetch_array($result, MYSQL_ASSOC))
+	while ($sale = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 		// If this is the only sale, then restore the generic price set
 		// and delete the unique copy for this image.
@@ -2967,6 +2969,7 @@ function AddNewMailingToQueue ($subject = "", $data = "", $list = "") {
 
 function pickupMessage ($path = "") {
 	global $msg, $error;
+	global $LINK;
 	
 	$DEBUG = false;
 	$path || $path = FP_DIR_NEWSLETTER;
@@ -2991,15 +2994,15 @@ function pickupMessage ($path = "") {
 		
 		if (!$DEBUG) {
 			$sql=sprintf("INSERT INTO phpemaillist_messages(subject, body) VALUES('%s', '%s')", 
-			 mysql_real_escape_string($subject),
-			 mysql_real_escape_string($message));
+			 mysqli_real_escape_string($subject),
+			 mysqli_real_escape_string($message));
 			
-			$result=mysql_query($sql) or die("Unable to execute query compose 3 $result");
-			$messageid=mysql_insert_id();
+			$result=mysqli_query ($sql) or die("Unable to execute query compose 3 $result");
+			$messageid=mysqli_insert_id();
 			
 			foreach ($lists as $list){
-				$sql=sprintf("INSERT INTO phpemaillist_queue(message, list) VALUES('$messageid', %s);", mysql_real_escape_string($list));
-				$result=mysql_query($sql) or die("Unable to execute query compose loop $result");
+				$sql=sprintf("INSERT INTO phpemaillist_queue(message, list) VALUES('$messageid', %s);", mysqli_real_escape_string($LINK, $list));
+				$result=mysqli_query ($sql) or die("Unable to execute query compose loop $result");
 			}
 			header("Location:" . MAILER_SYSTEM_URL . "?message=$message&amp;subject=$subject");
 		}

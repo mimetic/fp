@@ -68,8 +68,8 @@ fp_error_log("AUTOUPDATER: $updaterdescription", 3, FP_MAINTENANCE_LOG);
 /*
  * END UPDATER CODE
  */
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 /*
  * RENAMER:

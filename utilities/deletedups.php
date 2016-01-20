@@ -25,9 +25,9 @@ Setup ();
 //SELECT BookISBN, count(BookISBN) FROM Books GROUP BY BookISBN HAVING COUNT(BookISBN)>1;
 $query = "select ID, Title, URL, COUNT(URL) AS kURL from Images GROUP BY URL HAVING (COUNT(URL) > 1 );";
 print "$query<BR>";
-$result = mysql_query($query);
+$result = mysqli_query ($LINK, $query);
 $k =1;
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	//print ArrayToTable ( $line );
 	print "$k) " ;
 	while (list ($key, $value) = each ($line)) {
@@ -42,8 +42,8 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	
 }
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 
 ?>

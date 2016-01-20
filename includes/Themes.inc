@@ -7,6 +7,11 @@ class Themes {
 // ---------------------
 // Variables
 // ---------------------
+	/**
+	 * The mysqli database connection
+	 */
+	var $mysqli_connection;
+
 	public $FP_THEMES_LIST, $FP_THEMES_PREVIEWS, $FP_THEMES_PREVIEWS_FOR_JS;
 	public $FP_Themes;
 // $userID is the ID of the current admin user. Useful for deciding which user directory to get/delete/save/whatever from...
@@ -20,7 +25,7 @@ class Themes {
 // ---------------------
 
 // Constructure php4 style
-	function Themes () {
+	function __construct () {
 		global $error, $msg;
 
 		$this->FP_THEMES_LIST = array();
@@ -192,7 +197,7 @@ class Themes {
 					$newThemeID = DEFAULT_THEME;
 				}
 				unset ($this->FP_Themes[$myThemeID]);
-				$myGroup = new FPGroup();
+				$myGroup = new FPGroup ($this->mysqli_connection);
 				$myGroup->ModifyGroups(array('Theme'=>$newThemeID), "Theme", $myThemeID);
 			}
 		} else {
@@ -1200,17 +1205,18 @@ Local over-rides:
 	*/
 	function GetCurrentThemeID () {
 		global $msg, $error;
+		global $LINK;
 
 		if (isset($_SESSION['GroupID'])) {
 			if ($_SESSION['GroupID'] == FP_ADMINISTRATOR_GROUP) {
 				$_SESSION['theme'] = ADMIN_THEME;
 			} else {
-				$myGroup = new FPGroup ($_SESSION['GroupID']);
+				$myGroup = new FPGroup ($LINK, $_SESSION['GroupID']);
 				$_SESSION['theme'] = $myGroup->theme;
 			}
 		} else {
 			$_SESSION['GroupID'] = PUBLIC_GROUP_ID;
-			$myGroup = new FPGroup ($_SESSION['GroupID']);
+			$myGroup = new FPGroup ($LINK, $_SESSION['GroupID']);
 			$_SESSION['theme'] = $myGroup->theme;
 		}
 

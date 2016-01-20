@@ -5,20 +5,28 @@ class FPGroup
 // ---------------------
 // Variables
 // ---------------------
-public $info;
-public $members;
-public $projects;
-public $ID, $title, $description, $statement, $owner, $is_public, $icon, $params, $showingArtistID, $is_solo, $theme, $mastertheme, $variation;
+	/**
+	 * The mysqli database connection
+	 */
+	var $mysqli_connection;
+
+
+	public $info;
+	public $members;
+	public $projects;
+	public $ID, $title, $description, $statement, $owner, $is_public, $icon, $params, $showingArtistID, $is_solo, $theme, $mastertheme, $variation;
 
 // ---------------------	
 // Functions
 // ---------------------
-function FPGroup ($ID = null, $fp_user = null) {
+function __construct ($mysqli_connection, $ID = null, $fp_user = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $Themes;
 	global $msg, $error;
 	
 	$DEBUG = 0;
+	
+	$this->mysqli_connection = $mysqli_connection;
 	
 	// Constructor class; if we create a new group object with an
 	// ID parameter, what we do is fetch existing data about that
@@ -75,12 +83,18 @@ function members () {
 function GroupExists ($ID = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	
+	// get calling function
+	//$msg .= debug_backtrace()[2]['function'] . "<BR>";
+	//echo debug_backtrace()[2]['function'] . "<BR>";
+	
+	
 	if (!$ID)
 		return false;
 	//$ID || $ID = $this->ID;
 	$query = "SELECT ID FROM $GROUPS WHERE ID = '$ID'";
-	$result = mysql_query($query);
-	if (mysql_num_rows ($result) > 0)
+	$result = mysqli_query ($this->mysqli_connection, $query);
+	if (mysqli_num_rows ($result) > 0)
 		return true;
 	return false;
 }
@@ -212,7 +226,7 @@ function MemberList ( $hideowner = FALSE) {
 	
 	$DEBUG && $msg .= "<BR>$query<BR>";
 
-	$result = mysql_query($query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	
 	$DEBUG && $msg .= __FUNCTION__.__LINE__.": Time elapsed: ". round (microtime(true) - $starttime, 2) . " seconds<BR>";
 
@@ -220,7 +234,7 @@ function MemberList ( $hideowner = FALSE) {
 	if (!$hideowner)
 		$members[$this->owner] = FetchArtist($this->owner);
 
-	while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$members[$record['ID']] = $record;
 		$DEBUG && $msg .= "<BR>{$record['Lastname']} in group $ID<BR>";
 
@@ -273,10 +287,10 @@ function ProjectList ($ID = null) {
 	$where = "WHERE $PROJECTS.GroupID = $ID";
 	$order = "ORDER BY Title";
 	$query = "select $set from $table $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	$this->projects = array();
 	if ($result) {
-		while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$this->projects[$record['ID']] = $record;
 		}
 	}
@@ -290,9 +304,9 @@ function FetchSlideshow ($ID = null) {
 
 	$table = DB_PROJECTS;
 	$query = "select * from $table WHERE (GroupID = $ID AND Slides > 0) LIMIT 1";	
-	$result = mysql_query($query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	if ($result) {
-		$record = mysql_fetch_array($result, MYSQL_ASSOC);
+		$record = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	} else {
 		$record = null;
 	}
@@ -369,8 +383,8 @@ function AddMembersToGroup ($members = array (), $newgroupID = null) {
 				// This version checks if the artist is the owner of the group, too.
 				$query = "select distinct $PARTS.ID from $PARTS, $GROUPS where ($PARTS.ArtistID = '$artistID' AND $PARTS.PartID = '$newgroupID' AND $PARTS.PartTable = '$GROUPS') OR ($GROUPS.ID = '$newgroupID' AND $GROUPS.ArtistID = '$artistID')";
 				$DEBUG && $error .= __FUNCTION__.__LINE__.": $query<BR>";
-				$result = mysql_query($query);
-				if (mysql_num_rows ($result) == 0) {
+				$result = mysqli_query ($this->mysqli_connection, $query);
+				if (mysqli_num_rows ($result) == 0) {
 					$pairs = array ('ArtistID'	=>	$artistID,
 									'PartTable'	=>	$GROUPS,
 									'PartID'	=>	$newgroupID,
@@ -409,7 +423,7 @@ function IsSolo ($withPictures = false) {
 	$DEBUG = 0;
 	$DEBUG && $msg .= "Calling function: ".getCallingFunction()."<BR>";
 	
-	//$artist = new FPUser ($this->info['ArtistID']);
+	//$artist = new FPUser($this->mysqli_connection, $this->info['ArtistID']);
 	//if (($artist->UserType == FP_SINGLE_GALLERY_SINGLE_USER) || ($artist->UserType == FP_MULTI_GALLERY_SINGLE_USER)) {
 	// 
 	// If this is a single user system, then there's only one user!
@@ -437,22 +451,22 @@ function IsSolo ($withPictures = false) {
 	}
 	
 	$query = "select $set FROM $table WHERE $where";
-	$result = mysql_query($query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	
-//	while ($x = mysql_fetch_array($result, MYSQL_ASSOC)) {
+//	while ($x = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 //		$xx[] = $x;
 //	}
 
 	$DEBUG && $msg .= "$query<BR>";
 	
 	if ($result) {
-		$count = mysql_num_rows ($result);
+		$count = mysqli_num_rows ($result);
 		
 		if ($withPictures) {
 			$DEBUG && $msg .= "* Count group members with pictures.<BR>";
 			$this->is_solo = ($count == 1);
 			if ($count > 0) {
-				$x = mysql_fetch_array($result, MYSQL_ASSOC);
+				$x = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				$DEBUG && $msg .= __FUNCTION__. __LINE__.ArrayToTable ($x);
 				$this->showingArtistID = $x['ID'];
 			} else {
@@ -490,7 +504,7 @@ function MemberCount ( $withPictures = false, $rejectSysAdmin = true ) {
 
 	
 	// If this is a single user system, then there's only one user!
-	$artist = new FPUser ($this->info['ArtistID']);
+	$artist = new FPUser($this->mysqli_connection, $this->info['ArtistID']);
 	if ($artist->UserType == FP_SINGLE_GALLERY_SINGLE_USER || $artist->UserType == FP_MULTI_GALLERY_SINGLE_USER) {
 		$this->showingArtistID = $this->OwnerID ();
 		return (1);
@@ -536,8 +550,8 @@ function MemberCount ( $withPictures = false, $rejectSysAdmin = true ) {
 
 	$where = "WHERE $rejectSysAdmin $where";
 	$query = "select $set FROM $table \n$where";
-	$result = mysql_query($query);
-	$result ? $count = mysql_num_rows ($result) : $count = 0;
+	$result = mysqli_query ($this->mysqli_connection, $query);
+	$result ? $count = mysqli_num_rows ($result) : $count = 0;
 
 	!$result && fp_error_log(__FUNCTION__.": *** Error: Bad sql query: $query", 3, FP_ERROR_LOG );
 
@@ -545,7 +559,7 @@ function MemberCount ( $withPictures = false, $rejectSysAdmin = true ) {
 
 	if ($count == 1) {
 		//If there's only one artist showing, (solo gallery), we can't assume the gallery owner is that artist. It could be a Public gallery, owned by admin, but only one person is showing at this time.
-		$showinfo = mysql_fetch_array ($result);
+		$showinfo = mysqli_fetch_array ($result);
 		$artistID = $showinfo['ID'];
 		$this->showingArtistID = $artistID;
 	} else {
@@ -650,7 +664,7 @@ function UpdateMembers ($vars) {
 		$newMemberList = array ($this->fp_user);
 	}
 	
-	$myGroup = new FPGroup( $this->ID );
+	$myGroup = new FPGroup ($this->mysqli_connection,  $this->ID );
 	$oldMemberList = array_keys ( $this->MemberList() );
 	
 	// Get Members in the old list NOT in the new list
@@ -820,7 +834,7 @@ function ClearIcon () {
 Create a new gallery for a user. Unless the $galleryname is set, use the user's full name.
 */
 function MakeGroupForUser ($userID, $groupname = null) {
-	$user = new FPUser ($userID);
+	$user = new FPUser($this->mysqli_connection, $userID);
 
 	if (!$groupname) {
 		$groupname = $user->Fullname;

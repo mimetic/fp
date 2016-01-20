@@ -16,7 +16,7 @@ $first ? $second : $third
 */
 
 
-//error_reporting	(E_ERROR | E_WARNING | E_PARSE );
+error_reporting	(E_ERROR | E_WARNING | E_PARSE );
 
 //------------------
 
@@ -86,8 +86,9 @@ function Maintenance ($DEBUG = false) {
 // owned by sys admin
 function MaintainGroups() {
 	global $error, $msg;
+	global $LINK;
 
-	$g = new FPGroup ();
+	$g = new FPGroup ( $LINK );
 	if (!$g->GroupExists(FP_ADMINISTRATOR)) {
 		AddMainGallery (FP_ADMINISTRATOR);
 	}
@@ -97,10 +98,11 @@ function MaintainGroups() {
 // Create a new gallery. It will be owned by artistID = $id
 function AddMainGallery ($id = null, $title = "Main Gallery") {
 	global $msg, $error;
+	global $LINK;
 
 	$id || $id = FP_ADMINISTRATOR;
 
-	$g = new FPGroup ();
+	$g = new FPGroup ($LINK);
 	$g->ID = PUBLIC_GROUP_ID;
 	$g->title = $title;
 	$g->owner = $id;
@@ -119,6 +121,7 @@ function MaintainArtists () {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= __FUNCTION__.":MaintainArtists<br>";
@@ -136,6 +139,7 @@ function GalleriesForArtists () {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$myresult = "Results of Galleries for Artists:";
@@ -184,7 +188,7 @@ function MaintainProjects () {
 	// Get all projects
 	$result = FetchAllProjects('', 'Title');
 
-	while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$projectstatus = GetProjectStatus ($project);
 		$DEBUG && print "MaintainProjects: Checking project ".$project['Title']."<BR>\n";
 		if ($projectstatus['TimeToDie']) {
@@ -211,6 +215,7 @@ function MaintainProjects () {
 function GetProjectStatus ($project) {
 	global $ARTISTS, $PROJECTS, $IMAGES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 
@@ -272,8 +277,8 @@ function GetProjectStatus ($project) {
 function ProjectIsEmpty ($ID) {
 	// If a project has neither images nor stories, it is neither featured nor active.
 	$query  = 'SELECT ID from Parts WHERE (PartTable = "' . DB_IMAGES . '" OR PartTable  = "stories") AND ProjectID = ' . $ID;
-	$result2 = mysql_query($query);
-	return mysql_num_rows($result2) == 0;
+	$result2 = mysqli_query ($LINK, $query);
+	return mysqli_num_rows($result2) == 0;
 }
 
 
@@ -315,7 +320,7 @@ function Display ($result = array() ) {
 	if (! $result)
 		return null;
 	print "<table border=1 cellpadding=5 bgcolor='gray'>\n";
-	$line = mysql_fetch_array($result, MYSQL_ASSOC);
+	$line = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$keys = array_keys ($line);
 	print "\t<tr>\n";
 	reset ($line);
@@ -323,8 +328,8 @@ function Display ($result = array() ) {
 		print "\t\t<th><i>$k:</i></th>\n";
 	}
 	print "\t</tr>\n";
-	mysql_data_seek ($result, 0);
-	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	mysqli_data_seek ($result, 0);
+	while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		print "\t<tr>\n";
 		//		while (list ($k, $col_value) = each ($line)) {
 		foreach ($line as $col_value) {
@@ -335,7 +340,7 @@ function Display ($result = array() ) {
 		print "\t</tr>\n";
 	}
 	print "</table>\n";
-	mysql_data_seek ($result,0);	//reset the pointer
+	mysqli_data_seek ($result,0);	//reset the pointer
 }
 
 
@@ -364,6 +369,7 @@ function makeUpdate($arr) {
 function FixCheckBoxFields ($pairs) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = 0;
 	reset ($pairs);
 	while (list($key, $value) = each ($pairs)) {
@@ -385,6 +391,7 @@ function FixCheckBoxFields ($pairs) {
 // Used to package up arrays for storage in mysql
 function SerializeArraysInPairs ($pairs) {
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = false;
 	reset ($pairs);
 	while (list($key, $value) = each ($pairs)) {
@@ -399,6 +406,7 @@ function SerializeArraysInPairs ($pairs) {
 function quote_smart($value) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 
 	// Stripslashes
 	if (get_magic_quotes_gpc()) {
@@ -406,7 +414,7 @@ function quote_smart($value) {
 	}
 
 	// The following does an addSlashes, and other goodies
-	$value = mysql_real_escape_string($value);
+	$value = mysqli_real_escape_string($value);
 	$value = "'" . $value . "'";
 
 	return $value;
@@ -425,6 +433,7 @@ function quote_smart($value) {
 function UpdateImageOrder ($projectID, $vars) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Beginning UpdateImageOrder:<BR>";
@@ -459,8 +468,9 @@ function UpdateImageOrder ($projectID, $vars) {
 // It is also about 100 times faster!
 function UpdateRecord ( $table, $ID, $pairs ) {
 	global $BASEDIR, $LOGS;
-	global $FP_MYSQL_LINK;
+	global $LINK;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -481,7 +491,7 @@ function UpdateRecord ( $table, $ID, $pairs ) {
 	while (list($k,$v) = each ($pairs)) 
 		{
 		/* Create a prepared statement */
-		$stmt = $FP_MYSQL_LINK->prepare( "UPDATE $table SET $k = ? WHERE ID = ?" );
+		$stmt = $LINK->prepare( "UPDATE $table SET $k = ? WHERE ID = ?" );
 		if ( $stmt )
 			{
 			$stmt->bind_param("ss", $v, $ID);
@@ -506,6 +516,7 @@ function UpdateRecord ( $table, $ID, $pairs ) {
 function UpdateRecordOLD ( $table, $ID, $pairs ) {
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -522,10 +533,10 @@ function UpdateRecordOLD ( $table, $ID, $pairs ) {
 	$pairs = PackageParams ($pairs);
 	$pairs = SerializeArraysInPairs ($pairs);
 	$update = makeUpdate($pairs);
-	$query = "UPDATE $table SET $update where ID = '".mysql_real_escape_string($ID)."' ";
+	$query = "UPDATE $table SET $update where ID = '".mysqli_real_escape_string($ID)."' ";
 	if ($DEBUG)
 		$error .= __FUNCTION__.": <BR>$query<BR>";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	return $result;
 
 }
@@ -536,7 +547,7 @@ function UpdateRecordOLD ( $table, $ID, $pairs ) {
 // id = $arr['id']. 
 // $where is of the form, "field='value'"
 function UpdateRow ( $table, $pairs, $col="", $val="" ) {
-	global $FP_MYSQL_LINK;
+	global $LINK;
 	global $error, $msg;
 	
 	$pairs = StripNonExistantFields ($table, $pairs);
@@ -547,7 +558,7 @@ function UpdateRow ( $table, $pairs, $col="", $val="" ) {
 		while (list($k,$v) = each ($pairs)) 
 			{
 			/* Create a prepared statement */
-			$stmt = $FP_MYSQL_LINK->prepare( "UPDATE $table SET $k = ? WHERE $col = ?" );
+			$stmt = $LINK->prepare( "UPDATE $table SET $k = ? WHERE $col = ?" );
 			if ( $stmt )
 				{
 				$stmt->bind_param("ss", $v, $val);
@@ -570,35 +581,10 @@ function UpdateRow ( $table, $pairs, $col="", $val="" ) {
 }
 
 
-// If no $where is set, update the record where the
-// id = $arr['id']. 
-// $where is of the form, "field='value'"
-function UpdateRowOLD ( $table, $arr, $where ) {
-	global $error, $msg;
-
-	if (!$where) {
-		$where = "WHERE id='" . $arr['id'] . "'";
-	} else {
-		$where = "WHERE $where";
-	}
-
-	$arr = StripNonExistantFields ($table, $arr);
-	$arr = SerializeArraysInPairs ($arr);
-	reset ($arr);
-	$pairs=array();
-	while (list($key, $value) = each($arr)) {
-		$pairs[] =	"$key = ". quote_smart(LimitHTLM ($value));
-	}
-	$vals = join(", ", $pairs);
-	$query = "UPDATE $table SET $vals $where";
-	return mysql_query($query);
-}
-
-
 function SetRowID ($table, $oldID=null, $newID = null) {
 	if ($oldID && $newID) {
 		$query = "UPDATE $table SET ID = $newID WHERE ID = $oldID";
-		mysql_query($query);
+		mysqli_query ($LINK, $query);
 	}
 }
 
@@ -610,7 +596,7 @@ function FetchRowsByValueAsArray ($table, $set, $keyfield, $value, $index = 'ID'
 	$rows = array();
 	if ($result)
 		{
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 			$rows[$row[$index]] = $row;
 			}
@@ -623,7 +609,7 @@ function FetchRowsByValueAsArray ($table, $set, $keyfield, $value, $index = 'ID'
 // IF $returnarray is set, return the first row as an array (dump the rest)
 function FetchRowsByValueMysqli ($table, $set, $keyfield, $value, $order, $returnarray = FALSE) {
 	global $Themes;
-	global $FP_MYSQL_LINK;
+	global $LINK;
 	global $error, $msg;
 	$DEBUG = 0;
 	
@@ -650,7 +636,7 @@ function FetchRowsByValueMysqli ($table, $set, $keyfield, $value, $order, $retur
 			{
 	
 			$query = "select $set from $table where $keyfield = '$value' $order $limit";
-			$result = $FP_MYSQL_LINK->query($query);
+			$result = $LINK->query($query);
 		
 			if ($returnarray && $result)
 				{
@@ -663,9 +649,9 @@ function FetchRowsByValueMysqli ($table, $set, $keyfield, $value, $order, $retur
 			// use mysql interface
 			{
 			$query = "select $set from $table where $keyfield='$value' $order $limit";
-			$result = mysql_query($query);
+			$result = mysqli_query ($LINK, $query);
 			if ($returnarray && $result)
-				$result = mysql_fetch_array($result, MYSQL_ASSOC);
+				$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				$result || $result = array();
 			}
 	//	}
@@ -682,6 +668,8 @@ function FetchRowsByValueMysqli ($table, $set, $keyfield, $value, $order, $retur
 // IF $returnarray is set, return the first row as an array (dump the rest)
 function FetchRowsByValue ($table, $set, $keyfield, $value, $order, $returnarray = FALSE) {
 	global $error, $msg;
+	global $LINK;
+	
 	$DEBUG = 0;
 
 	if (!$value || !$keyfield || !$set || !$table)
@@ -695,7 +683,7 @@ function FetchRowsByValue ($table, $set, $keyfield, $value, $order, $returnarray
 	if (!$table)
 		return false;
 	
-	$value = mysql_real_escape_string($value);
+	$value = mysqli_real_escape_string($LINK, $value);
 	
 	$order && $order = "ORDER BY $order";
 	$returnarray ? $limit = "LIMIT 1" : $limit = "";
@@ -712,9 +700,9 @@ function FetchRowsByValue ($table, $set, $keyfield, $value, $order, $returnarray
 		if ($DEBUG)
 			$error .= __FUNCTION__.": $query<P>";
 	
-		$result = mysql_query($query);
+		$result = mysqli_query ($LINK, $query);
 		if ($returnarray && $result)
-			$result = mysql_fetch_array($result, MYSQL_ASSOC);
+			$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
 		//$t = EndTimer();
 		//$t && $msg .= "Time: $t; ";
@@ -725,7 +713,7 @@ function FetchRowsByValue ($table, $set, $keyfield, $value, $order, $returnarray
 
 
 function FetchFirstRowAsArray ($table, $set) {
-	global $FP_MYSQL_LINK;
+	global $LINK;
 	global $error, $msg;
 
 	// Sanitize values
@@ -734,7 +722,7 @@ function FetchFirstRowAsArray ($table, $set) {
 		return false;
 	
 	$query = "select $set from $table LIMIT 1";
-	$result = $FP_MYSQL_LINK->query($query);
+	$result = $LINK->query($query);
 	$row = $result->fetch_array(MYSQLI_ASSOC);
 		
 	return $row;
@@ -744,10 +732,10 @@ function FetchFirstRowAsArray ($table, $set) {
 
 function CountRecordsByValue($table, $column, $value) {
 	$query = "select $column from $table where $column = `$value`";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$k = 0;
 	if ($result)
-		$k = mysql_num_rows($result);
+		$k = mysqli_num_rows($result);
 	return $k;
 }
 
@@ -778,8 +766,8 @@ function CleanUserInput (&$value) {
 		$value = stripslashes($value);
 	}
 	/*
-	// Goddamn! If we use mysql_real_escape_string on everything, we get /" stuff in our text
-	$value = mysql_real_escape_string(trim($value));
+	// Goddamn! If we use mysqli_real_escape_string on everything, we get /" stuff in our text
+	$value = mysqli_real_escape_string(trim($value));
 	// Restore newlines and carriage returns
 	$value = str_replace ('\n', "\n", $value);
 	$value = str_replace ('\r', "\r", $value);
@@ -793,6 +781,7 @@ function GetFormInput () {
 	//global $HTTP_GET_VARS;
 	global $DATABASES;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && print __FUNCTION__.":";
@@ -873,6 +862,7 @@ function GetFormInput () {
 
 function VerifyTableName ($table = "") {
 	global $msg, $error;
+	global $LINK;
 	global $DATABASES;
 	if (!in_array($table, $DATABASES))
 		{
@@ -891,6 +881,7 @@ function ProcessInputs ($actions, $vars) {
 	global $Themes;
 	$DEBUG = false;
 	global $msg, $error;
+	global $LINK;
 
 	$page = "";
 	if ($DEBUG)
@@ -919,6 +910,7 @@ function ProcessInputs ($actions, $vars) {
 */
 function Substitutions ($arr, $subs, $fixquotes=false) {
 	global $msg, $error;
+	global $LINK;
 	//	global $testcounter;
 
 	$DEBUG = 0;
@@ -1007,6 +999,7 @@ function fix_dollar_signs($text) {
 
 function make_patterns($item) {
 	global $msg, $error;
+	global $LINK;
 	$item = str_replace('$','\$',$item);
 	$item = '/\\' . FP_FIELDSTART . $item . '\\'.FP_FIELDSUFFIX.'/i';
 	return $item;
@@ -1018,6 +1011,7 @@ function make_patterns($item) {
 // THIS ONLY WORKS WITH {} coding.
 function DeleteUnusedSnippets ($text) {
 	global $msg, $error;
+	global $LINK;
 
 	// dump any {} codes
 	$text = preg_replace("/(\{\w*?\})/","", $text);
@@ -1039,6 +1033,7 @@ function ReplaceAllSnippets ($text, $ignore = array()) {
 	global $BASEDIR, $LOGS;
 	global $FP_CONSTANTS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$TIMER = 0;
@@ -1102,6 +1097,7 @@ function FetchSnippet ($snippetID, $myThemeID = null ) {
 	global $SNIPPETS, $SNIPPETSDIR, $JSDIR;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -1330,6 +1326,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 	global $BASEDIR;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 	global $default_size, $slide_size, $default_matte_size, $slide_matte_size;	// array (x,y) of size of display picture in a gallery
 	global $MAILED_DIR, $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $FRAMED, $ORIGINALS, $BASEDIR, $LOGS;
 
@@ -1502,26 +1499,27 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 	$TIMER && $error .= __FUNCTION__.__LINE__.": Time elapsed: ".round (microtime(true) - $starttime, 3) . "<BR>";
 	(round (microtime(true) - $starttime, 3) > .1) && $starttime = microtime(true);
 	$DEBUG && $msg .= __FUNCTION__ .":".__LINE__ . ": QUERY<DIV style='border:2px solid red;'>$query</div><BR><BR>\n";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	$TIMER && $error .= __FUNCTION__.__LINE__.": Time elapsed: ".round (microtime(true) - $starttime, 3) . "<BR>";
 	(round (microtime(true) - $starttime, 3) > .1) && $starttime = microtime(true);
 
 	// Get field types and names
 	$result
-			? $mysqlnumfields = mysql_num_fields($result)
+			? $mysqlnumfields = mysqli_num_fields($result)
 			: $mysqlnumfields = 0;
 	$fieldtype = array ();
 	for($i=0; $i<$mysqlnumfields; $i++) {
-		$mysqlfieldname = mysql_field_name($result,$i);
-		$fieldtype[$mysqlfieldname] = mysql_field_type($result,$i);
+		$res = mysqli_fetch_field_direct($result,$i);
+		$mysqlfieldname = $res->name;
+		$fieldtype[$mysqlfieldname] = $res->type;
 	}
 
 
 
-	//	$got_rows = mysql_fetch_array($result, MYSQL_ASSOC);
-	//	$result && mysql_data_seek ($result, 0);	// important to reset this to 0 for the while loop, below!
+	//	$got_rows = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	//	$result && mysqli_data_seek ($result, 0);	// important to reset this to 0 for the while loop, below!
 	$got_rows = false;
-	$result && $got_rows = mysql_num_rows($result);
+	$result && $got_rows = mysqli_num_rows($result);
 
 	if (! $got_rows) {
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": NO RESULT FOR $query<BR>";
@@ -1572,7 +1570,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 
 		// Get all records
 		// This allows us to look ahead (for prev/next)
-		while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$line && $lines[$k++] = $line;
 		}
 
@@ -1586,7 +1584,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 		 */
 		// Get individual image settings for a project, e.g. size/position
 		if ($table == DB_PROJECTS) {
-			$project = new FPProject($lines[1]['ID']);
+			$project = new FPProject ($LINK, $lines[1]['ID']);
 			//$allSettings = unserialize($project->params[FP_PARAM_GALLERY_ITEM_SETTINGS]);
 			$params['ProjectPictureSettings'] = $project->FetchAllProjectPictureSettings();
 		}
@@ -1632,7 +1630,10 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 					}
 				}
 				$fields[$keyname] = $var;
-				$fieldtable = mysql_field_table ($result, $k);
+
+				$res = mysqli_fetch_field_direct($result, $k);
+				$fieldtable = $res->table;
+
 				$k++;
 				//print __FUNCTION__.__LINE__.":$k) fieldtable=$fieldtable, key=$key, tablekey=$tablekey, table=$table<BR>";
 				$fields[$tablekey."_".$key] = $var;
@@ -2375,6 +2376,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 // so .8 means reduce picture by 80%, leaving a 20% matte around.
 function GetDisplayMatteDimensions ($width, $height, $mattescale = null) {
 	global $msg, $error;
+	global $LINK;
 
 	$mattescale || $mattescale = MATTESCALE;
 	$new_interior_width =  ceil ($width * $mattescale) ;
@@ -2392,6 +2394,7 @@ function GetDisplayMatteDimensions ($width, $height, $mattescale = null) {
 // Get the size of an image, but scaled
 function GetImageSizeScaled ($imagepath, $scale=1) {
 	global $msg, $error;
+	global $LINK;
 	$scale || $scale = 1;
 	$imgsize = GetLocalImageSize($imagepath);
 	$imgsize[0] = $imgsize[0] * $scale;
@@ -2461,6 +2464,7 @@ $count is the number of rows to return
 */
 function RandomRow ($table, $set = '*', $where = '', $limit = 1) {
 	global $error, $msg, $Themes;
+	global $LINK;
 
 	$DEBUG = 0;
 	if ($where)
@@ -2470,12 +2474,12 @@ function RandomRow ($table, $set = '*', $where = '', $limit = 1) {
 	$query = "SELECT $set FROM $table $where ORDER BY RAND() $limit";
 	$DEBUG && $msg .= __FUNCTION__ .":".__LINE__ . ": RandomRow: $query <BR><BR>";
 	//print "randomrow: query: $query<BR>";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$num_rows = 0;
-	$result && ($num_rows = mysql_num_rows($result)); // rows returned
+	$result && ($num_rows = mysqli_num_rows($result)); // rows returned
 	if ($num_rows) {
 		$DEBUG && $result && $msg .= ResultToTable ($result);
-		return mysql_fetch_array($result, MYSQL_ASSOC);
+		return mysqli_fetch_array($result, MYSQLI_ASSOC);
 	} else {
 		return array ();
 	}
@@ -2495,6 +2499,7 @@ function FetchRandomImage ($where="", $format = 'sample_picture', $shape=null, $
 
 	global $BASEDIR;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ ."<BR>";
@@ -2525,10 +2530,10 @@ function FetchRandomImage ($where="", $format = 'sample_picture', $shape=null, $
 		$query = "SELECT PartID from ".DB_PARTS." WHERE PartTable = '".DB_IMAGES."' AND ProjectID $pid ORDER BY RAND() LIMIT 1";
 		$DEBUG && $msg .= __FUNCTION__ .":".__LINE__ . ": query=<BR>$query<BR>";
 
-		$result = mysql_query($query);
-		$result && ($num_rows = mysql_num_rows($result)); // rows returned
+		$result = mysqli_query ($LINK, $query);
+		$result && ($num_rows = mysqli_num_rows($result)); // rows returned
 		if ($num_rows) {
-			$arr = mysql_fetch_array($result, MYSQL_ASSOC);
+			$arr = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		} else {
 			$arr = null;
 		}
@@ -2652,6 +2657,7 @@ function FetchRandomImageList ($groupID=null, $projectID = null) {
 
 	global $BASEDIR;
 	global $msg, $error;
+	global $LINK;
 
 	$groupID || $groupID = PUBLIC_GROUP_ID;
 
@@ -2663,7 +2669,7 @@ function FetchRandomImageList ($groupID=null, $projectID = null) {
 	}
 
 	// Look for a "slideshow" project in this group
-	$myGroup = new FPGroup($groupID);
+	$myGroup = new FPGroup ($LINK, $groupID);
 	$projects = $myGroup->FetchSlideshow();
 	if ($projects) {
 		$projects = array($projects);
@@ -2699,10 +2705,10 @@ function DeleteRow( $table, $where ) {
 	if ($DEBUG) {
 		$error .= "DeleteRow: delete from $table where $where<BR>";
 		$error .= "select * from $table where $where<BR>";
-		$error .= ResultToTable (mysql_query("select * from $table where $where"));
+		$error .= ResultToTable (mysqli_query ("select * from $table where $where"));
 	}
-	mysql_query ("delete from $table where $where");
-	return mysql_error ();
+	mysqli_query ("delete from $table where $where");
+	return mysqli_error ();
 }
 
 function DeleteRowByID( $table, $ID ) {
@@ -2711,9 +2717,9 @@ function DeleteRowByID( $table, $ID ) {
 	if ($DEBUG) {
 		$error .= "DeleteRowByID: delete from $table where ID = '$ID'<BR>";
 		$error .= "select * from $table where ID = '$ID'";
-		$error .= ResultToTable (mysql_query("select * from $table where ID = '$ID'"));
+		$error .= ResultToTable (mysqli_query ("select * from $table where ID = '$ID'"));
 	}
-	return mysql_query ("delete from $table where ID = '$ID'");
+	return mysqli_query ("delete from $table where ID = '$ID'");
 }
 
 //--------------------------
@@ -2741,8 +2747,8 @@ function AddRecord( $table, $pairs ) {
 	// $query = "insert into $table ($cols) values ($vals)";
 	//	if ($DEBUG)
 	//		$error .= "AddRecord: QUERY =  <BR><TT>$query</TT><BR>";
-	//	$result =  mysql_query($query);
-	//	$ID = mysql_insert_id();
+	//	$result =  mysqli_query ($LINK, $query);
+	//	$ID = mysqli_insert_id();
 
 	$pairs = FixCheckboxFields ($pairs);
 	$pairs = StripNonExistantFields ($table, $pairs);
@@ -2752,10 +2758,10 @@ function AddRecord( $table, $pairs ) {
 
 	$DEBUG && $msg .=  "AddRecord: After using makeUpdate:<BR>".ArrayToTable(explode(",", $update));
 
-	mysql_query("insert into $table SET $update");
+	mysqli_query ("insert into $table SET $update");
 
-	$ID = mysql_insert_id();
-	$e = mysql_error ();
+	$ID = mysqli_insert_id();
+	$e = mysqli_error ();
 	$e && $error .= __FUNCTION__.": $e<br>";
 
 	if ($DEBUG)
@@ -2764,8 +2770,8 @@ function AddRecord( $table, $pairs ) {
 	// This doesn't work, I don't know why
 	if ($table == DB_ARTISTS && $ID) {
 		$q = "UPDATE `$table` SET `CreationDate` = NOW() where ID = '$ID'";
-		mysql_query($q);
-		$e = mysql_error ();
+		mysqli_query ($q);
+		$e = mysqli_error ();
 		$e && $error .= __FUNCTION__.": $e<br>";
 	}
 
@@ -2777,6 +2783,7 @@ function GetDependencies ($DEPENDENCIES_FILE) {
 	global $PICTURE_DIRECTORIES, $DATABASES;	// Arrays of names
 	global $BASEDIR;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 
@@ -2871,7 +2878,7 @@ function PregMatchKeys ($searchpattern, $arr) {
 // $vars comes from the HTML form (array of variables)
 // $table tells us which table to act upon (name of table)
 function MultiEdit ($table, $vars) {
-	global $Themes;
+	global $Themes, $LINK;
 	$DEBUG = false;
 	$page = ""; //default is don't return a page. Do it for FTP.
 	if ($DEBUG) {
@@ -2889,13 +2896,13 @@ function MultiEdit ($table, $vars) {
 	$idset = ArrayToString ($IDlist);
 	$field = $vars['multieditfieldname'];
 	$value = $vars['multieditdata'];
-	$value = quote_smart($value);
+	$value = quote_smart($LINK, $value);
 	if ($idset) {
 		$query = "UPDATE $table SET $field=\"$value\" WHERE ID IN ( $idset )";
 		$DEBUG && $msg .= $query . "<BR>";
-		$result = mysql_query ($query);
+		$result = mysqli_query ($LINK, $query);
 		if (! $result)
-			print mysql_error($result) . "Failed to make $field=$value in $idset<BR>";
+			print mysqli_error($result) . "Failed to make $field=$value in $idset<BR>";
 	}
 
 	// FTP the marked rows
@@ -2970,18 +2977,18 @@ function MultiSetFlag ($table, $flag, $vars) {
 	// Set all to no in this set of records
 	$query = "UPDATE $table SET $flag=\"no\" WHERE ID IN ( $all )";
 	$DEBUG && $msg .= $query . "<BR>";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	if (! $result)
-		print mysql_error($result) . "Failed to make $flag=no $all<BR>";
+		print mysqli_error($result) . "Failed to make $flag=no $all<BR>";
 
 	// Now set marked ones to yes
 	if (empty($idset))
 		$idset = '""';
 	$query = "UPDATE $table SET $flag=\"yes\" WHERE ID IN ( $idset )";
 	$DEBUG && $msg .= $query . "<BR>";
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	if (! $result)
-		print mysql_error($result) . "Failed to make $flag=yes $idset<BR>";
+		print mysqli_error($result) . "Failed to make $flag=yes $idset<BR>";
 
 
 }
@@ -3017,6 +3024,7 @@ function ShowIfTrue ($value) {
 function GroupsPopupFromList ($grouplist) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 
 	is_array ($grouplist) || $grouplist = array ($grouplist);
 	if (!count ($grouplist))
@@ -3047,6 +3055,7 @@ function DisplayGroupsList ($start = 1, $showEmptyGroups = FALSE) {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS, $SITEIMAGES;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 	global $groups_display_cols, $groups_items_per_page, $groups_desc_len;
 
 	$DEBUG = false;
@@ -3127,7 +3136,7 @@ function DisplayGroupsList ($start = 1, $showEmptyGroups = FALSE) {
 			$group_table_blank_item = FetchSnippet ("group_table_blank_item");
 			$group_table_row_end = FetchSnippet ("group_table_row_end");
 			foreach (array_keys ($grouplist) as $groupID) {
-				$myGroup = new FPGroup( $groupID );
+				$myGroup = new FPGroup ($LINK,  $groupID );
 				//$DEBUG && $msg .= __FUNCTION__ .":".__LINE__ ." Group $groupID ****" . ArrayToTable ($myGroup->info) . "<BR>";
 				$oneGroupItem = $group_table_item_start;
 				$oneGroupItem .= $group_table_item;
@@ -3217,8 +3226,8 @@ function FetchArtistNames ($IDlist) {
 	is_array($IDlist) || $IDlist = array ($IDlist);
 	$artistlist = implode (", " , $IDlist);
 	$query = "SELECT DISTINCT ID, CONCAT_WS(', ', Lastname, Firstname) AS Fullname FROM $ARTISTS WHERE ID IN ( $artistlist )";
-	$result = mysql_query($query);
-	while (list ($ID, $name) = mysql_fetch_array($result)) {
+	$result = mysqli_query ($LINK, $query);
+	while (list ($ID, $name) = mysqli_fetch_array($result)) {
 		$artistlist[$ID] = $name;
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": Other artists are " . $row['Fullname'] . "<BR>";
 	}
@@ -3254,6 +3263,7 @@ function FetchProject ($ID) {
 function FetchFeaturedProjects ($groupID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
 
 	$groupID || $groupID = $_SESSION['GroupID'];
 	$where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = $groupID AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = 'Images'";
@@ -3261,7 +3271,7 @@ function FetchFeaturedProjects ($groupID) {
 	$fields = ProjectsCalcFields ("$PROJECTS.*");
 	$order = "ORDER BY $PROJECTS.Title";
 	$query = "SELECT DISTINCT $fields from $PROJECTS,$PARTS WHERE $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	return $result;
 }
 
@@ -3270,6 +3280,7 @@ function FetchFeaturedProjects ($groupID) {
 function FetchFeaturedActiveProjects ($groupID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
 
 	$groupID || $groupID = $_SESSION['GroupID'];
 	$where = "($PROJECTS.Public = 0) AND NOT ($PROJECTS.Slides <=> 1) AND $PROJECTS.ArtistID != " . FP_ADMINISTRATOR . " AND $PROJECTS.GroupID = $groupID AND $PROJECTS.ID = $PARTS.ProjectID AND $PARTS.PartTable = 'Images'";
@@ -3277,7 +3288,7 @@ function FetchFeaturedActiveProjects ($groupID) {
 	$fields = ProjectsCalcFields ("$PROJECTS.*");
 	$order = "ORDER BY $PROJECTS.Title";
 	$query = "SELECT DISTINCT $fields from $PROJECTS,$PARTS WHERE $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	return $result;
 }
 
@@ -3295,12 +3306,13 @@ function FetchAllGroups ($where = null, $order='SortTitle', $showempty = false) 
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 	$fields = "*";
 
 	$where && $where = "WHERE $where";
 	$order && $order = "ORDER by $order";
 	$query = "SELECT $fields, TRIM(LEADING 'The ' from Title) as SortTitle FROM $GROUPS $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	return $result;
 }
 
@@ -3312,6 +3324,7 @@ function FetchActiveGroupsID () {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 
@@ -3323,9 +3336,9 @@ function FetchActiveGroupsID () {
 	$order = "ORDER by SortTitle";
 	$query = "SELECT DISTINCT $fields FROM $GROUPS, $PROJECTS $where $order";
 
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$DEBUG && print basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": query = $query<BR>";
-	while ($group = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($group = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$groups[$group['ID']] = $group['Title'];
 	}
 	return $groups;
@@ -3335,7 +3348,7 @@ function FetchActiveGroupsID () {
 function FetchAllGroupsArrays ($where = null, $order='SortTitle') {
 	global $Themes;
 	$result = FetchAllGroups ($where, $order);
-	while ($group = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($group = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$groups[$group['ID']] = $group;
 	}
 	return $groups;
@@ -3344,7 +3357,7 @@ function FetchAllGroupsArrays ($where = null, $order='SortTitle') {
 function FetchAllGroupsID ($where = null, $order='SortTitle') {
 	global $Themes;
 	$result = FetchAllGroups ($where, $order);
-	while ($group = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($group = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$groups[$group['ID']] = $group['Title'];
 	}
 	return $groups;
@@ -3358,13 +3371,15 @@ function FetchAllProjects ($where=null, $order='SortTitle') {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
+	global $LINK;
 	$DEBUG = false;
 
 	$fields = ProjectsCalcFields("*, TRIM(LEADING 'The ' from Title) as SortTitle");
 	$where && $where = "WHERE $where";
 	$order && $order = "ORDER by $order";
 	$query = "SELECT $fields FROM $PROJECTS $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	if ($DEBUG)
 		$msg .= "FetchAllProjects: $query<P>";
 	return $result;
@@ -3374,12 +3389,13 @@ function FetchAllProjects ($where=null, $order='SortTitle') {
 function FetchAllArtists ($where, $order = 'Lastname') {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
 	$fullname = "CONCAT_WS(' ', Firstname, Lastname) AS Fullname";
 	$fields = "*, $fullname";
 	$where && $where = "WHERE $where";
 	$order && $order = "ORDER by $order";
 	$query = "SELECT $fields FROM $ARTISTS $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	return $result;
 }
 
@@ -3389,7 +3405,7 @@ function FetchAllArtistArrays ($where = "", $order='Lastname') {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	$artists = array();
 	$result = FetchAllArtists ($where, $order) ;
-	while ($artist = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($artist = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$artists[$artist['ID']] = $artist;
 	}
 	return $artists;
@@ -3401,7 +3417,7 @@ function FetchAllProjectArrays ($where = "", $order='Title') {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	$projects = array();
 	$result = FetchAllProjects ($where, $order) ;
-	while ($project = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$projects[$project['ID']] = $project;
 	}
 	return $projects;
@@ -3477,7 +3493,7 @@ function FetchPayPalByTxnID ($txnid) {
 function FetchSalesByTxnID ($txnid) {
 	$result = FetchRowsByValue (DB_SALES, '*', 'txn_id', $txnid, '', FALSE);
 	$sales = array();
-	while ($sale = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($sale = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$sales[$sale['id']] = $sale;
 	}
 	return $sales;
@@ -3488,7 +3504,7 @@ function FetchSalesByTxnID ($txnid) {
 function FetchSalesByInvoice ($invoice) {
 	$result = FetchRowsByValue (DB_SALES, '*', 'invoice', $invoice, '', FALSE);
 	$sales = array();
-	while ($sale = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($sale = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$sales[$sale['id']] = $sale;
 	}
 	return $sales;
@@ -3586,13 +3602,15 @@ function FetchPriceSet ($ID) {
 }
 
 function FetchPriceSetNames () {
+	global $LINK;
+	
 	$list = array();
 	$query = "SELECT ID, Title FROM ".DB_PRICESETS;
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$list[$row['ID']] = $row['Title'];
 		}
 	}
@@ -3611,14 +3629,15 @@ function FetchPriceSetByID ($ID) {
 function FetchProjectStories ($projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$query = "SELECT DISTINCT PartID FROM $PARTS WHERE $PARTS.ProjectID = $projectID AND PartTable = '$STORIES'";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$IDlist = array();
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			if (!in_array($row, $IDlist))
 				$IDlist[] = $row['PartID'];
 		}
@@ -3631,15 +3650,16 @@ function FetchProjectStories ($projectID) {
 function FetchProjectStoriesByArtist ($projectID, $artistID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$query = "SELECT $STORIES.* FROM $PARTS, $STORIES WHERE $PARTS.ProjectID = $projectID AND PartTable = '$STORIES' AND $STORIES.ArtistID = $artistID AND $STORIES.ID = $PARTS.PartID";
 
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$IDlist = array();
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			if (!in_array($row, $IDlist))
 				$IDlist[$row['ID']] = $row['Title'];
 		}
@@ -3651,6 +3671,7 @@ function FetchProjectStoriesByArtist ($projectID, $artistID) {
 function FetchAllArtistsStories ($projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$query = "SELECT DISTINCT Stories.*, Firstname, Lastname, CONCAT_WS(' ', Firstname, Lastname) AS Fullname
 		from Stories 
@@ -3658,12 +3679,12 @@ function FetchAllArtistsStories ($projectID) {
 		LEFT JOIN Parts ON (Parts.PartID = Artists.ID)
 		WHERE Parts.PartTable = \"$ARTISTS\" AND Parts.ProjectID = $projectID;";
 
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$IDlist = array();
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$IDlist[] = $row['ID'];
 		}
 	}
@@ -3675,12 +3696,13 @@ function FetchAllArtistsStories ($projectID) {
 function FetchArtistStories ($artistID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$result = FetchRowsByValue (DB_STORIES, "*", "ArtistID", $artistID, "Title", FALSE);
 
 	$IDlist = array();
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$IDlist[$row['ID']] = $row['Title'];
 		}
 	}
@@ -3696,6 +3718,7 @@ function FetchArtistStories ($artistID) {
 // Array (ID=>fullname)
 function FetchProjectArtists ($projectID, $fp_user, $hideuser = FALSE, $table = null) {
 	global $msg, $error;
+	global $LINK;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 
 	$DEBUG = 0;
@@ -3719,8 +3742,8 @@ function FetchProjectArtists ($projectID, $fp_user, $hideuser = FALSE, $table = 
 		$query = "SELECT DISTINCT $ARTISTS.ID AS ArtistID, CONCAT_WS(' ', Firstname, Lastname) AS Fullname FROM $PARTS, $ARTISTS WHERE ($PARTS.ProjectID = $projectID AND PartTable = 'Artists') AND ($ARTISTS.ID = PartID OR $ARTISTS.ID = '$ArtistID')";
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": $query<BR>";
 
-		$result = mysql_query($query);
-		while ($row = mysql_fetch_array($result)) {
+		$result = mysqli_query ($LINK, $query);
+		while ($row = mysqli_fetch_array($result)) {
 			$ID = $row['ArtistID'];
 			$artistlist[$ID] = $row['Fullname'];
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Other artists are " . $row['ArtistID'] . ":" . $row['Fullname'] . "<BR>";
@@ -3737,8 +3760,8 @@ function FetchProjectArtists ($projectID, $fp_user, $hideuser = FALSE, $table = 
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": No Project ID! <BR>";
 		$ArtistID = $fp_user;
 		$query = "SELECT ID AS ArtistID, CONCAT_WS(', ', Lastname, Firstname) AS Fullname FROM Artists WHERE (ID = '$ArtistID')";
-		$result = mysql_query($query);
-		$row = mysql_fetch_array($result);
+		$result = mysqli_query ($LINK, $query);
+		$row = mysqli_fetch_array($result);
 		$artistlist[$row['ArtistID']] = $row['Fullname'];
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Other artists are " . $row['ArtistID'] . ":" . $row['Fullname'] . "<BR>";
 	}
@@ -3758,12 +3781,14 @@ function FetchProjectArtists ($projectID, $fp_user, $hideuser = FALSE, $table = 
 function FetchArtistImageTitles ($artistID, $showFilename = true) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
+	
 	$where = "WHERE ArtistID = '$artistID'";
 	$order = "ORDER by Title";
 	$query = "SELECT * FROM $IMAGES $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$images = array ();
-	while ($image = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($image = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$showFilename
 				? $images[$image['ID']] = $image['Title']. " [" . $image['URL'] . "] "
 				: $images[$image['ID']] = $image['Title'];
@@ -3779,12 +3804,14 @@ function FetchArtistImageTitles ($artistID, $showFilename = true) {
 function FetchArtistImages ($artistID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
+	
 	$where = "WHERE ArtistID = '$artistID'";
 	$order = "ORDER by ID";
 	$query = "SELECT * FROM $IMAGES $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$pixlist = array ();
-	while ($image = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($image = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$pixlist[$image['ID']] = $image;
 	}
 
@@ -3799,6 +3826,7 @@ function FetchArtistImages ($artistID) {
 function FetchArtistProjects ($artistID, $getall = false) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	if ($getall) {
 		$rows = FetchRowsByValueAsArray ($PROJECTS, "*", "ArtistID", $artistID, "ID", "Title");
@@ -3812,6 +3840,7 @@ function FetchArtistProjects ($artistID, $getall = false) {
 function FetchArtistPriceSets ($artistID) {
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
+	global $LINK;
 
 	return FetchRowsByValue ($PRICESETS, "*", "ID", $artistID, "Title", TRUE);
 }
@@ -3823,12 +3852,14 @@ function FetchArtistPriceSets ($artistID) {
 function FetchArtistImageIDs ($artistID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
+	
 	$where = "WHERE ArtistID = '$artistID'";
 	$order = "ORDER by ID";
 	$query = "SELECT * FROM $IMAGES $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$idlist = array ();
-	while ($image = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($image = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$idlist[$image['ID']] = $image['ID'];
 	}
 
@@ -3844,9 +3875,9 @@ function FetchArtistImageURLs ($artistID) {
 	$where = "WHERE ArtistID = '$artistID'";
 	$order = "ORDER by Title";
 	$query = "SELECT ID, URL FROM $IMAGES $where $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$images = array ();
-	while ($image = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($image = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$images[$image['ID']] = $image['URL'];
 	}
 
@@ -3860,6 +3891,7 @@ function FetchArtistImageURLs ($artistID) {
 // $size is text added to the file name. The only variation we have right now is "thumbnail".
 function FetchArtistPortrait ($artistID, $size = '', $style = null) {
 	global $msg, $error;
+	global $LINK;
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $ORIGINALS;
 
 	$DEBUG = 0;
@@ -3903,19 +3935,20 @@ function FetchProjectImageIDs ($projectID, $artistID = null, $showFilename = tru
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
 	$artistID ? $a = "$PARTS.ArtistID = '$artistID' AND" : $a = "";
 
 	$query = "SELECT PartID, Title, URL FROM $PARTS, $IMAGES WHERE $a $PARTS.ProjectID = $projectID AND $PARTS.PartTable = '$IMAGES' and $PARTS.PartID = $IMAGES.ID ORDER BY $IMAGES.Title";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$DEBUG && $msg .= __FUNCTION__.": ".$query."<BR>";
 	$IDlist = array();
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			if (!in_array($row, $IDlist))
 				$showFilename
 						? $IDlist[$row['PartID']] = $row['Title']. " [" . $row['URL'] . "] "
@@ -3934,19 +3967,20 @@ function FetchProjectImageURLs ($projectID, $artistID = null) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
 	$artistID ? $a = "$PARTS.ArtistID = '$artistID' AND" : $a = "";
 
 	$query = "SELECT PartID, URL FROM $PARTS, $IMAGES WHERE $a $PARTS.ProjectID = $projectID AND $PARTS.PartTable = '$IMAGES' and $PARTS.PartID = $IMAGES.ID ORDER BY $IMAGES.Title";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$DEBUG && $msg .= __FUNCTION__.": ".$query."<BR>";
 	$IDlist = array();
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			if (!in_array($row, $IDlist))
 				$IDlist[$row['PartID']] = $row['URL'];
 		}
@@ -3958,11 +3992,13 @@ function FetchProjectImageURLs ($projectID, $artistID = null) {
 function FetchSupplierIDs () {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES, $SUPPLIERS;
+	global $LINK;
+
 	$order = "ORDER by Name";
 	$query = "SELECT ID,Name FROM $SUPPLIERS $order";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$vendors = array ();
-	while ($vendor = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($vendor = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$vendors[$vendor['ID']] = $vendor['Name'];
 	}
 
@@ -3976,6 +4012,7 @@ function FindArtistByName ($fullname) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$VERBOSE = false;
@@ -4003,13 +4040,13 @@ function FindArtistByName ($fullname) {
 
 		$DEBUG && $msg .= __FUNCTION__.": Query: $query<BR>";
 
-		$artistinfo = mysql_fetch_array(mysql_query($query), MYSQL_ASSOC);
+		$artistinfo = mysqli_fetch_array(mysqli_query ($LINK, $query), MYSQLI_ASSOC);
 
 		// if that fails, try again without middle initial
 		if (!$artistinfo) {
 			$where = $w1 . "Lastname = '$lastname'";
 			$query = "SELECT *, $fn FROM $ARTISTS WHERE $where LIMIT 1";
-			$artistinfo = mysql_fetch_array(mysql_query($query), MYSQL_ASSOC);
+			$artistinfo = mysqli_fetch_array(mysqli_query ($LINK, $query), MYSQLI_ASSOC);
 		}
 
 		$VERBOSE && fp_error_log(__FUNCTION__.": Attempting to find artist named $firstname $lastname (from $fullname)", 3, FP_PICTURES_LOG);
@@ -4037,6 +4074,7 @@ function FetchAccessLevel ($ArtistID) {
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	if ($ArtistID) {
 		$artist = GetRecord ($ARTISTS, $ArtistID);
@@ -4093,14 +4131,15 @@ function StripNonExistantFields ($table, $arr) {
 function FetchFieldNames ($table) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 	$fieldnames = array();
-	$result = mysql_query ("SELECT * from $table");
+	$result = mysqli_query ("SELECT * from $table");
 	($result === false) && $error .= "FetchFieldNames got nothing from table=$table<BR>";
 	if ($result) {
 		$k = 0;
-		$numfields = mysql_num_fields($result);
+		$numfields = mysqli_num_fields($result);
 		while ($k < $numfields) {
-			$key = mysql_field_name($result, $k);
+			$key = mysqli_field_name($result, $k);
 			$fieldnames[$key] = $key;
 			$k++;
 		}
@@ -4118,17 +4157,20 @@ function FetchFieldNames ($table) {
 //----------------------
 function FieldOptionList ($table, $listname, $exceptions = array('ID', 'Active', 'Featured')) {
 	global $Themes;
+	global $msg, $error;
+	global $LINK;
+	
 	$fieldnames = array();
 	if (file_exists ("formlets/".$table."_fields.txt"))
 		$fieldnames = file ("formlets/".$table."_fields.txt");
 
 	if (! count($fieldnames)) {
-		$result = mysql_query ("SELECT * from $table");
+		$result = mysqli_query ($LINK, "SELECT * from $table");
 		$k=0;
 		if ($result) {
-			while ($k < mysql_num_fields($result)) {
-				$fieldnames[] = array ('', mysql_field_name($result, $k));
-				$k++;
+			while ($k < mysqli_num_fields($result)) {
+				$res = mysqli_fetch_field_direct($result, $k++);
+				$fieldnames[] = array ('', $res->name);
 			}
 		}
 	}
@@ -4155,6 +4197,7 @@ function OptionList ($table, $listname, $set, $fieldlabel, $where, $checked, $or
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = FALSE;
 
 	if ($order)
@@ -4176,11 +4219,11 @@ function OptionList ($table, $listname, $set, $fieldlabel, $where, $checked, $or
 	$optionlist = "";
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Field label name is $fieldlabelname<BR>";
 
-	$result = mysql_query ($query);
+	$result = mysqli_query ($LINK, $query);
 	if ($result) {
 		$k = 0;
 		$extraline && $optionlist .= "<OPTION VALUE=\"" . $extraline['value'] . "\" " . $extraline['checked'] . ">" . $extraline['label'] ."</OPTION>\n";
-		while ($row = mysql_fetch_array ($result)) {
+		while ($row = mysqli_fetch_array ($result)) {
 			$k++;
 			$v = trim($row[$set]);
 			$l = trim($row[$fieldlabelname]);
@@ -4218,6 +4261,7 @@ function OptionList ($table, $listname, $set, $fieldlabel, $where, $checked, $or
 function OptionListFromArray ($values, $listname, $checked = array(), $sort = TRUE, $size = OPTION_LIST_IS_MULTI, $extrahtml="", $extraline = array()) {
 	//global $Themes;
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = 0;
 
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__.": BEGIN<BR>";
@@ -4270,6 +4314,7 @@ function OptionListFromArray ($values, $listname, $checked = array(), $sort = TR
 function MultipleChoice ($values, $fieldname, $checked = array (), $sort = TRUE, $size = OPTION_LIST_IS_MULTI, $sep = " ") {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = false;
 
 	is_array($values) || $values = array();
@@ -4327,15 +4372,15 @@ function VerifyLogin ($username, $password) {
 	$DEBUG = false;
 	if (!(empty($username) OR empty($password))) {
 		$fields = "*";
-		$where = "WHERE Username = '" . mysql_real_escape_string($username) . "' AND Password = '" . mysql_real_escape_string($password) . "'";
+		$where = "WHERE Username = '" . mysqli_real_escape_string($username) . "' AND Password = '" . mysqli_real_escape_string($password) . "'";
 		$query = "SELECT $fields from $ARTISTS $where";
-		$result = mysql_query ($query);
+		$result = mysqli_query ($LINK, $query);
 
-		if (mysql_num_rows($result) == 0) {
+		if (mysqli_num_rows($result) == 0) {
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Incorrect password or username: $query";
 			return FALSE;
 		} else {
-			$record = mysql_fetch_array ($result, MYSQL_ASSOC);
+			$record = mysqli_fetch_array ($result, MYSQLI_ASSOC);
 			$one_userID = $record['ID'];
 			$login_ok = $record['ID'];
 
@@ -4442,7 +4487,7 @@ function FindProjectByName ($arr) {
 			$name = strtolower($words[1]);
 		//$query = "select ID from Projects where soundex(Nickname) = soundex('$name')";
 		$query = "select ID from Projects where Lower(Nickname) = '$name'";
-		$projectID = mysql_fetch_array(mysql_query($query), MYSQL_ASSOC);
+		$projectID = mysqli_fetch_array(mysqli_query ($LINK, $query), MYSQLI_ASSOC);
 		$DEBUG && $msg .= $query . "<BR>";
 		if ($projectID) {
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": Yep, $name worked.<BR>";
@@ -4455,7 +4500,7 @@ function FindProjectByName ($arr) {
 	// it's too hard to get the first word of the title from the DB for the WHERE
 	foreach ($arr as $name) {
 		$query = "select ID from Projects where soundex(Title) = soundex('$name')";
-		$projectID = mysql_fetch_array(mysql_query($query), MYSQL_ASSOC);
+		$projectID = mysqli_fetch_array(mysqli_query ($LINK, $query), MYSQLI_ASSOC);
 		$DEBUG && $msg .= $query . "<BR>";
 		if ($projectID) {
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": Yep, $name worked.<BR>";
@@ -4558,6 +4603,7 @@ function ConfirmSetup ( $TableDefinitions = "Tables") {
 	global $FP_DIR_USER, $AUDIODIR, $SLIDESHOW_AUDIO, $AV;
 	global $BASEDIR, $LOGS;
 	global $msg, $error;
+	global $LINK;
 
 	// tables
 	// *** IMPLEMENT THIS FUNCTION...OR FIX...$tables = GetRecords( $TableDefinitions ) ;
@@ -4654,6 +4700,7 @@ function ConfirmSetup ( $TableDefinitions = "Tables") {
 function ConfirmUser ($ArtistID) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 	global $ARTISTS, $PROJECTS, $IMAGES, $BASEDIR;
 
 	$artist = FetchArtist ($ArtistID);
@@ -4669,6 +4716,7 @@ function RemoveOldUsers () {
 	global $ARTISTS, $PROJECTS, $IMAGES, $BASEDIR;
 	global $MAXCONFIRMTIME;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 
@@ -4717,6 +4765,7 @@ function MySQLDateToPHP ($datetime) {
 function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 	global $Themes, $DEVELOPING;
 	global $msg, $error;
+	global $LINK;
 	global $PHOTOS_GALLERY, $SLIDES, $THUMBNAILS, $MATTED, $ORIGINALS, $SITEIMAGES;
 	global $SYSTEMNAME, $SERVERNAME, $PHOTOS_GALLERY, $THUMBNAILS, $HIRES, $MAXUPLOADSIZE;
 	global $PICTURE_DIRECTORIES, $DATABASES;	// Arrays of names
@@ -4730,6 +4779,7 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 	global $default_size, $slide_size;	// default picture sizes in gallery
 	global $FP_VOCABULARY;
 	global $msg, $error;
+	global $LINK;
 
 
 	$DEBUG = 0;
@@ -4744,7 +4794,7 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 	// -- Try to get Group ID
 	$groupID = $_SESSION['GroupID'];
 	if ($groupID) {
-		$myGroup = new FPGroup ($groupID);
+		$myGroup = new FPGroup ($LINK, $groupID);
 		$myGroup->IsSolo(true)
 				? $solo = "_solo"
 				: $solo = "";
@@ -4841,7 +4891,7 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 		$webFontList = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_NAMES];
 		$webFontHead = $myGroup->params[FP_PARAM_GROUP_WEB_FONTS_HEAD];
 	} elseif ($groupID != PUBLIC_GROUP_ID) {
-		$temp = new FPGroup(PUBLIC_GROUP_ID);
+		$temp = new FPGroup ($LINK, PUBLIC_GROUP_ID);
 		$webfontsCSS = $temp->params[FP_PARAM_GROUP_WEB_FONTS_CSS];
 		if ($webfontsCSS) {
 			$webFontStylesheet = Substitutions (FetchSnippet ("webfont_css_wrapper"), array("webfontcss"=>$webfontsCSS) );
@@ -5052,6 +5102,7 @@ function ReplaceSysVars ($form, $table="", $UserID="", $ID="", $nextaction="") {
 // The $artistID determines which files directory the files are taken from
 function ReplaceUserFileCodes ($text, $artistID) {
 	global $msg, $error;
+	global $LINK;
 	global $SYSTEMURL, $BASEDIR, $USER_IMAGE_EXTENSIONS, $USER_VIDEO_EXTENSIONS, $USER_FLASH_EXTENSIONS;
 
 	if (!$text)
@@ -5138,8 +5189,9 @@ function FetchUserLevelDesc ($UserType) {
 function ProjectArtistsPixlist ($projectID) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
-	$project = new FPProject($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	$artistlist = array_keys($project->MemberNames());
 	$allpix = array();
 
@@ -5158,11 +5210,12 @@ function Pixlist ($projectID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = 0;
 	$pixlist = array();
 	$record = FetchProject ($projectID);
-	$project = new FPProject ($projectID);
+	$project = new FPProject ($LINK, $projectID);
 	$pixlist = $project->PictureList();
 	return $pixlist;
 }
@@ -5175,6 +5228,7 @@ function PixlistForOrdering ($ID, $template = "{title}") {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$pixlist = array();
@@ -5184,8 +5238,8 @@ function PixlistForOrdering ($ID, $template = "{title}") {
 	// Here we are...get all Image parts for a project!
 	$query = "SELECT DISTINCT *, $PARTS.ID as PID, $IMAGES.ID AS ImageID, $IMAGES.ProjectID as ProjectID from $IMAGES, $PARTS WHERE Parts.ProjectID = '$ID' AND Parts.PartTable = '$IMAGES' AND Images.ID = Parts.PartID ORDER BY $PARTS.OrderInProject";
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":$query<BR>";
-	$result = mysql_query($query);
-	while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	$result = mysqli_query ($LINK, $query);
+	while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$text = Substitutions ($template, $part);
 		$pixlist[$part['PID']] = $text;
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__	. ": " . $part['OrderInProject'] . ":" . $part['Title'] . "<BR>";
@@ -5199,13 +5253,14 @@ function PartsForImages ($ID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	$pixlist = array();
 	$record = GetRecord ("Projects", $ID);
 	$query = "SELECT DISTINCT *, $PARTS.ID as PID, $IMAGES.ID AS ImageID, $IMAGES.ProjectID as ProjectID from $IMAGES, $PARTS WHERE Parts.ProjectID = '$ID' AND Parts.PartTable = '$IMAGES' AND Images.ID = Parts.PartID ORDER BY $PARTS.OrderInProject";
-	$result = mysql_query($query);
-	while ($part = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	$result = mysqli_query ($LINK, $query);
+	while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$pixlist[$part['ImageID']] = $part['PID'];
 	}
 	return $pixlist;
@@ -5240,11 +5295,11 @@ function ReplaceSnippets ($form) {
 function FetchProjectImagesByAge ($projectID) {
 //$query = "SELECT PartID, OrderInProject FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images'";
 	$query = "SELECT DISTINCT Images.ID, TimeStamp FROM Parts, Images WHERE Parts.ProjectID = 1 and Parts.PartTable = 'Images' and Images.ID = Parts.PartID ORDER BY TimeStamp";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$IDlist = array();
 
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$IDlist[ $row['ID'] ] = $row['Timestamp'];
 		}
 	}
@@ -5256,14 +5311,16 @@ function FetchProjectImagesByAge ($projectID) {
 // $array[id] = ordernumber
 // It's a strange array, but actually most useful for building lists with while()
 function FetchProjectImageOrder ($projectID) {
+	global $LINK;
+	
 	$query = "SELECT DISTINCT PartID, OrderInProject FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images' ORDER BY PartID, OrderInProject";
 	$IDlist = array();
 
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	$k = 1;
 	if ($result) {
-		$numpix = mysql_num_rows ($result);
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$numpix = mysqli_num_rows ($result);
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			if ($row['OrderInProject']) {
 				$order = $k;
 				$k++;
@@ -5282,13 +5339,13 @@ function FetchProjectImageOrder ($projectID) {
 // Get current image IDs for a project
 function FetchProjectImageList ($projectID) {
 	$query = "SELECT PartID FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images'";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 
 	$IDlist = array();
 
 	//	get rows into one array and avoid duplicates
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			if (!in_array($row, $IDlist))
 				$IDlist[] = $row['PartID'];
 		}
@@ -5299,8 +5356,8 @@ function FetchProjectImageList ($projectID) {
 
 function FetchProjectImageCount ($projectID) {
 	$query = "SELECT DISTINCT PartID FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images'";
-	$result = mysql_query($query);
-	$num_rows = mysql_num_rows ($result);
+	$result = mysqli_query ($LINK, $query);
+	$num_rows = mysqli_num_rows ($result);
 	return $num_rows;
 }
 
@@ -5345,34 +5402,39 @@ function GetThumbnailURL ($URL, $kind) {
 //------------------
 function StartDatabase($myDB) {
 	global $DEPENDENCIES_FILE, $DEPENDENCIES;
-	global $FP_MYSQL_LINK;
-	global $MESSAGE;
+	global $LINK, $LINK;
+	global $msg, $error;
 
 	$DEBUG = FALSE;
 	// Start up the database
 
 	$DEBUG && print "BEGIN StartDatabase<BR>";
-	$LINK = mysql_connect(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD)
-			or die("Could not connect to the site...the server must be very busy.");
+	$LINK = mysqli_connect(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+//			or die("Could not connect to the site...the server must be very busy.");
+
+	if (!$LINK) {
+		die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error() );
+	}
 
 	if ($DEBUG)
-		print "Connected successfully<BR>";
+		print "Connected successfully:" . mysqli_get_host_info($link) . "\n" . "<BR>";
 
 	// Select the DATABASE
-	mysql_select_db($myDB)
-			or die("Could not select database $myDB");
+// 	mysqli_select_db($LINK, $myDB)
+// 			or die("Could not select database $myDB");
 
 	$DEPENDENCIES = GetDependencies($DEPENDENCIES_FILE);
 	$DEBUG && print "END StartDatabase<BR>";
 
 	
 	// ** Make a new object, too!
-	$FP_MYSQL_LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+	//$LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+	//$LINK = $LINK;
 
-	if (mysqli_connect_error()) 
-		{
-		die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
-		}
+// 	if (mysqli_connect_error()) 
+// 		{
+// 		die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+// 		}
 
 	return $LINK;
 }
@@ -5453,7 +5515,7 @@ function ArrayToTableH ($myarray) {
 /* Create a table from a SELECT result */
 function ResultToTable ($result) {
 	$table = "<table border=1 cellpadding=5 width=100%>\n";
-	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$table .= "\t<tr>\n";
 		foreach ($line as $col_value) {
 			$table .= "\t\t<td>$col_value</td>\n";
@@ -5461,7 +5523,7 @@ function ResultToTable ($result) {
 		$table .= "\t</tr>\n";
 	}
 	$table .= "</table>\n";
-	mysql_data_seek ($result,0);	//reset the pointer
+	mysqli_data_seek ($result,0);	//reset the pointer
 	return $table;
 }
 
@@ -5472,7 +5534,7 @@ function ResultToTable ($result) {
 function ResultToList ($result, $mainformat, $lineformat) {
 	$block = $mainformat;
 	$list = "";
-	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$output = $lineformat;
 		foreach ($line as $field) {
 			$output = preg_replace ('/\{field\}/', $field, $output,1);
@@ -5480,7 +5542,7 @@ function ResultToList ($result, $mainformat, $lineformat) {
 		$list .= $output;
 	}
 	$block = str_replace ('{list}', $list, $block);
-	mysql_data_seek ($result,0);	//reset the pointer
+	mysqli_data_seek ($result,0);	//reset the pointer
 	return $block;
 }
 
@@ -5492,6 +5554,7 @@ function ResultToList ($result, $mainformat, $lineformat) {
 function FetchRemoteLSData ($URL, $prefix = "") {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	if (file_exists ($URL)) {
@@ -5587,6 +5650,7 @@ function GetRecord( $table, $ID , $prefixtable = FALSE) {
 function LimitHTLM ($value) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 
 	//$value = decode_entities(trim($value));
 	$value = strip_tags($value, '<a> <b> <br> <dd> <dl> <dt> <em> <i> <li> <ol> <p> <strong> <u> <ul>');
@@ -5811,11 +5875,12 @@ function AddCurrencySymbol (&$x, $showafter = true) {
 */
 function NavBar ($groupID, $currentchoice = "", $whichnavbar = "") {
 	global $error, $msg;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && print __FUNCTION__.": DEBUG<BR>";
 
-	$myGroup = new FPGroup( $groupID );
+	$myGroup = new FPGroup ($LINK, $groupID );
 	$currentchoice ? $ccID = "navbar_".$currentchoice : $currentchoice = "";
 
 	//true = only find members with pictures showing
@@ -5976,6 +6041,7 @@ function FetchNavbarItems () {
 // 'home' entry into the menu, if it is a top or main menu.
 function BuildCustomNavbar ($which = "1", $solo = false) {
 	global $msg, $error;
+	global $LINK;
 	global $FP_NAVBAR_ITEMS_CODE, $FP_NAVBAR_ITEMS_CODE_SOLO, $FP_NAVBAR_ITEM_NAMES;
 
 	$DEBUG = 0;
@@ -5985,7 +6051,7 @@ function BuildCustomNavbar ($which = "1", $solo = false) {
 	$customwrapper = FetchSnippet ("navbar_item_custom_wrapper");
 
 	$groupID || $groupID = $_SESSION['GroupID'];
-	$myGroup = new FPGroup( $groupID );
+	$myGroup = new FPGroup ($LINK,  $groupID );
 
 	// choose source array for code snippet ID references
 	if ($solo) {
@@ -6075,7 +6141,7 @@ function FetchNavbarMenus ($groupID, $itemcode) {
 
 	$menu = array();
 	if ($result) {
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$menu[] = Substitutions ($format, $row);
 		}
 	}
@@ -6092,11 +6158,6 @@ function FetchNavbarTitles ($groupID = null) {
 	global $FP_NAVBAR_ITEMS, $FP_NAVBAR_ITEMS_SOLO;
 
 	$DEBUG = 0;
-
-	// $groupID || $groupID = $_SESSION['GroupID'];
-	// $myGroup = new FPGroup( $groupID );
-	// $myTheme = $myGroup->theme;
-	// $DEBUG && $msg .= __FUNCTION__.": THEME: $myTheme<BR>";
 
 	$FP_NAVBAR_ITEM_NAMES = array ();
 	reset ($FP_NAVBAR_ITEMS);
@@ -6116,6 +6177,7 @@ function FetchNavbarTitles ($groupID = null) {
 // FTP files away to suppliers.
 function WriteImageSendOrder ($imageID, $supplierID) {
 	global $msg, $error;
+	global $LINK;
 
 	$image = FetchImage ($imageID);
 	$order = FetchSupplier($supplierID);
@@ -6317,6 +6379,7 @@ function findexts ($filename) {
 // because otherwise we get big problems with " marks and such.
 function EncodeArrayForDB ($params = null) {
 	global $msg, $error;
+	global $LINK;
 
 	$params = serialize($params);
 	return $params;
@@ -6324,6 +6387,7 @@ function EncodeArrayForDB ($params = null) {
 
 function DecodeArrayFromDB ($params = null) {
 	global $msg, $error;
+	global $LINK;
 
 	//$params = unserialize(base64_decode ($params));
 	$params && $params = unserialize($params);
@@ -6338,6 +6402,7 @@ function SaveParams ($table, $ID, $params) {
 
 function FetchParams ($table, $ID) {
 	global $msg, $error;
+	global $LINK;
 
 	$r = FetchRowsByValue ($table, "Params", "ID", $ID, "", TRUE);
 	$r['Params'] ? $params = DecodeArrayFromDB($r['Params']) : $params = "";
@@ -6365,6 +6430,7 @@ function SetParam ($params, $key, $value) {
 // If there are no param variables, nothing is done (existing params variable is kept)
 function PackageParams ($vars) {
 	global $msg, $error;
+	global $LINK;
 
 	if (isset ($vars['Params']) && is_array($vars['Params'])) {
 		$params = $vars['Params'];
@@ -6389,6 +6455,7 @@ function PackageParams ($vars) {
 // Overwrite existing params values from $vars.
 function MergeParams ($params, $vars) {
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = 0;
 	is_array($params) || $params = array ();
 	$DEBUG && $error .= __FUNCTION__.__LINE__;
@@ -6407,6 +6474,7 @@ function MergeParams ($params, $vars) {
 function FixCheckBoxParams ($params, $vars) {
 	global $Themes;
 	global $msg, $error;
+	global $LINK;
 
 	//$plist = array_keys ($params);
 	reset ($vars);
@@ -6427,6 +6495,7 @@ function FixCheckBoxParams ($params, $vars) {
 function GetDefaultParams ($table) {
 	global $FP_PARAMS_DEFAULTS;
 	global $msg, $error;
+	global $LINK;
 
 	$params = null;
 	if (isset($FP_PARAMS_DEFAULTS[$table])) {
@@ -6447,13 +6516,14 @@ function GetDefaultParams ($table) {
 */ 
 function CurrentThemeID () {
 	global $msg, $error;
+	global $LINK;
 	global $Themes;
 
 	$DEBUG = 0;
 	$DEBUG && $error = __FUNCTION__.__LINE__.": <BR>";
 
 	if (isset($_SESSION['projectid'])) {
-		$project = new FPProject($_SESSION['projectid']);
+		$project = new FPProject ($LINK, $_SESSION['projectid']);
 		$theme = $project->GetProjectThemeID();
 		$_SESSION['theme'] = $theme;
 		$DEBUG && $error .= __FUNCTION__.__LINE__."project={$_SESSION['projectid']}, theme={$_SESSION['theme']}<BR>";
@@ -6462,13 +6532,13 @@ function CurrentThemeID () {
 			$_SESSION['theme'] = ADMIN_THEME;
 			$DEBUG && $error .= __FUNCTION__.__LINE__."group={$_SESSION['GroupID']}, theme={$_SESSION['theme']}<BR>";
 		} else {
-			$myGroup = new FPGroup ($_SESSION['GroupID']);
+			$myGroup = new FPGroup ($LINK, $_SESSION['GroupID']);
 			$_SESSION['theme'] = $myGroup->theme;
 			$DEBUG && $error .= __FUNCTION__.__LINE__."group={$_SESSION['GroupID']}, theme={$_SESSION['theme']}<BR>";
 		}
 	} else {
 		$_SESSION['GroupID'] = PUBLIC_GROUP_ID;
-		$myGroup = new FPGroup ($_SESSION['GroupID']);
+		$myGroup = new FPGroup ($LINK, $_SESSION['GroupID']);
 		$_SESSION['theme'] = $myGroup->theme;
 		$DEBUG && $error .= __FUNCTION__.__LINE__."theme={$_SESSION['theme']}<BR>";
 	}
@@ -6607,8 +6677,9 @@ function StyleSheetHTML ($sheetnames = "") {
 
 // For some reason, the built-in mysql_list_fields is deprecated.
 function MysqlListFields ($table) {
-	$res = mysql_query("SHOW COLUMNS FROM `$table`");
-	while ($row = mysql_fetch_array($res))
+	global $LINK;
+	$res = mysqli_query ($LINK, "SHOW COLUMNS FROM `$table`");
+	while ($row = mysqli_fetch_array($res))
 		$col_names[]=$row[0];
 	return $col_names;
 }
@@ -6682,6 +6753,7 @@ function FileToArray ($f, $sep = ",") {
 // The User Vocabulary file, "vocabulary.txt" in the _user directory, is applied before any other
 function ReplaceVocabulary ($text) {
 	global $msg, $error;
+	global $LINK;
 	// Replace vocabulary from the "vocabulary" snippet
 	// Key words are marked {FP:word}
 
@@ -6863,7 +6935,11 @@ function unicode_to_utf8( $str ) {
 } // unicode_to_utf8
 
 function utf8_to_html ($data) {
-	return preg_replace("/([\\xC0-\\xF7]{1,1}[\\x80-\\xBF]+)/e", '_utf8_to_html("\\1")', $data);
+	// deprecated
+	//return preg_replace("/([\\xC0-\\xF7]{1,1}[\\x80-\\xBF]+)/e", '_utf8_to_html("\\1")', $data);
+
+	return preg_replace_callback ("/([\\xC0-\\xF7]{1,1}[\\x80-\\xBF]+)/", '_utf8_to_html', $data);
+
 }
 
 function _utf8_to_html ($data) {
@@ -6903,11 +6979,12 @@ Param2 = record id (optional)
 Default is NOINDEX!
 */
 function MetaIndexCode ($table, $id = null) {
-
+	global $LINK;
+	
 	switch ($table) {
 		case DB_GROUPS :
 			if ($id) {
-				$myGroup = new FPGroup( $id );
+				$myGroup = new FPGroup ($LINK, $id );
 				$desc = $myGroup->description;
 			}
 			if (!$id || !$desc) {
@@ -6979,7 +7056,7 @@ function GetMainUserID ($artistID = null, $projectID = null) {
 			$artistID = $project['ArtistID'];
 		} else {
 			$query = "SELECT MIN(ID) AS ID from " . DB_ARTISTS . " WHERE ID != " . FP_ADMINISTRATOR . " LIMIT 1";
-			$result = mysql_fetch_array(mysql_query($query), MYSQL_ASSOC);
+			$result = mysqli_fetch_array(mysqli_query ($LINK, $query), MYSQLI_ASSOC);
 			$artistID = $result['ID'];
 		}
 	}
@@ -7124,6 +7201,7 @@ function GetUserDirectory ($artistID = null, $relative = false) {
 // $type defaults to all files
 function FetchUserFileList ($type = array(), $artistID = null) {
 	global $msg, $error;
+	global $LINK;
 	global $USER_AUDIO_EXTENSIONS, $USER_VIDEO_EXTENSIONS, $USER_IMAGE_EXTENSIONS;
 
 	$artistID || $artistID = FP_ADMINISTRATOR;
@@ -7155,6 +7233,7 @@ function rglob($pattern, $flags = 0, $path = '') {
 
 function UniqueFilename ($dir, $filename) {
 	global $msg, $error;
+	global $LINK;
 
 	$dir = rtrim ($dir, "/");
 	$newfilename = $filename;
@@ -7262,6 +7341,7 @@ function EditTable ($action, $table, $ID, $vars = array ()) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $DEPENDENCIES;
 	global $msg, $error;
+	global $LINK;
 	global $BASEDIR, $LOGS;
 
 	$DEBUG = 0;
@@ -7311,7 +7391,7 @@ function EditTable ($action, $table, $ID, $vars = array ()) {
 					if ($newID != FP_ADMINISTRATOR) {
 						// Add artist to current group
 						$groupID = $vars['GroupID'];
-						$myGroup = new FPGroup ($groupID);
+						$myGroup = new FPGroup ($LINK, $groupID);
 						$myGroup->AddMembersToGroup ($newID, $groupID);
 					}
 					break;
@@ -7368,7 +7448,7 @@ function EditTable ($action, $table, $ID, $vars = array ()) {
 						if ($ID == PUBLIC_GROUP_ID) {
 							$error .= "You cannot delete the default {fp:group}.<BR>";
 						} else {
-							$myGroup = new FPGroup ($ID);
+							$myGroup = new FPGroup ($LINK, $ID);
 							$myGroup->Delete();
 						}
 						break;
@@ -7550,6 +7630,7 @@ Send the password by email to a user.
 
 function SendPasswordByEmail ($artistID) {
 	global $msg, $error;
+	global $LINK;
 	$DEBUG = false;
 
 	$artist = FetchArtist($artistID);
@@ -7596,6 +7677,7 @@ function TestPME () {
 
 function ProcessMultiEdit ($table, $rows, $actions) {
 	global $msg, $error;
+	global $LINK;
 	global $PRINTDPI;
 
 	$DEBUG = 1;
@@ -7802,9 +7884,9 @@ function ProcessMultiEdit ($table, $rows, $actions) {
 	if ($idset) {
 		$query = "UPDATE $table SET $field=\"$value\" WHERE ID IN ( $idset )";
 		$DEBUG && $msg .= $query . "<BR>";
-		$result = mysql_query ($query);
+		$result = mysqli_query ($LINK, $query);
 		if (! $result)
-		print mysql_error($result) . "Failed to make $field=$value in $idset<BR>";
+		print mysqli_error($result) . "Failed to make $field=$value in $idset<BR>";
 	}
 
 	// FTP the marked rows
@@ -8154,6 +8236,7 @@ This means converting arrays to strings to put into the DB.
 */
 function CompactArraysToStrings ($vars) {
 	global $msg, $error;
+	global $LINK;
 
 	// Convert arrays to strings
 	reset ($vars);

@@ -30,8 +30,8 @@ $LINK = StartDatabase(MYSQLDB1);
 
 
 $sql = "SHOW TABLES FROM " . MYSQLDB1;
-$result = mysql_query($sql);
-while ($row = mysql_fetch_row($result)) {
+$result = mysqli_query ($sql);
+while ($row = mysqli_fetch_row($result)) {
 	$tables[] = $row[0];
 }
 
@@ -41,25 +41,25 @@ foreach ($tables as $table) {
 	print "<h1>Table $table</h1>";
 	
 	$sql = "select * from $table";
-	$result = mysql_query($sql);
+	$result = mysqli_query ($sql);
 	$x=1;
-	while ($row = mysql_fetch_assoc($result)) {
+	while ($row = mysqli_fetch_assoc($result)) {
 		$db[$table][] = $row;
 		//print $table.": ". $x++ . "<BR>";
 	}
 }
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 
 $LINK2 = StartDatabase(MYSQLDB2);
 
 // clear tables
 $sql = "SHOW TABLES FROM " . MYSQLDB1;
-$result = mysql_query($sql);
-while ($row = mysql_fetch_row($result)) {
-	mysql_query ("delete from $table");
+$result = mysqli_query ($sql);
+while ($row = mysqli_fetch_row($result)) {
+	mysqli_query ("delete from $table");
 }
 
 
@@ -72,5 +72,5 @@ while (list ($table, $rows) = each ($db)) {
 	}
 }
 
-mysql_close($LINK2);
+mysqli_close($LINK2);
 ?>

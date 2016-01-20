@@ -49,8 +49,8 @@ print $page;
 $f = file_get_contents (AS_SENDER_QUEUE_DIR."/".AS_SENDER_QUEUEFILE);
 print (str_replace ("\n", "<br>\n", $f));
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 
 	

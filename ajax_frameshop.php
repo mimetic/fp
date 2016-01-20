@@ -34,8 +34,8 @@ switch ($cmd) {
 		GetCartPricingForJS ();
 }
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 
 ?>

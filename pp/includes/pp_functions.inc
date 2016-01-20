@@ -26,6 +26,7 @@ function Verify_PP_Secret ($secret, $num) {
 // If found, return the record
 function VerifyUser ($service, $username, $password, $userID = null) {
 	global $msg, $error;
+	global $LINK;
 
 	$DEBUG = false;
 	
@@ -42,7 +43,7 @@ function VerifyUser ($service, $username, $password, $userID = null) {
 	$userID ? $checkID = "	AND $usersIDField = '$userID'" : $checkID = "";
 	
 	$query = "SELECT * FROM $users WHERE $usernameField = '$username' AND $passField = '$password' $checkID LIMIT 1";
-	$exists = mysql_num_rows(mysql_query($query));
+	$exists = mysqli_num_rows(mysqli_query ($LINK, $query));
 	
 	return $exists;
 }
@@ -319,9 +320,9 @@ function GetOrder($orderID) {
 // If order exists, return the ID of the order record
 function OrderExists ($userID) {
 	$q = "SELECT " . PP_ORDERS_ID . " FROM " . PP_ORDERS_DB . " WHERE pp_user_id = $userID LIMIT 1";
-	$res = mysql_query($q);
-	mysql_num_rows ($res) 
-		? list($orderID) = mysql_fetch_array(mysql_query($q))
+	$res = mysqli_query ($q);
+	mysqli_num_rows ($res) 
+		? list($orderID) = mysqli_fetch_array(mysqli_query ($q))
 		: $orderID = false;
 	return $orderID;
 }
@@ -336,8 +337,8 @@ function GetUser($ID) {
 // $fields = GetFieldList ($table);
 // Get list of mysql column names, i.e. field names
 function GetFieldList ($table) {	
-	$res = mysql_query("SHOW COLUMNS FROM $table");
-	while ($row = mysql_fetch_array($res))
+	$res = mysqli_query ("SHOW COLUMNS FROM $table");
+	while ($row = mysqli_fetch_array($res))
 		$col_names[]=$row[0];
 	return $col_names;
 }
@@ -347,14 +348,15 @@ function GetFieldList ($table) {
 // Insert a record, return the ID of the added record
 function AddRecord( $table, $pairs ) {
 	global $msg, $error;
+	global $LINK;
 	
 	$DEBUG = false;
 	$pairs = StripNonExistantFields ($table, $pairs);
 	$cols = makeCols($pairs);
 	$vals = makeVals($pairs);
 	$query = "insert into $table ($cols) values ($vals)";
-	$result =	 mysql_query($query);
-	$ID = mysql_insert_id();
+	$result =	 mysqli_query ($LINK, $query);
+	$ID = mysqli_insert_id();
 	return $ID;
 }
 
@@ -363,7 +365,8 @@ function AddRecord( $table, $pairs ) {
 // IF $returnarray is set, return the first row as an array (dump the rest)
 function FetchRowsByValue ($table, $set, $keyfield, $value, $order = "", $returnarray = TRUE) {
 	global $error, $msg;
-
+	global $LINK;
+	
 	$DEBUG = 0;
 	
 	$returnarray ? $limit = " LIMIT 1" : $limit = "";
@@ -377,21 +380,22 @@ function FetchRowsByValue ($table, $set, $keyfield, $value, $order = "", $return
 	}
 	if ($DEBUG) 
 		print __FUNCTION__. ": $query<P>";
-	$result = mysql_query($query);
+	$result = mysqli_query ($LINK, $query);
 	if ($returnarray && $result)
-		$result = mysql_fetch_array($result, MYSQL_ASSOC);
+		$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	return $result;
 }
 
 function UpdateOrder ($pairs, $orderID) {
 	global $msg, $error;
+	global $LINK;
 
 	$pairs = FixCheckboxFields ($pairs);
 	$pairs = StripNonExistantFields (PP_ORDERS_DB, $pairs);
 	$update = makeUpdate($pairs, PP_ORDERS_ID);
 	$query = "UPDATE " . PP_ORDERS_DB . " SET $update where " . PP_ORDERS_ID ." = '$orderID' ";
-	$result = mysql_query($query);
-	$error .= mysql_error ();
+	$result = mysqli_query ($LINK, $query);
+	$error .= mysqli_error ();
 	return $result;
 }
 
@@ -450,6 +454,7 @@ function AddPackageToUser ($packages, $ID) {
 // Example: UpdateRecord( 'Images', 55, array('ProjectID'=>33, "id" )
 function UpdateRecord ($table, $pairs, $ID, $IDname = "ID") {
 	global $msg, $error;
+	global $LINK;
 	
 	$DEBUG = false;
 	
@@ -457,8 +462,8 @@ function UpdateRecord ($table, $pairs, $ID, $IDname = "ID") {
 	$pairs = StripNonExistantFields ($table, $pairs);
 	$update = makeUpdate($pairs, $IDname);
 	$query = "UPDATE $table SET $update where $IDname = '$ID' ";
-	mysql_query($query);
-	$error .= mysql_error ();
+	mysqli_query ($LINK, $query);
+	$error .= mysqli_error ();
 	return $result;
 }
 
@@ -471,15 +476,15 @@ function DeleteRow( $table, $where ) {
 	if ($DEBUG) {
 		$error .= "DeleteRow: delete from $table where $where<BR>";
 		$error .= "select * from $table where $where<BR>";
-		$error .= ResultToTable (mysql_query("select * from $table where $where"));
+		$error .= ResultToTable (mysqli_query ("select * from $table where $where"));
 	}
-	return mysql_query ("delete from $table where $where");
+	return mysqli_query ("delete from $table where $where");
 }
 
 
 
 function DeleteOrder( $orderID ) { 
-	return mysql_query ("delete from " . PP_ORDERS_DB . " where " . PP_ORDERS_ID . " = '$orderID'");
+	return mysqli_query ("delete from " . PP_ORDERS_DB . " where " . PP_ORDERS_ID . " = '$orderID'");
 }
 
 
@@ -524,14 +529,19 @@ function StripNonExistantFields ($table, $arr) {
 
 
 // from the manual, how to prepare data for MYSQL
-function quote_smart($value) {	
+function quote_smart($value, $mysqli_link) {
+	global $LINK;
+	
+		if (!$mysqli_link)
+			$mysqli_link = $LINK;
+	
 		// Stripslashes
 		if (get_magic_quotes_gpc()) {
 				$value = stripslashes($value);
 		}
 		// Quote if not integer
 		if (!is_numeric($value)) {
-				$value = "'" . mysql_real_escape_string($value) . "'";
+				$value = "'" . mysqli_real_escape_string($mysqli_link, $value) . "'";
 		}
 		return $value;
 }
@@ -540,7 +550,7 @@ function quote_smart($value) {
 /* Create a table from a SELECT result */
 function ResultToTable ($result) {
 	$table = "<table border=1 cellpadding=5 width=100%>\n";
-	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$table .= "\t<tr>\n";
 		foreach ($line as $col_value) {
 			$table .= "\t\t<td>$col_value</td>\n";
@@ -548,7 +558,7 @@ function ResultToTable ($result) {
 		$table .= "\t</tr>\n";
 	}
 	$table .= "</table>\n";
-	mysql_data_seek ($result,0);	//reset the pointer
+	mysqli_data_seek ($result,0);	//reset the pointer
 	return $table;
 }
 
@@ -608,7 +618,7 @@ function StartDatabase($mysqlhost, $myDB, $myUser = MYSQLUSER, $myPassword = MYS
 	$DEBUG && print "BEGIN StartDatabase<BR>new mysqli(".MYSQLHOST.", $myUser, $myPassword)<br>";
 	if ( $LINK = new mysqli($mysqlhost, $myUser, $myPassword) ) {
 		// Select the DATABASE
-		if ( mysql_select_db($myDB) ) {
+		if ( mysqli_select_db($LINK, $myDB) ) {
 			return $LINK;
 		} else {
 			$error .= "Could not select database $myDB<BR>";

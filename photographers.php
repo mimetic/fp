@@ -74,7 +74,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$ProjectID = $vars['ProjectID'];
 	
 	$groupID = $_SESSION['GroupID'];
-	$myGroup = new FPGroup ($groupID);
+	$myGroup = new FPGroup ($LINK, $groupID);
 	
 	$GroupBannerURL = $myGroup->LogoFilename();
 	$GroupBanner = $myGroup->LogoHTML("style='border:1px solid black;margin-right:10px;'");

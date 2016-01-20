@@ -74,8 +74,8 @@ else
 		print "Error with order. Try again.<BR>";
 		}
 	}
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 // Save output form. Could also be added to FP_PAYMENTS_LOG?
 // Don't keep around too long...security issues, I think.

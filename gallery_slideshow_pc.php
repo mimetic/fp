@@ -113,8 +113,8 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$output = ReplaceSysVars ($output);
 	$output = DeleteUnusedSnippets ($output);
 
-	mysql_close($LINK);
-	$FP_MYSQL_LINK->close();
+	mysqli_close($LINK);
+	//$FP_MYSQL_LINK->close();
 
 	$output = compress_html($output);
 	$DEVELOPING || $Cache_Lite->save($output, $cacheid, $cachegroup);

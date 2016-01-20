@@ -27,13 +27,13 @@ Setup ();
 // --------------------------------
 
 $query = "SELECT * FROM ".DB_IMAGES." ORDER BY ID";
-$result = mysql_query($query);
+$result = mysqli_query ($query);
 
 $bad = array();
 $good = array();
 $output = "<h2>FP: Delete Missing Pictures</h2>";
 
-while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
 	$ID = $record['ID'];
 	
@@ -67,8 +67,8 @@ while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
 		$a = array ();
 		
 		$query = "SELECT * FROM ".DB_PARTS." WHERE ( PartTable = \"".DB_IMAGES."\" AND PartID = \"$ID\" ) ORDER BY ID";
-		$parts = mysql_query($query);
-		while ($part = mysql_fetch_array($parts, MYSQL_ASSOC)) {
+		$parts = mysqli_query ($query);
+		while ($part = mysqli_fetch_array($parts, MYSQLI_ASSOC)) {
 			$partinfo = "Part fields:";
 			$partinfo .= join(", ", $part);
 			$a[] = $part['ID'] . ": ".$partinfo . "<BR>";
@@ -120,7 +120,7 @@ $output = DeleteUnusedSnippets ($output);
 
 print $output;
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 ?>

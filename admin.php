@@ -50,7 +50,7 @@ session_start();
 
 $DEBUG = false;
 
-$user = new FPUser();
+$user = new FPUser( $LINK );
 isset($_SESSION['fp_user']) ? $fp_user = $_SESSION['fp_user'] : $fp_user = null;
 $fp_user && $user->loadUser($fp_user);
 $user->is_loaded() || $fp_user = null;
@@ -327,13 +327,12 @@ $text = DeleteUnusedSnippets ($text);
 
 // TFU flash uploader says:
 // It's best to close the session before you include the flash because depending on the page caching it is possible the the flash is loaded before the session is written to the disk (which is done at the end of the php file normally)
-
 session_write_close();
 
 // OUTPUT PAGE
 print $text;
 
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 ?>

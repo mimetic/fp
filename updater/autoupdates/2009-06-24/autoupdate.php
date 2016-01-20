@@ -41,8 +41,8 @@ fp_error_log("AUTOUPDATER: Fix gallery ID names: Change all space to underline i
 /*
  * END UPDATER CODE
  */
-mysql_close($LINK);
-$FP_MYSQL_LINK->close();
+mysqli_close($LINK);
+//$FP_MYSQL_LINK->close();
 
 /*
  * RENAMER:

@@ -376,21 +376,21 @@ class DB_mysqli extends DB_common
         $this->last_query = $query;
         $query = $this->modifyQuery($query);
         if ($this->_db) {
-            if (!@mysqli_select_db($this->connection, $this->_db)) {
+            if (!@mysqli_select_db($this->_db, $this->connection)) {
                 return $this->mysqliRaiseError(DB_ERROR_NODBSELECTED);
             }
         }
         if (!$this->autocommit && $ismanip) {
             if ($this->transaction_opcount == 0) {
-                $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=0');
-                $result = @mysqli_query($this->connection, 'BEGIN');
+                $result = @mysqli_query ($this->connection, 'SET AUTOCOMMIT=0');
+                $result = @mysqli_query ($this->connection, 'BEGIN');
                 if (!$result) {
                     return $this->mysqliRaiseError();
                 }
             }
             $this->transaction_opcount++;
         }
-        $result = @mysqli_query($this->connection, $query);
+        $result = @mysqli_query ($this->connection, $query);
         if (!$result) {
             return $this->mysqliRaiseError();
         }
@@ -574,12 +574,12 @@ class DB_mysqli extends DB_common
     {
         if ($this->transaction_opcount > 0) {
             if ($this->_db) {
-                if (!@mysqli_select_db($this->connection, $this->_db)) {
+                if (!@mysqli_select_db($this->_db, $this->connection)) {
                     return $this->mysqliRaiseError(DB_ERROR_NODBSELECTED);
                 }
             }
-            $result = @mysqli_query($this->connection, 'COMMIT');
-            $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=1');
+            $result = @mysqli_query ($this->connection, 'COMMIT');
+            $result = @mysqli_query ($this->connection, 'SET AUTOCOMMIT=1');
             $this->transaction_opcount = 0;
             if (!$result) {
                 return $this->mysqliRaiseError();
@@ -600,12 +600,12 @@ class DB_mysqli extends DB_common
     {
         if ($this->transaction_opcount > 0) {
             if ($this->_db) {
-                if (!@mysqli_select_db($this->connection, $this->_db)) {
+                if (!@mysqli_select_db($this->_db, $this->connection)) {
                     return $this->mysqliRaiseError(DB_ERROR_NODBSELECTED);
                 }
             }
-            $result = @mysqli_query($this->connection, 'ROLLBACK');
-            $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=1');
+            $result = @mysqli_query ($this->connection, 'ROLLBACK');
+            $result = @mysqli_query ($this->connection, 'SET AUTOCOMMIT=1');
             $this->transaction_opcount = 0;
             if (!$result) {
                 return $this->mysqliRaiseError();
@@ -958,7 +958,7 @@ class DB_mysqli extends DB_common
              * Probably received a table name.
              * Create a result resource identifier.
              */
-            $id = @mysqli_query($this->connection,
+            $id = @mysqli_query ($this->connection,
                                 "SELECT * FROM $result LIMIT 0");
             $got_string = true;
         } elseif (isset($result->result)) {

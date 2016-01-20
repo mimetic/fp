@@ -61,7 +61,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	isset($_SESSION['theme']) || $_SESSION['theme'] = DEFAULT_THEME;
 	
 	$groupID = $_SESSION['GroupID'];
-	$myGroup = new FPGroup ($groupID);
+	$myGroup = new FPGroup ($LINK, $groupID);
 	
 	$GroupBannerURL = $myGroup->LogoFilename();
 	$GroupBanner = $myGroup->LogoHTML("style='border:1px solid black;margin-right:10px;'");
@@ -111,8 +111,8 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$output = ReplaceSysVars ($output);
 	$output = DeleteUnusedSnippets ($output);
 	
-	mysql_close($LINK);
-	$FP_MYSQL_LINK->close();
+	mysqli_close($LINK);
+	//$FP_MYSQL_LINK->close();
 
 	$output = compress_html($output);
 	$DEVELOPING || $Cache_Lite->save($output, $cacheid, $cachegroup);

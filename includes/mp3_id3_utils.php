@@ -314,6 +314,9 @@ $genreids = Array(
 
 
 // here goes the function
+/*
+
+CRASHES!
 
  function mp3_id($file) {
    global $version, $layer, $crc, $bitrate, $bitindex, $freq, $mode, $copy, $genres;
@@ -445,6 +448,7 @@ $genreids = Array(
    }
  }
 
+*/
 
 //-------- Function ends HERE
 
