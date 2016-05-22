@@ -29,7 +29,7 @@ echo =========================================
 
 
 # _rsync girlswho girlswholike.us public_html/
-# _rsync matthieuchazal matthieuchazal.com public_html/
+_rsync matthieu matthieuchazal.com public_html/
 # _rsync mimetic mimetic.com public_html/gallery/
 # _rsync alpsime alpsime.com public_html/
 # _rsync caroline carolineabitbol.com public_html/

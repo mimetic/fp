@@ -414,7 +414,7 @@ function quote_smart($value) {
 	}
 
 	// The following does an addSlashes, and other goodies
-	$value = mysqli_real_escape_string($value);
+	$value = mysqli_real_escape_string($LINK, $value);
 	$value = "'" . $value . "'";
 
 	return $value;
@@ -533,7 +533,7 @@ function UpdateRecordOLD ( $table, $ID, $pairs ) {
 	$pairs = PackageParams ($pairs);
 	$pairs = SerializeArraysInPairs ($pairs);
 	$update = makeUpdate($pairs);
-	$query = "UPDATE $table SET $update where ID = '".mysqli_real_escape_string($ID)."' ";
+	$query = "UPDATE $table SET $update where ID = '".mysqli_real_escape_string($LINK, $ID)."' ";
 	if ($DEBUG)
 		$error .= __FUNCTION__.": <BR>$query<BR>";
 	$result = mysqli_query ($LINK, $query);
@@ -582,6 +582,8 @@ function UpdateRow ( $table, $pairs, $col="", $val="" ) {
 
 
 function SetRowID ($table, $oldID=null, $newID = null) {
+	global $LINK;
+	
 	if ($oldID && $newID) {
 		$query = "UPDATE $table SET ID = $newID WHERE ID = $oldID";
 		mysqli_query ($LINK, $query);
@@ -767,7 +769,7 @@ function CleanUserInput (&$value) {
 	}
 	/*
 	// Goddamn! If we use mysqli_real_escape_string on everything, we get /" stuff in our text
-	$value = mysqli_real_escape_string(trim($value));
+	$value = mysqli_real_escape_string($LINK, trim($value));
 	// Restore newlines and carriage returns
 	$value = str_replace ('\n', "\n", $value);
 	$value = str_replace ('\r', "\r", $value);
@@ -1503,16 +1505,29 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 	$TIMER && $error .= __FUNCTION__.__LINE__.": Time elapsed: ".round (microtime(true) - $starttime, 3) . "<BR>";
 	(round (microtime(true) - $starttime, 3) > .1) && $starttime = microtime(true);
 
+
 	// Get field types and names
-	$result
-			? $mysqlnumfields = mysqli_num_fields($result)
-			: $mysqlnumfields = 0;
 	$fieldtype = array ();
-	for($i=0; $i<$mysqlnumfields; $i++) {
-		$res = mysqli_fetch_field_direct($result,$i);
-		$mysqlfieldname = $res->name;
-		$fieldtype[$mysqlfieldname] = $res->type;
+	$fieldnames = array();
+	if ($result) {
+		while ($finfo = $result->fetch_field()) {
+			$fieldnames[$finfo->name] = $finfo->type;
+		}
 	}
+
+// 	
+// 	$result
+// 			? $mysqlnumfields = $result->field_count
+// 			: $mysqlnumfields = 0;
+// 	$fieldtype = array ();
+// 	
+// 	
+// 	
+// 	for($i=0; $i<$mysqlnumfields; $i++) {
+// 		$res = mysqli_fetch_field_direct($result,$i);
+// 		$mysqlfieldname = $res->name;
+// 		$fieldtype[$mysqlfieldname] = $res->type;
+// 	}
 
 
 
@@ -1630,6 +1645,8 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 					}
 				}
 				$fields[$keyname] = $var;
+				
+				$fieldnames[$finfo->name] = $finfo->type;
 
 				$res = mysqli_fetch_field_direct($result, $k);
 				$fieldtable = $res->table;
@@ -2701,25 +2718,29 @@ function FetchRandomImageList ($groupID=null, $projectID = null) {
 // param2 = mysql WHERE clause, without the 'WHERE'
 function DeleteRow( $table, $where ) {
 	global $Themes;
+	global $LINK;
+	
 	$DEBUG = false;
 	if ($DEBUG) {
 		$error .= "DeleteRow: delete from $table where $where<BR>";
 		$error .= "select * from $table where $where<BR>";
-		$error .= ResultToTable (mysqli_query ("select * from $table where $where"));
+		$error .= ResultToTable (mysqli_query ($LINK, "select * from $table where $where"));
 	}
-	mysqli_query ("delete from $table where $where");
-	return mysqli_error ();
+	mysqli_query ($LINK, "delete from $table where $where");
+	return mysqli_error ($LINK);
 }
 
 function DeleteRowByID( $table, $ID ) {
 	global $Themes;
+	global $LINK;
+	
 	$DEBUG = FALSE;
 	if ($DEBUG) {
 		$error .= "DeleteRowByID: delete from $table where ID = '$ID'<BR>";
 		$error .= "select * from $table where ID = '$ID'";
-		$error .= ResultToTable (mysqli_query ("select * from $table where ID = '$ID'"));
+		$error .= ResultToTable (mysqli_query ($LINK, "select * from $table where ID = '$ID'"));
 	}
-	return mysqli_query ("delete from $table where ID = '$ID'");
+	return mysqli_query ($LINK, "delete from $table where ID = '$ID'");
 }
 
 //--------------------------
@@ -2727,6 +2748,7 @@ function DeleteRowByID( $table, $ID ) {
 function AddRecord( $table, $pairs ) {
 	global $Themes;
 	global $error, $msg;
+	global $LINK;
 
 	$DEBUG = 0;
 	$DEBUG && $msg .=  "<h3>AddRecord to $table</h3>";
@@ -2758,10 +2780,10 @@ function AddRecord( $table, $pairs ) {
 
 	$DEBUG && $msg .=  "AddRecord: After using makeUpdate:<BR>".ArrayToTable(explode(",", $update));
 
-	mysqli_query ("insert into $table SET $update");
+	mysqli_query ($LINK, "insert into $table SET $update");
 
-	$ID = mysqli_insert_id();
-	$e = mysqli_error ();
+	$ID = mysqli_insert_id($LINK);
+	$e = mysqli_error ($LINK);
 	$e && $error .= __FUNCTION__.": $e<br>";
 
 	if ($DEBUG)
@@ -2770,8 +2792,8 @@ function AddRecord( $table, $pairs ) {
 	// This doesn't work, I don't know why
 	if ($table == DB_ARTISTS && $ID) {
 		$q = "UPDATE `$table` SET `CreationDate` = NOW() where ID = '$ID'";
-		mysqli_query ($q);
-		$e = mysqli_error ();
+		mysqli_query ($LINK, $q);
+		$e = mysqli_error ($LINK);
 		$e && $error .= __FUNCTION__.": $e<br>";
 	}
 
@@ -2902,7 +2924,7 @@ function MultiEdit ($table, $vars) {
 		$DEBUG && $msg .= $query . "<BR>";
 		$result = mysqli_query ($LINK, $query);
 		if (! $result)
-			print mysqli_error($result) . "Failed to make $field=$value in $idset<BR>";
+			print mysqli_error($LINK) . "Failed to make $field=$value in $idset<BR>";
 	}
 
 	// FTP the marked rows
@@ -2964,6 +2986,8 @@ function FetchListFromMultiForm ($flag, $vars) {
 
 function MultiSetFlag ($table, $flag, $vars) {
 	global $Themes;
+	global $LINK;
+	
 	$DEBUG = false;
 	//	$idset = implode (", " , $IDlist);
 	$allrows = PregMatchKeys("/^record_/i", $vars);
@@ -2979,7 +3003,7 @@ function MultiSetFlag ($table, $flag, $vars) {
 	$DEBUG && $msg .= $query . "<BR>";
 	$result = mysqli_query ($LINK, $query);
 	if (! $result)
-		print mysqli_error($result) . "Failed to make $flag=no $all<BR>";
+		print mysqli_error($LINK) . "Failed to make $flag=no $all<BR>";
 
 	// Now set marked ones to yes
 	if (empty($idset))
@@ -2988,7 +3012,7 @@ function MultiSetFlag ($table, $flag, $vars) {
 	$DEBUG && $msg .= $query . "<BR>";
 	$result = mysqli_query ($LINK, $query);
 	if (! $result)
-		print mysqli_error($result) . "Failed to make $flag=yes $idset<BR>";
+		print mysqli_error($LINK) . "Failed to make $flag=yes $idset<BR>";
 
 
 }
@@ -3872,6 +3896,8 @@ function FetchArtistImageIDs ($artistID) {
 function FetchArtistImageURLs ($artistID) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $LINK;
+	
 	$where = "WHERE ArtistID = '$artistID'";
 	$order = "ORDER by Title";
 	$query = "SELECT ID, URL FROM $IMAGES $where $order";
@@ -4132,17 +4158,21 @@ function FetchFieldNames ($table) {
 	global $Themes;
 	global $msg, $error;
 	global $LINK;
+	
 	$fieldnames = array();
-	$result = mysqli_query ("SELECT * from $table");
+	$result = mysqli_query ($LINK, "SELECT * from $table");
 	($result === false) && $error .= "FetchFieldNames got nothing from table=$table<BR>";
 	if ($result) {
-		$k = 0;
-		$numfields = mysqli_num_fields($result);
-		while ($k < $numfields) {
-			$key = mysqli_field_name($result, $k);
-			$fieldnames[$key] = $key;
-			$k++;
+		while ($finfo = $result->fetch_field()) {
+			$fieldnames[$finfo->name] = $finfo->name;
 		}
+// 		$k = 0;
+// 		$numfields = $result->field_count;
+// 		while ($k < $numfields) {
+// 			$key = mysqli_fetch_field_direct($result, $k);
+// 			$fieldnames[$key] = $key;
+// 			$k++;
+// 		}
 	}
 	return $fieldnames;
 }
@@ -4168,10 +4198,14 @@ function FieldOptionList ($table, $listname, $exceptions = array('ID', 'Active',
 		$result = mysqli_query ($LINK, "SELECT * from $table");
 		$k=0;
 		if ($result) {
-			while ($k < mysqli_num_fields($result)) {
-				$res = mysqli_fetch_field_direct($result, $k++);
-				$fieldnames[] = array ('', $res->name);
+			while ($finfo = $result->fetch_field()) {
+				$fieldnames[] = $finfo->name;
 			}
+
+// 			while ($k < $result->field_count) {
+// 				$res = mysqli_fetch_field_direct($result, $k++);
+// 				$fieldnames[] = array ('', $res->name);
+// 			}
 		}
 	}
 	$optionlist = "";
@@ -4369,10 +4403,12 @@ function VerifyLogin ($username, $password) {
 	global $Themes;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
 	global $COOKIELIFE, $SYSTEMNAME, $msg, $error;
+	global $LINK;
+	
 	$DEBUG = false;
 	if (!(empty($username) OR empty($password))) {
 		$fields = "*";
-		$where = "WHERE Username = '" . mysqli_real_escape_string($username) . "' AND Password = '" . mysqli_real_escape_string($password) . "'";
+		$where = "WHERE Username = '" . mysqli_real_escape_string($LINK, $username) . "' AND Password = '" . mysqli_real_escape_string($LINK, $password) . "'";
 		$query = "SELECT $fields from $ARTISTS $where";
 		$result = mysqli_query ($LINK, $query);
 
@@ -5293,6 +5329,8 @@ function ReplaceSnippets ($form) {
 
 // Get list of images and their order in the project
 function FetchProjectImagesByAge ($projectID) {
+	global $LINK;
+	
 //$query = "SELECT PartID, OrderInProject FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images'";
 	$query = "SELECT DISTINCT Images.ID, TimeStamp FROM Parts, Images WHERE Parts.ProjectID = 1 and Parts.PartTable = 'Images' and Images.ID = Parts.PartID ORDER BY TimeStamp";
 	$result = mysqli_query ($LINK, $query);
@@ -5338,6 +5376,8 @@ function FetchProjectImageOrder ($projectID) {
 
 // Get current image IDs for a project
 function FetchProjectImageList ($projectID) {
+	global $LINK;
+	
 	$query = "SELECT PartID FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images'";
 	$result = mysqli_query ($LINK, $query);
 
@@ -5355,6 +5395,8 @@ function FetchProjectImageList ($projectID) {
 
 
 function FetchProjectImageCount ($projectID) {
+	global $LINK;
+	
 	$query = "SELECT DISTINCT PartID FROM Parts WHERE Parts.ProjectID = $projectID AND PartTable = 'Images'";
 	$result = mysqli_query ($LINK, $query);
 	$num_rows = mysqli_num_rows ($result);
@@ -7886,7 +7928,7 @@ function ProcessMultiEdit ($table, $rows, $actions) {
 		$DEBUG && $msg .= $query . "<BR>";
 		$result = mysqli_query ($LINK, $query);
 		if (! $result)
-		print mysqli_error($result) . "Failed to make $field=$value in $idset<BR>";
+		print mysqli_error($LINK) . "Failed to make $field=$value in $idset<BR>";
 	}
 
 	// FTP the marked rows

@@ -290,6 +290,7 @@ print $page;
 // Reads an SQL dump file and executes in MYSQL one line at a time
 function DBMakeTables ($host, $db, $user, $password, $sql_query) {
 	global $error, $msg;
+	global $LINK;
 
 	$DEBUG = 0;	
 	$result = null;
@@ -484,7 +485,7 @@ function ConfigUpdateFile ($host, $db, $user, $password, $vars) {
 // 
 function UpdateAdminUser ($host, $db, $user, $password, $vars) {
 	global $error, $msg;
-	global $FP_MYSQL_LINK;
+	global $LINK;
 
 	$LINK = @DBStart($host, $db, $user, $password);
 	if ($LINK) {
@@ -507,7 +508,6 @@ function UpdateAdminUser ($host, $db, $user, $password, $vars) {
 		$myUser = new FPUser($LINK, FP_ADMINISTRATOR);
 		$myUser->UpdateUser ($pairs);
 		mysqli_close($LINK);
-		// $FP_MYSQL_LINK->close();
 	}
 }
 
@@ -517,6 +517,7 @@ function UpdateAdminUser ($host, $db, $user, $password, $vars) {
 // 
 function GetAdminUserValues ($host, $db, $user, $password) {
 	global $error, $msg;
+	global $LINK;
 	
 	$record = array ();
 	
@@ -524,7 +525,6 @@ function GetAdminUserValues ($host, $db, $user, $password) {
 	if ($LINK) {
 		$record = FetchArtist( FP_ADMINISTRATOR );
 		mysqli_close($LINK);
-		// $FP_MYSQL_LINK->close();
 	} else {
 		$msg .= "$host/$db/$user/$password don't work to open a database.<BR>";
 	}
@@ -572,7 +572,6 @@ function DBFillIn ($host, $db, $user, $password, $vars) {
 	Maintenance ();
 	
 	mysqli_close($LINK);
-	// $FP_MYSQL_LINK->close();
 }
 
 // Create 'Not for Sale' price set
@@ -589,6 +588,7 @@ function CreateNotForSalePrice () {
 
 function CreateAdminUser ($vars) {
 	global $msg, $error;
+	global $LINK;
 	
 	// Create Admin user
 	$pairs = array (	
@@ -610,8 +610,8 @@ function CreateAdminUser ($vars) {
 	$newID = AddRecord( DB_ARTISTS, $pairs );
 	if ($newID) {
 		$q = "UPDATE ".DB_ARTISTS." SET `ID` = " . FP_ADMINISTRATOR . " WHERE `ID` = $newID";
-		mysqli_query ($q);
-		if (($newID != 1) && mysqli_affected_rows () == 0 )
+		mysqli_query ($LINK, $q);
+		if (($newID != 1) && mysqli_affected_rows ($LINK) == 0 )
 			$msg .= __FUNCTION__.": *** Failed to set Administrator to ID=".FP_ADMINISTRATOR."<br>";
 	}
 	$newID ? $msg .= "Created System Administrator<br>" : $error .= "Could not add System Administrator to ".DB_ARTISTS."<br>";
@@ -620,6 +620,7 @@ function CreateAdminUser ($vars) {
 // Create the first user (not admin user)
 function AddMainUser ($vars) {
 	global $msg, $error;
+	global $LINK;
 
 	// Create user
 	//$username = strtolower ($vars['Firstname'].$vars['Lastname']);
@@ -684,7 +685,7 @@ function InstallMissingPicture ($fn) {
 //------------------
 function DBStart($host, $db, $user, $password) {
 	global $error, $msg;
-	global $FP_MYSQL_LINK;
+	global $LINK;
 
 	$DEBUG = TRUE;
 
@@ -699,9 +700,7 @@ function DBStart($host, $db, $user, $password) {
 	mysqli_select_db($LINK, "$db")
 		or $error .= "DBStart: Could not select database $db: ". mysqli_error();
 	
-	
-	//$FP_MYSQL_LINK = $LINK;
-	
+		
 	return $LINK;
 }
 
