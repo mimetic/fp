@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 3.0
+ * TWG Flash uploader 3.2
  *
- * Copyright (c) 2004-2013 TinyWebGallery
+ * Copyright (c) 2004-2014 TinyWebGallery
  * written by Michael Dempfle
  *
  *
@@ -28,30 +28,10 @@ $store = 0;         // do not change!
 $email_plugin = false; // do not change!
 
 include 'tfu_session.php';
-//	$s = print_r($_SESSION, true);
-include 'tfu_helper.php';
-
-/*
-tfu_debug(__FILE__);
-tfu_debug ("After tfu_session.php ");
-tfu_debug ($s);
-
-tfu_debug(__FILE__);
-tfu_debug ("After tfu_session.php and tfu_helper.php");
-tfu_debug("SESSION: ".print_r($_SESSION, true));
-*/
-
-restore_temp_session(); // this restores a lost session if your server handles sessions wrong!
-
-/*
-tfu_debug ("After restore temp session.");
-tfu_debug("SESSION: ".print_r($_SESSION, true));
-*/
-
 include 'tfu_config.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_config_version != '3.0' || $tfu_help_version != '3.0') {
+if ($tfu_config_version != '3.2' || $tfu_help_version != '3.2') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
@@ -63,22 +43,21 @@ Otherwise the session is maybe not started properly!
 
 /**
  * This is some debug information - please uncomment this if I ask for it in a debug session ;).
+ * tfu_debug("session id : " . session_id());
+ * tfu_debug("session TFU: " . $_GET['TFUSESSID']);
+ * tfu_debug("login: " . $_SESSION["TFU_LOGIN"]);
+ * tfu_debug("dir: " . $_SESSION["TFU_DIR"]);
  */
-
-// tfu_debug("session id : " . session_id());
-// tfu_debug("session name : " . session_name());
-// tfu_debug("session TFU: " . $_GET['TFUSESSID']);
-// tfu_debug("login: " . $_SESSION["TFU_LOGIN"]);
-// tfu_debug("dir: " . $_SESSION["TFU_DIR"]);
-
 // we check if a valid authenification was done in tfu_config.php
-if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['tfu_rn']) && isset($_SESSION['TFU_RN']) && $_SESSION['TFU_RN'] == parseInputParameter($_GET['tfu_rn'])) {
+
+if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['tfu_rn']) && isset($_SESSION['TFU_RN']) && 
+   (strcmp($_SESSION['TFU_RN'],parseInputParameter($_GET['tfu_rn']))==0)) {
     if ($enable_upload_debug) tfu_debug('2. Authenification sucessfull');
     $dir = getCurrentDir();
     if ($enable_upload_debug) tfu_debug('3. Directory read: ' . $dir);
     $size = (isset($_GET['size'])) ? parseInputParameter($_GET['size']) : 100000;
     $remaining = parseInputParameter(substr($_GET['remaining'], 0, -1)) - 1;
-    if ($remaining < 0) { // not valid! we expect at least 1
+    if ($remaining < 0) {
         return;
     }
     
@@ -255,6 +234,7 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['remaining']) && isset($_GET['t
         tfu_mail($upload_notification_email, $upload_notification_email_subject, $mailtext, $upload_notification_email_from); 
     }
     if ($remaining == 0) { // cleanup
+      $_SESSION['TFU_RN'] = substr($_SESSION['TFU_RN'],0,-9) .substr($_GET['zeit'],-9);
       unset($_SESSION['TFU_PRE_UPLOAD_DATA']);
     }
     // end of e-mail section

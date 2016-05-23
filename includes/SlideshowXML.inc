@@ -7,8 +7,14 @@
 
 class SlideshowXML {
 	
-	function SlideshowXML() {
+	/**
+	 * The mysqli database connection
+	 */
+	var $mysqli_connection;
 
+
+	function __construct() {
+		$this->mysqli_connection = $mysqli_connection;
 	}
 	
 	//FP_DEFAULT_SLIDESHOW_PAUSE
@@ -175,7 +181,7 @@ class SlideshowXML {
 				$images = array ();
 				$record = FetchProject ($projectID);
 				$query = "select * from $PARTS where ProjectID = '$projectID' and PartTable = '$IMAGES' ORDER BY $PARTS.OrderInProject";
-				$result = mysqli_query ($query);
+				$result = mysqli_query ($this->mysqli_connection, $query);
 				while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$image = FetchImage ($part['PartID']);
 					//$images[$image['CreatedDate']] = $this->buildImage ($image);

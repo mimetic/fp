@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 TWG Flash Uploader 3 - english language file 
 
@@ -9,6 +10,9 @@ file. The example below is only a dummy!
 
 If you make any changes make sure to save the file as UTF-8! Otherwise special characters
 are not displayed properly!
+
+<LANG><KEY>upload_completed</KEY><VALUE><![CDATA[<font color="#ff00ff"><a href='http://www.tinywebgallery.com'>Upload completed...</a></font>]]></VALUE></LANG>
+
 -->
 <TFU>
   <LANG><KEY>key</KEY><VALUE>New value</VALUE></LANG>

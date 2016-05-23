@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 3.0
+ * TWG Flash uploader 3.2
  *
- * Copyright (c) 2004-2013 TinyWebGallery
+ * Copyright (c) 2004-2014 TinyWebGallery
  * written by Michael Dempfle
  *
  *    This file is the login and stetup file of the flash.
@@ -14,9 +14,6 @@ define('_VALID_TWG', '42');
 $install_path = 'tfu/';      // Please read the howto 8 of the TFU FAQ what you have to do with this parameter! You need a / at the end if you set it + you have to 
 
 include $install_path . 'tfu_session.php';
-include $install_path . 'tfu_helper.php';
-
-restore_temp_session(true); // this restores a lost session if your server handles sessions wrong - only important for joomla because for TFU standalone nothing is in the session yet.
 
 if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and twg_pass are always sent by the flash! - never remove this part! otherwise everyone can call tfu_config directly
     /**
@@ -58,7 +55,7 @@ if (isset($_POST['twg_user']) && isset($_POST['twg_pass'])) { // twg_user and tw
     include $install_path . "tfu_config.php";
     
     // check if all included files have the same version to avoid problems during update!
-    if ($tfu_config_version != '3.0' || $tfu_help_version != '3.0') {
+    if ($tfu_config_version != '3.2' || $tfu_help_version != '3.2') {
       tfu_debug('Not all files belong to this version. Please update all files.');
     }
 

@@ -5,19 +5,20 @@
 */
 
 
-$enable_upload_debug = false;        // This enables the debuging ouput at the upload. You should only use this after contacting me!
+$enable_upload_debug = true;        // This enables the debuging ouput at the upload. You should only use this after contacting me!
 $enable_enhanced_debug = false;      // This shows the request to each debug line.
 
 
-//tfu_debug(__FILE__);
-//tfu_debug("SESSION: ".print_r($_SESSION, true));
+// tfu_debug(__FILE__);
+// tfu_debug("SESSION ID (SID): ".SID);
+// tfu_debug("SESSION: ".print_r($_SESSION, true));
 
 
 // CRUCIAL: TELLS WHERE TO UPLOAD THE FILES!
 // Get the upload folder from the fp_admin session
 $folder = $_SESSION["TFU_DIR"];
 
-//tfu_debug("Upload folder is $folder");
+//$folder ? tfu_debug("Upload folder is $folder") : tfu_debug("WARNING: Upload folder not set.");
 
 // I think this is too dangerous, now I've been hacked...
 // Let's limit to JPG, PDF, sound files
@@ -61,5 +62,7 @@ $resize_data = '10000,1500,1024,800'; // The data for the resize dropdown
 $show_full_url_for_selected_file = 'false'; // 'true' - if you use this parameter the link to the selected file is shown - can be used for direct links - only available in the registered version!
 
 $keep_internal_session_handling = true;  // new 2.7.5 - TFU can detect servers with session problems. And it removes the session_cache folder it it is not needed. If you set this to true the session_Cache folder is not removed automatically. You should set this to true if you have only sometimes problems with the upload!
+
+$info_font = "verdana.ttf";          // The font which should be used. By default verdana is included in the install package.
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*************************  
-  Copyright (c) 2004-2013 TinyWebGallery
+  Copyright (c) 2004-2014 TinyWebGallery
   written by Michael Dempfle
  
   This program is free software; you can redistribute it and/or modify 
@@ -9,7 +9,7 @@
   either version 2 of the License, or (at your option) any later version. 
   See license.txt for details.
  
-  TFU version: 3.0
+  TFU version: 3.2
  
   $Date: 2007-02-16 09:17:41 +0100 (Fr, 16 Feb 2007) $
   $Revision: 41 $

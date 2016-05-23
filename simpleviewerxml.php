@@ -268,7 +268,7 @@ class SlideshowXML {
 	
 	var $params;
 
-	function SlideshowXML($params) {
+	function __construct($params) {
 		$this->params = $params;
 	}
 	

@@ -20,7 +20,6 @@ class FPProject
 function __construct ($mysqli_connection, $ID = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	$this->mysqli_connection = $mysqli_connection;
 	
@@ -66,13 +65,12 @@ function members () {
 function ProjectExists ($ID = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	if (!$ID)
 		return false;
 	//$ID || $ID = $this->ID;
 	$query = "SELECT ID FROM $PROJECTS WHERE ID = '$ID'";
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	if ($result && mysqli_num_rows ($result) > 0)
 		return true;
 	return false;
@@ -88,7 +86,6 @@ function iterateVisible() {
 function FetchGroup ($ID  = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 
 	isset($ID) || $ID = $this->ID;
 	$this->members = $this->MemberList ( ($ID != FP_ADMINISTRATOR) );	// do not show member $ID in the list unless he is the Admin
@@ -128,7 +125,6 @@ function GetProjectThemeID() {
 // return pixlist = array (id=>image_record)
 function PictureList ($ID=null) {
 	global $msg, $error;
-	global $LINK;
 		
 	$DEBUG = 0;
 	$pixlist=array();
@@ -136,7 +132,7 @@ function PictureList ($ID=null) {
 	// Here we are...get all Image parts for a project!
 	$query = "SELECT DISTINCT *, ".DB_IMAGES.".ID AS ID, ".DB_IMAGES.".ProjectID as ProjectID from ".DB_IMAGES.", ".DB_PARTS." WHERE ".DB_PARTS.".ProjectID = '$ID' AND ".DB_PARTS.".PartTable = '".DB_IMAGES."' AND ".DB_IMAGES.".ID = ".DB_PARTS.".PartID ORDER BY ".DB_PARTS.".OrderInProject";
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":$query<BR>";
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	while ($image = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$pixlist[$image['ID']] = $image;
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": PixList (".__FUNCTION__ .":".__LINE__.") ".$image['ID'] . ":" . $image['Title'] . "<BR>";
@@ -152,7 +148,6 @@ function ProjectInfo ($ID  = null) {
 	// array [ID] = member record
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 
 	isset($ID) || $ID = $this->ID;
 	$this->ID = $ID;
@@ -189,7 +184,6 @@ function OwnerID ($ID  = null) {
 function MemberList ( $hideowner = FALSE) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 
 	$DEBUG = 0;
@@ -208,7 +202,7 @@ function MemberList ( $hideowner = FALSE) {
 		$query = "SELECT DISTINCT $ARTISTS.* FROM $PARTS, $ARTISTS WHERE ($ARTISTS.ID = '$ArtistID') OR ($PARTS.ProjectID = $projectID AND $PARTS.PartTable = 'Artists' AND $PARTS.PartID = $ARTISTS.ID)";
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": $query<BR>";
 
-		$result = mysqli_query ($LINK, $query);
+		$result = mysqli_query ($this->mysqli_connection, $query);
 		while ($row = mysqli_fetch_array($result)) {
 			$members[$row['ID']] = $row;
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": Other artists are " . $row['ArtistID'] . ":" . $row['Fullname'] . "<BR>";
@@ -247,7 +241,6 @@ function MemberIDList ( $hideowner = FALSE) {
 // This gets the HTML for the artist list
 function MemberListHTML ($hideuser = FALSE) {
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ": Preparing artistlist for the form, for fp_user=$userID<BR>";
 	$members = $this->MemberList( );
@@ -275,8 +268,6 @@ function MemberListHTML ($hideuser = FALSE) {
 function MemberNames ( $hideowner = FALSE) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
-	
 
 
 	$DEBUG = 0;
@@ -295,7 +286,7 @@ function MemberNames ( $hideowner = FALSE) {
 		$query = "SELECT DISTINCT $ARTISTS.ID AS ArtistID, CONCAT_WS(' ', Firstname, Lastname) AS Fullname FROM $PARTS, $ARTISTS WHERE ($ARTISTS.ID = '$ArtistID') OR ($PARTS.ProjectID = $projectID AND $PARTS.PartTable = 'Artists' AND $PARTS.PartID = $ARTISTS.ID)";
 		$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.": $query<BR>";
 
-		$result = mysqli_query ($LINK, $query);
+		$result = mysqli_query ($this->mysqli_connection, $query);
 		while ($row = mysqli_fetch_array($result)) {
 			$ID = $row['ArtistID'];
 			$memberNames[$ID] = $row['Fullname'];
@@ -339,7 +330,6 @@ function MoveMembers ($members = array (), $targetgroupID = null, $sourcegroupID
 	// Moving an artist out also means removing him from any projects in the group
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	isset($targetgroupID) || $targetgroupID = $this->ID;
 	isset($sourcegroupID) || $sourcegroupID = $this->ID;
@@ -371,7 +361,6 @@ function MoveMembers ($members = array (), $targetgroupID = null, $sourcegroupID
 function AddMembersToProject ($members = array (), $newgroupID = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 	isset($newgroupID) || $newgroupID = $this->ID;
@@ -386,7 +375,7 @@ function AddMembersToProject ($members = array (), $newgroupID = null) {
 				// This version checks if the artist is the owner of the group, too.
 				$query = "select distinct $PARTS.ID from $PARTS, $GROUPS where ($PARTS.ArtistID = '$artistID' AND $PARTS.PartID = '$newgroupID' AND $PARTS.PartTable = '$GROUPS') OR ($GROUPS.ID = '$newgroupID' AND $GROUPS.ArtistID = '$artistID')";
 				$DEBUG && $error .= __FUNCTION__.__LINE__.": $query<BR>";
-				$result = mysqli_query ($LINK, $query);
+				$result = mysqli_query ($this->mysqli_connection, $query);
 				if (mysqli_num_rows ($result) == 0) {
 					$pairs = array ('ArtistID'	=>	$artistID,
 									'PartTable' =>	$GROUPS,
@@ -419,7 +408,6 @@ function AddMembersToProject ($members = array (), $newgroupID = null) {
 function SetProjectImages ($imageList) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 	$DEBUG && $msg .= __FUNCTION__ .":".__LINE__.": Beginning UpdateImageParts:<BR>";
@@ -456,7 +444,6 @@ function SetProjectImages ($imageList) {
 function UpdateImageParts ($vars, $projectID=null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 	$DEBUG && $msg .= __FUNCTION__ .":".__LINE__.": Beginning UpdateImageParts:<BR>";
@@ -516,7 +503,7 @@ function UpdateImageParts ($vars, $projectID=null) {
 	// delete part records for rejected images
 	$query = "DELETE from Parts where ProjectID = $projectID AND PartTable = '".DB_IMAGES."' and PartID in ($images_to_remove)";
 	$DEBUG && $msg .= __FUNCTION__.": all images in project = $images_in_project<BR>";
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 
 	// insert new images not already in the project
 	foreach ($images_to_add as $ID) {
@@ -552,13 +539,12 @@ function UpdateImageParts ($vars, $projectID=null) {
 // $withPictures : true, then count only artists who have pictures showing; false, count all members of the project
 function IsSolo ($withPictures = false) {
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 
 	// If this is a single user system, then there's only one user!
 	
-	$artist = new FPUser ($this->info['ArtistID']);
+	$artist = new FPUser ($this->mysqli_connection, $this->info['ArtistID']);
 	if (($artist->UserType == FP_SINGLE_GALLERY_SINGLE_USER) || ($artist->UserType == FP_MULTI_GALLERY_SINGLE_USER)) {
 		$this->showingArtistID = $this->OwnerID ();
 		$this->is_solo = 1;
@@ -583,7 +569,7 @@ function IsSolo ($withPictures = false) {
 	}
 	
 	$query = "select $set FROM $table WHERE $where";
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	
 	$DEBUG && $msg .= "$query<BR>";
 	
@@ -625,13 +611,12 @@ function IsSolo ($withPictures = false) {
 function MemberCount ( $withPictures = false, $rejectSysAdmin = true ) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 
 	
 	// If this is a single user system, then there's only one user!
-	$artist = new FPUser ($this->info['ArtistID']);
+	$artist = new FPUser ($this->mysqli_connection, $this->info['ArtistID']);
 	if ($artist->UserType == FP_SINGLE_GALLERY_SINGLE_USER || $artist->UserType == FP_MULTI_GALLERY_SINGLE_USER) {
 		$this->showingArtistID = $this->OwnerID ();
 		return (1);
@@ -677,7 +662,7 @@ function MemberCount ( $withPictures = false, $rejectSysAdmin = true ) {
 
 	$where = "WHERE $rejectSysAdmin $where";
 	$query = "select $set FROM $table \n$where";
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	$result ? $count = mysqli_num_rows ($result) : $count = 0;
 
 	!$result && fp_error_log(__FUNCTION__.": *** Error: Bad sql query: $query", 3, FP_ERROR_LOG );
@@ -703,7 +688,6 @@ function MemberCount ( $withPictures = false, $rejectSysAdmin = true ) {
 function DeleteMembersFromProject ($members = array (), $fromgroup = null) {
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = false;
 	$DEBUG && $error .= __FUNCTION__.": BEGIN<BR>";
@@ -723,7 +707,6 @@ function DeleteMembersFromProject ($members = array (), $fromgroup = null) {
 // and we remove the Parts record which assigns the user to the group.
 function SetOwner ($newOwnerID) {
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 	
@@ -746,7 +729,6 @@ function SetOwner ($newOwnerID) {
 // Add any users in the $vars['artistlist'] to the group.
 function UpdateMembers ($vars) {
 	global $msg, $error;
-	global $LINK;
 	
 	$DEBUG = 0;
 	
@@ -844,7 +826,7 @@ function SetParam ($key, $value) {
 
 // Create a new project (exhibition) for a user. If the name is not given, call it "untitled"
 function MakeProjectForUser ($userID, $groupname = null) {
-	$user = new FPUser ($userID);
+	$user = new FPUser ($this->mysqli_connection, $userID);
 
 	if (!$groupname) {
 		$groupname = $user->Fullname;
@@ -868,7 +850,7 @@ function RemoveImages ($imageList = null)
 		? $list = " and PartID in ($imageList)"
 		: $list = "";	
 	$query = "DELETE from ".DB_PARTS." where ProjectID = {$this->ID} AND PartTable = '".DB_IMAGES."'$list";
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	}
 
 // Add an ordered list of images to the project.
@@ -909,7 +891,7 @@ function AddImages ($imageList = array() )
 function NextImageIndex ()
 	{
 	$query = "SELECT  MAX(OrderInProject)+1 as NextIndex from ".DB_PARTS." where ProjectID = {$this->ID} AND PartTable = '".DB_IMAGES;
-	$result = mysqli_query ($LINK, $query);
+	$result = mysqli_query ($this->mysqli_connection, $query);
 	if ($result) {
 		$result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	} else {

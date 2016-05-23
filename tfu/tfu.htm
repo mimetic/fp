@@ -3,7 +3,8 @@
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="http://www.tinywebgallery.com/favicon.ico" type="image/x-icon">
-<title>TWG Flash Uploader 3.0</title>
+<title>Flash upload | file uploader | TWG Flash Uploader 3.2</title>
+<meta name="description" lang="en" content="This is the demo for the TWG Flash Uploader which is a user friendly flash to upload and manage many files very fast and easy.">
 <script type="text/javascript">
 function uploadFinished(loc) {
    // here you can do something after the upload - loc is the parameter you provide in the config!
@@ -142,19 +143,20 @@ var attributes = { id: "flash_tfu", name: "flash_tfu" };
 flashvars.lang=lang;
 
 document.getElementById("flashcontainer").innerHTML = "<div id=\"flashcontent\">Loading</div>";
-swfobject.embedSWF("tfu_3.0.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+swfobject.embedSWF("tfu_3.2.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
 }
 </script>
 
 <style type="text/css">
-.noflash { padding:10px; margin:10px; border: 1px solid #555555; background-color: #f8f8f8; text-align:center; width:330px; }
+.noflash { padding:10px; margin:10px; border: 1px solid #555555; background-color: #fefefe; text-align:left; width:430px; -moz-border-radius: 15px; border-radius: 15px; }
+.noflash p { text-align: center;}
 .small {  font-size: 11px; margin:2px; }
 div.flashcontent { padding:0;margin:0;border:none;}
 a { color: #000099; text-decoration: none;  font-weight: normal; }
 a visited { color: #000099;}
 a link { color: #000099;}
 a hover { color: #999999;}
-body,table { font-family : Verdana,Lucida,sans-serif; font-size: 12px; margin:20px; }
+body,table { font-family : Verdana,Lucida,sans-serif; font-size: 12px; margin:20px;}
 h1 { background-image:url(http://www.tinywebgallery.com/buttons/logo.png); background-repeat:no-repeat; height:60px; font-size: 30px; font-family: Georgia,Times,"Times New Roman",serif; padding-top:15px; padding-left: 70px;}
 h2 { background-color : #eeeeee; font-size: 12px; font-weight: bold; border-bottom: 1px solid #000000; padding: 2px 2px 2px 10px; }
 
@@ -165,7 +167,7 @@ h2 { background-color : #eeeeee; font-size: 12px; font-weight: bold; border-bott
 </style>
 </head>
 <body bgcolor="#ffffff" onLoad="if (document.getElementById('mymovie')) document.getElementById('mymovie').focus()">
-<h1>TWG Flash Uploader 3.0 Demo Page</h1>
+<h1>TWG Flash Uploader 3.2 Demo Page</h1>
 The TWG Flash Uploader is a very comfortable way for your users to upload file to a remote server. Because it's based on flash it can be used by almost everyone. You can simply upload files by selecting files on your hard drive andsimply press the upload button.
 For more details please go to the web page.<br>
 
@@ -214,13 +216,13 @@ Here Is the code how to include the flash!
   <!-- include with javascript - best solution because otherwise you get the "klick to activate border in IE" -->
   <script type="text/javascript" src="swfobject.js"></script>
   <script type="text/javascript">
-   document.write('<div id="flashcontainer"><div id="flashcontent"><div class="noflash">TWG Flash Uploader requires at least Flash 8.<br>Please update your browser.</div></div></div>');
+   document.write('<div id="flashcontainer"><div id="flashcontent"><div class="noflash"><p>The flash could not be loaded.</p> Most likely one of the following issues causes the problem: <ul><li>There is a Javascript error on the page</li><li>The Javascript that loads the flash was overwritten</li><li>The flash plugin is not installed.</li></ul> Solutions:<ul><li>Fix any Javascript errors</li><li>Include the flash with the object tag.</li><li>Install/update the flash plugin</li><li>See: <a href="http://www.tinywebgallery.com/en/tfu/tfu_faq_1.php" target="_blank">TFU FAQ 1</a></li></ul></div></div></div>');
 var flashvars = {};
 // - The following 3 lines would make a blue header bar with white text if you have a professional license or above
 // flashvars.c_header_bg = "7777FF";
 // flashvars.c_header_bg_2 = "0000FF";
-// flashvars.c_text_header = "FFFFFF";
- 
+// flashvars.c_bg = "FFFFFF";
+// flashvars.c_bg_transparent = "true";  //  flashvars.c_bg = "FFFFFF"; is also needed!
 // The following lines are for the settings for the Add and the Upload button. 
 // This buttons can be styled different if you have a professional license or above 
 // flashvars.c_add_bt_color = "000000";
@@ -246,24 +248,26 @@ var params = {};
 // needed for fullscreen 
 params.allowfullscreen = "true";
 params.scale = "noScale";
+// params.wmode = "transparent"; // needed when using transparent background! Set flashvars.c_bg_transparent = "true"; also!
 var attributes = { id: "flash_tfu", name: "flash_tfu" };
 
-swfobject.embedSWF("tfu_3.0.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+// The flash is only 650 but ie does sometimes not display the left border. Therefore 1 extra pixel is provided. 
+swfobject.embedSWF("tfu_3.2.swf", "flashcontent", "651", "340", "8.0.0", "", flashvars, params, attributes);
 // Use this if you want to use the preloader
-// swfobject.embedSWF("tfu_preloader.swf", "flashcontent", "650", "340", "8.0.0", "", flashvars, params, attributes);
+// swfobject.embedSWF("tfu_preloader.swf", "flashcontent", "652", "340", "8.0.0", "", flashvars, params, attributes);
     
 </script>
   <!-- end include with Javascript -->
   <!-- static html include -->
   <noscript>
-  <object name="mymovie" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="650" height="340"  align="middle">
+  <object name="mymovie" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="651" height="340"  align="middle">
     <param name="allowScriptAccess" value="sameDomain" />
-    <param name="movie" value="tfu_3.0.swf" />
+    <param name="movie" value="tfu_3.2.swf" />
     <param name="quality" value="high" />
     <param name="bgcolor" value="#ffffff" />
     <param name="scale" value="noScale" />
     <param name="allowFullScreen" value="true" />
-    <embed src="tfu_3.0.swf" name="mymovie" quality="high" bgcolor="#ffffff" width="650" height="340" align="middle" scale="noScale" allowfullscreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+    <embed src="tfu_3.2.swf" name="mymovie" quality="high" bgcolor="#ffffff" width="651" height="340" align="middle" scale="noScale" allowfullscreen="true" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
   </object>
   </noscript>
   <!-- end static html include -->
@@ -282,12 +286,12 @@ End of include code
 Have fun using TFU.
 <h2>Requirements</h2>
 Client: Flash >= 8, Java >= 1.4.x if you want to use the file split applet<br>
-Server: php >= 4.3.5 + gdlib installed + if you use apache: mod_secuity has to be disabled or can be disabled by the provided .htaccess file (See FAQ 1 of the<a href="http://www.tinywebgallery.com/en/tfu/web_faq.php"> TFU Howto/FAQ</a>).
+Server: php >= 4.3.5 + gdlib installed + if you use apache: mod_secuity has to be disabled or can be disabled by the provided .htaccess file (See FAQ 1 of the <a href="http://www.tinywebgallery.com/en/tfu/web_faq.php">TFU Howto/FAQ</a>).
 <h2>URL parameters</h2>
 <ul>
-<li><b>lang</b> is the switch for the language - valid entries are de, en, fr, es, bg, br, it, cn, cz, nl, ct, da, no, pl, pt, se, sk, tw and jp e.g. Add this to the flash e.g. tfu_3.0.swf?lang=de</li>
+<li><b>lang</b> is the switch for the language - valid entries are de, en, fr, es, bg, br, it, cn, cz, nl, ct, da, no, pl, pt, se, sk, tw and jp e.g. Add this to the flash e.g. tfu_3.2.swf?lang=de</li>
 <li><span class="style1">session_id</span> - you can specify a session id by passing the current session id if you want to share your current session with the tfu_* files - it will be added to every call to the server. <strong>Please note</strong>: If you want to pass variables over the session this parameter is <strong>mandatory</strong> because Firefox does not handle this properly otherwise! Since TFU 2.12 this value is read by Javascript internally from the Flash. If you are sure that Javascript is always available you don't need to specify this parameter anymore.</li>
-<li><b>session_name</b> - The default of this value is TFUSESSID. I do not use the default PHPSESSID because if you set session.use_trans_sid=off then this would be filtered and upload would fail! I recommend NOT to change this. You have to change php code as well if you do!</li>
+<li><b>session_name</b> - The default value TFU uses is TFUSESSID. I do not use the default PHPSESSID because if you set session.use_trans_sid=off then this would be filtered and upload would fail! Only change this if you have a different session name and you need to transfer something to TFU. You have to change the session name in tfu_session.php as well! Please read the <a target='blank' href='http://www.tinywebgallery.com/en/tfu/tfu_faq_22.php/'>howto 22</a> for details.</li>
 <li><strong>base</strong> - This is only needed if you  use the flash if not all files are in one directory. Needed to load the language files properly - Read howto 8 of the TFU FAQ.</li>
 <li><b>tfu_description_mode=true</b> - Only use this if you want to enable the description mode. The flash is then loaded already with the grid layout needed for the description mode. If you don't set this then you see the Size/Date colums for a very short moment. Only use this if you have a professional license or above because otherwise it simply does not work because the functionality is NOT attached to this parameter.</li>
 <li><b>hide_remote_view=true</b> - Use this if you want to hide the remote view. The flash is then loaded already with the layout without the remote view. If you don't set this then you see the remote view for a very short moment. Don't forget to set this in the config too because the functionality is NOT attached to this parameter.</li>
@@ -323,7 +327,6 @@ function refreshFileList() {<br>
 &nbsp;&nbsp;&nbsp;}<br>
 } <br>
 </div>
-
 <h2>Upload post-processing plugins</h2>
 Since version 2.9 TFU does support that you can include and execute your own code after the upload. In TinyWebGallery e.g. the cache images are automatically created. You can e.g. write a log file or enter the upload data to your database.<p>On the TWG Website you find e.g. a log and a database plugin which you can use or adapt to your own needs.<br>You will find there how to install the plugins and how to create your own.</p><p style="margin-left:60px;"><strong><a target="_blank" href="http://www.tinywebgallery.com/en/tfu/web_plugin.php">> To the  plugin page</a></strong></p>
 
@@ -356,6 +359,6 @@ to download the sources.</p>
 <h1><a name="faq"></a>FAQ</h1>
 <p>The FAQ for TFU can be found at <a href="http://www.tinywebgallery.com" target="_blank">www.tinywebgallery.com/en/tfu/web_faq.php</a></p>
 <p>&nbsp;</p>
-<center><small>TWG Flash Uploader - Copyright (c) 2004-2013 TinyWebGallery.</small></center>
+<center><small>TWG Flash Uploader - Copyright (c) 2004-2014 TinyWebGallery.</small></center>
 </body>
 </html>

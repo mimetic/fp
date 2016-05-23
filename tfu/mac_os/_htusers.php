@@ -1,8 +1,8 @@
 <?php 
   /**
-   * TWG Flash uploader 2.15.x
+   * TWG Flash uploader 3.2
    * 
-   * Copyright (c) 2004-2012 TinyWebGallery
+   * Copyright (c) 2004-2014 TinyWebGallery
    * written by Michael Dempfle
    *
    *  Basic password file for TFU. Used for the easy login implemented 

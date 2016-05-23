@@ -1,5 +1,5 @@
-------------------------------
-History TWG Flash Uploader 3.0
+--------------------------------
+History TWG Flash Uploader 3.2
 
 by Michael Dempfle
 www.tinywebgallery.com
@@ -7,11 +7,35 @@ www.tinywebgallery.com
 
 (php) means that the change is only in the php part and not in the flash - only the version number is changed in the flash!
 
+3.2
+New: Background of the flash can now be made transparent to integrate it better into your page. See c_bg_transpartent in the updated howto 9: http://www.tinywebgallery.com/en/tfu/tfu_faq_9.php  
+New: New plugin: watermark. You can now add a watermark directly after the upload. Thanks to Kulwinder Jootle to allow me to make this custom plugin public. 
+Fix: The Javascript callback previewSelect was called twice 
+
+3.1
+New: The status line can be formated with html. You can use html tags in the xml language files to format them. See the updated howto about changing colors
+New: Turkish and Taiwanese language file added. Thanks to the translators.
+Fix: The label of the server grid was not shown. Now it is shown again. 
+
+3.0.3
+Fix: Description mode was not working anymore because of a mac fix that was adding an addition /. Now this is handled properly as well.
+
+3.0.2
+Fix: An additional check in 3.0.1 caused that multiple uploads would fail. This does now work fine again.
+
+3.0.1
+Fix: Added a debug message if the class COM is not available. This is needed for image magick on windows. You have to add extension=php_com_dotnet.dll to your php.ini to make it available again.
+Fix: "imagejpeg(): Filename cannot be empty" error message with php 5.4 was fixed!
+Fix: removeExtension was renamed to tfu_removeExtension because in Joomla another extension used the same function name.
+Fix: parseParameter does now allow @ as well. This enables to have e-mails in the login. I also allow *!+%.
+
 3.0
 All planned features for version 3 are now implemented. Have fun with version 3 of TFU.
  
-New: Add files and the Upload button can now be styled individualy! You can set color, background color, font weight and theme for both! See the uploaded howto
+New: Add files and the Upload button can now be styled individualy! You can set color, background color, font weight and theme for both! See the updated howto 9: http://www.tinywebgallery.com/en/tfu/tfu_faq_9.php 
 New: multiple recipient e-mail are now supported with smtp as well. Separate e-mails by , 
+New: Security improvments regarding session fixation.
+New: Howto 22 how to change the session name
 New: Session override when session_cache does exist. If the global session does contain values but the internal session handling is active (sesssion_cache folder does exist) the global data was nor used. Now the gobal settings does overwrite tfu settings.
 New: Parameter $use_size_as_height. If you set this to true horizontal and vertical images are all resized to the given size. So vertical images are wider than the given size!
 New: Improved support for MAC uploads. An additional / at the end of the upload string fixes an i/o error on some Mac configurations.
@@ -21,6 +45,8 @@ Fix: Elements where overlapping when selecting multiple menu items
 Fix: When a file was selected, and a preview is not available the button was invisible but still enabled.
 Fix: A blank preview was loaded by the invisible button 
 Fix: $remove_multiple_php_extension was always removing .php extensions when enabled. Now is only removed them when the file has another extension afterwards. 
+Fix: Right border was not displayed in IE sometimes. An extra pixel in the include code fixed this.
+Fix: Improved error message when the flash cannot be loaded.
 
 2.17
 New: E-mail can now be sent with smtp. See the 5 new settings in tfu_config.php.

@@ -19,18 +19,23 @@ $first ? $second : $third
 error_reporting	(E_ERROR | E_WARNING | E_PARSE );
 
 //------------------
+require_once('utf8_to_html.inc');
+
+
+
 
 // SETUP
 // Initialize variables and such
 function Setup () {
 	global $FP_ADMIN_USER, $FP_GALLERY_TYPE, $FP_CONSTANTS;
 	global $FP_NAVBAR_ITEM_NAMES;
+	global $LINK;
 	global $error, $msg;
 	
 	$DEBUG = false;
 
 	// Load the Admin user for this session
-	$FP_ADMIN_USER = new FPUser (FP_ADMINISTRATOR);
+	$FP_ADMIN_USER = new FPUser ($LINK, FP_ADMINISTRATOR);
 	$FP_ADMIN_USER->UserType && $FP_GALLERY_TYPE = $FP_ADMIN_USER->UserType;
 
 	FP_USE_PAYPAL_SANDBOX
@@ -4458,7 +4463,10 @@ function VerifyLogin ($username, $password) {
 // Uses any fields in an array beginning with 'default' and returns an array
 // with their values
 function FetchDefaults ($arr) {
-	global $Themes;
+	global $Themes, $error, $msg;
+	
+	!$arr && $arr = array();
+	
 	$vars = array();
 	while (list($name, $value) = each ($arr)) {
 		if (preg_match("/^default/i", $name)) {
@@ -5796,7 +5804,7 @@ function mysqldate_to_timestamp($date) {
 	$Y = $hms_arr[0] + 0;
 	$M = $hms_arr[1]+ 0;
 	$D = $hms_arr[2]+ 0;
-	$ts = mktime(0,0,0, $M, $D, $Y, 0);
+	$ts = mktime(0,0,0, $M, $D, $Y);
 	return $ts;
 }
 
@@ -6976,16 +6984,12 @@ function unicode_to_utf8( $str ) {
 	return $utf8;
 } // unicode_to_utf8
 
-function utf8_to_html ($data) {
-	// deprecated
-	//return preg_replace("/([\\xC0-\\xF7]{1,1}[\\x80-\\xBF]+)/e", '_utf8_to_html("\\1")', $data);
-
-	return preg_replace_callback ("/([\\xC0-\\xF7]{1,1}[\\x80-\\xBF]+)/", '_utf8_to_html', $data);
-
-}
-
 function _utf8_to_html ($data) {
 	$ret = 0;
+if (gettype($data) != "string") {
+	die (__FUNCTION__.":".__LINE__.": Data is not string!" . print_r($data,true));
+}
+
 	foreach((str_split(strrev(chr((ord($data{0}) % 252 % 248 % 240 % 224 % 192) + 128) . substr($data, 1)))) as $k => $v)
 		$ret += (ord($v) % 128) * pow(64, $k);
 	return "&#$ret;";
@@ -7092,6 +7096,8 @@ function MonthOf ($date) {
 	besides the admin user. In a multiuser system, this is the first user besides the admin user.
 */
 function GetMainUserID ($artistID = null, $projectID = null) {
+	global $LINK;
+	
 	if (!$artistID || $artistID == FP_ADMINISTRATOR) {
 		if ($projectID) {
 			$project = FetchProject ($projectID);
@@ -7428,7 +7434,7 @@ function EditTable ($action, $table, $ID, $vars = array ()) {
 					break;
 				case $ARTISTS :
 				// Add the portrait after.
-					$myUser = new FPUser();
+					$myUser = new FPUser($LINK);
 					$newID = $myUser->newUser($vars);
 					if ($newID != FP_ADMINISTRATOR) {
 						// Add artist to current group

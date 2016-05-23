@@ -29,11 +29,11 @@ echo =========================================
 
 
 # _rsync girlswho girlswholike.us public_html/
-_rsync matthieu matthieuchazal.com public_html/
+# _rsync matthieu matthieuchazal.com public_html/
 # _rsync mimetic mimetic.com public_html/gallery/
 # _rsync alpsime alpsime.com public_html/
 # _rsync caroline carolineabitbol.com public_html/
-# _rsync dgphoto davidgrossphoto.com public_html/
+_rsync dgphoto davidgrossphoto.com public_html/
 # _rsync frontlin frontline-photos.com public_html/
 # _rsync milosbic milosbicanski.com public_html/
 # _rsync justmiel justmiel.com public_html/

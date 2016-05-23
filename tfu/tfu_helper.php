@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 3.0
+ * TWG Flash uploader 3.2
  *
- * Copyright (c) 2004-2013 TinyWebGallery
+ * Copyright (c) 2004-2014 TinyWebGallery
  * written by Michael Dempfle
  *
  *
@@ -14,7 +14,7 @@
  * * ensure this file is being included by a parent file
  */
 defined('_VALID_TWG') or die('Direct Access to this location is not allowed.');
-$tfu_help_version = '3.0';
+$tfu_help_version = '3.2';
 // some globals you can change
 $check_safemode = true;              // New 2.12.x - By default TFU checks if you have a safe mode problem. On some server this test does not work. There you can try to turn it off and test if you can e.g. create directories, upload files to new created directories.
 $session_double_fix = false; // this is only needed if you get errors because of corrupt sessions. If you turn this on a backup is made and checked if the first one is corrupt
@@ -46,7 +46,7 @@ tfu_setHeader();
 include dirname(__FILE__) . '/tfu_zip.class.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_zip_version != '3') {
+if ($tfu_zip_version != '3.2') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
@@ -109,7 +109,7 @@ function tfu_debug($data)
         }
         if ($debug_file == '') {
 		      @ob_start();
-              @error_log($debug_string, 0);
+          @error_log($debug_string, 0);
 		      @ob_end_clean();
 		      return;
 	      }
@@ -118,12 +118,12 @@ function tfu_debug($data)
             if (filesize($debug_file) > 2000000) { // debug file max = 2MB !
                 // we move the old one and start a new one - but only once!
                 rename (dirname(__FILE__) . '/tfu.log', dirname(__FILE__) . '/tfu.log.bak');
-                $debug_file_local = fopen($debug_file, 'w');
+                $debug_file_local = @fopen($debug_file, 'w');
             } else {
-                $debug_file_local = fopen($debug_file, 'a');
+                $debug_file_local = @fopen($debug_file, 'a');
             }
-            fputs($debug_file_local, $debug_string);
-            fclose($debug_file_local);
+            @fputs($debug_file_local, $debug_string);
+            @fclose($debug_file_local);
         } else {
             if (is_writeable(dirname(__FILE__))) {
                 if (!isset($debug_file)) { // if helper is included somewhere else!
@@ -168,7 +168,7 @@ if (!isset($skip_error_handling)) {
  * 2 = unknown - we retry after the save later.
  *
  */
-function resize_file($image, $size, $compression, $image_name, $dest_image = false)
+function resize_file($image, $size, $compression, $image_name, $dest_image = false, $create_cropped_images = false)
 {
     global $use_image_magic, $image_magic_path, $enable_upload_debug, $store;
     global $use_size_as_height;
@@ -432,7 +432,7 @@ function send_thumb($image, $compression, $sizex, $sizey, $generateOnly = false)
             }
             if (!$generateOnly) {
                 ob_start();
-                if (imagejpeg($dst, '', $compression)) {
+                if (imagejpeg($dst, null, $compression)) {
                     $buffer = ob_get_contents();
                     header('Content-Length: ' . strlen($buffer));
                     ob_end_clean();
@@ -890,7 +890,7 @@ function restore_split_files($items)
     // first we check if files are split and group he splited files
     foreach ($items as $filename) {
         if (is_part($filename)) {
-            $split_array[removeExtension($filename)][] = $filename;
+            $split_array[tfu_removeExtension($filename)][] = $filename;
         }
     }
 
@@ -925,7 +925,7 @@ function resize_merged_files($items, $size)
     // first we check if files are split and group the splited files
     foreach ($items as $filename) {
         if (is_part($filename)) {
-            $split_array[removeExtension($filename)][] = $filename;
+            $split_array[tfu_removeExtension($filename)][] = $filename;
         }
     }
     foreach ($split_array as $restore => $parts) {
@@ -951,7 +951,7 @@ function is_part($str)
 
 function is_supported_tfu_image($image,$current)
 {
-    global $scan_images;
+    global $scan_images, $scan_images_empty;
     $image = strtolower ($image);
     $isimage = preg_match('/.*\.(jp)(e){0,1}(g)$/', $image) ||
     preg_match('/.*\.(gif)$/', $image) ||
@@ -966,8 +966,14 @@ function is_supported_tfu_image($image,$current)
           $data = file_get_contents($current);
           $data2 = str_replace("<?php","<_php",$data);
           if ($data2 != $data) {
-            file_put_contents($current, $data2);
-            tfu_debug("SECURITY WARNING: Please check the file ".$image.". It was uploaded with an image extensions but included php code. The php start of this file was changed because of security issues!" );
+            if ($scan_images_empty) {
+               file_put_contents($current, "");
+               tfu_debug("SECURITY WARNING: The file ".$image." was uploaded with an image extensions but included php code. The content of the file was removed because of security issues!" );
+            } else {
+               file_put_contents($current, $data2);
+               tfu_debug("SECURITY WARNING: Please check the file ".$image.". It was uploaded with an image extensions but included php code. The php start of this file was changed because of security issues!" );
+            }
+            
           }
         }
       }
@@ -1056,7 +1062,7 @@ function cleanup_thumbs_cache()
     }
 }
 
-function removeExtension($name)
+function tfu_removeExtension($name)
 {
     return substr($name, 0, strrpos ($name, '.'));
 }
@@ -1287,7 +1293,7 @@ function setSessionVariables()
     } else {
        unset($_SESSION['TFU_USER']);
     }
-    $_SESSION['TFU_RN'] = parseInputParameter($_POST['twg_rn']);
+    $_SESSION['TFU_RN'] = (string)parseInputParameter($_POST['twg_rn']);
     $_SESSION['TFU_ROOT_DIR'] = $_SESSION['TFU_DIR'] = $folder;
     
     if ($start_folder != '') {
@@ -1374,8 +1380,7 @@ function sendConfigData()
     $parameters = "&parameters=" . urlencode(tfu_enc($output, $rn));
 
     // we generate a nonce for this request
-    // last=true is added for such websites who add their own code to each page!
-    
+    // last=true is added for such websites who add their own code to each page!   
     echo '&tfu_nonce=' . create_tfu_nonce() . $parameters . "&last=true";
 }
 
@@ -1408,6 +1413,14 @@ function checkSessionTempDir($type = 0)
         $filename = $filen['name'];
         tfu_debug('It can be possible that someone tried to upload something without permissions! If you think this is the case the IP of this user is logged: ' . $_SERVER['REMOTE_ADDR'] . '. He tried to upload the following file: ' . $filename);
     }
+    if(strcmp($_SESSION['TFU_RN'],parseInputParameter($_GET['tfu_rn'])) != 0) {
+       tfu_debug('Security tokens did not match. Session: '.$_SESSION['TFU_RN']. ' : param '.$_GET['tfu_rn']. ' no further actions are allowed.');
+       session_destroy();
+       store_temp_session();
+       return;
+    }
+
+    
     if (!file_exists(dirname(__FILE__) . '/session_cache')) {
         tfu_debug('Or it is possible that the session handling of the server is not o.k. Therefore TFU simulates a basic session handling and uses the session_cache folder for that.');
         if (!mkdir(dirname(__FILE__) . '/session_cache')) {
@@ -1435,7 +1448,7 @@ $check_server_file_extensions = $m;
 
 function restore_temp_session($checkrn = false)
 {
-    global $session_double_fix;
+    global $session_double_fix;  
     clearstatcache();
     if (file_exists(dirname(__FILE__) . '/session_cache')) { // we do your own small session handling
         $cachename = dirname(__FILE__) . '/session_cache/' . session_id();
@@ -1484,6 +1497,7 @@ function restore_temp_session($checkrn = false)
         // first we check if we have done this already!
         $today = dirname(__FILE__) . '/session_cache/_cache_day_' . date('Y_m_d') . '.tmp';
         if (file_exists($today)) {
+            checkrequest();
             return;
         }
         // not done - we delete all files on this folder older than 1 day + the _cache_day_*.tmp files
@@ -1516,6 +1530,31 @@ function restore_temp_session($checkrn = false)
       $_SESSION['__default']['session.counter'] = $_SESSION['__default']['session.counter'] + 1;
       $_SESSION['__default']['session.timer.now'] = time();
       $_SESSION['__default']['session.timer.last'] = $_SESSION['__default']['session.timer.now'];
+    }
+    
+    checkrequest();
+}
+
+function checkrequest() {
+    if (!isset($_SESSION['TFU_RH'])) {
+         $_SESSION['TFU_RH'] = array();
+         return;
+    } else {
+       if (isset($_GET['ts']) || isset($_GET['zeit'])) {
+         $requesthashes = $_SESSION['TFU_RH'];
+         $hashrequest =  $hashrequest_ =  isset($_GET['zeit']) ? $_GET['zeit'] : $_GET['ts'];
+         
+         if (isset($_GET['remaining'])) {
+             $hashrequest .= isset($_GET['remaining']) ? $_GET['remaining'] : "-";
+         }
+  
+         if (isset($requesthashes[$hashrequest]) || strlen($hashrequest_) != 13) {
+           tfu_debug("Invalid Request happend: " . strlen($hashrequest_) );
+           die ("Invalid Request");
+         }
+         $requesthashes[$hashrequest] = $hashrequest; 
+         $_SESSION['TFU_RH'] = $requesthashes;
+       }
     }
 }
 
@@ -1653,7 +1692,7 @@ function check_valid_filesize($name)
  * - parseInputParameter check for valid caracters because there I know the proper values
  * - parseInputParameterFile is an exclude - there I only check for chars that are not allowed in file names!
  */
-function parseInputParameter($value, $def = '', $valid_chars_regex = '.\w_,-')
+function parseInputParameter($value, $def = '', $valid_chars_regex = '.\w_,-@!+*%')
 {
     return (isset($value)) ? preg_replace('/[^' . $valid_chars_regex . ']|\.+$/i', '_', $value) : $def;
 }
@@ -1670,8 +1709,16 @@ function parseInputParameterFile($value, $def = '')
 
 function printServerInfo()
 {
-   global $check_image_magic;                                                                                                                                                                                   global $m;
+   global $check_image_magic;                                                                                                                                                                                   
+   global $m;
     echo '
+    <html>
+    <head>
+    <title>TinyWebGallery flash uploader configuration limits overview.</title>
+    <meta name="description" lang="en" content="The configuration overview shows the basic configuration limits. You can configure this limits by modifying the settings of your server.">
+    </head>
+    <body>
+    
   <style type="text/css">
   body { 	font-family : Arial, Helvetica, sans-serif; font-size: 12px; background-color:#ffffff; }
   td { vertical-align: top; font-size: 12px; }
@@ -1683,7 +1730,7 @@ function printServerInfo()
     echo '<br><p><center>Some info\'s about your server. This limits are not TFU limits. You have to change this in the php.ini.</center></p>';
     echo '<div class="install">';
     echo '<table><tr><td>';
-    echo '<tr><td width="400">TFU version:</td><td width="250">3&nbsp;';
+    echo '<tr><td width="400">TFU version:</td><td width="250">3.2&nbsp;';
     // simply output the license type by checking the strings in the license. No real check like in the flash is done here.
     
     if ($m != "" && $m != "s" && $m !="w" ) {
@@ -1740,6 +1787,7 @@ function printServerInfo()
     echo '<tr><td>PHP default socket timeout: </td><td>' . ini_get('default_socket_timeout') . ' s</td></tr>';
     echo '</table>';
     echo '</div>';
+    echo '</body></html>';
 }
 
 /*
@@ -1855,13 +1903,17 @@ function replaceChars($imageName) {
 
 function execute_command ($command) {
   $use_shell_exec = true;;
-  ob_start();
-  set_error_handler('on_error_no_output');
+ // ob_start();
+ // set_error_handler('on_error_no_output');
   if (substr(@php_uname(), 0, 7) == "Windows"){
   	   // Make a new instance of the COM object
-  		$WshShell = new COM("WScript.Shell");
-  		 // Make the command window but dont show it.
-  	   $oExec = $WshShell->Run("cmd /C " . $command, 0, true);
+  	   if (class_exists('COM')) {
+         $WshShell = new COM("WScript.Shell");
+  		   // Make the command window but dont show it.
+  	     $oExec = $WshShell->Run("cmd /C " . $command, 0, true);
+       } else {
+         tfu_debug("From PHP 5.4.5, COM and DOTNET is no longer built into the php core. You have to add COM support in php.ini. Add the line extension=php_com_dotnet.dll to your php.ini.");
+       }
   } else {
       if ($use_shell_exec) {
          shell_exec($command);
@@ -1869,8 +1921,8 @@ function execute_command ($command) {
   	      exec($command . " > /dev/null");
        }
   }
-  set_error_handler('on_error');
-  ob_end_clean();
+ // set_error_handler('on_error');
+ // ob_end_clean();
 }
 
 /*
@@ -2077,13 +2129,13 @@ function tfu_preview($file) {
 function tfu_createThumb($file) {
       global $compression, $use_image_magic, $image_magic_path, $pdf_thumb_format;
       if (!(preg_match("/.*\.(p|P)(d|D)(f|F)$/", $file))) {
-        $name = removeExtension($file) . "-" . $_GET['tfu_width'] . 'x' . $_GET['tfu_height'] . "." . getExtension($file);
+        $name = tfu_removeExtension($file) . "-" . $_GET['tfu_width'] . 'x' . $_GET['tfu_height'] . "." . getExtension($file);
         resize_file($file, $_GET['tfu_width'] . 'x' . $_GET['tfu_height'], $compression, basename($file), $name); 
         unset($_SESSION['TFU_LAST_UPLOADS']);
         $_SESSION['TFU_LAST_UPLOADS'] = array();
         $_SESSION['TFU_LAST_UPLOADS'][] = $name;
       } else if ($use_image_magic) {
-          $name = dirname(__FILE__) . '/' . removeExtension($file) . "-" . $_GET['tfu_width'] . '.' . $pdf_thumb_format;
+          $name = dirname(__FILE__) . '/' . tfu_removeExtension($file) . "-" . $_GET['tfu_width'] . '.' . $pdf_thumb_format;
           // create a pdf thumbnail
           $ima = realpath($file);
           if (!file_exists($name)) {
@@ -2198,12 +2250,12 @@ function tfu_savetext($file, $overwrite=true) {
           $content = preg_replace("/\r\n|\r|\n/", chr(10), $content);
       }
       // now we write the file again
-      $file_local = fopen($file, 'w');
+      $file_local = @fopen($file, 'w');
       if (getExtension($file) == 'php') { // we remove leading and trailing spaces returns if it is a php file!
           $content = trim($content);
       }
-      fputs($file_local, $content);
-      fclose($file_local);
+      @fputs($file_local, $content);
+      @fclose($file_local);
       
       if (file_exists($file)) {
         echo "&create_file=true";
@@ -2330,6 +2382,17 @@ function create_dir($dir, $enable_folder_creation, $fix_utf8) {
             $status = ($result) ? '&create_dir=true':'&create_dir=false';
         }
     return $status;
+}
+
+function change_to_new_dir($dir, $normalise_directory_names, $fix_utf8) {
+    $newdir = parseInputParameterFile(trim(my_basename(' ' . $_GET['newdir'])));
+    if ($normalise_directory_names) {
+        $newdir = normalizeFileNames($newdir);
+    }
+    $newdir = fix_decoding($newdir, $fix_utf8);
+    $dir = $dir . "/" . $newdir;
+    $_SESSION["TFU_DIR"] = $dir;
+    return $dir;
 }
 
 function rename_dir( &$dir, $enable_folder_rename, $fix_utf8) {

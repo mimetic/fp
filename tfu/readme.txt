@@ -1,5 +1,5 @@
 ---------------------------------------------------------
-TWG Flash Uploader 3.0 Freeware - README
+TWG Flash Uploader 3.2 Freeware - README
 
 For the latest version please go to 
 http://www.tinywebgallery.com/en/tfu/web_overview.php
