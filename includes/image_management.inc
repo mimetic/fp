@@ -422,6 +422,7 @@ function FindOneImageAssignment ($filename) {
 	global $PIXTOPROCESS;
 	global $FP_GALLERY_TYPE;
 	global $BASEDIR, $MAILED_DIR, $LOGS;
+	global $LINK;
 	global $msg, $error;
 	
 	$DEBUG = 0;
@@ -475,7 +476,7 @@ $artistID = false;
 
 	// Otherwise, figure out the artist by checking the author/byline/credit/source for a known user name
 	if ($artistID) {
-		$user = new FPUser ($artistID);
+		$user = new FPUser ($LINK, $artistID);
 		$artistinfo = $user->userData;
 		$DEBUG && $msg .= "Artist for this new image is ID $artistID, Firstname is " . $artistinfo['FirstName'] . "<BR>";
 	} else {
@@ -496,7 +497,7 @@ $artistID = false;
 		if (empty($artistinfo) && $project) {
 			$artistinfo = FetchArtist($project['ArtistID']);
 		}
-		$user = new FPUser ($artistinfo['ID']);
+		$user = new FPUser ($LINK, $artistinfo['ID']);
 		$artistID = $artistinfo['ID'];
 	}
 	
@@ -590,6 +591,7 @@ function FindImageAssignments ($files = array()) {
 	global $PIXTOPROCESS;
 	global $FP_GALLERY_TYPE;
 	global $BASEDIR, $MAILED_DIR, $LOGS;
+	global $LINK;
 	global $msg, $error;
 	
 	$DEBUG = 0;
@@ -601,7 +603,7 @@ function FindImageAssignments ($files = array()) {
 		if ($assignment != false) {
 			list ($projectID, $artistID) = $assignment;
 			$DEBUG && $msg .= __FUNCTION__.__LINE__.": projectid = $projectID, artistID = $artistID<BR>";
-			$user = new FPUser ($artistID);
+			$user = new FPUser ($LINK, $artistID);
 		
 			// Check the use has storage space free
 			// the 'true' forces the system to refresh the calculation of storage used, and not depend on the cached calculation
@@ -646,6 +648,7 @@ function AddProcessedImagesToDatabase ($artistID = null, $projectID = null, $sen
 	global $PROCESSED_PHOTOS, $PROCESSED_THUMBNAILS, $PROCESSED_MATTED, $PROCESSED_FRAMED, $PROCESSED_ORIGINALS, $PROCESSED_SLIDES;
 	global $PIXTOPROCESS;
 	global $BASEDIR, $MAILED_DIR, $LOGS;
+	global $LINK;
 	global $msg, $error;
 	
 	$DEBUG = 0;
@@ -663,7 +666,7 @@ function AddProcessedImagesToDatabase ($artistID = null, $projectID = null, $sen
 		foreach ($files as $filename) {
 			$DEBUG && $msg .= __FUNCTION__.__LINE__.": Processing $filename<BR>";
 			$DEBUG && $msg .= "projectid = $projectID, artistID = $artistID<BR>";
-			$user = new FPUser ($artistID);
+			$user = new FPUser ($LINK, $artistID);
 
 			$path = "$BASEDIR/$PROCESSED_ORIGINALS";
 			$sourceFile = "$path/$filename";
@@ -822,6 +825,7 @@ function MoveProcessedToMain ($filename) {
 // Process uploaded image files from Flash Uploader or FTP
 function ProcessUploadedImagesFTP ($projectID = null) {
 	global $BASEDIR, $MAILED_DIR, $LOGS;
+	global $LINK;
 	global $msg, $error;
 
 	$DEBUG = 0;
@@ -848,7 +852,7 @@ function ProcessUploadedImagesFTP ($projectID = null) {
 		$PID = trim(array_pop ( explode ("/", dirname($filename)) ));
 		is_numeric ($PID) && $projectID = $PID;
 		$project = FetchProject ($projectID);
-		$user = new FPUser ();
+		$user = new FPUser ($LINK);
 		$user->loadUser ($project['ArtistID']);
 		$watermark = $user->DefaultCopyrightNotice;
 		$result = ProcessOneImage ($filename, "image/jpeg", $filename, $watermark);
@@ -873,6 +877,7 @@ function ProcessLocalImages ($overwrite = false, $allowed_reserved_names = false
 	global $PROCESSED_PHOTOS, $PROCESSED_SLIDES, $PROCESSED_THUMBNAILS, $PROCESSED_MATTED, $PROCESSED_FRAMED, $PROCESSED_ORIGINALS;
 	global $PIXTOPROCESS;
 	global $BASEDIR, $LOGS;
+	global $LINK;
 	global $msg, $error;
 
 	$DEBUG = 0;
@@ -891,7 +896,7 @@ function ProcessLocalImages ($overwrite = false, $allowed_reserved_names = false
 		list($filename, $artistID, $projectID) = $file;
 		$DEBUG && fp_error_log(__FUNCTION__ . ": Process $filename for artist $artistID, project $projectID", 3, FP_PICTURES_LOG);
 		$DEBUG && $msg .= __FUNCTION__ . ": Process $filename for artist $artistID, project $projectID<BR>";
-		$user = new FPUser (); 
+		$user = new FPUser ($LINK); 
 		//$user->loadUser ($project['ArtistID']);
 		$user->loadUser ($artistID);
 		$watermark = $user->DefaultCopyrightNotice;

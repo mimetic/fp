@@ -44,7 +44,7 @@ function HandleAction($actions, &$vars) {
 	$queryset || $queryset = $table;
 
 	// Get admin user info
-	$fp_admin = new FPUser (FP_ADMINISTRATOR);
+	$fp_admin = new FPUser ($LINK, FP_ADMINISTRATOR);
 
 	// Set vars which are checkboxes to their real values
 	$vars = FixCheckBoxFields ($vars);
@@ -142,7 +142,7 @@ function HandleAction($actions, &$vars) {
 
 		case "activate" :
 			$hash = $vars['hash'];
-			$user = new FPUser ();
+			$user = new FPUser ($LINK);
 			$activation = $user->activateByHash ($hash);
 			!$user->error
 				? $msg .= "You have successfully activated your account.<br>"
@@ -674,10 +674,13 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 	global $LINK;
 
 	$DEBUG = 0;
+	IF ($DEBUG) {
+		$msg .= __FUNCTION__.":".__LINE__.": DEBUG IS ON.<BR>";
+	}
 
 	isset($_SESSION['fp_user']) ? $fp_user = $_SESSION['fp_user'] : $fp_user = FP_ADMINISTRATOR;
 
-	$fp_admin = new FPUser (FP_ADMINISTRATOR);
+	$fp_admin = new FPUser ($LINK, FP_ADMINISTRATOR);
 
 	$showthumbstatus || $showthumbstatus = "Hide";
 
@@ -694,9 +697,9 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 	$_SESSION['TFU_DIR'] = "$BASEDIR/$MAILED_DIR";
 
 	IF ($DEBUG) {
-		$msg .= __FUNCTION__.__LINE__.":". $_SESSION['TFU_DIR']."<BR>";
-		$msg .= __FUNCTION__.__LINE__.": SID = ". SID."<BR>";
-		$msg .= __FUNCTION__.__LINE__.": Session name = ". session_name()."<BR>";
+		$msg .= __FUNCTION__.":".__LINE__.":". $_SESSION['TFU_DIR']."<BR>";
+		$msg .= __FUNCTION__.":".__LINE__.": SID = ". SID."<BR>";
+		$msg .= __FUNCTION__.":".__LINE__.": Session name = ". session_name()."<BR>";
 	}
 
 	list($action,$record,$params) = GetRecordForEditForm($ID, $table);
@@ -713,7 +716,8 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ": DisplayRecordForEdit<BR>";
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . '(table, record, userID, accesslevel, ID, subset, showthumbstatus)<BR>';
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ": (table=$table, userID=$userID, Accesslevel=$accesslevel, ID=$ID, subset=$subset, showthumbs=$showthumbstatus)<BR>";
-	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ArrayToTable ($record);
+	//$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ArrayToTable ($record);
+	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ArrayToTable ($_SESSION);
 
 	switch ($subset) {
 		case "Pictures" :
@@ -1593,6 +1597,14 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 
 	// ----------
 	// UPLOADER
+
+
+	IF ($DEBUG) {
+		$msg .= __FUNCTION__.":".__LINE__.": TFU_DIR:". $_SESSION['TFU_DIR']."<BR>";
+		$msg .= __FUNCTION__.":".__LINE__.": SID = ". $_SESSION['session_id']."<BR>";
+		$msg .= __FUNCTION__.":".__LINE__.": Session ID:". $_SESSION['ID']."<BR>";
+		$msg .= __FUNCTION__.":".__LINE__.": Session name = ". session_name()."<BR>";
+	}
 
 	// Don't show if user is over storage limit
 	if (!$user->UserOverStorageLimit()) {
@@ -4532,7 +4544,6 @@ function UserCanAddRecord ($table, $fp_user) {
 	global $FP_GALLERY_TYPE;
 	global $msg, $error;
 	global $LINK;
-	global $LINK;
 
 	$accesslevel = FetchAccessLevel ($fp_user);
 
@@ -4543,7 +4554,7 @@ function UserCanAddRecord ($table, $fp_user) {
 	if ($accesslevel != FP_SUPPLIER_LEVEL) {
 		switch ($table) {
 			case $ARTISTS :
-				$result = mysqli_query ("SELECT ID from ".DB_ARTISTS);
+				$result = mysqli_query ($LINK, "SELECT ID from ".DB_ARTISTS);
 				if (mysqli_num_rows($result) < 2) {
 					$access = true;
 				} else {
@@ -5326,7 +5337,7 @@ function ValidateProjectValues ($vars) {
 	$DEBUG && $msg .=  __FUNCTION__.": Vars".ArrayToTable ($vars);
 
 	if ($vars['ArtistID']) {
-		$user = new FPUser ($vars['ArtistID']);
+		$user = new FPUser ($LINK, $vars['ArtistID']);
 
 		// "0" lifespan means "infinite"
 		if ($vars['Lifespan'] == null)
@@ -5369,7 +5380,6 @@ function BTPFetchRows ($queryset, $table, $projectID, $ArtistID, $limit=0) {
 	global $Themes;
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES, $SUPPLIERS, $SALES, $PAYPAL, $PAYMENTS;
 	global $msg, $error;
-	global $LINK;
 	global $LINK;
 
 	$DEBUG = 0;	// NOTE: there's second $DEBUG setting below.
@@ -6343,7 +6353,7 @@ function GetSubscribeMenuItem ($user) {
 function ShowSubscriptionLink($userID) {
 	global $error, $msg;
 
-	$user = new FPuser ($userID);
+	$user = new FPUser ($LINK, $userID);
 	$show = false;
 	switch (FP_INSTALLATION_TYPE) {
 		case FP_INSTALLATION_PRIVATE :

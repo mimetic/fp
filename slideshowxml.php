@@ -202,7 +202,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	// 			$albumInfo['title'] = "Frontline Photos";
 	// 			$albumInfo['link'] = "http://www.frontline-photos.com/";
 	// 			$albumInfo['description'] = "Photographs from Featured Projects";
-				$XML = new SlideshowXML();	
+				$XML = new SlideshowXML($LINK);	
 				while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$XML->addProjects ( $project['ID'] );
 				}
@@ -237,7 +237,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 					$artistname = $artist['Firstname'] . " " . $artist['Lastname'];
 					$title = "Photographs by $artistname";
 					$description = "Featured projects by $artistname";
-					$XML = new SlideshowXML();
+					$XML = new SlideshowXML($LINK);
 					$albumID = "My Album";
 					$XML->addAlbum ($albumID, $title, $description);
 					while ($parts = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -262,7 +262,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 
 			$DEBUG && print "ProjectID: {$record['id']}<br>";
 	
-			$XML = new SlideshowXML();	
+			$XML = new SlideshowXML($LINK);	
 			$XML->addProjects ( $record['id'] );
 			$output = $XML->serialize();
 			break;
@@ -284,7 +284,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	// 		$albumInfo['title'] = "Frontline Photos";
 	// 		$albumInfo['link'] = "http://".$SYSTEMURL."/";
 	// 		$albumInfo['description'] = "Featured Projects";
-			$XML = new SlideshowXML();	
+			$XML = new SlideshowXML($LINK);	
 			if ($result) {
 				while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$projectIDList[] = $project['ID'];

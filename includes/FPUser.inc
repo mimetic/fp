@@ -499,7 +499,9 @@ class FPUser{
 
 	//Calculate storage used and storage free for the current user ($this)
 	function CheckStorageSpace () {
-
+		
+		isset($this->userData['Storage']) || $this->userData['Storage'] = 100;
+		
 		$this->StorageAllocated = $this->userData['Storage'];
 		$this->StorageUsed = $this->CalculateStorageUsed ();
 
