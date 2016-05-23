@@ -439,6 +439,7 @@ class SlideshowXML {
 		global $msg, $error;
 		global $fp, $imagePath, $thumbPath;
 		global $SlidePath;
+		global $LINK;
 		
 		$DEBUG = false;
 		

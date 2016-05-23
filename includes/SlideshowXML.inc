@@ -13,7 +13,7 @@ class SlideshowXML {
 	var $mysqli_connection;
 
 
-	function __construct() {
+	function __construct($mysqli_connection) {
 		$this->mysqli_connection = $mysqli_connection;
 	}
 	
