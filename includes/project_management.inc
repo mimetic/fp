@@ -6352,6 +6352,7 @@ function GetSubscribeMenuItem ($user) {
 // Should we show the subscription form or link for a given user?
 function ShowSubscriptionLink($userID) {
 	global $error, $msg;
+	global $LINK;
 
 	$user = new FPUser ($LINK, $userID);
 	$show = false;

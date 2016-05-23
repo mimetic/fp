@@ -139,6 +139,12 @@ class FPUser{
 		global $msg, $error;
 		$DEBUG = 0;
 		
+		if ($DEBUG) {
+			print ("Calling Function:<hr>");
+			print ( getCallingFunction() );
+			print ("<hr>");
+		}
+		
 		$DEBUG && $starttime = microtime(true);
 		
 		$this->mysqli_connection = $mysqli_connection;
@@ -449,8 +455,8 @@ class FPUser{
 	function loadUser($userID = null, $fieldname = "userID") {
 		global $error, $msg;
 		
-		$DEBUG = 1;
-		
+		$DEBUG = 0;
+
 		$userID || $userID = $this->userID;
 		$fullname = "CONCAT_WS(' ', Firstname, Lastname) AS Fullname";
 		$creationdate = "UNIX_TIMESTAMP(Timestamp) AS CreationDate";

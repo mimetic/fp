@@ -58,7 +58,7 @@ $user->is_loaded() || $fp_user = null;
 // ------------------
 if ( $actions['action'] == 'logout') {
 	$user->logout();
-	//$user = new FPUser ();
+	//$user = new FPUser ($LINK);
 	$fp_user = null;
 }
 
