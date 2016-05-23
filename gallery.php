@@ -79,7 +79,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	$groupID && $_SESSION['GroupID'] = $groupID;
 	isset($_SESSION['GroupID']) || $_SESSION['GroupID'] = PUBLIC_GROUP_ID;
 
-	$myGroup = new FPGroup ($groupID);
+	$myGroup = new FPGroup ($LINK, $groupID);
 	// Set the session vars for the current them
 	CurrentThemeID ();
 

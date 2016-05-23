@@ -268,7 +268,7 @@ class SlideshowXML {
 	
 	var $params;
 
-	function SlideshowXML($params) {
+	function __construct($params) {
 		$this->params = $params;
 	}
 	
@@ -439,6 +439,7 @@ class SlideshowXML {
 		global $msg, $error;
 		global $fp, $imagePath, $thumbPath;
 		global $SlidePath;
+		global $LINK;
 		
 		$DEBUG = false;
 		

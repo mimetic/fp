@@ -116,7 +116,7 @@ switch ($command) {
 				} else {
 					$groupID = $res['groupid'];
 					if ($groupID) {
-						$myGroup = new FPGroup ($groupID);
+						$myGroup = new FPGroup ($LINK, $groupID);
 						$myGroup->SetTheme ($Themes->themeID);
 						$_SESSION['theme'] = $Themes->themeID;
 						$DEBUG && $msg .= "Set group $groupID to theme {$Themes->themeID}<br>";
@@ -135,7 +135,7 @@ switch ($command) {
 				} else {
 					$res['groupid'] ? $groupID = $res['groupid'] : $groupID = null;
 					if ($groupID) {
-						$myGroup = new FPGroup ($groupID);
+						$myGroup = new FPGroup ($LINK, $groupID);
 						$myGroup->SetTheme ($Themes->themeID);
 						$_SESSION['theme'] = $Themes->themeID;
 						$msg .= "Set group $groupID to theme {$Themes->themeID}<br>";

@@ -1,0 +1,11 @@
+This is an example file you can view in TFU.
+
+The file encoding of this file is ANSI. 
+The file format of this file is DOS.
+
+The files, file extensions or a wild card string like folder*.txt can be 
+defined in the tfu_config.php at $preview_textfile_extensions.
+
+Viewing and editing of files is only available for registered users.
+
+Test encoding: #äö'*!&"§$%&/()=?",._:;<>|¥§©«®µÁÃÆÊÌÏÒÔÑÖÛàãæçèéñùø

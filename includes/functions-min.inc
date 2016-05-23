@@ -32,12 +32,13 @@ function fp_error_log ($text, $type, $logfile) {
 function Setup () {
 	global $FP_ADMIN_USER, $FP_GALLERY_TYPE, $FP_CONSTANTS;
 	global $FP_NAVBAR_ITEM_NAMES;
+	global $LINK;
 	global $error, $msg;
 	
 	$DEBUG = false;
 
 	// Load the Admin user for this session
-	$FP_ADMIN_USER = new FPUser (FP_ADMINISTRATOR);
+	$FP_ADMIN_USER = new FPUser ($LINK, FP_ADMINISTRATOR);
 	$FP_ADMIN_USER->UserType && $FP_GALLERY_TYPE = $FP_ADMIN_USER->UserType;
 
 	FP_USE_PAYPAL_SANDBOX

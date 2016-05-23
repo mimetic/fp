@@ -1,8 +1,8 @@
 <?php
 /**
- * TWG Flash uploader 3.0
+ * TWG Flash uploader 3.2
  *
- * Copyright (c) 2004-2013 TinyWebGallery
+ * Copyright (c) 2004-2014 TinyWebGallery
  * written by Michael Dempfle
  *
  *     This file does all file functions of TFU
@@ -32,18 +32,15 @@ define('_VALID_TWG', '42');
 $install_path = ''; // do not change!
 
 include 'tfu_session.php';
-include 'tfu_helper.php';
-
-restore_temp_session(); // this restores a lost session if your server handles sessions wrong and increases the session time!
-
 include 'tfu_config.php';
 
 // check if all included files have the same version to avoid problems during update!
-if ($tfu_config_version != '3.0' || $tfu_help_version != '3.0') {
+if ($tfu_config_version != '3.2' || $tfu_help_version != '3.2') {
   tfu_debug('Not all files belong to this version. Please update all files.');
 }
 
-if (isset($_SESSION['TFU_LOGIN']) && isset($_SESSION['TFU_RN']) && isset($_GET['tfu_rn']) && ($_SESSION['TFU_RN'] ==    parseInputParameter($_GET['tfu_rn']))) {
+if (isset($_SESSION['TFU_LOGIN']) && isset($_GET['tfu_rn']) && isset($_SESSION['TFU_RN']) && 
+   (strcmp($_SESSION['TFU_RN'],parseInputParameter($_GET['tfu_rn']))==0)) {
     $dir = getCurrentDir();
     // if you have more complex filenames you can use the index
     $action = parseInputParameter($_GET['action']);
@@ -151,6 +148,9 @@ if (isset($_SESSION['TFU_LOGIN']) && isset($_SESSION['TFU_RN']) && isset($_GET['
           }
         if (isset($_GET['createdir'])) { // creates a directory
             $status = create_dir($dir, $enable_folder_creation, $fix_utf8);
+            if ($change_to_new_folder && $status != '&create_dir=false') {
+                $dir = change_to_new_dir($dir, $normalise_directory_names, $fix_utf8);
+            }
         } else if (isset($_GET['renamedir'])) { // Rename a directory
             $status = rename_dir($dir, $enable_folder_rename, $fix_utf8);
         } else if (isset($_GET['deletedir'])) { // the check if the file can be deleted is done before - if it is not possible we never get here!

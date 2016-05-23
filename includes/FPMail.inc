@@ -187,9 +187,10 @@ class FPMail {
     * embedded in the IPTC fields.
     */
     function FindUser () {
-	global $FP_EMAIL_FORCE_LOGIN;
+    	global $LINK;
+		global $FP_EMAIL_FORCE_LOGIN;
 
-	$user = new FPUser();
+	$user = new FPUser($LINK);
 	if ($this->username && $this->password) {
 	    $found = $user->login($this->username, $this->password, false, true);
 	}
