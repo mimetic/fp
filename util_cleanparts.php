@@ -18,7 +18,7 @@ Setup ();
 // --------------------------------
 
 $query = "SELECT * FROM ".DB_PARTS." ORDER BY PartTable, PartID";
-$result = mysqli_query ($query);
+$result = mysqli_query ($LINK, $query);
 
 while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
@@ -36,7 +36,7 @@ while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				$table = DB_ARTISTS;
 				$partID = $record['ArtistID'];
 			}
-			$r2 = mysqli_query ($q);
+			$r2 = mysqli_query ($LINK,$q);
 			if (mysqli_num_rows($r2) > 0) {
 				//print "---> Part ID ($partID) exists in table ($table)<BR>";
 				print ".";
@@ -56,7 +56,7 @@ while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			}
 			$q = "SELECT ID FROM ".DB_PARTS." where ArtistID IN (SELECT ID FROM ".DB_ARTISTS." where ID = {$record['ArtistID']}) AND ProjectID IN (SELECT ID FROM ".DB_PROJECTS." where ID = {$record['ProjectID']}) limit 1";
 
-			$r2 = mysqli_query ($q);
+			$r2 = mysqli_query ($LINK,$q);
 			if (mysqli_num_rows($r2) > 0) {
 				//print "---> Part ID ($partID): artist ID={$record['PartID']} exists, and project ID={$record['ProjectID']} exists<BR>";
 				print ".";
@@ -71,7 +71,7 @@ while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			
 			// Does the part exist?
 			$q = "SELECT * FROM $table where ID = $partID";
-			$r2 = mysqli_query ($q);
+			$r2 = mysqli_query ($LINK,$q);
 			if (mysqli_num_rows($r2) > 0) {
 				//print "---> Part ID ($partID) exists in table ($table)<BR>";
 				print ".";

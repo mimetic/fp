@@ -1,40 +1,35 @@
--- phpMyAdmin SQL Dump
--- version 4.4.10
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.1.51, for apple-darwin10.3.0 (i386)
 --
--- Host: localhost:3306
--- Generation Time: May 23, 2016 at 07:37 AM
--- Server version: 5.5.42
--- PHP Version: 7.0.0
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: dgross_fp
+-- ------------------------------------------------------
+-- Server version	5.1.51
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `dgross_fp`
---
-
--- --------------------------------------------------------
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `Artists`
 --
 
 DROP TABLE IF EXISTS `Artists`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Artists` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `Commission` int(2) DEFAULT NULL,
   `Commission2` int(2) DEFAULT '0',
   `Username` varchar(64) DEFAULT NULL,
   `Password` varchar(64) DEFAULT NULL,
-  `AccessLevel` int(3) DEFAULT NULL COMMENT '1=Admin,2=gallerist,3=personal,4=supplier',
-  `UserLevel` int(2) DEFAULT '2' COMMENT '1=FP_SINGLE_GALLERY_SINGLE_USER 2=FP_SINGLE_GALLERY_MULTI_USER 3=FP_MULTI_GALLERY_SINGLE_USER 4=FP_MULTI_GALLERY_MULTI_USER ',
+  `AccessLevel` int(3) DEFAULT NULL,
+  `UserLevel` int(2) DEFAULT '2',
   `Storage` int(11) DEFAULT NULL,
   `Password_Reminder` varchar(64) DEFAULT NULL,
   `Firstname` varchar(64) DEFAULT NULL,
@@ -99,33 +94,37 @@ CREATE TABLE `Artists` (
   `FullBiography` text,
   `Exhibitions` text,
   `Publications` text,
-  `Params` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Params` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Comments`
 --
 
 DROP TABLE IF EXISTS `Comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Comments` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `ImageID` bigint(20) unsigned DEFAULT NULL,
   `Comment` varchar(255) DEFAULT NULL,
   `IP` varchar(96) DEFAULT NULL,
-  `ParentTopicID` bigint(20) unsigned DEFAULT NULL
+  `ParentTopicID` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Groups`
 --
 
 DROP TABLE IF EXISTS `Groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Groups` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `Title` varchar(64) DEFAULT NULL,
   `Description` text,
   `ArtistID` bigint(20) DEFAULT NULL,
@@ -134,18 +133,20 @@ CREATE TABLE `Groups` (
   `URL` varchar(64) DEFAULT NULL,
   `Statement` text,
   `Theme` text,
-  `Params` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Params` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Images`
 --
 
 DROP TABLE IF EXISTS `Images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Images` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `Title` varchar(255) DEFAULT 'Untitled',
   `Type` set('normal','sample','thumbnail') DEFAULT 'normal',
   `RollID` varchar(32) DEFAULT '0',
@@ -198,70 +199,83 @@ CREATE TABLE `Images` (
   `size5` float DEFAULT NULL,
   `size6` float DEFAULT NULL,
   `EditionsLocked` tinyint(4) DEFAULT '0',
-  `Params` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Params` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=1467 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Keywords`
 --
 
 DROP TABLE IF EXISTS `Keywords`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Keywords` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `Keyword` varchar(255) DEFAULT NULL,
   `ImageID` bigint(20) unsigned DEFAULT '0',
   `ParentTopicID` bigint(20) unsigned DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
   `Views` int(11) DEFAULT '0',
-  `Rating` float DEFAULT '0'
+  `Rating` float DEFAULT '0',
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Parts`
 --
 
 DROP TABLE IF EXISTS `Parts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Parts` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `ProjectID` bigint(20) unsigned DEFAULT '0',
   `ArtistID` bigint(20) unsigned DEFAULT '0',
   `PartTable` varchar(32) DEFAULT 'Artists',
   `PartID` bigint(20) unsigned DEFAULT '0',
   `OrderInGallery` int(2) unsigned DEFAULT NULL,
-  `OrderInProject` int(2) unsigned DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `OrderInProject` int(2) unsigned DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `OrderInProject` (`OrderInProject`),
+  KEY `ProjectID` (`ProjectID`),
+  KEY `PartID` (`PartID`),
+  KEY `OrderInGallery` (`OrderInGallery`)
+) ENGINE=MyISAM AUTO_INCREMENT=3824 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Payments`
 --
 
 DROP TABLE IF EXISTS `Payments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Payments` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `Amount` decimal(9,2) DEFAULT NULL,
   `Email` varchar(60) DEFAULT NULL,
   `UniqueID` varchar(30) DEFAULT NULL,
   `Note` text,
   `SaleID` bigint(20) DEFAULT NULL,
   `Payee` varchar(50) DEFAULT NULL,
-  `DateTime` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `DateTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `SaleID` (`SaleID`)
+) ENGINE=MyISAM AUTO_INCREMENT=149 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Paypal`
 --
 
 DROP TABLE IF EXISTS `Paypal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Paypal` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pp_comments` text,
   `pp_user_id` bigint(20) DEFAULT NULL,
   `pp_service_id` bigint(20) DEFAULT NULL,
@@ -349,18 +363,22 @@ CREATE TABLE `Paypal` (
   `username` varchar(127) DEFAULT '0',
   `verify_sign` varchar(127) DEFAULT NULL,
   `whm_name` varchar(127) DEFAULT 'UNK',
-  `amount` float DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `amount` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `txn_id` (`txn_id`),
+  KEY `item_number` (`item_number`)
+) ENGINE=MyISAM AUTO_INCREMENT=745 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `PriceSets`
 --
 
 DROP TABLE IF EXISTS `PriceSets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PriceSets` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `SourceID` int(11) NOT NULL,
   `ArtistID` bigint(20) DEFAULT NULL,
   `ImageID` bigint(20) DEFAULT '0',
@@ -391,18 +409,20 @@ CREATE TABLE `PriceSets` (
   `a_FrameMatteShipWeight` text,
   `a_Amount` text,
   `Inflation` int(11) DEFAULT NULL,
-  `Params` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Params` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Projects`
 --
 
 DROP TABLE IF EXISTS `Projects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Projects` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `ArtistID` bigint(20) unsigned NOT NULL DEFAULT '0',
   `GroupID` bigint(20) unsigned DEFAULT '1',
   `OwnerAccessOnly` tinyint(1) DEFAULT '0',
@@ -437,33 +457,36 @@ CREATE TABLE `Projects` (
   `SlideShowDuration` int(11) DEFAULT NULL,
   `Params` text,
   `Slides` tinyint(1) DEFAULT '0',
-  `client_list` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=231 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Ratings`
 --
 
 DROP TABLE IF EXISTS `Ratings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Ratings` (
   `ID` bigint(20) unsigned NOT NULL DEFAULT '0',
   `SetID` bigint(20) unsigned DEFAULT '0',
   `Rating` int(11) DEFAULT NULL,
   `IP` varchar(96) DEFAULT NULL,
-  `RateTime` int(11) DEFAULT NULL
+  `RateTime` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Sales`
 --
 
 DROP TABLE IF EXISTS `Sales`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Sales` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `txn_id` varchar(127) DEFAULT NULL,
   `item_name` varchar(127) DEFAULT 'UNK',
   `item_number` varchar(127) DEFAULT '',
@@ -508,48 +531,56 @@ CREATE TABLE `Sales` (
   `last_name` varchar(64) DEFAULT NULL,
   `payer_business_name` varchar(127) DEFAULT NULL,
   `payer_email` varchar(127) DEFAULT NULL,
-  `payer_id` varchar(13) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `payer_id` varchar(13) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `item_number` (`item_number`),
+  KEY `txn_id` (`txn_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=809 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Sets`
 --
 
 DROP TABLE IF EXISTS `Sets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Sets` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `Description` varchar(255) DEFAULT NULL,
   `Active` set('yes','no') DEFAULT 'yes',
-  `Featured` set('yes','no') DEFAULT 'no'
+  `Featured` set('yes','no') DEFAULT 'no',
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Stories`
 --
 
 DROP TABLE IF EXISTS `Stories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Stories` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `ArtistID` bigint(20) unsigned DEFAULT '0',
   `ProjectID` bigint(20) unsigned DEFAULT '0',
   `Title` varchar(255) DEFAULT NULL,
   `Filename` varchar(64) DEFAULT NULL,
-  `Story` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Story` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Suppliers`
 --
 
 DROP TABLE IF EXISTS `Suppliers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Suppliers` (
-  `ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `ArtistID` bigint(20) DEFAULT NULL,
   `Name` varchar(64) DEFAULT NULL,
   `Firstname` varchar(127) DEFAULT NULL,
@@ -612,213 +643,36 @@ CREATE TABLE `Suppliers` (
   `SalesTaxRate` float DEFAULT NULL,
   `PrintCostUnit` int(11) DEFAULT NULL,
   `PrintCostMethod` int(11) DEFAULT NULL,
-  `Params` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Params` text NOT NULL,
+  UNIQUE KEY `ID` (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `Topics`
 --
 
 DROP TABLE IF EXISTS `Topics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Topics` (
-  `ID` bigint(20) unsigned NOT NULL,
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `Description` varchar(255) DEFAULT NULL,
   `City` varchar(64) DEFAULT NULL,
   `Country` varchar(64) DEFAULT NULL,
   `Views` int(11) DEFAULT '0',
-  `Rating` float DEFAULT '0'
+  `Rating` float DEFAULT '0',
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Artists`
---
-ALTER TABLE `Artists`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Comments`
---
-ALTER TABLE `Comments`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Groups`
---
-ALTER TABLE `Groups`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Images`
---
-ALTER TABLE `Images`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Keywords`
---
-ALTER TABLE `Keywords`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Parts`
---
-ALTER TABLE `Parts`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `OrderInProject` (`OrderInProject`),
-  ADD KEY `ProjectID` (`ProjectID`),
-  ADD KEY `PartID` (`PartID`),
-  ADD KEY `OrderInGallery` (`OrderInGallery`);
-
---
--- Indexes for table `Payments`
---
-ALTER TABLE `Payments`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `SaleID` (`SaleID`);
-
---
--- Indexes for table `Paypal`
---
-ALTER TABLE `Paypal`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `txn_id` (`txn_id`),
-  ADD KEY `item_number` (`item_number`);
-
---
--- Indexes for table `PriceSets`
---
-ALTER TABLE `PriceSets`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Projects`
---
-ALTER TABLE `Projects`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Ratings`
---
-ALTER TABLE `Ratings`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Sales`
---
-ALTER TABLE `Sales`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `item_number` (`item_number`),
-  ADD KEY `txn_id` (`txn_id`);
-
---
--- Indexes for table `Sets`
---
-ALTER TABLE `Sets`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Stories`
---
-ALTER TABLE `Stories`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `Suppliers`
---
-ALTER TABLE `Suppliers`
-  ADD UNIQUE KEY `ID` (`ID`);
-
---
--- Indexes for table `Topics`
---
-ALTER TABLE `Topics`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Artists`
---
-ALTER TABLE `Artists`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Comments`
---
-ALTER TABLE `Comments`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Groups`
---
-ALTER TABLE `Groups`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Images`
---
-ALTER TABLE `Images`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Keywords`
---
-ALTER TABLE `Keywords`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Parts`
---
-ALTER TABLE `Parts`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Payments`
---
-ALTER TABLE `Payments`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Paypal`
---
-ALTER TABLE `Paypal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `PriceSets`
---
-ALTER TABLE `PriceSets`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Projects`
---
-ALTER TABLE `Projects`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Sales`
---
-ALTER TABLE `Sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Sets`
---
-ALTER TABLE `Sets`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Stories`
---
-ALTER TABLE `Stories`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Suppliers`
---
-ALTER TABLE `Suppliers`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `Topics`
---
-ALTER TABLE `Topics`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2011-05-20 14:23:32

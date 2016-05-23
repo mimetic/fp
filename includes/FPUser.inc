@@ -4,7 +4,7 @@
  * 
  * <code><?php
  * include('access.class.php');
- * $user = new FPUser();
+ * $user = new FPUser($LINK);
  * ? ></code>
  * 
  * For support issues please refer to the webdigity forums :

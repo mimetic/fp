@@ -27,7 +27,7 @@ Setup ();
 // --------------------------------
 
 $query = "SELECT * FROM ".DB_IMAGES." ORDER BY ID";
-$result = mysqli_query ($query);
+$result = mysqli_query ($LINK, $query);
 
 $bad = array();
 $good = array();
@@ -67,7 +67,7 @@ while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$a = array ();
 		
 		$query = "SELECT * FROM ".DB_PARTS." WHERE ( PartTable = \"".DB_IMAGES."\" AND PartID = \"$ID\" ) ORDER BY ID";
-		$parts = mysqli_query ($query);
+		$parts = mysqli_query ($LINK, $query);
 		while ($part = mysqli_fetch_array($parts, MYSQLI_ASSOC)) {
 			$partinfo = "Part fields:";
 			$partinfo .= join(", ", $part);

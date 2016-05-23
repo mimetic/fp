@@ -233,7 +233,7 @@ function HandleAction($actions, &$vars) {
 				case $ARTISTS :
 				// If a new artist is created, he gets an "Artist's Gallery" project
 				// Add the portrait after.
-					$myUser = new FPUser();
+					$myUser = new FPUser($LINK);
 					$newID = $myUser->newUser($vars, FP_NEW_ARTIST_GALLERY);
 					if ($newID != FP_ADMINISTRATOR) {
 						// Add artist to current group
