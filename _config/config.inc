@@ -137,13 +137,20 @@ $FP_IMAGEMAGICK_QUALITY = 85;
 
 // ImageMagick converter
 if ($DEVELOPING) {
+	// Installed in system
 	$FP_IM_CONVERT = "/opt/local/bin/convert";
 	$FP_IM_COMPOSITE = "/opt/local/bin/composite";
+	// MAMP setup
+	$FP_IM_CONVERT = "/Applications/MAMP/Library/bin/convert";
+	$FP_IM_COMPOSITE = "/Applications/MAMP/Library/bin/composite";
 } else {
 	$FP_IM_CONVERT = "/usr/local/bin/convert";
 	$FP_IM_COMPOSITE = "/usr/local/bin/composite";
 }
 
+// Use Imagick PHP library instead of the exec with 'convert' for imagemagick
+// NOT FULLY IMPLEMENTED! NOT WORKING!
+$FP_USE_IMAGICK = false;
 
 // COLOR SETTINGS
 
@@ -700,6 +707,7 @@ define ('FP_IMAGE_TOOL', $FP_IMAGE_TOOL);
 define ('FP_IMAGEMAGICK_QUALITY', $FP_IMAGEMAGICK_QUALITY);
 define ('FP_IM_CONVERT', $FP_IM_CONVERT);
 define ('FP_IM_COMPOSITE', $FP_IM_COMPOSITE);
+define ('FP_USE_IMAGICK', $FP_USE_IMAGICK);
 define ('MATTECOLOR', $FP_MATTECOLOR);
 define ('FP_LIGHTBOX_DISPLAY_REDUCTION', $FP_LIGHTBOX_DISPLAY_REDUCTION);
 define ('FP_LIGHTBOX_DISPLAY_PADDING', $FP_LIGHTBOX_DISPLAY_PADDING);

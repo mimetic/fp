@@ -13,14 +13,11 @@
 	-->
 	</div>
 	<div class="uploaderbox" >
-		<SNIPPET name="tfu_uploader">
-		
+		<XXX_SNIPPET name="tfu_uploader">
+		<SNIPPET name="dropzone_uploader">
+<!--		
 		<div style="margin-top:10px;padding:10px;background:#FFFFCC;border:1px solid #888;text-align:center;margin-left:auto;margin-right:auto;">
 			<span class="helptext">When you're finished uploading pictures, click here to start creating thumbnails.</span><br>
-			<!--
-			<span class="helptext">The system only processes {FP_PIXTOPROCESS} picture(s) each minute or so, but it will continue to process pictures automatically.<br>
-			<b>Don't worry if you still see your pictures listed above...they system will get to them shortly.</b></span>
-			-->
 			<br>
 			<span class="helptext important"><B>*** You must click this button until all your pictures are processed! ***</B><br>
 			The system will process {FP_PIXTOPROCESS} picture(s) at a time.</span><br>
@@ -36,6 +33,7 @@
 				<INPUT TYPE=submit NAME=Submit VALUE="Process {FP_PIXTOPROCESS} Uploaded Picture(s)">
 			</FORM>
 		</div>
+-->
 	</div>
-	{UPLOADER_HTTP}
+	{XXX_UPLOADER_HTTP}
 </div>

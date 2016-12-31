@@ -100,7 +100,7 @@ if ($mlock == 0) {
 			$DEBUG && print __FILE__.":".__LINE__. ": Processed pictures using ProcessLocalImages.<BR>\n";
 		}
 		mysqli_close($LINK);
-		$FP_MYSQL_LINK->close();
+		//$FP_MYSQL_LINK->close();
 		WriteTextFile ($mlockfile, null);
 	}
 } else {

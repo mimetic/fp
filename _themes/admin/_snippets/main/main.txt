@@ -14,8 +14,10 @@
 
 
 	<!-- place before system style sheets, which may override these defaults -->
+	<!--
 	<link rel="stylesheet" href="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/css/menu.css"  type="text/css">
 	<link rel="stylesheet" href="{THEMESDIR}/{DEFAULT_THEME}/_js/jquery/css/iColorPicker.css"  type="text/css">
+	-->
 	<link type="text/css" href="{JAVASCRIPT_PATH}/jquery/css/custom-theme/jquery-ui-custom.css" rel="stylesheet">	
 	<link type="text/css" href="{JAVASCRIPT_PATH}/jquery/tablesorter/themes/yellow/style.css" rel="stylesheet">	
 	<!-- system stylesheets -->

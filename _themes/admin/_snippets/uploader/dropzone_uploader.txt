@@ -1,0 +1,33 @@
+<!-- Dropzone Uploader -->
+<link type="text/css" href="{JAVASCRIPT_PATH}/dropzone/dropzone.css" rel="stylesheet">	
+
+<script src="{JAVASCRIPT_PATH}/dropzone/dropzone.js"></script>
+<script>
+	//Dropzone.autoDiscover = false;
+
+Dropzone.options.myDropzone = { // The camelized version of the ID of the form element
+	url: "upload-processor.php",
+	parallelUploads: 10,
+	maxFiles: 50,
+	//maxFilesize: 10,
+	acceptedFiles: ".jpg,.jpeg"
+
+	/*
+	// The setting up of the dropzone
+	init: function() {
+		var myDropzone = this;
+		this.on("complete", function(file) {
+			//alert("Loaded file " + file);
+			location.reload();
+		});
+	}
+	*/
+}
+
+</script>
+
+<form class="dropzone dz-clickable" id="myDropzone">
+  <div class="dz-message needsclick">
+	 Drop JPG or JPEG files here or click to upload.<br />
+  </div>
+</form>

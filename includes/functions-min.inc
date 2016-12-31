@@ -29,6 +29,7 @@ function fp_error_log ($text, $type, $logfile) {
 
 // SETUP
 // Initialize variables and such
+// Reduced for 'min' overhead
 function Setup () {
 	global $FP_ADMIN_USER, $FP_GALLERY_TYPE, $FP_CONSTANTS;
 	global $FP_NAVBAR_ITEM_NAMES;
@@ -40,17 +41,11 @@ function Setup () {
 	// Load the Admin user for this session
 	$FP_ADMIN_USER = new FPUser ($LINK, FP_ADMINISTRATOR);
 	$FP_ADMIN_USER->UserType && $FP_GALLERY_TYPE = $FP_ADMIN_USER->UserType;
-
-	FP_USE_PAYPAL_SANDBOX
-			? define ("FP_FRAMESHOP_TESTING_MSG", FetchSnippet ("frameshop_testing_message"))
-			: define ("FP_FRAMESHOP_TESTING_MSG", "");
-
+	
 	// Get all constants into an array for Substitutions search/replace
 	$FP_CONSTANTS = get_defined_constants (true);
 	$FP_CONSTANTS = $FP_CONSTANTS['user'];
 	$DEBUG &&  $msg .= __FUNCTION__.ArrayToTable ($FP_CONSTANTS);
-
-	$FP_NAVBAR_ITEM_NAMES = FetchNavbarTitles();
 
 }
 
@@ -59,37 +54,39 @@ function Setup () {
 //------------------
 function StartDatabase($myDB) {
 	global $DEPENDENCIES_FILE, $DEPENDENCIES;
-	global $LINK, $FP_MYSQL_LINK;
+	global $LINK, $LINK;
 	global $msg, $error;
 
 	$DEBUG = FALSE;
 	// Start up the database
 
 	$DEBUG && print "BEGIN StartDatabase<BR>";
-	$LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+	$LINK = mysqli_connect(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
 //			or die("Could not connect to the site...the server must be very busy.");
 
-	if (mysqli_connect_error()) {
-		 die('Connect Error (' . mysqli_connect_errno() . ') '
-					. mysqli_connect_error());
+	if (!$LINK) {
+		die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error() );
 	}
 
+	if ($DEBUG)
+		print "Connected successfully:" . mysqli_get_host_info($link) . "\n" . "<BR>";
+
 	// Select the DATABASE
- 	mysql_select_db($myDB)
- 			or die("Could not select database $myDB");
+// 	mysqli_select_db($LINK, $myDB)
+// 			or die("Could not select database $myDB");
 
 	$DEPENDENCIES = GetDependencies($DEPENDENCIES_FILE);
 	$DEBUG && print "END StartDatabase<BR>";
 
 	
 	// ** Make a new object, too!
-	//$FP_MYSQL_LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
-	
-	
-	if (mysqli_connect_error()) 
-		{
-		die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
-		}
+	//$LINK = new mysqli(MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, $myDB);
+	//$LINK = $LINK;
+
+// 	if (mysqli_connect_error()) 
+// 		{
+// 		die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+// 		}
 
 	return $LINK;
 }
@@ -277,7 +274,8 @@ function DeleteUnusedSnippets ($text) {
 
 // For some reason, the built-in mysql_list_fields is deprecated.
 function MysqlListFields ($table) {
-	$res = mysqli_query ("SHOW COLUMNS FROM `$table`");
+	global $LINK;
+	$res = mysqli_query ($LINK, "SHOW COLUMNS FROM `$table`");
 	while ($row = mysqli_fetch_array($res))
 		$col_names[]=$row[0];
 	return $col_names;
@@ -299,6 +297,118 @@ function DecodeArrayFromDB ($params = null) {
 	$params && $params = unserialize($params);
 	$params || $params = array ();
 	return $params;
+}
+
+
+function isAction ($fieldname) {
+	global $Themes;
+	global $commandFlag;
+	if (trim($fieldname) == "action")
+		return TRUE;
+	return FALSE;
+}
+
+
+
+// Clean user entered item
+function CleanUserInput (&$value) {
+	// Stripslashes
+	if (get_magic_quotes_gpc() && !is_array($value)) {
+		$value = stripslashes($value);
+	}
+	/*
+	// Goddamn! If we use mysqli_real_escape_string on everything, we get /" stuff in our text
+	$value = mysqli_real_escape_string($LINK, trim($value));
+	// Restore newlines and carriage returns
+	$value = str_replace ('\n', "\n", $value);
+	$value = str_replace ('\r', "\r", $value);
+	*/
+	return $value;
+}
+
+
+function GetFormInput () {
+	global $Themes;
+	//global $HTTP_POST_VARS;
+	//global $HTTP_GET_VARS;
+	global $DATABASES;
+	global $msg, $error;
+	global $LINK;
+
+	$DEBUG = 0;
+	$DEBUG && print __FUNCTION__.":";
+
+	//$vars = count($HTTP_POST_VARS) > 0 ? $HTTP_POST_VARS :
+	//		(count($HTTP_GET_VARS) > 0 ? $HTTP_GET_VARS : array() );
+	$vars = $_REQUEST;
+
+	$cleanvars = array();
+	reset($vars);
+	$action = '';
+	$table = '';
+
+	$DEBUG && var_dump($_REQUEST);
+	
+	// basic values used for searches
+	// intval() is good for ID's
+	$idVars = array ('ArtistID', 'GroupID', 'ID', 'ImageID', 'PriceSetID', 'ProjectID', 'SupplierID');
+	foreach ($idVars as $v) 
+		{
+		if (isset($vars[$v]))
+			{
+			$vars[$v] = intval(trim($vars[$v]));
+			$DEBUG && print __FUNCTION__.": $v = {$vars[$v]}<BR>";
+			}
+		}
+	
+	// Which keys do we use? Let's track for a bit... ****
+	// TEMP!!!
+	//$keys = array_keys($vars);
+	//fp_error_log(__FUNCTION__.": Keys: ".join(", ", $keys), 3, FP_ACTIVITY_LOG);
+	
+	// SANITIZE table names: don't allow table to be anything else
+	// Is $table in $DATABASES? If not, error and set to ""
+	isset($vars['table']) && $vars['table'] = VerifyTableName($vars['table']);
+
+	while( list($key, $value) = each($vars) ) 
+		{
+		$DEBUG	&& print "$key = $value<BR>";
+		// Stripslashes
+		if (get_magic_quotes_gpc() && !is_array($value)) {
+			$DEBUG && print __FUNCTION__ .": Strip $value<BR>";
+			$value = stripslashes($value);
+		}
+		
+		$key = CleanUserInput($key);
+		if (is_array($value))
+			{
+			array_walk($value,'CleanUserInput');
+			$cleanvars[trim($key)] = $value;
+			}
+		else
+			{
+			$value = CleanUserInput($value);
+			if (isAction($key))
+				{
+				$action = $value;
+				}
+			elseif (trim($key) == "table") 
+				{
+				$table = $value;
+				}
+			else 
+				{
+				$cleanvars[trim($key)] = $value;
+				}
+			}
+		}
+	$results['vars'] = $cleanvars;
+	$results['actions']['action'] = $action;
+	$results['actions']['table'] = $table;
+
+	$DEBUG	&& var_dump ($cleanvars);
+
+	return $results;
 }
 
 

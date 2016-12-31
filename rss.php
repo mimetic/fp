@@ -176,13 +176,15 @@ default :
 	//$query = "SELECT UNIX_TIMESTAMP(max(Timestamp)) from $PROJECTS WHERE $where";
 	$query = "SELECT UNIX_TIMESTAMP(max(LastUpdate)) from $PROJECTS WHERE $where";
 	$result = mysqli_query ($LINK, $query);
-	if ($result) {
-	$date = mysqli_result($result, 0);
-	if ($date) {
-		$pubDate = date ("D, d M Y H:i:s O", $date);
-	} else {
-		$pubDate = "";
-	}
+	if ($result) {	
+		$result->data_seek($row); 
+		$datarow = $result->fetch_array(); 
+		$date = $datarow[0];
+		if ($date) {
+			$pubDate = date ("D, d M Y H:i:s O", $date);
+		} else {
+			$pubDate = "";
+		}
 	}
 
 	// Get projects
@@ -245,6 +247,7 @@ global $medium;
 global $COMMENTS, $RATINGS, $SETS, $PROJECTS, $SNIPPETS, $STORIES;
 global $baseURL, $SYSTEMURL;
 global $msg, $error;
+global $LINK;
 
 $DEBUG = false;
 if (count($projectIDList)) {

@@ -453,7 +453,10 @@ fp_error_log("\n--------------------------------", 3, FP_PICTURES_LOG);
 	$DEBUG && $msg .= __FUNCTION__.__LINE__.": Artist is $fp_user<BR>";
 	
 	// Get project ID from folder, if possible
-	$projectID = trim(array_pop ( explode ("/", dirname($filename)) ));
+	//$projectID = trim(array_pop ( explode ("/", dirname($filename)) ));
+	$projectID = explode ("/", dirname($filename));
+	$projectID = array_pop ($projectID );
+	$projectID = trim($projectID);
 	is_numeric ($projectID) || $projectID = null;
 	$DEBUG &&  $msg .= __FUNCTION__.__LINE__.":  Picture stored in project folder? Found ID='$projectID'<br>";
 
@@ -905,8 +908,8 @@ function ProcessLocalImages ($overwrite = false, $allowed_reserved_names = false
 		if ($result) {
 			$result = AddProcessedImagesToDatabase ($artistID, $projectID, false);
 			$result
-				? fp_error_log(__FUNCTION__.__LINE__. ": Add $filename to system with projectID = '{$projectID}' and artistID = '{$artistID}'", 3, FP_PICTURES_LOG)
-				: fp_error_log(__FUNCTION__.__LINE__. ": *** Failed to add $filename to system with projectID = '{$projectID}'", 3, FP_PICTURES_LOG);
+				? fp_error_log(__FUNCTION__.":".__LINE__. ": Add $filename to system with projectID = '{$projectID}' and artistID = '{$artistID}'", 3, FP_PICTURES_LOG)
+				: fp_error_log(__FUNCTION__.":".__LINE__. ": *** Failed to add $filename to system with projectID = '{$projectID}'", 3, FP_PICTURES_LOG);
 		}
 	}
 	return $result;
@@ -1723,61 +1726,177 @@ $VERBOSE && fp_error_log("END!", 3, FP_PICTURES_LOG);
 		$filter = "";
 		$loadsize = ceil($slide_size[0]*$mult) . "x" . ceil($slide_size[1]*$mult);
 		
-		if ($DEVELOPING) {
-			fp_error_log("[ImageMagick] WARNING! Because 'developing' is set, we are using ".FP_IM_CONVERT." for ImageMagick! This may be wrong for non-local testing!", 3, FP_PICTURES_LOG);
-		}
+		// Use Imagick PHP library
+		if (FP_USE_IMAGICK) {
 		
-		$cmd = FP_IM_CONVERT . " '{$filename}[{$loadsize}>]' $basics $quality $profile $sharpen $filter ";
+			$filterType = Imagick::FILTER_LANCZOS;
+			$blur = 1;
+			
+			// Using PHP Imagick
+			$slide = new Imagick(realpath($filename));
+			
+			$icc_rgb = file_get_contents( "$BASEDIR/".FP_PROFILE_SRGB);
+			$slide->profileImage('icc', $icc_rgb);
 
-		//Write slide pic
-		$mult == 1 
-			? $cmd .= " -write '$BASEDIR/$PROCESSED_SLIDES/$name'"
-			: $cmd .= " -resize '{$slide_size[0]}x{$slide_size[1]}>' -write '$BASEDIR/$PROCESSED_SLIDES/$name'";
 
-		// Write gallery pic. Sharpen a litle bit first
-		$sharpen = " -unsharp .5x.4+1.0+0.05";
-		$cmd .= " -resize '{$default_size[0]}x{$default_size[1]}>' $sharpen -write '$BASEDIR/$PROCESSED_PHOTOS/$name'";
+			$profiles = $slide->getImageProfiles('*', false); // get profiles
+			$has_icc_profile = (array_search('icc', $profiles) !== false); // we're interested if ICC profile(s) exist
+			if ($has_icc_profile === false)
+			{
+				// image does not have CMYK ICC profile, we add one
+				$icc_cmyk = file_get_contents('/path/to/icc/SomeCMYKProfile.icc');
+				$image->profileImage('icc', $icc_cmyk);
+			}
+			
+			$w = $slide_size[0];
+			$h = $slide_size[1];
+			
+//			$slide->setImageRenderingIntent ( Imagick::RENDERINGINTENT_PERCEPTUAL );
+//COLORSPACE_SRGB
+			
+			// Write slide pic
+			$slide->resizeImage($w, $h, $filterType, $blur, true);
+
+			$DEBUG && fp_error_log(__FUNCTION__ . ": Make slide for $name -> $BASEDIR/$PROCESSED_SLIDES/$name", 3, FP_PICTURES_LOG);
+			
+			// Watermark the Slide
+			$fontfile = $BASEDIR . "/" . FP_WATERMARK_FONT_DIR. "/".FP_WATERMARK_FONT_NAME;
+
+			$VERBOSE && fp_error_log("FONT FILE: $fontfile", 3, FP_PICTURES_LOG);
 		
-		// Write thumbnail. Use IM Thumbnail command to strip profile, for size saving
-		$cmd .= " -thumbnail '{$thumb_size[0]}x{$thumb_size[1]}>' '$BASEDIR/$PROCESSED_THUMBNAILS/$name'";
+			if ($watermark) {
+
+				$VERBOSE && fp_error_log("WATERMARK: $fontfile", 3, FP_PICTURES_LOG);
+
+				/*
+				$cmd = FP_IM_CONVERT." -size 400x400 xc:none -fill grey \
+				-font '$fontfile' -pointsize ".FP_WATERMARK_FONT_SIZE." -gravity center \
+				-annotate 315x315+20+20 '$watermark' \
+				miff:- |\
+				".FP_IM_COMPOSITE." -tile -dissolve ".floor(FP_WATERMARK_OPACITY/1.27)."% - '$BASEDIR/$PROCESSED_SLIDES/$name'  '$BASEDIR/$PROCESSED_SLIDES/$name'";
+				exec ($cmd, $output, $response);
+				$response && $im_error += 1;
+				$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking slides for $name", 3, FP_PICTURES_LOG);
+				$VERBOSE && fp_error_log("[ImageMagick] Response: $response\n".join("\n",$output), 3, FP_PICTURES_LOG);
+				*/
+				
+				$fillColor = "grey";
+				$x = $w;
+				$y = $h;
+				
+				$rw = 400;
+				$rh = FP_WATERMARK_FONT_SIZE + 10;
+				
+				// Indent 20px
+				$indent = 20;
+				
+				// Rectangle
+				/*
+				$draw = new ImagickDraw();
+				//$draw->setStrokeColor($strokeColor);
+				//$draw->setStrokeWidth(2);
+				$draw->setGravity(Imagick::GRAVITY_SOUTHEAST);
+				$draw->setFillColor("white");
+				$draw->setFillOpacity(0.3);
+				$draw->setGravity(Imagick::GRAVITY_SOUTHEAST);
+				$draw->rectangle($x - $rw - $indent, $y - $rh - $indent, $x - $indent, $y - $indent);
+
+				$slide->drawImage($draw);
+				$draw->destroy();
+				*/
+				
+				// Text
+				$draw = new ImagickDraw();
+				$draw->setFillColor($fillColor);
+				$draw->setFillOpacity(FP_WATERMARK_OPACITY/100);
+				$draw->setFontSize( FP_WATERMARK_FONT_SIZE );
+				$draw->setFont($fontfile);
+				$draw->setStrokeAntialias(true);
+				$draw->setTextAntialias(true);
+
+// Metrics lets us get size of a box around it, for example...				
+//				$metrics = $slide->queryFontMetrics($draw, $watermark);
+//				$draw->setGravity(Imagick::GRAVITY_SOUTHEAST);
+//				$draw->annotation($indent*2, $indent, $watermark);
+				$draw->setGravity(Imagick::GRAVITY_SOUTHEAST);
+				$draw->annotation($indent, $indent, $watermark);
+
+				$slide->drawImage($draw);
+				$draw->destroy();
+				
+				
+			}
+			
+			// Save slide to file
+			$slide->writeImage("$BASEDIR/$PROCESSED_SLIDES/$name");
+			$slide->destroy(); 
+
+
+			
+			// Watermark the Gallery pic
 		
-		exec ($cmd, $output, $response);
-		$VERBOSE && fp_error_log("[ImageMagick] Response: $response\n".join("\n",$output), 3, FP_PICTURES_LOG);
-		$response && $im_error += 1;
-		$response && fp_error_log("[ImageMagick] Error #{$response} while processing slides/gallery/thumbs for $name:\n$cmd", 3, FP_PICTURES_LOG);
+		// Use exec to do ImageMagick
+		} else {
+
+			if ($DEVELOPING) {
+				fp_error_log("[ImageMagick] WARNING! Because 'developing' is set, we are using ".FP_IM_CONVERT." for ImageMagick! This might be wrong for non-local testing!", 3, FP_PICTURES_LOG);
+			}
 		
+			$cmd = FP_IM_CONVERT . " '{$filename}[{$loadsize}>]' $basics $quality $profile $sharpen $filter ";
+
+			//Write slide pic
+			$mult == 1 
+				? $cmd .= " -write '$BASEDIR/$PROCESSED_SLIDES/$name'"
+				: $cmd .= " -resize '{$slide_size[0]}x{$slide_size[1]}>' -write '$BASEDIR/$PROCESSED_SLIDES/$name'";
+
+			// Write gallery pic. Sharpen a litle bit first
+			$sharpen = " -unsharp .5x.4+1.0+0.05";
+			$cmd .= " -resize '{$default_size[0]}x{$default_size[1]}>' $sharpen -write '$BASEDIR/$PROCESSED_PHOTOS/$name'";
 		
-		// Watermark the Slide
-		$fontfile = $BASEDIR . "/" . FP_WATERMARK_FONT_DIR. "/".FP_WATERMARK_FONT_NAME;
+			// Write thumbnail. Use IM Thumbnail command to strip profile, for size saving
+			$cmd .= " -thumbnail '{$thumb_size[0]}x{$thumb_size[1]}>' '$BASEDIR/$PROCESSED_THUMBNAILS/$name'";
 		
-		if ($watermark) {
-			$cmd = FP_IM_CONVERT." -size 400x400 xc:none -fill grey \
-			-font '$fontfile' -pointsize ".FP_WATERMARK_FONT_SIZE." -gravity center \
-			-annotate 315x315+20+20 '$watermark' \
-			miff:- |\
-			".FP_IM_COMPOSITE." -tile -dissolve ".floor(FP_WATERMARK_OPACITY/1.27)."% - '$BASEDIR/$PROCESSED_SLIDES/$name'  '$BASEDIR/$PROCESSED_SLIDES/$name'";
 			exec ($cmd, $output, $response);
-			$response && $im_error += 1;
-			$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking slides for $name", 3, FP_PICTURES_LOG);
 			$VERBOSE && fp_error_log("[ImageMagick] Response: $response\n".join("\n",$output), 3, FP_PICTURES_LOG);
-		}
+			$response && $im_error += 1;
+			$response && fp_error_log("[ImageMagick] Error #{$response} while processing slides/gallery/thumbs for $name:\n$cmd", 3, FP_PICTURES_LOG);
+		
+		
+		
+		
+			// Watermark the Slide
+			$fontfile = $BASEDIR . "/" . FP_WATERMARK_FONT_DIR. "/".FP_WATERMARK_FONT_NAME;
+		
+			if ($watermark) {
+				$cmd = FP_IM_CONVERT." -size 400x400 xc:none -fill grey \
+				-font '$fontfile' -pointsize ".FP_WATERMARK_FONT_SIZE." -gravity center \
+				-annotate 315x315+20+20 '$watermark' \
+				miff:- |\
+				".FP_IM_COMPOSITE." -tile -dissolve ".floor(FP_WATERMARK_OPACITY/1.27)."% - '$BASEDIR/$PROCESSED_SLIDES/$name'  '$BASEDIR/$PROCESSED_SLIDES/$name'";
+				exec ($cmd, $output, $response);
+				$response && $im_error += 1;
+				$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking slides for $name", 3, FP_PICTURES_LOG);
+				$VERBOSE && fp_error_log("[ImageMagick] Response: $response\n".join("\n",$output), 3, FP_PICTURES_LOG);
+			}
 		
 
-		// Watermark the Gallery pic
-		if ($watermark && FP_WATERMARK_GALLERY_PIX) {
-			$cmd = FP_IM_CONVERT." -size 150x150 xc:none -fill grey \
-			-font '$fontfile' -pointsize 10 -gravity center \
-			-annotate 315x315+20+20 '$watermark' \
-			miff:- |\
-			".FP_IM_COMPOSITE." -tile -dissolve 25% - '$BASEDIR/$PROCESSED_PHOTOS/$name'  '$BASEDIR/$PROCESSED_PHOTOS/$name'";
-			exec ($cmd, $output, $response);
-			$response && $im_error += 1;
-			$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking gallery pix $name", 3, FP_PICTURES_LOG);
-			$VERBOSE && fp_error_log("[ImageMagick] Response: $response\n".join("\n",$output), 3, FP_PICTURES_LOG);
-		}
+			// Watermark the Gallery pic
+			if ($watermark && FP_WATERMARK_GALLERY_PIX) {
+				$cmd = FP_IM_CONVERT." -size 150x150 xc:none -fill grey \
+				-font '$fontfile' -pointsize 10 -gravity center \
+				-annotate 315x315+20+20 '$watermark' \
+				miff:- |\
+				".FP_IM_COMPOSITE." -tile -dissolve 25% - '$BASEDIR/$PROCESSED_PHOTOS/$name'  '$BASEDIR/$PROCESSED_PHOTOS/$name'";
+				exec ($cmd, $output, $response);
+				$response && $im_error += 1;
+				$response && fp_error_log("[ImageMagick] Error #{$response} while watermarking gallery pix $name", 3, FP_PICTURES_LOG);
+				$VERBOSE && fp_error_log("[ImageMagick] Response: $response\n".join("\n",$output), 3, FP_PICTURES_LOG);
+			}
 		
-		//print __FUNCTION__.__FILE__.": $cmd<BR>";
-		$VERBOSE && fp_error_log("[ImageMagick] Created slide/gallery/thumbnail pictures of $filename -> $name", 3, FP_PICTURES_LOG);
+			//print __FUNCTION__.__FILE__.": $cmd<BR>";
+			$VERBOSE && fp_error_log("[ImageMagick] Created slide/gallery/thumbnail pictures of $filename -> $name", 3, FP_PICTURES_LOG);
+		
+		} // exec for ImageMagick
 	}
 
 	if ($im_error) {

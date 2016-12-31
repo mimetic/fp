@@ -286,7 +286,7 @@ class Themes {
 			// Do not add in old values. Image paths won't work. Besides, we
 			// don't need them if we just load the variation stylesheet before the
 			// use variation.
-			if ($myTheme['is_variation']) {
+			if (isset($myTheme['is_variation']) && $myTheme['is_variation']) {
 				// Get the css of the old file
 				$sourceCss = $this->FetchCSSFile ();
 				$themeID = $myTheme['theme_id'];
@@ -972,7 +972,7 @@ class Themes {
 		if ($loadThemesOnly) {
 			// Remove existing variations, leaving themes & snippets alone
 			foreach ($this->FP_Themes as $theme) {
-				if ($theme['is_variation'])
+				if (isset($theme['is_variation']) && $theme['is_variation'])
 					unset ($this->FP_Themes[$theme['id']]);
 			}
 		} else {
@@ -1177,7 +1177,7 @@ Local over-rides:
 
 		$this->FP_VARIATIONS_LIST =  array();
 		foreach ($this->FP_Themes as $myTheme) {
-			if ($myTheme['is_variation']) {
+			if (isset($myTheme['is_variation']) && $myTheme['is_variation']) {
 				$myTheme['userfile'] ? $asterisk = "*" : $asterisk = "";
 				$this->FP_VARIATIONS_LIST[$myTheme['id']] = $asterisk . $myTheme['name'];
 			}
@@ -1273,7 +1273,7 @@ Local over-rides:
 		// If this theme is, in fact, a variation, then we get a third CSS from the variation
 		// If there is a user variation of the variation, we get that, too
 		// After that, we switch over to the main theme
-		if ($myTheme['is_variation']) {
+		if (isset($myTheme['is_variation']) && $myTheme['is_variation']) {
 			$variationFilename = str_replace(" ", "_", $myTheme['path']);
 
 			// Get main theme and it's path
@@ -1398,6 +1398,11 @@ Local over-rides:
 				"theme"			=> $themePathName,
 				"preview"		=> $previewpath
 		);
+		
+		// also assign the values to the class object
+		while (list ($k, $v) = each ($result)) {
+			$this->$k = $v;
+		}
 		
 		$DEBUG && fp_error_log(__FUNCTION__.": ".print_r($result,true), 3, FP_ACTIVITY_LOG);
 		

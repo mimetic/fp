@@ -5331,6 +5331,7 @@ function ValidateProjectValues ($vars) {
 	global $IMAGES, $PRICES, $PRICESETS, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $SNIPPETS, $STORIES;
 	global $PHOTOS_GALLERY, $THUMBNAILS, $MATTED, $ORIGINALS;
 	global $error, $msg;
+	global $LINK;
 
 	$DEBUG = false;
 
