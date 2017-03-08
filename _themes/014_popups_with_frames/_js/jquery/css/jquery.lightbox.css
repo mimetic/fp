@@ -76,6 +76,10 @@ html, body { margin: 0; padding: 0; height: 100%;}
 	background-color: #eee;
 }
 
+/* Allows overlay on top of the image */
+#lightbox-infoBox-overlay {
+	position: absolute;
+}
 
 #lightbox-overlay-text {
 	text-align: left;

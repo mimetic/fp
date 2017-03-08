@@ -270,6 +270,9 @@ $(document).ready( function() {
 	// This is now done by the jQuery plugin. Hmmm.
 
 	// Add a popup functon to each picture
+
+
+
 	// jQuery Lightbox Plugin : baluptin/dgross version
 	$.Lightbox.construct({
 				show_linkback:	false,
@@ -286,6 +289,13 @@ $(document).ready( function() {
 				show_button_nav: false,
 				use_body_background_color : true
 			});
+
+
+	// Add a popup functon to each picture
+	// Fancybox Plugin : baluptin/dgross version
+	/*
+	$(".lightbox-mygroup").fancybox();
+	*/
 	
 
 	// ------------------------------------------

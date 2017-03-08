@@ -491,7 +491,7 @@ return $rss;
 
 class RSSWriter {
 
-function RSSWriter($chaninfo, $extraChanInfo, $medium) {
+function __construct ($chaninfo, $extraChanInfo, $medium) {
 	$chaninfo['link'] = "http://".$chaninfo['link'];
 	$this->chaninfo=$chaninfo;
 	$this->extraChanInfo=$extraChanInfo;

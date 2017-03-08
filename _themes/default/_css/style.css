@@ -2556,7 +2556,7 @@ Drop-down menus
 .menuContainer .selected td {
 	background-color: #aaa;
 	opacity: 1.0;
-	background-image: url("../images/mbMenu/bgnd_sel_2.jpg")
+	background-image: url("../images/mbMenu/bgnd_sel_2.jpg");
 	border-style: none;
 	color: #eaeaea;
 }
@@ -2587,9 +2587,7 @@ vertical menu
 }
 
 .rootVerticalVoices td.rootVoice {
-	/
-
-*border-top:1px solid #666;*/
+	/*border-top:1px solid #666;*/
 	width: 130px;
 	font-family: Arial,Helvetica,sans-serif;
 	color: gray;
@@ -2606,9 +2604,7 @@ vertical menu
 
 .verticalMenu {
 	background-color: #000;
-/
-
-*
+/*
  The menu container style must be set via the options paramiter
  within the function call due to a Safari bug interpreting css on the fly...
  */

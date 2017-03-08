@@ -1,4 +1,5 @@
-/* @override http://localhost/fp/_themes/012_default_jquery/_js/jquery/css/jquery.lightbox.css */
+/* @override 
+	http://localhost/fp/_themes/default/_js/jquery/css/jquery.lightbox.css */
 
 /*
  * jQuery Lightbox Plugin (balupton edition) - Lightboxes for jQuery
@@ -65,7 +66,7 @@ html, body { margin: 0; padding: 0; height: 100%;}
 }
 
 #lightbox a, #lightbox a:link, #lightbox a:visited, #lightbox a:hover {
-	text-decoration:underline;
+	text-decoration: none;
 	color:#333;
 }
 
@@ -99,7 +100,9 @@ html, body { margin: 0; padding: 0; height: 100%;}
 	padding-right:5px;
 }
 
-#lightbox img, #lightbox a img, #lightbox a { border:none; outline:none; }
+#lightbox img, #lightbox a img, #lightbox a { 
+	border:none; outline:none; 
+}
 
 #lightbox-imageBox {
 	position:relative;
@@ -124,6 +127,17 @@ html, body { margin: 0; padding: 0; height: 100%;}
 	line-height:0;
 }
 
+#lightbox-navBox-box {
+	margin-top: 20px;
+	height: 30px;
+}
+
+div#lightbox-navBox {
+	display: inline-block;
+	line-height: 1rem;
+	font-size: 20px;
+}
+
 #lightbox-nav {
 	position:absolute;
 	top:0;
@@ -135,6 +149,19 @@ html, body { margin: 0; padding: 0; height: 100%;}
 /* #lightbox-imageBox > #lightbox-nav { left: 0; } 
 #lightbox-nav a { outline: none; }*/
 
+#lightbox-linkClose {
+	display: inline-block;
+}
+
+/* Box around the close X */
+#lightbox-navBox span.lightbox-onecharbox {
+	border: 1px solid rgba(0, 0, 0, 0.50);
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 1rem;
+	height: 1rem;
+	display: inline-block;
+}
 
 #lightbox-nav-btnPrev, #lightbox-nav-btnNext {
 	display:block;

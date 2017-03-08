@@ -6,7 +6,15 @@
 <script src="{JAVASCRIPT_PATH}/jquery/jquery.form.js" type="text/javascript" language="javascript"></script>
 <script src="{JAVASCRIPT_PATH}/jquery/jquery.rightClick.js" type="text/javascript" language="javascript"></script>
 <script src="{JAVASCRIPT_PATH}/jquery/jquery.defuscate.js" type="text/javascript" language="javascript"></script>
+
 <script src="{JAVASCRIPT_PATH}/jquery/jquery.lightbox-dg.js" type="text/javascript" language="javascript"></script>
+
+<!-- Add fancyBox -->
+<!--
+<link rel="stylesheet" href="{JAVASCRIPT_PATH}/jquery/fancybox/source/jquery.fancybox.css?v=2.1.6" type="text/css" media="screen" />
+<script type="text/javascript" src="{JAVASCRIPT_PATH}/jquery/fancybox/source/jquery.fancybox.pack.js?v=2.1.6"></script>
+-->
+
 <script src="{JAVASCRIPT_PATH}/jquery/mbMenu.js" type="text/javascript" language="javascript"></script>
 <script src="{JAVASCRIPT_PATH}/jquery/jquery.collapser-dg.js" type="text/javascript" language="javascript"></script>
 <script src="{JAVASCRIPT_PATH}/jquery/jquery-ui.min.js" type="text/javascript" language="javascript"></script>

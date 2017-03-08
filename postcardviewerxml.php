@@ -117,7 +117,7 @@ switch ($action) {
 		$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
 		
 		$DEBUG && print "Query: $query<HR>";
-		$result = mysqli_query ($query);
+		$result = mysqli_query ($LINK, $query);
 
 		if ($result) {
 			$XML = new SlideshowXML($params);
@@ -159,7 +159,7 @@ switch ($action) {
 			$query = "SELECT DISTINCT $PARTS.PartID AS ImageID FROM $PARTS, $PROJECTS WHERE $where ORDER BY RAND()";			
 			$DEBUG && print "Artist $shortname<BR>$query<HR>";
 
-			$result = mysqli_query ($query);
+			$result = mysqli_query ($LINK, $query);
 
 			if ($result) {	
 				$artistname = $artist['Firstname'] . " " . $artist['Lastname'];
@@ -187,7 +187,7 @@ switch ($action) {
 		$table = $PROJECTS;
 		$order = "Title";
 		$query = "SELECT $set FROM $table WHERE $where ORDER BY $order";
-		$result = mysqli_query ($query);
+		$result = mysqli_query ($LINK, $query);
 
 		$albumInfo['title'] = "Frontline Photos";
 		$albumInfo['link'] = "http://www.frontline-photos.com/";
@@ -261,7 +261,7 @@ class SlideshowXML {
 	
 	var $params;
 
-	function SlideshowXML($params) {
+	function __construct ($params) {
 		$this->params = $params;
 	}
 	
@@ -416,6 +416,7 @@ class SlideshowXML {
 		global $msg, $error;
 		global $fp, $imagePath, $thumbPath;
 		global $SlidePath;
+		global $LINK;
 		
 		$DEBUG = false;
 		
@@ -433,7 +434,7 @@ class SlideshowXML {
 				$images = array ();
 				// get all images in this project
 				$query = "select * from $PARTS where ProjectID = '$projectID' and PartTable = '$IMAGES' ORDER BY $PARTS.OrderInProject";
-				$result = mysqli_query ($query);
+				$result = mysqli_query ($LINK, $query);
 				while ($part = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$image = FetchImage ($part['PartID']);
 					$images[] = buildImage ($image);
