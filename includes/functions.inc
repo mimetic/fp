@@ -298,7 +298,7 @@ function makeCols($arr) {
 	global $Themes;
 	$keys = array();
 	reset($arr);
-	while (list($key, ) = each($arr)) {
+	foreach ($arr as $key => $value) {
 		if (! preg_match ('/^(X_)/i', $key))
 			$keys[] = $key;
 	}
@@ -313,7 +313,7 @@ function makeVals($arr) {
 
 	$values = array();
 	reset($arr);
-	while (list( ,$value) = each($arr)) {
+	foreach ($arr as $key => $value) {
 		$values[] = "'" . $value . "'";
 	}
 	return (join(",", $values));
@@ -757,7 +757,7 @@ function isAction ($fieldname) {
 // Get $_REQUEST array from user, i.e. URL input, and CLEAN IT!
 function CleanRequest () {
 	$vars = array();
-	while( list($var, $value) = each($_REQUEST) ) {
+	foreach ($_REQUEST as $var => $value) {
 		$vars[CleanUserInput($var)] = CleanUserInput($value);
 	}
 	return $vars;

@@ -239,7 +239,7 @@ class FPUser{
 	function logout ($redirectTo = '') {
 		// remove cookie of username/password
 		setcookie($this->remCookieName, '', time()-3600, '/', $this->remCookieDomain);
-		$this->userData = '';
+		$this->userData = array();
 
 		// Unset all of the session variables.
 		$_SESSION = array();
@@ -505,6 +505,8 @@ class FPUser{
 
 	//Calculate storage used and storage free for the current user ($this)
 	function CheckStorageSpace () {
+		// avoid warning from null value
+		(isset($this->userData) && is_array($this->userData)) || $this->userData = array();
 		
 		isset($this->userData['Storage']) || $this->userData['Storage'] = 100;
 		

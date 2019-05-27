@@ -19,8 +19,9 @@ WriteLog ("\n===== ".date("D M j G:i:s T Y")." : ".__FILE__." =====\n");
 
 if (TRUE) {
 	if ($_REQUEST) {
-		while (list($k,$v) = each ($_REQUEST))
+		foreach ($_REQUEST as $k => $v) {
 			$out .= "$k = $v\n";
+		}
 	} else {
 		$out = "NO DATA SENT";
 	}

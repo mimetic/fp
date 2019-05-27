@@ -1634,7 +1634,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 		// appear inside it.
 
 		$language = $record['Language'];
-		$language || $language = DEFAULT_LANGUAGE;
+		$language || $language = FP_LANGUAGE;
 		$s = "$language\">";
 		$r = "$language\" SELECTED>";
 		$langpop = str_ireplace ($s, $r, $langpop);

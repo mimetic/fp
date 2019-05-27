@@ -370,8 +370,7 @@ function GetFormInput () {
 	// Is $table in $DATABASES? If not, error and set to ""
 	isset($vars['table']) && $vars['table'] = VerifyTableName($vars['table']);
 
-	while( list($key, $value) = each($vars) ) 
-		{
+	foreach ($vars as $key => $value) {
 		$DEBUG	&& print "$key = $value<BR>";
 		// Stripslashes
 		if (get_magic_quotes_gpc() && !is_array($value)) {

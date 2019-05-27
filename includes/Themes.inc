@@ -1435,7 +1435,7 @@ Local over-rides:
 // Get $_REQUEST array from user, i.e. URL input, and CLEAN IT!
 	function CleanRequest () {
 		$vars = array();
-		while( list($var, $value) = each($_REQUEST) ) {
+		foreach ($_REQUEST as $var => $value) {
 			$vars[CleanUserInput($var)] = CleanUserInput($value);
 		}
 		return $vars;

@@ -97,7 +97,7 @@ class paypal_masspay
 	// because we might store other things in a payment array, such as the sale ID.
 	function add_to_nvp ($arr) {
 		$DEBUG = false;
-		while (list($k,$v) = each($arr) ) {
+		foreach ($arr as $k => $v) {
 			$v = trim(str_replace ("\n", "", $v));
 			$p[] = $k . $this->currentrow . "=" . urlencode($v);
 			$DEBUG && fp_error_log(__FUNCTION__.": Add $k{$this->currentrow} = $v to masspay NVP", 3, FP_PAYMENTS_LOG);

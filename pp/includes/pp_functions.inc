@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 /*
 Must set the following constants in your calling scripts:
@@ -582,7 +582,7 @@ function makeUpdate($arr, $IDname = "ID") {
 function makeCols($arr) {
 	$keys = array();
 	reset($arr);
-	while (list($key, ) = each($arr)) {
+	foreach ($arr as $key => $_ ) {
 		if (! preg_match ('/^(X_)/i', $key))
 			$keys[] = $key;
 	}
@@ -594,7 +594,7 @@ function makeCols($arr) {
 function makeVals($arr) {
 	$values = array();
 	reset($arr);
-	while (list( ,$value) = each($arr)) {
+	foreach ($arr as $_ => $value) {
 		// We need the addslashes, or queries are fucked. 
 		// I took it out once...why?
 //		$values[] = "'" . $value . "'";

@@ -1002,8 +1002,8 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                     $pfirst = $p0 = false; 
                     reset($polygon);
                     
-                    while (list(, $x) = each($polygon)) {
-                        list(, $y) = each($polygon);
+                    foreach ($polygon as $_ => $x) {
+                        list($_, $y) = each($polygon);
                         if ($p0 !== false) {
                             $this->_antialiasedLine($p0['X'], $p0['Y'], $x, $y, $lineColor);
                         }
@@ -1021,8 +1021,8 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 $prev_point = false;
                 if ($this->_antialias === 'driver') {
                     reset($polygon);
-                    while (list(, $x) = each($polygon)) {
-                        list(, $y) = each($polygon);
+                    foreach ($polygon as $_ => $x) {
+                        list($_, $y) = each($polygon);
                         if ($prev_point) {
                             $this->_antialiasedLine(
                                 $prev_point['X'],
@@ -1036,7 +1036,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                     }
                 } elseif (($line = $this->_getLineStyle($lineColor)) !== false) {
                     reset($polygon);
-                    while (list(, $x) = each($polygon)) {
+                    foreach ($polygon as $_ => $x) {
                         list(, $y) = each($polygon);
                         if ($prev_point) {
                             ImageLine(

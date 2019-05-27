@@ -4,8 +4,9 @@ $d = ("\n===== ".date("D M j G:i:s T Y")." =====\n");
 
 $out = "";
 if ($_REQUEST) {
-	while (list($k,$v) = each ($_REQUEST))
+	foreach ($_REQUEST as $k => $v) {
 		$out .= "$k = $v\n";
+	}
 } else {
 	$out = "NO DATA SENT";
 }

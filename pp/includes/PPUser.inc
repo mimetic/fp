@@ -324,15 +324,11 @@ class PPUser{
 	function updateUser ($vars = null) {
 		
 		// Merge public object variables into the object main array
-//		while (list ($k,$v) = each (get_object_vars($this)))
-//			$this->userData[$k] = $this->$k;
 		// Capture any values in the $vars and merge those values into the existing params array
 		if (is_array ($vars)) {
 			// merge $vars['params'] into the object params values
 			$this->userData['Params'] = MergeParams ($this->Params, $vars);
 			// merge $vars into object values
-//			while (list ($k,$v) = each ($vars))
-//				isset($this->userData[$k]) && $this->userData[$k] = $v;
 		}
 		$ID = $this->userData[$this->tbFields['userID']];
 		$success = UpdateRecord ($this->dbTable, $ID, $this->userData);					
