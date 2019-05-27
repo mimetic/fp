@@ -68,7 +68,7 @@ function SetParams ($pairs = array() ) {
 			return false;
 	$ID = $this->ID;
 	$params = FetchParams ($table, $ID);
-	while (list($key,$value) = each ($pairs)) {
+	foreach ($pairs as $key => $value) {
 		$params = SetParam ($params, $key, $value);
 	}
 	SaveParams ($table, $ID, $params);

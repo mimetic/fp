@@ -69,7 +69,7 @@ if ($saleID) {
 	$artist = FetchArtist ($artistID);
 	
 	// rename keys to avoid possible bad substitutions
-	while (list ($k,$v) = each ($artist)) {
+	foreach ($artist as $k => $v) {
 		$artistinfo[DB_ARTISTS."_$k"] = $v;
 	}
 	

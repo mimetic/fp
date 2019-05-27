@@ -156,7 +156,7 @@ if (!$error_tally) {
 		$vars['PACKAGES'] = "// Packages arrays\n";
 		$vars['PACKAGES_DESC'] = "// Package Description arrays\n";
 		$pArr = array ();
-		while (list($pid, $pkg) = each ($myPackages)) {
+		foreach ($myPackages as $pid => $pkg) {
 			if ($pid != $oldPackageID && !$pkg['disabled']) {
 				$pkArr[$pid] = $pid;
 				$pnArr[$pid] = $pkg["name"];
@@ -327,7 +327,7 @@ if ( (strtolower($action) == "submit") and !$error_tally ) {
 
 	// build form variables
 	$formvalues = "<!-- values for paypal -->\n";
-	while (list($k,$v) = each ($ppform)) {
+	foreach ($ppform as $k => $v) {
 		$formvalues .= "<input name=\"$k\" value=\"$v\" type=\"hidden\" >\n";
 	}
 

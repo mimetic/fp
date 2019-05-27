@@ -177,7 +177,7 @@ function ArrayToTable ($myarray) {
 	if (! is_array($myarray))
 		return false;
 	$table = "<table border=1>\n";
-	while (list($k, $v) =	 each ($myarray)) {
+	foreach ($myarray as $k => $v) {
 		$table .= "<tr><td><B>$k</B></td><td>$v</td><tr>\n";
 /*		if ($DEBUG) */
 /*			print "processing $k, $v<BR>"; */
@@ -193,7 +193,7 @@ function Substitutions ($page, $subs) {
 	$DEBUG = false;
 	if (! is_array($subs))
 		$subs = array ($subs);
-	while (list($k, $v) =	 each ($subs)) {
+	foreach ($subs as $k => $v) {
 		// Also replace this form : {varname}
 		$page = str_replace ('{$'.$k.'}', $v, $page);
 		$page = str_replace ('{'.$k.'}', $v, $page);
@@ -227,7 +227,7 @@ function GetVarList ($text) {
 function BuildDropDown ($options, $checked = "") {
 	$dropdown = "";
 	reset($options);
-	while (list($key, $value) = each ($options))	{
+	foreach ($options as $key => $value) {
 		if (!$value['disabled']) {
 			if ( $key == $checked ) {
 				$dropdown .= "<option value=\"$key\" selected>" . $value['name'] . "</option>\n";
@@ -496,7 +496,7 @@ function DeleteOrder( $orderID ) {
 function FixCheckBoxFields ($pairs) {
 	global $msg, $error;
 	$DEBUG = false;
-	while (list($key, $value) = each ($pairs)) {
+	foreach ($pairs as $key => $value) {
 		if (preg_match ('/_CHECKBOX/', $key)) {
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": $key : $value<BR>";
 			$realkey = str_replace("_CHECKBOX", "", $key);
@@ -568,7 +568,7 @@ function ResultToTable ($result) {
 function makeUpdate($arr, $IDname = "ID") {
 	global $ALLOWEDTAGS;
 	$pairs = array();
-	while (list($key, $value) = each($arr)) {
+	foreach ($arr as $key => $value) {
 		if (($key != $IDname) AND (array_key_exists ($key, $arr))) {
 			$pairs[] =	"$key = ". quote_smart(LimitHTLM ($value));
 		}

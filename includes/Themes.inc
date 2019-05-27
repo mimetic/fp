@@ -846,7 +846,7 @@ class Themes {
 	function AddVisitedLinkRules ($newrules = array () ) {
 		$newrules || $newrules = $this->rules;
 
-		while (list ($k, $v) = each ($newrules)) {
+		foreach ($newrules as $k => $v) {
 			$r2 = str_replace (":link", ":visited", $k);
 			if ($r2 != $k) {
 				// we found a ":link". Does the ":visited" exists in array at all?
@@ -872,7 +872,7 @@ class Themes {
 		$oldrules = array_intersect_key($this->rules, $newrules);
 
 		// Merge matching new rules to keep title/description fields and values from new
-		while (list ($key, $oldrule) = each ($oldrules)) {
+		foreach ($oldrules as $key => $oldrule) {
 			$DEBUG && $msg .=  __FUNCTION__.": $key<BR>";
 			$newrule = $newrules[$key];
 			// preserve title/desc from prev. rules on page, if a later rule overwrites
@@ -1190,7 +1190,7 @@ Local over-rides:
 			$myTheme = $this->FP_Themes[$themeID];
 			$this->themeID = $themeID;
 			if (is_array($myTheme)) {
-				while (list($k,$v) = each($myTheme)) {
+				foreach ($myTheme as $k => $v) {
 					$this->$k = $v;
 				}
 			}
@@ -1246,7 +1246,7 @@ Local over-rides:
 		$themeID || $themeID = $this->GetCurrentThemeID ();
 		$result = $this->FetchThemeDirs ($themeID);
 
-		while (list ($k,$v) = each ($result)) {
+		foreach ($result as $k => $v) {
 			$this->$k = $v;
 		}
 
@@ -1400,7 +1400,7 @@ Local over-rides:
 		);
 		
 		// also assign the values to the class object
-		while (list ($k, $v) = each ($result)) {
+		foreach ($result as $k => $v) {
 			$this->$k = $v;
 		}
 		

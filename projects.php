@@ -283,7 +283,7 @@ function GetProjectCascade ($myGroup, $showmode = null, $userID) {
 		$formats = FetchFormatSet ('projects_page');
 	}
 	
-	$list = FetchCascade ($tables, $sets, $wheres, $orders, $formats, '', '', true);
+	$list = FetchCascade ($tables, $sets, $wheres, $orders, $formats, null, null, true);
 
 	return $list;
 }

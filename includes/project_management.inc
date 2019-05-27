@@ -772,7 +772,7 @@ function DisplayRecordForEdit ($table, $userID, $accesslevel, $ID, $subset="", $
 
 
 	// Fill in all params. These may be overwritten, e.g. checkboxes
-	while (list($k,$v) = each($params)) {
+	foreach ($params as $k => $v) {
 		$currvals['param_'.$k] = GetParam ($params, $k);
 	}
 
@@ -2147,7 +2147,7 @@ function hscFixed($str) {
 // Make each element of an array suitable for HTML output, e.g. convert slashes, etc.
 function HTMLEntitiesAllValues ($arr, $keys = array ()) {
 	$keys || $keys = array_keys ($arr);
-	while (list($key, $value) = each ($arr)) {
+	foreach ($arr as $key => $value) {
 		$arr[$key] = htmlentities ($value);
 	}
 	return $arr;
@@ -2192,7 +2192,7 @@ function BuildProjectImagesMulti ($projectID, $fp_user = "", $numbered = false, 
 
 	$numbered ? $x = 1 : $x = "";
 	$list = "<!--".__FUNCTION__.": MultiChooser-->\n";
-	while (list($ArtistID, $name) = each ($artistlist)) {
+	foreach ($artistlist as $ArtistID => $name) {
 		$IDlist = array();
 
 		// Get current image IDs
@@ -2238,7 +2238,7 @@ function BuildProjectStories ($projectID) {
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__.":" . ": Current list = " . ArrayToTable($artistlist) . "<BR>";
 
 	$list = "<!--MultiChooser-->\n";
-	while (list($ArtistID, $name) = each ($artistlist)) {
+	foreach ($artistlist as $ArtistID => $name) {
 		$IDlist = array();
 
 		// Get current story IDs
@@ -2297,7 +2297,7 @@ function BuildOptionTransfer ($projectID, $extrahtml ="", $numbered = false) {
 	$numbered ? $x = 1 : $x = "";
 	$list = "<!--".__FUNCTION__."-->\n";
 	$OTCODE = "";
-	while (list($artistID, $name) = each ($artistlist)) {
+	foreach ($artistlist as $artistID => $name) {
 		$fields = array ();
 		$IDlist = array();
 
@@ -2341,7 +2341,7 @@ function BuildOptionTransfer ($projectID, $extrahtml ="", $numbered = false) {
 		$outProjectURLs = array_diff($artistPixURLs,$inProjectURLs);
 
 		$pixurls = "";
-		while (list($id,$url) = each($artistPixURLs)) {
+		foreach ($artistPixURLs as $id => $url) {
 			$pixurls .= "allurls['$id'] = '$url';\n";
 		}
 		//$artistPixURLs = "allurls[$x] = new Array (\"$THUMBNAILS/" . implode ("\",\"$THUMBNAILS/", $outProjectURLs) ."\");\n";
@@ -2398,7 +2398,7 @@ function BuildOptionTransferStories ($projectID, $extrahtml ="", $numbered = fal
 	$numbered ? $x = 1 : $x = "";
 	$list = "<!--".__FUNCTION__."-->\n";
 	$OTCODE = "";
-	while (list($artistID, $name) = each ($artistlist)) {
+	foreach ($artistlist as $artistID => $name) {
 		$fields = array ();
 
 		$DEBUG && $msg .= "<hr>" . __FUNCTION__.": STORIES FOR $name<BR>";
@@ -4098,7 +4098,7 @@ function RemoveImageFromProject ($ID, $projectID) {
 function SetCheckBoxesInForm ($form, $values) {
 	// PrintArray ($values);
 
-	while (list($var, $value) = each($values)) {
+	foreach ($values as $var => $value) {
 		//print "var = $var -> ".$value."<BR>";
 		$search = '/\<\s*input\s+type\s*=\s*"?checkbox"?\s+name\s*=\s*"?'.$var.'"?\s*value\s*=\s*"?(\S*?)"?\s*\>/i';
 
@@ -5997,13 +5997,13 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 				$row['EDIT_COMMAND'] = Substitutions(FetchSnippet ("listitem_edit"), $row);
 
 				// TOTALS
-				while (list($k,$v) = each ($row)) {
+				foreach ($row as $k => $v) {
 					is_numeric ($v) && $totals[$k] += $v;
 				}
 
 
 				// Fill in all params.
-				while (list($k,$v) = each($params)) {
+				foreach ($params as $k => $v) {
 					$row['param_'.$k] = GetParam ($params, $k);
 				}
 
@@ -6060,7 +6060,7 @@ function BTPBuildRows ($projectresult, $format, $queryset, $table, $projectID, $
 	// TOTALS ROW
 	$row = $totals;
 	$rowc = array ();
-	while (list($k,$v) = each ($row)) {
+	foreach ($row as $k => $v) {
 		$rowc[$k."_currency"] = number_format ($v, 2, FP_DECIMAL, FP_THOUSANDS);
 	}
 	$totalrow = Substitutions ($rowtotalsformat, $row);

@@ -177,7 +177,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	// "off" means no sound, a value is used as a sound file, or no value means play project's audio (if exists)
 	$audioParam = trim($record['audio']);
 	// "auto" or no value means use FP system setting, otherwise use value
-	$durationParam = trim($record['duration']) + 0;	// force numeric
+	$durationParam = intval(trim($record['duration'])) + 0;	// force numeric
 	$DEBUG && print __FUNCTION__.__LINE__.": durationParam: {$durationParam}<BR>";
 	
 	$DEBUG && print "Action: $action<HR>";

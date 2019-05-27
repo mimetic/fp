@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_row($result)) {
 }
 
 
-while (list ($table, $rows) = each ($db)) {
+foreach ($db as $table => $rows) {
 	print "<h2>Table: $table</h2>";
 	foreach ($rows as $row) {
 		$row = StripNonExistantFields ($table, $row);

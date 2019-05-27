@@ -121,7 +121,7 @@ class Image_Graph_Axis_Marker_Area extends Image_Graph_Grid
 
         reset($secondaryPoints);
         list ($id, $previousSecondaryValue) = each($secondaryPoints);
-        while (list ($id, $secondaryValue) = each($secondaryPoints)) {
+        foreach ($secondaryPoints as $id => $secondaryValue) {
             if ($this->_primaryAxis->_type == IMAGE_GRAPH_AXIS_X) {
                 $p1 = array ('Y' => $secondaryValue, 'X' => $this->_lower);
                 $p2 = array ('Y' => $previousSecondaryValue, 'X' => $this->_lower);

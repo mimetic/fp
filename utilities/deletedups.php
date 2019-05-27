@@ -30,7 +30,7 @@ $k =1;
 while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	//print ArrayToTable ( $line );
 	print "$k) " ;
-	while (list ($key, $value) = each ($line)) {
+	foreach ($line as $key => $value) {
 		print "$key = $value<BR>";
 	}
 	$where = "ID = " . $line['ID'];

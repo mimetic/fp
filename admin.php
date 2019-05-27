@@ -38,7 +38,7 @@ $vars = $results['vars'];
 // Do this at beginning; anything crucial we check by hand, right?
 // DANGEROUS! DO WE NEED THIS?
 /*
-while (list($k,$v) = each ($vars)) {
+foreach ($vars as $k => $v) {
 	$$k = $v;
 }
 */

@@ -376,7 +376,7 @@ class PPUser{
 		$this->Params = DecodeArrayFromDB($this->Params);
 
 		// Add params variables to the object
-		while (list ($k,$v) = each ($this->Params)) {
+		foreach ($this->Params as $k => $v) {
 			$this->$k = $v;
 		}
 		$this->userID = $userID;

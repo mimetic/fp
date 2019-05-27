@@ -142,7 +142,7 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	
 	$format = FetchSnippet ("artist_page_info_block");
 	
-	while (list ($n,$fn) = each ($arr)) {
+	foreach ($arr as $n => $fn) {
 		$f = $artistinfo[$fn];
 		if ($f) {
 			$f = LimitHTLM ($f);

@@ -186,7 +186,7 @@ class FPCart {
 			}
 		} else {
 			$this->error = "Sorry, some or all of your items are sold out.\n";
-			while (list($id, $remaining) = each ($notAvailList)) {
+			foreach ($notAvailList as $id => $remaining) {
 				$itemName = $this->items[$id]['itemName'];
 				$itemID = $this->items[$id]['itemID'];
 				if ($remaining > 0) {
@@ -864,8 +864,7 @@ class FPCart {
 	{
 		$this->cart_params = array();
 		
-		while (list($k,$v) = each($params))
-		{
+		foreach ($params as $k => $v) {
 			$this->cart_params[$k] = $v;
 		}
 	}
@@ -878,8 +877,7 @@ class FPCart {
 	// Be careful, don't send just anything — it will all be added to the $this->shipping_params
 	function set_cart_shipping_params ($params)
 	{
-		while (list($k,$v) = each($params))
-		{
+		foreach ($params as $k => $v) {
 			$this->shipping_params[$k] = $v;
 		}
 
@@ -1364,8 +1362,7 @@ class FPCart {
 		//array_walk($ppurl , create_function('&$v,$k', '$v && ($v = $k."=".urlencode($v));'));
 		//array_walk($ppurl , create_function('&$v,$k', '$v && ($v = "$k=$v");'));
 		$ppurl2 = array();
-		while (list($k,$v) = each ($ppurl))
-		{
+		foreach ($ppurl as $k => $v) {
 			$v && ($ppurl2[$k] = "$k=".urlencode($v));
 		}
 		ksort ($ppurl2);

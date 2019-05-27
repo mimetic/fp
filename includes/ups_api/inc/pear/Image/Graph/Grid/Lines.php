@@ -84,7 +84,7 @@ class Image_Graph_Grid_Lines extends Image_Graph_Grid
         while (($value = $this->_primaryAxis->_getNextLabel($value)) !== false) {
             reset($secondaryPoints);
             list ($id, $previousSecondaryValue) = each($secondaryPoints);
-            while (list ($id, $secondaryValue) = each($secondaryPoints)) {
+            foreach ($secondaryPoints as $id => $secondaryValue) {
                 if ($this->_primaryAxis->_type == IMAGE_GRAPH_AXIS_Y) {
                     $p1 = array ('X' => $secondaryValue, 'Y' => $value);
                     $p2 = array ('X' => $previousSecondaryValue, 'Y' => $value);

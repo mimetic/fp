@@ -223,6 +223,7 @@ function buildImage ($image) {
 	global $msg, $error;
 	global $fp, $imagePath, $thumbPath;
 	global $SlidePath;
+	global $FP_CAPTION_SHOW_LINEBREAKS;
 
 	// just in case, check URL is set
 	if ( $image['URL'] ) {
@@ -233,7 +234,7 @@ function buildImage ($image) {
 
 		$caption .= " ({fp:photo by} " . $image['Byline'] . ")";
 		$caption = ReplaceVocabulary ($caption);
-		if (FP_CAPTION_SHOW_LINEBREAKS) {
+		if ($FP_CAPTION_SHOW_LINEBREAKS) {
 			//$caption = preg_replace ('/\n/',"<br>\n", $caption);
 			// replace the HTML entity code for "/n" ( &#10; ) with <br>
 			$caption = preg_replace ("/\&\#10\;/","<br>\n", $caption);

@@ -73,7 +73,7 @@ if ($masspay->response["response"]['ACK'] != "Failure") {
 	$DEBUG && print "SUCCESS:" . print_r ($masspay->response);
 } else {
 	$error = "";
-	while (list ($k,$v) = each ($masspay->response["response"])) {
+	foreach ($masspay->response["response"] as $k => $v) {
 		$error = "$k = $v\n";
 	}
 	$masspay->error_out($error, $em_headers);

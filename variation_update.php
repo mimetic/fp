@@ -71,7 +71,7 @@ if ($_POST) {
 }
 
 if ($DEBUG) {
-	while (list($k,$v)=each($res)) {
+	foreach ($res as $k => $v) {
 		if (!is_array($v))
 			fp_error_log("\n$k: $v", 3, $logFile);
 	}

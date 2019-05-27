@@ -2163,8 +2163,7 @@ function ImageSalesInfo ($ID, $projectID = 0, $getAllInfo = false) {
 	}
 
 	// Total sold is amount sold for each size, PLUS amount sold on the outside of the system.
-	$totalSold = array_sum ($allamounts) + $outsidesales;
-	
+	$totalSold = array_sum ($allamounts) + floatval($outsidesales);
 	$sizeformat = FetchSnippet ("available_sizes");
 	$sizeplaintext = FetchSnippet ("available_sizes_plain_text");
 
@@ -2754,7 +2753,7 @@ function MassPay ( $paymentorders, $emailsubject) {
 	} else {
 		$error = "";
 		if (is_array ($masspay->response["response"])) {
-			while (list ($k,$v) = each ($masspay->response["response"])) {
+			foreach ($masspay->response["response"] as $k => $v) {
 				$error = "$k = $v\n";
 			}
 		}

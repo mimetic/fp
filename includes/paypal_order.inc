@@ -77,7 +77,7 @@ class paypal_order
 			
 			// get artist record, but prepend "artist" to each key
 			$artist1 = FetchArtist ($image['ArtistID']);
-			while (list ($k,$v) = each ($artist1)) {
+			foreach ($artist1 as $k => $v) {
 				$artist["artist_$k"] = $v;
 			}
 			
@@ -164,7 +164,7 @@ class paypal_order
 		$itemform = FetchSnippet ("supplier_order_item");
 		$itemformOriginal = FetchSnippet ("supplier_order_item_original_art");
 		
-		while (list ($supplierID, $sale) = each ($orders)) {
+		foreach ($orders as $supplierID => $sale) {
 			$supplier = FetchSupplier ($supplierID);
 			$DEBUG && fp_error_log("<HR>Supplier: ".$supplier['Name']."<BR>", 3, FP_ORDER_LOG);
 			$message = Substitutions ($orderform, $supplier);

@@ -25,13 +25,17 @@ error_reporting(E_ALL);
 error_reporting(E_ERROR | E_WARNING | E_PARSE );
 
 // Autoload classes
-function __autoload($class_name) {
-	$d = dirname(dirname(__FILE__)."../") . "/includes/";
-	//echo ("Looking for ".$d . $class_name . '.inc');
-	file_exists($d . $class_name . '.inc')
-	? require_once ($d . $class_name . '.inc')
-	: require_once ($d . $class_name . '.php');
-}
+
+if(!function_exists('classAutoLoader')){
+	  function classAutoLoader($class_name){
+			$d = dirname(dirname(__FILE__)."../") . "/includes/";
+			file_exists($d . $class_name . '.inc')
+				? require_once ($d . $class_name . '.inc')
+				: require_once ($d . $class_name . '.php');
+	  }
+ }
+ spl_autoload_register('classAutoLoader');
+
 
 // ================================
 // Product name

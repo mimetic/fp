@@ -115,7 +115,7 @@ function GetProjectThemeID() {
 		$themeid = $group->theme;
 	}
 	//$THEME_DIRS_ARR[$this->theme] ? $myTheme = $THEME_DIRS_ARR[$this->theme] : $myTheme = DEFAULT_THEME;
-	$this->theme = themeid;
+	$this->theme = $themeid;
 	
 	return ($themeid);
 }
@@ -938,7 +938,7 @@ function SaveProjectPictureSettings ($settings = array(), $imageID = null) {
 function FetchAllProjectPictureSettings () {
 	$a = unserialize(GetParam ($this->params, FP_PARAM_GALLERY_ITEM_SETTINGS ));
 	if (is_array($a)) {
-		while (list($k,$v) = each ($a)) {
+		foreach ($a as $k => $v) {
 			$aa[$k] = unserialize($v);
 		}
 		return $aa;

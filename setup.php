@@ -126,7 +126,7 @@ if ($syspass == $syspassEntered) {
 	print ("<hr>");
 	
 	// Overwrite config file values we got with database values
-	while (list ($k,$v) = each ($a)) {
+	foreach ($a as $k => $v) {
 		$v && $f[$k] = $v;
 	}
 	

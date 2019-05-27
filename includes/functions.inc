@@ -329,14 +329,14 @@ function Display ($result = array() ) {
 	$keys = array_keys ($line);
 	print "\t<tr>\n";
 	reset ($line);
-	while (list ($k, $col_value) = each ($line)) {
+	foreach ($line as $k => $col_value) {
 		print "\t\t<th><i>$k:</i></th>\n";
 	}
 	print "\t</tr>\n";
 	mysqli_data_seek ($result, 0);
 	while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		print "\t<tr>\n";
-		//		while (list ($k, $col_value) = each ($line)) {
+		//		foreach ($line as $k => $col_value) {
 		foreach ($line as $col_value) {
 			$col_value = htmlentities($col_value);
 			$v = htmlentities($col_value);
@@ -358,7 +358,7 @@ function makeUpdate($arr) {
 
 	$pairs = array();
 	reset($arr);
-	while (list($key, $value) = each($arr)) {
+	foreach ($arr as $key => $value) {
 		if (($key != "ID") AND (array_key_exists ($key, $arr))) {
 			$pairs[] =	"$key = ". quote_smart($value);
 		}
@@ -377,7 +377,7 @@ function FixCheckBoxFields ($pairs) {
 	global $LINK;
 	$DEBUG = 0;
 	reset ($pairs);
-	while (list($key, $value) = each ($pairs)) {
+	foreach ($pairs as $key => $value) {
 		if (preg_match ('/_CHECKBOX/', $key)) {
 			$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": $key : $value<BR>";
 			$realkey = str_replace("_CHECKBOX", "", $key);
@@ -399,7 +399,7 @@ function SerializeArraysInPairs ($pairs) {
 	global $LINK;
 	$DEBUG = false;
 	reset ($pairs);
-	while (list($key, $value) = each ($pairs)) {
+	foreach ($pairs as $key => $value) {
 		if (is_array ($value))
 			$pairs[$key] = EncodeArrayForDB ($value);
 	}
@@ -493,8 +493,7 @@ function UpdateRecord ( $table, $ID, $pairs ) {
 	$pairs = SerializeArraysInPairs ($pairs);
 
 	reset($pairs);
-	while (list($k,$v) = each ($pairs)) 
-		{
+	foreach ($pairs as $k => $v) {
 		/* Create a prepared statement */
 		$stmt = $LINK->prepare( "UPDATE $table SET $k = ? WHERE ID = ?" );
 		if ( $stmt )
@@ -560,8 +559,7 @@ function UpdateRow ( $table, $pairs, $col="", $val="" ) {
 	reset ($pairs);
 	if ($col && $val)
 		{
-		while (list($k,$v) = each ($pairs)) 
-			{
+		foreach ($pairs as $k => $v) {
 			/* Create a prepared statement */
 			$stmt = $LINK->prepare( "UPDATE $table SET $k = ? WHERE $col = ?" );
 			if ( $stmt )
@@ -825,8 +823,7 @@ function GetFormInput () {
 	// Is $table in $DATABASES? If not, error and set to ""
 	isset($vars['table']) && $vars['table'] = VerifyTableName($vars['table']);
 
-	while( list($key, $value) = each($vars) ) 
-		{
+	foreach ($vars as $key => $value) {
 		$DEBUG	&& print "$key = $value<BR>";
 		// Stripslashes
 		if (get_magic_quotes_gpc() && !is_array($value)) {
@@ -933,7 +930,7 @@ function Substitutions ($arr, $subs, $fixquotes=false) {
 	}
 	
 	reset ($arr);
-	while (list($key,$text) = each($arr)) {
+	foreach ($arr as $key => $text) {
 		if ($text && is_array($subs)) {
 			$TIMER && $starttime = microtime(true);
 			// Find all constants in the text
@@ -1219,7 +1216,7 @@ function FetchFormatSet ($FormatSetID) {
 
 	$lines = explode("\n", $text);
 	reset ($lines);
-	while (list($linenum, $rawline)	= each($lines)) {
+	foreach ($lines as $linenum => $rawline) {
 		$rawline = trim ($rawline);
 		if ($rawline) {
 			$DEBUG && $msg .= "Rawline: [".str_replace ("{", "&#123;", htmlentities($rawline))."]<BR>";
@@ -1327,11 +1324,12 @@ An example of FetchCascade:
 function FetchCascade ($tables, $sets = array(), $wheres = array(), 
 		$orders = array(), $formats = array(), $limits = array(), 
 		$fields = array(), $skip_empty_rows = FALSE, $variation = null, 
-		$params = array (), $artist_info = array ()) 
+		$params = array (), $artist_info = array () ) 
 				{
 	global $Themes;
 	global $BASEDIR;
 	global $IMAGES, $PRICES, $ARTISTS, $TOPICS, $KEYWORDS, $COMMENTS, $RATINGS, $SETS, $GROUPS, $PROJECTS, $PARTS, $STORIES, $PRICESETS, $SUPPLIERS, $PAYPAL, $SALES, $SNIPPETS;
+	global $FP_CAPTION_SHOW_LINEBREAKS;
 	global $msg, $error;
 	global $LINK;
 	global $default_size, $slide_size, $default_matte_size, $slide_matte_size;	// array (x,y) of size of display picture in a gallery
@@ -1353,7 +1351,10 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 	$GALLERY_VIDEO_CODE = FetchSnippet ("gallery_video");
 	$GALLERY_IMAGE_CODE = FetchSnippet ("gallery_img");
 	$GALLERY_VIDEO_POPUP = FetchSnippet ("gallery_video_popup_link");
-
+	
+	// Initialize fields as an array, 
+	// since the default array() doesn't give you an array, but null!
+	is_array($fields) || $fields = array();
 
 	// GET PARAMS VALUES
 	// These can reset the theme and other settings.
@@ -1638,7 +1639,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 			/* Fetch values for this row */
 			$k=0;
 			reset ($line);
-			while (list($key, $var)	= each($line)) {
+			foreach ($line as $key => $var) {
 				$keyname = "{$prefix}$key";
 				// If we detect htmlentities, then convert UTF-8 string fields to html entities
 				// The string MIGHT be a code or something, so we must be careful about this
@@ -1700,7 +1701,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 				// Get project owner's information into Artists_fieldname, e.g. Artists_Lastname
 				if (isset ($fields[$PROJECTS.'_ArtistID'])) {
 					$artist = FetchArtist ($fields[$PROJECTS.'_ArtistID']);
-					while (list($k,$v) = each ($artist)) {
+					foreach ($artist as $k => $v) {
 						$fields[$ARTISTS.'_'.$k] = $v;
 					}
 				}
@@ -1806,7 +1807,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 				// Is there a setting for this image?
 				if (isset($params['ProjectPictureSettings'][$item_number])) {
 					$imageExtraStyle = "";
-					while(list($k,$v) = each ($params['ProjectPictureSettings'][$item_number])) {
+					foreach ($params['ProjectPictureSettings'][$item_number] as $k => $v) {
 						$fields[$prefix.$k] = $v;
 						//print __FUNCTION__.__LINE__.": $prefix$k = $v<br>";
 					
@@ -1867,7 +1868,7 @@ function FetchCascade ($tables, $sets = array(), $wheres = array(),
 				$caption = utf8_to_html(trim($fields[$prefix."Caption"]));
 
 				if ($caption) {
-					if (FP_CAPTION_SHOW_LINEBREAKS) {
+					if ($FP_CAPTION_SHOW_LINEBREAKS) {
 						//$caption = preg_replace ('/\n/',"<br>\n", $caption);
 						// replace the HTML entity code for "/n" ( &#10; ) with <br>
 						$caption = preg_replace ("/\&\#10\;/","<br>\n", $caption);
@@ -2610,7 +2611,7 @@ function FetchRandomImage ($where="", $format = 'sample_picture', $shape=null, $
 	// We should now have an image to show.
 	if (! empty($arr)) {
 		reset ($arr);
-		while (list ($key, $value) = each ($arr)) {
+		foreach ($arr as $key => $value) {
 			$imageinfo['Images_'.$key] = $value;
 		}
 		
@@ -2627,7 +2628,7 @@ function FetchRandomImage ($where="", $format = 'sample_picture', $shape=null, $
 		//$row = FetchRowsByValue($ARTISTS, "*", 'ID', $imageinfo['Images_ArtistID'], '', TRUE);
 		$row = FetchArtist($imageinfo['Images_ArtistID']);
 		$artistinfo = array();
-		while (list ($key, $value) = each ($row)) {
+		foreach ($row as $key => $value) {
 			$artistinfo['Artists_'.$key] = $value;
 		}
 		//print ArrayToTable ($artistinfo);
@@ -2636,7 +2637,7 @@ function FetchRandomImage ($where="", $format = 'sample_picture', $shape=null, $
 		//$row = FetchRowsByValue("Projects", "*", 'ID', $projectID,'',TRUE);
 		$row = FetchProject($projectID);
 		$projectinfo = array();
-		while (list ($key, $value) = each ($row)) {
+		foreach ($row as $key => $value) {
 			$projectinfo['Projects_'.$key] = $value;
 		}
 		//print ArrayToTable ($projectinfo);
@@ -2817,7 +2818,7 @@ function GetDependencies ($DEPENDENCIES_FILE) {
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": BEGIN<BR>";
 	$DEPENDENCIES = array();
 	$arr = file ($DEPENDENCIES_FILE);
-	while (list ($line_num, $raw) = each ($arr)) {
+	foreach ($arr as $line_num => $raw) {
 		trim($raw);
 		if (! preg_match("#(^//)|(^\W)#", $raw)) {
 			$raw = Substitutions ($raw, $DATABASES);
@@ -2829,9 +2830,9 @@ function GetDependencies ($DEPENDENCIES_FILE) {
 		}
 	}
 	if ($DEBUG) {
-		while (list($c, $command) = each ($DEPENDENCIES)) {
+		foreach ($DEPENDENCIES as $c => $command) {
 			$error .= "<h1>Command $c</H1>";
-			while (list($t, $table) = each ($command)) {
+			foreach ($command as $t => $table) {
 				$error .= "<h2>Table $t</h2>";
 				foreach ($table as $row) {
 					$error .= "row:";
@@ -2888,7 +2889,7 @@ function CascadeDelete ($table, $ID) {
 function PregMatchKeys ($searchpattern, $arr) {
 	global $Themes;
 	$arr2 = array ();
-	while (list ($k, $v) = each ($arr)) {
+	foreach ($arr as $k => $v) {
 		if (preg_match ($searchpattern, $k)) {
 			$arr2[$k] = $v;
 		}
@@ -4324,7 +4325,7 @@ function OptionListFromArray ($values, $listname, $checked = array(), $sort = TR
 
 	reset($values);
 	$k = 1;
-	while (list($ID, $name) = each ($values)) {
+	foreach ($values as $ID => $name) {
 		$ID = trim($ID);
 		$name = trim($name);
 		if ($name[0] != "/") {
@@ -4370,7 +4371,7 @@ function MultipleChoice ($values, $fieldname, $checked = array (), $sort = TRUE,
 
 	$size == OPTION_LIST_IS_MULTI ? $type = "RADIO" : $type = "CHECKBOX";
 	if ($values) {
-		while (list($ID, $name) = each ($values)) {
+		foreach ($values as $ID => $name) {
 			$ID = trim($ID);
 			$name = trim($name);
 			in_array($ID, $checked) ? $check = "CHECKED" : $check = "";
@@ -4468,7 +4469,7 @@ function FetchDefaults ($arr) {
 	!$arr && $arr = array();
 	
 	$vars = array();
-	while (list($name, $value) = each ($arr)) {
+	foreach ($arr as $name => $value) {
 		if (preg_match("/^default/i", $name)) {
 			$name = substr($name, 7);
 			$vars[$name] = $value;
@@ -4488,7 +4489,7 @@ function StripBlankFields ($arr) {
 	if ($arr)
 	{
 		reset($arr);
-		while (list ($k, $v) = each($arr)) {				
+		foreach ($arr as $k => $v) {				
 			if (!empty($v)) {
 				$vars[$k] = $v;				
 			}
@@ -4598,17 +4599,17 @@ function FillInInfo ($text,$ImageID, $ArtistID, $projectID) {
 	$fields = array();
 	$project = FetchProject($projectID);
 	reset ($project);
-	while (list($key,$value) = each($project)) {
+	foreach ($project as $key => $value) {
 		$fields["$" . "Projects$key"] = $value;
 	}
 	$artist = FetchArtist($ArtistID);
 	reset ($artist);
-	while (list($key,$value) = each($artist)) {
+	foreach ($artist as $key => $value) {
 		$fields["$" . "Artists$key"] = $value;
 	}
 	$image = FetchImage($ImageID);
 	reset ($image);
-	while (list($key,$value) = each($image)) {
+	foreach ($image as $key => $value) {
 		$fields["$" . "Images$key"] = $value;
 	}
 	if ($fields['ImagesTitle'] == "")
@@ -4653,11 +4654,11 @@ function ConfirmSetup ( $TableDefinitions = "Tables") {
 	// *** IMPLEMENT THIS FUNCTION...OR FIX...$tables = GetRecords( $TableDefinitions ) ;
 	//	ksort ($tables);
 	//	$tabledefs = array();
-	//	while (list($key, $value) = each ($tables)) {
+	//	foreach ($tables as $key => $value) {
 	//		$tabledefs [$value['Tablename']][] = $value['Fieldname'];
 	//	}
 	//
-	//	while (list($key, $value) = each ($tabledefs)) {
+	//	foreach ($tabledefs as $key => $value) {
 	//		if (!file_exists($key)) {
 	//			print "Creating table : $key<BR>";
 	//			$fielddefs = join (", ", $value) . "\r";
@@ -5515,7 +5516,7 @@ function WriteTextFile ($filename, $str) {
 function PrintArray ($myarray) {
 	print "<table border=1>\n";
 	reset ($myarray);
-	while (list($k, $v) =  each ($myarray)) {
+	foreach ($myarray as $k => $v) {
 		print "<tr><td>$k</td><td>$v</td><tr>\n";
 	}
 	print "</table>\n";
@@ -5528,7 +5529,7 @@ function ArrayToTable ($myarray) {
 		//$table = "<table border=\"1\" width=\"100%\" >\n";
 		$table = "<table style='border:1px solid gray;'>\n";
 		reset ($myarray);
-		while (list($k, $v) =  each ($myarray)) {
+		foreach ($myarray as $k => $v) {
 			if (! $v)
 				$v = " ";
 			is_array ($v) && $v = ArrayToTable ($v);
@@ -5549,7 +5550,7 @@ function ArrayToTable ($myarray) {
 function ArrayToTableH ($myarray) {
 	$table = "<table border=1 width=100%><tr>\n";
 	reset ($myarray);
-	while (list($k, $v) =  each ($myarray)) {
+	foreach ($myarray as $k => $v) {
 		if (! $v)
 			$v = " ";
 		$v = htmlentities ($v);
@@ -5650,7 +5651,7 @@ function FetchRemoteLSData ($URL, $prefix = "") {
 	$format = FetchSnippet ("LSInfoLineItem");
 	$list = "<!-- LS values -->\n";
 	reset ($record);
-	while (list($key, $value) = each($record)) {
+	foreach ($record as $key => $value) {
 		if ( $record[$key][1] ) {
 			// make a formatted block line for output
 
@@ -6072,7 +6073,7 @@ function FetchNavbarItems () {
 
 	$items = array ();
 	reset ($FP_NAVBAR_ITEMS_CODE);
-	while (list($k, $v) = each ($FP_NAVBAR_ITEMS_CODE)) {
+	foreach ($FP_NAVBAR_ITEMS_CODE as $k => $v) {
 		$items[$k] = FetchSnippet ($v);
 	}
 	return $items;
@@ -6211,7 +6212,7 @@ function FetchNavbarTitles ($groupID = null) {
 
 	$FP_NAVBAR_ITEM_NAMES = array ();
 	reset ($FP_NAVBAR_ITEMS);
-	while (list($k, $v) = each ($FP_NAVBAR_ITEMS)) {
+	foreach ($FP_NAVBAR_ITEMS as $k => $v) {
 		//$FP_NAVBAR_ITEM_NAMES[0][$k] = FetchSnippet ($v, $myTheme);
 		$FP_NAVBAR_ITEM_NAMES[0][$k] = FetchSnippet ($v);
 		$FP_NAVBAR_ITEM_NAMES[1][$k] = FetchSnippet ($FP_NAVBAR_ITEMS_SOLO[$k]);
@@ -6489,7 +6490,7 @@ function PackageParams ($vars) {
 	}
 
 	reset ($vars);
-	while (list ($k, $v) = each ($vars)) {
+	foreach ($vars as $k => $v) {
 		if (substr($k,0,6) == "param_" && strlen($k) == 8) {
 			$pk = substr($k, 6,2);
 			$params[$pk] = $v;
@@ -6510,7 +6511,7 @@ function MergeParams ($params, $vars) {
 	is_array($params) || $params = array ();
 	$DEBUG && $error .= __FUNCTION__.__LINE__;
 	reset ($vars);
-	while (list ($k, $v) = each ($vars)) {
+	foreach ($vars as $k => $v) {
 		$DEBUG && $error .= __FUNCTION__.__LINE__.": $k, $v<BR>";
 		if (substr($k,0,6) == "param_" && strlen($k) == 8) {
 			$pk = substr($k, 6,2);
@@ -6528,7 +6529,7 @@ function FixCheckBoxParams ($params, $vars) {
 
 	//$plist = array_keys ($params);
 	reset ($vars);
-	while (list ($k, $v) = each ($vars)) {
+	foreach ($vars as $k => $v) {
 		if (substr($k,0,6) == "param_" && preg_match ('/_CHECKBOX^/', $k)) {
 			$pk = substr($k, 6,2);
 			if (array_key_exists ($pk, $params)) {
@@ -6551,7 +6552,7 @@ function GetDefaultParams ($table) {
 	if (isset($FP_PARAMS_DEFAULTS[$table])) {
 		$params = array ();
 		reset ($FP_PARAMS_DEFAULTS[$table]);
-		while (list ($k,$v) = each ($FP_PARAMS_DEFAULTS[$table])) {
+		foreach ($FP_PARAMS_DEFAULTS[$table] as $k => $v) {
 			$v && $params[$k] = $v;
 		}
 	}
@@ -6827,7 +6828,7 @@ function ReplaceVocabulary ($text) {
 	foreach ($lists as $vocab) {
 		$DEBUG && $error .= __FUNCTION__.": ".ArrayToTable ($vocab);
 		reset ($vocab);
-		while (list($k,$v) = each ($vocab)) {
+		foreach ($vocab as $k => $v) {
 			// if foreign language, use unicode, so no recursive {fp:xx} allowed!
 			$lang && $v = separator ($v);
 			// replace case-sensitive first
@@ -7076,7 +7077,7 @@ function MetaIndexCode ($table, $id = null) {
 // Get the year from an Image date, which is in mysql date format
 function YearOf ($date) {
 	$hms_arr = explode("-", $date);
-	$Y = $hms_arr[0] + 0;
+	$Y = intval($hms_arr[0]) + 0;
 	$Y || $Y = "";
 	return $Y;
 }
@@ -7084,7 +7085,7 @@ function YearOf ($date) {
 // Get the year from an Image date, which is in mysql date format
 function MonthOf ($date) {
 	$hms_arr = explode("-", $date);
-	$M = $hms_arr[1]+ 0;
+	$M = intval($hms_arr[1]) + 0;
 	$M || $M = "";
 	return $M;
 }
@@ -7305,7 +7306,7 @@ function ArrayToJavascriptVars($arr, $prefix = "FPVARS_") {
 	$script = "<script type=\"text/javascript\" language=\"javascript\">\n";
 	$row = "";
 	reset ($vars);
-	while (list($k,$v) = each ($vars)) {
+	foreach ($vars as $k => $v) {
 		$row .= "$k = $v;\n";
 	}
 	$script .= $row . "\n</script>\n";
@@ -7319,7 +7320,7 @@ function ArrayToJavascriptVars($arr, $prefix = "FPVARS_") {
 function UnpackPriceSetRow($record, $i=null) {
 	if ($record) {
 		reset ($record);
-		while (list($k,$v) = each ($record)) {
+		foreach ($record as $k => $v) {
 			if (strtolower(substr($k,0,2)) == "a_") {
 				$newK = substr($k,2,strlen($k)-2);
 				//print __FUNCTION__." : $k => $newK<BR>";
@@ -8288,7 +8289,7 @@ function CompactArraysToStrings ($vars) {
 
 	// Convert arrays to strings
 	reset ($vars);
-	while (list($k,$v) = each ($vars)) {
+	foreach ($vars as $k => $v) {
 		if (is_array($v)) {
 			array_walk ($v, 'trimME');
 			$v = implode (",", $v);

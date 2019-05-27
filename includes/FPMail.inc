@@ -135,7 +135,7 @@ class FPMail {
 	    // Write images and supporting data files for each
 	    // We will write a serialized array of username, etc.
 	    // *** DO THIS ***
-	    while (list($st, $fn) = each ($this->pictures)) {
+	    foreach ($this->pictures as $st => $fn) {
 		$fn = UniqueFilename ($outputdir, $fn);
 	    /* get a handle on the message resource for the desired part */
 		$sec = mailparse_msg_get_part($this->mime, $st);
@@ -150,7 +150,7 @@ class FPMail {
 
 	    // Write commands list to the log
 	    $commandstext = "";
-	    while (list($k,$v) = each($this->info)) {
+	    foreach ($this->info as $k => $v) {
 		$commandstext .= "\n\t$k = $v;";
 	    }
 	    $this->verbose && fp_error_log(__FUNCTION__.__LINE__.":  Commands: $commandstext", 3, FP_PICTURES_LOG);

@@ -565,9 +565,9 @@ function SaveHistory ($history) {
 	$f = "$updateDir/updater_history.txt";
 	
 	$rows = "";
-	while (list ($website, $files) = each ($history)) {
+	foreach ($history as $website => $files) {
 		//print "Write log of $website:<hr>";
-		while (list ($filename, $time) = each ($files)) {
+		foreach ($files as $filename => $time) {
 			$row ="$website\t$filename\t$time\n";
 			$rows .= $row;
 			//print "Write row : $row<BR>";
@@ -662,7 +662,7 @@ function OptionListFromArray ($values, $listname, $checked = array(), $sort = TR
 	
 	//if ($values) {
 		$extraline && $optionlist .= "<OPTION VALUE=\"" . $extraline['value'] . "\" " . $extraline['checked'] . ">" . $extraline['label'] ."</OPTION>\n";		
-		while (list($ID, $name) = each ($values)) { 
+		foreach ($values as $ID => $name) { 
 			$ID = trim($ID);
 			$name = trim($name);
 			in_array($ID, $checked) ? $check = " selected" : $check = "";

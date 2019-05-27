@@ -474,7 +474,7 @@ class FPUser{
 
 		// Add object variables for each field in the table
 		// This is for read-only! We won't store values set this way!
-		while (list($k,$v) = each ($this->userData)) {
+		foreach ($this->userData as $k => $v) {
 			$this->$k = $v;
 		}
 
@@ -492,7 +492,7 @@ class FPUser{
 		$this->Params = DecodeArrayFromDB($this->Params);
 
 		// Add params variables to the object
-		while (list ($k,$v) = each ($this->Params)) {
+		foreach ($this->Params as $k => $v) {
 			$this->$k = $v;
 		}
 		$this->userID = $this->ID;

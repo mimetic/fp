@@ -47,7 +47,7 @@ $picpath || $picpath = $ORIGINALS;
 		reset ($fileinfo);
 		
 		$fi = array ();
-		while (list ($k,$v) = each ($fileinfo)) {
+		foreach ($fileinfo as $k => $v) {
 			$v && $fi[$k] = $v;
 		}
 		

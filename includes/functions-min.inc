@@ -124,7 +124,7 @@ function GetDependencies ($DEPENDENCIES_FILE) {
 	$DEBUG && $msg .= basename(__FILE__).":".__FUNCTION__ .":".__LINE__ . ": BEGIN<BR>";
 	$DEPENDENCIES = array();
 	$arr = file ($DEPENDENCIES_FILE);
-	while (list ($line_num, $raw) = each ($arr)) {
+	foreach ($arr as $line_num => $raw) {
 		trim($raw);
 		if (! preg_match("#(^//)|(^\W)#", $raw)) {
 			$raw = Substitutions ($raw, $DATABASES);
@@ -136,9 +136,9 @@ function GetDependencies ($DEPENDENCIES_FILE) {
 		}
 	}
 	if ($DEBUG) {
-		while (list($c, $command) = each ($DEPENDENCIES)) {
+		foreach ($DEPENDENCIES as $c => $command) {
 			$error .= "<h1>Command $c</H1>";
-			while (list($t, $table) = each ($command)) {
+			foreach ($command as $t => $table) {
 				$error .= "<h2>Table $t</h2>";
 				foreach ($table as $row) {
 					$error .= "row:";
@@ -178,7 +178,7 @@ function Substitutions ($arr, $subs, $fixquotes=false) {
 		$returnarr = true;
 	}
 	
-	while (list($key,$text) = each($arr)) {
+	foreach ($arr as $key => $text) {
 		if ($text && is_array($subs)) {
 			$TIMER && $starttime = microtime(true);
 			// Find all constants in the text

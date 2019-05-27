@@ -79,7 +79,7 @@ class Image_Graph_Grid_Bars extends Image_Graph_Grid
             if ($i == 1) {
                 reset($secondaryPoints);
                 list ($id, $previousSecondaryValue) = each($secondaryPoints);
-                while (list ($id, $secondaryValue) = each($secondaryPoints)) {
+                foreach ($secondaryPoints as $id => $secondaryValue) {
                     if ($this->_primaryAxis->_type == IMAGE_GRAPH_AXIS_X) {
                         $p1 = array ('Y' => $secondaryValue, 'X' => $value);
                         $p2 = array ('Y' => $previousSecondaryValue, 'X' => $value);

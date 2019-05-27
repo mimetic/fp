@@ -250,6 +250,7 @@ class SlideshowXML {
 	function buildImage ($image) {
 		global $IMAGES, $PRICE, $ARTISTS, $TOPICS, $KEYWORDS, $PARTS, $THUMBNAILS, $SLIDES;
 		global $COMMENTS, $RATINGS, $SETS, $PROJECTS, $SNIPPETS, $STORIES;
+		global $FP_CAPTION_SHOW_LINEBREAKS;
 		global $baseURL;
 		global $msg, $error;
 		global $fp, $lgPath, $tnPath;
@@ -263,7 +264,7 @@ class SlideshowXML {
 	
 			$caption .= " ({fp:photo by} " . $image['Byline'] . ")";
 			$caption = ReplaceVocabulary ($caption);
-			if (FP_CAPTION_SHOW_LINEBREAKS) {
+			if ($FP_CAPTION_SHOW_LINEBREAKS) {
 				//$caption = preg_replace ('/\n/',"<br>\n", $caption);
 				// replace the HTML entity code for "/n" ( &#10; ) with <br>
 				$caption = preg_replace ("/\&\#10\;/","<br>\n", $caption);

@@ -71,7 +71,7 @@ function LettersToSend ($projectID, $picturelist, $projectdir, $From, $FromName,
 				} else {
 					$IPTC = FetchIPTCInfo ("$projectdirHIRES/$picturename");
 					$Text .= "";
-					while( list($key, $value) = each($IPTC)) {
+					foreach ($IPTC as $key => $value) {
 						$value && $Text .= "$key : $value\n";
 					}
 					$Text && $Text = "IPTC PICTURE INFORMATION for $picturename:\n\n$Text";
