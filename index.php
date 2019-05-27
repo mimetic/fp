@@ -52,7 +52,7 @@ if ($fp_user) {
 	$forcelink ? $fp_user = '&'.$fp_user : $fp_user = '?'.$fp_user;
 }
 
-$link = "http://{$SYSTEMURL}{$link}{$forcelink}{$fp_user}";
+$link = "https://{$SYSTEMURL}{$link}{$forcelink}{$fp_user}";
 $link && header("Location: $link");
 
 ?>

@@ -50,7 +50,7 @@ install in four ways:
 
 "Package-1.0.tgz" : installs from a local file
 
-"http://example.com/Package-1.0.tgz" : installs from
+"https://example.com/Package-1.0.tgz" : installs from
 anywhere on the net.
 
 "package.xml" : installs the package described in

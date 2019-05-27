@@ -44,7 +44,7 @@ $PPF_service = array (
 	"passField"		=>	"Password",
 	"orderIDField"	=>	"id",
 	"usersIDField"	=>	"ID",
-	"URL"			=>	"http://{$SYSTEMURL}",
+	"URL"			=>	"https://{$SYSTEMURL}",
 	"loginURL"		=>	'http://{$SYSTEMURL}admin.php?login={$Username}&passwd={$Password}&action=login'
 
 	);
@@ -68,7 +68,7 @@ $FP_service = array (
 	"passField"		=>	"Password",
 	"orderIDField"	=>	"id",
 	"usersIDField"	=>	"ID",
-	"URL"			=>	"http://{$SYSTEMURL}",
+	"URL"			=>	"https://{$SYSTEMURL}",
 	"loginURL"		=>	'http://{$SYSTEMURL}admin.php?login={$Username}&passwd={$Password}&action=login'
 
 	);
@@ -91,7 +91,7 @@ $FP_hosting_service = array (
 	"passField"		=>	"Password",
 	"orderIDField"	=>	"id",
 	"usersIDField"	=>	"ID",
-	"URL"			=>	"http://{$SYSTEMURL}",
+	"URL"			=>	"https://{$SYSTEMURL}",
 	"loginURL"		=>	'http://{$SYSTEMURL}admin.php?login={$Username}&passwd={$Password}&action=login'
 
 	);

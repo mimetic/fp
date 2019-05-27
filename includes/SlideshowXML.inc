@@ -97,7 +97,7 @@ class SlideshowXML {
 		
 		// Set the first album to $firstproject
 		foreach ($this->albums as $album) {
-			//$album['audio'] ? $audio = "audio=\"" . "http://$fp/" . FP_SUBDIR_SLIDESHOW_AUDIO . "/". $album['audio'] .'"'   : $audio = "";
+			//$album['audio'] ? $audio = "audio=\"" . "https://$fp/" . FP_SUBDIR_SLIDESHOW_AUDIO . "/". $album['audio'] .'"'   : $audio = "";
 			$album['audio'] ? $audio = "audio=\"" . $this->audiopath . $album['audio'] .'" audioCaption=""'   : $audio = "";
 
 			// random image from album as preview
@@ -114,8 +114,8 @@ class SlideshowXML {
 				//$DEBUG && print ArrayToTable ($image);
 
 				if ($SlideShowAbsPaths) {
-					$src = "http://$fp/$SlidePath/" . $image["src"] ;
-					$tn = "http://$fp/$THUMBNAILS/" . $image["src"] ;
+					$src = "https://$fp/$SlidePath/" . $image["src"] ;
+					$tn = "https://$fp/$THUMBNAILS/" . $image["src"] ;
 				} else {
 					$src = $image["src"];
 					$tn = $image["src"];
@@ -133,7 +133,7 @@ class SlideshowXML {
 			
 			
 			if ($EndWidthBlackSlide) {
-				$output .= "\t\t<img src=\"http://$fp/images/blackslide.jpg\" tn=\"http://$fp/images/blackslidethumb.jpg\" />\n";
+				$output .= "\t\t<img src=\"https://$fp/images/blackslide.jpg\" tn=\"https://$fp/images/blackslidethumb.jpg\" />\n";
 			}
 			
 			$output .= "\t</album>\n";
@@ -173,7 +173,7 @@ class SlideshowXML {
 				//$DEBUG && print ArrayToTable ($project);
 // 				$albumInfo = array();
 // 				$albumInfo["title"] = $project['Title'];
-// 				$albumInfo['link'] = "http://$fp/";
+// 				$albumInfo['link'] = "https://$fp/";
 // 				$albumInfo["description"] = $description;
 				
 				// get pictures for this project
@@ -274,7 +274,7 @@ class SlideshowXML {
 				"src"		=>	$image['URL'],
 				"caption"	=>	$caption,
 				"title"		=>	$title,
-				"link"		=>	"http://$fp/$SlidePath/" . $image['URL']
+				"link"		=>	"https://$fp/$SlidePath/" . $image['URL']
 			);
 		} else {
 			$oneimage = array ();

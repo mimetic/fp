@@ -1224,7 +1224,7 @@ class FPCart {
 			}
 
 			// ****** TESTING
-			//$pp['notify_url'] = "http://24.6.122.195/fp/ipn_res.php";
+			//$pp['notify_url'] = "https://24.6.122.195/fp/ipn_res.php";
 
 			$pp['notify_url'] = PAYPAL_NOTIFY_URL;
 

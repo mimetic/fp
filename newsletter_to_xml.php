@@ -1,7 +1,7 @@
 ﻿<?php
 include("includes/GrossRSS.inc");
 
-$rss=new RSSWriter("http://localhost/fp/GrossRss.php", "Example Site", 
+$rss=new RSSWriter("https://localhost/fp/GrossRss.php", "Example Site", 
 	"The best examples out there.", 
 		array("publisher" => "David Gross", 
 				"creator" => "David Gross"));

@@ -657,11 +657,11 @@ else
 	
 	
 	// page to return to after PayPal purchase is gallery we just came from AND CLEAR THE CACHE!
-	//$returnURL = urlencode("http://".$SYSTEMURL."gallery.php?ProjectID=".$projectID);
+	//$returnURL = urlencode("https://".$SYSTEMURL."gallery.php?ProjectID=".$projectID);
 	if ($vars['FP_PREVIOUS_URL']) {
 		$returnURL = $vars['FP_PREVIOUS_URL']."&clearcache=1";
 	} else {
-		$returnURL = "http://".$SYSTEMURL."gallery.php?ProjectID=".$projectID."&clearcache=1";
+		$returnURL = "https://".$SYSTEMURL."gallery.php?ProjectID=".$projectID."&clearcache=1";
 	}
 	
 	// DO WE NEED TO ENCODE THE '&'????

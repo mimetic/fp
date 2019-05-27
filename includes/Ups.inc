@@ -183,7 +183,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	}
 
 	function getQuote(){
-		//$url = "http://www.ups.com/using/services/rave/qcost_dss.cgi?AppVersion=1.2&AcceptUPSLicenseAgreement=yes&ResponseType=application/x-ups-rss&ActionCode=3&RateChart=" . $this->rateCode . "&DCISInd=0&SNDestinationInd1=0&SNDestinationInd2=0&ResidentialInd=" . $this->resComCode . "&PackagingType=" . $this->containerCode . "&ServiceLevelCode=" . $this->upsProductCode . "&ShipperPostalCode=" . $this->originPostalCode . "&ConsigneePostalCode=" . $this->destPostalCode . "&ConsigneeCountry=" . $this->destCountryCode . "&PackageActualWeight=" . $this->packageWeight . "&DeclaredValueInsurance=0";
+		//$url = "https://www.ups.com/using/services/rave/qcost_dss.cgi?AppVersion=1.2&AcceptUPSLicenseAgreement=yes&ResponseType=application/x-ups-rss&ActionCode=3&RateChart=" . $this->rateCode . "&DCISInd=0&SNDestinationInd1=0&SNDestinationInd2=0&ResidentialInd=" . $this->resComCode . "&PackagingType=" . $this->containerCode . "&ServiceLevelCode=" . $this->upsProductCode . "&ShipperPostalCode=" . $this->originPostalCode . "&ConsigneePostalCode=" . $this->destPostalCode . "&ConsigneeCountry=" . $this->destCountryCode . "&PackageActualWeight=" . $this->packageWeight . "&DeclaredValueInsurance=0";
 		
 		$paramnames = array ("13_product", "14_origCountry", "15_origPostal", "19_destPostal", "22_destCountry", "document", "currency", "23_weight", "24_value", "25_length", "26_width", "27_height", "ADS1", "47_rate_chart", "48_container", "49_residential","10_action");
 	
@@ -196,7 +196,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			$query .= "&".$n."=".$v;
 		}
 
-		$url = "http://www.ups.com/using/services/rave/qcostcgi.cgi?accept_UPS_license_agreement=yes&" . $query;
+		$url = "https://www.ups.com/using/services/rave/qcostcgi.cgi?accept_UPS_license_agreement=yes&" . $query;
 
 		$ch = curl_init($url);	
 		curl_setopt($ch, CURLOPT_HEADER, 1);  

@@ -388,9 +388,9 @@ class PEAR_ChannelFile {
 		}
 		$channelInfo = $this->_channelInfo;
 		$ret = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
-		$ret .= "<channel version=\"" . $channelInfo ['attribs'] ['version'] . "\" xmlns=\"http://pear.php.net/channel-1.0\"
-  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-  xsi:schemaLocation=\"http://pear.php.net/dtd/channel-" . $channelInfo ['attribs'] ['version'] . " http://pear.php.net/dtd/channel-" . $channelInfo ['attribs'] ['version'] . ".xsd\">
+		$ret .= "<channel version=\"" . $channelInfo ['attribs'] ['version'] . "\" xmlns=\"https://pear.php.net/channel-1.0\"
+  xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\"
+  xsi:schemaLocation=\"https://pear.php.net/dtd/channel-" . $channelInfo ['attribs'] ['version'] . " http://pear.php.net/dtd/channel-" . $channelInfo ['attribs'] ['version'] . ".xsd\">
  <name>$channelInfo[name]</name>
  <summary>" . htmlspecialchars ( $channelInfo ['summary'] ) . "</summary>
 ";

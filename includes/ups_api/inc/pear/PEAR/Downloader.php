@@ -986,13 +986,13 @@ class PEAR_Downloader extends PEAR_Common {
 			$package .= "-$version";
 		}
 		if ($this === null || $this->_registry === null) {
-			$package = "http://pear.php.net/get/$package";
+			$package = "https://pear.php.net/get/$package";
 		} else {
 			$chan = $this->_registry->getChannel ( $channel );
 			if (PEAR::isError ( $chan )) {
 				return '';
 			}
-			$package = "http://" . $chan->getServer () . "/get/$package";
+			$package = "https://" . $chan->getServer () . "/get/$package";
 		}
 		if (! extension_loaded ( "zlib" )) {
 			$package .= '?uncompress=yes';

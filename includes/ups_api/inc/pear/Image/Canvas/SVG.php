@@ -817,9 +817,9 @@ class Image_Canvas_SVG extends Image_Canvas
         parent::show($param);
         $output = '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n" .
             '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"' . "\n\t" .
-            ' "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
+            ' "https://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
             '<svg width="' . $this->_width . '" height="' . $this->_height .
-                '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' . "\n" .
+                '" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">' . "\n" .
             ($this->_defs ?
                 '    <defs>' . "\n" .
                 $this->_defs .
@@ -844,9 +844,9 @@ class Image_Canvas_SVG extends Image_Canvas
         parent::save($param);
         $output = '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n" .
             '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"' . "\n\t" .
-            ' "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
+            ' "https://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
             '<svg width="' . $this->_width . '" height="' . $this->_height .
-                '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' . "\n" .
+                '" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">' . "\n" .
             ($this->_defs ?
                 '    <defs>' . "\n" .
                 $this->_defs .

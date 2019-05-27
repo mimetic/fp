@@ -612,7 +612,7 @@ $FP_PARAMS_DEFAULTS[DB_GROUPS] = array (
 	FP_PARAM_GROUP_CUSTOM_MENU	=>	'0',
 
 	// custom menu items
-	FP_PARAM_GROUP_MENU_CUSTOM_1	=>	'<a href="http://www.facebook.com/" target="_blank">Find me on FaceBook</a>',
+	FP_PARAM_GROUP_MENU_CUSTOM_1	=>	'<a href="https://www.facebook.com/" target="_blank">Find me on FaceBook</a>',
 	FP_PARAM_GROUP_MENU_CUSTOM_2	=>	'',
 	FP_PARAM_GROUP_MENU_CUSTOM_3	=>	'',
 	FP_PARAM_GROUP_MENU_CUSTOM_4	=>	'',
@@ -642,7 +642,7 @@ $FP_COMMERCE_EMAIL_OBFUSCATED = "<span class=\"obfuscated\">".str_replace ("@", 
 
 //============= COMMENTS WEBSITE
 // Really, the admin should be able to override this!
-$FP_COMMENTS_URL = "http://mimetic.ning.com";
+$FP_COMMENTS_URL = "https://mimetic.ning.com";
 
 
 // Picture Processing: use filename for title if missing?

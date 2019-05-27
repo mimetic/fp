@@ -113,7 +113,7 @@ $COOKIELIFE = 1*2*3600;	 // cookie lifetime in seconds (e.g. here: 2 hour)
 // IPN transfer back URL. Where PayPal sends info about transactions
 // By filling this in, you override the setting on the Paypal site,
 // allowing multiple sites to use the PayPal account
-$notify_url = "http://" . $SYSTEMURL . "process.php";
+$notify_url = "https://" . $SYSTEMURL . "process.php";
 
 // If True, send a confirming email to users after they subscribe
 // PayPal already does this, by the way

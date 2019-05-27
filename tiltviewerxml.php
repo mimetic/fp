@@ -94,8 +94,8 @@ if (false ) {
 	$SlidePath = $imagePath;
 	$thumbPath = "$THUMBNAILS/";
 	
-	$imagePath = "http://$fp/$imagePath";
-	$thumbPath = "http://$fp/$thumbPath" ;
+	$imagePath = "https://$fp/$imagePath";
+	$thumbPath = "https://$fp/$thumbPath" ;
 
 }
 
@@ -199,7 +199,7 @@ switch ($action) {
 		$result = mysqli_query ($query);
 
 		$albumInfo['title'] = "Frontline Photos";
-		$albumInfo['link'] = "http://www.frontline-photos.com/";
+		$albumInfo['link'] = "https://www.frontline-photos.com/";
 		$albumInfo['description'] = "Featured Projects";
 		$XML = new SlideshowXML($params);	
 		if ($result) {
@@ -242,7 +242,7 @@ function buildImage ($image) {
 		$oneimage = array (			"filename"	=>	$image['URL'],
 									"caption"	=>	$caption,
 									"title"	=>	$image['Title'],
-									"link"	=>	"http://$fp/$SlidePath/" . $image['URL']
+									"link"	=>	"https://$fp/$SlidePath/" . $image['URL']
 									);
 	} else {
 		$oneimage = array ();
@@ -362,7 +362,7 @@ class SlideshowXML {
 			
 				$DEBUG && print ArrayToTable ($image);
 
-				$filename = "http://$fp/$SlidePath" . $image["filename"] ;
+				$filename = "https://$fp/$SlidePath" . $image["filename"] ;
 		
 					$output .=  "<photo imageurl=\"$filename\">\n";
 					if ($this->params['showCaption'] == "title") {

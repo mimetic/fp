@@ -141,7 +141,7 @@ switch ($result) {
 
 $output = FetchSnippet ("main_signup");
 
-$record['formaction'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$record['formaction'] = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $record['pixwaiting'] = "";
 $record['userinfo'] = "";
 $record['addnewrecord'] = "";

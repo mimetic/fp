@@ -5657,7 +5657,7 @@ function FetchRemoteLSData ($URL, $prefix = "") {
 
 			// if it's a hyperlink, wrap it with an anchor
 			$v = $record[$key][1];
-			if (strpos ($v, "http:") === "0") {
+			if (strpos ($v, "https:") === "0") {
 				$v = "<a class=\"data\" href=\"$v\" target=\"_blank\">$v</a>";
 			}
 			$text = str_replace('{key}', $record[$key][0], $format);
@@ -6382,8 +6382,8 @@ function ExtractStylesInUse ($text, $fullsheet) {
 
 
 function do_post_request($url, $data, $optional_headers = null) {
-	if (substr($url, 0, 7) != "http://")
-		$url = "http://$url";
+	if (substr($url, 0, 7) != "https://")
+		$url = "https://$url";
 
 	$params = array('http' => array(
 					'method' => 'POST',

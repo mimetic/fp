@@ -226,8 +226,8 @@ function SetUpRSS ($chaninfo, $medium) {
 	$icon = $mygroup->IconFilename();
 	
 	($medium == "itunes") || $rss->setImage($chaninfo['title'],
-		"http://{$SYSTEMURL}{$icon}",
-		"http://{$SYSTEMURL}",
+		"https://{$SYSTEMURL}{$icon}",
+		"https://{$SYSTEMURL}",
 		$description,
 		144, 22);
 return $rss;
@@ -357,7 +357,7 @@ function AddPictureToRSS ($rss, $image, $project=array() ) {
 	}
 	
 	if (FP_RSS_IMG_IN_DESC) {
-		$img = URLtoIMG ("$THUMBNAILS/{$image['URL']}", null, FP_RSS_IMG_MAX_W, FP_RSS_IMG_MAX_H,"Photo",1,"http://{$SYSTEMURL}");
+		$img = URLtoIMG ("$THUMBNAILS/{$image['URL']}", null, FP_RSS_IMG_MAX_W, FP_RSS_IMG_MAX_H,"Photo",1,"https://{$SYSTEMURL}");
 		$img = "<div style=\"float:left;margin:10px;border:1px solid black;\">$img</div><br>";
 		$description = $img.$description;
 	}
@@ -370,7 +370,7 @@ function AddPictureToRSS ($rss, $image, $project=array() ) {
 	// To show all pix in a project, the link includes the anchor to the pix in the gallery,
 	// making it unique. If no link, all links which are the same are grouped into one item
 	// in the RSS feed (that's how RSS works).
-	$link = "http://{$SYSTEMURL}gallery.php?ProjectID={$image['ProjectID']}";
+	$link = "https://{$SYSTEMURL}gallery.php?ProjectID={$image['ProjectID']}";
 	if (FP_RSS_ALL_IN_PROJ) {
 		$link .= "#gallery_picture{$image['ID']}";
 	}
@@ -391,12 +391,12 @@ function AddPictureToRSS ($rss, $image, $project=array() ) {
 		'dc:creator'			=>	$byline,
 		'dc:rights'			=>	$copyright,
 		'dc:coverage'		=>	$coverage,
-		'photo:imgsrc'		=>	"http://{$SYSTEMURL}{$picturesize}/{$image['URL']}",	//$picturesize is gallery,slide, etc., name of a directory with pictures
-		'photo:thumbnail'	=>	"http://{$SYSTEMURL}$THUMBNAILS/{$image['URL']}",
-		99					=>	"<media:thumbnail url=\"http://{$SYSTEMURL}{$THUMBNAILS}/".$image["URL"] . "\" />",
-		98					=>	"<media:content url=\"http://{$SYSTEMURL}{$picturesize}/".$image["URL"] . "\" />",
+		'photo:imgsrc'		=>	"https://{$SYSTEMURL}{$picturesize}/{$image['URL']}",	//$picturesize is gallery,slide, etc., name of a directory with pictures
+		'photo:thumbnail'	=>	"https://{$SYSTEMURL}$THUMBNAILS/{$image['URL']}",
+		99					=>	"<media:thumbnail url=\"https://{$SYSTEMURL}{$THUMBNAILS}/".$image["URL"] . "\" />",
+		98					=>	"<media:content url=\"https://{$SYSTEMURL}{$picturesize}/".$image["URL"] . "\" />",
 		//GUID is used by Safari/Mail RSS as part of the URL, so we must do that
-		'guid'			=>	"http://{$SYSTEMURL}gallery.php?ProjectID={$image['ProjectID']}"
+		'guid'			=>	"https://{$SYSTEMURL}gallery.php?ProjectID={$image['ProjectID']}"
 	);
 	
 	$DEBUG && print __LINE__.": added picture ".ArrayToTable ($item);
@@ -413,7 +413,7 @@ function AddPictureToRSS ($rss, $image, $project=array() ) {
 
 	// Enclosure adds the picture as a clickable item, but doesn't show it in the feed itself
 	// $filesize = filesize ("$SLIDES/" .  $image['URL']);
-	// $enclosure = "<enclosure url=\"" . "http://{$SYSTEMURL}$THUMBNAILS/" . $image['URL'] . "\" length=\"$filesize\" type=\"image/jpeg\" />";
+	// $enclosure = "<enclosure url=\"" . "https://{$SYSTEMURL}$THUMBNAILS/" . $image['URL'] . "\" length=\"$filesize\" type=\"image/jpeg\" />";
 	// $item[] = $enclosure;
 	
 	$rss->addItem($item);
@@ -453,7 +453,7 @@ function AddPodCastToRSS ($rss, $image) {
 	$item = array ( 'title'				=>	$image['Title'],
 		'author'			=>	$byline,
 		'link'				=>	$SYSTEMURL,
-		'guid'				=>	"http://{$SYSTEMURL}{$picturesize}/" . $image['URL'],
+		'guid'				=>	"https://{$SYSTEMURL}{$picturesize}/" . $image['URL'],
 		'pubDate'			=>	$pubDate,
 		'itunes:author'		=>	$byline,
 		'itunes:block'		=>	$block,
@@ -466,7 +466,7 @@ function AddPodCastToRSS ($rss, $image) {
 	// Enclosure
 	$filesize = filesize ("$AV/" .	$image['URL']);
 	$mimetype = mime_content_type ("$AV/" . $image['URL']);
-	$enclosure = "<enclosure url=\"" . "http://{$SYSTEMURL}$AV/" . $image['URL'] . "\" length=\"$filesize\" type=\"$mimetype\" />";
+	$enclosure = "<enclosure url=\"" . "https://{$SYSTEMURL}$AV/" . $image['URL'] . "\" length=\"$filesize\" type=\"$mimetype\" />";
 	$item[] = $enclosure;
 
 
@@ -492,14 +492,14 @@ return $rss;
 class RSSWriter {
 
 function __construct ($chaninfo, $extraChanInfo, $medium) {
-	$chaninfo['link'] = "http://".$chaninfo['link'];
+	$chaninfo['link'] = "https://".$chaninfo['link'];
 	$this->chaninfo=$chaninfo;
 	$this->extraChanInfo=$extraChanInfo;
 	$this->website=$chaninfo['link'];
 	$this->items=array();
 	$this->medium = $medium;
 	$this->channelTagList = $this->SetChannelTagList ();
-	$this->channelURI=str_replace("&", "&amp;", "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
+	$this->channelURI=str_replace("&", "&amp;", "https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
 }
 
 function setImage($title, $URL, $link, $description, $w, $h) {
@@ -550,12 +550,12 @@ function preamble() {
 	$output .=	"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?" . ">\n";
 	switch ($this->medium) {
 	case "itunes" :
-		$output .= '<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">' . "\n";
+		$output .= '<rss xmlns:itunes="https://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">' . "\n";
 		break;
 	default :
-		$output .= '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:photo="http://www.pheed.com/pheed/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">' . "\n";
+		$output .= '<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:photo="https://www.pheed.com/pheed/" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:media="https://search.yahoo.com/mrss/">' . "\n";
 		// Flickr style
-		// $output .= '<feed version="0.3" xmlns="http://purl.org/atom/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" >' . "\n";
+		// $output .= '<feed version="0.3" xmlns="https://purl.org/atom/ns#" xmlns:dc="https://purl.org/dc/elements/1.1/" >' . "\n";
 		break;
 	}
 	return $output;
@@ -575,7 +575,7 @@ function channelinfo() {
 		$this->image = $this->chaninfo['image'];
 		$output .=	$this->image();
 	}
-	$output .= "\t\t<atom:link href=\"http://". $_SERVER['SERVER_NAME']. $_SERVER['REQUEST_URI']."\" rel=\"self\" type=\"application/rss+xml\" />\n";
+	$output .= "\t\t<atom:link href=\"https://". $_SERVER['SERVER_NAME']. $_SERVER['REQUEST_URI']."\" rel=\"self\" type=\"application/rss+xml\" />\n";
 	//var_dump ($_SERVER);
 	$output .= $this->extraChanInfo;
 	return $output;

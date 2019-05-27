@@ -178,8 +178,8 @@ if (!($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	// LS doesn't do XML anymore, I think...
 	$LSArtistInfo = "";
 	if ($shortname) {
-		//$URL = "http://www.lightstalkers.org/remote-xml-profile.cfm?s=$shortname";
-		$URL = "http://www.lightstalkers.org/xml/member/$shortname";
+		//$URL = "https://www.lightstalkers.org/remote-xml-profile.cfm?s=$shortname";
+		$URL = "https://www.lightstalkers.org/xml/member/$shortname";
 		$LSArtistInfo = FetchRemoteLSData ($URL, "LS_");
 	}
 	*/

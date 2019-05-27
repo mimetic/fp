@@ -178,7 +178,7 @@ class PEAR_PackageFile_Generator_v1 {
 		$pkginfo = $this->_packagefile->getArray ();
 		static $maint_map = array ("handle" => "user", "name" => "name", "email" => "email", "role" => "role" );
 		$ret = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
-		$ret .= "<!DOCTYPE package SYSTEM \"http://pear.php.net/dtd/package-1.0\">\n";
+		$ret .= "<!DOCTYPE package SYSTEM \"https://pear.php.net/dtd/package-1.0\">\n";
 		$ret .= "<package version=\"1.0\" packagerversion=\"1.5.1\">\n" . " <name>$pkginfo[package]</name>";
 		if (isset ( $pkginfo ['extends'] )) {
 			$ret .= "\n<extends>$pkginfo[extends]</extends>";
@@ -476,7 +476,7 @@ class PEAR_PackageFile_Generator_v1 {
 				return $a;
 			}
 		}
-		$arr = array ('attribs' => array ('version' => '2.0', 'xmlns' => 'http://pear.php.net/dtd/package-2.0', 'xmlns:tasks' => 'http://pear.php.net/dtd/tasks-1.0', 'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation' => "http://pear.php.net/dtd/tasks-1.0\n" . "http://pear.php.net/dtd/tasks-1.0.xsd\n" . "http://pear.php.net/dtd/package-2.0\n" . 'http://pear.php.net/dtd/package-2.0.xsd' ), 'name' => $this->_packagefile->getPackage (), 'channel' => 'pear.php.net' );
+		$arr = array ('attribs' => array ('version' => '2.0', 'xmlns' => 'http://pear.php.net/dtd/package-2.0', 'xmlns:tasks' => 'http://pear.php.net/dtd/tasks-1.0', 'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation' => "https://pear.php.net/dtd/tasks-1.0\n" . "https://pear.php.net/dtd/tasks-1.0.xsd\n" . "https://pear.php.net/dtd/package-2.0\n" . 'http://pear.php.net/dtd/package-2.0.xsd' ), 'name' => $this->_packagefile->getPackage (), 'channel' => 'pear.php.net' );
 		$arr ['summary'] = $this->_packagefile->getSummary ();
 		$arr ['description'] = $this->_packagefile->getDescription ();
 		$maintainers = $this->_packagefile->getMaintainers ();

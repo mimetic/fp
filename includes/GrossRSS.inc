@@ -18,9 +18,9 @@ function RSSWriter($uri, $title, $description, $meta=array()) {
 	$this->chaninfo["title"]=$title;
 	$this->items=array();
 	// We're not going to use modules, esp. since I don't understand them
-	//$this->modules=array("dc" => "http://purl.org/dc/elements/1.1/");
+	//$this->modules=array("dc" => "https://purl.org/dc/elements/1.1/");
 	// thanks James Mills for bugfix to this line
-	$this->channelURI=str_replace("&", "&amp;", "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
+	$this->channelURI=str_replace("&", "&amp;", "https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
 	foreach ($meta as $key => $value) {
 		$this->chaninfo[$key]=$value;
 	}
@@ -71,8 +71,8 @@ function preamble() {
 	$pre =  "<?xml version=\"1.0\" encoding=\"iso-8859-1\" ?" . ">";
 	$pre .= '<rss version="2.0"';
 //	$pre .= "xmlns=\"";
-//	$pre .= str_replace("&", "&amp;", "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
-//	$pre .= str_replace("&", "&amp;", "http://www.frontline-photos.com/");
+//	$pre .= str_replace("&", "&amp;", "https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
+//	$pre .= str_replace("&", "&amp;", "https://www.frontline-photos.com/");
 //	$pre .= "\";
 	$pre .= ">\n\n";
 	print $pre;

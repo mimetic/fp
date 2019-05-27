@@ -33,13 +33,13 @@ if ($_REQUEST['cancel'] || !$_REQUEST['t']) {
 	$fn = $_REQUEST['t'];
 	if ($_REQUEST['delete']) {
 		unlink ($fn);
-		$link = "http://" . $_SERVER['PHP_SELF'];
+		$link = "https://" . $_SERVER['PHP_SELF'];
 		$link && header("Location: $link");
 	} else if ($_REQUEST['new'] && $_REQUEST['name']) {
 		file_exists ("$BASEDIR/$fn") || mkdir ("$BASEDIR/$fn", 0755);
 		$name = preg_replace ("/\W/","_",$_REQUEST['name']);
 		copy ("$BASEDIR/ce/blank.css", "$fn/$name.css");
-		$link = "http://" . $_SERVER['PHP_SELF'];
+		$link = "https://" . $_SERVER['PHP_SELF'];
 		$link && header("Location: $link");
 	} else {
 		$css  = file_get_contents ($fn);

@@ -89,7 +89,7 @@ define ("FP_BASEDIR", $BASEDIR);
   * Then, if the website is inside a directory, such as "/fp",
   * we can't just ask for "/_user/_audio/slideshow/audio-190.mp3", 
   * it won't be found! Flash will look 
-  * for "http://website.com/_user/_audio/slideshow/audio-190.mp3"
+  * for "https://website.com/_user/_audio/slideshow/audio-190.mp3"
   * instead. By adding the FP_HOMEDIR (which has a slash before it!!!)
   * it will work:
   * $path = FP_HOMEDIR ."_user/_audio/slideshow/audio-190.mp3";
@@ -591,17 +591,17 @@ define ('PP_INSTALLATION_PUBLIC', 2);
 define ('PP_INSTALLATION_PRIVATE', 3);
 
 // If pp is outside the fp directory:
-//isset ($_SERVER['SERVER_NAME']) ? $PP_URL = "http://{$_SERVER['HTTP_HOST']}/pp/order.php" : $PP_URL = "";
+//isset ($_SERVER['SERVER_NAME']) ? $PP_URL = "https://{$_SERVER['HTTP_HOST']}/pp/order.php" : $PP_URL = "";
 // If pp is inside the fp directory:
-$PP_URL = "http://{$SYSTEMURL}pp/order.php";
+$PP_URL = "https://{$SYSTEMURL}pp/order.php";
 define ('PP_URL', $PP_URL );
 
 //COMMERCE AND FRAME SHOP
 // This is the url for the PayPal IPN processing script. Note, it must be urlencoded.
-$PAYPAL_NOTIFY_URL = "http://".$SYSTEMURL."ipn_res.php";
+$PAYPAL_NOTIFY_URL = "https://".$SYSTEMURL."ipn_res.php";
 
-// Do not encode the "http://" part of the URL!!!
-// $PAYPAL_NOTIFY_URL = "http://" . urlencode($SYSTEMURL."ipn_res.php");
+// Do not encode the "https://" part of the URL!!!
+// $PAYPAL_NOTIFY_URL = "https://" . urlencode($SYSTEMURL."ipn_res.php");
 define ("PAYPAL_NOTIFY_URL", $PAYPAL_NOTIFY_URL );
 
 // Number of entries hard-wired into the database for ltd. editions

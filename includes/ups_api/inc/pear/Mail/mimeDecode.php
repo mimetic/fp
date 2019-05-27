@@ -739,7 +739,7 @@ class Mail_mimeDecode extends PEAR
     {
         $crlf    =  "\r\n";
         $output  = '<?xml version=\'1.0\'?>' . $crlf .
-                   '<!DOCTYPE email SYSTEM "http://www.phpguru.org/xmail/xmail.dtd">' . $crlf .
+                   '<!DOCTYPE email SYSTEM "https://www.phpguru.org/xmail/xmail.dtd">' . $crlf .
                    '<email>' . $crlf .
                    Mail_mimeDecode::_getXML($input) .
                    '</email>';

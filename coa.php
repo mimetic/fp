@@ -203,8 +203,8 @@ if ($saleID) {
 
 
 // page to return to is gallery we just came from
-//$returnURL = urlencode("http://".$SYSTEMURL."gallery.php?ProjectID=".$projectID);
-$returnURL = "http://".$SYSTEMURL."gallery.php?ProjectID=".$projectID;
+//$returnURL = urlencode("https://".$SYSTEMURL."gallery.php?ProjectID=".$projectID);
+$returnURL = "https://".$SYSTEMURL."gallery.php?ProjectID=".$projectID;
 
 $page = FetchSnippet ("coa_master_page");
 

@@ -215,9 +215,9 @@ if ( (strtolower($action) == "submit") and !$error_tally ) {
 	// Is the rate = $0, which means unsubscribe?
 	if ($myPackages[$packageID]['rate'] == 0) {
 		$ppform['cmd'] = "_subscr-find";
-		//$ppform['notify_url'] = urlencode("http://{$_SERVER['HTTP_HOST']}/pp/process.php");
-		//$ppform['notify_url'] = "http://{$_SERVER['HTTP_HOST']}/pp/process.php";
-		$ppform['notify_url'] = "http://{$_SERVER['HTTP_HOST']}".dirname($_SERVER['PHP_SELF'])."/process.php";
+		//$ppform['notify_url'] = urlencode("https://{$_SERVER['HTTP_HOST']}/pp/process.php");
+		//$ppform['notify_url'] = "https://{$_SERVER['HTTP_HOST']}/pp/process.php";
+		$ppform['notify_url'] = "https://{$_SERVER['HTTP_HOST']}".dirname($_SERVER['PHP_SELF'])."/process.php";
 
 		$TESTING ? $ppform['alias'] = $myService['sandbox'] : $ppform['alias'] = $myService['business'];
 		$target = "_blank";	// open a new screen, since we can't come back this way!
@@ -230,10 +230,10 @@ if ( (strtolower($action) == "submit") and !$error_tally ) {
 		
 		$TESTING ? $ppform['business'] = $myService['sandbox'] : $ppform['business'] = $myService['business'];
 	
-		//$ppform['notify_url'] = urlencode("http://{$_SERVER['HTTP_HOST']}/pp/process.php");
-		//$ppform['notify_url'] = urlencode("http://24.6.117.227/pp/process.php");
-		//$ppform['notify_url'] = "http://{$_SERVER['HTTP_HOST']}/pp/process.php";
-		$ppform['notify_url'] = "http://{$_SERVER['HTTP_HOST']}".dirname($_SERVER['PHP_SELF'])."/process.php";
+		//$ppform['notify_url'] = urlencode("https://{$_SERVER['HTTP_HOST']}/pp/process.php");
+		//$ppform['notify_url'] = urlencode("https://24.6.117.227/pp/process.php");
+		//$ppform['notify_url'] = "https://{$_SERVER['HTTP_HOST']}/pp/process.php";
+		$ppform['notify_url'] = "https://{$_SERVER['HTTP_HOST']}".dirname($_SERVER['PHP_SELF'])."/process.php";
 		
 		$ppform['item_name'] = "Subscription to $servicename for $username : $packagename $coupondesc";
 		$ppform['item_number'] = $myService['ID'] . "-" . $packageID;

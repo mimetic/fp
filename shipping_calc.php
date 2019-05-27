@@ -21,7 +21,7 @@ echo $result;
 function queryUPS ($query) {
 	global $logfile;
 	
-	$Url = "http://www.ups.com/using/services/rave/qcostcgi.cgi?accept_UPS_license_agreement=yes&" . $query;
+	$Url = "https://www.ups.com/using/services/rave/qcostcgi.cgi?accept_UPS_license_agreement=yes&" . $query;
 		
 	//var_dump ($Url);
 	

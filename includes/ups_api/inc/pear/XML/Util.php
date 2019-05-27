@@ -381,7 +381,7 @@ class XML_Util {
     * require_once 'XML/Util.php';
     *
     * // create an XML tag:
-    * $tag = XML_Util::createTag("myNs:myTag", array("foo" => "bar"), "This is inside the tag", "http://www.w3c.org/myNs#");
+    * $tag = XML_Util::createTag("myNs:myTag", array("foo" => "bar"), "This is inside the tag", "https://www.w3c.org/myNs#");
     * </code>
     *
     * @access   public
@@ -438,7 +438,7 @@ class XML_Util {
     *
     * $tag = array(
     *           "qname"        => "foo:bar",
-    *           "namespaceUri" => "http://foo.com",
+    *           "namespaceUri" => "https://foo.com",
     *           "attributes"   => array( "key" => "value", "argh" => "fruit&vegetable" ),
     *           "content"      => "I'm inside the tag",
     *            );
@@ -541,7 +541,7 @@ class XML_Util {
     * require_once 'XML/Util.php';
     *
     * // create an XML start element:
-    * $tag = XML_Util::createStartElement("myNs:myTag", array("foo" => "bar") ,"http://www.w3c.org/myNs#");
+    * $tag = XML_Util::createStartElement("myNs:myTag", array("foo" => "bar") ,"https://www.w3c.org/myNs#");
     * </code>
     *
     * @access   public

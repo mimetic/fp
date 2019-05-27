@@ -200,7 +200,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 	
 			if ($result) {
 	// 			$albumInfo['title'] = "Frontline Photos";
-	// 			$albumInfo['link'] = "http://www.frontline-photos.com/";
+	// 			$albumInfo['link'] = "https://www.frontline-photos.com/";
 	// 			$albumInfo['description'] = "Photographs from Featured Projects";
 				$XML = new SlideshowXML($LINK);	
 				while ($project = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -255,7 +255,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			// example: XML.php?action=project&ID=x, where x is a project ID number
 			// get one user's pictures
 	// 		$albumInfo['title'] = FP_SYSTEM_DISPLAY_NAME;
-	// 		$albumInfo['link'] = "http://".$SYSTEMURL."/";
+	// 		$albumInfo['link'] = "https://".$SYSTEMURL."/";
 	//		$project = FetchProject ($record['id']);
 	//		$albumInfo['description'] = $project['Title'];
 	//		$duration = $project['SlideShowDuration'];		//total length of the slide show in seconds
@@ -282,7 +282,7 @@ if ($NOCACHE or !($output = $Cache_Lite->get($cacheid, $cachegroup))) {
 			$result = mysqli_query ($LINK, $query);
 	
 	// 		$albumInfo['title'] = "Frontline Photos";
-	// 		$albumInfo['link'] = "http://".$SYSTEMURL."/";
+	// 		$albumInfo['link'] = "https://".$SYSTEMURL."/";
 	// 		$albumInfo['description'] = "Featured Projects";
 			$XML = new SlideshowXML($LINK);	
 			if ($result) {
